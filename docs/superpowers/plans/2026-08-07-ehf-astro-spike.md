@@ -4,7 +4,7 @@
 
 **Goal:** Prove that Astro can faithfully deliver the four approved EHF routes as static pages with local, permission-scoped assets, evidence-backed responsive behavior, and a project-owner gate before any wider migration.
 
-**Architecture:** Build one static Astro application around `SiteLayout.astro`, measured local CSS, and four deliberately distinct route templates: homepage, Impact listing, one collection-generated article, and Annual Reports. Source evidence flows from VisualDesigner to ContentAssets and then BuildLead; BuildLead integrates typed local content and manifest-backed `/assets/...` references, validates the completed spike, and stops at `SPIKE-RESULTS.md`.
+**Architecture:** Build one static Astro application around `SiteLayout.astro`, measured local CSS, and four deliberately distinct route templates: homepage, Impact listing, one collection-generated article, and the 2022/23 Annual Report and financial-statements page. Source evidence flows from VisualDesigner to ContentAssets and then BuildLead; BuildLead integrates typed local content and manifest-backed `/assets/...` references, validates the completed spike, and stops at `SPIKE-RESULTS.md`.
 
 **Tech Stack:** Astro static output, TypeScript, Astro content collections, local CSS custom properties, Node scripts, Playwright, Vitest, axe-core, SHA-256 asset manifests.
 
@@ -19,11 +19,15 @@ The implementation may create only these route outputs during the spike:
 1. `/`
 2. `/read`
 3. `/read/how-chemergy-is-changing-the-game-in-waste-to-energy`
-4. `/annual-reports`
+4. `/23-annual-report`
 
 The fixed evidence viewports are desktop `1440 × 1000` and mobile `390 × 844`. There are eight default route/viewport captures and three homepage state captures: desktop Impact menu, desktop About menu, and mobile open menu. The article collection emits exactly the named Chemergy article. `/read` can have a data model suitable for future pagination, but it must not create pagination routes during the spike.
 
 The spike excludes any fifth route, full inventory, bulk migration, redirects, deployment, analytics, production forms, directory pages or data, Hillary Institute pages, Squarespace runtime assets/CSS/JavaScript/generated DOM, invented content or interactions, and every Stage 2 task or Stage 2-only preparatory artifact. Navigation may expose final source-relative destinations that are not implemented; each must be named as intentionally unavailable in `SPIKE-RESULTS.md`.
+
+### Owner-approved source correction
+
+The owner approved `/23-annual-report` as the Stage 1 source route on 2026-08-07, replacing the stale `/annual-reports` route before implementation resumed. The live source is the 2022/23 Annual Report page for the Hillary Institute and Edmund Hillary Fellowship; it offers the annual report and accompanying EHF and Hillary Institute financial-statement downloads. Stage 1 treats it as one report-and-financial-statements page, not a plural archive or report grid. Any unrelated `/annual-reports` reference remains Stage 2-only.
 
 ### Role routing, ownership, and handoff contract
 
@@ -66,7 +70,7 @@ A model substitution requires owner approval recorded by the parent manager befo
 | Path | Responsibility | Owner during normal phase |
 |---|---|---|
 | `package.json`, `astro.config.mjs`, `tsconfig.json`, `vitest.config.ts`, `playwright.config.ts` | Static Astro application, strict TypeScript, and test commands | BuildLead |
-| `src/pages/index.astro`, `src/pages/read/index.astro`, `src/pages/read/[slug].astro`, `src/pages/annual-reports.astro` | The four approved route templates only | BuildLead, except a named Phase 4 presentational lease |
+| `src/pages/index.astro`, `src/pages/read/index.astro`, `src/pages/read/[slug].astro`, `src/pages/23-annual-report.astro` | The four approved route templates only | BuildLead, except a named Phase 4 presentational lease |
 | `src/layouts/SiteLayout.astro`, `src/layouts/ArticleLayout.astro` | Shared shell and article frame | BuildLead, except a named Phase 4 presentational lease |
 | `src/components/{Header,DesktopNav,MobileNav,Footer,PostCard}.astro`, `src/components/homepage/*.astro` | Shared navigation/footer, archive card, homepage sections | BuildLead, except a named Phase 4 presentational lease |
 | `src/styles/{global,tokens,layout}.css` | Reset, measured tokens, responsive primitives, focus and motion behavior | BuildLead, except a named Phase 4 presentational lease |
@@ -273,7 +277,7 @@ Commit only completed, reviewable boundaries: initial project boundary; accepted
       "/",
       "/read",
       "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
-      "/annual-reports"
+      "/23-annual-report"
     ],
     "viewports": {
       "desktop": { "width": 1440, "height": 1000 },
@@ -366,7 +370,7 @@ Commit only completed, reviewable boundaries: initial project boundary; accepted
     sha256: string | null;
     permissionStatus: 'approved-local' | 'external-only' | 'blocked';
     attribution: string;
-    routeUses: Array<'/' | '/read' | '/read/how-chemergy-is-changing-the-game-in-waste-to-energy' | '/annual-reports'>;
+    routeUses: Array<'/' | '/read' | '/read/how-chemergy-is-changing-the-game-in-waste-to-energy' | '/23-annual-report'>;
     retainedExternalUrl: string | null;
   };
   ```
@@ -543,7 +547,7 @@ Commit only completed, reviewable boundaries: initial project boundary; accepted
 
 **Files:**
 - Modify: `src/pages/index.astro`
-- Create: `src/pages/read/index.astro`, `src/pages/read/[slug].astro`, `src/pages/annual-reports.astro`
+- Create: `src/pages/read/index.astro`, `src/pages/read/[slug].astro`, `src/pages/23-annual-report.astro`
 - Create: `src/components/PostCard.astro`, `src/components/homepage/HomeHero.astro`, `src/components/homepage/LogoMarquee.astro`, `src/components/homepage/ImpactOverview.astro`, `src/components/homepage/MissionSections.astro`, `src/components/homepage/HillaryLegacy.astro`, `src/components/homepage/ImpactCallout.astro`
 - Create: `src/layouts/ArticleLayout.astro`, `src/content.config.ts`
 - Create: `src/content/impact/how-chemergy-is-changing-the-game-in-waste-to-energy.md` (ContentAssets only)
@@ -560,7 +564,7 @@ Commit only completed, reviewable boundaries: initial project boundary; accepted
     '/',
     '/read',
     '/read/how-chemergy-is-changing-the-game-in-waste-to-energy',
-    '/annual-reports'
+    '/23-annual-report'
   ] as const;
 
   for (const route of spikeRoutes) {
@@ -651,7 +655,7 @@ Commit only completed, reviewable boundaries: initial project boundary; accepted
 
 - [ ] **Step 5: Implement the remaining two templates from accepted content evidence.**
 
-  `src/pages/read/index.astro` recreates the captured first-page card grid using only the one-entry/accepted bounded source data shape and local card media. `src/pages/annual-reports.astro` recreates accepted report sections, cover images, captions, attribution, and responsive grid. Approved-local report documents use `/assets/...`; an `external-only` manifest record renders a clearly identified external link using `retainedExternalUrl`, never a hotlinked image/font/script or a falsely local document.
+  `src/pages/read/index.astro` recreates the captured first-page card grid using only the one-entry/accepted bounded source data shape and local card media. `src/pages/23-annual-report.astro` recreates the accepted 2022/23 Annual Report page with its annual-report download, the two accompanying financial-statement downloads, captions, and attribution. Approved-local report documents use `/assets/...`; an `external-only` manifest record renders a clearly identified external link using `retainedExternalUrl`, never a hotlinked image/font/script or a falsely local document.
 
   All four templates call `SiteLayout` so each returns the same semantic header/main/footer shape. No fifth route, fallback route, generated pagination path, bulk collection import, redirect, or Stage 2-only artifact is added.
 
@@ -693,7 +697,7 @@ Commit only completed, reviewable boundaries: initial project boundary; accepted
   ```ts
   import { expect, test } from '@playwright/test';
 
-  const defaults = ['/', '/read', '/read/how-chemergy-is-changing-the-game-in-waste-to-energy', '/annual-reports'] as const;
+  const defaults = ['/', '/read', '/read/how-chemergy-is-changing-the-game-in-waste-to-energy', '/23-annual-report'] as const;
 
   for (const route of defaults) {
     test(`${route} matches its default evidence state`, async ({ page }) => {
@@ -755,7 +759,7 @@ Commit only completed, reviewable boundaries: initial project boundary; accepted
   import AxeBuilder from '@axe-core/playwright';
   import { expect, test } from '@playwright/test';
 
-  const routes = ['/', '/read', '/read/how-chemergy-is-changing-the-game-in-waste-to-energy', '/annual-reports'] as const;
+  const routes = ['/', '/read', '/read/how-chemergy-is-changing-the-game-in-waste-to-energy', '/23-annual-report'] as const;
 
   for (const route of routes) {
     test(`${route} has no serious or critical accessibility violations`, async ({ page }) => {

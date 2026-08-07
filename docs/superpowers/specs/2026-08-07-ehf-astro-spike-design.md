@@ -1,6 +1,6 @@
 # EHF Astro Spike Execution Design
 
-**Status:** Ready for project-owner review; implementation remains blocked until that review is complete.
+**Status:** Project-owner approved; the Stage 1 source correction to `/23-annual-report` was approved and applied on 2026-08-07.
 
 ## Purpose and authority
 
@@ -10,6 +10,10 @@ If live EHF behavior, this design, `AGENTS.md`, and `PLAN.md` cannot be reconcil
 
 The project owner must review this design before any spike implementation begins. Approval to run the spike does not authorize Stage 2.
 
+### Owner-approved Stage 1 source correction
+
+The previous Stage 1 `/annual-reports` source was stale. The owner approved its replacement with the live `/23-annual-report` source before implementation resumed. This page is the 2022/23 Annual Report for the Hillary Institute and Edmund Hillary Fellowship, with downloads for that report and the accompanying EHF and Hillary Institute financial statements. It is a single report-and-financial-statements page, not a plural archive or report grid. `/annual-reports` remains a Stage 2 inventory reference only where applicable.
+
 ## Fixed spike boundary
 
 The spike implements exactly these four routes:
@@ -17,7 +21,7 @@ The spike implements exactly these four routes:
 1. `/` — bespoke landing page.
 2. `/read` — first-page collection listing.
 3. `/read/how-chemergy-is-changing-the-game-in-waste-to-energy` — the single generated Impact article.
-4. `/annual-reports` — document-oriented institutional page.
+4. `/23-annual-report` — 2022/23 Annual Report and accompanying financial-statements page.
 
 The shared work needed by those routes is included: one header, captured desktop dropdowns, mobile full-screen navigation, footer, measured responsive styles, permitted local assets, and only the browser behavior visible in the captured states. The two fixed comparison viewports are 1440 × 1000 and 390 × 844.
 
@@ -40,7 +44,7 @@ The spike ends only after the four routes and `SPIKE-RESULTS.md` are complete. N
 
 ## Astro architecture under evaluation
 
-Astro generates static HTML from TypeScript, focused `.astro` components, and local CSS. A shared site layout owns metadata, header, main landmark, and footer. The homepage, archive, article, and Annual Reports page remain four distinct templates that reuse the shared shell and measured primitives rather than imitating Squarespace markup.
+Astro generates static HTML from TypeScript, focused `.astro` components, and local CSS. A shared site layout owns metadata, header, main landmark, and footer. The homepage, archive, article, and 2022/23 Annual Report and financial-statements page remain four distinct templates that reuse the shared shell and measured primitives rather than imitating Squarespace markup.
 
 The Chemergy article uses an Astro content collection with typed frontmatter and local Markdown. Other bounded spike content may use typed local data where that is simpler. Components receive normalized data and `/assets/...` references; they do not fetch EHF or Squarespace content at runtime. Client-side JavaScript is limited to captured interactions such as dropdown and mobile-menu state, body-scroll locking, Escape dismissal, and focus restoration. Reduced-motion behavior must not depend on animation completing.
 

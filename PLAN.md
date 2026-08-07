@@ -38,7 +38,7 @@ The full-site plan is conditional. Before inventorying and migrating the complet
 | `/` | Bespoke landing page | Tests the hardest responsive composition, gradients, logo motion, alternating sections, and custom spacing. |
 | `/read` | Collection listing | Tests repeated cards, content ordering, image crops, and the future pagination model. |
 | `/read/how-chemergy-is-changing-the-game-in-waste-to-energy` | Long-form article | Tests extracted Markdown, figures, captions, links, typography, and next-article treatment. |
-| `/annual-reports` | Document-oriented institutional page | Tests a fourth layout, report covers, document links, responsive grids, and source attribution. |
+| `/23-annual-report` | 2022/23 annual-report and financial-statements page | Tests a fourth layout, the annual-report and financial-statement downloads, and source attribution. |
 
 The spike includes the shared header, desktop dropdowns, mobile menu, footer, and local assets needed by these four routes. It does not include a complete sitemap crawl, bulk post migration, other institutional routes, production forms, redirects, or deployment.
 
@@ -266,7 +266,7 @@ Create `source-evidence/spike-routes.json`:
     "/",
     "/read",
     "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
-    "/annual-reports"
+    "/23-annual-report"
   ],
   "viewports": {
     "desktop": { "width": 1440, "height": 1000 },
@@ -375,7 +375,7 @@ git commit -m "feat: build EHF spike shell and local assets"
 - Modify: `src/pages/index.astro`
 - Create: `src/pages/read/index.astro`
 - Create: `src/pages/read/[slug].astro`
-- Create: `src/pages/annual-reports.astro`
+- Create: `src/pages/23-annual-report.astro`
 - Create: `src/components/PostCard.astro`
 - Create: `src/components/homepage/HomeHero.astro`
 - Create: `src/components/homepage/LogoMarquee.astro`
@@ -399,7 +399,7 @@ const spikeRoutes = [
   '/',
   '/read',
   '/read/how-chemergy-is-changing-the-game-in-waste-to-energy',
-  '/annual-reports'
+  '/23-annual-report'
 ];
 
 for (const route of spikeRoutes) {
@@ -434,9 +434,9 @@ Recreate the `/read` card grid from captured content. The spike may contain only
 
 Store the selected Chemergy post as Markdown with typed frontmatter and render it through the generated route `src/pages/read/[slug].astro` and `ArticleLayout.astro`. Preserve its title, copy, headings, figures, captions, external links, and next-article presentation. `getStaticPaths()` must emit exactly the one spike article before Stage 2 expands the collection.
 
-- [ ] **Step 6: Implement the Annual Reports template**
+- [ ] **Step 6: Implement the 2022/23 Annual Report page**
 
-Recreate report sections, cover images, document destinations, captions, responsive grids, and attribution from the source. Localize permitted documents; mark retained external documents clearly in the asset manifest.
+Recreate the 2022/23 Annual Report page, its annual-report download, the two accompanying financial-statement downloads, captions, and attribution from the source. Localize permitted documents; mark retained external documents clearly in the asset manifest.
 
 - [ ] **Step 7: Run the smoke test to green**
 

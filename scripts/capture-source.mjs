@@ -15,7 +15,7 @@ const REQUIRED_ROUTES = [
   '/',
   '/read',
   '/read/how-chemergy-is-changing-the-game-in-waste-to-energy',
-  '/annual-reports'
+  '/23-annual-report'
 ];
 const REQUIRED_VIEWPORTS = {
   desktop: { width: 1440, height: 1000 },
