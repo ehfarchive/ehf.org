@@ -67,6 +67,26 @@ test('the archive uses row-first desktop masonry and a single source-order stack
   }
 });
 
+test('desktop archive places card five below the shortest first-row card', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop', 'desktop masonry contract');
+  await page.goto('/read');
+
+  const { cards, rowGap } = await page.locator('[data-read-masonry]').evaluate((masonry) => ({
+    cards: [...masonry.querySelectorAll<HTMLElement>('[data-read-card]')].slice(0, 5).map((card) => {
+      const { left, top, bottom } = card.getBoundingClientRect();
+      return { left, top, bottom };
+    }),
+    rowGap: Number.parseFloat(getComputedStyle(masonry).rowGap)
+  }));
+  const firstRow = cards.slice(0, 4);
+  const shortestIndex = firstRow.reduce((shortest, card, index) => card.bottom < firstRow[shortest].bottom ? index : shortest, 0);
+  const shortest = firstRow[shortestIndex];
+  const fifth = cards[4];
+
+  expect(fifth.left).toBeCloseTo(shortest.left, 0);
+  expect(fifth.top).toBeCloseTo(shortest.bottom + rowGap, 0);
+});
+
 test('only the accepted impact Markdown article is generated', async ({ page }) => {
   await expect(page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy')).resolves.not.toBeNull();
   const rejected = await page.goto('/read/harnessing-pine-pollens-power-to-transform-wellbeing');
