@@ -85,6 +85,8 @@ test('desktop archive places card five below the shortest first-row card', async
 
   expect(fifth.left).toBeCloseTo(shortest.left, 0);
   expect(fifth.top).toBeCloseTo(shortest.bottom + rowGap, 0);
+  const tallestBottom = Math.max(...firstRow.map(({ bottom }) => bottom));
+  expect(fifth.top).toBeLessThan(tallestBottom + rowGap - 1);
 });
 
 test('only the accepted impact Markdown article is generated', async ({ page }) => {
