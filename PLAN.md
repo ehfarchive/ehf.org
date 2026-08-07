@@ -159,7 +159,7 @@ Only the project owner can approve `GO`.
 - Create: `src/styles/global.css`
 - Create: `README.md`
 
-- [ ] **Step 1: Initialize version control and the Astro project**
+- [x] **Step 1: Initialize version control and the Astro project**
 
 Run:
 
@@ -173,7 +173,7 @@ npx playwright install chromium
 
 Expected: Astro dependencies install, the project contains a strict TypeScript configuration, and Chromium is available to Playwright.
 
-- [ ] **Step 2: Define the stable project scripts**
+- [x] **Step 2: Define the stable project scripts**
 
 Set `package.json` scripts to:
 
@@ -197,7 +197,7 @@ Set `package.json` scripts to:
 
 Expected: each command has one documented responsibility and `npm run build` remains the production gate.
 
-- [ ] **Step 3: Configure static output**
+- [x] **Step 3: Configure static output**
 
 Use this `astro.config.mjs` baseline:
 
@@ -215,7 +215,7 @@ export default defineConfig({
 
 Expected: the site builds to `dist/` without requiring a server adapter.
 
-- [ ] **Step 4: Add an initial smoke test**
+- [x] **Step 4: Add an initial smoke test**
 
 Create `tests/e2e/routes.spec.ts`:
 
@@ -238,7 +238,7 @@ npm run test:e2e -- tests/e2e/routes.spec.ts
 
 Expected: build and smoke test pass.
 
-- [ ] **Step 5: Commit the scaffold**
+- [x] **Step 5: Commit the scaffold**
 
 ```bash
 git add package.json package-lock.json astro.config.mjs tsconfig.json vitest.config.ts playwright.config.ts src README.md tests
@@ -256,7 +256,7 @@ Complete every spike task below after Task 1. Stop at the spike gate before Task
 - Create: `source-evidence/spike-routes.json`
 - Create: `source-evidence/screenshots/`
 
-- [ ] **Step 1: Define the fixed spike manifest**
+- [x] **Step 1: Define the fixed spike manifest**
 
 Create `source-evidence/spike-routes.json`:
 
@@ -275,7 +275,7 @@ Create `source-evidence/spike-routes.json`:
 }
 ```
 
-- [ ] **Step 2: Implement spike-only capture**
+- [x] **Step 2: Implement spike-only capture**
 
 `scripts/capture-source.mjs` must read only the fixed spike manifest, visit `https://www.ehf.org` plus each path, scroll in 600 px increments to load deferred media, return to the top, and save full-page PNGs using:
 
@@ -291,11 +291,11 @@ source-evidence/screenshots/spike--home--desktop--about-menu.png
 source-evidence/screenshots/spike--home--mobile--menu-open.png
 ```
 
-- [ ] **Step 3: Record capture metadata**
+- [x] **Step 3: Record capture metadata**
 
 Write one adjacent JSON record per screenshot containing the source URL, route, viewport, state, capture timestamp, document height, console errors, and failed network requests.
 
-- [ ] **Step 4: Run and inspect spike capture**
+- [x] **Step 4: Run and inspect spike capture**
 
 Run:
 
@@ -305,7 +305,7 @@ npm run capture:source
 
 Expected: eight default screenshots and three homepage menu-state screenshots exist; all deferred images are visible; every capture shows the intended live EHF page.
 
-- [ ] **Step 5: Commit the spike evidence**
+- [x] **Step 5: Commit the spike evidence**
 
 ```bash
 git add scripts/capture-source.mjs source-evidence/spike-routes.json source-evidence/screenshots
@@ -328,11 +328,11 @@ git commit -m "chore: capture four-page EHF spike"
 - Create: `src/layouts/SiteLayout.astro`
 - Test: `tests/e2e/navigation.spec.ts`
 
-- [ ] **Step 1: Download only assets used by spike pages**
+- [x] **Step 1: Download only assets used by spike pages**
 
 Build the downloader against the four captured routes. Store images, logos, icons, fonts, and report documents under `public/assets/`, deduplicate by SHA-256, and map every source URL to a local path in `source-evidence/asset-manifest.json`.
 
-- [ ] **Step 2: Add the remote-dependency failure check**
+- [x] **Step 2: Add the remote-dependency failure check**
 
 `scripts/verify-local-assets.mjs` must exit non-zero when `src/` or `dist/` contains a runtime reference to:
 
@@ -344,15 +344,15 @@ assets.squarespace.com
 
 References inside `source-evidence/` remain allowed because they document provenance.
 
-- [ ] **Step 3: Measure and encode the shared visual tokens**
+- [x] **Step 3: Measure and encode the shared visual tokens**
 
 Extract literal colors, font families, font weights, content widths, gutters, breakpoints, and vertical spacing from the captured source. Define them in `src/styles/tokens.css`; do not import Squarespace CSS.
 
-- [ ] **Step 4: Build one shared header and footer**
+- [x] **Step 4: Build one shared header and footer**
 
 Implement desktop navigation, both captured dropdowns, mobile full-screen navigation, body-scroll locking, Escape dismissal, focus restoration, and the responsive footer. Links to unimplemented non-spike routes retain their final source-relative paths but are listed as intentionally unimplemented in `SPIKE-RESULTS.md`.
 
-- [ ] **Step 5: Verify shared interactions**
+- [x] **Step 5: Verify shared interactions**
 
 Run:
 
@@ -362,7 +362,7 @@ npm run test:e2e -- tests/e2e/navigation.spec.ts
 
 Expected: dropdowns and mobile menu pass pointer and keyboard checks at both spike viewports.
 
-- [ ] **Step 6: Commit the spike shell**
+- [x] **Step 6: Commit the spike shell**
 
 ```bash
 git add scripts public/assets source-evidence/asset-manifest.json src/styles src/components src/layouts tests/e2e/navigation.spec.ts
@@ -384,7 +384,7 @@ git commit -m "feat: build EHF spike shell and local assets"
 - Create: `src/content/impact/how-chemergy-is-changing-the-game-in-waste-to-energy.md`
 - Test: `tests/e2e/spike.spec.ts`
 
-- [ ] **Step 1: Write the four-route smoke test**
+- [x] **Step 1: Write the four-route smoke test**
 
 Create `tests/e2e/spike.spec.ts`:
 
@@ -408,7 +408,7 @@ for (const route of spikeRoutes) {
 }
 ```
 
-- [ ] **Step 2: Run the smoke test and confirm missing-route failures**
+- [x] **Step 2: Run the smoke test and confirm missing-route failures**
 
 Run:
 
@@ -418,23 +418,23 @@ npm run test:e2e -- tests/e2e/spike.spec.ts
 
 Expected: FAIL until all four routes and local images are implemented.
 
-- [ ] **Step 3: Implement the captured closure homepage**
+- [x] **Step 3: Implement the captured closure homepage**
 
 Recreate the closure homepage with focused components that map directly to its two real sections: the hero contains its title, all closure copy, three statistics, and Fellows Directory CTA; one local-image-backed band contains both “EHF - The Organisation” and the complete two-sentence “The Fellowship” copy. Preserve measured gradient, crop, responsive order, shared header, and footer. Do not add a standalone legacy strip, logo marquee, or callout band.
 
-- [ ] **Step 4: Implement the archive listing template**
+- [x] **Step 4: Implement the archive listing template**
 
-Recreate the `/read` card grid with no visible archive title. The spike may contain only the first source page of cards, but it must use source-observed round-robin desktop placement (cards 1–4 in the first visual row) and preserve its single-column mobile DOM order; card markup and data shape must support future build-time pagination without changing the component API.
+Recreate the `/read` card grid with no visible archive title. The spike may contain only the first source page of cards, but it must use source-observed true-shortest-column desktop placement while preserving source order in the first visual row and its single-column mobile DOM order; card markup and data shape must support future build-time pagination without changing the component API.
 
-- [ ] **Step 5: Implement the article template from local content**
+- [x] **Step 5: Implement the article template from local content**
 
 Store the selected Chemergy post as Markdown with typed frontmatter and render it through the generated route `src/pages/read/[slug].astro` and `ArticleLayout.astro`. Preserve its title, copy, headings, figures, captions, external links, and title-only next-article link without an avatar or `Next` label. `getStaticPaths()` must emit exactly the one spike article before Stage 2 expands the collection.
 
-- [ ] **Step 6: Implement the 2022/23 Annual Report page**
+- [x] **Step 6: Implement the 2022/23 Annual Report page**
 
 Recreate the 2022/23 Annual Report page, its annual-report download, the two accompanying financial-statement downloads, captions, and attribution from the source. Localize permitted documents; mark retained external documents clearly in the asset manifest.
 
-- [ ] **Step 7: Run the smoke test to green**
+- [x] **Step 7: Run the smoke test to green**
 
 Run:
 
@@ -446,7 +446,7 @@ npm run test:e2e -- tests/e2e/spike.spec.ts
 
 Expected: all four routes build, use local page assets, and pass.
 
-- [ ] **Step 8: Commit the four templates**
+- [x] **Step 8: Commit the four templates**
 
 ```bash
 git add src/pages src/components/PostCard.astro src/layouts/ArticleLayout.astro src/content tests/e2e/spike.spec.ts
@@ -460,11 +460,11 @@ git commit -m "feat: implement four-page EHF Astro spike"
 - Create: `tests/e2e/spike-visual.spec.ts`
 - Modify: implementation files identified by comparison
 
-- [ ] **Step 1: Capture implementation screenshots**
+- [x] **Step 1: Capture implementation screenshots**
 
 Capture the same eight default route/viewport combinations and three homepage interaction states used for source evidence. Wait for fonts and local images before each screenshot.
 
-- [ ] **Step 2: Compare source and implementation**
+- [x] **Step 2: Compare source and implementation**
 
 Record every discrepancy in `SPIKE-RESULTS.md` using:
 
@@ -475,7 +475,7 @@ Record every discrepancy in `SPIKE-RESULTS.md` using:
 
 Resolve all P0 and P1 issues. Resolve P2 issues that would invalidate the framework or template approach. Preserve remaining cosmetic P2 and P3 items as quantified follow-up work.
 
-- [ ] **Step 3: Measure the spike**
+- [x] **Step 3: Measure the spike**
 
 Record these values in `SPIKE-RESULTS.md`:
 
@@ -491,7 +491,7 @@ Unresolved P2 and P3 count
 Source blocks requiring manual cleanup
 ```
 
-- [ ] **Step 4: Evaluate the original technical risks**
+- [x] **Step 4: Evaluate the original technical risks**
 
 Answer each question with evidence:
 
@@ -503,7 +503,7 @@ Answer each question with evidence:
 6. Can the remaining pages reuse these primitives rather than introducing mostly unique templates?
 7. What elapsed time should replace the original full-site estimate?
 
-- [ ] **Step 5: Write one gate recommendation**
+- [x] **Step 5: Write one gate recommendation**
 
 End `SPIKE-RESULTS.md` with exactly one unapproved recommendation:
 
@@ -525,7 +525,7 @@ gate recommendation: STOP
 
 The recommendation is evidence, not authorization.
 
-- [ ] **Step 6: Run final spike verification**
+- [x] **Step 6: Run final spike verification**
 
 ```bash
 npm run build
@@ -536,7 +536,7 @@ npm run test:e2e -- tests/e2e/spike.spec.ts tests/e2e/navigation.spec.ts tests/e
 
 Expected: build and tests pass, or every failure is recorded as a blocker supporting `ADJUST` or `STOP`.
 
-- [ ] **Step 7: Commit the spike report and stop**
+- [x] **Step 7: Commit the spike report and stop**
 
 ```bash
 git add SPIKE-RESULTS.md tests/e2e/spike-visual.spec.ts src

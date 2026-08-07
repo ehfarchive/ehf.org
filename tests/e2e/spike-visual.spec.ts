@@ -173,6 +173,8 @@ test('captures the complete local visual-state baseline', async ({ browser }, te
     expect(metadata.capturedAt).toMatch(/^\d{4}-\d{2}-\d{2}T/);
     expect(metadata.documentHeight).toBeGreaterThan(0);
     expect(metadata.imagesNotLoaded).toEqual([]);
+    expect(metadata.consoleErrors).toEqual([]);
+    expect(metadata.failedRequests).toEqual([]);
     expect(metadata.implementationUrl).toMatch(/^http:\/\/127\.0\.0\.1:4321\//);
   }
 });

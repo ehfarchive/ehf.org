@@ -155,6 +155,7 @@
   font-weight: var(--weight-nav);
   text-decoration: none;
 }
+.desktop-nav .button { color: var(--color-surface); }
 .button:hover { opacity: 0.8; transition: opacity var(--motion-fast) linear; }
 
 .mobile-menu, .mobile-menu__trigger { display: none; }
