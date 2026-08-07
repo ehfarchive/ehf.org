@@ -194,6 +194,14 @@ test('the Chemergy lede retains its exact excluded source profile link', async (
   );
 });
 
+test('the Chemergy lede retains its approved company source link', async ({ page }) => {
+  await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
+  await expect(page.getByRole('link', { name: 'Chemergy', exact: true })).toHaveAttribute(
+    'href',
+    'https://www.chemergy.co/'
+  );
+});
+
 test('reduced motion disables shell animation and smooth scrolling', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/');

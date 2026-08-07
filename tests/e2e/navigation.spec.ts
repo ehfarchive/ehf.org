@@ -167,21 +167,63 @@ test('the 320px mobile header has no horizontal overflow', async ({ page }, test
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
-test('mobile controls use source-sized presentational SVG icons', async ({ page }, testInfo) => {
+test('mobile controls retain source icon paint and accessible labels', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'mobile', 'mobile icon contract');
   await page.goto('/');
 
-  const triggerIcon = page.locator('[data-mobile-menu-trigger] svg[aria-hidden="true"]');
-  await expect(triggerIcon).toHaveAttribute('viewBox', '0 0 35 15');
-  await expect(triggerIcon.locator('line')).toHaveCount(2);
+  const trigger = page.getByRole('button', { name: 'Open menu', exact: true });
+  const triggerIcon = trigger.locator('svg');
+  await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+  await expect(trigger).toHaveAttribute('aria-controls', 'site-navigation-dialog');
+  await expect(triggerIcon).toHaveAttribute('aria-hidden', 'true');
+  await expect(triggerIcon).toHaveAttribute('viewBox', '0 0 35 12');
+  expect(await triggerIcon.locator('line').evaluateAll((lines) => lines.map((line) => ({
+    y1: line.getAttribute('y1'),
+    y2: line.getAttribute('y2'),
+    strokeWidth: line.getAttribute('stroke-width')
+  })))).toEqual([
+    { y1: '0.5', y2: '0.5', strokeWidth: '1' },
+    { y1: '11.5', y2: '11.5', strokeWidth: '1' }
+  ]);
+  expect(await triggerIcon.evaluate((icon) => {
+    const rect = icon.getBoundingClientRect();
+    return { color: getComputedStyle(icon).color, width: rect.width, height: rect.height };
+  })).toEqual({ color: 'rgb(39, 36, 46)', width: 35, height: 12 });
 
-  await page.getByRole('button', { name: 'Open menu', exact: true }).click();
-  const closeIcon = page.locator('[data-mobile-menu-close] svg[aria-hidden="true"]');
-  await expect(closeIcon).toHaveAttribute('viewBox', '0 0 28 28');
-  await expect(closeIcon.locator('line')).toHaveCount(2);
+  await trigger.click();
+  await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+  const dialog = page.getByRole('dialog', { name: /site navigation/i });
+  const close = dialog.getByRole('button', { name: 'Close menu', exact: true });
+  const closeIcon = close.locator('svg');
+  await expect(closeIcon).toHaveAttribute('aria-hidden', 'true');
+  await expect(closeIcon).toHaveAttribute('viewBox', '0 0 21 21');
+  expect(await closeIcon.locator('line').evaluateAll((lines) => lines.map((line) => line.getAttribute('stroke-width')))).toEqual(['1', '1']);
+  expect(await close.evaluate((control) => {
+    const rect = control.getBoundingClientRect();
+    return { color: getComputedStyle(control).color, width: rect.width, height: rect.height };
+  })).toEqual({ color: 'rgb(39, 36, 46)', width: 47, height: 37 });
 
-  const disclosure = page.locator('[data-mobile-folder-open]').first().locator('.mobile-menu__chevron');
-  await expect(disclosure).toHaveText('');
-  await expect(disclosure).toHaveCSS('border-right-width', '2px');
-  await expect(disclosure).toHaveCSS('border-bottom-width', '2px');
+  const disclosure = dialog.locator('[data-mobile-folder-open]').first().locator('.mobile-menu__chevron');
+  await expect(disclosure).toHaveAttribute('aria-hidden', 'true');
+  const disclosurePaint = await disclosure.evaluate((icon) => {
+    const styles = getComputedStyle(icon);
+    const rect = icon.getBoundingClientRect();
+    return {
+      backgroundColor: styles.backgroundColor,
+      borderBottomWidth: styles.borderBottomWidth,
+      borderRightWidth: styles.borderRightWidth,
+      height: rect.height,
+      maskImage: styles.maskImage,
+      width: rect.width
+    };
+  });
+  expect(disclosurePaint.backgroundColor).toBe('rgb(39, 36, 46)');
+  expect(disclosurePaint.borderBottomWidth).toBe('0px');
+  expect(disclosurePaint.borderRightWidth).toBe('0px');
+  expect(disclosurePaint.maskImage).not.toBe('none');
+  expect(disclosurePaint.width).toBeCloseTo(33.14, 1);
+  expect(disclosurePaint.height).toBeCloseTo(33.14, 1);
+
+  await close.click();
+  await expect(trigger).toHaveAttribute('aria-expanded', 'false');
 });

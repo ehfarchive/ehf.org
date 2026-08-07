@@ -10,7 +10,7 @@ nextSlug: harnessing-pine-pollens-power-to-transform-wellbeing
 
 <p><img class="article-portrait" src="/assets/images/article/melahn.webp" alt="" loading="eager" /></p>
 
-Melahn is one of the minds and founders behind Chemergy, a cleantech venture that is making an impact in the climate innovation space. With Bachelors from MIT, an MSc in Chemical Engineering from Caltech and a PhD in Aeronautics from Stanford University, Melahn's academic journey is nothing short of remarkable. His professional path, which includes roles at DNV, McKinsey & Company, Northrop Grumman, Sandia National Labs, and Boeing has equipped him with the expertise to tackle the pressing energy and environmental challenges of our time. Using his deep understanding of energy systems, Melahn is on a mission to revolutionise how we manage waste and produce clean energy.
+Melahn is one of the minds and founders behind [Chemergy](https://www.chemergy.co/), a cleantech venture that is making an impact in the climate innovation space. With Bachelors from MIT, an MSc in Chemical Engineering from Caltech and a PhD in Aeronautics from Stanford University, Melahn's academic journey is nothing short of remarkable. His professional path, which includes roles at DNV, McKinsey & Company, Northrop Grumman, Sandia National Labs, and Boeing has equipped him with the expertise to tackle the pressing energy and environmental challenges of our time. Using his deep understanding of energy systems, Melahn is on a mission to revolutionise how we manage waste and produce clean energy.
 
 ## Innovative Solutions
 

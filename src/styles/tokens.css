@@ -34,6 +34,11 @@
   --motion-fast: 0.1s;
   --motion-menu: 0.6s;
   --motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  /* caret geometry traced from the source markup: the pagination caret is a
+     9x16 polyline, the nav disclosure caret a 22x22 45-degree path. Both are
+     painted through a mask so the stroke colour stays on currentColor. */
+  --icon-caret-right: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 16"><polyline points="1.6,1.2 6.5,7.9 1.6,14.7" fill="none" stroke="%23000" stroke-width="1" stroke-miterlimit="10"/></svg>');
+  --icon-chevron-right: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22"><path d="M7 4L14 11L7 18" fill="none" stroke="%23000" stroke-width=".5" stroke-linecap="square" stroke-linejoin="miter"/></svg>');
 }
 
 @media (max-width: 767px) {

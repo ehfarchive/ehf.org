@@ -115,13 +115,34 @@ test('the article keeps its fixed-source engineer figure within a 320px viewport
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
 });
 
-test('Older Posts uses the measured body line box', async ({ page }, testInfo) => {
+test('Older Posts uses the measured body line box and masked source caret', async ({ page }, testInfo) => {
   await page.goto('/read');
 
-  const lineHeight = await page.getByRole('link', { name: 'Older Posts' }).evaluate(
-    (link) => Number.parseFloat(getComputedStyle(link).lineHeight)
-  );
+  const older = page.getByRole('link', { name: 'Older Posts' });
+  const lineHeight = await older.evaluate((link) => Number.parseFloat(getComputedStyle(link).lineHeight));
   expect(lineHeight).toBeCloseTo(testInfo.project.name === 'desktop' ? 35.0208 : 32.4461, 2);
+
+  const caret = older.locator('.read-page__older-chevron');
+  await expect(caret).toHaveAttribute('aria-hidden', 'true');
+  expect(await caret.evaluate((icon) => {
+    const styles = getComputedStyle(icon);
+    const rect = icon.getBoundingClientRect();
+    return {
+      backgroundColor: styles.backgroundColor,
+      borderBottomWidth: styles.borderBottomWidth,
+      borderRightWidth: styles.borderRightWidth,
+      height: rect.height,
+      maskImage: styles.maskImage,
+      width: rect.width
+    };
+  })).toEqual({
+    backgroundColor: 'rgb(39, 36, 46)',
+    borderBottomWidth: '0px',
+    borderRightWidth: '0px',
+    height: 16,
+    maskImage: expect.not.stringMatching(/^none$/),
+    width: 9
+  });
 });
 
 test('only the accepted impact Markdown article is generated', async ({ page }) => {
@@ -224,8 +245,28 @@ test('the article applies measured type, figure, and pagination geometry', async
 
   const next = page.getByRole('navigation', { name: 'Article navigation' });
   await expect(next).toHaveCSS('display', 'flex');
-  await expect(next.locator('.article-page__next-chevron')).toHaveText('');
-  await expect(next.locator('.article-page__next-chevron')).toHaveCSS('border-right-width', '2px');
+  const caret = next.locator('.article-page__next-chevron');
+  await expect(caret).toHaveAttribute('aria-hidden', 'true');
+  expect(await caret.evaluate((icon) => {
+    const styles = getComputedStyle(icon);
+    const rect = icon.getBoundingClientRect();
+    return {
+      backgroundColor: styles.backgroundColor,
+      borderBottomWidth: styles.borderBottomWidth,
+      borderRightWidth: styles.borderRightWidth,
+      height: rect.height,
+      maskImage: styles.maskImage,
+      width: rect.width
+    };
+  })).toEqual({
+    backgroundColor: 'rgb(39, 36, 46)',
+    borderBottomWidth: '0px',
+    borderRightWidth: '0px',
+    height: 32,
+    maskImage: expect.not.stringMatching(/^none$/),
+    width: 18
+  });
+  await expect(next.getByRole('link')).toHaveCSS('color', 'rgb(116, 65, 210)');
   await expect(next.getByRole('link')).toHaveCSS('text-decoration-line', 'none');
 
   if (mobile) {
