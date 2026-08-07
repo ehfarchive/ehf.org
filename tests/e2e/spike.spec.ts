@@ -56,7 +56,10 @@ test('the archive preserves all 20 source cards in source order', async ({ page 
   const cards = page.locator('[data-read-card]');
   await expect(cards).toHaveCount(20);
   expect(await cards.locator('h2').allTextContents()).toEqual(archiveTitles);
-  await expect(page.getByRole('link', { name: 'Older Posts' })).toBeVisible();
+  const older = page.getByRole('link', { name: 'Older Posts' });
+  await expect(older).toBeVisible();
+  await expect(older.locator('.read-page__older-chevron')).toHaveText('');
+  await expect(older).toHaveCSS('text-decoration-line', 'none');
 });
 
 test('the archive uses a single source-order stack on mobile', async ({ page }, testInfo) => {
@@ -159,6 +162,18 @@ test('the captured closure homepage contains only the hero and one organisation-
   await expect(page.locator('.legacy-section, .impact-callout, .home-stats')).toHaveCount(0);
 });
 
+test('the organisation band establishes a stacking context for its painted artwork', async ({ page }) => {
+  await page.goto('/');
+
+  const band = page.locator('[data-home-band]');
+  const artwork = band.locator('img');
+  await expect(artwork).toBeVisible();
+  await expect(artwork).toHaveJSProperty('complete', true);
+  expect(await artwork.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+  await expect(band).toHaveCSS('isolation', 'isolate');
+  await expect(artwork).toHaveCSS('z-index', '-2');
+});
+
 test('the archive has only a semantic hidden heading', async ({ page }) => {
   await page.goto('/read');
   await expect(page.locator('.read-page > h1')).toHaveClass(/visually-hidden/);
@@ -209,9 +224,9 @@ test('the article applies measured type, figure, and pagination geometry', async
 
   const next = page.getByRole('navigation', { name: 'Article navigation' });
   await expect(next).toHaveCSS('display', 'flex');
-  await expect(next).toHaveCSS('gap', '28px');
+  await expect(next.locator('.article-page__next-chevron')).toHaveText('');
+  await expect(next.locator('.article-page__next-chevron')).toHaveCSS('border-right-width', '2px');
   await expect(next.getByRole('link')).toHaveCSS('text-decoration-line', 'none');
-  await expect(next.locator('.article-page__next-chevron')).toHaveText('›');
 
   if (mobile) {
     expect(await next.getByRole('link').evaluate((link) => {

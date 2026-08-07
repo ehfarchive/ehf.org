@@ -6,7 +6,7 @@ heroAlt: ''
 nextSlug: harnessing-pine-pollens-power-to-transform-wellbeing
 ---
 
-<p class="article-lede">Imagine a world where the mountains of waste continuously produced by humans are transformed into clean sustainable energy for our local communities - this is the vision that EHF Fellow Dr Melahn Parker is making a reality.</p>
+<p class="article-lede">Imagine a world where the mountains of waste continuously produced by humans are transformed into clean sustainable energy for our local communities - this is the vision that EHF Fellow <a href="https://www.ehf.org/fellow-detail?fellow=Melahn-Parker#search=Mela&amp;numRecords=24&amp;minMatchCharLength=2">Dr Melahn Parker</a> is making a reality.</p>
 
 <p><img class="article-portrait" src="/assets/images/article/melahn.webp" alt="" loading="eager" /></p>
 

@@ -166,3 +166,22 @@ test('the 320px mobile header has no horizontal overflow', async ({ page }, test
   await expect(page.locator('.site-header')).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
+
+test('mobile controls use source-sized presentational SVG icons', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile', 'mobile icon contract');
+  await page.goto('/');
+
+  const triggerIcon = page.locator('[data-mobile-menu-trigger] svg[aria-hidden="true"]');
+  await expect(triggerIcon).toHaveAttribute('viewBox', '0 0 35 15');
+  await expect(triggerIcon.locator('line')).toHaveCount(2);
+
+  await page.getByRole('button', { name: 'Open menu', exact: true }).click();
+  const closeIcon = page.locator('[data-mobile-menu-close] svg[aria-hidden="true"]');
+  await expect(closeIcon).toHaveAttribute('viewBox', '0 0 28 28');
+  await expect(closeIcon.locator('line')).toHaveCount(2);
+
+  const disclosure = page.locator('[data-mobile-folder-open]').first().locator('.mobile-menu__chevron');
+  await expect(disclosure).toHaveText('');
+  await expect(disclosure).toHaveCSS('border-right-width', '2px');
+  await expect(disclosure).toHaveCSS('border-bottom-width', '2px');
+});

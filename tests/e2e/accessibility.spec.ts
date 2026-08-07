@@ -19,7 +19,9 @@ const intentionallyUnavailableDestinations = [
   '/ehf-fellows-articles',
   '/archive',
   '/fellow-directory-advanced-search',
-  '/news'
+  '/news',
+  '/read/page/2',
+  'https://www.ehf.org/fellow-detail?fellow=Melahn-Parker#search=Mela&numRecords=24&minMatchCharLength=2'
 ] as const;
 
 function collectHealthSignals(page: Page) {
@@ -50,6 +52,22 @@ async function waitForLocalMedia(page: Page) {
       return picture.complete && picture.naturalWidth > 0;
     })))
     .toBe(true);
+}
+
+function contrastRatio(foreground: string, background: string) {
+  const parse = (value: string) => {
+    const channels = value.match(/\d+(?:\.\d+)?/g)?.slice(0, 3).map(Number);
+    if (!channels || channels.length !== 3) throw new Error(`Expected an rgb colour, received ${value}`);
+    const linear = channels.map((channel) => {
+      const normalized = channel / 255;
+      return normalized <= 0.04045
+        ? normalized / 12.92
+        : ((normalized + 0.055) / 1.055) ** 2.4;
+    });
+    return (0.2126 * linear[0]) + (0.7152 * linear[1]) + (0.0722 * linear[2]);
+  };
+  const [lighter, darker] = [parse(foreground), parse(background)].sort((a, b) => b - a);
+  return (lighter + 0.05) / (darker + 0.05);
 }
 
 for (const route of spikeRoutes) {
@@ -107,14 +125,73 @@ for (const route of spikeRoutes) {
   });
 }
 
-test('source-relative non-spike destinations remain explicit and documented', async ({ page }) => {
+test('footer keyboard focus uses a high-contrast painted outline', async ({ page }) => {
   await page.goto('/');
-  const hrefs = await page.locator('a[href]').evaluateAll((links) => links.map((link) => link.getAttribute('href')));
+  const link = page.locator('.site-footer a').first();
+  await link.focus();
+  const paint = await link.evaluate((element) => ({
+    outline: getComputedStyle(element).outlineColor,
+    background: getComputedStyle(element.closest('.site-footer')!).backgroundColor
+  }));
+  expect(contrastRatio(paint.outline, paint.background)).toBeGreaterThanOrEqual(3);
+});
+
+for (const label of ['Impact', 'About'] as const) {
+  test(`desktop ${label} dropdown has no serious or critical axe violations with visible focus`, async ({ page }, testInfo) => {
+    test.skip(testInfo.project.name !== 'desktop', 'desktop dropdown contract');
+    await page.goto('/');
+    const trigger = page.getByRole('button', { name: new RegExp(`^${label}$`, 'i') });
+    await trigger.hover();
+    const submenu = page.getByRole('navigation', { name: new RegExp(`${label} submenu`, 'i') });
+    const link = submenu.getByRole('link').first();
+    await link.focus();
+    const paint = await link.evaluate((element) => ({
+      outline: getComputedStyle(element).outlineColor,
+      background: getComputedStyle(element.closest('.desktop-nav__submenu')!).backgroundColor
+    }));
+    expect(contrastRatio(paint.outline, paint.background)).toBeGreaterThanOrEqual(3);
+    const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
+    expect(results.violations.filter((violation) => violation.impact === 'serious' || violation.impact === 'critical')).toEqual([]);
+  });
+}
+
+test('mobile modal has no serious or critical axe violations with visible focus', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile', 'mobile modal contract');
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Open menu', exact: true }).click();
+  const dialog = page.getByRole('dialog', { name: /site navigation/i });
+  const link = dialog.getByRole('link').first();
+  await link.focus();
+  const paint = await link.evaluate((element) => ({
+    outline: getComputedStyle(element).outlineColor,
+    background: getComputedStyle(element.closest('dialog')!).backgroundColor
+  }));
+  expect(contrastRatio(paint.outline, paint.background)).toBeGreaterThanOrEqual(3);
+  const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa']).analyze();
+  expect(results.violations.filter((violation) => violation.impact === 'serious' || violation.impact === 'critical')).toEqual([]);
+});
+
+test('intentionally unavailable source destinations remain explicit and documented', async ({ page }) => {
+  await page.goto('/');
+  const homeHrefs = await page.locator('a[href]').evaluateAll((links) => links.map((link) => link.getAttribute('href')));
+  await page.goto('/read');
+  const readHrefs = await page.locator('a[href]').evaluateAll((links) => links.map((link) => link.getAttribute('href')));
+  await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
+  const articleHrefs = await page.locator('a[href]').evaluateAll((links) => links.map((link) => link.getAttribute('href')));
+  const hrefs = [...new Set([...homeHrefs, ...readHrefs, ...articleHrefs])];
 
   for (const destination of intentionallyUnavailableDestinations) {
     expect(hrefs).toContain(destination);
   }
-  expect(hrefs).toContain('https://www.ehf.org/news#fellows');
+});
+
+test('the Chemergy lede retains its exact excluded source profile link', async ({ page }) => {
+  await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
+  const profile = page.locator('.article-lede').getByRole('link', { name: 'Dr Melahn Parker' });
+  await expect(profile).toHaveAttribute(
+    'href',
+    'https://www.ehf.org/fellow-detail?fellow=Melahn-Parker#search=Mela&numRecords=24&minMatchCharLength=2'
+  );
 });
 
 test('reduced motion disables shell animation and smooth scrolling', async ({ page }) => {

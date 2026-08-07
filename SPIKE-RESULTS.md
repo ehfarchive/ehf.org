@@ -62,8 +62,9 @@ The shared shell deliberately preserves source-relative paths but the spike does
 - `/archive`
 - `/fellow-directory-advanced-search`
 - `/news`
+- `/read/page/2` (retained Older Posts pagination affordance; page generation is intentionally out of scope)
 
-`https://www.ehf.org/news#fellows` remains an HTTPS source destination, not an unavailable local route. No retained unavailable destination is silently followed by the tests.
+`https://www.ehf.org/news#fellows` remains an HTTPS source destination, not an unavailable local route. `https://www.ehf.org/fellow-detail?fellow=Melahn-Parker#search=Mela&numRecords=24&minMatchCharLength=2` is the exact retained source profile link; its `/fellow-detail` destination is explicitly excluded and unimplemented in this spike. No retained unavailable destination is silently followed by the tests.
 
 ## Measurements
 

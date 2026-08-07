@@ -92,6 +92,14 @@ async function openState(page: Page, state: CaptureState) {
   }
 }
 
+test('visual captures are free of Astro development toolbar chrome', async ({ page }) => {
+  const response = await page.goto('/');
+  expect(response?.ok()).toBe(true);
+  await waitForVisualReadiness(page);
+  await expect(page.locator('astro-dev-toolbar, astro-dev-toolbar-app, [data-astro-dev-toolbar]')).toHaveCount(0);
+  await expect(page.locator('script[src*="@vite/client"], script[src*="@astro/client"]')).toHaveCount(0);
+});
+
 test('captures the complete local visual-state baseline', async ({ browser }, testInfo) => {
   test.skip(testInfo.project.name !== 'desktop', 'the desktop project coordinates the fixed visual matrix');
 

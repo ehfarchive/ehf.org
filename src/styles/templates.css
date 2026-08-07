@@ -36,7 +36,7 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
 
 /* The band artwork is transparent below its wave; source shows the deep band
    colour through it, not the page surface. */
-.organisation-overview { min-height: 660px; display: grid; align-items: start; background: var(--color-band); }
+.organisation-overview { isolation: isolate; min-height: 660px; display: grid; align-items: start; background: var(--color-band); }
 .organisation-overview > img { object-position: 0% 100%; }
 .organisation-overview__content { padding-block: 99.7px 185.2px; }
 .organisation-overview h2 { margin: 0 0 15px; font-size: var(--text-display); line-height: var(--lh-display); }
@@ -60,7 +60,15 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
 .post-card h2 { margin: 25px 0 0; font-size: var(--text-lead); line-height: var(--lh-card); }
 .post-card h2 a { color: var(--color-ink); text-decoration: none; }
 .post-card p { margin: 16px 0 0; }
-.read-page__older { display: block; margin-top: 24px; color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-body); line-height: var(--lh-body); text-align: right; }
+.read-page__older { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 24px; color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-body); line-height: var(--lh-body); text-align: right; text-decoration: none; }
+.read-page__older-chevron, .article-page__next-chevron {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+}
 
 .article-page { max-width: var(--prose-width); padding-top: calc(var(--header-height) + 28.8px); padding-bottom: 44.86px; }
 .article-page__header h1 { margin: 0 0 68px; font-size: var(--text-display); line-height: var(--lh-article-display); text-align: center; }
@@ -130,6 +138,7 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
   line-height: var(--lh-sub);
 }
 .article-page__next a { color: var(--color-brand); text-decoration: none; }
+.article-page__next-chevron { color: var(--color-brand); }
 
 .annual-report { padding-top: calc(var(--header-height) + 98.2px); padding-bottom: 43px; }
 .annual-report > h1 { max-width: 918px; margin: 0 auto 114.65px; font-size: var(--text-heading); line-height: var(--lh-heading); text-align: center; }
