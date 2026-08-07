@@ -254,9 +254,9 @@
   }
   .mobile-menu nav [data-mobile-folder-open]::after { content: '\203A' / ''; margin-left: 0.4em; font-weight: var(--weight-body); }
   .mobile-menu .button--directory { position: absolute; right: 89px; bottom: 24px; min-height: 61px; padding: 19.2px 34.56px; font-size: 19.2px; }
-  .site-footer { min-height: 278.52px; padding-block: 12px; }
+  .site-footer { min-height: 278.52px; padding-block: 47.1px 49.9px; }
   .site-footer ul { margin-inline: auto; }
-  .site-footer li:not(:last-child)::after { margin-inline: 16px; }
+  .site-footer li:not(:last-child)::after { content: '| ' / ''; margin-inline: 16px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

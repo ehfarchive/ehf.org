@@ -215,21 +215,32 @@ test('every spike route has a centered wrapping footer with no horizontal overfl
       const footerBox = footer.getBoundingClientRect();
       const copyright = footer.querySelector('p')!.getBoundingClientRect();
       const nav = footer.querySelector('nav')!.getBoundingClientRect();
+      const firstSeparator = getComputedStyle(footer.querySelector('li')!, '::after').content;
       return {
         footerHeight: footerBox.height,
         gap: nav.top - copyright.bottom,
+        navTop: nav.top - footerBox.top,
+        navHeight: nav.height,
         justifyContent: styles.justifyContent,
         paddingTop: styles.paddingTop,
         paddingBottom: styles.paddingBottom,
+        firstSeparator,
         scrollWidth: document.documentElement.scrollWidth
       };
     });
 
-    expect(metrics.footerHeight).toBeCloseTo(testInfo.project.name === 'mobile' ? 278.52 : 330, 0);
+    const mobile = testInfo.project.name === 'mobile';
+    expect(metrics.footerHeight).toBeCloseTo(mobile ? 278.52 : 330, 0);
     expect(metrics.justifyContent).toBe('center');
-    expect(metrics.paddingTop).toBe(metrics.paddingBottom);
+    expect(metrics.paddingTop).toBe(mobile ? '47.1px' : '53.6px');
+    expect(metrics.paddingBottom).toBe(mobile ? '49.9px' : '53.6px');
     expect(metrics.gap).toBeCloseTo(32, 0);
-    expect(metrics.scrollWidth).toBe(testInfo.project.name === 'mobile' ? 390 : 1440);
+    expect(metrics.firstSeparator.includes('\u200B')).toBe(!mobile);
+    expect(metrics.scrollWidth).toBe(mobile ? 390 : 1440);
+    if (mobile) {
+      expect(Math.abs(metrics.navTop - 132.2)).toBeLessThanOrEqual(2);
+      expect(metrics.navHeight).toBeCloseTo(97.8, 0);
+    }
   }
 });
 
