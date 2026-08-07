@@ -548,7 +548,7 @@ Commit only completed, reviewable boundaries: initial project boundary; accepted
 **Files:**
 - Modify: `src/pages/index.astro`
 - Create: `src/pages/read/index.astro`, `src/pages/read/[slug].astro`, `src/pages/23-annual-report.astro`
-- Create: `src/components/PostCard.astro`, `src/components/homepage/HomeHero.astro`, `src/components/homepage/LogoMarquee.astro`, `src/components/homepage/ImpactOverview.astro`, `src/components/homepage/MissionSections.astro`, `src/components/homepage/HillaryLegacy.astro`, `src/components/homepage/ImpactCallout.astro`
+- Create: `src/components/PostCard.astro`, `src/components/homepage/HomeHero.astro`, `src/components/homepage/ImpactOverview.astro`
 - Create: `src/layouts/ArticleLayout.astro`, `src/content.config.ts`
 - Create: `src/content/impact/how-chemergy-is-changing-the-game-in-waste-to-energy.md` (ContentAssets only)
 - Create: `tests/e2e/spike.spec.ts`
@@ -636,26 +636,22 @@ Commit only completed, reviewable boundaries: initial project boundary; accepted
 
   Expected: card API supports later build-time pagination without API changes, while the spike output remains limited to `/read` and one article.
 
-- [ ] **Step 4: Replace the initial homepage with the six accepted source-faithful sections.**
+- [ ] **Step 4: Replace the initial homepage with the captured closure composition.**
 
-  BuildLead rewrites `src/pages/index.astro` to use `SiteLayout` and these focused components, each driven only by accepted measurements and manifest-backed local assets:
+  BuildLead rewrites `src/pages/index.astro` to use `SiteLayout` and two focused source-mapped components:
 
   ```text
-  HomeHero.astro        — hero composition, title, image, measured gradient, CTA
-  LogoMarquee.astro     — captured logo movement; stationary equivalent under reduced motion
-  ImpactOverview.astro  — source-backed overview, local imagery, responsive order
-  MissionSections.astro — alternating measured source sections and local media
-  HillaryLegacy.astro   — source-backed legacy content, image crop, and attribution
-  ImpactCallout.astro   — captured callout, destination, curve/transition if evidenced
+  HomeHero.astro       — title, closure copy, three statistics, Fellows Directory CTA, local hero image, measured gradient
+  ImpactOverview.astro — one local-image-backed band containing “EHF - The Organisation” and the complete two-sentence “The Fellowship” copy
   ```
 
-  The components share the SiteLayout shell, preserve all captured buttons and source-relative destinations, and use no Squarespace markup or runtime. Each visual value comes from accepted token/measurement evidence; there is no invented copy, image, control, or responsive order.
+  The hero owns its statistics and CTA. The image-backed band owns both Organisation and Fellowship content. Preserve measured crop, gradient, responsive source order, shared header, and footer; do not add a standalone legacy strip, logo marquee, or callout band.
 
-  Expected: homepage source structure is split by real section responsibility while all shared navigation/footer behavior remains centralized.
+  Expected: the homepage has only its two captured content sections before the shared footer, split by real source responsibility.
 
 - [ ] **Step 5: Implement the remaining two templates from accepted content evidence.**
 
-  `src/pages/read/index.astro` recreates the captured first-page card grid using only the one-entry/accepted bounded source data shape and local card media. `src/pages/23-annual-report.astro` recreates the accepted 2022/23 Annual Report page with its annual-report download, the two accompanying financial-statement downloads, captions, and attribution. Approved-local report documents use `/assets/...`; an `external-only` manifest record renders a clearly identified external link using `retainedExternalUrl`, never a hotlinked image/font/script or a falsely local document.
+  `src/pages/read/index.astro` recreates the captured first-page card grid with no visible archive title, true row-first desktop masonry (cards 1–4 in the first visual row), and its single-column mobile source order. It uses only the one-entry/accepted bounded source data shape and local card media. `src/pages/23-annual-report.astro` recreates the accepted 2022/23 Annual Report page with its annual-report download, the two accompanying financial-statement downloads, captions, and attribution. Approved-local report documents use `/assets/...`; an `external-only` manifest record renders a clearly identified external link using `retainedExternalUrl`, never a hotlinked image/font/script or a falsely local document.
 
   All four templates call `SiteLayout` so each returns the same semantic header/main/footer shape. No fifth route, fallback route, generated pagination path, bulk collection import, redirect, or Stage 2-only artifact is added.
 

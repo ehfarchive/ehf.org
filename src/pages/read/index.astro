@@ -5,7 +5,7 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 ---
 <SiteLayout title="Read — Edmund Hillary Fellowship">
   <section class="read-page site-container">
-    <h1>Read</h1>
+    <h1 class="visually-hidden">Read</h1>
     <div class="read-masonry" data-read-masonry>
       {impactArchive.map((post) => (
         <PostCard
@@ -18,3 +18,42 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
     <a class="read-page__older" href="/read/page/2">Older Posts</a>
   </section>
 </SiteLayout>
+<script>
+  const masonry = document.querySelector<HTMLElement>('[data-read-masonry]');
+  const gap = 103;
+
+  const resetCards = (cards: HTMLElement[]) => {
+    masonry?.style.removeProperty('height');
+    cards.forEach((card) => {
+      card.style.removeProperty('position');
+      card.style.removeProperty('width');
+      card.style.removeProperty('transform');
+    });
+  };
+
+  const layoutMasonry = () => {
+    if (!masonry) return;
+    const cards = [...masonry.querySelectorAll<HTMLElement>('[data-read-card]')];
+    if (window.innerWidth < 768) {
+      resetCards(cards);
+      return;
+    }
+
+    const width = (masonry.clientWidth - (51 * 3)) / 4;
+    const columnHeights = [0, 0, 0, 0];
+    cards.forEach((card, index) => {
+      const column = index < 4 ? index : columnHeights.indexOf(Math.min(...columnHeights));
+      const top = columnHeights[column];
+      card.style.position = 'absolute';
+      card.style.width = `${width}px`;
+      card.style.transform = `translate(${column * (width + 51)}px, ${top}px)`;
+      columnHeights[column] = top + card.getBoundingClientRect().height + gap;
+    });
+    masonry.style.height = `${Math.max(...columnHeights) - gap}px`;
+  };
+
+  window.addEventListener('resize', layoutMasonry);
+  window.addEventListener('load', layoutMasonry);
+  document.fonts?.ready.then(layoutMasonry);
+  layoutMasonry();
+</script>

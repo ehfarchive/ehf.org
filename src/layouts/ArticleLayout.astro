@@ -19,6 +19,7 @@ const nextTitle = "Harnessing Pine Pollen's Power to Transform Wellbeing";
       
     </header>
     <div class="article-page__body"><slot /></div>
+    <img class="article-page__author" src="/assets/images/article/author-avatar.webp" alt="" loading="eager" />
     {nextSlug && <nav class="article-page__next" aria-label="Article navigation">
       <span>Next</span>
       <a href={`/read/${nextSlug}`}>{nextTitle}</a>

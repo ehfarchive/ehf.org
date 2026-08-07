@@ -50,11 +50,21 @@ test('the archive preserves all 20 source cards in source order', async ({ page 
   await expect(page.getByRole('link', { name: 'Older Posts' })).toBeVisible();
 });
 
-test('the archive uses masonry on desktop and a single source-order stack on mobile', async ({ page }, testInfo) => {
+test('the archive uses row-first desktop masonry and a single source-order stack on mobile', async ({ page }, testInfo) => {
   await page.goto('/read');
 
-  const layout = await page.locator('[data-read-masonry]').evaluate((element) => getComputedStyle(element).columnCount);
-  expect(layout).toBe(testInfo.project.name === 'desktop' ? '4' : '1');
+  const positions = await page.locator('[data-read-card]').evaluateAll((cards) => cards.slice(0, 4).map((card) => {
+    const { left, top } = card.getBoundingClientRect();
+    return { left: Math.round(left), top: Math.round(top) };
+  }));
+
+  if (testInfo.project.name === 'desktop') {
+    expect(positions.map(({ top }) => top)).toEqual([positions[0].top, positions[0].top, positions[0].top, positions[0].top]);
+    expect(positions.map(({ left }) => left)).toEqual([...positions.map(({ left }) => left)].sort((a, b) => a - b));
+  } else {
+    expect(positions.map(({ left }) => left)).toEqual([positions[0].left, positions[0].left, positions[0].left, positions[0].left]);
+    expect(positions.map(({ top }) => top)).toEqual([...positions.map(({ top }) => top)].sort((a, b) => a - b));
+  }
 });
 
 test('only the accepted impact Markdown article is generated', async ({ page }) => {
@@ -77,4 +87,32 @@ test('the annual report supplies three safe local PDF downloads', async ({ page 
     { href: '/assets/documents/edmund-hillary-fellowship-limited-2023-financial-statements.pdf', target: '_blank', rel: 'noopener noreferrer' },
     { href: '/assets/documents/the-hillary-institute-subsidiary-entities-2023-financial-statements.pdf', target: '_blank', rel: 'noopener noreferrer' }
   ]);
+});
+
+test('the captured closure homepage contains only the hero and one organisation-fellowship band', async ({ page }) => {
+  await page.goto('/');
+
+  const hero = page.locator('[data-home-hero]');
+  await expect(hero).toContainText('500+ Fellows');
+  await expect(hero).toContainText('50+ Nationalities');
+  await expect(hero.getByRole('link', { name: 'Fellows Directory' })).toBeVisible();
+
+  const band = page.locator('[data-home-band]');
+  await expect(band).toContainText('EHF - The Organisation');
+  await expect(band).toContainText('The Fellowship');
+  await expect(band).toContainText('Talented and connected innovators have built deep connections with New Zealand communities, businesses, and innovation ecosystem, creating a positive global impact.');
+  await expect(band.locator('p')).toHaveCount(2);
+  await expect(page.locator('.legacy-section, .impact-callout, .home-stats')).toHaveCount(0);
+});
+
+test('the archive has only a semantic hidden heading', async ({ page }) => {
+  await page.goto('/read');
+  await expect(page.locator('.read-page > h1')).toHaveClass(/visually-hidden/);
+});
+
+test('the generated article includes its decorative author avatar', async ({ page }) => {
+  await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
+  const avatar = page.locator('img[src="/assets/images/article/author-avatar.webp"]');
+  await expect(avatar).toHaveCount(1);
+  await expect(avatar).toHaveAttribute('alt', '');
 });

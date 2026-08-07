@@ -378,11 +378,7 @@ git commit -m "feat: build EHF spike shell and local assets"
 - Create: `src/pages/23-annual-report.astro`
 - Create: `src/components/PostCard.astro`
 - Create: `src/components/homepage/HomeHero.astro`
-- Create: `src/components/homepage/LogoMarquee.astro`
 - Create: `src/components/homepage/ImpactOverview.astro`
-- Create: `src/components/homepage/MissionSections.astro`
-- Create: `src/components/homepage/HillaryLegacy.astro`
-- Create: `src/components/homepage/ImpactCallout.astro`
 - Create: `src/layouts/ArticleLayout.astro`
 - Create: `src/content.config.ts`
 - Create: `src/content/impact/how-chemergy-is-changing-the-game-in-waste-to-energy.md`
@@ -422,13 +418,13 @@ npm run test:e2e -- tests/e2e/spike.spec.ts
 
 Expected: FAIL until all four routes and local images are implemented.
 
-- [ ] **Step 3: Implement the complete homepage template**
+- [ ] **Step 3: Implement the captured closure homepage**
 
-Recreate all homepage sections using the six focused components listed above, including responsive ordering, local imagery, gradients, logo motion, buttons, curved transition, shared header, and footer. Reduced-motion users receive a stationary logo sequence.
+Recreate the closure homepage with focused components that map directly to its two real sections: the hero contains its title, all closure copy, three statistics, and Fellows Directory CTA; one local-image-backed band contains both “EHF - The Organisation” and the complete two-sentence “The Fellowship” copy. Preserve measured gradient, crop, responsive order, shared header, and footer. Do not add a standalone legacy strip, logo marquee, or callout band.
 
 - [ ] **Step 4: Implement the archive listing template**
 
-Recreate the `/read` card grid from captured content. The spike may contain only the first source page of cards, but card markup and data shape must support future build-time pagination without changing the component API.
+Recreate the `/read` card grid with no visible archive title. The spike may contain only the first source page of cards, but it must use true row-first desktop masonry (cards 1–4 in the first visual row) and preserve its single-column mobile DOM order; card markup and data shape must support future build-time pagination without changing the component API.
 
 - [ ] **Step 5: Implement the article template from local content**
 
