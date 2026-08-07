@@ -23,8 +23,13 @@ export function validateAssetRecord(record) {
   const isHash = /^[a-f0-9]{64}$/.test(record?.sha256 ?? '');
   const isAssetPath = typeof record?.localPath === 'string' && record.localPath.startsWith('/assets/');
   const validStatus = ['approved-local', 'external-only', 'blocked'].includes(record?.permissionStatus);
+  const safeBytes = Number.isSafeInteger(record?.bytes) && record.bytes > 0;
+  let isHttpsSource = false;
+  try { isHttpsSource = new URL(record?.sourceUrl).protocol === 'https:'; } catch {}
 
-  if (!record?.sourceUrl || !record?.attribution || !validStatus) errors.push('asset record needs sourceUrl, attribution, and valid permissionStatus');
+  if (!isHttpsSource) errors.push('asset record needs valid HTTPS sourceUrl');
+  if (!record?.attribution || !validStatus) errors.push('asset record needs attribution and valid permissionStatus');
+  if (!safeBytes) errors.push('asset record needs a safe positive byte count');
   if (!Array.isArray(record?.routeUses) || record.routeUses.length === 0 || record.routeUses.some((route) => !routes.has(route))) errors.push('asset record needs valid routeUses');
   if (record?.permissionStatus === 'approved-local' && (!isAssetPath || !isHash || record.retainedExternalUrl !== null)) errors.push('approved local asset needs /assets path and SHA-256');
   if (record?.permissionStatus === 'external-only' && (record.localPath !== null || record.sha256 !== null || !record.retainedExternalUrl)) errors.push('external-only asset needs retainedExternalUrl');

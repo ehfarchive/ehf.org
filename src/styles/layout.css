@@ -110,7 +110,7 @@
 .desktop-nav__folder { position: relative; }
 .desktop-nav__submenu {
   position: absolute;
-  top: 52px;
+  top: 100%;
   right: -16px;
   width: 232px;
   padding: 10px 16px;
@@ -150,7 +150,10 @@
 
 @media (max-width: 767px) {
   .site-header { min-height: var(--header-height); }
-  .site-header__brand img { width: 237.3px; height: 39.98px; }
+  .site-header__brand img {
+    width: min(237.3px, calc(100vw - (var(--gutter) * 2) - 47px));
+    height: auto;
+  }
   .desktop-nav { display: none; }
   .mobile-menu__trigger {
     display: inline-flex;
@@ -166,6 +169,12 @@
     position: fixed;
     inset: 0;
     z-index: 20;
+    width: 100vw;
+    max-width: none;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    border: 0;
     overflow: hidden;
     padding-top: var(--header-height);
     background: var(--color-surface);

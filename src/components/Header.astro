@@ -41,7 +41,7 @@ import MobileNav from './MobileNav.astro';
   });
 
   const mobileTrigger = document.querySelector<HTMLButtonElement>('[data-mobile-menu-trigger]');
-  const mobileMenu = document.querySelector<HTMLElement>('[data-mobile-menu]');
+  const mobileMenu = document.querySelector<HTMLDialogElement>('[data-mobile-menu]');
   const mobileClose = document.querySelector<HTMLButtonElement>('[data-mobile-menu-close]');
   const mobileRoot = document.querySelector<HTMLElement>('[data-mobile-root]');
   const mobilePanels = [...document.querySelectorAll<HTMLElement>('[data-mobile-folder]')];
@@ -49,7 +49,9 @@ import MobileNav from './MobileNav.astro';
   function openMenu(trigger: HTMLButtonElement) {
     if (!mobileMenu || !mobileRoot) return;
     mobileMenu.hidden = false;
+    mobileMenu.showModal();
     mobileRoot.hidden = false;
+    mobileRoot.inert = false;
     mobileRoot.classList.remove('is-shifted');
     mobilePanels.forEach((panel) => {
       panel.hidden = true;
@@ -62,6 +64,7 @@ import MobileNav from './MobileNav.astro';
 
   function closeMenu() {
     if (!mobileMenu || !mobileTrigger) return;
+    if (mobileMenu.open) mobileMenu.close();
     mobileMenu.hidden = true;
     mobilePanels.forEach((panel) => {
       panel.hidden = true;
@@ -69,6 +72,7 @@ import MobileNav from './MobileNav.astro';
     });
     if (mobileRoot) {
       mobileRoot.hidden = false;
+      mobileRoot.inert = false;
       mobileRoot.classList.remove('is-shifted');
     }
     mobileTrigger.setAttribute('aria-expanded', 'false');
@@ -78,11 +82,32 @@ import MobileNav from './MobileNav.astro';
 
   mobileTrigger?.addEventListener('click', () => openMenu(mobileTrigger));
   mobileClose?.addEventListener('click', closeMenu);
+  mobileMenu?.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    closeMenu();
+  });
+  mobileMenu?.addEventListener('keydown', (event) => {
+    if (event.key !== 'Tab') return;
+    const activePanel = mobilePanels.find((panel) => !panel.hidden) ?? mobileRoot;
+    if (!activePanel) return;
+    const focusable = [...activePanel.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')];
+    const first = focusable[0];
+    const last = focusable.at(-1);
+    if (!first || !last) return;
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
   document.querySelectorAll<HTMLButtonElement>('[data-mobile-folder-open]').forEach((button) => {
     button.addEventListener('click', () => {
       const panel = document.querySelector<HTMLElement>(`[data-mobile-folder="${button.dataset.mobileFolderOpen}"]`);
       if (!panel || !mobileRoot) return;
       panel.hidden = false;
+      mobileRoot.inert = true;
       requestAnimationFrame(() => {
         mobileRoot.classList.add('is-shifted');
         panel.classList.add('is-active');
@@ -95,6 +120,7 @@ import MobileNav from './MobileNav.astro';
       if (!mobileRoot) return;
       const panel = button.closest<HTMLElement>('[data-mobile-folder]');
       panel?.classList.remove('is-active');
+      mobileRoot.inert = false;
       mobileRoot.classList.remove('is-shifted');
       window.setTimeout(() => { if (panel) panel.hidden = true; }, 600);
     });

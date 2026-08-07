@@ -4,7 +4,7 @@ import { fellowDirectory, navigationItems } from './navigation';
 <button class="mobile-menu__trigger" type="button" aria-expanded="false" aria-controls="site-navigation-dialog" data-mobile-menu-trigger>
   <span aria-hidden="true">☰</span><span class="visually-hidden">Open menu</span>
 </button>
-<div id="site-navigation-dialog" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Site navigation" hidden data-mobile-menu>
+<dialog id="site-navigation-dialog" class="mobile-menu" aria-label="Site navigation" hidden data-mobile-menu>
   <div class="mobile-menu__panel" data-mobile-root>
     <button class="mobile-menu__close" type="button" data-mobile-menu-close><span aria-hidden="true">×</span><span class="visually-hidden">Close menu</span></button>
     <nav aria-label="Primary navigation">
@@ -24,4 +24,4 @@ import { fellowDirectory, navigationItems } from './navigation';
       </nav>
     </div>
   ))}
-</div>
+</dialog>
