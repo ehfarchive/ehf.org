@@ -1,0 +1,27 @@
+{
+  "name": "ehf",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test",
+    "capture:source": "node scripts/capture-source.mjs",
+    "assets:download": "node scripts/download-assets.mjs",
+    "assets:verify": "node scripts/verify-local-assets.mjs"
+  },
+  "dependencies": {
+    "astro": "7.2.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@axe-core/playwright": "4.12.1",
+    "@playwright/test": "1.62.1",
+    "@types/node": "25.8.0",
+    "typescript": "6.0.3",
+    "vitest": "4.1.10"
+  }
+}
