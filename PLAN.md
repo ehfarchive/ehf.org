@@ -249,6 +249,9 @@ git commit -m "chore: scaffold static EHF site"
 
 Complete every spike task below after Task 1. Stop at the spike gate before Task 2.
 
+> **Stage 1 status:** S1–S4 evidence and verification are complete. `SPIKE-RESULTS.md` contains an unapproved `GO` recommendation; no owner decision is recorded, so Stage 2 is blocked and all of its checkboxes remain unchecked.
+
+
 ## Spike Task S1: Capture the Four Source Routes
 
 **Files:**

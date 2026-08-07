@@ -1,57 +1,75 @@
 # EHF Astro Stage 1 Spike Results
 
-## Scope and decision boundary
+## Status and decision boundary
 
-This is evidence for the owner; it is not authorization to start Stage 2. The approved spike contains only `/`, `/read`, `/read/how-chemergy-is-changing-the-game-in-waste-to-energy`, and `/23-annual-report`.
+Stage 1 evidence is complete for exactly four built static routes: `/`, `/read`, `/read/how-chemergy-is-changing-the-game-in-waste-to-energy`, and `/23-annual-report`. The only current implementation capture is the exact 11-state matrix in `source-evidence/implementation-screenshots/`: eight route/viewport defaults plus desktop Impact, desktop About, and mobile-menu states on the home page.
 
-The final comparison capture is the exact 11-state matrix in `source-evidence/implementation-screenshots/`. Each PNG has adjacent JSON metadata. The fresh E2E capture verified fonts ready, 0 unloaded images, 0 console errors, and 0 failed requests for all 11 states.
+This report is evidence for the project owner, not authorization. No owner approval is recorded; Stage 2 remains blocked. The capture uses the built `astro preview` output, never the development server, and each adjacent JSON record has an ISO timestamp, implementation URL, positive document height, and empty `imagesNotLoaded`, `consoleErrors`, and `failedRequests` arrays.
 
-## Verification record
+## Definitive capture and post-report verification
 
-| Command | Fresh result |
-|---|---|
-| `npm run build` | Passed: Astro check reported 0 errors, 0 warnings, 0 hints; static build generated 4 pages in 339 ms; wall time 3.03 s. |
-| `npm run assets:verify` | Passed: verified 40 manifest records and runtime asset references. |
-| `npm run test:unit` | Passed: 1 file, 12 tests, 0 failures. Vitest emitted its non-blocking future native-config warning. |
-| `npm run test:e2e -- tests/e2e/spike.spec.ts tests/e2e/navigation.spec.ts tests/e2e/spike-visual.spec.ts tests/e2e/accessibility.spec.ts` | Passed: 75 passed, 15 deliberately project-scoped skips, 0 failures, 13.0 s. |
-| Built-output smoke at `astro preview` | Passed all 4 routes: each served an HTML main landmark; all local images completed with a positive natural width; 0 console errors and 0 failed requests. The cached home response was HTTP 304; the other three were HTTP 200. |
+The definitive built-preview capture established the final evidence set. The prescribed verification was then rerun after this report/status update; variable timing is recorded separately so the report does not overwrite the evidence-capture measurements.
 
-The automated suite defines 102 checks in this final run: 12 unit checks and 90 E2E project checks, of which 87 passed and 15 were expected desktop/mobile project skips. `tests/e2e/accessibility.spec.ts` adds four-route axe serious/critical checks, landmark and keyboard-focus checks, reduced-motion behavior, safe-link and local-media checks, browser-health checks, and an explicit contract for retained non-spike destinations. The only discovered defect was the desktop directory button contrast: `.desktop-nav a` had higher specificity than `.button`. The focused rule `.desktop-nav .button { color: var(--color-surface); }` fixed the real serious axe violation; its focused 28-check regression passed before final verification.
+| Command | Definitive evidence-capture result | Post-report rerun |
+|---|---|---|
+| `npm run build` | Passed: Astro check processed 29 files with 0 errors, 0 warnings, and 0 hints; static build generated 4 pages in 343 ms; 3.10 s wall time. | Passed: the same diagnostics and 4 pages; 341 ms build time and 3.10 s wall time. |
+| `npm run assets:verify` | Passed: 40 manifest records and runtime asset references verified; 0.45 s wall time. | Passed: 40 manifest records and runtime asset references verified; 0.46 s wall time. |
+| `npm run test:unit` | Passed: 1 file, 12 tests; 95 ms test duration and 0.36 s wall time. | Passed: 1 file, 12 tests; 96 ms duration and 0.35 s wall time. Vitest emitted its existing non-blocking native-config future warning. |
+| `npm run test:e2e -- tests/e2e/spike.spec.ts tests/e2e/navigation.spec.ts tests/e2e/spike-visual.spec.ts tests/e2e/accessibility.spec.ts` | Passed: 108 defined E2E tests, 89 passed, 19 expected project-scoped skips, and 0 failures; 13.5 s test duration and 13.77 s wall time. | Passed: the same 108/89/19/0 result; 13.9 s test duration and 14.23 s wall time. The visual spec regenerated the implementation evidence. |
+| Built-output smoke at `npm run preview -- --host 127.0.0.1 --port 4321` | Passed all four routes at 1440×1000 and 390×844: one main landmark per route, every local image had positive natural width, no Astro development toolbar or `@vite/client`/`@astro/client`, and 0 console errors and failed requests. Desktop Impact/About and the mobile menu were also exercised. | The refreshed E2E metadata remains clean for all 11 states; this rerun did not start a second preview smoke server. |
 
-## Final visual comparison
+The complete post-report test count is 120: 12 unit tests plus 108 defined E2E tests. It produced 101 passes, 19 expected project-scoped E2E skips, and 0 failures. All 11 current metadata pairs are clean. A later requested additional evidence-audit attempt was provider-rate-limited after it confirmed the 11 metadata pairs align and are clean; it is not represented as a completed audit.
 
-Source and implementation document heights are from their paired metadata JSON files. The implementation set was regenerated by the fresh final E2E command above.
+## Final visual comparison and residual disposition
 
-| Severity | Route | Viewport | State | Difference | Resolution |
+Source and implementation document heights are from paired JSON metadata. Positive deltas mean the implementation is taller. The annual-report mobile delta is accepted rounding tolerance, not an unresolved visual issue.
+
+| Severity | Route | Viewport | State | Source / implementation height | Disposition |
 |---|---|---:|---|---|---|
-| Resolved | `/` | 1440×1000 | default | 2048 vs 2048 px, delta 0 | Final local capture matches source height. |
-| Resolved | `/` | 390×844 | default | 2442 vs 2442 px, delta 0 | Final local capture matches source height. |
-| P3 | `/read` | 1440×1000 | default | 3658 vs 3600 px, delta −58 | Cosmetic archive height variance retained; card order and true-shortest-column behavior are protected by `tests/e2e/spike.spec.ts`. |
-| P3 | `/read` | 390×844 | default | 9870 vs 9892 px, delta +22 | Cosmetic mobile archive rhythm variance retained; source-order single-column behavior is protected by `tests/e2e/spike.spec.ts`. |
-| P3 | article | 1440×1000 | default | 6605 vs 6641 px, delta +36 | Content/typographic comparison variance retained with the associated mobile state below; no template or framework limitation was found. |
-| P3 | article | 390×844 | default | 10986 vs 11442 px, delta +456 | Same content/typographic comparison cluster. The route remains responsive, locally complete, and free of horizontal overflow under `tests/e2e/spike.spec.ts`; resolving exact source text/layout would require out-of-scope source DOM capture. |
-| Resolved | `/23-annual-report` | 1440×1000 | default | 1406 vs 1406 px, delta 0 | Final local capture matches source height. |
-| Resolved | `/23-annual-report` | 390×844 | default | 1520 vs 1519 px, delta −1 | Sub-pixel/rounding-level variance; no P2 issue. |
-| Resolved | `/` | 1440×1000 | impact-menu | 2048 vs 2048 px, delta 0 | Captured submenu state is open, keyboard-tested, and error-free. |
-| Resolved | `/` | 1440×1000 | about-menu | 2048 vs 2048 px, delta 0 | Captured submenu state is open, keyboard-tested, and error-free. |
-| Resolved | `/` | 390×844 | menu-open | 2442 vs 2442 px, delta 0 | Captured modal menu is focus-trapped, scroll-locked, and error-free. |
+| Resolved | `/` | 1440×1000 | default | 2048 / 2048 px, 0 | Height matches; the remaining localized explicit-line-break/reflow variance is P3-4 below. |
+| Resolved | `/` | 390×844 | default | 2442 / 2442 px, 0 | Height matches. |
+| P3-1 | `/read` | 1440×1000 | default | 3658 / 3600 px, −58 | Cosmetic archive desktop rhythm/height variance; card order and source-observed shortest-column behavior are covered by `tests/e2e/spike.spec.ts`. |
+| P3-2 | `/read` | 390×844 | default | 9870 / 9892 px, +22 | Cosmetic archive mobile rhythm/height variance; the single-column source order is covered by `tests/e2e/spike.spec.ts`. |
+| P3-3 | article | 1440×1000 | default | 6605 / 6643 px, +38 | One article font-metric/content-flow cluster, shared with the mobile row; it is not counted twice. |
+| P3-3 | article | 390×844 | default | 10986 / 11442 px, +456 | The same font-metric/content-flow cluster. The route is responsive, locally complete, and has no horizontal overflow under `tests/e2e/spike.spec.ts`. |
+| Resolved | `/23-annual-report` | 1440×1000 | default | 1406 / 1406 px, 0 | Height matches. |
+| Resolved | `/23-annual-report` | 390×844 | default | 1520 / 1519 px, −1 | Accepted sub-pixel/rounding tolerance. |
+| Resolved | `/` | 1440×1000 | Impact menu open | 2048 / 2048 px, 0 | Built-preview capture is toolbar-free, keyboard-tested, and error-free. |
+| Resolved | `/` | 1440×1000 | About menu open | 2048 / 2048 px, 0 | Built-preview capture is toolbar-free, keyboard-tested, and error-free. |
+| Resolved | `/` | 390×844 | mobile menu open | 2442 / 2442 px, 0 | Modal state is focus-trapped, scroll-locked, and error-free. |
 
-Final count: P0 0, P1 0, P2 0, P3 3. The three P3 entries are the two archive viewport comparisons and the article comparison cluster; they are quantified above and do not invalidate the shared shell or four template shapes.
+**Severity count:** P0 0, P1 0, P2 0, P3 5. The five non-overlapping P3 dispositions are: (1) archive desktop rhythm, (2) archive mobile rhythm, (3) the article desktop/mobile font-metric cluster, (4) home localized explicit-line-break/reflow variance despite matching document heights, and (5) the About disclosure-row nav-font metric. P3-5 is a 2.47 px leftward caret position caused by the implementation’s 85.03 px “About” label versus the source’s 90 px label; the caret geometry itself matches. The annual-report mobile −1 px delta is accepted tolerance and is excluded from P3.
+
+## Final-audit defects resolved
+
+The layered implementation and visual audits closed the following defects before the definitive capture:
+
+- Corrected home band stacking rather than preserving the prior incorrect layering.
+- Captured and smoke-tested built static preview output, removing the Astro development-toolbar/static-preview ambiguity.
+- Rebuilt the mobile trigger, close control, and disclosure chevron to source-measured geometry; disclosure behavior and Back state remain keyboard-tested.
+- Corrected both article-link destinations: the retained Fellow profile source URL and the normalized Chemergy external URL.
+- Corrected the `/read` Older Posts caret and the article next-item caret geometry, placement, and ink color.
+- Corrected the focused desktop directory button foreground so its focus state meets serious/critical axe contrast coverage.
+- Made unavailable local navigation targets explicit in the report and E2E contract instead of implying they resolve.
+- Reconciled stale test totals, build metrics, capture heights, and report evidence with the definitive capture.
 
 ## Intentional accessibility and source-fidelity divergences
 
-These are deliberate improvements or necessary spike boundaries, not unrecorded omissions:
+These are deliberate improvements or fixed spike boundaries, not unrecorded omissions:
 
-- Desktop dropdowns report `aria-expanded="true"` while open; Escape closes them and restores focus to the trigger.
+- Desktop dropdowns expose `aria-expanded="true"` while open; Escape closes them and restores focus to the trigger.
 - The mobile menu is a modal `<dialog>` with focus containment, Escape close, trigger-focus restoration, and body-scroll locking.
-- Reduced-motion media preferences reduce animation/transition duration and set scrolling behavior to `auto` (`src/styles/layout.css` and `tests/e2e/accessibility.spec.ts`).
-- `/read` retains a visually hidden semantic heading; `/23-annual-report` retains its semantic document heading.
-- Local PDF links include `rel="noopener noreferrer"`; the footer keeps its two source text items as `<strong>` rather than inventing destinations.
-- `aria` behavior, keyboard escape, modal containment, local assets, and serious/critical axe coverage are verified by `tests/e2e/navigation.spec.ts` and `tests/e2e/accessibility.spec.ts`.
+- Reduced-motion preferences reduce animation/transition duration and set scrolling behavior to `auto`.
+- `/read` keeps a visually hidden semantic heading; `/23-annual-report` keeps a semantic document heading.
+- Local PDF links use `rel="noopener noreferrer"`; the footer retains its two source text items as `<strong>` rather than inventing destinations.
+- The source’s burger is represented with accessible controls and labels while preserving its measured two 35×1 px ink bars. Its raster phase is 0.42 CSS px different at DPR 3, but length, separation, color, and ink mass are matched; fitting a DPR-3 artifact would regress DPR 1 and 2.
+- The mobile disclosure chevron uses the source path and bounding box. Its mask rasterization has about 5% more ink mass than the source with identical 35×67 device-pixel bounds; this is accepted rather than introducing a brittle raster-specific adjustment.
+
+`tests/e2e/navigation.spec.ts` and `tests/e2e/accessibility.spec.ts` exercise the ARIA behavior, keyboard escape, modal containment, local assets, serious/critical axe coverage, the two retained article links, and the unavailable-route contract.
 
 ## Intentionally unavailable navigation destinations
 
-The shared shell deliberately preserves source-relative paths but the spike does not generate pages for them. They are explicit in `src/components/navigation.ts`, `src/components/Footer.astro`, and the E2E contract:
+The shared shell preserves these source-relative local paths, but Stage 1 does not generate pages for them. They are named in `src/components/navigation.ts`, `src/components/Footer.astro`, and the E2E contract; no test silently follows them:
 
 - `/about-ehf`
 - `/journey`
@@ -62,36 +80,38 @@ The shared shell deliberately preserves source-relative paths but the spike does
 - `/archive`
 - `/fellow-directory-advanced-search`
 - `/news`
-- `/read/page/2` (retained Older Posts pagination affordance; page generation is intentionally out of scope)
+- `/read/page/2` (the retained Older Posts affordance; pagination generation is outside the spike)
 
-`https://www.ehf.org/news#fellows` remains an HTTPS source destination, not an unavailable local route. `https://www.ehf.org/fellow-detail?fellow=Melahn-Parker#search=Mela&numRecords=24&minMatchCharLength=2` is the exact retained source profile link; its `/fellow-detail` destination is explicitly excluded and unimplemented in this spike. No retained unavailable destination is silently followed by the tests.
+`https://www.ehf.org/news#fellows` remains an external source destination. `https://www.ehf.org/fellow-detail?fellow=Melahn-Parker#search=Mela&numRecords=24&minMatchCharLength=2` is the retained external Fellow profile source destination; its unimplemented `/fellow-detail` local counterpart is excluded from this spike. `https://www.chemergy.co/` is retained as the article’s external destination.
 
 ## Measurements
 
 | Metric | Evidence and value |
 |---|---|
-| Implementation elapsed time | 5 h 24 m 16 s from the first spike capture commit (2026-08-07 16:02:53 +08:00) through the final application/test commit (2026-08-07 21:27:09 +08:00). |
-| Timed production build | 3.03 s wall time; Astro reports 4 static pages built in 339 ms. |
-| Generated route count | 4: build output lists `/`, `/read`, the one generated article route, and `/23-annual-report`. |
-| `dist/` size | 32,890,246 bytes. |
-| First-party JavaScript | No emitted external JS bundle (`dist/**/*.js`: 0). Inline first-party script bytes are `/` 3,093; `/read` 3,960; article 3,093; annual report 3,093. |
-| Local assets | 40 files, 32,822,843 bytes: 26,507,394 image bytes, 445,540 font bytes, and 5,869,909 PDF bytes; independently recorded by `source-evidence/asset-manifest.json`. |
-| Automated tests | 102 defined final checks; 87 passed, 15 expected project skips, 0 failures. |
-| Unresolved visual work | P2 0; P3 3, quantified in the comparison table. |
-| Source blocks requiring manual cleanup | 0 in the four routed spike pages: selected article is Markdown (`src/content/impact/`), archive cards are typed data (`src/data/impactArchive.ts`), and report metadata is local page content. |
+| Runtime | `openai-codex/gpt-5.6-terra`; Node `v25.8.0`; npm `11.17.0`. |
+| Observed Stage 1 implementation baseline | 5 h 24 m 16 s from the first spike capture commit (2026-08-07 16:02:53 +08:00) through the final application/test commit (2026-08-07 21:27:09 +08:00). The evidence-refresh run changed no source implementation. |
+| Timed production build | Definitive capture: 3.10 s wall time and 343 ms for 4 pages after checking 29 files with no diagnostics. Post-report rerun: 3.10 s wall time and 341 ms for the same 4 pages and diagnostics. |
+| Generated route count | 4. |
+| `dist/` size | 32,894,171 bytes. |
+| First-party JavaScript | No emitted JavaScript bundles in `dist/**/*.js`; inline first-party script bytes are `/` 3,093, `/read` 3,960, article 3,093, and annual report 3,093. |
+| Local assets | 40 manifest records, 32,822,843 bytes: 26,507,394 image bytes, 445,540 font bytes, and 5,869,909 PDF bytes. |
+| Implementation evidence | 11 PNG/JSON pairs, 22 files, 15,793,879 bytes; the source `source-evidence/screenshots/spike--*` set remained unchanged. |
+| Automated tests | 120 defined checks: 12 unit and 108 E2E; 101 passed, 19 expected E2E skips, 0 failed. |
+| Unresolved visual work | P0 0, P1 0, P2 0, P3 5, with all five dispositions above. |
+| Source blocks requiring manual cleanup | 0 in the four routes: the article is Markdown in `src/content/impact/`, archive cards are typed data in `src/data/impactArchive.ts`, and report metadata is local page content. |
 
 ## Architecture-risk evaluation
 
-1. **Can Astro reproduce the four layouts without fighting its rendering model? — Yes.** `npm run build` generates all four as static pages, and the final comparison matrix has P0/P1/P2 all at zero. Page and layout evidence: `src/pages/`, `src/layouts/SiteLayout.astro`, `src/layouts/ArticleLayout.astro`, and the final capture metadata.
-2. **Can source content become maintainable Markdown or typed data? — Yes for this scope.** The one article is `src/content/impact/how-chemergy-is-changing-the-game-in-waste-to-energy.md`; the 20 archive cards are `src/data/impactArchive.ts`; `tests/e2e/spike.spec.ts` verifies the accepted generated article and card ordering. No manual cleanup blocks remain in the routed spike.
-3. **Can assets be localized deterministically without hotlinks? — Yes.** `source-evidence/asset-manifest.json` records 40 approved local assets and byte totals; `npm run assets:verify` freshly passed; the smoke and accessibility tests confirmed all page images load from `/assets/` without browser/network failures.
-4. **Can shared navigation and footer work without a site-wide client framework? — Yes.** Astro component scripts in `src/components/Header.astro` serve the interactive shell. `tests/e2e/navigation.spec.ts` verifies pointer and keyboard dropdown behavior, modal focus trapping, Escape, focus restoration, scroll locking, and responsive header/footer behavior.
-5. **Can desktop and mobile fidelity be reached with reusable CSS? — Yes for the approved bar.** Reusable tokens and templates are in `src/styles/tokens.css`, `layout.css`, and `templates.css`; final captures cover both required viewports in all 11 states. The remaining three P3 comparison clusters are explicitly bounded above.
-6. **Can remaining pages reuse these primitives rather than needing mostly unique templates? — Supported, but not authorized beyond the spike.** The four distinct outputs reuse `SiteLayout`, header, footer, navigation data, tokens, and template CSS. This shows reusable shell/page primitives; it does not claim that uncaptured pages have been proven.
-7. **What elapsed time should replace the original full-site estimate? — Use the observed 5 h 24 m Stage 1 baseline, or 1.35 engineer-hours per fixed route only as a planning rate under comparable content depth, plus route-specific capture/verification.** The evidence is the dated commit range above. It must not be extrapolated into a Stage 2 commitment without an owner decision and new route evidence.
+1. **Can Astro reproduce the four layouts without fighting its rendering model? — Yes, for this spike.** The fresh build generates all four static pages and the final matrix has P0/P1/P2 at zero.
+2. **Can source content become maintainable Markdown or typed data? — Yes, for this scope.** The selected article is Markdown and the 20 archive cards are typed data; the spike tests cover the generated article and card ordering.
+3. **Can assets be localized deterministically without hotlinks? — Yes.** The 40-record manifest and the fresh asset verifier support this; built-preview smoke confirms local images load.
+4. **Can shared navigation and footer work without a site-wide client framework? — Yes.** Astro component scripts provide the interactive shell, and navigation tests cover desktop/mobile pointer and keyboard behavior.
+5. **Can desktop and mobile fidelity be reached with reusable CSS? — Yes, for the approved bar.** Tokens and template CSS support all 11 states; the five bounded P3 items remain explicit.
+6. **Can remaining pages reuse these primitives rather than needing mostly unique templates? — Supported, not proven or authorized.** The four output types reuse the shell, navigation data, tokens, and template CSS; uncaptured routes need separate evidence.
+7. **What elapsed time should replace the original full-site estimate? — Use the observed 5 h 24 m Stage 1 baseline, or 1.35 engineer-hours per fixed route only under comparable content depth, plus route-specific capture and verification.** It is not a Stage 2 commitment.
 
 ## Report self-review
 
-The report cites committed tests, manifests, capture metadata, build output, and the built-output smoke. It records every 11-state comparison, all remaining P3 work, intentional divergences, unavailable source-relative routes, the complete final command outcomes, and all seven S4 architecture risks. README and PLAN remain limited to the actual Stage 1 boundary. This recommendation is unapproved evidence for the project owner.
+The report is limited to observed layered evidence: definitive built-preview capture, automated verification, source/implementation metadata, source-measured icon refinement, and prior audits. It records all 11 states, every non-overlapping residual P3 disposition, resolved defects, intentional divergences, unavailable destinations, measurements, and the seven Stage 1 architecture risks. It does not treat the rate-limited extra audit as complete and does not authorize Stage 2.
 
 gate recommendation: GO
