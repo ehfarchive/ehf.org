@@ -15,13 +15,13 @@ export const navigationItems: NavigationItem[] = [
     label: 'Impact',
     href: '/impact-in-action',
     children: [
-      { label: 'Read and Watch', href: '/read' },
-      { label: 'Impact Snapshots', href: '/impact-snapshots' },
+      { label: 'Read and Watch', href: '/impact-in-action' },
+      { label: 'Impact Snapshots', href: 'https://www.ehf.org/news#fellows' },
       { label: 'EHF Community Collective', href: '/ehf-community-collective' },
-      { label: 'EHF Fellows Articles', href: '/read' }
+      { label: 'EHF Fellows Articles', href: '/ehf-fellows-articles' }
     ]
   },
-  { label: 'Archive', href: '/news' }
+  { label: 'Archive', href: '/archive' }
 ];
 
 export const fellowDirectory = { label: 'Fellow Directory', href: '/fellow-directory-advanced-search' };

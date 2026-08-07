@@ -59,8 +59,9 @@ export function verifyManifest(manifest) {
   if (!Array.isArray(records)) return ['asset manifest must be an array or an envelope with assets'];
   if (!Array.isArray(manifest) && manifest.schemaVersion !== 1) errors.push('asset manifest envelope must have schemaVersion 1');
   for (const [index, record] of records.entries()) {
-    if (!Number.isSafeInteger(record?.bytes) || record.bytes < 1) errors.push(`manifest[${index}]: approved local asset needs byte count`);
+    for (const error of validateAssetRecord(record)) errors.push(`manifest[${index}]: ${error}`);
     if (record?.permissionStatus !== 'approved-local') continue;
+    if (!Number.isSafeInteger(record?.bytes) || record.bytes < 1) errors.push(`manifest[${index}]: approved local asset needs byte count`);
     let file;
     try { file = localFileFor(record.localPath); } catch (error) { errors.push(`manifest[${index}]: ${error.message}`); continue; }
     if (!existsSync(file) || !statSync(file).isFile()) { errors.push(`manifest[${index}]: missing local asset ${record.localPath}`); continue; }

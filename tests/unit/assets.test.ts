@@ -54,3 +54,33 @@ test('accepts the versioned manifest envelope', () => {
 test('accepts the versioned manifest envelope for download', async () => {
   await expect(downloadApprovedAssets({ schemaVersion: 1, assets: [] })).resolves.toBeUndefined();
 });
+
+test('verifier rejects malformed external-only records', () => {
+  expect(verifyManifest({
+    schemaVersion: 1,
+    assets: [{
+      sourceUrl: 'https://www.ehf.org/report.pdf',
+      localPath: '/assets/report.pdf',
+      sha256: 'a'.repeat(64),
+      permissionStatus: 'external-only',
+      attribution: 'EHF',
+      routeUses: ['/23-annual-report'],
+      retainedExternalUrl: null
+    }]
+  })).toContain('manifest[0]: external-only asset needs retainedExternalUrl');
+});
+
+test('verifier rejects malformed blocked records', () => {
+  expect(verifyManifest({
+    schemaVersion: 1,
+    assets: [{
+      sourceUrl: 'https://www.ehf.org/blocked.png',
+      localPath: '/assets/blocked.png',
+      sha256: 'a'.repeat(64),
+      permissionStatus: 'blocked',
+      attribution: 'EHF',
+      routeUses: ['/'],
+      retainedExternalUrl: null
+    }]
+  })).toContain('manifest[0]: blocked asset must not have localPath or sha256');
+});

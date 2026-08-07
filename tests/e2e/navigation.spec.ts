@@ -35,3 +35,20 @@ test('mobile menu locks page scroll and restores focus when dismissed', async ({
   await expect(page.locator('body')).not.toHaveClass(/menu-open/);
   await expect(trigger).toBeFocused();
 });
+
+test('desktop pointer-open dropdown closes with Escape and restores trigger focus', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop', 'desktop menu contract');
+  await page.goto('/');
+  const trigger = page.getByRole('button', { name: /^about$/i });
+  await trigger.hover();
+  await expect(page.getByRole('navigation', { name: /about submenu/i })).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('navigation', { name: /about submenu/i })).toBeHidden();
+  await expect(trigger).toBeFocused();
+});
+
+test('mobile viewport hides the desktop navigation', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile', 'mobile menu contract');
+  await page.goto('/');
+  await expect(page.locator('.desktop-nav')).toBeHidden();
+});

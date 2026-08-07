@@ -50,7 +50,11 @@ import MobileNav from './MobileNav.astro';
     if (!mobileMenu || !mobileRoot) return;
     mobileMenu.hidden = false;
     mobileRoot.hidden = false;
-    mobilePanels.forEach((panel) => { panel.hidden = true; });
+    mobileRoot.classList.remove('is-shifted');
+    mobilePanels.forEach((panel) => {
+      panel.hidden = true;
+      panel.classList.remove('is-active');
+    });
     trigger.setAttribute('aria-expanded', 'true');
     document.body.classList.add('menu-open');
     mobileClose?.focus();
@@ -59,8 +63,14 @@ import MobileNav from './MobileNav.astro';
   function closeMenu() {
     if (!mobileMenu || !mobileTrigger) return;
     mobileMenu.hidden = true;
-    mobilePanels.forEach((panel) => { panel.hidden = true; });
-    mobileRoot && (mobileRoot.hidden = false);
+    mobilePanels.forEach((panel) => {
+      panel.hidden = true;
+      panel.classList.remove('is-active');
+    });
+    if (mobileRoot) {
+      mobileRoot.hidden = false;
+      mobileRoot.classList.remove('is-shifted');
+    }
     mobileTrigger.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('menu-open');
     mobileTrigger.focus();
@@ -72,16 +82,21 @@ import MobileNav from './MobileNav.astro';
     button.addEventListener('click', () => {
       const panel = document.querySelector<HTMLElement>(`[data-mobile-folder="${button.dataset.mobileFolderOpen}"]`);
       if (!panel || !mobileRoot) return;
-      mobileRoot.hidden = true;
       panel.hidden = false;
+      requestAnimationFrame(() => {
+        mobileRoot.classList.add('is-shifted');
+        panel.classList.add('is-active');
+      });
       panel.querySelector<HTMLButtonElement>('[data-mobile-folder-back]')?.focus();
     });
   });
   document.querySelectorAll<HTMLButtonElement>('[data-mobile-folder-back]').forEach((button) => {
     button.addEventListener('click', () => {
       if (!mobileRoot) return;
-      mobilePanels.forEach((panel) => { panel.hidden = true; });
-      mobileRoot.hidden = false;
+      const panel = button.closest<HTMLElement>('[data-mobile-folder]');
+      panel?.classList.remove('is-active');
+      mobileRoot.classList.remove('is-shifted');
+      window.setTimeout(() => { if (panel) panel.hidden = true; }, 600);
     });
   });
 
@@ -91,9 +106,9 @@ import MobileNav from './MobileNav.astro';
       closeMenu();
       return;
     }
-    const activeFolder = desktopFolders.find((folder) => folder.contains(document.activeElement));
-    if (activeFolder) {
-      setDesktopFolder(activeFolder, false);
+    const openFolder = desktopFolders.find((folder) => folder.querySelector('[data-menu-trigger]')?.getAttribute('aria-expanded') === 'true');
+    if (openFolder) {
+      setDesktopFolder(openFolder, false);
       lastDesktopTrigger?.focus();
     }
   });

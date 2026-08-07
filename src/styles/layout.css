@@ -1,3 +1,27 @@
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  src: url('/assets/fonts/roboto-700-latin.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  src: url('/assets/fonts/roboto-700-latin.woff2') format('woff2');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: 300;
+  src: url('/assets/fonts/merriweather-300-latin.woff2') format('woff2');
+  font-display: swap;
+}
+
 .site-container {
   width: min(var(--content-width), calc(100% - (var(--gutter) * 2)));
   margin-inline: auto;
@@ -17,7 +41,7 @@
 .skip-link:focus { transform: translateY(0); }
 
 .site-header {
-  position: relative;
+  position: absolute;
   z-index: 10;
   display: flex;
   align-items: center;
@@ -95,8 +119,8 @@
 
 @media (max-width: 767px) {
   .site-header { min-height: var(--header-height); }
-  .site-header__brand { font-size: 18px; }
   .site-header__brand img { width: 237.3px; height: 39.98px; }
+  .desktop-nav { display: none; }
   .mobile-menu__trigger {
     display: inline-flex;
     margin-left: auto;
@@ -111,10 +135,22 @@
     position: fixed;
     inset: 0;
     z-index: 20;
+    overflow: hidden;
     padding-top: var(--header-height);
     background: var(--color-surface);
   }
-  .mobile-menu__panel { min-height: 100%; padding: 32px 27px 24px; }
+  .mobile-menu__panel {
+    min-height: 100%;
+    padding: 32px 27px 24px;
+    transition: transform var(--motion-menu) var(--motion-ease);
+  }
+  .mobile-menu__panel--children {
+    position: absolute;
+    inset: 0;
+    transform: translateX(100%);
+  }
+  [data-mobile-root].is-shifted { transform: translateX(-100%); }
+  .mobile-menu__panel--children.is-active { transform: translateX(0); }
   .mobile-menu__close { position: absolute; top: 20px; right: 23px; font-size: 32px; }
   .mobile-menu nav ul { display: grid; align-items: start; gap: 11px; }
   .mobile-menu nav a, .mobile-menu nav button {
