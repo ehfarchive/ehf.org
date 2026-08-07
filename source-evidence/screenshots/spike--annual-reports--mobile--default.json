@@ -1,0 +1,24 @@
+{
+  "sourceUrl": "https://www.ehf.org/annual-reports",
+  "route": "/annual-reports",
+  "viewport": {
+    "name": "mobile",
+    "width": 390,
+    "height": 844
+  },
+  "state": "default",
+  "capturedAt": "2026-08-07T07:40:21Z",
+  "documentHeight": 848,
+  "consoleErrors": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 404 ()",
+      "location": null
+    }
+  ],
+  "failedRequests": [
+    {
+      "url": "https://www.ehf.org/annual-reports",
+      "failure": "HTTP 404"
+    }
+  ]
+}
