@@ -2,7 +2,26 @@
   font-family: Roboto;
   font-style: normal;
   font-weight: 700;
+  src: url('/assets/fonts/roboto-700-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+1E00-1EFF;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
   src: url('/assets/fonts/roboto-700-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  src: url('/assets/fonts/roboto-700-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+1E00-1EFF;
   font-display: swap;
 }
 
@@ -11,6 +30,16 @@
   font-style: normal;
   font-weight: 900;
   src: url('/assets/fonts/roboto-700-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Merriweather;
+  font-style: normal;
+  font-weight: 300;
+  src: url('/assets/fonts/merriweather-300-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+1E00-1EFF;
   font-display: swap;
 }
 
@@ -19,6 +48,7 @@
   font-style: normal;
   font-weight: 300;
   src: url('/assets/fonts/merriweather-300-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF;
   font-display: swap;
 }
 
@@ -42,6 +72,7 @@
 
 .site-header {
   position: absolute;
+  inset-inline: 0;
   z-index: 10;
   display: flex;
   align-items: center;

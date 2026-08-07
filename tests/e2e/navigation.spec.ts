@@ -52,3 +52,33 @@ test('mobile viewport hides the desktop navigation', async ({ page }, testInfo) 
   await page.goto('/');
   await expect(page.locator('.desktop-nav')).toBeHidden();
 });
+
+test('desktop shell spans the viewport and registers local latin-ext faces', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop', 'desktop typography contract');
+  await page.goto('/');
+  const shell = await page.evaluate(() => {
+    const fonts = [...document.styleSheets].flatMap((sheet) => {
+      try {
+        return [...sheet.cssRules]
+          .filter((rule): rule is CSSFontFaceRule => rule instanceof CSSFontFaceRule)
+          .map((rule) => ({
+            family: rule.style.fontFamily,
+            weight: rule.style.fontWeight,
+            range: rule.style.getPropertyValue('unicode-range'),
+            source: rule.style.getPropertyValue('src')
+          }));
+      } catch {
+        return [];
+      }
+    });
+    const header = document.querySelector('.site-header')?.getBoundingClientRect();
+    return { fonts, header: header && { left: header.left, width: header.width }, viewportWidth: innerWidth };
+  });
+
+  expect(shell.header).toEqual({ left: 0, width: shell.viewportWidth });
+  expect(shell.fonts).toEqual(expect.arrayContaining([
+    expect.objectContaining({ family: 'Roboto', weight: '700', range: expect.stringContaining('U+100'), source: expect.stringContaining('roboto-700-latin-ext') }),
+    expect.objectContaining({ family: 'Roboto', weight: '900', range: expect.stringContaining('U+100'), source: expect.stringContaining('roboto-700-latin-ext') }),
+    expect.objectContaining({ family: 'Merriweather', weight: '300', range: expect.stringContaining('U+100'), source: expect.stringContaining('merriweather-300-latin-ext') })
+  ]));
+});
