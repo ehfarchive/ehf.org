@@ -89,7 +89,7 @@ The shared shell preserves these source-relative local paths, but Stage 1 does n
 | Metric | Evidence and value |
 |---|---|
 | Runtime | `openai-codex/gpt-5.6-terra`; Node `v25.8.0`; npm `11.17.0`. |
-| Observed Stage 1 implementation baseline | 5 h 24 m 16 s from the first spike capture commit (2026-08-07 16:02:53 +08:00) through the final application/test commit (2026-08-07 21:27:09 +08:00). The evidence-refresh run changed no source implementation. |
+| Observed Stage 1 implementation baseline | 6 h 44 m 56 s of elapsed wall-clock time from the first spike capture commit (2026-08-07 16:02:53 +08:00) through `a912aae90fa877bfbc469fa4aad21fa4734d881e`, the final application/test commit (2026-08-07 22:47:49 +08:00). This scope includes Stage 1 application/test work through that endpoint and excludes the subsequent evidence-refresh/report commit, which changed no source implementation. |
 | Timed production build | Definitive capture: 3.10 s wall time and 343 ms for 4 pages after checking 29 files with no diagnostics. Post-report rerun: 3.10 s wall time and 341 ms for the same 4 pages and diagnostics. |
 | Generated route count | 4. |
 | `dist/` size | 32,894,171 bytes. |
@@ -108,7 +108,7 @@ The shared shell preserves these source-relative local paths, but Stage 1 does n
 4. **Can shared navigation and footer work without a site-wide client framework? — Yes.** Astro component scripts provide the interactive shell, and navigation tests cover desktop/mobile pointer and keyboard behavior.
 5. **Can desktop and mobile fidelity be reached with reusable CSS? — Yes, for the approved bar.** Tokens and template CSS support all 11 states; the five bounded P3 items remain explicit.
 6. **Can remaining pages reuse these primitives rather than needing mostly unique templates? — Supported, not proven or authorized.** The four output types reuse the shell, navigation data, tokens, and template CSS; uncaptured routes need separate evidence.
-7. **What elapsed time should replace the original full-site estimate? — Use the observed 5 h 24 m Stage 1 baseline, or 1.35 engineer-hours per fixed route only under comparable content depth, plus route-specific capture and verification.** It is not a Stage 2 commitment.
+7. **What elapsed time should replace the original full-site estimate? — Use the observed 6 h 44 m 56 s Stage 1 elapsed wall-clock baseline, or 1 h 41 m 14 s elapsed per fixed route only under comparable content depth, plus route-specific capture and verification.** It is not a Stage 2 commitment.
 
 ## Report self-review
 
