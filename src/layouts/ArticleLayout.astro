@@ -21,6 +21,7 @@ const nextTitle = "Harnessing Pine Pollen's Power to Transform Wellbeing";
     <div class="article-page__body"><slot /></div>
     {nextSlug && <nav class="article-page__next" aria-label="Article navigation">
       <a href={`/read/${nextSlug}`}>{nextTitle}</a>
+      <span class="article-page__next-chevron" aria-hidden="true">›</span>
     </nav>}
   </article>
 </SiteLayout>

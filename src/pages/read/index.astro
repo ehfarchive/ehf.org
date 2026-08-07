@@ -20,7 +20,7 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 </SiteLayout>
 <script>
   const masonry = document.querySelector<HTMLElement>('[data-read-masonry]');
-  const gap = 103;
+  const gap = 104;
 
   const resetCards = (cards: HTMLElement[]) => {
     masonry?.style.removeProperty('height');
@@ -39,21 +39,26 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
       return;
     }
 
+    resetCards(cards);
     const width = (masonry.clientWidth - (51 * 3)) / 4;
+    const cardHeights = cards.map((card) => Math.round(card.getBoundingClientRect().height));
     const columnHeights = [0, 0, 0, 0];
     cards.forEach((card, index) => {
-      const column = index % 4;
+      const column = columnHeights.indexOf(Math.min(...columnHeights));
       const top = columnHeights[column];
       card.style.position = 'absolute';
       card.style.width = `${width}px`;
       card.style.transform = `translate(${column * (width + 51)}px, ${top}px)`;
-      columnHeights[column] = top + card.getBoundingClientRect().height + gap;
+      columnHeights[column] = top + cardHeights[index] + gap;
     });
     masonry.style.height = `${Math.max(...columnHeights) - gap}px`;
   };
 
-  window.addEventListener('resize', layoutMasonry);
-  window.addEventListener('load', layoutMasonry);
-  document.fonts?.ready.then(layoutMasonry);
-  layoutMasonry();
+  const scheduleMasonry = () => requestAnimationFrame(layoutMasonry);
+
+  window.addEventListener('resize', scheduleMasonry);
+  window.addEventListener('load', scheduleMasonry);
+  document.fonts?.ready.then(scheduleMasonry);
+  document.fonts?.addEventListener('loadingdone', scheduleMasonry);
+  scheduleMasonry();
 </script>

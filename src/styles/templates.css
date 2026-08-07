@@ -52,24 +52,44 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
 .organisation-overview p:last-child { margin-bottom: 0; }
 
 .read-page { padding-top: calc(var(--header-height) + 29px); padding-bottom: 161px; }
-.read-masonry { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 103px 51px; }
-.post-card { min-width: 0; }
+.read-masonry { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 104px 51px; }
+.post-card { min-width: 0; align-self: start; }
 .post-card__image { display: block; }
 .post-card img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+.post-card--landscape img { aspect-ratio: 343 / 288; }
 .post-card h2 { margin: 25px 0 0; font-size: var(--text-lead); line-height: var(--lh-card); }
 .post-card h2 a { color: var(--color-ink); text-decoration: none; }
 .post-card p { margin: 16px 0 0; }
-.read-page__older { display: block; margin-top: 24px; color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-body); text-align: right; }
+.read-page__older { display: block; margin-top: 24px; color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-body); line-height: var(--lh-body); text-align: right; }
 
-.article-page { max-width: var(--prose-width); padding-top: calc(var(--header-height) + 28.8px); padding-bottom: 46px; }
-.article-page__header h1 { margin: 0 0 65px; font-size: var(--text-display); line-height: var(--lh-article-display); text-align: center; }
-.article-page__body h2, .article-page__body h3 { margin: 34px 0 30px; color: var(--color-ink); font-family: var(--font-display); font-size: var(--text-sub); font-weight: var(--weight-heading); letter-spacing: var(--tracking); line-height: var(--lh-sub); }
-.article-page__body p, .article-page__body li { font-family: var(--font-body); font-size: var(--text-body); font-weight: var(--weight-body); line-height: 1.8; }
+.article-page { max-width: var(--prose-width); padding-top: calc(var(--header-height) + 28.8px); padding-bottom: 44.86px; }
+.article-page__header h1 { margin: 0 0 68px; font-size: var(--text-display); line-height: var(--lh-article-display); text-align: center; }
+.article-page__body p,
+.article-page__body li,
+.article-page__body figcaption {
+  font-family: var(--font-body);
+  font-size: 20px;
+  font-weight: var(--weight-body);
+  line-height: var(--lh-body);
+}
+.article-page__body p,
+.article-page__body li { margin-block: 16px; }
 .article-page__body a { color: var(--color-brand); }
-.article-page__body figure, .article-page__body blockquote { margin-inline: 0; }
+.article-page__body blockquote { margin-block: 19.456px; margin-inline: 40px; }
+.article-page__body h2,
+.article-page__body h3 {
+  margin: 32.4px 0;
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: var(--text-sub);
+  font-weight: var(--weight-heading);
+  letter-spacing: var(--tracking);
+  line-height: var(--lh-sub);
+}
+.article-page__body figure { margin: 34px 0 50px; }
 /* Source never upscales body imagery past its natural width; the Sargassum
    figure renders 940px wide and centred inside the 1078.27px prose column. */
-.article-page__body img { display: block; width: auto; max-width: 100%; margin: 40px auto 0; }
+.article-page__body img { display: block; width: auto; max-width: 100%; margin: 0 auto; }
 /* Source art-directs individual article assets. Hooks live in the Markdown so
    figure treatment remains scoped to the matching source asset. */
 .article-page__body p:has(> .article-portrait) { margin: 0; }
@@ -82,21 +102,34 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
   object-fit: cover;
   object-position: 48.4% 35.2%;
 }
-.article-page__body .article-lede { font-style: italic; }
-.article-page__body .article-figure--dsc-crop > img {
-  width: 100%;
-  height: 362px;
-  margin: 40px 0 0;
-  object-fit: cover;
-}
+.article-page__body .article-lede { font-style: italic; margin-bottom: 34px; }
+.article-page__body .article-section-break { margin-top: 34px; }
+.article-page__body figcaption { margin-top: 16px; }
+.article-page__body .article-figure--dsc-crop > img { width: 100%; height: auto; margin: 0; }
 .article-page__body .article-figure--engineer-float {
   float: right;
-  width: 448px;
-  margin: 40px 0 32px 40px;
+  width: 522.13px;
+  margin: 0 0 32px 40px;
 }
-.article-page__body .article-figure--engineer-float > img { width: 100%; margin: 0; }
-.article-page__next { margin-top: 88px; font-family: var(--font-display); font-size: var(--text-sub); font-weight: var(--weight-heading); line-height: var(--lh-sub); text-align: right; }
-.article-page__next a { color: var(--color-brand); }
+.article-page__body .article-figure--engineer-float > img {
+  width: 100%;
+  height: 259px;
+  margin: 0;
+  object-fit: cover;
+}
+.article-page__next {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 28px;
+  margin-top: 132.74px;
+  margin-right: -152.07px;
+  font-family: var(--font-display);
+  font-size: var(--text-sub);
+  font-weight: var(--weight-heading);
+  line-height: var(--lh-sub);
+}
+.article-page__next a { color: var(--color-brand); text-decoration: none; }
 
 .annual-report { padding-top: calc(var(--header-height) + 98.2px); padding-bottom: 43px; }
 .annual-report > h1 { max-width: 918px; margin: 0 auto 114.65px; font-size: var(--text-heading); line-height: var(--lh-heading); text-align: center; }
@@ -120,16 +153,26 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
   .read-page { padding-top: calc(var(--header-height) + 8.2px); padding-bottom: 96px; }
   .read-masonry { display: grid; grid-template-columns: 1fr; row-gap: 26px; }
   .post-card { margin: 0; }
-  .post-card h2 { margin-top: 27px; }
-  .article-page { padding-top: calc(var(--header-height) + 24px); }
+  .article-page { padding-top: calc(var(--header-height) + 24px); padding-bottom: 11.35px; }
+  .article-page__header h1 { margin-bottom: 71px; }
+  .article-page__body p,
+  .article-page__body li,
+  .article-page__body figcaption { font-size: 18.9px; }
+  .article-page__body blockquote { margin-block: 18.0256px; }
   .article-page__body .article-portrait {
     float: none;
     width: 326.22px;
     height: 258.61px;
-    margin: 40px auto 0;
+    margin: 0 0 34px auto;
   }
-  .article-page__body .article-figure--engineer-float { float: none; width: auto; margin: 40px 0 0; }
-  .article-page__body .article-figure--engineer-float > img { width: auto; margin: 0 auto; }
+  .article-page__body .article-figure--engineer-float {
+    float: none;
+    width: 326.22px;
+    margin: 34px 0 50px auto;
+  }
+  .article-page__body .article-figure--engineer-float > img { height: 163px; }
+  .article-page__next { margin-top: 63.67px; margin-right: 0; line-height: 20.05px; }
+  .article-page__next a { display: block; max-width: 118px; text-align: right; }
   .annual-report { padding-top: calc(var(--header-height) + 54.8px); padding-bottom: 46px; }
   .annual-report > h1 { margin-bottom: 110.5px; }
   .annual-report__grid { grid-template-columns: 1fr; gap: 51.3px; }

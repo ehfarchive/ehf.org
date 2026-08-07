@@ -50,7 +50,8 @@ test('the archive preserves all 20 source cards in source order', async ({ page 
   await expect(page.getByRole('link', { name: 'Older Posts' })).toBeVisible();
 });
 
-test('the archive uses row-first desktop masonry and a single source-order stack on mobile', async ({ page }, testInfo) => {
+test('the archive uses a single source-order stack on mobile', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile', 'mobile stack contract');
   await page.goto('/read');
 
   const positions = await page.locator('[data-read-card]').evaluateAll((cards) => cards.slice(0, 4).map((card) => {
@@ -58,33 +59,45 @@ test('the archive uses row-first desktop masonry and a single source-order stack
     return { left: Math.round(left), top: Math.round(top) };
   }));
 
-  if (testInfo.project.name === 'desktop') {
-    expect(positions.map(({ top }) => top)).toEqual([positions[0].top, positions[0].top, positions[0].top, positions[0].top]);
-    expect(positions.map(({ left }) => left)).toEqual([...positions.map(({ left }) => left)].sort((a, b) => a - b));
-  } else {
-    expect(positions.map(({ left }) => left)).toEqual([positions[0].left, positions[0].left, positions[0].left, positions[0].left]);
-    expect(positions.map(({ top }) => top)).toEqual([...positions.map(({ top }) => top)].sort((a, b) => a - b));
-  }
+  expect(positions.map(({ left }) => left)).toEqual([positions[0].left, positions[0].left, positions[0].left, positions[0].left]);
+  expect(positions.map(({ top }) => top)).toEqual([...positions.map(({ top }) => top)].sort((a, b) => a - b));
 });
 
-test('desktop archive assigns each following row to the matching source-order column', async ({ page }, testInfo) => {
+test('desktop archive places each card in the true shortest source column', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'desktop', 'desktop masonry contract');
   await page.goto('/read');
 
-  const { cards, rowGap } = await page.locator('[data-read-masonry]').evaluate((masonry) => ({
-    cards: [...masonry.querySelectorAll<HTMLElement>('[data-read-card]')].slice(0, 8).map((card) => {
-      const { left, top, bottom } = card.getBoundingClientRect();
-      return { left, top, bottom };
-    }),
-    rowGap: Number.parseFloat(getComputedStyle(masonry).rowGap)
+  const cards = await page.locator('[data-read-card]').evaluateAll((nodes) => nodes.slice(0, 6).map((card) => {
+    const { left, top } = card.getBoundingClientRect();
+    return { left: Math.round(left), top: Math.round(top) };
   }));
+  const columns = cards.slice(0, 4).map(({ left }) => left);
 
-  for (let index = 0; index < 4; index += 1) {
-    const firstRowCard = cards[index];
-    const secondRowCard = cards[index + 4];
-    expect(secondRowCard.left).toBeCloseTo(firstRowCard.left, 0);
-    expect(secondRowCard.top).toBeCloseTo(firstRowCard.bottom + rowGap, 0);
-  }
+  expect(cards.map(({ left }) => columns.indexOf(left))).toEqual([0, 1, 2, 3, 2, 0]);
+  expect(cards[4].top).toBeLessThan(cards[5].top);
+});
+
+test('only the Awa/River card preserves its source landscape image ratio', async ({ page }) => {
+  await page.goto('/read');
+
+  const awaImage = page.getByRole('heading', { name: 'The Awa/River Story Inspiring Connection & Action' })
+    .locator('..')
+    .locator('img');
+  const { width, height } = await awaImage.evaluate((image) => {
+    const rect = image.getBoundingClientRect();
+    return { width: rect.width, height: rect.height };
+  });
+
+  expect(width / height).toBeCloseTo(343 / 288, 2);
+});
+
+test('Older Posts uses the measured body line box', async ({ page }, testInfo) => {
+  await page.goto('/read');
+
+  const lineHeight = await page.getByRole('link', { name: 'Older Posts' }).evaluate(
+    (link) => Number.parseFloat(getComputedStyle(link).lineHeight)
+  );
+  expect(lineHeight).toBeCloseTo(testInfo.project.name === 'desktop' ? 35.0208 : 32.4461, 2);
 });
 
 test('only the accepted impact Markdown article is generated', async ({ page }) => {
@@ -139,22 +152,84 @@ test('the article omits unsourced author chrome and keeps a title-only next link
   await expect(next.getByRole('link', { name: "Harnessing Pine Pollen's Power to Transform Wellbeing" })).toBeVisible();
 });
 
-test('the article applies source-backed art direction hooks', async ({ page }, testInfo) => {
+test('the article uses the rotated source images, semantic credits, and stable section hook', async ({ page }) => {
   await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
 
-  const portrait = page.locator('.article-portrait');
-  const dsc = page.locator('.article-figure--dsc-crop');
-  const engineer = page.locator('.article-figure--engineer-float');
-  await expect(portrait).toHaveCount(1);
-  await expect(dsc).toHaveCount(1);
-  await expect(engineer).toHaveCount(1);
-  await expect(page.locator('.article-lede')).toHaveCSS('font-style', 'italic');
+  await expect(page.locator('.article-figure--dsc-crop img')).toHaveAttribute('src', '/assets/images/article/chemergy-figure-1.webp');
+  await expect(page.locator('.article-page__body figure').nth(1).locator('img')).toHaveAttribute('src', '/assets/images/article/chemergy-figure-2.webp');
+  await expect(page.locator('.article-figure--engineer-float img')).toHaveAttribute('src', '/assets/images/article/dsc-3025.webp');
+  await expect(page.locator('.article-page__body figcaption em')).toHaveCount(4);
+  await expect(page.locator('.article-section-break')).toHaveCount(1);
+});
 
-  if (testInfo.project.name === 'desktop') {
-    await expect(dsc.locator('img')).toHaveJSProperty('clientHeight', 362);
-    await expect(engineer).toHaveCSS('float', 'right');
+test('the article applies measured type, figure, and pagination geometry', async ({ page }, testInfo) => {
+  await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
+
+  const mobile = testInfo.project.name === 'mobile';
+  const bodyMetrics = await page.locator('.article-page__body > p').nth(1).evaluate((paragraph) => {
+    const styles = getComputedStyle(paragraph);
+    return { fontSize: Number.parseFloat(styles.fontSize), lineHeight: Number.parseFloat(styles.lineHeight) };
+  });
+  expect(bodyMetrics.fontSize).toBeCloseTo(mobile ? 18.9 : 20, 1);
+  expect(bodyMetrics.lineHeight).toBeCloseTo(mobile ? 32.4461 : 35.0208, 2);
+  await expect(page.locator('.article-page__header h1')).toHaveCSS('margin-bottom', mobile ? '71px' : '68px');
+  await expect(page.locator('.article-page__body blockquote').first()).toHaveCSS('margin-left', '40px');
+  await expect(page.locator('.article-page__body figcaption').first()).toHaveCSS('margin-top', '16px');
+  await expect(page.locator('.article-page__body h2').first()).toHaveCSS('margin-top', '32.4px');
+  await expect(page.locator('.article-section-break')).toHaveCSS('margin-top', '34px');
+
+  const dsc = page.locator('.article-figure--dsc-crop img');
+  const engineer = page.locator('.article-figure--engineer-float img');
+  const dscBox = await dsc.boundingBox();
+  const engineerBox = await engineer.boundingBox();
+  expect(dscBox?.height).toBeCloseTo(mobile ? 124.96 : 392.39, 0);
+  expect(engineerBox?.height).toBeCloseTo(mobile ? 163 : 259, 0);
+
+  const next = page.getByRole('navigation', { name: 'Article navigation' });
+  await expect(next).toHaveCSS('display', 'flex');
+  await expect(next).toHaveCSS('gap', '28px');
+  await expect(next.getByRole('link')).toHaveCSS('text-decoration-line', 'none');
+  await expect(next.locator('.article-page__next-chevron')).toHaveText('›');
+
+  if (mobile) {
+    expect(await next.getByRole('link').evaluate((link) => {
+      const range = document.createRange();
+      range.selectNodeContents(link);
+      return range.getClientRects().length;
+    })).toBe(5);
   } else {
-    await expect(portrait).toHaveJSProperty('clientWidth', 326);
+    await expect(engineer).toHaveCSS('object-fit', 'cover');
+    await expect(page.locator('.article-figure--engineer-float')).toHaveCSS('float', 'right');
+  }
+});
+
+test('every spike route has a centered wrapping footer with no horizontal overflow', async ({ page }, testInfo) => {
+  for (const route of spikeRoutes) {
+    await page.goto(route);
+    await page.evaluate(async () => {
+      await document.fonts.load('700 22.912px Roboto', '© Edmund Hillary Fellowship 2016 - 2026');
+      await document.fonts.ready;
+    });
+    const metrics = await page.locator('.site-footer').evaluate((footer) => {
+      const styles = getComputedStyle(footer);
+      const footerBox = footer.getBoundingClientRect();
+      const copyright = footer.querySelector('p')!.getBoundingClientRect();
+      const nav = footer.querySelector('nav')!.getBoundingClientRect();
+      return {
+        footerHeight: footerBox.height,
+        gap: nav.top - copyright.bottom,
+        justifyContent: styles.justifyContent,
+        paddingTop: styles.paddingTop,
+        paddingBottom: styles.paddingBottom,
+        scrollWidth: document.documentElement.scrollWidth
+      };
+    });
+
+    expect(metrics.footerHeight).toBeCloseTo(testInfo.project.name === 'mobile' ? 278.52 : 330, 0);
+    expect(metrics.justifyContent).toBe('center');
+    expect(metrics.paddingTop).toBe(metrics.paddingBottom);
+    expect(metrics.gap).toBeCloseTo(32, 0);
+    expect(metrics.scrollWidth).toBe(testInfo.project.name === 'mobile' ? 390 : 1440);
   }
 });
 

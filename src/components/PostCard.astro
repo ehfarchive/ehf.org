@@ -6,11 +6,12 @@ interface Props {
   image: string;
   imageAlt: string;
   focal?: string;
+  landscape?: boolean;
 }
 
-const { title, href, excerpt, image, imageAlt, focal = '50% 50%' } = Astro.props;
+const { title, href, excerpt, image, imageAlt, focal = '50% 50%', landscape = false } = Astro.props;
 ---
-<article class="post-card" data-read-card>
+<article class={`post-card${landscape ? ' post-card--landscape' : ''}`} data-read-card>
   <a class="post-card__image" href={href} aria-label={title}>
     <img src={image} alt={imageAlt} loading="eager" style={`object-position: ${focal}`} />
   </a>

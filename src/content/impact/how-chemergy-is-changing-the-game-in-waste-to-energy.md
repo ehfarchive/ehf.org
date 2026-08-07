@@ -17,8 +17,8 @@ Melahn is one of the minds and founders behind Chemergy, a cleantech venture tha
 At the core of Chemergy's work is the HyBrTec technology, a groundbreaking process that converts organic matter and plastic waste into hydrogen, pressurized CO₂, heat, and inorganic fertiliser. The process breaks down complex and difficult waste materials with innovative chemistry to turn these environmental liabilities into valuable resources. By transforming waste into usable products, Chemergy is addressing the challenges of waste management, clean energy production, sustainable feedstock production, and decarbonisation.
 
 <figure class="article-figure--dsc-crop">
-  <img src="/assets/images/article/dsc-3025.webp" alt="HyBrTec technology. Image: Chemergy" loading="eager" />
-  <figcaption>HyBrTec technology. Image: Chemergy</figcaption>
+  <img src="/assets/images/article/chemergy-figure-1.webp" alt="HyBrTec technology. Image: Chemergy" loading="eager" />
+  <figcaption>HyBrTec technology. <em>Image: Chemergy</em></figcaption>
 </figure>
 
 Melahn's vision extends beyond just developing technology; it aims to make a tangible impact on the environment and the global community, offering a scalable solution that can be implemented worldwide to reduce pollution and promote sustainable energy practices.
@@ -30,8 +30,8 @@ Melahn explains:
 Notably, Chemergy's platform stands out for its efficiency; it operates using 50% less electricity compared to traditional methods while also producing more hydrogen from the same feedstock and avoiding the need for drying as water is a co-reactant. Because electricity is used in the process, the system adds further value by being a flexible load in a resilient grid that encourages the adoption of more intermittent renewable energy.
 
 <figure>
-  <img src="/assets/images/article/chemergy-figure-1.webp" alt="Competitive advantages of HyBrTec. Image: Chemergy" loading="eager" />
-  <figcaption>Competitive advantages of HyBrTec. Image: Chemergy</figcaption>
+  <img src="/assets/images/article/chemergy-figure-2.webp" alt="Competitive advantages of HyBrTec. Image: Chemergy" loading="eager" />
+  <figcaption>Competitive advantages of HyBrTec. <em>Image: Chemergy</em></figcaption>
 </figure>
 
 ## Practical Implementation and Community Resilience
@@ -47,8 +47,8 @@ Melahn says:
 ## Future Goals and Vision
 
 <figure class="article-figure--engineer-float">
-  <img src="/assets/images/article/chemergy-figure-2.webp" alt="Melahn being an engineer. Image: Chemergy" loading="eager" />
-  <figcaption>Melahn being an engineer. Image: Chemergy</figcaption>
+  <img src="/assets/images/article/dsc-3025.webp" alt="Melahn being an engineer. Image: Chemergy" loading="eager" />
+  <figcaption>Melahn being an engineer. <em>Image: Chemergy</em></figcaption>
 </figure>
 
 Looking ahead, Chemergy aims to revolutionise waste management with its plans for a household appliance that processes kitchen, toilet, postal, and yard waste into renewable hydrogen and heat. This innovation could transform household waste management, offering economic incentives to keep waste off the streets and significantly reduce its environmental impacts. Much like ice production moved from large central plants to domestic fridges in every home in the past century, HyBrTec offers a path to truly distributed waste elimination.
@@ -65,7 +65,7 @@ Chemergy's approach has not gone unnoticed. Recently, the company received a US$
 
 <figure>
   <img src="/assets/images/article/chemergy-hero.webp" alt="Sargassum Seaweed on Miami Beach, 21 June 2018. Image: Michael Montero/UM News" loading="eager" />
-  <figcaption>Sargassum Seaweed on Miami Beach, 21 June 2018. Image: Michael Montero/UM News</figcaption>
+  <figcaption>Sargassum Seaweed on Miami Beach, 21 June 2018. <em>Image: Michael Montero/UM News</em></figcaption>
 </figure>
 
 During the recent 2025 Hillary Innovation Summit, Melahn connected with Ara Ake, NZ's energy innovation agency, and multiple private stakeholders in the waste and energy value chain where he explored potential test cases and the opportunities and gaps in Aotearoa.
@@ -76,6 +76,6 @@ HyBrTec is well placed to solve the solids burden from wastewater treatment as w
 
 Melahn's work with Chemergy illustrates the profound difference that innovative, scalable solutions can make in addressing climate challenges. By transforming waste into green hydrogen and valuable resources, Chemergy is not only advancing waste-to-energy technology but also enabling community resilience. His work embodies the impactful, forward-thinking solutions that EHF Fellows are creating to tackle some of the world's most critical challenges, proving that transformative technology can drive meaningful environmental and societal change.
 
-To learn more about Chemergy, visit <a href="https://www.chemergy.co" target="_blank" rel="noopener noreferrer"><span>www</span><span>.</span><span>chemergy</span><span>.co</span></a>.
+<p class="article-section-break">To learn more about Chemergy, visit <a href="https://www.chemergy.co" target="_blank" rel="noopener noreferrer"><span>www</span><span>.</span><span>chemergy</span><span>.co</span></a>.</p>
 
 Melahn is part of the Fellow group Manu Tukutuku, which had its Welcome Experience in 2023. Learn more about Melahn via the Fellow Directory on our website.
