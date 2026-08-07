@@ -67,26 +67,24 @@ test('the archive uses row-first desktop masonry and a single source-order stack
   }
 });
 
-test('desktop archive places card five below the shortest first-row card', async ({ page }, testInfo) => {
+test('desktop archive assigns each following row to the matching source-order column', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'desktop', 'desktop masonry contract');
   await page.goto('/read');
 
   const { cards, rowGap } = await page.locator('[data-read-masonry]').evaluate((masonry) => ({
-    cards: [...masonry.querySelectorAll<HTMLElement>('[data-read-card]')].slice(0, 5).map((card) => {
+    cards: [...masonry.querySelectorAll<HTMLElement>('[data-read-card]')].slice(0, 8).map((card) => {
       const { left, top, bottom } = card.getBoundingClientRect();
       return { left, top, bottom };
     }),
     rowGap: Number.parseFloat(getComputedStyle(masonry).rowGap)
   }));
-  const firstRow = cards.slice(0, 4);
-  const shortestIndex = firstRow.reduce((shortest, card, index) => card.bottom < firstRow[shortest].bottom ? index : shortest, 0);
-  const shortest = firstRow[shortestIndex];
-  const fifth = cards[4];
 
-  expect(fifth.left).toBeCloseTo(shortest.left, 0);
-  expect(fifth.top).toBeCloseTo(shortest.bottom + rowGap, 0);
-  const tallestBottom = Math.max(...firstRow.map(({ bottom }) => bottom));
-  expect(fifth.top).toBeLessThan(tallestBottom + rowGap - 1);
+  for (let index = 0; index < 4; index += 1) {
+    const firstRowCard = cards[index];
+    const secondRowCard = cards[index + 4];
+    expect(secondRowCard.left).toBeCloseTo(firstRowCard.left, 0);
+    expect(secondRowCard.top).toBeCloseTo(firstRowCard.bottom + rowGap, 0);
+  }
 });
 
 test('only the accepted impact Markdown article is generated', async ({ page }) => {
@@ -132,9 +130,46 @@ test('the archive has only a semantic hidden heading', async ({ page }) => {
   await expect(page.locator('.read-page > h1')).toHaveClass(/visually-hidden/);
 });
 
-test('the generated article includes its decorative author avatar', async ({ page }) => {
+test('the article omits unsourced author chrome and keeps a title-only next link', async ({ page }) => {
   await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
-  const avatar = page.locator('img[src="/assets/images/article/author-avatar.webp"]');
-  await expect(avatar).toHaveCount(1);
-  await expect(avatar).toHaveAttribute('alt', '');
+
+  await expect(page.locator('img[src="/assets/images/article/author-avatar.webp"]')).toHaveCount(0);
+  const next = page.getByRole('navigation', { name: 'Article navigation' });
+  await expect(next).not.toContainText('Next');
+  await expect(next.getByRole('link', { name: "Harnessing Pine Pollen's Power to Transform Wellbeing" })).toBeVisible();
+});
+
+test('the article applies source-backed art direction hooks', async ({ page }, testInfo) => {
+  await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
+
+  const portrait = page.locator('.article-portrait');
+  const dsc = page.locator('.article-figure--dsc-crop');
+  const engineer = page.locator('.article-figure--engineer-float');
+  await expect(portrait).toHaveCount(1);
+  await expect(dsc).toHaveCount(1);
+  await expect(engineer).toHaveCount(1);
+  await expect(page.locator('.article-lede')).toHaveCSS('font-style', 'italic');
+
+  if (testInfo.project.name === 'desktop') {
+    await expect(dsc.locator('img')).toHaveJSProperty('clientHeight', 362);
+    await expect(engineer).toHaveCSS('float', 'right');
+  } else {
+    await expect(portrait).toHaveJSProperty('clientWidth', 326);
+  }
+});
+
+test('the footer keeps semantic links while permitting source-like inline wrapping', async ({ page }, testInfo) => {
+  await page.goto('/');
+
+  const footer = page.locator('.site-footer');
+  await expect(footer.getByRole('heading')).toHaveCount(0);
+  const items = footer.locator('nav ul > li');
+  await expect(items).toHaveCount(6);
+  expect(await items.evaluateAll((nodes) => nodes.map((node) => getComputedStyle(node).display))).toEqual(
+    Array(6).fill('inline')
+  );
+
+  if (testInfo.project.name === 'mobile') {
+    expect(await footer.locator('strong', { hasText: 'Closure Statement' }).evaluate((node) => node.getClientRects().length)).toBe(2);
+  }
 });

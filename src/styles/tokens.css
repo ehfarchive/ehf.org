@@ -12,8 +12,18 @@
   --weight-body: 300;
   --text-display: 60.928px;
   --text-heading: 40.192px;
+  --text-lead: 33.28px;
+  --text-sub: 22.912px;
   --text-nav: 16px;
   --text-body: 19.456px;
+  --lh-display: 70.9689px;
+  --lh-article-display: 70.0672px;
+  --lh-heading: 49.3236px;
+  --lh-lead: 41.5334px;
+  --lh-card: 43.264px;
+  --lh-sub: 29.309px;
+  --lh-body: 35.0208px;
+  --tracking: -0.015em;
   /* visual handoff §§3.4, 4.2 */
   --content-width: 1382.41px;
   --prose-width: 1078.27px;
@@ -31,7 +41,16 @@
     /* visual handoff §§3.2, 3.4, 4.2 */
     --text-display: 42.3328px;
     --text-heading: 30.1792px;
+    --text-lead: 26.128px;
+    --text-sub: 20.0512px;
     --text-body: 18.0256px;
+    --lh-display: 49.3092px;
+    --lh-article-display: 48.6827px;
+    --lh-heading: 37.0359px;
+    --lh-lead: 32.6077px;
+    --lh-card: 33.9664px;
+    --lh-sub: 25.6495px;
+    --lh-body: 32.4461px;
     --content-width: 343.22px;
     --gutter: 23.39px;
     --header-height: 86.7656px;

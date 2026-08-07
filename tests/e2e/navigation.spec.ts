@@ -148,7 +148,14 @@ test('mobile dialog covers the captured viewport', async ({ page }, testInfo) =>
   await page.getByRole('button', { name: 'Open menu', exact: true }).click();
   expect(await page.getByRole('dialog', { name: /site navigation/i }).evaluate((element) => {
     const rect = element.getBoundingClientRect();
-    return { left: rect.left, top: rect.top, width: rect.width, height: rect.height, viewportWidth: innerWidth, viewportHeight: innerHeight };
+    return {
+      left: rect.left,
+      top: rect.top,
+      width: rect.width,
+      height: rect.height,
+      viewportWidth: document.documentElement.clientWidth,
+      viewportHeight: document.documentElement.clientHeight
+    };
   })).toEqual({ left: 0, top: 0, width: 390, height: 844, viewportWidth: 390, viewportHeight: 844 });
 });
 

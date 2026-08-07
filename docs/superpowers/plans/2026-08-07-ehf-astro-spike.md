@@ -632,7 +632,7 @@ Commit only completed, reviewable boundaries: initial project boundary; accepted
   }
   ```
 
-  It renders one semantic article/card with an `/assets/...` image and a source-relative article link. `ArticleLayout.astro` accepts the same article fields plus rendered Markdown and optional accepted next-article data; it renders source-faithful title, date, figure/caption, external-link treatment, and next-article presentation. `src/pages/read/index.astro` calls `getCollection('impact')` and passes normalized values to `PostCard`; it does not implement a pagination route. `src/pages/read/[slug].astro` uses `getStaticPaths()` over that collection and emits only the available one-entry slug.
+  It renders one semantic article/card with an `/assets/...` image and a source-relative article link. `ArticleLayout.astro` accepts the same article fields plus rendered Markdown and optional accepted next-article data; it renders source-faithful title, date, figure/caption, external-link treatment, and title-only next-article link without an avatar or `Next` label. `src/pages/read/index.astro` calls `getCollection('impact')` and passes normalized values to `PostCard`; it does not implement a pagination route. `src/pages/read/[slug].astro` uses `getStaticPaths()` over that collection and emits only the available one-entry slug.
 
   Expected: card API supports later build-time pagination without API changes, while the spike output remains limited to `/read` and one article.
 
@@ -651,7 +651,7 @@ Commit only completed, reviewable boundaries: initial project boundary; accepted
 
 - [ ] **Step 5: Implement the remaining two templates from accepted content evidence.**
 
-  `src/pages/read/index.astro` recreates the captured first-page card grid with no visible archive title, true row-first desktop masonry (cards 1–4 in the first visual row), and its single-column mobile source order. It uses only the one-entry/accepted bounded source data shape and local card media. `src/pages/23-annual-report.astro` recreates the accepted 2022/23 Annual Report page with its annual-report download, the two accompanying financial-statement downloads, captions, and attribution. Approved-local report documents use `/assets/...`; an `external-only` manifest record renders a clearly identified external link using `retainedExternalUrl`, never a hotlinked image/font/script or a falsely local document.
+  `src/pages/read/index.astro` recreates the captured first-page card grid with no visible archive title, source-observed round-robin desktop placement (cards 1–4 in the first visual row), and its single-column mobile source order. It uses only the one-entry/accepted bounded source data shape and local card media. `src/pages/23-annual-report.astro` recreates the accepted 2022/23 Annual Report page with its annual-report download, the two accompanying financial-statement downloads, captions, and attribution. Approved-local report documents use `/assets/...`; an `external-only` manifest record renders a clearly identified external link using `retainedExternalUrl`, never a hotlinked image/font/script or a falsely local document.
 
   All four templates call `SiteLayout` so each returns the same semantic header/main/footer shape. No fifth route, fallback route, generated pagination path, bulk collection import, redirect, or Stage 2-only artifact is added.
 

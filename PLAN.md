@@ -424,11 +424,11 @@ Recreate the closure homepage with focused components that map directly to its t
 
 - [ ] **Step 4: Implement the archive listing template**
 
-Recreate the `/read` card grid with no visible archive title. The spike may contain only the first source page of cards, but it must use true row-first desktop masonry (cards 1–4 in the first visual row) and preserve its single-column mobile DOM order; card markup and data shape must support future build-time pagination without changing the component API.
+Recreate the `/read` card grid with no visible archive title. The spike may contain only the first source page of cards, but it must use source-observed round-robin desktop placement (cards 1–4 in the first visual row) and preserve its single-column mobile DOM order; card markup and data shape must support future build-time pagination without changing the component API.
 
 - [ ] **Step 5: Implement the article template from local content**
 
-Store the selected Chemergy post as Markdown with typed frontmatter and render it through the generated route `src/pages/read/[slug].astro` and `ArticleLayout.astro`. Preserve its title, copy, headings, figures, captions, external links, and next-article presentation. `getStaticPaths()` must emit exactly the one spike article before Stage 2 expands the collection.
+Store the selected Chemergy post as Markdown with typed frontmatter and render it through the generated route `src/pages/read/[slug].astro` and `ArticleLayout.astro`. Preserve its title, copy, headings, figures, captions, external links, and title-only next-article link without an avatar or `Next` label. `getStaticPaths()` must emit exactly the one spike article before Stage 2 expands the collection.
 
 - [ ] **Step 6: Implement the 2022/23 Annual Report page**
 

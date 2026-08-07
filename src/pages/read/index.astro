@@ -42,7 +42,7 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
     const width = (masonry.clientWidth - (51 * 3)) / 4;
     const columnHeights = [0, 0, 0, 0];
     cards.forEach((card, index) => {
-      const column = index < 4 ? index : columnHeights.indexOf(Math.min(...columnHeights));
+      const column = index % 4;
       const top = columnHeights[column];
       card.style.position = 'absolute';
       card.style.width = `${width}px`;

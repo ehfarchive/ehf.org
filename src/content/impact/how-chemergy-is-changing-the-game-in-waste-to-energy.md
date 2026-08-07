@@ -6,17 +6,17 @@ heroAlt: ''
 nextSlug: harnessing-pine-pollens-power-to-transform-wellbeing
 ---
 
-Imagine a world where the mountains of waste continuously produced by humans are transformed into clean sustainable energy for our local communities - this is the vision that EHF Fellow Dr Melahn Parker is making a reality.
+<p class="article-lede">Imagine a world where the mountains of waste continuously produced by humans are transformed into clean sustainable energy for our local communities - this is the vision that EHF Fellow Dr Melahn Parker is making a reality.</p>
+
+<p><img class="article-portrait" src="/assets/images/article/melahn.webp" alt="" loading="eager" /></p>
 
 Melahn is one of the minds and founders behind Chemergy, a cleantech venture that is making an impact in the climate innovation space. With Bachelors from MIT, an MSc in Chemical Engineering from Caltech and a PhD in Aeronautics from Stanford University, Melahn's academic journey is nothing short of remarkable. His professional path, which includes roles at DNV, McKinsey & Company, Northrop Grumman, Sandia National Labs, and Boeing has equipped him with the expertise to tackle the pressing energy and environmental challenges of our time. Using his deep understanding of energy systems, Melahn is on a mission to revolutionise how we manage waste and produce clean energy.
-
-![](/assets/images/article/melahn.webp)
 
 ## Innovative Solutions
 
 At the core of Chemergy's work is the HyBrTec technology, a groundbreaking process that converts organic matter and plastic waste into hydrogen, pressurized CO₂, heat, and inorganic fertiliser. The process breaks down complex and difficult waste materials with innovative chemistry to turn these environmental liabilities into valuable resources. By transforming waste into usable products, Chemergy is addressing the challenges of waste management, clean energy production, sustainable feedstock production, and decarbonisation.
 
-<figure>
+<figure class="article-figure--dsc-crop">
   <img src="/assets/images/article/dsc-3025.webp" alt="HyBrTec technology. Image: Chemergy" loading="eager" />
   <figcaption>HyBrTec technology. Image: Chemergy</figcaption>
 </figure>
@@ -46,7 +46,7 @@ Melahn says:
 
 ## Future Goals and Vision
 
-<figure>
+<figure class="article-figure--engineer-float">
   <img src="/assets/images/article/chemergy-figure-2.webp" alt="Melahn being an engineer. Image: Chemergy" loading="eager" />
   <figcaption>Melahn being an engineer. Image: Chemergy</figcaption>
 </figure>
