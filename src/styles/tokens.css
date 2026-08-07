@@ -1,0 +1,39 @@
+:root {
+  /* visual handoff §3.3 */
+  --color-ink: #27242E;
+  --color-brand: #7441D2;
+  --color-band: #5A32A4;
+  --color-surface: #FFFFFF;
+  /* visual handoff §§3.1–3.2 */
+  --font-display: Roboto, sans-serif;
+  --font-body: Merriweather, serif;
+  --weight-nav: 700;
+  --weight-heading: 900;
+  --weight-body: 300;
+  --text-display: 60.928px;
+  --text-heading: 40.192px;
+  --text-nav: 16px;
+  --text-body: 19.456px;
+  /* visual handoff §§3.4, 4.2 */
+  --content-width: 1382.41px;
+  --prose-width: 1078.27px;
+  --gutter: 28.8px;
+  --radius: 6.4px;
+  --header-height: 123px;
+  --desktop-nav-breakpoint: 768px;
+  --motion-fast: 0.1s;
+  --motion-menu: 0.6s;
+  --motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 767px) {
+  :root {
+    /* visual handoff §§3.2, 3.4, 4.2 */
+    --text-display: 42.3328px;
+    --text-heading: 30.1792px;
+    --text-body: 18.0256px;
+    --content-width: 343.22px;
+    --gutter: 23.39px;
+    --header-height: 86.7656px;
+  }
+}

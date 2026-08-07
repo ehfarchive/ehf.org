@@ -1,0 +1,143 @@
+.site-container {
+  width: min(var(--content-width), calc(100% - (var(--gutter) * 2)));
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: fixed;
+  top: 0;
+  left: var(--gutter);
+  z-index: 100;
+  transform: translateY(-150%);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  padding: 0.75rem;
+}
+
+.skip-link:focus { transform: translateY(0); }
+
+.site-header {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  min-height: var(--header-height);
+  padding-inline: var(--gutter);
+  background: transparent;
+}
+
+.site-header__brand { display: inline-flex; }
+.site-header__brand img {
+  display: block;
+  width: 255.11px;
+  height: 42.98px;
+}
+
+.desktop-nav { margin-left: auto; }
+.desktop-nav > ul, .desktop-nav__submenu ul, .mobile-menu ul, .site-footer ul {
+  display: flex;
+  align-items: center;
+  gap: 25.9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.desktop-nav a, .desktop-nav button {
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: var(--text-nav);
+  font-weight: var(--weight-nav);
+  text-decoration: none;
+}
+
+.desktop-nav button, .mobile-menu button, .mobile-menu__trigger { border: 0; background: transparent; cursor: pointer; }
+.desktop-nav__folder { position: relative; }
+.desktop-nav__submenu {
+  position: absolute;
+  top: 52px;
+  right: -16px;
+  width: 232px;
+  padding: 10px 16px;
+  background: var(--color-surface);
+}
+.desktop-nav__submenu ul { display: block; text-align: right; }
+.desktop-nav__submenu li + li { margin-top: 4px; }
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 51px;
+  padding: 16px 28.8px;
+  border-radius: var(--radius);
+  background: var(--color-brand);
+  color: var(--color-surface);
+  font-family: var(--font-display);
+  font-weight: var(--weight-nav);
+  text-decoration: none;
+}
+.button:hover { opacity: 0.8; transition: opacity var(--motion-fast) linear; }
+
+.mobile-menu, .mobile-menu__trigger { display: none; }
+.site-footer {
+  min-height: 330px;
+  padding-block: 48px;
+  background: var(--color-band);
+  color: var(--color-surface);
+  font-family: var(--font-display);
+}
+.site-footer h2 { margin: 0; font-size: 22.912px; font-weight: var(--weight-heading); }
+.site-footer a { color: inherit; font-weight: var(--weight-heading); }
+.site-footer__inner { display: grid; gap: 24px; }
+
+:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 4px; }
+
+@media (max-width: 767px) {
+  .site-header { min-height: var(--header-height); }
+  .site-header__brand { font-size: 18px; }
+  .site-header__brand img { width: 237.3px; height: 39.98px; }
+  .mobile-menu__trigger {
+    display: inline-flex;
+    margin-left: auto;
+    align-items: center;
+    justify-content: center;
+    width: 47px;
+    height: 37px;
+    font-size: 28px;
+  }
+  .mobile-menu {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    padding-top: var(--header-height);
+    background: var(--color-surface);
+  }
+  .mobile-menu__panel { min-height: 100%; padding: 32px 27px 24px; }
+  .mobile-menu__close { position: absolute; top: 20px; right: 23px; font-size: 32px; }
+  .mobile-menu nav ul { display: grid; align-items: start; gap: 11px; }
+  .mobile-menu nav a, .mobile-menu nav button {
+    display: block;
+    padding-block: 20px;
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-size: 33.15px;
+    font-weight: var(--weight-nav);
+    letter-spacing: -0.9945px;
+    line-height: 33.15px;
+    text-align: left;
+    text-decoration: none;
+  }
+  .mobile-menu .button--directory { position: absolute; right: 89px; bottom: 24px; min-height: 61px; padding: 19.2px 34.56px; }
+  .site-footer { min-height: 278.52px; }
+  .site-footer ul { display: flex; flex-wrap: wrap; gap: 12px 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

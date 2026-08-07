@@ -1,0 +1,100 @@
+---
+import DesktopNav from './DesktopNav.astro';
+import MobileNav from './MobileNav.astro';
+---
+<header class="site-header">
+  <a class="site-header__brand" href="/"><img src="/assets/images/ehf-logo.webp" alt="Edmund Hillary Fellowship" /></a>
+  <DesktopNav />
+  <MobileNav />
+</header>
+<script>
+  const desktopFolders = [...document.querySelectorAll<HTMLElement>('[data-desktop-folder]')];
+  let lastDesktopTrigger: HTMLButtonElement | null = null;
+
+  function setDesktopFolder(folder: HTMLElement, open: boolean) {
+    const trigger = folder.querySelector<HTMLButtonElement>('[data-menu-trigger]');
+    const submenu = folder.querySelector<HTMLElement>('[data-submenu]');
+    if (!trigger || !submenu) return;
+    trigger.setAttribute('aria-expanded', String(open));
+    submenu.hidden = !open;
+    if (open) lastDesktopTrigger = trigger;
+  }
+
+  function closeDesktop(except?: HTMLElement) {
+    desktopFolders.forEach((folder) => {
+      if (folder !== except) setDesktopFolder(folder, false);
+    });
+  }
+
+  desktopFolders.forEach((folder) => {
+    const trigger = folder.querySelector<HTMLButtonElement>('[data-menu-trigger]');
+    folder.addEventListener('mouseenter', () => {
+      closeDesktop(folder);
+      setDesktopFolder(folder, true);
+    });
+    folder.addEventListener('mouseleave', () => setDesktopFolder(folder, false));
+    trigger?.addEventListener('click', () => {
+      const opens = trigger.getAttribute('aria-expanded') !== 'true';
+      closeDesktop(folder);
+      setDesktopFolder(folder, opens);
+    });
+  });
+
+  const mobileTrigger = document.querySelector<HTMLButtonElement>('[data-mobile-menu-trigger]');
+  const mobileMenu = document.querySelector<HTMLElement>('[data-mobile-menu]');
+  const mobileClose = document.querySelector<HTMLButtonElement>('[data-mobile-menu-close]');
+  const mobileRoot = document.querySelector<HTMLElement>('[data-mobile-root]');
+  const mobilePanels = [...document.querySelectorAll<HTMLElement>('[data-mobile-folder]')];
+
+  function openMenu(trigger: HTMLButtonElement) {
+    if (!mobileMenu || !mobileRoot) return;
+    mobileMenu.hidden = false;
+    mobileRoot.hidden = false;
+    mobilePanels.forEach((panel) => { panel.hidden = true; });
+    trigger.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('menu-open');
+    mobileClose?.focus();
+  }
+
+  function closeMenu() {
+    if (!mobileMenu || !mobileTrigger) return;
+    mobileMenu.hidden = true;
+    mobilePanels.forEach((panel) => { panel.hidden = true; });
+    mobileRoot && (mobileRoot.hidden = false);
+    mobileTrigger.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+    mobileTrigger.focus();
+  }
+
+  mobileTrigger?.addEventListener('click', () => openMenu(mobileTrigger));
+  mobileClose?.addEventListener('click', closeMenu);
+  document.querySelectorAll<HTMLButtonElement>('[data-mobile-folder-open]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const panel = document.querySelector<HTMLElement>(`[data-mobile-folder="${button.dataset.mobileFolderOpen}"]`);
+      if (!panel || !mobileRoot) return;
+      mobileRoot.hidden = true;
+      panel.hidden = false;
+      panel.querySelector<HTMLButtonElement>('[data-mobile-folder-back]')?.focus();
+    });
+  });
+  document.querySelectorAll<HTMLButtonElement>('[data-mobile-folder-back]').forEach((button) => {
+    button.addEventListener('click', () => {
+      if (!mobileRoot) return;
+      mobilePanels.forEach((panel) => { panel.hidden = true; });
+      mobileRoot.hidden = false;
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    if (mobileMenu && !mobileMenu.hidden) {
+      closeMenu();
+      return;
+    }
+    const activeFolder = desktopFolders.find((folder) => folder.contains(document.activeElement));
+    if (activeFolder) {
+      setDesktopFolder(activeFolder, false);
+      lastDesktopTrigger?.focus();
+    }
+  });
+</script>
