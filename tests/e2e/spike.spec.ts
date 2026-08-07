@@ -265,6 +265,7 @@ test('every spike route has a centered wrapping footer with no horizontal overfl
 
 test('the footer keeps semantic links while permitting source-like inline wrapping', async ({ page }, testInfo) => {
   await page.goto('/');
+  await settleGeometry(page);
 
   const footer = page.locator('.site-footer');
   await expect(footer.getByRole('heading')).toHaveCount(0);
@@ -275,6 +276,13 @@ test('the footer keeps semantic links while permitting source-like inline wrappi
   );
 
   if (testInfo.project.name === 'mobile') {
+    const copyright = await footer.locator('p').evaluate((node) => {
+      const range = document.createRange();
+      range.selectNodeContents(node);
+      return { lines: range.getClientRects().length, height: node.getBoundingClientRect().height };
+    });
+    expect(copyright.lines).toBe(2);
+    expect(copyright.height).toBeCloseTo(51.3125, 0);
     expect(await footer.locator('strong', { hasText: 'Closure Statement' }).evaluate((node) => node.getClientRects().length)).toBe(2);
   }
 });
