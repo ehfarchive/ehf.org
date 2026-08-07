@@ -1,0 +1,144 @@
+{"ts":"2026-07-22T08:55:53.699Z","cmd":"goto","args":"https://ehf.org","origin":"https://www.ehf.org/","durationMs":1673,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:56:21.765Z","cmd":"viewport","args":"1440x1000","origin":"about:blank","durationMs":4,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:56:24.228Z","cmd":"wait","args":"--networkidle","origin":"about:blank","durationMs":2,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:56:26.237Z","cmd":"url","args":"","origin":"about:blank","durationMs":2,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:56:29.396Z","cmd":"perf","args":"","origin":"about:blank","durationMs":2,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:56:33.693Z","cmd":"data","args":"","origin":"about:blank","durationMs":2,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:56:36.085Z","cmd":"ux-audit","args":"","origin":"about:blank","durationMs":2,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:56:37.984Z","cmd":"snapshot","args":"-i -c","origin":"about:blank","durationMs":16,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:56:57.999Z","cmd":"goto","args":"https://ehf.org","origin":"https://www.ehf.org/","durationMs":10246,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:56:59.992Z","cmd":"viewport","args":"1440x1000","origin":"https://www.ehf.org/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:57:01.853Z","cmd":"wait","args":"--networkidle","origin":"https://www.ehf.org/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:57:03.916Z","cmd":"url","args":"","origin":"https://www.ehf.org/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:57:06.239Z","cmd":"perf","args":"","origin":"https://www.ehf.org/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:57:08.341Z","cmd":"data","args":"","origin":"https://www.ehf.org/","durationMs":2,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:57:10.269Z","cmd":"ux-audit","args":"","origin":"https://www.ehf.org/","durationMs":6,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:57:12.415Z","cmd":"snapshot","args":"-i -c","origin":"https://www.ehf.org/","durationMs":27,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:57:15.792Z","cmd":"media","args":"--images","origin":"https://www.ehf.org/","durationMs":19,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:57:18.098Z","cmd":"console","args":"--errors","origin":"https://www.ehf.org/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:57:21.169Z","cmd":"screenshot","args":"/tmp/ehf-desktop.png","origin":"https://www.ehf.org/","durationMs":859,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:57:37.558Z","cmd":"goto","args":"https://www.ehf.org/","origin":"https://www.ehf.org/","durationMs":478,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:57:39.494Z","cmd":"viewport","args":"390x844","origin":"https://www.ehf.org/","durationMs":22,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:57:41.421Z","cmd":"wait","args":"--networkidle","origin":"https://www.ehf.org/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:57:44.678Z","cmd":"snapshot","args":"-i -c","origin":"https://www.ehf.org/","durationMs":23,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:57:48.658Z","cmd":"screenshot","args":"/tmp/ehf-mobile.png","origin":"https://www.ehf.org/","durationMs":314,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:57:51.168Z","cmd":"console","args":"--errors","origin":"https://www.ehf.org/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:58:07.667Z","cmd":"goto","args":"https://www.ehf.org/","origin":"https://www.ehf.org/","durationMs":186,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:58:10.140Z","cmd":"viewport","args":"390x844","origin":"https://www.ehf.org/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:58:12.645Z","cmd":"wait","args":"--networkidle","origin":"https://www.ehf.org/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:58:14.931Z","cmd":"snapshot","args":"-i -c","origin":"https://www.ehf.org/","durationMs":23,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:58:18.459Z","cmd":"click","args":"@e3","origin":"https://www.ehf.org/","durationMs":47,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:58:20.390Z","cmd":"snapshot","args":"-D","origin":"https://www.ehf.org/","durationMs":15,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:58:25.157Z","cmd":"screenshot","args":"/tmp/ehf-mobile-menu.png","origin":"https://www.ehf.org/","durationMs":139,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:58:27.416Z","cmd":"goto","args":"https://www.ehf.org/","origin":"https://www.ehf.org/","durationMs":181,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:58:29.742Z","cmd":"viewport","args":"1440x1000","origin":"https://www.ehf.org/","durationMs":16,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:58:32.007Z","cmd":"wait","args":"--networkidle","origin":"https://www.ehf.org/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:58:34.195Z","cmd":"snapshot","args":"-i -c","origin":"https://www.ehf.org/","durationMs":24,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:58:36.599Z","cmd":"click","args":"@e3","origin":"https://www.ehf.org/","durationMs":38,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:58:38.522Z","cmd":"snapshot","args":"-D","origin":"https://www.ehf.org/","durationMs":12,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:58:41.559Z","cmd":"screenshot","args":"/tmp/ehf-desktop-menu.png","origin":"https://www.ehf.org/","durationMs":811,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:59:06.678Z","cmd":"goto","args":"https://www.hillaryinstitute.com/","origin":"https://www.hillaryinstitute.com/","durationMs":12597,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:59:09.852Z","cmd":"viewport","args":"1440x1000","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:59:19.432Z","cmd":"wait","args":"--networkidle","origin":"https://www.hillaryinstitute.com/","durationMs":7307,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:59:21.311Z","cmd":"url","args":"","origin":"https://www.hillaryinstitute.com/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:59:25.159Z","cmd":"perf","args":"","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:59:27.559Z","cmd":"data","args":"","origin":"https://www.hillaryinstitute.com/","durationMs":2,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:59:30.298Z","cmd":"ux-audit","args":"","origin":"https://www.hillaryinstitute.com/","durationMs":5,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:59:33.188Z","cmd":"snapshot","args":"-i -c","origin":"https://www.hillaryinstitute.com/","durationMs":21,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:59:35.234Z","cmd":"media","args":"--images","origin":"https://www.hillaryinstitute.com/","durationMs":2,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:59:37.461Z","cmd":"console","args":"--errors","origin":"https://www.hillaryinstitute.com/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:59:40.219Z","cmd":"screenshot","args":"/tmp/hillary-desktop.png","origin":"https://www.hillaryinstitute.com/","durationMs":439,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T08:59:58.558Z","cmd":"goto","args":"https://www.hillaryinstitute.com/","origin":"https://www.hillaryinstitute.com/","durationMs":405,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:00:00.950Z","cmd":"viewport","args":"1440x1000","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:00:03.107Z","cmd":"wait","args":"--networkidle","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:00:07.925Z","cmd":"js","args":"document.documentElement.scrollHeight","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:00:11.320Z","cmd":"js","args":"window.scrollTo(0,0)","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:00:14.576Z","cmd":"js","args":"window.scrollTo(0,700)","origin":"https://www.hillaryinstitute.com/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:00:16.887Z","cmd":"js","args":"window.scrollTo(0,1400)","origin":"https://www.hillaryinstitute.com/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:00:19.333Z","cmd":"js","args":"window.scrollTo(0,2100)","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:00:21.722Z","cmd":"js","args":"window.scrollTo(0,2800)","origin":"https://www.hillaryinstitute.com/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:00:24.305Z","cmd":"js","args":"window.scrollTo(0,3500)","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:00:27.547Z","cmd":"js","args":"window.scrollTo(0,4200)","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:00:29.783Z","cmd":"js","args":"window.scrollTo(0,4900)","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:00:31.902Z","cmd":"js","args":"window.scrollTo(0,5600)","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:00:35.415Z","cmd":"js","args":"window.scrollTo(0,6300)","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:00:37.889Z","cmd":"js","args":"window.scrollTo(0,7000)","origin":"https://www.hillaryinstitute.com/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:00:41.263Z","cmd":"js","args":"window.scrollTo(0,7700)","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:00:43.689Z","cmd":"js","args":"window.scrollTo(0,8400)","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:00:47.481Z","cmd":"screenshot","args":"/tmp/hillary-desktop-loaded.png","origin":"https://www.hillaryinstitute.com/","durationMs":743,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:01:08.826Z","cmd":"js","args":"window.scrollTo(0,0)","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:01:11.965Z","cmd":"screenshot","args":"/tmp/hillary-desktop-loaded-top.png","origin":"https://www.hillaryinstitute.com/","durationMs":738,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:01:25.617Z","cmd":"goto","args":"https://www.hillaryinstitute.com/","origin":"https://www.hillaryinstitute.com/","durationMs":447,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:01:31.566Z","cmd":"viewport","args":"390x844","origin":"https://www.hillaryinstitute.com/","durationMs":8,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:01:34.941Z","cmd":"wait","args":"--networkidle","origin":"https://www.hillaryinstitute.com/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:01:38.908Z","cmd":"snapshot","args":"-i -c","origin":"https://www.hillaryinstitute.com/","durationMs":17,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:01:41.768Z","cmd":"screenshot","args":"/tmp/hillary-mobile.png","origin":"https://www.hillaryinstitute.com/","durationMs":165,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:02:09.030Z","cmd":"goto","args":"https://www.hillaryinstitute.com/","origin":"https://www.hillaryinstitute.com/","durationMs":352,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:02:12.156Z","cmd":"viewport","args":"390x844","origin":"https://www.hillaryinstitute.com/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:02:17.090Z","cmd":"wait","args":"--networkidle","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:02:21.196Z","cmd":"js","args":"document.documentElement.scrollHeight","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:02:24.299Z","cmd":"js","args":"window.scrollTo(0,0)","origin":"https://www.hillaryinstitute.com/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:02:27.509Z","cmd":"js","args":"window.scrollTo(0,600)","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:02:32.776Z","cmd":"js","args":"window.scrollTo(0,1200)","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:02:35.504Z","cmd":"js","args":"window.scrollTo(0,1800)","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:02:38.977Z","cmd":"js","args":"window.scrollTo(0,2400)","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:02:41.943Z","cmd":"js","args":"window.scrollTo(0,3000)","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:02:44.059Z","cmd":"js","args":"window.scrollTo(0,3600)","origin":"https://www.hillaryinstitute.com/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:02:46.951Z","cmd":"js","args":"window.scrollTo(0,4200)","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:02:51.715Z","cmd":"js","args":"window.scrollTo(0,4800)","origin":"https://www.hillaryinstitute.com/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:02:55.588Z","cmd":"js","args":"window.scrollTo(0,5400)","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:02:58.277Z","cmd":"js","args":"window.scrollTo(0,6000)","origin":"https://www.hillaryinstitute.com/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:03:00.709Z","cmd":"js","args":"window.scrollTo(0,0)","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:03:03.103Z","cmd":"snapshot","args":"-i -c","origin":"https://www.hillaryinstitute.com/","durationMs":16,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:03:11.120Z","cmd":"click","args":"@c1","origin":"https://www.hillaryinstitute.com/","durationMs":5015,"status":"error","hasCookies":false,"mode":"launched","error":"click: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('body:nth-child(3) > div:nth-child(1) > div:nth-child(2) > label:nth-child(1)')\u001b[22m\n\u001b[2m    - locator resolved to <label for=\"mobileNavToggle\" class=\"mobile-nav-toggle-label show-on-scroll-mobile\">…</label>\u001b[22m\n\u001b[2m  - attemptin…"}
+{"ts":"2026-07-22T09:03:14.061Z","cmd":"snapshot","args":"-D","origin":"https://www.hillaryinstitute.com/","durationMs":8,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:03:18.900Z","cmd":"screenshot","args":"/tmp/hillary-mobile-loaded-menu.png","origin":"https://www.hillaryinstitute.com/","durationMs":250,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:03:29.233Z","cmd":"goto","args":"https://www.hillaryinstitute.com/","origin":"https://www.hillaryinstitute.com/","durationMs":430,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:03:32.278Z","cmd":"viewport","args":"390x844","origin":"https://www.hillaryinstitute.com/","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:03:35.753Z","cmd":"wait","args":"--networkidle","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:03:40.658Z","cmd":"js","args":"Array.from(document.querySelectorAll('label')).map((e,i)=>({i,cls:e.className,for:e.htmlFor,html:e.outerHTML.slice(0,300)}))","origin":"https://www.hillaryinstitute.com/","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:03:51.764Z","cmd":"js","args":"(()=>{document.querySelector('label[for=\"mobileNavToggle\"]').click();return document.querySelector('#mobileNavToggle').checked})()","origin":"https://www.hillaryinstitute.com/","durationMs":2,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:03:54.368Z","cmd":"snapshot","args":"-i -c","origin":"https://www.hillaryinstitute.com/","durationMs":16,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:03:57.450Z","cmd":"screenshot","args":"/tmp/hillary-mobile-menu.png","origin":"https://www.hillaryinstitute.com/","durationMs":130,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:04:26.814Z","cmd":"goto","args":"https://www.ehf.org/sitemap.xml","origin":"https://www.ehf.org/sitemap.xml","durationMs":535,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:04:30.122Z","cmd":"wait","args":"--load","origin":"https://www.ehf.org/sitemap.xml","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:04:32.639Z","cmd":"text","args":"","origin":"https://www.ehf.org/sitemap.xml","durationMs":32,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:04:35.769Z","cmd":"goto","args":"https://www.hillaryinstitute.com/sitemap.xml","origin":"https://www.hillaryinstitute.com/sitemap.xml","durationMs":670,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:04:40.037Z","cmd":"wait","args":"--load","origin":"https://www.hillaryinstitute.com/sitemap.xml","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:04:43.028Z","cmd":"text","args":"","origin":"https://www.hillaryinstitute.com/sitemap.xml","durationMs":8,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:04:55.133Z","cmd":"goto","args":"https://www.ehf.org/sitemap.xml","origin":"https://www.ehf.org/sitemap.xml","durationMs":137,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:04:57.943Z","cmd":"wait","args":"--load","origin":"https://www.ehf.org/sitemap.xml","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:05:03.893Z","cmd":"js","args":"(()=>{const u=[...document.getElementsByTagName('url')].map(x=>x.getElementsByTagName('loc')[0]?.textContent).filter(Boolean);return JSON.stringify({count:u.length,paths:u.map(x=>new URL(x).pathname)}…","origin":"https://www.ehf.org/sitemap.xml","durationMs":3,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:05:07.062Z","cmd":"goto","args":"https://www.hillaryinstitute.com/sitemap.xml","origin":"https://www.hillaryinstitute.com/sitemap.xml","durationMs":358,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:05:11.495Z","cmd":"wait","args":"--load","origin":"https://www.hillaryinstitute.com/sitemap.xml","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:05:18.988Z","cmd":"js","args":"(()=>{const u=[...document.getElementsByTagName('url')].map(x=>x.getElementsByTagName('loc')[0]?.textContent).filter(Boolean);return JSON.stringify({count:u.length,paths:u.map(x=>new URL(x).pathname)}…","origin":"https://www.hillaryinstitute.com/sitemap.xml","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:05:45.285Z","cmd":"goto","args":"https://www.ehf.org/fellow-directory","origin":"https://www.ehf.org/fellow-directory","durationMs":627,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:05:50.127Z","cmd":"viewport","args":"1440x1000","origin":"https://www.ehf.org/fellow-directory","durationMs":11,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:05:52.935Z","cmd":"wait","args":"--networkidle","origin":"https://www.ehf.org/fellow-directory","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:05:55.730Z","cmd":"url","args":"","origin":"https://www.ehf.org/fellow-directory","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:05:59.266Z","cmd":"js","args":"(()=>({title:document.title,height:document.documentElement.scrollHeight,images:document.images.length,iframes:document.querySelectorAll('iframe').length,videos:document.querySelectorAll('video').leng…","origin":"https://www.ehf.org/fellow-directory","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:06:02.693Z","cmd":"snapshot","args":"-i -c","origin":"https://www.ehf.org/fellow-directory","durationMs":32,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:06:19.542Z","cmd":"goto","args":"https://www.ehf.org/read","origin":"https://www.ehf.org/read","durationMs":13917,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:06:23.942Z","cmd":"viewport","args":"1440x1000","origin":"https://www.ehf.org/read","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:06:26.981Z","cmd":"wait","args":"--networkidle","origin":"https://www.ehf.org/read","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:06:31.303Z","cmd":"url","args":"","origin":"https://www.ehf.org/read","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:06:36.180Z","cmd":"js","args":"(()=>({title:document.title,height:document.documentElement.scrollHeight,images:document.images.length,iframes:document.querySelectorAll('iframe').length,videos:document.querySelectorAll('video').leng…","origin":"https://www.ehf.org/read","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:06:38.948Z","cmd":"snapshot","args":"-i -c","origin":"https://www.ehf.org/read","durationMs":25,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:06:44.711Z","cmd":"goto","args":"https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy","origin":"https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy","durationMs":1969,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:06:48.908Z","cmd":"viewport","args":"1440x1000","origin":"https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:06:51.868Z","cmd":"wait","args":"--networkidle","origin":"https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:06:55.362Z","cmd":"url","args":"","origin":"https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:06:59.049Z","cmd":"js","args":"(()=>({title:document.title,height:document.documentElement.scrollHeight,images:document.images.length,iframes:document.querySelectorAll('iframe').length,videos:document.querySelectorAll('video').leng…","origin":"https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:07:03.445Z","cmd":"snapshot","args":"-i -c","origin":"https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy","durationMs":17,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:07:12.036Z","cmd":"goto","args":"https://www.hillaryinstitute.com/laureates","origin":"https://www.hillaryinstitute.com/laureates","durationMs":4626,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:07:16.192Z","cmd":"viewport","args":"1440x1000","origin":"https://www.hillaryinstitute.com/laureates","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:07:19.578Z","cmd":"wait","args":"--networkidle","origin":"https://www.hillaryinstitute.com/laureates","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:07:23.601Z","cmd":"url","args":"","origin":"https://www.hillaryinstitute.com/laureates","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:07:29.739Z","cmd":"js","args":"(()=>({title:document.title,height:document.documentElement.scrollHeight,images:document.images.length,iframes:document.querySelectorAll('iframe').length,videos:document.querySelectorAll('video').leng…","origin":"https://www.hillaryinstitute.com/laureates","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:07:33.140Z","cmd":"snapshot","args":"-i -c","origin":"https://www.hillaryinstitute.com/laureates","durationMs":24,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:07:38.904Z","cmd":"goto","args":"https://www.hillaryinstitute.com/reports","origin":"https://www.hillaryinstitute.com/reports","durationMs":701,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:07:41.916Z","cmd":"viewport","args":"1440x1000","origin":"https://www.hillaryinstitute.com/reports","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:07:48.380Z","cmd":"wait","args":"--networkidle","origin":"https://www.hillaryinstitute.com/reports","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:07:52.006Z","cmd":"url","args":"","origin":"https://www.hillaryinstitute.com/reports","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:07:55.771Z","cmd":"js","args":"(()=>({title:document.title,height:document.documentElement.scrollHeight,images:document.images.length,iframes:document.querySelectorAll('iframe').length,videos:document.querySelectorAll('video').leng…","origin":"https://www.hillaryinstitute.com/reports","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-22T09:08:00.677Z","cmd":"snapshot","args":"-i -c","origin":"https://www.hillaryinstitute.com/reports","durationMs":14,"status":"ok","hasCookies":false,"mode":"launched"}

@@ -1,0 +1,81 @@
+[2026-07-22T08:56:57.980Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter
+[2026-07-22T08:56:57.980Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack
+[2026-07-22T08:56:57.980Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable
+[2026-07-22T08:56:57.980Z] [warning] yui: NOT loaded: squarespace-common_vendors
+[2026-07-22T08:56:57.980Z] [warning] yui: NOT loaded: squarespace-performance
+[2026-07-22T08:56:58.215Z] [error] requestStorageAccess: Permission denied.
+[2026-07-22T08:57:37.539Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter
+[2026-07-22T08:57:37.539Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack
+[2026-07-22T08:57:37.539Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable
+[2026-07-22T08:57:37.539Z] [warning] yui: NOT loaded: squarespace-common_vendors
+[2026-07-22T08:57:37.539Z] [warning] yui: NOT loaded: squarespace-performance
+[2026-07-22T08:57:37.688Z] [error] requestStorageAccess: Permission denied.
+[2026-07-22T08:57:39.694Z] [log] [Visitor Sentry] Initialized and sending events
+[2026-07-22T08:58:07.649Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter
+[2026-07-22T08:58:07.649Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack
+[2026-07-22T08:58:07.649Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable
+[2026-07-22T08:58:07.649Z] [warning] yui: NOT loaded: squarespace-common_vendors
+[2026-07-22T08:58:07.650Z] [warning] yui: NOT loaded: squarespace-performance
+[2026-07-22T08:58:07.799Z] [error] requestStorageAccess: Permission denied.
+[2026-07-22T08:58:27.399Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter
+[2026-07-22T08:58:27.399Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack
+[2026-07-22T08:58:27.399Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable
+[2026-07-22T08:58:27.399Z] [warning] yui: NOT loaded: squarespace-common_vendors
+[2026-07-22T08:58:27.399Z] [warning] yui: NOT loaded: squarespace-performance
+[2026-07-22T08:58:27.539Z] [error] requestStorageAccess: Permission denied.
+[2026-07-22T08:58:29.764Z] [log] [Visitor Sentry] Initialized and sending events
+[2026-07-22T08:59:05.972Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter
+[2026-07-22T08:59:05.972Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack
+[2026-07-22T08:59:05.972Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable
+[2026-07-22T08:59:05.972Z] [warning] yui: NOT loaded: squarespace-common_vendors
+[2026-07-22T08:59:05.974Z] [warning] yui: NOT loaded: squarespace-performance
+[2026-07-22T08:59:58.537Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter
+[2026-07-22T08:59:58.537Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack
+[2026-07-22T08:59:58.537Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable
+[2026-07-22T08:59:58.537Z] [warning] yui: NOT loaded: squarespace-common_vendors
+[2026-07-22T08:59:58.538Z] [warning] yui: NOT loaded: squarespace-performance
+[2026-07-22T09:01:25.596Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter
+[2026-07-22T09:01:25.596Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack
+[2026-07-22T09:01:25.596Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable
+[2026-07-22T09:01:25.596Z] [warning] yui: NOT loaded: squarespace-common_vendors
+[2026-07-22T09:01:25.597Z] [warning] yui: NOT loaded: squarespace-performance
+[2026-07-22T09:02:09.009Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter
+[2026-07-22T09:02:09.009Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack
+[2026-07-22T09:02:09.009Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable
+[2026-07-22T09:02:09.009Z] [warning] yui: NOT loaded: squarespace-common_vendors
+[2026-07-22T09:02:09.011Z] [warning] yui: NOT loaded: squarespace-performance
+[2026-07-22T09:03:29.214Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter
+[2026-07-22T09:03:29.214Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack
+[2026-07-22T09:03:29.214Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable
+[2026-07-22T09:03:29.214Z] [warning] yui: NOT loaded: squarespace-common_vendors
+[2026-07-22T09:03:29.216Z] [warning] yui: NOT loaded: squarespace-performance
+[2026-07-22T09:05:45.271Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter
+[2026-07-22T09:05:45.271Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack
+[2026-07-22T09:05:45.271Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable
+[2026-07-22T09:05:45.271Z] [warning] yui: NOT loaded: squarespace-common_vendors
+[2026-07-22T09:05:45.272Z] [warning] yui: NOT loaded: squarespace-performance
+[2026-07-22T09:05:45.460Z] [error] requestStorageAccess: Permission denied.
+[2026-07-22T09:05:50.034Z] [log] got fellows
+[2026-07-22T09:05:50.152Z] [log] [Visitor Sentry] Initialized and sending events
+[2026-07-22T09:06:19.528Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter
+[2026-07-22T09:06:19.528Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack
+[2026-07-22T09:06:19.528Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable
+[2026-07-22T09:06:19.528Z] [warning] yui: NOT loaded: squarespace-common_vendors
+[2026-07-22T09:06:19.528Z] [warning] yui: NOT loaded: squarespace-performance
+[2026-07-22T09:06:19.711Z] [error] requestStorageAccess: Permission denied.
+[2026-07-22T09:06:44.699Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter
+[2026-07-22T09:06:44.699Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack
+[2026-07-22T09:06:44.700Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable
+[2026-07-22T09:06:44.700Z] [warning] yui: NOT loaded: squarespace-common_vendors
+[2026-07-22T09:06:44.700Z] [warning] yui: NOT loaded: squarespace-performance
+[2026-07-22T09:06:44.830Z] [error] requestStorageAccess: Permission denied.
+[2026-07-22T09:07:11.997Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter
+[2026-07-22T09:07:11.997Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack
+[2026-07-22T09:07:11.997Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable
+[2026-07-22T09:07:11.997Z] [warning] yui: NOT loaded: squarespace-common_vendors
+[2026-07-22T09:07:11.999Z] [warning] yui: NOT loaded: squarespace-performance
+[2026-07-22T09:07:38.881Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter
+[2026-07-22T09:07:38.881Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack
+[2026-07-22T09:07:38.881Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable
+[2026-07-22T09:07:38.881Z] [warning] yui: NOT loaded: squarespace-common_vendors
+[2026-07-22T09:07:38.882Z] [warning] yui: NOT loaded: squarespace-performance
