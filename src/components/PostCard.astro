@@ -1,0 +1,19 @@
+---
+interface Props {
+  title: string;
+  href: string;
+  excerpt: string;
+  image: string;
+  imageAlt: string;
+  focal?: string;
+}
+
+const { title, href, excerpt, image, imageAlt, focal = '50% 50%' } = Astro.props;
+---
+<article class="post-card" data-read-card>
+  <a class="post-card__image" href={href} aria-label={title}>
+    <img src={image} alt={imageAlt} loading="eager" style={`object-position: ${focal}`} />
+  </a>
+  <h2><a href={href}>{title}</a></h2>
+  {excerpt && <p>{excerpt}</p>}
+</article>
