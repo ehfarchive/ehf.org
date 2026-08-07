@@ -54,7 +54,14 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
     masonry.style.height = `${Math.max(...columnHeights) - gap}px`;
   };
 
-  const scheduleMasonry = () => requestAnimationFrame(layoutMasonry);
+  let masonryFrame: number | undefined;
+  const scheduleMasonry = () => {
+    if (masonryFrame !== undefined) return;
+    masonryFrame = requestAnimationFrame(() => {
+      masonryFrame = undefined;
+      layoutMasonry();
+    });
+  };
 
   window.addEventListener('resize', scheduleMasonry);
   window.addEventListener('load', scheduleMasonry);

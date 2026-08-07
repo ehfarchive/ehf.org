@@ -1,4 +1,4 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Page } from '@playwright/test';
 
 const spikeRoutes = [
   '/',
@@ -6,6 +6,15 @@ const spikeRoutes = [
   '/read/how-chemergy-is-changing-the-game-in-waste-to-energy',
   '/23-annual-report'
 ] as const;
+
+async function settleGeometry(page: Page) {
+  await page.evaluate(async () => {
+    await document.fonts.ready;
+    const { promise, resolve } = Promise.withResolvers<void>();
+    requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
+    await promise;
+  });
+}
 
 const archiveTitles = [
   'How Chemergy is Changing the Game in Waste-to-Energy',
@@ -53,6 +62,7 @@ test('the archive preserves all 20 source cards in source order', async ({ page 
 test('the archive uses a single source-order stack on mobile', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'mobile', 'mobile stack contract');
   await page.goto('/read');
+  await settleGeometry(page);
 
   const positions = await page.locator('[data-read-card]').evaluateAll((cards) => cards.slice(0, 4).map((card) => {
     const { left, top } = card.getBoundingClientRect();
@@ -66,6 +76,7 @@ test('the archive uses a single source-order stack on mobile', async ({ page }, 
 test('desktop archive places each card in the true shortest source column', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'desktop', 'desktop masonry contract');
   await page.goto('/read');
+  await settleGeometry(page);
 
   const cards = await page.locator('[data-read-card]').evaluateAll((nodes) => nodes.slice(0, 6).map((card) => {
     const { left, top } = card.getBoundingClientRect();
@@ -79,6 +90,7 @@ test('desktop archive places each card in the true shortest source column', asyn
 
 test('only the Awa/River card preserves its source landscape image ratio', async ({ page }) => {
   await page.goto('/read');
+  await settleGeometry(page);
 
   const awaImage = page.getByRole('heading', { name: 'The Awa/River Story Inspiring Connection & Action' })
     .locator('..')
@@ -89,6 +101,15 @@ test('only the Awa/River card preserves its source landscape image ratio', async
   });
 
   expect(width / height).toBeCloseTo(343 / 288, 2);
+});
+
+test('the article keeps its fixed-source engineer figure within a 320px viewport', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile', 'small mobile overflow contract');
+  await page.setViewportSize({ width: 320, height: 844 });
+  await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
+  await settleGeometry(page);
+
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
 });
 
 test('Older Posts uses the measured body line box', async ({ page }, testInfo) => {
@@ -164,6 +185,7 @@ test('the article uses the rotated source images, semantic credits, and stable s
 
 test('the article applies measured type, figure, and pagination geometry', async ({ page }, testInfo) => {
   await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
+  await settleGeometry(page);
 
   const mobile = testInfo.project.name === 'mobile';
   const bodyMetrics = await page.locator('.article-page__body > p').nth(1).evaluate((paragraph) => {
@@ -206,10 +228,7 @@ test('the article applies measured type, figure, and pagination geometry', async
 test('every spike route has a centered wrapping footer with no horizontal overflow', async ({ page }, testInfo) => {
   for (const route of spikeRoutes) {
     await page.goto(route);
-    await page.evaluate(async () => {
-      await document.fonts.load('700 22.912px Roboto', '© Edmund Hillary Fellowship 2016 - 2026');
-      await document.fonts.ready;
-    });
+    await settleGeometry(page);
     const metrics = await page.locator('.site-footer').evaluate((footer) => {
       const styles = getComputedStyle(footer);
       const footerBox = footer.getBoundingClientRect();
@@ -218,8 +237,8 @@ test('every spike route has a centered wrapping footer with no horizontal overfl
       const firstSeparator = getComputedStyle(footer.querySelector('li')!, '::after').content;
       return {
         footerHeight: footerBox.height,
+        copyrightTop: copyright.top - footerBox.top,
         gap: nav.top - copyright.bottom,
-        navTop: nav.top - footerBox.top,
         navHeight: nav.height,
         justifyContent: styles.justifyContent,
         paddingTop: styles.paddingTop,
@@ -238,7 +257,7 @@ test('every spike route has a centered wrapping footer with no horizontal overfl
     expect(metrics.firstSeparator.includes('\u200B')).toBe(!mobile);
     expect(metrics.scrollWidth).toBe(mobile ? 390 : 1440);
     if (mobile) {
-      expect(Math.abs(metrics.navTop - 132.2)).toBeLessThanOrEqual(2);
+      expect(metrics.copyrightTop).toBeCloseTo(47.2, 0);
       expect(metrics.navHeight).toBeCloseTo(97.8, 0);
     }
   }

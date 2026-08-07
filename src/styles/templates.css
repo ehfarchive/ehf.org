@@ -167,7 +167,8 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
   }
   .article-page__body .article-figure--engineer-float {
     float: none;
-    width: 326.22px;
+    width: min(326.22px, 100%);
+    max-width: 100%;
     margin: 34px 0 50px auto;
   }
   .article-page__body .article-figure--engineer-float > img { height: 163px; }
