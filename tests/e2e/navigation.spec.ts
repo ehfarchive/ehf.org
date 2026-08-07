@@ -114,6 +114,11 @@ test('mobile modal traps focus and makes parent controls inert in child panels',
   await page.keyboard.press('Shift+Tab');
   await page.keyboard.press('Tab');
   await expect(back).toBeFocused();
+  await back.click();
+  const about = dialog.locator('[data-mobile-root] [data-mobile-folder-open="about"]');
+  await expect(about).toBeFocused();
+  await page.keyboard.press('Tab');
+  await expect(dialog.locator('[data-mobile-root] [data-mobile-folder-open="impact"]')).toBeFocused();
 });
 
 test('mobile dialog covers the captured viewport', async ({ page }, testInfo) => {

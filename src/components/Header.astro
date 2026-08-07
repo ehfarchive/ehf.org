@@ -88,7 +88,7 @@ import MobileNav from './MobileNav.astro';
   });
   mobileMenu?.addEventListener('keydown', (event) => {
     if (event.key !== 'Tab') return;
-    const activePanel = mobilePanels.find((panel) => !panel.hidden) ?? mobileRoot;
+    const activePanel = mobileRoot && !mobileRoot.inert ? mobileRoot : mobilePanels.find((panel) => !panel.hidden);
     if (!activePanel) return;
     const focusable = [...activePanel.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')];
     const first = focusable[0];
@@ -107,6 +107,7 @@ import MobileNav from './MobileNav.astro';
       const panel = document.querySelector<HTMLElement>(`[data-mobile-folder="${button.dataset.mobileFolderOpen}"]`);
       if (!panel || !mobileRoot) return;
       panel.hidden = false;
+      panel.inert = false;
       mobileRoot.inert = true;
       requestAnimationFrame(() => {
         mobileRoot.classList.add('is-shifted');
@@ -119,10 +120,16 @@ import MobileNav from './MobileNav.astro';
     button.addEventListener('click', () => {
       if (!mobileRoot) return;
       const panel = button.closest<HTMLElement>('[data-mobile-folder]');
-      panel?.classList.remove('is-active');
+      if (!panel) return;
+      const opener = mobileRoot.querySelector<HTMLElement>(`[data-mobile-folder-open="${panel.dataset.mobileFolder}"]`);
+      panel.inert = true;
+      panel.addEventListener('transitionend', (event) => {
+        if (event.propertyName === 'transform' && !panel.classList.contains('is-active')) panel.hidden = true;
+      }, { once: true });
+      panel.classList.remove('is-active');
       mobileRoot.inert = false;
       mobileRoot.classList.remove('is-shifted');
-      window.setTimeout(() => { if (panel) panel.hidden = true; }, 600);
+      opener?.focus();
     });
   });
 
