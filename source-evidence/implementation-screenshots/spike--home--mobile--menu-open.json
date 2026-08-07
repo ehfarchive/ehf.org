@@ -1,0 +1,15 @@
+{
+  "route": "/",
+  "viewport": {
+    "name": "mobile",
+    "width": 390,
+    "height": 844
+  },
+  "state": "menu-open",
+  "capturedAt": "2026-08-07T10:27:37.733Z",
+  "documentHeight": 2749,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [],
+  "implementationUrl": "http://127.0.0.1:4321/"
+}
