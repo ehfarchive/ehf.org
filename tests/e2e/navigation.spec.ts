@@ -121,6 +121,27 @@ test('mobile modal traps focus and makes parent controls inert in child panels',
   await expect(dialog.locator('[data-mobile-root] [data-mobile-folder-open="impact"]')).toBeFocused();
 });
 
+test('same-task child open and Back leaves only the root panel active', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile', 'mobile menu contract');
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Open menu', exact: true }).click();
+  const dialog = page.getByRole('dialog', { name: /site navigation/i });
+  await dialog.evaluate(async (element) => {
+    (element.querySelector<HTMLElement>('[data-mobile-folder-open="about"]'))?.click();
+    (element.querySelector<HTMLElement>('[data-mobile-folder="about"] [data-mobile-folder-back]'))?.click();
+    const frame = Promise.withResolvers<void>();
+    requestAnimationFrame(() => frame.resolve());
+    await frame.promise;
+  });
+  const root = dialog.locator('[data-mobile-root]');
+  const child = dialog.locator('[data-mobile-folder="about"]');
+  await expect(root).not.toHaveAttribute('inert', '');
+  await expect(root).not.toHaveClass(/is-shifted/);
+  await expect(child).toBeHidden();
+  await expect(child).not.toHaveClass(/is-active/);
+  await expect(dialog.locator('[data-mobile-folder-open="about"]')).toBeFocused();
+});
+
 test('mobile dialog covers the captured viewport', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'mobile', 'mobile menu contract');
   await page.goto('/');
