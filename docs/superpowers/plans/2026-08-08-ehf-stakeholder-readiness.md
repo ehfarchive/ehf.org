@@ -74,13 +74,22 @@ If `gh` is unavailable, use the corresponding GitHub web UI and record the resul
 
 **Boundary owner:** BuildLead. **Read-only auditor:** one designated auditor after Steps 1–4. **Gate:** the owner has issued written authorization and named any delegate in the eventual PR.
 
-- [ ] **Step 1: Record branch, selected baseline, and exact owner-owned dirty paths before touching anything.**
+- [ ] **Step 1: Record branch, plan-writing baseline, and exact owner-owned dirty paths before touching anything.**
 
   Run:
 
   ```bash
   git status --short --branch
   git rev-parse HEAD
+  export PLAN_WRITING_BASELINE=2e3ed8f758e66c5924f95073758c36111b77f819
+  test "$(git rev-parse HEAD)" = "$(git rev-parse "$FEATURE_BRANCH")"
+  git merge-base --is-ancestor "$PLAN_WRITING_BASELINE" HEAD
+  test "$(git diff-tree --no-commit-id --name-only -r HEAD)" = \
+    "docs/superpowers/plans/2026-08-08-ehf-stakeholder-readiness.md"
+  git rev-list --reverse "$PLAN_WRITING_BASELINE..HEAD" | while read -r commit; do
+    test "$(git diff-tree --no-commit-id --name-only -r "$commit")" = \
+      "docs/superpowers/plans/2026-08-08-ehf-stakeholder-readiness.md"
+  done
   git branch --show-current
   git diff --name-only
   git diff --cached --name-only
@@ -88,7 +97,7 @@ If `gh` is unavailable, use the corresponding GitHub web UI and record the resul
   git diff --cached -- .gitignore package.json package-lock.json
   ```
 
-  Expected: branch `feature/ehf-astro-spike`; initial `HEAD` is `2e3ed8f758e66c5924f95073758c36111b77f819`; exactly three unstaged paths are `.gitignore`, `package.json`, and `package-lock.json`; the staged path lists are empty. The diff adds `.vercel`, `vercel@^58.8.0`, and a lockfile entry resolving `vercel` to `58.8.0`.
+  Expected: branch `feature/ehf-astro-spike`; the current execution `HEAD` equals the feature tip and is the latest readiness-plan-only commit: `2e3ed8f758e66c5924f95073758c36111b77f819` is its ancestor, and every commit in `2e3ed8f758e66c5924f95073758c36111b77f819..HEAD` modifies only this readiness plan. Exactly three unstaged paths are `.gitignore`, `package.json`, and `package-lock.json`; the staged path lists are empty. The diff adds `.vercel`, `vercel@^58.8.0`, and a lockfile entry resolving `vercel` to `58.8.0`.
 
   If any other tracked, staged, or untracked file appears, stop. Preserve it as user work and ask the owner to classify it; do not clean, stash, reset, or include it.
 
@@ -103,7 +112,7 @@ If `gh` is unavailable, use the corresponding GitHub web UI and record the resul
   git log --oneline --decorate -1 "$FEATURE_BRANCH"
   ```
 
-  Expected: both `test` and `merge-base` exit 0; `master` resolves to `2cfbde01e3967fc8f9443d6e838dcf421c276c3d`; the feature tip is the previously recorded baseline before Task 2 creates its dependency commit.
+  Expected: both `test` and `merge-base` exit 0; `master` resolves to `2cfbde01e3967fc8f9443d6e838dcf421c276c3d`; the feature tip is the latest readiness-plan-only commit recorded in Step 1 before Task 2 creates its dependency commit.
 
   If `master` differs, is not an ancestor, or the feature branch is not selected, stop. Do not force-push, rebase, reset, or change the default branch to conceal the mismatch.
 
