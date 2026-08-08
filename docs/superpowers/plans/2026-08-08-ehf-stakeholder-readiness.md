@@ -170,7 +170,7 @@ If `gh` is unavailable, use the corresponding GitHub web UI and record the resul
   npm run build && npm run assets:verify && npm run test
   ```
 
-  Expected: `astro check && astro build` succeeds; asset verification reports 40 manifest records; unit and E2E suites complete with 101 passes, 19 expected project-scoped E2E skips, and 0 failures as recorded in `SPIKE-RESULTS.md`. A current tool-version message may be recorded only if it does not make a command fail.
+  Expected: `astro check && astro build` succeeds; asset verification reports 40 manifest records; unit and E2E suites complete with 103 passes (12 unit and 91 E2E), 19 expected project-scoped E2E skips, and 0 failures. This current boundary result includes the one `routes.spec.ts` test in both desktop and mobile; `SPIKE-RESULTS.md` retains the historical Stage 1 total of 101 passes (12 unit and 89 E2E). A current tool-version message may be recorded only if it does not make a command fail.
 
   If any command fails, do not stage or commit. Preserve its exact non-secret error output, return the defect to BuildLead, and repeat this single batched command only after the responsible change is accepted. No other agent reruns the full suite for this boundary.
 - [ ] **Step 3: Confirm the local executable resolves the locked CLI without global installation or authentication.**
