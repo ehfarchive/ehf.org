@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "producer": "ContentAssetsPhase2",
+  "producer": "ContentAssetsPublicationRemediation",
   "runtimeRoute": "openrouter/deepseek/deepseek-v4-flash-0731",
-  "generatedAt": "2026-08-07T09:12:55Z",
+  "generatedAt": "2026-08-08T06:39:16Z",
   "scope": {
     "routes": [
       "/",
@@ -13,7 +13,7 @@
   },
   "stats": {
     "assetCount": 40,
-    "totalBytes": 32822843,
+    "totalBytes": 32781469,
     "pdfCount": 3,
     "deduplicatedCount": 4,
     "uniqueByteCount": 40
@@ -28,11 +28,18 @@
       "bytes": 1111587,
       "contentType": "application/pdf",
       "permissionStatus": "approved-local",
-      "attribution": "Public downloadable document on www.ehf.org/23-annual-report; localised with owner approval for the Stage 1 spike. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "Public downloadable document on www.ehf.org/23-annual-report; EHF-owned, owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/23-annual-report"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned document / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "ehf-hi-annual-report-2023-pdf",
@@ -43,11 +50,18 @@
       "bytes": 3527782,
       "contentType": "application/pdf",
       "permissionStatus": "approved-local",
-      "attribution": "Public downloadable document on www.ehf.org/23-annual-report; localised with owner approval for the Stage 1 spike. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "Public downloadable document on www.ehf.org/23-annual-report; EHF-owned, owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/23-annual-report"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned document / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "the-hillary-institute-subsidiary-entities-2023-financial-statements-pdf",
@@ -58,11 +72,18 @@
       "bytes": 1230540,
       "contentType": "application/pdf",
       "permissionStatus": "approved-local",
-      "attribution": "Public downloadable document on www.ehf.org/23-annual-report; localised with owner approval for the Stage 1 spike. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "Public downloadable document on www.ehf.org/23-annual-report; EHF-owned, owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/23-annual-report"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned document / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "merriweather-300-italic-latin-ext-woff2",
@@ -73,14 +94,23 @@
       "bytes": 73584,
       "contentType": "font/woff2",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "OFL-1.1 font shadowed locally from www.ehf.org / images.squarespace-cdn.com (source https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/5a7a71f0-f5e5-4aea-9f95-8bee1071bee3/latin-ext.woff2). Copyright 2024 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather4), with Reserved Font Name \"Merriweather\". Full OFL 1.1 text and notice shipped with /assets/fonts/.",
       "routeUses": [
         "/",
         "/read",
         "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
         "/23-annual-report"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "SIL Open Font License 1.1 (OFL-1.1)",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution",
+        "licenseFamily": "OFL-1.1",
+        "licenseNotice": "Copyright 2024 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather4), with Reserved Font Name \"Merriweather\""
+      }
     },
     {
       "id": "merriweather-300-italic-latin-woff2",
@@ -91,14 +121,23 @@
       "bytes": 97900,
       "contentType": "font/woff2",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "OFL-1.1 font shadowed locally from www.ehf.org / images.squarespace-cdn.com (source https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/098784a4-16b7-4286-a7c6-3311559a8a95/latin.woff2). Copyright 2024 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather4), with Reserved Font Name \"Merriweather\". Full OFL 1.1 text and notice shipped with /assets/fonts/.",
       "routeUses": [
         "/",
         "/read",
         "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
         "/23-annual-report"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "SIL Open Font License 1.1 (OFL-1.1)",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution",
+        "licenseFamily": "OFL-1.1",
+        "licenseNotice": "Copyright 2024 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather4), with Reserved Font Name \"Merriweather\""
+      }
     },
     {
       "id": "merriweather-300-latin-ext-woff2",
@@ -109,14 +148,23 @@
       "bytes": 70208,
       "contentType": "font/woff2",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "OFL-1.1 font shadowed locally from www.ehf.org / images.squarespace-cdn.com (source https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/c74501d2-fa87-406d-b097-39df7ed42a23/latin-ext.woff2). Copyright 2024 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather4), with Reserved Font Name \"Merriweather\". Full OFL 1.1 text and notice shipped with /assets/fonts/.",
       "routeUses": [
         "/",
         "/read",
         "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
         "/23-annual-report"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "SIL Open Font License 1.1 (OFL-1.1)",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution",
+        "licenseFamily": "OFL-1.1",
+        "licenseNotice": "Copyright 2024 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather4), with Reserved Font Name \"Merriweather\""
+      }
     },
     {
       "id": "merriweather-300-latin-woff2",
@@ -127,14 +175,23 @@
       "bytes": 95360,
       "contentType": "font/woff2",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "OFL-1.1 font shadowed locally from www.ehf.org / images.squarespace-cdn.com (source https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/c0120ee3-d64a-4b32-b3e3-5944e8eb8664/latin.woff2). Copyright 2024 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather4), with Reserved Font Name \"Merriweather\". Full OFL 1.1 text and notice shipped with /assets/fonts/.",
       "routeUses": [
         "/",
         "/read",
         "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
         "/23-annual-report"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "SIL Open Font License 1.1 (OFL-1.1)",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution",
+        "licenseFamily": "OFL-1.1",
+        "licenseNotice": "Copyright 2024 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather4), with Reserved Font Name \"Merriweather\""
+      }
     },
     {
       "id": "roboto-700-italic-latin-ext-woff2",
@@ -145,14 +202,23 @@
       "bytes": 22888,
       "contentType": "font/woff2",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "OFL-1.1 font shadowed locally from www.ehf.org / images.squarespace-cdn.com (source https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/a1817c48-4c90-4bc9-9077-0161466f6da9/latin-ext.woff2). Copyright 2011 The Roboto Project Authors (https://github.com/googlefonts/roboto-classic). Full OFL 1.1 text and notice shipped with /assets/fonts/.",
       "routeUses": [
         "/",
         "/read",
         "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
         "/23-annual-report"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "SIL Open Font License 1.1 (OFL-1.1)",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution",
+        "licenseFamily": "OFL-1.1",
+        "licenseNotice": "Copyright 2011 The Roboto Project Authors (https://github.com/googlefonts/roboto-classic)"
+      }
     },
     {
       "id": "roboto-700-italic-latin-woff2",
@@ -163,14 +229,23 @@
       "bytes": 34372,
       "contentType": "font/woff2",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "OFL-1.1 font shadowed locally from www.ehf.org / images.squarespace-cdn.com (source https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/7eb1420a-ddb6-4804-ae07-1af5dfc2a7f5/latin.woff2). Copyright 2011 The Roboto Project Authors (https://github.com/googlefonts/roboto-classic). Full OFL 1.1 text and notice shipped with /assets/fonts/.",
       "routeUses": [
         "/",
         "/read",
         "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
         "/23-annual-report"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "SIL Open Font License 1.1 (OFL-1.1)",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution",
+        "licenseFamily": "OFL-1.1",
+        "licenseNotice": "Copyright 2011 The Roboto Project Authors (https://github.com/googlefonts/roboto-classic)"
+      }
     },
     {
       "id": "roboto-700-latin-ext-woff2",
@@ -181,14 +256,23 @@
       "bytes": 20724,
       "contentType": "font/woff2",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "OFL-1.1 font shadowed locally from www.ehf.org / images.squarespace-cdn.com (source https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/0bf6b02d-72f7-4a4a-b433-cd007998fec7/latin-ext.woff2). Copyright 2011 The Roboto Project Authors (https://github.com/googlefonts/roboto-classic). Full OFL 1.1 text and notice shipped with /assets/fonts/.",
       "routeUses": [
         "/",
         "/read",
         "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
         "/23-annual-report"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "SIL Open Font License 1.1 (OFL-1.1)",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution",
+        "licenseFamily": "OFL-1.1",
+        "licenseNotice": "Copyright 2011 The Roboto Project Authors (https://github.com/googlefonts/roboto-classic)"
+      }
     },
     {
       "id": "roboto-700-latin-woff2",
@@ -199,452 +283,668 @@
       "bytes": 30504,
       "contentType": "font/woff2",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "OFL-1.1 font shadowed locally from www.ehf.org / images.squarespace-cdn.com (source https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/c5eb5305-ba43-45a4-97e1-2fcb7b175375/latin.woff2). Copyright 2011 The Roboto Project Authors (https://github.com/googlefonts/roboto-classic). Full OFL 1.1 text and notice shipped with /assets/fonts/.",
       "routeUses": [
         "/",
         "/read",
         "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
         "/23-annual-report"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "SIL Open Font License 1.1 (OFL-1.1)",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution",
+        "licenseFamily": "OFL-1.1",
+        "licenseNotice": "Copyright 2011 The Roboto Project Authors (https://github.com/googlefonts/roboto-classic)"
+      }
     },
     {
       "id": "author-avatar-webp",
       "role": "article-author-avatar",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v2/namespaces/memberAccountAvatars/libraries/64222092b1babe5cc24ce119/fe4c2970e38845428b92e0723ae0056d/fe4c2970e38845428b92e0723ae0056d.jpeg",
       "localPath": "/assets/images/article/author-avatar.webp",
-      "sha256": "37b98d54c6112ab4e143495c1f6ca33d88e37c4dbc742698a264c1d1423b7159",
-      "bytes": 1912,
+      "sha256": "26efe01853d7a8152f4872afbd1cb03c1bb933ffa222bfe2e3e17b3112f502b5",
+      "bytes": 1718,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v2/namespaces/memberAccountAvatars/libraries/64222092b1babe5cc24ce119/fe4c2970e38845428b92e0723ae0056d/fe4c2970e38845428b92e0723ae0056d.jpeg); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "chemergy-figure-1-webp",
       "role": "article-inline-figure",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/2449e596-40ac-407c-b703-41dc813ead85/Screenshot+2025-06-06+at+8.54.29+AM.png",
       "localPath": "/assets/images/article/chemergy-figure-1.webp",
-      "sha256": "f5e3ad9c0706e13422bfe99aec190b2e5b431f3998c2f018cd3f5b4bff40779c",
-      "bytes": 586098,
+      "sha256": "2aafaacda7bdf66f2c7c57acb4c87d7a584faafdb8c22480c0a0ad2b0592311f",
+      "bytes": 585340,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "Chemergy; reproduced locally from www.ehf.org public article for the Stage 1 spike with EHF-confirmed written permission for public redistribution (2026-08-08). © Chemergy.",
       "routeUses": [
         "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "Third-party © / owner-confirmed written permission",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "third-party-written-permission",
+        "creditedTo": "Chemergy"
+      }
     },
     {
       "id": "chemergy-figure-2-webp",
       "role": "article-inline-figure",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/ed144c81-6bfd-4a32-90fc-1963b72a1bc3/Screenshot+2025-06-06+at+8.56.16+AM.png",
       "localPath": "/assets/images/article/chemergy-figure-2.webp",
-      "sha256": "bc5d518b763bc81e6d337f95e8766a33491b9de8dc4da562243998df34dab156",
-      "bytes": 180594,
+      "sha256": "21dfec2f49714d1ec73ba91711ddffccfe723026c12d85c3b6043b4e85e5871e",
+      "bytes": 179836,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "Chemergy; reproduced locally from www.ehf.org public article for the Stage 1 spike with EHF-confirmed written permission for public redistribution (2026-08-08). © Chemergy.",
       "routeUses": [
         "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "Third-party © / owner-confirmed written permission",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "third-party-written-permission",
+        "creditedTo": "Chemergy"
+      }
     },
     {
       "id": "chemergy-hero-webp",
       "role": "article-inline-image",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/a0566b7c-2063-4b71-92d2-6b52e84709f0/hero_seaweed_940x529.jpg",
       "localPath": "/assets/images/article/chemergy-hero.webp",
-      "sha256": "182b67f9bf176b761be28797ef265f1dbafdd03a375955d479a2291a4dc91e2a",
-      "bytes": 125896,
+      "sha256": "91cefb0ea232dce6848620828b12f46247727b87318eca61841031c099841722",
+      "bytes": 122330,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "Michael Montero / University of Miami (UM) News; reproduced locally from www.ehf.org public article for the Stage 1 spike with EHF-confirmed written permission for public redistribution (2026-08-08). © Michael Montero / University of Miami (UM) News.",
       "routeUses": [
         "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "Third-party © / owner-confirmed written permission",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "third-party-written-permission",
+        "creditedTo": "Michael Montero / University of Miami (UM) News"
+      }
     },
     {
       "id": "dsc-3025-webp",
       "role": "article-inline-image",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/2e2ca535-6551-4cad-8cee-2066393b0820/DSC_3025.JPG",
       "localPath": "/assets/images/article/dsc-3025.webp",
-      "sha256": "0ff178dad4cb2c3c35297399b9108919d870936f5f107259fb1d13a057a73010",
-      "bytes": 464926,
+      "sha256": "b01b8d6913c2d122d5f2afec5efd4beadd901209bb33fe7ea70751557946b61c",
+      "bytes": 461822,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "Chemergy; reproduced locally from www.ehf.org public article for the Stage 1 spike with EHF-confirmed written permission for public redistribution (2026-08-08). © Chemergy.",
       "routeUses": [
         "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "Third-party © / owner-confirmed written permission",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "third-party-written-permission",
+        "creditedTo": "Chemergy"
+      }
     },
     {
       "id": "melahn-webp",
       "role": "article-inline-image",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/b80efcaf-4501-460e-b074-f7048d078dd6/Melahn.jpg",
       "localPath": "/assets/images/article/melahn.webp",
-      "sha256": "22212dbdce3c260bc4c080bf5de822ba5c2639896d5345a1418d18d8a608a1e9",
-      "bytes": 33324,
+      "sha256": "d5e6c46c7891a00400d01d5b0916d1049ad0fdb3bd068a65fb8b30ca271dea8f",
+      "bytes": 30156,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/b80efcaf-4501-460e-b074-f7048d078dd6/Melahn.jpg); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "amy-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730144701269-YPDBLEEV8NBD9YE1U003/Amy+case+study_Annual+Report+Highlights+%28LinkedIn+Post%29.png",
       "localPath": "/assets/images/cards/amy.webp",
-      "sha256": "88eb1c6fd606112f2f72b0ae81d2e81d714a9164b1afe5d369a77a778ba91815",
-      "bytes": 1214766,
+      "sha256": "f254b322ced19808435b934e93e9ac5649d877ca3f7a7a1949db2576dacc86c9",
+      "bytes": 1213362,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730144701269-YPDBLEEV8NBD9YE1U003/Amy+case+study_Annual+Report+Highlights+%28LinkedIn+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "anthony-lee-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730932021378-D678R17K048CSNEN8GR0/Anthony+Lee+case+study_Annual+Report+Highlights+%28LinkedIn+Post%29.png",
       "localPath": "/assets/images/cards/anthony-lee.webp",
-      "sha256": "63977d37c4fa8e7343de3f06a8ee87a17d1ea524d6a752a5ca9a8e69e026e1e6",
-      "bytes": 1198542,
+      "sha256": "64e6c667b57fdd071ede9dd9607651957f433830b82afeae996703d79f0ba073",
+      "bytes": 1197130,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730932021378-D678R17K048CSNEN8GR0/Anthony+Lee+case+study_Annual+Report+Highlights+%28LinkedIn+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "atypical-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1731357318328-7JTHCFJKH8PKS64JPBMF/_Atypical+case+study_Annual+Report+Highlights+%28LinkedIn+Post%29.png",
       "localPath": "/assets/images/cards/atypical.webp",
-      "sha256": "b64f061a4aca3a676d822152510965a3d0f684397a2d6881f0e400c445cd6884",
-      "bytes": 1234484,
+      "sha256": "51eafd673a00a9f6f4ecbdac08f7573dcd200463af38d284b199dd68c0ee8eac",
+      "bytes": 1233074,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1731357318328-7JTHCFJKH8PKS64JPBMF/_Atypical+case+study_Annual+Report+Highlights+%28LinkedIn+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "biogold-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1733953966679-2SVMY1YG59QLKYPXWKE9/Biogold+LinkedIn+Post+%28LinkedIn+Post%29.png",
       "localPath": "/assets/images/cards/biogold.webp",
-      "sha256": "cd80c5bd32d5a8fd0eaf4b6f0a5d73a26ac130dcfb220d32123c2f45a83009d5",
-      "bytes": 1081446,
+      "sha256": "445ad9eb2809a7e5bd0ef6936acea5cf6d22d7859885b424beda1e3e8fb9f37e",
+      "bytes": 1080016,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1733953966679-2SVMY1YG59QLKYPXWKE9/Biogold+LinkedIn+Post+%28LinkedIn+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "chemergy-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1749157566486-5BOI3J4XVBNCEBIYZNCZ/Chemergy+LinkedIn+Post+%28LinkedIn+Post%29.png",
       "localPath": "/assets/images/cards/chemergy.webp",
-      "sha256": "74eb35c61ed1743fb7a20f8f14de09a427fdcf565e4e406007c626c93783ecc7",
-      "bytes": 1472578,
+      "sha256": "c8b77e45b2849182a549626a67b2db8401a6b705676f6a8e1f200d628b217b96",
+      "bytes": 1471096,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1749157566486-5BOI3J4XVBNCEBIYZNCZ/Chemergy+LinkedIn+Post+%28LinkedIn+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "earthshare-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1724707963855-X1ULWZ8TEZKTBMEIDJ64/EarthShare+LinkedIn+Post+%28Instagram+Post%29.png",
       "localPath": "/assets/images/cards/earthshare.webp",
-      "sha256": "b3e453c9c551a75857fb5571616929c0edaaf20b5e05c6fc1284a657a39d03cc",
-      "bytes": 1454488,
+      "sha256": "ce5c0e46ef066120cc5160a3610594ca24ab5eed1d5e2a7f32d2c713ec8cb751",
+      "bytes": 1453086,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1724707963855-X1ULWZ8TEZKTBMEIDJ64/EarthShare+LinkedIn+Post+%28Instagram+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "energybank-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730238191006-FOS77XW2IY7KK0L5X2FJ/Case+study+EnergyBank_Annual+Report+Highlights+%28LinkedIn+Post%29.png",
       "localPath": "/assets/images/cards/energybank.webp",
-      "sha256": "15e32f68ee5e5950270ddd2dba272bd3495fe2975175d840b49d422d9356ca33",
-      "bytes": 1228980,
+      "sha256": "82cbdfe1ce682ed39e630e53a70123e99a15c59936a9caaf7f28cd897fbcdcfd",
+      "bytes": 1227568,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730238191006-FOS77XW2IY7KK0L5X2FJ/Case+study+EnergyBank_Annual+Report+Highlights+%28LinkedIn+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "futureverse-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1729718676038-9VPEBKDHB9A1S73R5B0F/Case+study+Futureverse_Annual+Report+Highlights+%28Instagram+Post%29.png",
       "localPath": "/assets/images/cards/futureverse.webp",
-      "sha256": "4608f324d18785a50914aeef53e26f499a84094b60138d781434d2d66c342e7c",
-      "bytes": 895222,
+      "sha256": "08e040b90fedf7a8ef7e24bc24a86cbf7db237f2d7dc164f80de6a98ab26d3bc",
+      "bytes": 893808,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1729718676038-9VPEBKDHB9A1S73R5B0F/Case+study+Futureverse_Annual+Report+Highlights+%28Instagram+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "hauora-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718832243281-OTKCBYAKJ5IRAI88VPXC/Hauora+Aotearoa+web+thumbnail+.png",
       "localPath": "/assets/images/cards/hauora.webp",
-      "sha256": "6f67d626d1545ed1a6bee957bb66162e73378878905a5d851b14ec7b1c18ed8d",
-      "bytes": 1403848,
+      "sha256": "abc032d840136f85935a538f1dc64c477ae0dccfd8c19781916d740a58783dc8",
+      "bytes": 1402458,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718832243281-OTKCBYAKJ5IRAI88VPXC/Hauora+Aotearoa+web+thumbnail+.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "hazel-niue-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718673599384-OE9H244NAUMC1X2C47YO/Hazel+Niue+web+thumbnail++%281%29.png",
       "localPath": "/assets/images/cards/hazel-niue.webp",
-      "sha256": "ebe3b9dc986a0531249bc918aae63df1c47fea674a4529c472ab2d07ccde8572",
-      "bytes": 1294882,
+      "sha256": "75d9766b3462573fc26c20274eb03423a91e1cb5c78241b6246db3c9764b9416",
+      "bytes": 1293496,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718673599384-OE9H244NAUMC1X2C47YO/Hazel+Niue+web+thumbnail++%281%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "humble-bee-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1725325653316-OZCEM3YQ1N0P6E0C9V7G/Humble+Bee+Bio+LinkedIn+Post+%28LinkedIn+Post%29.png",
       "localPath": "/assets/images/cards/humble-bee.webp",
-      "sha256": "9ae69f780cd532ae118cdd785a6d0ac6bbc7eb38363fb587cc923eb06874315f",
-      "bytes": 1211388,
+      "sha256": "25db36442ea3b594b9cc0ee7d0cc1d37493d7cdb9929e875429c9b2784118ac5",
+      "bytes": 1209984,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1725325653316-OZCEM3YQ1N0P6E0C9V7G/Humble+Bee+Bio+LinkedIn+Post+%28LinkedIn+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "i-am-the-river-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1720659078584-FNE9IKYK0QLG63BNID5E/I+am+the+river+web+thumbnail++%28Facebook+Post%29.png",
       "localPath": "/assets/images/cards/i-am-the-river.webp",
-      "sha256": "fa81c75fe2f2df9cf27a130cb401cfd2c7e3a38310e31bd3df25b23f96d8a89e",
-      "bytes": 1282916,
+      "sha256": "1b0869868c29b911952265aedd1cd020f667fec2cbecfa6f1367795e5be6873c",
+      "bytes": 1281510,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1720659078584-FNE9IKYK0QLG63BNID5E/I+am+the+river+web+thumbnail++%28Facebook+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "james-mielke-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718926135768-UAF3FNR25JVGE4PT229R/James+Mielke+web+thumbnail++%282%29.png",
       "localPath": "/assets/images/cards/james-mielke.webp",
-      "sha256": "bdea797fb12ef229def54acc463ed5c5b18852434cee6f835fbdc9db3acdf0e5",
-      "bytes": 680986,
+      "sha256": "8fb119a0bca3e09003f452b2119a781588fd5ac535a3c021fd0f194558c5c235",
+      "bytes": 679598,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718926135768-UAF3FNR25JVGE4PT229R/James+Mielke+web+thumbnail++%282%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "mea-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730940947147-939G150OPSKPC1RF0H8C/Case+study+MEA_Annual+Report+Highlights+%28LinkedIn+Post%29.png",
       "localPath": "/assets/images/cards/mea.webp",
-      "sha256": "fe0ed37398b9582b70405c01d5a8832dbfde456741dd54cdc443c723c4c6cc56",
-      "bytes": 1227266,
+      "sha256": "76199ed3cb0971820621b2480f8716de70b29553bd56b763372e44ad303f6378",
+      "bytes": 1225862,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730940947147-939G150OPSKPC1RF0H8C/Case+study+MEA_Annual+Report+Highlights+%28LinkedIn+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "nikora-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1715571405467-EGAJI0L77ZN9YZSOFRNW/1.+Nikora+IG.png",
       "localPath": "/assets/images/cards/nikora.webp",
-      "sha256": "fdac5d44c8b2cb2f815994c1af6da75e25d5b81fd1367014512fded708d96dbb",
-      "bytes": 711238,
+      "sha256": "655e6732832dd6d8e95799bb56474278d46cc8ba0a239c84dbc3e227f26d5cda",
+      "bytes": 709866,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1715571405467-EGAJI0L77ZN9YZSOFRNW/1.+Nikora+IG.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "oceanworks-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1725496808914-NDJ7NT5XHB2SV44KJ7BA/Oceanworks+LinkedIn+Post+%28LinkedIn+Post%29.png",
       "localPath": "/assets/images/cards/oceanworks.webp",
-      "sha256": "c8e423c92b7918ee58a23abce65d278de2af120e733fcc13588913b3beae6c0d",
-      "bytes": 1520786,
+      "sha256": "765eb9def0bc0cace5b531c8747e37ced6fcceb76fa2a57242781305369931c7",
+      "bytes": 1519386,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1725496808914-NDJ7NT5XHB2SV44KJ7BA/Oceanworks+LinkedIn+Post+%28LinkedIn+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "sonnar-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1716935133635-VS2H6XBXAQJ6CRY1ZRA9/Sonnar+web+thumbnail.png",
       "localPath": "/assets/images/cards/sonnar.webp",
-      "sha256": "4e060246f1f17d016fc60d1a72f7d4fac2062c50acb35e7e8f849bae0423425a",
-      "bytes": 1184752,
+      "sha256": "79562cf34ab31e7e398f563de124215661789cfe0fc2541cd0d9c6c4211eb7f5",
+      "bytes": 1183372,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1716935133635-VS2H6XBXAQJ6CRY1ZRA9/Sonnar+web+thumbnail.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "te-pa-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718923635044-XH7DWPRNWMPOAR2Q5B21/Te+Pa%CC%84+web+thumbnail+.png",
       "localPath": "/assets/images/cards/te-pa.webp",
-      "sha256": "917d4234dc856bde0e4817a0880df9e83b85a2d8775cb852f8902cd909937e7b",
-      "bytes": 642026,
+      "sha256": "607280e6dcfe230a167d0d8e3548714e4431602b0fd6105cfcd0f4b457726e32",
+      "bytes": 640644,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718923635044-XH7DWPRNWMPOAR2Q5B21/Te+Pa%CC%84+web+thumbnail+.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "tolaga-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718579599587-CM26IDCPZ6ENPPQWOM1Y/Tolaga.org+web+thumbnail+.png",
       "localPath": "/assets/images/cards/tolaga.webp",
-      "sha256": "f9b4b63be32be48a4ec97086ce4a27918b0ff7f322e7fe52475ece6e4fd81aa4",
-      "bytes": 1051286,
+      "sha256": "d8efeefd0d59da54a9b4b508900458b711d34d5e05c91737d9393f71a1caf178",
+      "bytes": 1049900,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718579599587-CM26IDCPZ6ENPPQWOM1Y/Tolaga.org+web+thumbnail+.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "usedfully-webp",
       "role": "read-card",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1724015315445-XFI7IGNVDKL09KVB9YNC/UsedFULLY+LinkedIn+Post.png",
       "localPath": "/assets/images/cards/usedfully.webp",
-      "sha256": "23f3287029aaf16ee94c88267f50fd4f090d92af81719090eaff8f07920ca57a",
-      "bytes": 2067502,
+      "sha256": "0e73e79057488b14792e592a831047fb904747fb36105751f7fcf122b5e0d97e",
+      "bytes": 2066118,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1724015315445-XFI7IGNVDKL09KVB9YNC/UsedFULLY+LinkedIn+Post.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "ehf-logo-webp",
       "role": "header-logo",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png",
       "localPath": "/assets/images/ehf-logo.webp",
-      "sha256": "a67eec3d22acabd8fd96ff8a88b4ffecd5820940fbbc318f43a4087c391f164a",
-      "bytes": 11666,
+      "sha256": "ecda70e8cfbe766d88aef42cb76fcc5825051643cbbc8a6e02411012d271f075",
+      "bytes": 11472,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/",
         "/read",
         "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
         "/23-annual-report"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "home-hero-webp",
       "role": "home-hero",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/5d75a977-434f-4dc6-b990-59e19761ec7a/Copy+of+Pukaki+banner+mock+up+%289%29.png",
       "localPath": "/assets/images/home-hero.webp",
-      "sha256": "e74c939c048173bcb50f4bf40d215e11532fed432a5e2dacb2e714fbc86828c6",
-      "bytes": 822490,
+      "sha256": "ec3a6bff4311c7d28e7b3f8cd9d3d6670db37bb86d6fbca4d487f03298df1dad",
+      "bytes": 821100,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/5d75a977-434f-4dc6-b990-59e19761ec7a/Copy+of+Pukaki+banner+mock+up+%289%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     },
     {
       "id": "home-organisation-webp",
       "role": "home-organisation-band",
       "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/75109450-cde7-403b-ac94-d9417c46493b/Group+1234.png",
       "localPath": "/assets/images/home-organisation.webp",
-      "sha256": "ae85245a91009b2c5591eead3ddb535762cee468bc9682d9879aaa0106959b1a",
-      "bytes": 221106,
+      "sha256": "06a9af123c14101241ebd2a01c884089a42b01f4c21e23803fbac570464acb2c",
+      "bytes": 220912,
       "contentType": "image/webp",
       "permissionStatus": "approved-local",
-      "attribution": "Reproduced locally with owner approval from the public www.ehf.org site (Edmund Hillary Fellowship) for the Stage 1 four-route spike; source origin www.ehf.org / images.squarespace-cdn.com. \u00a9 Edmund Hillary Fellowship.",
+      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/75109450-cde7-403b-ac94-d9417c46493b/Group+1234.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
       "routeUses": [
         "/"
       ],
-      "retainedExternalUrl": null
+      "retainedExternalUrl": null,
+      "license": "EHF-owned / owner-authorized public redistribution",
+      "rights": {
+        "authority": "EHF owner",
+        "authorizedDate": "2026-08-08",
+        "scope": "public Stage 1 publication",
+        "basis": "owner-authorized-public-redistribution"
+      }
     }
   ]
 }

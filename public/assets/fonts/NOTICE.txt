@@ -1,0 +1,18 @@
+NOTICE
+SIL Open Font License 1.1 - Bundled Font Software
+Edmund Hillary Fellowship Stage 1 four-route spike
+
+The font files in this directory are distributed under the SIL Open Font
+License, Version 1.1. The full license text is in OFL-1.1.txt (also
+available at https://openfontlicense.org).
+
+Roboto
+  Files: roboto-700-latin.woff2, roboto-700-italic-latin.woff2,
+         roboto-700-latin-ext.woff2, roboto-700-italic-latin-ext.woff2
+  Copyright 2011 The Roboto Project Authors (https://github.com/googlefonts/roboto-classic)
+
+Merriweather
+  Files: merriweather-300-latin.woff2, merriweather-300-italic-latin.woff2,
+         merriweather-300-latin-ext.woff2, merriweather-300-italic-latin-ext.woff2
+  Copyright 2024 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather4),
+  with Reserved Font Name "Merriweather"
