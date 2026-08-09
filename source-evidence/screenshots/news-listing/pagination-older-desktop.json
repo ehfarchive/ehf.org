@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "family": "news-listing",
+  "route": "/news-blog",
+  "sourceUrl": "https://www.ehf.org/news-blog",
+  "httpStatus": 200,
+  "finalUrl": "https://www.ehf.org/news-blog?offset=1675630776192",
+  "state": "pagination-older",
+  "stateDescription": "Second page of the collection listing reached through the source \"Older Posts\" pagination control.",
+  "sourceObserved": true,
+  "interaction": {
+    "mechanism": "source \"Older Posts\" pagination link",
+    "control": "a[href=\"/news-blog?offset=1675630776192\"]",
+    "resultingUrl": "https://www.ehf.org/news-blog?offset=1675630776192"
+  },
+  "viewport": {
+    "name": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "deviceScaleFactor": 1
+  },
+  "capture": {
+    "reducedMotion": true,
+    "fontsReady": true,
+    "lazyLoadScrollPx": 600,
+    "fullPage": false,
+    "animations": "disabled"
+  },
+  "screenshot": {
+    "path": "source-evidence/screenshots/news-listing/pagination-older-desktop.png",
+    "widthPx": 1440,
+    "heightPx": 1000
+  },
+  "documentHeight": 4148,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [],
+  "capturedAt": "2026-08-09T03:41:52.753Z"
+}

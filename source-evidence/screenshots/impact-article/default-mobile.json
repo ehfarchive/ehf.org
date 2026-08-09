@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "family": "impact-article",
+  "route": "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+  "sourceUrl": "https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+  "httpStatus": 200,
+  "finalUrl": "https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+  "state": "default",
+  "stateDescription": "Page as first painted after fonts settle, full 600 px lazy-load scroll pass, and scroll returned to the top.",
+  "sourceObserved": true,
+  "interaction": null,
+  "viewport": {
+    "name": "mobile",
+    "width": 390,
+    "height": 844,
+    "deviceScaleFactor": 1
+  },
+  "capture": {
+    "reducedMotion": true,
+    "fontsReady": true,
+    "lazyLoadScrollPx": 600,
+    "fullPage": true,
+    "animations": "disabled"
+  },
+  "screenshot": {
+    "path": "source-evidence/screenshots/impact-article/default-mobile.png",
+    "widthPx": 390,
+    "heightPx": 10986
+  },
+  "documentHeight": 10986,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [
+    ""
+  ],
+  "capturedAt": "2026-08-09T03:39:17.942Z"
+}

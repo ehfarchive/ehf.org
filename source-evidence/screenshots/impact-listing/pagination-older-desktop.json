@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "family": "impact-listing",
+  "route": "/read",
+  "sourceUrl": "https://www.ehf.org/read",
+  "httpStatus": 200,
+  "finalUrl": "https://www.ehf.org/read?offset=1715571924869",
+  "state": "pagination-older",
+  "stateDescription": "Second page of the collection listing reached through the source \"Older Posts\" pagination control.",
+  "sourceObserved": true,
+  "interaction": {
+    "mechanism": "source \"Older Posts\" pagination link",
+    "control": "a[href=\"/read?offset=1715571924869\"]",
+    "resultingUrl": "https://www.ehf.org/read?offset=1715571924869"
+  },
+  "viewport": {
+    "name": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "deviceScaleFactor": 1
+  },
+  "capture": {
+    "reducedMotion": true,
+    "fontsReady": true,
+    "lazyLoadScrollPx": 600,
+    "fullPage": false,
+    "animations": "disabled"
+  },
+  "screenshot": {
+    "path": "source-evidence/screenshots/impact-listing/pagination-older-desktop.png",
+    "widthPx": 1440,
+    "heightPx": 1000
+  },
+  "documentHeight": 3320,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [],
+  "capturedAt": "2026-08-09T03:37:29.594Z"
+}

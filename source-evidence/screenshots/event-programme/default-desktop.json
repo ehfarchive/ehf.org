@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "family": "event-programme",
+  "route": "/2025-summit-programme",
+  "sourceUrl": "https://www.ehf.org/2025-summit-programme",
+  "httpStatus": 200,
+  "finalUrl": "https://www.ehf.org/2025-summit-programme",
+  "state": "default",
+  "stateDescription": "Page as first painted after fonts settle, full 600 px lazy-load scroll pass, and scroll returned to the top.",
+  "sourceObserved": true,
+  "interaction": null,
+  "viewport": {
+    "name": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "deviceScaleFactor": 1
+  },
+  "capture": {
+    "reducedMotion": true,
+    "fontsReady": true,
+    "lazyLoadScrollPx": 600,
+    "fullPage": true,
+    "animations": "disabled"
+  },
+  "screenshot": {
+    "path": "source-evidence/screenshots/event-programme/default-desktop.png",
+    "widthPx": 1440,
+    "heightPx": 6413
+  },
+  "documentHeight": 6413,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [],
+  "capturedAt": "2026-08-09T03:42:44.373Z"
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "family": "contact-media-donation",
+  "route": "/contact-media",
+  "sourceUrl": "https://www.ehf.org/contact-media",
+  "httpStatus": 200,
+  "finalUrl": "https://www.ehf.org/contact-media",
+  "state": "form-filled",
+  "stateDescription": "Source inquiry form with every visible text control populated and no submission performed.",
+  "sourceObserved": true,
+  "interaction": {
+    "mechanism": "every visible form control populated, no submit dispatched",
+    "control": "form",
+    "filledFields": [
+      "fname=Sample",
+      "lname=Visitor",
+      "email-yui_3_17_2_1_1658829221668_6805-field=sample.visitor@example.com",
+      "text-yui_3_17_2_1_1658829221668_6806-field=Sample Organisation",
+      "textarea-yui_3_17_2_1_1658829221668_6807-field=Deterministic capture text for source visual evidence.",
+      "message-yui_425aff86-e3a2-431e-aebd-f9928b9cb495-field=Sample Organisation"
+    ]
+  },
+  "viewport": {
+    "name": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "deviceScaleFactor": 1
+  },
+  "capture": {
+    "reducedMotion": true,
+    "fontsReady": true,
+    "lazyLoadScrollPx": 600,
+    "fullPage": false,
+    "animations": "disabled"
+  },
+  "screenshot": {
+    "path": "source-evidence/screenshots/contact-media-donation/form-filled-desktop.png",
+    "widthPx": 1440,
+    "heightPx": 1000
+  },
+  "documentHeight": 1514,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [],
+  "capturedAt": "2026-08-09T03:44:12.015Z"
+}

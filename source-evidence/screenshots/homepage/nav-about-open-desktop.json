@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "family": "homepage",
+  "route": "/",
+  "sourceUrl": "https://www.ehf.org/",
+  "httpStatus": 200,
+  "finalUrl": "https://www.ehf.org/",
+  "state": "nav-about-open",
+  "stateDescription": "About navigation folder expanded: desktop opens the header folder dropdown, mobile opens the burger menu and expands the same folder.",
+  "sourceObserved": true,
+  "interaction": {
+    "mechanism": "desktop header folder dropdown button",
+    "control": "button.header-nav-folder-title[aria-controls=\"about\"]"
+  },
+  "viewport": {
+    "name": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "deviceScaleFactor": 1
+  },
+  "capture": {
+    "reducedMotion": true,
+    "fontsReady": true,
+    "lazyLoadScrollPx": 600,
+    "fullPage": false,
+    "animations": "disabled"
+  },
+  "screenshot": {
+    "path": "source-evidence/screenshots/homepage/nav-about-open-desktop.png",
+    "widthPx": 1440,
+    "heightPx": 1000
+  },
+  "documentHeight": 2048,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [],
+  "capturedAt": "2026-08-09T03:36:29.080Z"
+}

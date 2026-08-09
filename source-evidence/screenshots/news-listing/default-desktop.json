@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "family": "news-listing",
+  "route": "/news-blog",
+  "sourceUrl": "https://www.ehf.org/news-blog",
+  "httpStatus": 200,
+  "finalUrl": "https://www.ehf.org/news-blog",
+  "state": "default",
+  "stateDescription": "Page as first painted after fonts settle, full 600 px lazy-load scroll pass, and scroll returned to the top.",
+  "sourceObserved": true,
+  "interaction": null,
+  "viewport": {
+    "name": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "deviceScaleFactor": 1
+  },
+  "capture": {
+    "reducedMotion": true,
+    "fontsReady": true,
+    "lazyLoadScrollPx": 600,
+    "fullPage": true,
+    "animations": "disabled"
+  },
+  "screenshot": {
+    "path": "source-evidence/screenshots/news-listing/default-desktop.png",
+    "widthPx": 1440,
+    "heightPx": 8860
+  },
+  "documentHeight": 8860,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [],
+  "capturedAt": "2026-08-09T03:40:57.091Z"
+}

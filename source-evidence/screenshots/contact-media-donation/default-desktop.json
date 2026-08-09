@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "family": "contact-media-donation",
+  "route": "/contact-media",
+  "sourceUrl": "https://www.ehf.org/contact-media",
+  "httpStatus": 200,
+  "finalUrl": "https://www.ehf.org/contact-media",
+  "state": "default",
+  "stateDescription": "Page as first painted after fonts settle, full 600 px lazy-load scroll pass, and scroll returned to the top.",
+  "sourceObserved": true,
+  "interaction": null,
+  "viewport": {
+    "name": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "deviceScaleFactor": 1
+  },
+  "capture": {
+    "reducedMotion": true,
+    "fontsReady": true,
+    "lazyLoadScrollPx": 600,
+    "fullPage": true,
+    "animations": "disabled"
+  },
+  "screenshot": {
+    "path": "source-evidence/screenshots/contact-media-donation/default-desktop.png",
+    "widthPx": 1440,
+    "heightPx": 1514
+  },
+  "documentHeight": 1514,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [],
+  "capturedAt": "2026-08-09T03:44:04.255Z"
+}
