@@ -1,0 +1,553 @@
+{
+  "requestedUrl": "https://www.ehf.org/read?offset=1715571924869",
+  "finalUrl": "https://www.ehf.org/read?offset=1715571924869",
+  "capturedAt": "2026-08-09T14:19:23.656Z",
+  "title": "Read about our Impact in Action | Edmund Hillary Fellowship — Edmund Hillary Fellowship",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Energy Lifelines Enabling Remote Communities"
+    },
+    {
+      "level": 1,
+      "text": "Accelerating impact through the power of the sun"
+    },
+    {
+      "level": 1,
+      "text": "Sharing a solar-powered future"
+    },
+    {
+      "level": 1,
+      "text": "A Sweet Symphony of Collaboration and Impact"
+    },
+    {
+      "level": 1,
+      "text": "Space Venture Spotlight: Ceres Robotics"
+    },
+    {
+      "level": 1,
+      "text": "Aerospace Venture Spotlight: Kea Aerospace"
+    },
+    {
+      "level": 1,
+      "text": "Supporting Kiwi founders to thrive"
+    },
+    {
+      "level": 1,
+      "text": "Enabling prosperity through regeneration"
+    },
+    {
+      "level": 1,
+      "text": "Disrupting lending systems"
+    },
+    {
+      "level": 1,
+      "text": "Revolutionising tech from NZ"
+    },
+    {
+      "level": 1,
+      "text": "Cultivating regenerative organic futures"
+    },
+    {
+      "level": 1,
+      "text": "Transforming Māori education and revitalising identity"
+    },
+    {
+      "level": 1,
+      "text": "Scaling Kiwi Healthcare Business At Home And Going Global"
+    },
+    {
+      "level": 1,
+      "text": "Could Training and Upskilling Be The Most Efficient Way to Transform Aotearoa Into A Climate Leader?"
+    },
+    {
+      "level": 1,
+      "text": "Celebrating Achievements and Values This Everest Day"
+    },
+    {
+      "level": 1,
+      "text": "Creating Energy from Waste in Aotearoa"
+    },
+    {
+      "level": 1,
+      "text": "Information-Sharing for the Public Good"
+    },
+    {
+      "level": 1,
+      "text": "Supporting values-based innovation in Aotearoa"
+    },
+    {
+      "level": 1,
+      "text": "Aotearoa - Ideal Basecamp for Space"
+    },
+    {
+      "level": 1,
+      "text": "The World-Changing Power of True Stories"
+    },
+    {
+      "level": 3,
+      "text": "About‍   |   Fellows Directory‍   |‍  ‍ Impact  ‍ |   Archive‍   |   Closure Statement   |   Privacy"
+    }
+  ],
+  "documentHeightPx": 3320,
+  "viewport": {
+    "widthPx": 1440,
+    "heightPx": 1000,
+    "devicePixelRatio": 1
+  },
+  "media": {
+    "elements": [
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
+        "complete": true,
+        "naturalWidth": 914,
+        "naturalHeight": 154,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
+        "complete": true,
+        "naturalWidth": 914,
+        "naturalHeight": 154,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1714428800405-VGRV2IXOWHC2CRT4OYCS/Liquidstar+IG.png?format=750w",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 720,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1714338543909-UILOABL7T1IIOQLN0TIG/Accelerating+Impact+Through+the+Power+of+the+Sun+%28Instagram+Post%29.png?format=750w",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 720,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1713835983920-G857FQ9UA9GB8Z4JSD5F/IG+Spotlight+on+Kia+Kotahi+Ako.png?format=750w",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 720,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1711570200800-CPIERZU32LXU4DPYFDRR/team-weave-holding-weave-cacao-chocolate-drops.jpg?format=750w",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 634,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1710791564938-WQT2TW5F3YGVYUKIP504/LI+Ceres+Robotics+post.png?format=750w",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 720,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1711401743432-VCX4671V1R2IJ9FLWEOX/LI+Kea+Aerospace+post.png?format=750w",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 720,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1702345991539-XMZQE1TE8O38OUOBKJHS/Justin%2BMilano.jpg?format=750w",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 899,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1701141626215-1GGZWXYMC3IC7T3F76YU/Toha+Founders.jpeg?format=750w",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 406,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1700683636720-O3UW5EQPIEMOBPRYFWW6/Copy+of+Sasha_4678_C.jpg?format=750w",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 720,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1699568536390-9F242FORJ05NLZPF4XMD/boydmulterer.jpg?format=750w",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 432,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1698962484652-SJ4W1WESEMEI41YRVDXS/Gary+Hirshberg.jpg?format=750w",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 406,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1698270840167-34D2XKQFCENR7Z3AVCWU/rangimarieparatatakurua.jpg?format=750w",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 432,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1695756882317-YS6XA5X5148FTIEJ5JAQ/1690346370759.jpg?format=750w",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 960,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1688589677341-KUKQOWXJTXCWDMBS7EVX/Attendees+at+the+How+to+Join+the+Climate+%26+Sustainability+Leaders+event+March.jpeg?format=750w",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 519,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1685260231917-SBNMC05H5C3P3NPL2K79/Edmund_Surveys_Valley.jpg?format=750w",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 480,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1683617148124-NBVZPGOU1BK1DMNCIIZH/Impact-Award-Alimentary__credit_+Jonny+Knopp%2C+Peanut+Productions.jpg?format=750w",
+        "complete": true,
+        "naturalWidth": 576,
+        "naturalHeight": 384,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1671150919194-E81M3WTH6TRS32R8KTT1/Licenced%2BFinal%2BIllustration%2BHigh-res.png?format=750w",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 460,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1669597713546-JBAOQMKNUZDSVB9MRQM1/MohanNair_Thumbnail.png?format=750w",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 397,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1662594132773-QTX3QH31YFGO9WCUI4R8/16094149559_5fe4a085b6_k.jpg?format=750w",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 405,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1657159498415-UKPHVG18UN60WB3MG4BX/image003.png?format=750w",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 480,
+        "remote": true
+      }
+    ],
+    "resources": [
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
+        "initiatorType": "img",
+        "durationMs": 0,
+        "transferSize": 0,
+        "encodedBodySize": 11666,
+        "decodedBodySize": 11666,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1714428800405-VGRV2IXOWHC2CRT4OYCS/Liquidstar+IG.png?format=750w",
+        "initiatorType": "img",
+        "durationMs": 1121.1,
+        "transferSize": 652986,
+        "encodedBodySize": 652686,
+        "decodedBodySize": 652686,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1711570200800-CPIERZU32LXU4DPYFDRR/team-weave-holding-weave-cacao-chocolate-drops.jpg?format=750w",
+        "initiatorType": "img",
+        "durationMs": 708.8,
+        "transferSize": 115608,
+        "encodedBodySize": 115308,
+        "decodedBodySize": 115308,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1714338543909-UILOABL7T1IIOQLN0TIG/Accelerating+Impact+Through+the+Power+of+the+Sun+%28Instagram+Post%29.png?format=750w",
+        "initiatorType": "img",
+        "durationMs": 992.2,
+        "transferSize": 428394,
+        "encodedBodySize": 428094,
+        "decodedBodySize": 428094,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1710791564938-WQT2TW5F3YGVYUKIP504/LI+Ceres+Robotics+post.png?format=750w",
+        "initiatorType": "img",
+        "durationMs": 1148.8,
+        "transferSize": 210992,
+        "encodedBodySize": 210692,
+        "decodedBodySize": 210692,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1713835983920-G857FQ9UA9GB8Z4JSD5F/IG+Spotlight+on+Kia+Kotahi+Ako.png?format=750w",
+        "initiatorType": "img",
+        "durationMs": 2278,
+        "transferSize": 768070,
+        "encodedBodySize": 767770,
+        "decodedBodySize": 767770,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1698962484652-SJ4W1WESEMEI41YRVDXS/Gary+Hirshberg.jpg?format=750w",
+        "initiatorType": "img",
+        "durationMs": 605.7,
+        "transferSize": 31114,
+        "encodedBodySize": 30814,
+        "decodedBodySize": 30814,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1698270840167-34D2XKQFCENR7Z3AVCWU/rangimarieparatatakurua.jpg?format=750w",
+        "initiatorType": "img",
+        "durationMs": 622.7,
+        "transferSize": 33974,
+        "encodedBodySize": 33674,
+        "decodedBodySize": 33674,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1699568536390-9F242FORJ05NLZPF4XMD/boydmulterer.jpg?format=750w",
+        "initiatorType": "img",
+        "durationMs": 667.7,
+        "transferSize": 57054,
+        "encodedBodySize": 56754,
+        "decodedBodySize": 56754,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1701141626215-1GGZWXYMC3IC7T3F76YU/Toha+Founders.jpeg?format=750w",
+        "initiatorType": "img",
+        "durationMs": 698.5,
+        "transferSize": 40164,
+        "encodedBodySize": 39864,
+        "decodedBodySize": 39864,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1702345991539-XMZQE1TE8O38OUOBKJHS/Justin%2BMilano.jpg?format=750w",
+        "initiatorType": "img",
+        "durationMs": 728.9,
+        "transferSize": 46066,
+        "encodedBodySize": 45766,
+        "decodedBodySize": 45766,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1700683636720-O3UW5EQPIEMOBPRYFWW6/Copy+of+Sasha_4678_C.jpg?format=750w",
+        "initiatorType": "img",
+        "durationMs": 764.4,
+        "transferSize": 55396,
+        "encodedBodySize": 55096,
+        "decodedBodySize": 55096,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1711401743432-VCX4671V1R2IJ9FLWEOX/LI+Kea+Aerospace+post.png?format=750w",
+        "initiatorType": "img",
+        "durationMs": 1344.3,
+        "transferSize": 474912,
+        "encodedBodySize": 474612,
+        "decodedBodySize": 474612,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1683617148124-NBVZPGOU1BK1DMNCIIZH/Impact-Award-Alimentary__credit_+Jonny+Knopp%2C+Peanut+Productions.jpg?format=750w",
+        "initiatorType": "img",
+        "durationMs": 556,
+        "transferSize": 51860,
+        "encodedBodySize": 51560,
+        "decodedBodySize": 51560,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1688589677341-KUKQOWXJTXCWDMBS7EVX/Attendees+at+the+How+to+Join+the+Climate+%26+Sustainability+Leaders+event+March.jpeg?format=750w",
+        "initiatorType": "img",
+        "durationMs": 654,
+        "transferSize": 120110,
+        "encodedBodySize": 119810,
+        "decodedBodySize": 119810,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1695756882317-YS6XA5X5148FTIEJ5JAQ/1690346370759.jpg?format=750w",
+        "initiatorType": "img",
+        "durationMs": 718.4,
+        "transferSize": 96566,
+        "encodedBodySize": 96266,
+        "decodedBodySize": 96266,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1685260231917-SBNMC05H5C3P3NPL2K79/Edmund_Surveys_Valley.jpg?format=750w",
+        "initiatorType": "img",
+        "durationMs": 730,
+        "transferSize": 52428,
+        "encodedBodySize": 52128,
+        "decodedBodySize": 52128,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1662594132773-QTX3QH31YFGO9WCUI4R8/16094149559_5fe4a085b6_k.jpg?format=750w",
+        "initiatorType": "img",
+        "durationMs": 622.6,
+        "transferSize": 90390,
+        "encodedBodySize": 90090,
+        "decodedBodySize": 90090,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1671150919194-E81M3WTH6TRS32R8KTT1/Licenced%2BFinal%2BIllustration%2BHigh-res.png?format=750w",
+        "initiatorType": "img",
+        "durationMs": 791.8,
+        "transferSize": 241964,
+        "encodedBodySize": 241664,
+        "decodedBodySize": 241664,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1669597713546-JBAOQMKNUZDSVB9MRQM1/MohanNair_Thumbnail.png?format=750w",
+        "initiatorType": "img",
+        "durationMs": 841.8,
+        "transferSize": 186950,
+        "encodedBodySize": 186650,
+        "decodedBodySize": 186650,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1657159498415-UKPHVG18UN60WB3MG4BX/image003.png?format=750w",
+        "initiatorType": "img",
+        "durationMs": 1015.9,
+        "transferSize": 402862,
+        "encodedBodySize": 402562,
+        "decodedBodySize": 402562,
+        "loaded": true,
+        "remote": true
+      }
+    ],
+    "loadedElementCount": 22,
+    "unloadedElementCount": 0,
+    "remoteElementCount": 22
+  },
+  "paginationLinks": [
+    {
+      "text": "Newer Posts",
+      "href": "https://www.ehf.org/read?offset=1714430433447&reversePaginate=true"
+    },
+    {
+      "text": "Older Posts",
+      "href": "https://www.ehf.org/read?offset=1657161783620"
+    }
+  ],
+  "fonts": {
+    "status": "loaded",
+    "size": 59
+  },
+  "state": "listing-older",
+  "localRoute": "/read/page/2",
+  "captureViewport": {
+    "name": "desktop",
+    "widthPx": 1440,
+    "heightPx": 1000
+  },
+  "captureProcedure": {
+    "waitedForNetworkIdle": true,
+    "waitedForFonts": true,
+    "scrollIncrementPx": 600,
+    "returnedToTop": true,
+    "fullPageScreenshot": true
+  },
+  "health": {
+    "httpStatus": 200,
+    "redirectWithinApprovedEhfScope": true,
+    "failedRequests": [],
+    "pendingRequestsAtInspection": [
+      "POST https://tracing.squarespace.com/v1/logs → pending (?ms, ?B)",
+      "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
+      "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
+    ],
+    "healthy": true,
+    "consoleErrors": [],
+    "consoleWarnings": [
+      "[2026-08-09T14:19:20.599Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+      "[2026-08-09T14:19:20.599Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+      "[2026-08-09T14:19:20.599Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+      "[2026-08-09T14:19:20.599Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+      "[2026-08-09T14:19:20.599Z] [warning] yui: NOT loaded: squarespace-performance"
+    ]
+  },
+  "provenance": {
+    "sourceHost": "www.ehf.org",
+    "captureTool": "gstack browse shared Chromium",
+    "runtimeAssetsCopiedIntoBuild": false
+  },
+  "screenshot": {
+    "path": "listing-older-desktop.png",
+    "sha256": "04da1bc7da5df7857e30ee2b4d3fae2abf86eea3dfc48ece5e157d6e0294c65e",
+    "widthPx": 867,
+    "heightPx": 1999,
+    "channels": 3,
+    "fullPage": true
+  }
+}
