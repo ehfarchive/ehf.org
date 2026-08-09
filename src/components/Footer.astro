@@ -7,7 +7,7 @@ import NewsletterForm from './NewsletterForm.astro';
     <p>© {site.name} 2016 - 2026</p>
     <nav aria-label="Footer navigation">
       <ul>
-        {footerNavigation.map((item) => <li><a href={item.href} target={item.kind === 'external' ? '_blank' : undefined} rel={item.kind === 'external' ? 'noreferrer' : undefined}>{item.label}</a></li>)}
+        {footerNavigation.map((item) => <li>{item.kind === 'text' ? <strong>{item.label}</strong> : <a href={item.href} target={item.kind === 'external' ? '_blank' : undefined} rel={item.kind === 'external' ? 'noreferrer' : undefined}>{item.label}</a>}</li>)}
       </ul>
     </nav>
     <NewsletterForm />

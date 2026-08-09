@@ -7,7 +7,9 @@ import { loadRouteManifest } from '../lib/route-manifest';
 export type SiteLink =
   | { label: string; kind: 'internal'; href: string }
   | { label: string; kind: 'external'; href: string };
+export type SiteText = { label: string; kind: 'text' };
 export type SiteNavigationItem = SiteLink & { children?: readonly SiteLink[] };
+export type FooterNavigationItem = SiteLink | SiteText;
 
 const routes = loadRouteManifest(routeManifestInput);
 const assets = assetManifestInput as AssetManifest;
@@ -20,10 +22,6 @@ function internal(label: string, href: string): SiteLink {
   return { label, kind: 'internal', href };
 }
 
-function external(label: string, href: string): SiteLink {
-  if (new URL(href).protocol !== 'https:') throw new Error(`site external link must use HTTPS: ${href}`);
-  return { label, kind: 'external', href };
-}
 
 export const site = {
   name: 'Edmund Hillary Fellowship',
@@ -47,7 +45,6 @@ export const primaryNavigation: readonly SiteNavigationItem[] = [
     ...internal('Impact', '/impact-in-action'),
     children: [
       internal('Read and Watch', '/impact-in-action'),
-      external('Impact Snapshots', 'https://www.ehf.org/news#fellows'),
       internal('EHF Community Collective', '/communitycollective'),
       // EHF Fellows Articles is intentionally absent because the route manifest excludes it.
     ]
@@ -55,13 +52,13 @@ export const primaryNavigation: readonly SiteNavigationItem[] = [
   internal('Archive', '/archive')
 ] as const;
 
-export const footerNavigation: readonly SiteLink[] = [
+export const footerNavigation: readonly FooterNavigationItem[] = [
   internal('About', '/about-ehf'),
   internal('Impact', '/impact-in-action'),
   internal('Archive', '/archive'),
-  external('Closure Statement', 'https://www.ehf.org/closure-statement'),
+  { label: 'Closure Statement', kind: 'text' },
   internal('Privacy', '/privacy-policy')
-] as const;
+];
 
 export function resolveSiteAsset(assetId: string): string {
   return resolveLocalAsset(assetId, assets, resolve(process.cwd(), 'public/assets'));

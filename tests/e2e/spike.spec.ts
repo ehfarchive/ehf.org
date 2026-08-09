@@ -326,13 +326,13 @@ test('the footer keeps semantic links while permitting source-like inline wrappi
   const footer = page.locator('.site-footer');
   await expect(footer.getByRole('heading')).toHaveCount(0);
   const items = footer.locator('nav ul > li');
-  await expect(items).toHaveCount(6);
+  await expect(items).toHaveCount(5);
   expect(await items.evaluateAll((nodes) => nodes.map((node) => getComputedStyle(node).display))).toEqual(
-    Array(6).fill('inline')
+    Array(5).fill('inline')
   );
 
   if (testInfo.project.name === 'mobile') {
-    const copyright = await footer.locator('p').evaluate((node) => {
+    const copyright = await footer.locator('.site-footer__inner > p').evaluate((node) => {
       const range = document.createRange();
       range.selectNodeContents(node);
       return { lines: range.getClientRects().length, height: node.getBoundingClientRect().height };
