@@ -331,6 +331,33 @@ test('mobile child panels retain the close control in the viewport', async ({ pa
   })).toBe(true);
 });
 
+test('mobile submenu keeps the source-observed home brand and close dismissal controls', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile', 'mobile menu contract');
+  await page.goto('/');
+  const trigger = page.getByRole('button', { name: 'Open menu', exact: true });
+  const dialog = page.getByRole('dialog', { name: /site navigation/i });
+
+  for (const [label, dismiss] of [['About', 'close'], ['Impact', 'escape']] as const) {
+    await trigger.click();
+    await dialog.getByRole('button', { name: label, exact: true }).click();
+
+    await expect(dialog.getByRole('link', { name: 'Edmund Hillary Fellowship', exact: true })).toHaveAttribute('href', '/');
+    await expect(dialog.getByRole('button', { name: 'Close menu', exact: true })).toBeVisible();
+    await expect(dialog.getByRole('button', { name: '< Back', exact: true })).toBeVisible();
+    await expect(dialog.getByRole('link', { name: /fellow directory|impact snapshots|ehf fellows articles/i })).toHaveCount(0);
+    await expect(dialog.locator('a[href="/news#fellows"], a[href="/news#impact-snapshots"]')).toHaveCount(0);
+
+    if (dismiss === 'close') {
+      await dialog.getByRole('button', { name: 'Close menu', exact: true }).click();
+    } else {
+      await page.keyboard.press('Escape');
+    }
+    await expect(dialog).toBeHidden();
+    await expect(page.locator('body')).not.toHaveClass(/menu-open/);
+    await expect(trigger).toBeFocused();
+  }
+});
+
 test('Impact retains every manifest-backed submenu destination', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'desktop', 'desktop menu contract');
   await page.goto('/');

@@ -244,8 +244,7 @@
     position: absolute;
     top: calc((var(--header-height) - 40px) / 2);
     left: var(--page-gutter);
-    z-index: 1;
-    pointer-events: none;
+    z-index: 2;
   }
   .mobile-menu__brand img { display: block; width: min(237.3px, calc(100vw - (var(--page-gutter) * 2) - 47px)); height: auto; }
   .mobile-menu__panel {
@@ -288,6 +287,7 @@
     height: 37px;
     padding: 0;
     color: var(--color-ink);
+    z-index: 2;
   }
   .mobile-menu__close svg { width: 21px; height: 21px; }
   .mobile-menu nav ul { display: grid; align-items: start; gap: 11.5px; }
