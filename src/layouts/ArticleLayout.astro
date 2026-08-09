@@ -1,23 +1,28 @@
 ---
+import ResponsiveImage from '../components/ResponsiveImage.astro';
 import SiteLayout from './SiteLayout.astro';
 
 interface Props {
   title: string;
-  nextSlug?: string;
+  description?: string;
+  publishedAt?: Date;
+  heroAssetId: string;
+  heroAlt: string;
+  next?: { href: string; title: string };
 }
 
-const { title, nextSlug } = Astro.props;
-const nextTitle = "Harnessing Pine Pollen's Power to Transform Wellbeing";
+const { title, description, publishedAt, heroAssetId, heroAlt, next } = Astro.props;
 ---
-<SiteLayout title={`${title} — Edmund Hillary Fellowship`}>
-  <article class="article-page site-container">
+<SiteLayout title={`${title} — Edmund Hillary Fellowship`} description={description}>
+  <article class="article-page content-width">
     <header class="article-page__header">
       <h1>{title}</h1>
-
+      {publishedAt && <time datetime={publishedAt.toISOString()}>{publishedAt.toLocaleDateString('en-NZ')}</time>}
+      <ResponsiveImage assetId={heroAssetId} alt={heroAlt} width={940} height={627} sizes="(max-width: 767px) 100vw, 940px" loading="eager" class="article-page__hero" />
     </header>
     <div class="article-page__body"><slot /></div>
-    {nextSlug && <nav class="article-page__next" aria-label="Article navigation">
-      <a href={`/read/${nextSlug}`}>{nextTitle}</a>
+    {next && <nav class="article-page__next" aria-label="Article navigation">
+      <a href={next.href}>{next.title}</a>
       <span class="article-page__next-chevron" aria-hidden="true"></span>
     </nav>}
   </article>

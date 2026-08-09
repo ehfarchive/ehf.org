@@ -14,6 +14,18 @@ test('desktop Impact dropdown opens by keyboard and closes with Escape', async (
   await expect(trigger).toBeFocused();
 });
 
+test('desktop repeated keyboard activation collapses an open folder', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop', 'desktop menu contract');
+  await page.goto('/');
+  const trigger = page.getByRole('button', { name: /^impact$/i });
+  await trigger.focus();
+  await page.keyboard.press('Enter');
+  await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+  await page.keyboard.press('Enter');
+  await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+  await expect(page.getByRole('navigation', { name: /impact submenu/i })).toBeHidden();
+});
+
 test('desktop submenu pointer state is truthful', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'desktop', 'desktop menu contract');
   await page.goto('/');
@@ -101,15 +113,15 @@ test('mobile modal traps focus and makes parent controls inert in child panels',
   await page.getByRole('button', { name: 'Open menu', exact: true }).click();
   const dialog = page.getByRole('dialog', { name: /site navigation/i });
   const close = dialog.getByRole('button', { name: 'Close menu', exact: true });
-  const directory = dialog.locator('[data-mobile-root] .button--directory');
+  const lastRootControl = dialog.locator('[data-mobile-root]').getByRole('link', { name: 'Archive', exact: true });
   await expect(close).toBeFocused();
   await page.keyboard.press('Shift+Tab');
-  await expect(directory).toBeFocused();
+  await expect(lastRootControl).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(close).toBeFocused();
   await dialog.getByRole('button', { name: /^about$/i }).click();
   await expect(dialog.locator('[data-mobile-root]')).toHaveAttribute('inert', '');
-  const back = dialog.getByRole('button', { name: 'Back', exact: true });
+  const back = dialog.getByRole('button', { name: '< Back', exact: true });
   await expect(back).toBeFocused();
   await page.keyboard.press('Shift+Tab');
   await page.keyboard.press('Tab');
@@ -226,4 +238,103 @@ test('mobile controls retain source icon paint and accessible labels', async ({ 
 
   await close.click();
   await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+});
+
+test('desktop folders close on outside pointer interaction', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop', 'desktop menu contract');
+  await page.goto('/');
+  const trigger = page.getByRole('button', { name: /^about$/i });
+  await trigger.hover();
+  await page.mouse.click(720, 500);
+  await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+  await expect(page.getByRole('navigation', { name: /about submenu/i })).toBeHidden();
+});
+
+test('the shared shell has a single described main landmark without directory navigation', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop', 'desktop shell contract');
+  await page.goto('/');
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /.+/);
+  await expect(page.locator('header[role="banner"]')).toHaveCount(1);
+  await expect(page.locator('main#main-content')).toHaveCount(1);
+  await expect(page.locator('footer[role="contentinfo"]')).toHaveCount(1);
+  await expect(page.locator('header a[href*="fellow-directory"], footer a[href*="fellow-directory"]')).toHaveCount(0);
+});
+
+test('newsletter is display-only and prevents a real submission without a request, navigation, or success state', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop', 'desktop newsletter contract');
+  await page.goto('/');
+  const requests: string[] = [];
+  const navigations: string[] = [];
+  page.on('request', (request) => requests.push(request.url()));
+  page.on('framenavigated', (frame) => {
+    if (frame === page.mainFrame()) navigations.push(frame.url());
+  });
+  const form = page.locator('[data-newsletter-form]');
+  await expect(form).toBeVisible();
+  const input = form.getByRole('textbox', { name: /email/i });
+  const subscribe = form.getByRole('button', { name: /subscribe/i });
+  await expect(input).toBeDisabled();
+  await expect(input).toHaveAttribute('aria-describedby', 'newsletter-availability');
+  await expect(subscribe).toBeDisabled();
+  await expect(form).toContainText(/not available/i);
+  await expect(form.locator('[data-newsletter-success]')).toHaveCount(0);
+  expect(await form.evaluate((element) => new Promise<boolean>((resolve) => {
+    const formElement = element as HTMLFormElement;
+    formElement.addEventListener('submit', (event) => resolve(event.defaultPrevented), { once: true });
+    formElement.requestSubmit();
+  }))).toBe(true);
+  await page.waitForTimeout(100);
+  expect(requests).toEqual([]);
+  expect(navigations).toEqual([]);
+  await expect(page).toHaveURL('/');
+  await expect(form.locator('[data-newsletter-success]')).toHaveCount(0);
+});
+
+test('all rendered shell images resolve from local assets', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop', 'desktop asset contract');
+  await page.goto('/');
+  const images = await page.locator('img').evaluateAll((nodes) => (nodes as HTMLImageElement[]).map((image) => image.currentSrc));
+  expect(images).not.toEqual([]);
+  expect(images.every((src) => new URL(src).pathname.startsWith('/assets/'))).toBe(true);
+});
+
+test('a desktop pointer click keeps the selected folder open', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop', 'desktop menu contract');
+  await page.goto('/');
+  const trigger = page.getByRole('button', { name: 'About', exact: true });
+  await trigger.click();
+  await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+  await expect(page.getByRole('navigation', { name: /about submenu/i })).toBeVisible();
+});
+
+test('desktop repeated pointer activation collapses an open folder', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop', 'desktop menu contract');
+  await page.goto('/');
+  const trigger = page.getByRole('button', { name: 'About', exact: true });
+  await trigger.click();
+  await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+  await trigger.click();
+  await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+  await expect(page.getByRole('navigation', { name: /about submenu/i })).toBeHidden();
+});
+
+test('mobile child panels retain the close control in the viewport', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile', 'mobile menu contract');
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Open menu', exact: true }).click();
+  await page.getByRole('button', { name: 'About', exact: true }).click();
+  const close = page.getByRole('button', { name: 'Close menu', exact: true });
+  await expect(close).toBeVisible();
+  expect(await close.evaluate((element) => {
+    const rect = element.getBoundingClientRect();
+    return rect.left >= 0 && rect.right <= innerWidth && rect.top >= 0 && rect.bottom <= innerHeight;
+  })).toBe(true);
+});
+
+test('Impact retains every manifest-backed submenu destination', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop', 'desktop menu contract');
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Impact', exact: true }).hover();
+  const submenu = page.getByRole('navigation', { name: /impact submenu/i });
+  await expect(submenu.getByRole('link', { name: 'EHF Community Collective', exact: true })).toHaveAttribute('href', '/communitycollective');
 });
