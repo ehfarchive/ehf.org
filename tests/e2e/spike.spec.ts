@@ -195,6 +195,35 @@ test('the organisation band establishes a stacking context for its painted artwo
   await expect(artwork).toHaveCSS('z-index', '-2');
 });
 
+test('the organisation artwork selects the exact responsive rendition', async ({ page }, testInfo) => {
+  await page.goto('/');
+
+  const picture = page.locator('[data-home-band] picture');
+  const mobileSource = picture.locator('source[media="(max-width: 767px)"]');
+  const artwork = picture.locator('img');
+  const expectedCurrentSrc = testInfo.project.name === 'mobile'
+    ? '/assets/images/home-organisation-mobile.webp'
+    : '/assets/images/home-organisation.webp';
+
+  await expect(picture.locator('source')).toHaveCount(1);
+  await expect(mobileSource).toHaveAttribute('srcset', '/assets/images/home-organisation-mobile.webp');
+  await expect(artwork).toHaveAttribute('src', '/assets/images/home-organisation.webp');
+  await expect(artwork).toHaveJSProperty('complete', true);
+
+  const loaded = await artwork.evaluate((image) => {
+    const renderedImage = image as HTMLImageElement;
+    return {
+      currentSrc: renderedImage.currentSrc,
+      naturalWidth: renderedImage.naturalWidth,
+      naturalHeight: renderedImage.naturalHeight
+    };
+  });
+
+  expect(loaded.currentSrc).toBe(new URL(expectedCurrentSrc, page.url()).href);
+  expect(loaded.naturalWidth).toBeGreaterThan(0);
+  expect(loaded.naturalHeight).toBeGreaterThan(0);
+});
+
 test('the archive has only a semantic hidden heading', async ({ page }) => {
   await page.goto('/read');
   await expect(page.locator('.read-page > h1')).toHaveClass(/visually-hidden/);
