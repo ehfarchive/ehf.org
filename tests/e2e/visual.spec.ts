@@ -1,12 +1,36 @@
 import { expect, test, type ConsoleMessage, type Page, type Request, type Response } from '@playwright/test';
 import assetManifest from '../../source-evidence/asset-manifest.json';
 import sourceContract from '../../source-evidence/source-contract.json';
+import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import sharp from 'sharp';
 
 
 
 export type ComparableState = 'default' | 'nav-about-open' | 'nav-impact-open';
+
+type DecodedPng = {
+  bytes: Buffer;
+  byteSha256: string;
+  decodedSha256: string;
+  format: string | undefined;
+  widthPx: number;
+  heightPx: number;
+  channels: number;
+};
+
+type ScreenshotCaptureMetadata = {
+  fullPage: true;
+  animations: 'disabled';
+  type: 'png';
+  reducedMotion: true;
+};
+
+type ScreenshotEvidence = {
+  first: DecodedPng & { captureMetadata: ScreenshotCaptureMetadata };
+  second: DecodedPng & { captureMetadata: ScreenshotCaptureMetadata };
+};
 
 export type ComparableCapture = {
   state: ComparableState;
@@ -19,6 +43,7 @@ export type ComparableCapture = {
   returnedToTop: boolean;
   requestedMobilePanelActive: boolean;
   mobileRootShifted: boolean;
+  screenshotEvidence: ScreenshotEvidence;
 };
 
 async function prepareComparableDocument(page: Page): Promise<{ scrollPositions: number[]; returnedToTop: boolean }> {
@@ -36,6 +61,38 @@ async function prepareComparableDocument(page: Page): Promise<{ scrollPositions:
     await new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
   });
   return { scrollPositions, returnedToTop: await page.evaluate(() => window.scrollY === 0) };
+}
+
+async function decodeAndHashPng(bytes: Buffer): Promise<DecodedPng> {
+  const image = sharp(bytes);
+  const metadata = await image.metadata();
+  const decoded = await image.ensureAlpha().raw().toBuffer({ resolveWithObject: true });
+  return {
+    bytes,
+    byteSha256: createHash('sha256').update(bytes).digest('hex'),
+    decodedSha256: createHash('sha256').update(decoded.data).digest('hex'),
+    format: metadata.format,
+    widthPx: decoded.info.width,
+    heightPx: decoded.info.height,
+    channels: decoded.info.channels
+  };
+}
+async function captureScreenshotEvidence(page: Page): Promise<ScreenshotEvidence> {
+  const screenshotOptions = {
+    fullPage: true as const,
+    animations: 'disabled' as const,
+    type: 'png' as const
+  };
+  const captureMetadata: ScreenshotCaptureMetadata = {
+    ...screenshotOptions,
+    reducedMotion: true
+  };
+  const first = await decodeAndHashPng(await page.screenshot(screenshotOptions));
+  const second = await decodeAndHashPng(await page.screenshot(screenshotOptions));
+  return {
+    first: { ...first, captureMetadata },
+    second: { ...second, captureMetadata }
+  };
 }
 
 export async function captureComparable(page: Page, route: string, viewport: { width: number; height: number }, state: ComparableState): Promise<ComparableCapture> {
@@ -85,6 +142,7 @@ export async function captureComparable(page: Page, route: string, viewport: { w
     const unloadedImages = await page.locator('img').evaluateAll((images) => (images as HTMLImageElement[])
       .filter((image) => !image.complete || image.naturalWidth === 0)
       .map((image) => image.currentSrc || image.src));
+    const screenshotEvidence = await captureScreenshotEvidence(page);
     return {
       state,
       viewport: page.viewportSize() ?? { width: 0, height: 0 },
@@ -95,7 +153,8 @@ export async function captureComparable(page: Page, route: string, viewport: { w
       scrollPositions,
       returnedToTop,
       requestedMobilePanelActive,
-      mobileRootShifted
+      mobileRootShifted,
+      screenshotEvidence
     };
   } finally {
     page.off('console', onConsole);
@@ -103,6 +162,32 @@ export async function captureComparable(page: Page, route: string, viewport: { w
     page.off('response', onResponse);
   }
 }
+
+function expectReproducibleScreenshot(evidence: ScreenshotEvidence, label: string): void {
+  expect(evidence.first.bytes.equals(evidence.second.bytes), `${label}: screenshot bytes repeat exactly`).toBe(true);
+  expect(evidence.first.byteSha256, `${label}: screenshot hashes repeat exactly`).toBe(evidence.second.byteSha256);
+  expect(evidence.first.decodedSha256, `${label}: decoded pixels repeat exactly`).toBe(evidence.second.decodedSha256);
+  expect(evidence.first).toMatchObject({
+    format: 'png',
+    widthPx: evidence.second.widthPx,
+    heightPx: evidence.second.heightPx,
+    channels: evidence.second.channels,
+    captureMetadata: evidence.second.captureMetadata
+  });
+  expect(evidence.first.captureMetadata, `${label}: capture metadata repeats exactly`).toEqual({
+    fullPage: true,
+    animations: 'disabled',
+    type: 'png',
+    reducedMotion: true
+  });
+}
+
+test('captureComparable records reproducible full-page screenshot evidence', async ({ page }, testInfo) => {
+  const viewport = testInfo.project.name === 'desktop' ? { width: 1440, height: 1000 } : { width: 390, height: 844 };
+  const { screenshotEvidence } = await captureComparable(page, '/', viewport, 'default');
+
+  expectReproducibleScreenshot(screenshotEvidence, `${testInfo.project.name} default`);
+});
 
 test('captureComparable reproduces measured navigation states without runtime faults', async ({ page }, testInfo) => {
   const states: ComparableState[] = ['default', 'nav-about-open', 'nav-impact-open'];
@@ -258,6 +343,15 @@ test('homepage six-state comparable captures honour committed source evidence an
 
     expect(existsSync(resolve(process.cwd(), sourceCapture.screenshot)), `Missing committed source PNG ${sourceCapture.screenshot}`).toBe(true);
     expect(existsSync(resolve(process.cwd(), sourceCapture.metadata)), `Missing committed source metadata ${sourceCapture.metadata}`).toBe(true);
+    const sourceScreenshot = await decodeAndHashPng(readFileSync(resolve(process.cwd(), sourceCapture.screenshot)));
+    expect(sourceScreenshot).toMatchObject({
+      format: 'png',
+      widthPx: sourceCapture.screenshotWidthPx,
+      heightPx: sourceCapture.screenshotHeightPx
+    });
+    expect(sourceScreenshot.byteSha256, `${viewportName} ${state}: source PNG is hashed`).toMatch(/^[a-f0-9]{64}$/);
+    expect(sourceScreenshot.decodedSha256, `${viewportName} ${state}: source PNG pixels are hashed`).toMatch(/^[a-f0-9]{64}$/);
+
     const metadata = readSourceScreenshotMetadata(sourceCapture.metadata);
     expect(metadata).toMatchObject({
       family: 'homepage',
@@ -280,6 +374,7 @@ test('homepage six-state comparable captures honour committed source evidence an
     expect(capture.returnedToTop, `${viewportName} ${state}: capture returns to top`).toBe(true);
     expect(capture.localImages.map((source) => new URL(source).pathname)).toEqual(expect.arrayContaining(expectedImagePaths));
     expect(capture.localImages.every((source) => new URL(source).origin === new URL(page.url()).origin), `${viewportName} ${state}: no remote images`).toBe(true);
+    expectReproducibleScreenshot(capture.screenshotEvidence, `${viewportName} ${state}`);
 
     const metrics = await readHomepageVisualMetrics(page);
     const sourceMeasurements = homepageSource?.measurements[viewportName];
