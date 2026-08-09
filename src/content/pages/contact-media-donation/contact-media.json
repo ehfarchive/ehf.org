@@ -1,0 +1,12 @@
+{
+  "route": "/contact-media",
+  "title": "Let's Chat (Media)",
+  "description": "Please fill in the media form and our team will get back to you as soon as possible. We’re looking forward to hearing from you.",
+  "heading": "Let's Chat (Media)",
+  "body": [
+    "### Media Enquiry"
+  ],
+  "heroImage": null,
+  "heroAlt": null,
+  "links": []
+}

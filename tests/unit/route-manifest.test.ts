@@ -1,6 +1,7 @@
 import { expect, test } from 'vitest';
 import routeManifest from '../../source-evidence/route-manifest.json';
 import { loadRouteManifest } from '../../src/lib/route-manifest';
+import type { IncludedRouteRecord, RedirectRouteRecord, RouteManifest } from '../../src/lib/route-manifest';
 
 const MONTHLY_ARCHIVE_REDIRECTS = Array.from({ length: 31 }, (_, index) => ({
   path: `/archive/202${Math.floor(index / 12)}/${String((index % 12) + 1).padStart(2, '0')}`,
@@ -19,7 +20,7 @@ const includedRoutes = [
   { path: '/read/how-chemergy-is-changing-the-game-in-waste-to-energy', kind: 'included' as const, family: 'news-article' as const }
 ];
 
-function validManifest() {
+function validManifest(): RouteManifest {
   return {
     schemaVersion: 1,
     routes: [
@@ -43,7 +44,11 @@ test('loads a complete normalized manifest with approved permanent redirects', (
 test('rejects a redirect to a route that is not included', () => {
   const manifest = validManifest();
 
-  manifest.routes.find((route) => route.path === '/homepage')!.target = '/missing';
+  const redirect = manifest.routes.find(
+    (route): route is RedirectRouteRecord => route.path === '/homepage' && route.kind === 'redirect'
+  );
+  if (!redirect) throw new Error('expected /homepage redirect fixture');
+  redirect.target = '/missing';
 
   expect(() => loadRouteManifest(manifest)).toThrow('must target an included route');
 });
@@ -63,7 +68,11 @@ test('rejects a manifest that omits an inventory candidate', () => {
 
 test('rejects a second homepage route family', () => {
   const manifest = validManifest();
-  manifest.routes.find((route) => route.path === '/impact')!.family = 'homepage';
+  const included = manifest.routes.find(
+    (route): route is IncludedRouteRecord => route.path === '/impact' && route.kind === 'included'
+  );
+  if (!included) throw new Error('expected /impact included fixture');
+  included.family = 'homepage';
 
   expect(() => loadRouteManifest(manifest)).toThrow('only / may use the homepage family');
 });

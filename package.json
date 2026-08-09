@@ -13,7 +13,9 @@
     "routes:inventory": "node scripts/inventory-routes.mjs",
     "routes:generate": "node scripts/generate-redirects.mjs",
     "assets:download": "node scripts/download-assets.mjs",
-    "assets:verify": "node scripts/verify-local-assets.mjs"
+    "assets:verify": "node scripts/verify-local-assets.mjs",
+    "content:migrate": "node scripts/migrate-content.mjs",
+    "content:verify": "node scripts/verify-content.mjs"
   },
   "dependencies": {
     "astro": "7.2.0"
@@ -23,6 +25,7 @@
     "@axe-core/playwright": "4.12.1",
     "@playwright/test": "1.62.1",
     "@types/node": "25.8.0",
+    "parse5": "8.0.0",
     "typescript": "6.0.3",
     "vercel": "^58.8.0",
     "vitest": "4.1.10"

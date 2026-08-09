@@ -12,9 +12,6 @@ const { Content } = await render(entry);
 ---
 <ArticleLayout
   title={entry.data.title}
-  publishedAt={entry.data.publishedAt}
-  heroImage={entry.data.heroImage}
-  heroAlt={entry.data.heroAlt}
   nextSlug={entry.data.nextSlug}
 >
   <Content />
