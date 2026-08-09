@@ -2,7 +2,7 @@
 import { render } from 'astro:content';
 import { assetIdForLocalPath } from '../../data/site';
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
-import { loadImpactArticles } from './_impact';
+import { archivedFigureAlignmentsForImpactArticle, featuredImageIsFirstBodyFigure, loadImpactArticles } from './_impact';
 
 export async function getStaticPaths() {
   const articles = await loadImpactArticles();
@@ -14,6 +14,7 @@ export async function getStaticPaths() {
 const { article } = Astro.props;
 const articles = await loadImpactArticles();
 const position = articles.findIndex((candidate) => candidate.entry.id === article.entry.id);
+const previousArticle = position > 0 ? articles[position - 1] : undefined;
 const nextArticle = position >= 0 ? articles[position + 1] : undefined;
 const { Content } = await render(article.entry);
 const publishedAt = new Date(`${article.entry.data.publishedAt}T00:00:00.000Z`);
@@ -21,6 +22,7 @@ const hero = article.entry.data.heroImage ? {
   assetId: assetIdForLocalPath(article.entry.data.heroImage),
   alt: article.entry.data.heroAlt ?? ''
 } : undefined;
+const previous = previousArticle ? { href: previousArticle.path, title: previousArticle.entry.data.title } : undefined;
 const next = nextArticle ? { href: nextArticle.path, title: nextArticle.entry.data.title } : undefined;
 ---
 <ArticleLayout
@@ -28,6 +30,9 @@ const next = nextArticle ? { href: nextArticle.path, title: nextArticle.entry.da
   description={article.entry.data.excerpt}
   publishedAt={publishedAt}
   hero={hero}
+  previous={previous}
+  suppressHero={featuredImageIsFirstBodyFigure(article)}
+  figureAlignments={archivedFigureAlignmentsForImpactArticle(article)}
   next={next}
 >
   <Content />

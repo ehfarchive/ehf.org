@@ -5,6 +5,7 @@ import routeManifestInput from '../../../source-evidence/route-manifest.json';
 import type { ContentManifest, LocalContentManifestRecord } from '../../lib/page-data';
 import { validateContentManifest } from '../../lib/page-data';
 import { loadRouteManifest } from '../../lib/route-manifest';
+import { assetIdForLocalPath } from '../../data/site';
 
 export const IMPACT_PAGE_SIZE = 20;
 
@@ -59,6 +60,35 @@ const sourceCardsByPath = new Map(
 
 export function sourceCardForImpactPath(path: string): ImpactCardImage | undefined {
   return sourceCardsByPath.get(path);
+}
+
+export type ImpactFigureAlignment = 'left' | 'right';
+
+const archivedFigureAlignments: Record<string, readonly ImpactFigureAlignment[]> = {
+  'how-chemergy-is-changing-the-game-in-waste-to-energy': ['right']
+};
+
+function firstMarkdownImageAssetId(body: string): string | undefined {
+  const match = /!\[[^\]]*\]\(\s*(?:<([^>]+)>|([^\s)]+))/.exec(body);
+  const reference = match?.[1] ?? match?.[2];
+  if (!reference) return undefined;
+
+  try {
+    const localPath = decodeURIComponent(new URL(reference, 'https://local.invalid').pathname);
+    return assetIdForLocalPath(localPath);
+  } catch {
+    return undefined;
+  }
+}
+
+export function featuredImageIsFirstBodyFigure(article: ImpactArticle): boolean {
+  const heroImage = article.entry.data.heroImage;
+  if (typeof heroImage !== 'string' || typeof article.entry.body !== 'string') return false;
+  return firstMarkdownImageAssetId(article.entry.body) === assetIdForLocalPath(heroImage);
+}
+
+export function archivedFigureAlignmentsForImpactArticle(article: ImpactArticle): readonly ImpactFigureAlignment[] {
+  return archivedFigureAlignments[article.entry.id] ?? [];
 }
 
 export async function loadImpactArticles(): Promise<readonly ImpactArticle[]> {

@@ -4,7 +4,7 @@ import PostCard from '../../../components/PostCard.astro';
 import { assetIdForLocalPath } from '../../../data/site';
 import { paginate } from '../../../lib/pagination';
 import SiteLayout from '../../../layouts/SiteLayout.astro';
-import { IMPACT_PAGE_SIZE, impactListingPagePaths, loadImpactArticles, plainImpactExcerpt } from '../_impact';
+import { IMPACT_PAGE_SIZE, impactListingPagePaths, loadImpactArticles } from '../_impact';
 
 export async function getStaticPaths() {
   return impactListingPagePaths().map((page) => ({ params: { page: String(page) } }));
@@ -24,8 +24,6 @@ const declaredPages = [{ number: 1, href: '/read' }, ...impactListingPagePaths()
         <PostCard
           title={entry.data.title}
           href={path}
-          excerpt={plainImpactExcerpt(entry.data.excerpt)}
-          publishedAt={new Date(`${entry.data.publishedAt}T00:00:00.000Z`)}
           image={entry.data.heroImage ? {
             assetId: assetIdForLocalPath(entry.data.heroImage),
             alt: entry.data.heroAlt ?? '',

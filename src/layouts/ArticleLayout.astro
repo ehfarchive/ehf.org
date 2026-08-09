@@ -12,37 +12,35 @@ interface ArticleLink {
   title: string;
 }
 
+type FigureAlignment = 'left' | 'right';
+
 interface Props {
   title: string;
   description: string;
   publishedAt: Date;
   hero?: HeroImage;
+  previous?: ArticleLink;
   next?: ArticleLink;
+  suppressHero?: boolean;
+  figureAlignments?: readonly FigureAlignment[];
 }
 
-const { title, description, publishedAt, hero, next } = Astro.props;
-const displayDate = publishedAt.toLocaleDateString('en-NZ', {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-  timeZone: 'UTC'
-});
+const { title, description, hero, previous, next, suppressHero = false, figureAlignments = [] } = Astro.props;
 ---
 <SiteLayout title={`${title} — Edmund Hillary Fellowship`} description={description}>
-  <article class="article-page content-width" data-impact-article>
+  <article class="article-page content-width" data-impact-article data-figure-alignments={JSON.stringify(figureAlignments)}>
     <header class="article-page__header">
       <h1>{title}</h1>
-      <time datetime={publishedAt.toISOString()}>{displayDate}</time>
-      {hero && (
+      {hero && !suppressHero && (
         <figure class="article-page__hero">
           <ResponsiveImage assetId={hero.assetId} alt={hero.alt} width={940} height={627} sizes="(max-width: 767px) 100vw, 940px" loading="eager" />
         </figure>
       )}
     </header>
     <div class="article-page__body"><slot /></div>
-    {next && <nav class="article-page__next" aria-label="Article navigation">
-      <a href={next.href}>{next.title}</a>
-      <span class="article-page__next-chevron" aria-hidden="true"></span>
+    {(previous || next) && <nav class="article-page__next" aria-label="Article navigation">
+      {previous && <a href={previous.href}>{previous.title}</a>}
+      {next && <a href={next.href}>{next.title}</a>}
     </nav>}
   </article>
 </SiteLayout>
@@ -70,6 +68,10 @@ const displayDate = publishedAt.toLocaleDateString('en-NZ', {
         captionParagraph.replaceWith(caption);
         figure.append(caption);
       }
+    }
+    const figureAlignments: Array<'left' | 'right'> = JSON.parse(body.closest<HTMLElement>('[data-figure-alignments]')?.dataset.figureAlignments ?? '[]');
+    for (const [index, alignment] of figureAlignments.entries()) {
+      if (alignment) body.querySelectorAll(':scope > figure')[index]?.setAttribute('data-archived-align', alignment);
     }
     for (const link of body.querySelectorAll<HTMLAnchorElement>('a[href^="/"]')) {
       link.replaceWith(document.createTextNode(link.textContent ?? ''));

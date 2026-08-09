@@ -13,13 +13,11 @@ interface CardImage {
 interface Props {
   title: string;
   href: string;
-  excerpt: string;
-  publishedAt: Date;
   image?: CardImage;
   slug: string;
 }
 
-const { title, href, excerpt, publishedAt, image, slug } = Astro.props;
+const { title, href, image, slug } = Astro.props;
 ---
 <article class={`post-card${image?.landscape ? ' post-card--landscape' : ''}`} data-read-card data-impact-slug={slug}>
   {image && (
@@ -28,6 +26,4 @@ const { title, href, excerpt, publishedAt, image, slug } = Astro.props;
     </a>
   )}
   <h2><a href={href}>{title}</a></h2>
-  <time datetime={publishedAt.toISOString()}>{publishedAt.toLocaleDateString('en-NZ', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })}</time>
-  <p>{excerpt}</p>
 </article>

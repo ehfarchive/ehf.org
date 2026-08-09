@@ -2,7 +2,7 @@
 import { render } from 'astro:content';
 import { assetIdForLocalPath } from '../../../data/site';
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
-import { isDeclaredImpactArticlePath, loadImpactArticles } from '../_impact';
+import { archivedFigureAlignmentsForImpactArticle, featuredImageIsFirstBodyFigure, isDeclaredImpactArticlePath, loadImpactArticles } from '../_impact';
 
 const path = '/read/the-awa/river-story-inspiring-connection-action';
 if (!isDeclaredImpactArticlePath(path)) throw new Error(`Impact route is not declared: ${path}`);
@@ -10,6 +10,7 @@ const articles = await loadImpactArticles();
 const position = articles.findIndex((candidate) => candidate.path === path);
 const article = articles[position];
 if (!article) throw new Error(`Impact content is not declared: ${path}`);
+const previousArticle = position > 0 ? articles[position - 1] : undefined;
 const nextArticle = articles[position + 1];
 const { Content } = await render(article.entry);
 const publishedAt = new Date(`${article.entry.data.publishedAt}T00:00:00.000Z`);
@@ -17,6 +18,7 @@ const hero = article.entry.data.heroImage ? {
   assetId: assetIdForLocalPath(article.entry.data.heroImage),
   alt: article.entry.data.heroAlt ?? ''
 } : undefined;
+const previous = previousArticle ? { href: previousArticle.path, title: previousArticle.entry.data.title } : undefined;
 const next = nextArticle ? { href: nextArticle.path, title: nextArticle.entry.data.title } : undefined;
 ---
 <ArticleLayout
@@ -24,6 +26,9 @@ const next = nextArticle ? { href: nextArticle.path, title: nextArticle.entry.da
   description={article.entry.data.excerpt}
   publishedAt={publishedAt}
   hero={hero}
+  previous={previous}
+  suppressHero={featuredImageIsFirstBodyFigure(article)}
+  figureAlignments={archivedFigureAlignmentsForImpactArticle(article)}
   next={next}
 >
   <Content />

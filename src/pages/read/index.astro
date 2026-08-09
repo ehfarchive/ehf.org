@@ -4,7 +4,7 @@ import Pagination from '../../components/Pagination.astro';
 import { paginate } from '../../lib/pagination';
 import { assetIdForLocalPath } from '../../data/site';
 import SiteLayout from '../../layouts/SiteLayout.astro';
-import { IMPACT_PAGE_SIZE, impactListingPagePaths, loadImpactArticles, plainImpactExcerpt, sourceCardForImpactPath } from './_impact';
+import { IMPACT_PAGE_SIZE, impactListingPagePaths, loadImpactArticles, sourceCardForImpactPath } from './_impact';
 
 const articles = await loadImpactArticles();
 const [firstPage = []] = paginate(articles, IMPACT_PAGE_SIZE);
@@ -21,8 +21,6 @@ const declaredPages = [{ number: 1, href: '/read' }, ...declaredPageNumbers.map(
         return <PostCard
           title={entry.data.title}
           href={path}
-          excerpt={plainImpactExcerpt(entry.data.excerpt)}
-          publishedAt={new Date(`${entry.data.publishedAt}T00:00:00.000Z`)}
           image={localPath ? {
             assetId: assetIdForLocalPath(localPath),
             alt: card ? '' : entry.data.heroAlt ?? '',

@@ -62,16 +62,86 @@ test('undeclared Impact slugs and pagination pages fail closed', async ({ page }
   }
 });
 
-test('canonical Chemergy article renders typed metadata, local media, and semantic source body content', async ({ page }) => {
+test('Impact articles retain one source-positioned lead asset and local semantic body content', async ({ page }, testInfo) => {
+  const representatives = [
+    {
+      path: '/read/how-chemergy-is-changing-the-game-in-waste-to-energy',
+      lead: '/assets/images/content/read-how-chemergy-is-changing-the-game-in-waste-to-energy-1.webp'
+    },
+    {
+      path: '/read/revolutionising-tech-from-nz',
+      lead: '/assets/images/content/read-revolutionising-tech-from-nz-1.webp'
+    },
+    {
+      path: '/read/shifting-the-equity-conversation-from-aspiration-to-action',
+      lead: '/assets/images/content/read-shifting-the-equity-conversation-from-aspiration-to-action-1.webp'
+    },
+    {
+      path: '/read/scaling-kiwi-healthcare-business-at-home-and-going-global',
+      lead: '/assets/images/content/read-scaling-kiwi-healthcare-business-at-home-and-going-global-1.webp'
+    }
+  ] as const;
+
+  for (const representative of representatives) {
+    const response = await page.goto(representative.path);
+    expect(response?.ok(), representative.path).toBe(true);
+    const article = page.getByRole('article');
+    const firstFigure = article.locator('.article-page__body figure').first();
+
+    await expect(article.locator('.article-page__hero')).toHaveCount(0);
+    await expect(article.locator('time')).toHaveCount(0);
+    await expect(firstFigure.locator('img')).toHaveAttribute('src', representative.lead);
+    await expect(article.locator(`img[src="${representative.lead}"]`)).toHaveCount(1);
+  }
+
+  await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
+  const chemergyFigure = page.locator('.article-page__body figure[data-archived-align="right"]');
+  await expect(chemergyFigure).toHaveCount(1);
+  const chemergyGeometry = await chemergyFigure.evaluate((figure) => {
+    const image = figure.querySelector('img')!;
+    const body = figure.parentElement!;
+    const figureBox = figure.getBoundingClientRect();
+    const bodyBox = body.getBoundingClientRect();
+    return {
+      bodyWidth: bodyBox.width,
+      figureWidth: figureBox.width,
+      figureRight: figureBox.right,
+      bodyRight: bodyBox.right,
+      imageWidth: image.getBoundingClientRect().width,
+      position: getComputedStyle(figure).float
+    };
+  });
+  if (testInfo.project.name === 'desktop') {
+    expect(chemergyGeometry.position).toBe('right');
+    expect(chemergyGeometry.figureWidth / chemergyGeometry.bodyWidth).toBeCloseTo(0.4, 1);
+    expect(chemergyGeometry.figureRight).toBeLessThanOrEqual(chemergyGeometry.bodyRight);
+  } else {
+    expect(chemergyGeometry.position).toBe('none');
+    expect(chemergyGeometry.figureWidth).toBeCloseTo(chemergyGeometry.bodyWidth, 1);
+  }
+  expect(chemergyGeometry.imageWidth).toBeCloseTo(chemergyGeometry.figureWidth, 1);
+});
+
+test('Impact listing cards contain only their source image and title', async ({ page }) => {
+  for (const path of ['/read', '/read/page/2']) {
+    await page.goto(path);
+    const cards = page.locator('[data-read-card]');
+    await expect(cards).not.toHaveCount(0);
+    await expect(cards.locator('time, p')).toHaveCount(0);
+    expect(await cards.locator('a.post-card__image').count()).toBeGreaterThan(0);
+    await expect(cards.locator('h2 a')).toHaveCount(await cards.count());
+  }
+});
+
+test('canonical Chemergy article keeps semantic source figures and article navigation', async ({ page }) => {
   const response = await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
 
   expect(response?.ok()).toBe(true);
   await expect(page.getByRole('article')).toBeVisible();
-  await expect(page.locator('time[datetime="2025-06-06T00:00:00.000Z"]')).toHaveText(/6 June 2025/);
   await expect(page.locator('.article-page__body figure')).toHaveCount(5);
   await expect(page.locator('.article-page__body figcaption')).toHaveCount(4);
   await expect(page.locator('.article-page__body blockquote')).toHaveCount(3);
-  await expect(page.getByRole('navigation', { name: 'Article navigation' }).getByRole('link')).toHaveAttribute('href', '/read/harnessing-pine-pollens-power-to-transform-wellbeing');
+  await expect(page.getByRole('navigation', { name: 'Article navigation' }).getByRole('link')).toHaveCount(1);
   await expect(page.locator('.article-page__body a[href^="/"]')).toHaveCount(0);
 
   const mediaPaths = await page.locator('article img').evaluateAll((images) =>

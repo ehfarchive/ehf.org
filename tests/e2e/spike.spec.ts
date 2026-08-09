@@ -228,7 +228,7 @@ test('the canonical article applies typed metadata, semantic figure, and next-li
   expect(bodyMetrics.fontSize).toBeCloseTo(mobile ? 18.9 : 20, 1);
   expect(bodyMetrics.lineHeight).toBeCloseTo(mobile ? 32.4461 : 35.0208, 2);
   await expect(page.locator('.article-page__header h1')).toHaveCSS('margin-bottom', '24px');
-  await expect(page.locator('.article-page__header time')).toHaveCSS('margin-bottom', mobile ? '47px' : '68px');
+  await expect(page.locator('.article-page__header time')).toHaveCount(0);
   await expect(page.locator('.article-page__body blockquote').first()).toHaveCSS('margin-left', '40px');
   await expect(page.locator('.article-page__body figcaption').first()).toHaveCSS('margin-top', '16px');
   await expect(page.locator('.article-page__body h4').first()).toHaveCSS('margin-top', '32.4px');
@@ -241,27 +241,32 @@ test('the canonical article applies typed metadata, semantic figure, and next-li
 
   const next = page.getByRole('navigation', { name: 'Article navigation' });
   await expect(next).toHaveCSS('display', 'flex');
-  const caret = next.locator('.article-page__next-chevron');
-  await expect(caret).toHaveAttribute('aria-hidden', 'true');
-  expect(await caret.evaluate((icon) => {
-    const styles = getComputedStyle(icon);
-    const rect = icon.getBoundingClientRect();
-    return {
-      backgroundColor: styles.backgroundColor,
-      height: rect.height,
-      maskImage: styles.maskImage,
-      width: rect.width
-    };
-  })).toEqual({
-    backgroundColor: 'rgb(39, 36, 46)',
-    height: 32,
-    maskImage: expect.not.stringMatching(/^none$/),
-    width: 18
-  });
   await expect(next.getByRole('link')).toHaveCSS('color', 'rgb(116, 65, 210)');
   await expect(next.getByRole('link')).toHaveCSS('text-decoration-line', 'none');
 
   if (mobile) expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
+});
+
+test('article pagination keeps previous and next on one desktop row and stacks them on mobile', async ({ page }, testInfo) => {
+  await page.goto('/read/revolutionising-tech-from-nz');
+  await settleGeometry(page);
+
+  const navigation = page.getByRole('navigation', { name: 'Article navigation' });
+  const links = navigation.getByRole('link');
+  await expect(links).toHaveCount(2);
+  const geometry = await links.evaluateAll((nodes) => nodes.map((node) => {
+    const { left, top } = node.getBoundingClientRect();
+    return { left: Math.round(left), top: Math.round(top) };
+  }));
+
+  if (testInfo.project.name === 'desktop') {
+    await expect(navigation).toHaveCSS('flex-direction', 'row');
+    expect(geometry[0].top).toBe(geometry[1].top);
+    expect(geometry[0].left).toBeLessThan(geometry[1].left);
+  } else {
+    await expect(navigation).toHaveCSS('flex-direction', 'column');
+    expect(geometry[0].top).toBeLessThan(geometry[1].top);
+  }
 });
 
 test('every spike route has a centered wrapping footer with no horizontal overflow', async ({ page }, testInfo) => {
