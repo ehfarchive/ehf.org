@@ -1,15 +1,35 @@
-<section class="home-hero" data-home-hero>
-  <img class="home-hero__image" src="/assets/images/home-hero.webp" alt="" loading="eager" />
+---
+import type { HomeHeroProps } from '../../data/homepage';
+import ResponsiveImage from '../ResponsiveImage.astro';
+
+interface Props {
+  hero: HomeHeroProps;
+}
+
+const { hero } = Astro.props;
+---
+<section class="home-hero" data-home-hero data-homepage-section={hero.sectionId}>
+  <ResponsiveImage
+    class="home-hero__image"
+    assetId={hero.image.assetId}
+    alt={hero.image.alt}
+    width={hero.image.width}
+    height={hero.image.height}
+    sizes={hero.image.sizes}
+    loading={hero.image.loading}
+  />
   <div class="site-container home-hero__content">
-    <h1>Edmund Hillary Fellowship (EHF) 2016 - 2026</h1>
-    <p class="home-hero__lead">Created to give life to the Global Impact Visa, the Edmund Hillary Fellowship brought entrepreneurs, investors and innovators to Aotearoa New Zealand to find and build solutions to our toughest challenges.</p>
-    <p>Over a ten-year journey, Edmund Hillary Fellows helped create New Zealand jobs, invested millions into Kiwi businesses, supported regional communities, and developed innovative solutions and technology from our shores, delivering a realised benefit of $111 for every $1 of government funds invested. Many laid down deep roots here, with a commitment to honouring Te Tiriti o Waitangi and the values and legacy of Sir Edmund Hillary.</p>
-    <p>While the organisation has now closed, the legacy continues through the Fellows and the impact they continue to create. The EHF name and legacy are held by The Hillary Institute, EHF's parent organisation.</p>
-    <div class="home-hero__stats" aria-label="Fellowship impact">
-      <p>500+ Fellows</p>
-      <p>50+ Nationalities</p>
-      <p>$111 impact for every $1 invested by Govt</p>
+    <h1>{hero.title}</h1>
+    <p class="home-hero__lead">{hero.lead}</p>
+    {hero.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+    <div class="home-hero__stats">
+      {hero.stats.map((stat) => <p>{stat}</p>)}
     </div>
-    <a class="button home-hero__cta" href="/fellow-directory-advanced-search">Fellows Directory</a>
+    {/*
+      Source paints a button after the statistics line. No approved included or
+      external destination exists for it in the source evidence, so the call to
+      action is omitted rather than invented; hero.callToAction carries the
+      source label and the disposition behind that decision.
+    */}
   </div>
 </section>

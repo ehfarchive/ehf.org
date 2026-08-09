@@ -2716,6 +2716,42 @@
       "externalUrl": "https://e.issuu.com/embed.html?d=16309_ehf_hi_annual_report_2024_issuu&u=edmundhillaryfellowship"
     },
     {
+      "id": "asset-images-home-hero-webp",
+      "classification": "local",
+      "localPath": "/assets/images/home-hero.webp",
+      "sha256": "ec3a6bff4311c7d28e7b3f8cd9d3d6670db37bb86d6fbca4d487f03298df1dad",
+      "bytes": 821100,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-home-organisation-webp",
+      "classification": "local",
+      "localPath": "/assets/images/home-organisation.webp",
+      "sha256": "06a9af123c14101241ebd2a01c884089a42b01f4c21e23803fbac570464acb2c",
+      "bytes": 220912,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-home-organisation-mobile-webp",
+      "classification": "local",
+      "localPath": "/assets/images/home-organisation-mobile.webp",
+      "sha256": "ae85245a91009b2c5591eead3ddb535762cee468bc9682d9879aaa0106959b1a",
+      "bytes": 221106,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/"
+      ],
+      "externalUrl": null
+    },
+    {
       "id": "external-www-youtube-com-embed-a-8xyxsqki-bfe34389b064",
       "classification": "external",
       "localPath": null,

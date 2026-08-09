@@ -1,4 +1,9 @@
 import { expect, test, type ConsoleMessage, type Page, type Request, type Response } from '@playwright/test';
+import assetManifest from '../../source-evidence/asset-manifest.json';
+import sourceContract from '../../source-evidence/source-contract.json';
+import { homepage } from '../../src/data/homepage';
+
+
 
 export type ComparableState = 'default' | 'nav-about-open' | 'nav-impact-open';
 
@@ -134,4 +139,42 @@ test('measured shared-shell dimensions remain stable', async ({ page }, testInfo
     expect(dimensions.header).toBeCloseTo(86.7656, 1);
     expect(dimensions.footer).toBeCloseTo(278.5, 1);
   }
+});
+
+test('homepage comparable captures satisfy source visual P0/P1/P2 contracts', async ({ page }, testInfo) => {
+  const homepage = sourceContract.templates.find((template) => template.family === 'homepage');
+  const viewport = testInfo.project.name === 'desktop' ? { width: 1440, height: 1000 } : { width: 390, height: 844 };
+  const expectedAssetPaths = [
+    '/assets/images/home-hero.webp',
+    testInfo.project.name === 'mobile' ? '/assets/images/home-organisation-mobile.webp' : '/assets/images/home-organisation.webp'
+  ];
+
+  expect(homepage?.representativePath).toBe('/');
+  expect(homepage?.states.map((state) => state.name)).toEqual(['default', 'nav-about-open', 'nav-impact-open']);
+
+  const capture = await captureComparable(page, '/', viewport, 'default');
+  expect(capture.viewport).toEqual(viewport);
+  expect(capture.consoleErrors, 'P0: homepage has no console errors').toEqual([]);
+  expect(capture.failedRequests, 'P0: homepage has no failed requests').toEqual([]);
+  expect(capture.returnedToTop, 'P2: homepage restores the source capture scroll position').toBe(true);
+  expect(capture.localImages.every((src) => new URL(src).origin === new URL(page.url()).origin), 'P1: homepage has no remote images').toBe(true);
+
+  const imagePaths = capture.localImages.map((src) => new URL(src).pathname);
+  expect(imagePaths).toEqual(expect.arrayContaining(expectedAssetPaths));
+  const missingManifestAssetPaths = expectedAssetPaths.filter(
+    (localPath) => !assetManifest.assets.some((asset) => asset.classification === 'local' && asset.localPath === localPath && asset.routeUses.includes('/'))
+  );
+  expect(missingManifestAssetPaths, 'P1: homepage image paths have manifest-backed asset IDs').toEqual([]);
+
+  await expect(page.locator('[data-homepage-section="hero"]'), 'P2: source-order hero section is present').toBeVisible();
+  await expect(page.locator('[data-homepage-section="impact-overview"]'), 'P2: source-order organisation overview is present').toBeVisible();
+  await expect(page.getByRole('heading', { level: 1, name: 'Edmund Hillary Fellowship (EHF) 2016 - 2026' })).toBeVisible();
+  await expect(page.getByRole('link', { name: /fellow.?directory/i }), 'P1: excluded Fellow Directory has no invented replacement').toHaveCount(0);
+});
+
+test('homepage copy retains source-observed line breaks', () => {
+  expect(homepage.hero.lead).toContain('Aotearoa New Zealand\nto find');
+  expect(homepage.hero.paragraphs[0]).toContain('deep roots here, with a\ncommitment');
+  expect(homepage.impactOverview.items[0].copy).toContain('around the world\nwho shared');
+  expect(homepage.impactOverview.items[1].copy).toContain('connected innovators\nhave built');
 });

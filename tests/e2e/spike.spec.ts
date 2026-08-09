@@ -173,7 +173,7 @@ test('the captured closure homepage contains only the hero and one organisation-
   const hero = page.locator('[data-home-hero]');
   await expect(hero).toContainText('500+ Fellows');
   await expect(hero).toContainText('50+ Nationalities');
-  await expect(hero.getByRole('link', { name: 'Fellows Directory' })).toBeVisible();
+  await expect(hero.getByRole('link', { name: /fellow.?directory/i })).toHaveCount(0);
 
   const band = page.locator('[data-home-band]');
   await expect(band).toContainText('EHF - The Organisation');
