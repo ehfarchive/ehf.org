@@ -1,7 +1,7 @@
 {
   "requestedUrl": "https://www.ehf.org/read/revolutionising-tech-from-nz",
   "finalUrl": "https://www.ehf.org/read/revolutionising-tech-from-nz",
-  "capturedAt": "2026-08-09T14:19:33.159Z",
+  "capturedAt": "2026-08-09T14:26:38.203Z",
   "title": "Revolutionising tech from NZ — Edmund Hillary Fellowship",
   "headings": [
     {
@@ -47,10 +47,10 @@
       },
       {
         "tag": "img",
-        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/c538dd17-46b4-40bf-90a9-d74df6f891d4/boydmulterer.jpg?format=1500w",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/c538dd17-46b4-40bf-90a9-d74df6f891d4/boydmulterer.jpg?format=500w",
         "complete": true,
         "naturalWidth": 390,
-        "naturalHeight": 234,
+        "naturalHeight": 233,
         "remote": true
       }
     ],
@@ -58,7 +58,7 @@
       {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 6.5,
         "transferSize": 0,
         "encodedBodySize": 11666,
         "decodedBodySize": 11666,
@@ -66,12 +66,12 @@
         "remote": true
       },
       {
-        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/c538dd17-46b4-40bf-90a9-d74df6f891d4/boydmulterer.jpg?format=1500w",
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/c538dd17-46b4-40bf-90a9-d74df6f891d4/boydmulterer.jpg?format=500w",
         "initiatorType": "img",
-        "durationMs": 0,
-        "transferSize": 0,
-        "encodedBodySize": 194626,
-        "decodedBodySize": 194626,
+        "durationMs": 211.5,
+        "transferSize": 33984,
+        "encodedBodySize": 33684,
+        "decodedBodySize": 33684,
         "loaded": true,
         "remote": true
       }
@@ -97,25 +97,26 @@
     "waitedForFonts": true,
     "scrollIncrementPx": 600,
     "returnedToTop": true,
-    "fullPageScreenshot": true
+    "fullPageScreenshot": true,
+    "captureTransport": "Page.captureScreenshot via gstack browse shared Chromium without UI downscaling"
   },
   "health": {
     "httpStatus": 200,
     "redirectWithinApprovedEhfScope": true,
+    "consoleErrors": [],
+    "consoleWarnings": [
+      "[2026-08-09T14:26:37.200Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+      "[2026-08-09T14:26:37.200Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+      "[2026-08-09T14:26:37.200Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+      "[2026-08-09T14:26:37.200Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+      "[2026-08-09T14:26:37.201Z] [warning] yui: NOT loaded: squarespace-performance"
+    ],
     "failedRequests": [],
     "pendingRequestsAtInspection": [
       "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
       "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
     ],
-    "healthy": true,
-    "consoleErrors": [],
-    "consoleWarnings": [
-      "[2026-08-09T14:19:32.169Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
-      "[2026-08-09T14:19:32.169Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
-      "[2026-08-09T14:19:32.169Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
-      "[2026-08-09T14:19:32.169Z] [warning] yui: NOT loaded: squarespace-common_vendors",
-      "[2026-08-09T14:19:32.169Z] [warning] yui: NOT loaded: squarespace-performance"
-    ]
+    "healthy": true
   },
   "provenance": {
     "sourceHost": "www.ehf.org",
@@ -124,9 +125,9 @@
   },
   "screenshot": {
     "path": "article-short-mobile.png",
-    "sha256": "71687801176e5a81731f1c17459ace814e6f09cba51cac784f148a9f6a611850",
-    "widthPx": 270,
-    "heightPx": 2000,
+    "sha256": "e09952ec5c31d7ca6c87d56ea36d64c88bfeda0835f8ee92df2b9167b719e7eb",
+    "widthPx": 390,
+    "heightPx": 2894,
     "channels": 3,
     "fullPage": true
   }

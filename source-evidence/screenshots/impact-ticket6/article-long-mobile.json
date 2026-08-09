@@ -1,7 +1,7 @@
 {
   "requestedUrl": "https://www.ehf.org/read/shifting-the-equity-conversation-from-aspiration-to-action",
   "finalUrl": "https://www.ehf.org/read/shifting-the-equity-conversation-from-aspiration-to-action",
-  "capturedAt": "2026-08-09T14:19:37.602Z",
+  "capturedAt": "2026-08-09T14:26:41.902Z",
   "title": "Shifting the equity conversation from aspiration to action — Edmund Hillary Fellowship",
   "headings": [
     {
@@ -63,7 +63,7 @@
       },
       {
         "tag": "img",
-        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/b0b30bc6-4b1d-42e5-abf6-da79de7beca2/utsman-media-2Z7Eb3II6ck-unsplash.jpg?format=1500w",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/b0b30bc6-4b1d-42e5-abf6-da79de7beca2/utsman-media-2Z7Eb3II6ck-unsplash.jpg?format=500w",
         "complete": true,
         "naturalWidth": 390,
         "naturalHeight": 219,
@@ -71,10 +71,10 @@
       },
       {
         "tag": "img",
-        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/e869a30c-b012-4c6e-825d-1a4dd13e480c/DKjRRceUIAA9QI6.jpg?format=1500w",
-        "complete": true,
-        "naturalWidth": 312,
-        "naturalHeight": 234,
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/e869a30c-b012-4c6e-825d-1a4dd13e480c/DKjRRceUIAA9QI6.jpg",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0,
         "remote": true
       }
     ],
@@ -82,7 +82,7 @@
       {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 5.7,
         "transferSize": 0,
         "encodedBodySize": 11666,
         "decodedBodySize": 11666,
@@ -90,28 +90,18 @@
         "remote": true
       },
       {
-        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/b0b30bc6-4b1d-42e5-abf6-da79de7beca2/utsman-media-2Z7Eb3II6ck-unsplash.jpg?format=1500w",
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/b0b30bc6-4b1d-42e5-abf6-da79de7beca2/utsman-media-2Z7Eb3II6ck-unsplash.jpg?format=500w",
         "initiatorType": "img",
-        "durationMs": 0,
-        "transferSize": 0,
-        "encodedBodySize": 70674,
-        "decodedBodySize": 70674,
-        "loaded": true,
-        "remote": true
-      },
-      {
-        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/e869a30c-b012-4c6e-825d-1a4dd13e480c/DKjRRceUIAA9QI6.jpg?format=1500w",
-        "initiatorType": "img",
-        "durationMs": 0,
-        "transferSize": 0,
-        "encodedBodySize": 125122,
-        "decodedBodySize": 125122,
+        "durationMs": 170.6,
+        "transferSize": 16332,
+        "encodedBodySize": 16032,
+        "decodedBodySize": 16032,
         "loaded": true,
         "remote": true
       }
     ],
-    "loadedElementCount": 4,
-    "unloadedElementCount": 0,
+    "loadedElementCount": 3,
+    "unloadedElementCount": 1,
     "remoteElementCount": 4
   },
   "paginationLinks": [],
@@ -131,25 +121,26 @@
     "waitedForFonts": true,
     "scrollIncrementPx": 600,
     "returnedToTop": true,
-    "fullPageScreenshot": true
+    "fullPageScreenshot": true,
+    "captureTransport": "Page.captureScreenshot via gstack browse shared Chromium without UI downscaling"
   },
   "health": {
     "httpStatus": 200,
     "redirectWithinApprovedEhfScope": true,
+    "consoleErrors": [],
+    "consoleWarnings": [
+      "[2026-08-09T14:26:40.692Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+      "[2026-08-09T14:26:40.692Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+      "[2026-08-09T14:26:40.692Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+      "[2026-08-09T14:26:40.692Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+      "[2026-08-09T14:26:40.692Z] [warning] yui: NOT loaded: squarespace-performance"
+    ],
     "failedRequests": [],
     "pendingRequestsAtInspection": [
       "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
       "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
     ],
-    "healthy": true,
-    "consoleErrors": [],
-    "consoleWarnings": [
-      "[2026-08-09T14:19:36.403Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
-      "[2026-08-09T14:19:36.403Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
-      "[2026-08-09T14:19:36.403Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
-      "[2026-08-09T14:19:36.403Z] [warning] yui: NOT loaded: squarespace-common_vendors",
-      "[2026-08-09T14:19:36.403Z] [warning] yui: NOT loaded: squarespace-performance"
-    ]
+    "healthy": true
   },
   "provenance": {
     "sourceHost": "www.ehf.org",
@@ -158,9 +149,9 @@
   },
   "screenshot": {
     "path": "article-long-mobile.png",
-    "sha256": "18e082e32d99d4d65922a3571fcd14539b31bcc53971f5ddb2e05bcdb7e58ea7",
-    "widthPx": 51,
-    "heightPx": 2000,
+    "sha256": "be4302edf550388b66b2ac32321a9ef1d00ad937a70ab9e591ad81076cf7e12c",
+    "widthPx": 390,
+    "heightPx": 15434,
     "channels": 3,
     "fullPage": true
   }

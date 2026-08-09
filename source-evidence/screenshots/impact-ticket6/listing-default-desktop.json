@@ -1,7 +1,7 @@
 {
   "requestedUrl": "https://www.ehf.org/read",
   "finalUrl": "https://www.ehf.org/read",
-  "capturedAt": "2026-08-09T14:19:17.898Z",
+  "capturedAt": "2026-08-09T14:26:26.351Z",
   "title": "Read about our Impact in Action | Edmund Hillary Fellowship — Edmund Hillary Fellowship",
   "headings": [
     {
@@ -278,7 +278,7 @@
       {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 7.7,
         "transferSize": 0,
         "encodedBodySize": 11666,
         "decodedBodySize": 11666,
@@ -286,19 +286,9 @@
         "remote": true
       },
       {
-        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1749157566486-5BOI3J4XVBNCEBIYZNCZ/Chemergy+LinkedIn+Post+%28LinkedIn+Post%29.png?format=750w",
-        "initiatorType": "img",
-        "durationMs": 0,
-        "transferSize": 0,
-        "encodedBodySize": 670694,
-        "decodedBodySize": 670694,
-        "loaded": true,
-        "remote": true
-      },
-      {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1733953966679-2SVMY1YG59QLKYPXWKE9/Biogold+LinkedIn+Post+%28LinkedIn+Post%29.png?format=750w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 17,
         "transferSize": 0,
         "encodedBodySize": 566594,
         "decodedBodySize": 566594,
@@ -308,7 +298,7 @@
       {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730932021378-D678R17K048CSNEN8GR0/Anthony+Lee+case+study_Annual+Report+Highlights+%28LinkedIn+Post%29.png?format=750w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 17,
         "transferSize": 0,
         "encodedBodySize": 541210,
         "decodedBodySize": 541210,
@@ -316,9 +306,19 @@
         "remote": true
       },
       {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1749157566486-5BOI3J4XVBNCEBIYZNCZ/Chemergy+LinkedIn+Post+%28LinkedIn+Post%29.png?format=750w",
+        "initiatorType": "img",
+        "durationMs": 17.9,
+        "transferSize": 0,
+        "encodedBodySize": 670694,
+        "decodedBodySize": 670694,
+        "loaded": true,
+        "remote": true
+      },
+      {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1731357318328-7JTHCFJKH8PKS64JPBMF/_Atypical+case+study_Annual+Report+Highlights+%28LinkedIn+Post%29.png?format=750w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 17,
         "transferSize": 0,
         "encodedBodySize": 547806,
         "decodedBodySize": 547806,
@@ -328,7 +328,7 @@
       {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730940947147-939G150OPSKPC1RF0H8C/Case+study+MEA_Annual+Report+Highlights+%28LinkedIn+Post%29.png?format=750w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 17.1,
         "transferSize": 0,
         "encodedBodySize": 548510,
         "decodedBodySize": 548510,
@@ -336,9 +336,29 @@
         "remote": true
       },
       {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718923635044-XH7DWPRNWMPOAR2Q5B21/Te+Pa%CC%84+web+thumbnail+.png?format=750w",
+        "initiatorType": "img",
+        "durationMs": 16.2,
+        "transferSize": 0,
+        "encodedBodySize": 412440,
+        "decodedBodySize": 412440,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1729718676038-9VPEBKDHB9A1S73R5B0F/Case+study+Futureverse_Annual+Report+Highlights+%28Instagram+Post%29.png?format=750w",
+        "initiatorType": "img",
+        "durationMs": 16.5,
+        "transferSize": 0,
+        "encodedBodySize": 492170,
+        "decodedBodySize": 492170,
+        "loaded": true,
+        "remote": true
+      },
+      {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730238191006-FOS77XW2IY7KK0L5X2FJ/Case+study+EnergyBank_Annual+Report+Highlights+%28LinkedIn+Post%29.png?format=750w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 17,
         "transferSize": 0,
         "encodedBodySize": 548308,
         "decodedBodySize": 548308,
@@ -348,7 +368,7 @@
       {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730144701269-YPDBLEEV8NBD9YE1U003/Amy+case+study_Annual+Report+Highlights+%28LinkedIn+Post%29.png?format=750w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 17.1,
         "transferSize": 0,
         "encodedBodySize": 543302,
         "decodedBodySize": 543302,
@@ -356,29 +376,9 @@
         "remote": true
       },
       {
-        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1729718676038-9VPEBKDHB9A1S73R5B0F/Case+study+Futureverse_Annual+Report+Highlights+%28Instagram+Post%29.png?format=750w",
-        "initiatorType": "img",
-        "durationMs": 0,
-        "transferSize": 0,
-        "encodedBodySize": 492170,
-        "decodedBodySize": 492170,
-        "loaded": true,
-        "remote": true
-      },
-      {
-        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1725496808914-NDJ7NT5XHB2SV44KJ7BA/Oceanworks+LinkedIn+Post+%28LinkedIn+Post%29.png?format=750w",
-        "initiatorType": "img",
-        "durationMs": 0,
-        "transferSize": 0,
-        "encodedBodySize": 732192,
-        "decodedBodySize": 732192,
-        "loaded": true,
-        "remote": true
-      },
-      {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1725325653316-OZCEM3YQ1N0P6E0C9V7G/Humble+Bee+Bio+LinkedIn+Post+%28LinkedIn+Post%29.png?format=750w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 17.6,
         "transferSize": 0,
         "encodedBodySize": 653686,
         "decodedBodySize": 653686,
@@ -386,9 +386,19 @@
         "remote": true
       },
       {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1725496808914-NDJ7NT5XHB2SV44KJ7BA/Oceanworks+LinkedIn+Post+%28LinkedIn+Post%29.png?format=750w",
+        "initiatorType": "img",
+        "durationMs": 17.9,
+        "transferSize": 0,
+        "encodedBodySize": 732192,
+        "decodedBodySize": 732192,
+        "loaded": true,
+        "remote": true
+      },
+      {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1724707963855-X1ULWZ8TEZKTBMEIDJ64/EarthShare+LinkedIn+Post+%28Instagram+Post%29.png?format=750w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 18,
         "transferSize": 0,
         "encodedBodySize": 783514,
         "decodedBodySize": 783514,
@@ -396,19 +406,9 @@
         "remote": true
       },
       {
-        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1724015315445-XFI7IGNVDKL09KVB9YNC/UsedFULLY+LinkedIn+Post.png?format=750w",
-        "initiatorType": "img",
-        "durationMs": 0,
-        "transferSize": 0,
-        "encodedBodySize": 864208,
-        "decodedBodySize": 864208,
-        "loaded": true,
-        "remote": true
-      },
-      {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1720659078584-FNE9IKYK0QLG63BNID5E/I+am+the+river+web+thumbnail++%28Facebook+Post%29.png?format=750w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 18.2,
         "transferSize": 0,
         "encodedBodySize": 847002,
         "decodedBodySize": 847002,
@@ -416,19 +416,19 @@
         "remote": true
       },
       {
-        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718923635044-XH7DWPRNWMPOAR2Q5B21/Te+Pa%CC%84+web+thumbnail+.png?format=750w",
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1724015315445-XFI7IGNVDKL09KVB9YNC/UsedFULLY+LinkedIn+Post.png?format=750w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 18.2,
         "transferSize": 0,
-        "encodedBodySize": 412440,
-        "decodedBodySize": 412440,
+        "encodedBodySize": 864208,
+        "decodedBodySize": 864208,
         "loaded": true,
         "remote": true
       },
       {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718926135768-UAF3FNR25JVGE4PT229R/James+Mielke+web+thumbnail++%282%29.png?format=750w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 15.6,
         "transferSize": 0,
         "encodedBodySize": 388336,
         "decodedBodySize": 388336,
@@ -438,7 +438,7 @@
       {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718832243281-OTKCBYAKJ5IRAI88VPXC/Hauora+Aotearoa+web+thumbnail+.png?format=750w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 17.9,
         "transferSize": 0,
         "encodedBodySize": 738182,
         "decodedBodySize": 738182,
@@ -446,19 +446,19 @@
         "remote": true
       },
       {
-        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718673599384-OE9H244NAUMC1X2C47YO/Hazel+Niue+web+thumbnail++%281%29.png?format=750w",
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1715571405467-EGAJI0L77ZN9YZSOFRNW/1.+Nikora+IG.png?format=750w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 16.2,
         "transferSize": 0,
-        "encodedBodySize": 685388,
-        "decodedBodySize": 685388,
+        "encodedBodySize": 444766,
+        "decodedBodySize": 444766,
         "loaded": true,
         "remote": true
       },
       {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718579599587-CM26IDCPZ6ENPPQWOM1Y/Tolaga.org+web+thumbnail+.png?format=750w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 17.1,
         "transferSize": 0,
         "encodedBodySize": 571546,
         "decodedBodySize": 571546,
@@ -468,7 +468,7 @@
       {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1716935133635-VS2H6XBXAQJ6CRY1ZRA9/Sonnar+web+thumbnail.png?format=750w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 17.3,
         "transferSize": 0,
         "encodedBodySize": 564300,
         "decodedBodySize": 564300,
@@ -476,12 +476,12 @@
         "remote": true
       },
       {
-        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1715571405467-EGAJI0L77ZN9YZSOFRNW/1.+Nikora+IG.png?format=750w",
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718673599384-OE9H244NAUMC1X2C47YO/Hazel+Niue+web+thumbnail++%281%29.png?format=750w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 17.7,
         "transferSize": 0,
-        "encodedBodySize": 444766,
-        "decodedBodySize": 444766,
+        "encodedBodySize": 685388,
+        "decodedBodySize": 685388,
         "loaded": true,
         "remote": true
       }
@@ -512,24 +512,26 @@
     "waitedForFonts": true,
     "scrollIncrementPx": 600,
     "returnedToTop": true,
-    "fullPageScreenshot": true
+    "fullPageScreenshot": true,
+    "captureTransport": "Page.captureScreenshot via gstack browse shared Chromium without UI downscaling"
   },
   "health": {
     "httpStatus": 200,
     "redirectWithinApprovedEhfScope": true,
-    "failedRequests": [],
-    "pendingRequestsAtInspection": [
-      "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)"
-    ],
-    "healthy": true,
     "consoleErrors": [],
     "consoleWarnings": [
-      "[2026-08-09T14:19:16.765Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
-      "[2026-08-09T14:19:16.765Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
-      "[2026-08-09T14:19:16.765Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
-      "[2026-08-09T14:19:16.765Z] [warning] yui: NOT loaded: squarespace-common_vendors",
-      "[2026-08-09T14:19:16.765Z] [warning] yui: NOT loaded: squarespace-performance"
-    ]
+      "[2026-08-09T14:26:25.235Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+      "[2026-08-09T14:26:25.235Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+      "[2026-08-09T14:26:25.235Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+      "[2026-08-09T14:26:25.235Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+      "[2026-08-09T14:26:25.236Z] [warning] yui: NOT loaded: squarespace-performance"
+    ],
+    "failedRequests": [],
+    "pendingRequestsAtInspection": [
+      "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
+      "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
+    ],
+    "healthy": true
   },
   "provenance": {
     "sourceHost": "www.ehf.org",
@@ -538,9 +540,9 @@
   },
   "screenshot": {
     "path": "listing-default-desktop.png",
-    "sha256": "6315f47ffb1bebd64d6ec968866856ad5e1380105d90b4d6370d924acc7fe6e7",
-    "widthPx": 787,
-    "heightPx": 1999,
+    "sha256": "39baf5bfc79394eb13504719352fbb797e3c7c1f645a27f28b3a28436aa30bd1",
+    "widthPx": 1440,
+    "heightPx": 3658,
     "channels": 3,
     "fullPage": true
   }

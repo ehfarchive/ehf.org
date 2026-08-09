@@ -22,7 +22,8 @@
     "scrollIncrementPx": 600,
     "scrollToDocumentBottom": true,
     "returnToTop": true,
-    "screenshot": "full-page"
+    "screenshot": "full-page",
+    "captureTransport": "Page.captureScreenshot through the gstack browse shared Chromium; full dimensions preserved without the browse UI size guard."
   },
   "olderPostsMapping": {
     "discoveredOnLiveRoute": "https://www.ehf.org/read",
@@ -53,26 +54,27 @@
       },
       "png": "listing-default-desktop.png",
       "json": "listing-default-desktop.json",
-      "pngSha256": "6315f47ffb1bebd64d6ec968866856ad5e1380105d90b4d6370d924acc7fe6e7",
-      "widthPx": 787,
-      "heightPx": 1999,
+      "pngSha256": "39baf5bfc79394eb13504719352fbb797e3c7c1f645a27f28b3a28436aa30bd1",
+      "widthPx": 1440,
+      "heightPx": 3658,
       "channels": 3,
       "health": {
         "httpStatus": 200,
         "redirectWithinApprovedEhfScope": true,
-        "failedRequests": [],
-        "pendingRequestsAtInspection": [
-          "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)"
-        ],
-        "healthy": true,
         "consoleErrors": [],
         "consoleWarnings": [
-          "[2026-08-09T14:19:16.765Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
-          "[2026-08-09T14:19:16.765Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
-          "[2026-08-09T14:19:16.765Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
-          "[2026-08-09T14:19:16.765Z] [warning] yui: NOT loaded: squarespace-common_vendors",
-          "[2026-08-09T14:19:16.765Z] [warning] yui: NOT loaded: squarespace-performance"
-        ]
+          "[2026-08-09T14:26:25.235Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:25.235Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:25.235Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:25.235Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:25.236Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
+        "failedRequests": [],
+        "pendingRequestsAtInspection": [
+          "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
+          "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
+        ],
+        "healthy": true
       },
       "provenance": {
         "sourceHost": "www.ehf.org",
@@ -180,27 +182,27 @@
       },
       "png": "listing-default-mobile.png",
       "json": "listing-default-mobile.json",
-      "pngSha256": "54e1eb84598dcb4bedf62019ce74da0aec8640adb7ab1e4e5926e27ee0fa1939",
-      "widthPx": 79,
-      "heightPx": 1999,
+      "pngSha256": "21e2cd7e46a6479f52ecaedb6815601c615bf2226488c648e4e899926dc3ad12",
+      "widthPx": 390,
+      "heightPx": 9870,
       "channels": 3,
       "health": {
         "httpStatus": 200,
         "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:26.881Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:26.881Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:26.881Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:26.881Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:26.881Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
         "failedRequests": [],
         "pendingRequestsAtInspection": [
           "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
           "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
         ],
-        "healthy": true,
-        "consoleErrors": [],
-        "consoleWarnings": [
-          "[2026-08-09T14:19:18.363Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
-          "[2026-08-09T14:19:18.363Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
-          "[2026-08-09T14:19:18.363Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
-          "[2026-08-09T14:19:18.363Z] [warning] yui: NOT loaded: squarespace-common_vendors",
-          "[2026-08-09T14:19:18.363Z] [warning] yui: NOT loaded: squarespace-performance"
-        ]
+        "healthy": true
       },
       "provenance": {
         "sourceHost": "www.ehf.org",
@@ -308,28 +310,27 @@
       },
       "png": "listing-older-desktop.png",
       "json": "listing-older-desktop.json",
-      "pngSha256": "04da1bc7da5df7857e30ee2b4d3fae2abf86eea3dfc48ece5e157d6e0294c65e",
-      "widthPx": 867,
-      "heightPx": 1999,
+      "pngSha256": "644a76958846a74fc24dd0ee1edea64de39f58522fb5517e8f83e57bc93dc357",
+      "widthPx": 1440,
+      "heightPx": 3320,
       "channels": 3,
       "health": {
         "httpStatus": 200,
         "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:28.478Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:28.478Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:28.478Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:28.478Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:28.479Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
         "failedRequests": [],
         "pendingRequestsAtInspection": [
-          "POST https://tracing.squarespace.com/v1/logs → pending (?ms, ?B)",
           "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
           "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
         ],
-        "healthy": true,
-        "consoleErrors": [],
-        "consoleWarnings": [
-          "[2026-08-09T14:19:20.599Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
-          "[2026-08-09T14:19:20.599Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
-          "[2026-08-09T14:19:20.599Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
-          "[2026-08-09T14:19:20.599Z] [warning] yui: NOT loaded: squarespace-common_vendors",
-          "[2026-08-09T14:19:20.599Z] [warning] yui: NOT loaded: squarespace-performance"
-        ]
+        "healthy": true
       },
       "provenance": {
         "sourceHost": "www.ehf.org",
@@ -437,27 +438,28 @@
       },
       "png": "listing-older-mobile.png",
       "json": "listing-older-mobile.json",
-      "pngSha256": "1ea60a359bfa1b815809b8a71fb96ebaedecc5b76232321f5b0a31da39f27574",
-      "widthPx": 92,
-      "heightPx": 2000,
+      "pngSha256": "75890f18e223e0edf1eedc4fcf82661e0f80d3dc5475a4c07d7416c05486c885",
+      "widthPx": 390,
+      "heightPx": 8515,
       "channels": 3,
       "health": {
         "httpStatus": 200,
         "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:30.095Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:30.095Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:30.095Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:30.095Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:30.095Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
         "failedRequests": [],
         "pendingRequestsAtInspection": [
+          "POST https://tracing.squarespace.com/v1/logs → pending (?ms, ?B)",
           "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
           "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
         ],
-        "healthy": true,
-        "consoleErrors": [],
-        "consoleWarnings": [
-          "[2026-08-09T14:19:24.301Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
-          "[2026-08-09T14:19:24.301Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
-          "[2026-08-09T14:19:24.301Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
-          "[2026-08-09T14:19:24.301Z] [warning] yui: NOT loaded: squarespace-common_vendors",
-          "[2026-08-09T14:19:24.301Z] [warning] yui: NOT loaded: squarespace-performance"
-        ]
+        "healthy": true
       },
       "provenance": {
         "sourceHost": "www.ehf.org",
@@ -565,27 +567,27 @@
       },
       "png": "article-chemergy-desktop.png",
       "json": "article-chemergy-desktop.json",
-      "pngSha256": "8be51a20c001e4c14a25a463d1ac6e23268239b3cb2ee800c5b0075b95f483db",
-      "widthPx": 436,
-      "heightPx": 2000,
+      "pngSha256": "68bfd2fe4ce8ddc06fc52840cd37dad8b108c470d12a00fbfc859e80f71b76b1",
+      "widthPx": 1440,
+      "heightPx": 6605,
       "channels": 3,
       "health": {
         "httpStatus": 200,
         "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:32.215Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:32.215Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:32.215Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:32.215Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:32.215Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
         "failedRequests": [],
         "pendingRequestsAtInspection": [
           "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
           "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
         ],
-        "healthy": true,
-        "consoleErrors": [],
-        "consoleWarnings": [
-          "[2026-08-09T14:19:26.210Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
-          "[2026-08-09T14:19:26.210Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
-          "[2026-08-09T14:19:26.210Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
-          "[2026-08-09T14:19:26.210Z] [warning] yui: NOT loaded: squarespace-common_vendors",
-          "[2026-08-09T14:19:26.211Z] [warning] yui: NOT loaded: squarespace-performance"
-        ]
+        "healthy": true
       },
       "provenance": {
         "sourceHost": "www.ehf.org",
@@ -621,27 +623,27 @@
       },
       "png": "article-chemergy-mobile.png",
       "json": "article-chemergy-mobile.json",
-      "pngSha256": "9881ec7f78a4cbbed842b8de85047b22c82f97db91c4fda75682eb7abec76edd",
-      "widthPx": 71,
-      "heightPx": 2000,
+      "pngSha256": "a5f3466931712f47b1c2a2d64e5423191737f9ec8a4ff5d40df141b24de67d59",
+      "widthPx": 390,
+      "heightPx": 10986,
       "channels": 3,
       "health": {
         "httpStatus": 200,
         "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:33.925Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:33.925Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:33.925Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:33.925Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:33.925Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
         "failedRequests": [],
         "pendingRequestsAtInspection": [
           "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
           "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
         ],
-        "healthy": true,
-        "consoleErrors": [],
-        "consoleWarnings": [
-          "[2026-08-09T14:19:27.925Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
-          "[2026-08-09T14:19:27.925Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
-          "[2026-08-09T14:19:27.925Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
-          "[2026-08-09T14:19:27.925Z] [warning] yui: NOT loaded: squarespace-common_vendors",
-          "[2026-08-09T14:19:27.926Z] [warning] yui: NOT loaded: squarespace-performance"
-        ]
+        "healthy": true
       },
       "provenance": {
         "sourceHost": "www.ehf.org",
@@ -677,28 +679,28 @@
       },
       "png": "article-short-desktop.png",
       "json": "article-short-desktop.json",
-      "pngSha256": "5db9db52cadd02257f6c4880399bc90188f62f5b4a5e97a4b3b59a354a313421",
-      "widthPx": 1207,
-      "heightPx": 2000,
+      "pngSha256": "f7abcaf58d5ddccea035b04d12c36aa7daf4c52001a7b271a5efbb1e5c965f2d",
+      "widthPx": 1440,
+      "heightPx": 2386,
       "channels": 3,
       "health": {
         "httpStatus": 200,
         "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:35.581Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:35.581Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:35.581Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:35.581Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:35.581Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
         "failedRequests": [],
         "pendingRequestsAtInspection": [
           "POST https://tracing.squarespace.com/v1/logs → pending (?ms, ?B)",
           "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
           "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
         ],
-        "healthy": true,
-        "consoleErrors": [],
-        "consoleWarnings": [
-          "[2026-08-09T14:19:29.942Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
-          "[2026-08-09T14:19:29.942Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
-          "[2026-08-09T14:19:29.942Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
-          "[2026-08-09T14:19:29.942Z] [warning] yui: NOT loaded: squarespace-common_vendors",
-          "[2026-08-09T14:19:29.942Z] [warning] yui: NOT loaded: squarespace-performance"
-        ]
+        "healthy": true
       },
       "provenance": {
         "sourceHost": "www.ehf.org",
@@ -738,27 +740,27 @@
       },
       "png": "article-short-mobile.png",
       "json": "article-short-mobile.json",
-      "pngSha256": "71687801176e5a81731f1c17459ace814e6f09cba51cac784f148a9f6a611850",
-      "widthPx": 270,
-      "heightPx": 2000,
+      "pngSha256": "e09952ec5c31d7ca6c87d56ea36d64c88bfeda0835f8ee92df2b9167b719e7eb",
+      "widthPx": 390,
+      "heightPx": 2894,
       "channels": 3,
       "health": {
         "httpStatus": 200,
         "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:37.200Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:37.200Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:37.200Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:37.200Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:37.201Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
         "failedRequests": [],
         "pendingRequestsAtInspection": [
           "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
           "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
         ],
-        "healthy": true,
-        "consoleErrors": [],
-        "consoleWarnings": [
-          "[2026-08-09T14:19:32.169Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
-          "[2026-08-09T14:19:32.169Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
-          "[2026-08-09T14:19:32.169Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
-          "[2026-08-09T14:19:32.169Z] [warning] yui: NOT loaded: squarespace-common_vendors",
-          "[2026-08-09T14:19:32.169Z] [warning] yui: NOT loaded: squarespace-performance"
-        ]
+        "healthy": true
       },
       "provenance": {
         "sourceHost": "www.ehf.org",
@@ -798,28 +800,27 @@
       },
       "png": "article-long-desktop.png",
       "json": "article-long-desktop.json",
-      "pngSha256": "7640ec517b6b6c7a889d16a5f7c6873aff5b3de2840414193542a14c5ec7a984",
-      "widthPx": 348,
-      "heightPx": 1997,
+      "pngSha256": "c7ca085aec282bbc4a0718c3da1564fa4ebe7aa9b3573b291058de04028d2364",
+      "widthPx": 1440,
+      "heightPx": 8265,
       "channels": 3,
       "health": {
         "httpStatus": 200,
         "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:38.689Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:38.689Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:38.689Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:38.689Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:38.690Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
         "failedRequests": [],
         "pendingRequestsAtInspection": [
           "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
-          "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)",
-          "GET https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/5a7a71f0-f5e5-4aea-9f95-8bee1071bee3/latin-ext.woff2 → pending (?ms, ?B)"
+          "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
         ],
-        "healthy": true,
-        "consoleErrors": [],
-        "consoleWarnings": [
-          "[2026-08-09T14:19:33.968Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
-          "[2026-08-09T14:19:33.968Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
-          "[2026-08-09T14:19:33.968Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
-          "[2026-08-09T14:19:33.968Z] [warning] yui: NOT loaded: squarespace-common_vendors",
-          "[2026-08-09T14:19:33.969Z] [warning] yui: NOT loaded: squarespace-performance"
-        ]
+        "healthy": true
       },
       "provenance": {
         "sourceHost": "www.ehf.org",
@@ -875,27 +876,27 @@
       },
       "png": "article-long-mobile.png",
       "json": "article-long-mobile.json",
-      "pngSha256": "18e082e32d99d4d65922a3571fcd14539b31bcc53971f5ddb2e05bcdb7e58ea7",
-      "widthPx": 51,
-      "heightPx": 2000,
+      "pngSha256": "be4302edf550388b66b2ac32321a9ef1d00ad937a70ab9e591ad81076cf7e12c",
+      "widthPx": 390,
+      "heightPx": 15434,
       "channels": 3,
       "health": {
         "httpStatus": 200,
         "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:40.692Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:40.692Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:40.692Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:40.692Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:40.692Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
         "failedRequests": [],
         "pendingRequestsAtInspection": [
           "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
           "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
         ],
-        "healthy": true,
-        "consoleErrors": [],
-        "consoleWarnings": [
-          "[2026-08-09T14:19:36.403Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
-          "[2026-08-09T14:19:36.403Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
-          "[2026-08-09T14:19:36.403Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
-          "[2026-08-09T14:19:36.403Z] [warning] yui: NOT loaded: squarespace-common_vendors",
-          "[2026-08-09T14:19:36.403Z] [warning] yui: NOT loaded: squarespace-performance"
-        ]
+        "healthy": true
       },
       "provenance": {
         "sourceHost": "www.ehf.org",
@@ -951,28 +952,27 @@
       },
       "png": "article-image-heavy-desktop.png",
       "json": "article-image-heavy-desktop.json",
-      "pngSha256": "91d8b33e7771052cbe8ce32feb6c60083ce0a9e961289aa51735ef4c6db02a33",
-      "widthPx": 325,
-      "heightPx": 1998,
+      "pngSha256": "d12ac21303434686b013b6a85f50db2d321a90951b9edd546b9e3a72df252ffd",
+      "widthPx": 1440,
+      "heightPx": 8853,
       "channels": 3,
       "health": {
         "httpStatus": 200,
         "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:42.395Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:42.395Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:42.395Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:42.395Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:42.395Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
         "failedRequests": [],
         "pendingRequestsAtInspection": [
           "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
-          "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)",
-          "GET https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/43be6369-9fb6-4f6b-bf21-b3a2f6121ac6/caroline-lm--m-4tYmtLlI-unsplash.jpg?format=1500w → pending (?ms, ?B)"
+          "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
         ],
-        "healthy": true,
-        "consoleErrors": [],
-        "consoleWarnings": [
-          "[2026-08-09T14:19:38.412Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
-          "[2026-08-09T14:19:38.412Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
-          "[2026-08-09T14:19:38.412Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
-          "[2026-08-09T14:19:38.412Z] [warning] yui: NOT loaded: squarespace-common_vendors",
-          "[2026-08-09T14:19:38.412Z] [warning] yui: NOT loaded: squarespace-performance"
-        ]
+        "healthy": true
       },
       "provenance": {
         "sourceHost": "www.ehf.org",
@@ -1012,27 +1012,27 @@
       },
       "png": "article-image-heavy-mobile.png",
       "json": "article-image-heavy-mobile.json",
-      "pngSha256": "b8960224ad295dc95b61a5afd75ad9dc4de6a4971f6ff5b47d1b42c403d62282",
-      "widthPx": 55,
-      "heightPx": 2000,
+      "pngSha256": "3f3794bd089151f3ee59f3b6dda744fe24864fb1c0b7d558880f7c53adf6fdf1",
+      "widthPx": 390,
+      "heightPx": 14287,
       "channels": 3,
       "health": {
         "httpStatus": 200,
         "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:44.024Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:44.024Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:44.024Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:44.024Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:44.024Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
         "failedRequests": [],
         "pendingRequestsAtInspection": [
           "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
           "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
         ],
-        "healthy": true,
-        "consoleErrors": [],
-        "consoleWarnings": [
-          "[2026-08-09T14:19:41.455Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
-          "[2026-08-09T14:19:41.455Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
-          "[2026-08-09T14:19:41.455Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
-          "[2026-08-09T14:19:41.455Z] [warning] yui: NOT loaded: squarespace-common_vendors",
-          "[2026-08-09T14:19:41.455Z] [warning] yui: NOT loaded: squarespace-performance"
-        ]
+        "healthy": true
       },
       "provenance": {
         "sourceHost": "www.ehf.org",
@@ -1063,123 +1063,123 @@
   "fileInventory": [
     {
       "path": "article-chemergy-desktop.json",
-      "bytes": 7160,
-      "sha256": "3f89aa5d88b3b5b21ab2965d3e0068690edeae83c87c0f5e97c3a2386e30f1c5"
+      "bytes": 7249,
+      "sha256": "ba49995c6b1867f6d82a3ab54d201e37725ca7684db2fc4fad2d6e90223b68ed"
     },
     {
       "path": "article-chemergy-desktop.png",
-      "bytes": 535622,
-      "sha256": "8be51a20c001e4c14a25a463d1ac6e23268239b3cb2ee800c5b0075b95f483db"
+      "bytes": 1343748,
+      "sha256": "68bfd2fe4ce8ddc06fc52840cd37dad8b108c470d12a00fbfc859e80f71b76b1"
     },
     {
       "path": "article-chemergy-mobile.json",
-      "bytes": 7122,
-      "sha256": "dcf43fc9e1ef586efad188b42055328512e260005236ded2107095a8ae32b10a"
+      "bytes": 7217,
+      "sha256": "8fec3812f15d7b74e71f4d3a1a5f538a7d44bfe98261e4754674f44c4e18638e"
     },
     {
       "path": "article-chemergy-mobile.png",
-      "bytes": 140362,
-      "sha256": "9881ec7f78a4cbbed842b8de85047b22c82f97db91c4fda75682eb7abec76edd"
+      "bytes": 1124957,
+      "sha256": "a5f3466931712f47b1c2a2d64e5423191737f9ec8a4ff5d40df141b24de67d59"
     },
     {
       "path": "article-image-heavy-desktop.json",
-      "bytes": 8510,
-      "sha256": "5626861bc1be94e2b6d7aa96577bd6d0364298eaffdc1d843ac52b294a813919"
+      "bytes": 8817,
+      "sha256": "2ba8eff6fc89dbfb45754681b1bf5daf5d8db1e70603135899babc2a50128f67"
     },
     {
       "path": "article-image-heavy-desktop.png",
-      "bytes": 400650,
-      "sha256": "91d8b33e7771052cbe8ce32feb6c60083ce0a9e961289aa51735ef4c6db02a33"
+      "bytes": 1652584,
+      "sha256": "d12ac21303434686b013b6a85f50db2d321a90951b9edd546b9e3a72df252ffd"
     },
     {
       "path": "article-image-heavy-mobile.json",
-      "bytes": 8270,
-      "sha256": "84f17aec4f8be5b0be7275e507519b1e5f880803e2052333ce485d38e76e8917"
+      "bytes": 8023,
+      "sha256": "db2c578d0ade30129ca76d878cc14c89b4d4e3765f80b43a7a30931d78f0a295"
     },
     {
       "path": "article-image-heavy-mobile.png",
-      "bytes": 120985,
-      "sha256": "b8960224ad295dc95b61a5afd75ad9dc4de6a4971f6ff5b47d1b42c403d62282"
+      "bytes": 1389617,
+      "sha256": "3f3794bd089151f3ee59f3b6dda744fe24864fb1c0b7d558880f7c53adf6fdf1"
     },
     {
       "path": "article-long-desktop.json",
-      "bytes": 5953,
-      "sha256": "e0293d80ca3af1204073cc8b21efd13266302377bf76c3e9f332763c5c60c699"
+      "bytes": 5878,
+      "sha256": "1d4c85882198e41647e6fb8948ad6f236dd2d18742957f9102722686fef6192b"
     },
     {
       "path": "article-long-desktop.png",
-      "bytes": 516753,
-      "sha256": "7640ec517b6b6c7a889d16a5f7c6873aff5b3de2840414193542a14c5ec7a984"
+      "bytes": 2705160,
+      "sha256": "c7ca085aec282bbc4a0718c3da1564fa4ebe7aa9b3573b291058de04028d2364"
     },
     {
       "path": "article-long-mobile.json",
-      "bytes": 5756,
-      "sha256": "8e86b9c59531661ae790285ab5a8858a2807b31b3c859351a2edcabc8853d4a8"
+      "bytes": 5480,
+      "sha256": "66a246e3c6bad7b7e3883074f2830550303f2b19debc76364b66297ebd5bcf71"
     },
     {
       "path": "article-long-mobile.png",
-      "bytes": 125531,
-      "sha256": "18e082e32d99d4d65922a3571fcd14539b31bcc53971f5ddb2e05bcdb7e58ea7"
+      "bytes": 1420302,
+      "sha256": "be4302edf550388b66b2ac32321a9ef1d00ad937a70ab9e591ad81076cf7e12c"
     },
     {
       "path": "article-short-desktop.json",
-      "bytes": 4552,
-      "sha256": "7124d6a4791bda931ff6cadf197dfb05a80084d579b68776ae1c0b5fd96d73b6"
+      "bytes": 4654,
+      "sha256": "11ca6fac545b5ddd914748ba440a62d7f59f879c1796eea200fe20406d641d51"
     },
     {
       "path": "article-short-desktop.png",
-      "bytes": 1558414,
-      "sha256": "5db9db52cadd02257f6c4880399bc90188f62f5b4a5e97a4b3b59a354a313421"
+      "bytes": 1164979,
+      "sha256": "f7abcaf58d5ddccea035b04d12c36aa7daf4c52001a7b271a5efbb1e5c965f2d"
     },
     {
       "path": "article-short-mobile.json",
-      "bytes": 4459,
-      "sha256": "54f7755ce7c8c9a3e60f8a2e746e6306edc39214ed3fdeeab8ba716fbb4e6c8a"
+      "bytes": 4572,
+      "sha256": "94d40586b949fab7101f18391c592f303cc5575c84826a7138179a8bebbf0167"
     },
     {
       "path": "article-short-mobile.png",
-      "bytes": 365601,
-      "sha256": "71687801176e5a81731f1c17459ace814e6f09cba51cac784f148a9f6a611850"
+      "bytes": 326597,
+      "sha256": "e09952ec5c31d7ca6c87d56ea36d64c88bfeda0835f8ee92df2b9167b719e7eb"
     },
     {
       "path": "listing-default-desktop.json",
-      "bytes": 20128,
-      "sha256": "07f56f09d33034c42738dff72c3f1e1ad16e45e8116e5830676db94abc97e36b"
+      "bytes": 20502,
+      "sha256": "12973abedc3935173bbf3ca1d0be191b076ebfe0b8d9b76e1be18f7bdf2cfd7d"
     },
     {
       "path": "listing-default-desktop.png",
-      "bytes": 659563,
-      "sha256": "6315f47ffb1bebd64d6ec968866856ad5e1380105d90b4d6370d924acc7fe6e7"
+      "bytes": 1097920,
+      "sha256": "39baf5bfc79394eb13504719352fbb797e3c7c1f645a27f28b3a28436aa30bd1"
     },
     {
       "path": "listing-default-mobile.json",
-      "bytes": 20335,
-      "sha256": "2ef5d0841215e0f56b0d27e4e5949832c1c0c29857e24507f3ef0b5eb107fd72"
+      "bytes": 20445,
+      "sha256": "9aa3c2db4973ffb356282adbebb24fda029617b5895b4cf25b5f38db28d62a1c"
     },
     {
       "path": "listing-default-mobile.png",
-      "bytes": 42579,
-      "sha256": "54e1eb84598dcb4bedf62019ce74da0aec8640adb7ab1e4e5926e27ee0fa1939"
+      "bytes": 503102,
+      "sha256": "21e2cd7e46a6479f52ecaedb6815601c615bf2226488c648e4e899926dc3ad12"
     },
     {
       "path": "listing-older-desktop.json",
-      "bytes": 20053,
-      "sha256": "62183a665bbc568dc5338ee483d27e8785666495220ae58d616e51eeef60c80a"
+      "bytes": 19961,
+      "sha256": "31f796b9bab749e74327ffe8c96565bc44bc44567173624f2065081a84a4b8e6"
     },
     {
       "path": "listing-older-desktop.png",
-      "bytes": 783335,
-      "sha256": "04da1bc7da5df7857e30ee2b4d3fae2abf86eea3dfc48ece5e157d6e0294c65e"
+      "bytes": 1253670,
+      "sha256": "644a76958846a74fc24dd0ee1edea64de39f58522fb5517e8f83e57bc93dc357"
     },
     {
       "path": "listing-older-mobile.json",
-      "bytes": 19803,
-      "sha256": "e628ad9b55f01bf24a1813d3e8e68b2e17a696f2f0e45597605f3872785f1632"
+      "bytes": 20150,
+      "sha256": "5df0e1ccc2bdb4b55a426b11a4d8a1646bc43c831381db51405ba4c453c89716"
     },
     {
       "path": "listing-older-mobile.png",
-      "bytes": 54687,
-      "sha256": "1ea60a359bfa1b815809b8a71fb96ebaedecc5b76232321f5b0a31da39f27574"
+      "bytes": 420997,
+      "sha256": "75890f18e223e0edf1eedc4fcf82661e0f80d3dc5475a4c07d7416c05486c885"
     }
   ],
   "captureManifestHashPolicy": "This manifest lists exact hashes for all 24 PNG/JSON evidence artifacts. Its own SHA-256 is intentionally excluded to avoid a self-referential hash and is verified by the compact bundle manifest."

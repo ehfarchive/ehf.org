@@ -1,7 +1,7 @@
 {
   "requestedUrl": "https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
   "finalUrl": "https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
-  "capturedAt": "2026-08-09T14:19:27.474Z",
+  "capturedAt": "2026-08-09T14:26:33.435Z",
   "title": "How Chemergy is Changing the Game in Waste-to-Energy — Edmund Hillary Fellowship",
   "headings": [
     {
@@ -94,7 +94,7 @@
       {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 5.9,
         "transferSize": 0,
         "encodedBodySize": 11666,
         "decodedBodySize": 11666,
@@ -104,8 +104,8 @@
       {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/b80efcaf-4501-460e-b074-f7048d078dd6/Melahn.jpg?format=1500w",
         "initiatorType": "img",
-        "durationMs": 71.3,
-        "transferSize": 33624,
+        "durationMs": 0.9,
+        "transferSize": 0,
         "encodedBodySize": 33324,
         "decodedBodySize": 33324,
         "loaded": true,
@@ -114,30 +114,30 @@
       {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/2449e596-40ac-407c-b703-41dc813ead85/Screenshot+2025-06-06+at+8.54.29+AM.png?format=1500w",
         "initiatorType": "img",
-        "durationMs": 81.9,
-        "transferSize": 586398,
+        "durationMs": 3.7,
+        "transferSize": 0,
         "encodedBodySize": 586098,
         "decodedBodySize": 586098,
         "loaded": true,
         "remote": true
       },
       {
-        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/ed144c81-6bfd-4a32-90fc-1963b72a1bc3/Screenshot+2025-06-06+at+8.56.16+AM.png?format=1500w",
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/2e2ca535-6551-4cad-8cee-2066393b0820/DSC_3025.JPG?format=1500w",
         "initiatorType": "img",
-        "durationMs": 70.1,
-        "transferSize": 180894,
-        "encodedBodySize": 180594,
-        "decodedBodySize": 180594,
+        "durationMs": 3.5,
+        "transferSize": 0,
+        "encodedBodySize": 239324,
+        "decodedBodySize": 239324,
         "loaded": true,
         "remote": true
       },
       {
-        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/2e2ca535-6551-4cad-8cee-2066393b0820/DSC_3025.JPG?format=1500w",
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/ed144c81-6bfd-4a32-90fc-1963b72a1bc3/Screenshot+2025-06-06+at+8.56.16+AM.png?format=1500w",
         "initiatorType": "img",
-        "durationMs": 76,
-        "transferSize": 239624,
-        "encodedBodySize": 239324,
-        "decodedBodySize": 239324,
+        "durationMs": 3.5,
+        "transferSize": 0,
+        "encodedBodySize": 180594,
+        "decodedBodySize": 180594,
         "loaded": true,
         "remote": true
       }
@@ -163,25 +163,26 @@
     "waitedForFonts": true,
     "scrollIncrementPx": 600,
     "returnedToTop": true,
-    "fullPageScreenshot": true
+    "fullPageScreenshot": true,
+    "captureTransport": "Page.captureScreenshot via gstack browse shared Chromium without UI downscaling"
   },
   "health": {
     "httpStatus": 200,
     "redirectWithinApprovedEhfScope": true,
+    "consoleErrors": [],
+    "consoleWarnings": [
+      "[2026-08-09T14:26:32.215Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+      "[2026-08-09T14:26:32.215Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+      "[2026-08-09T14:26:32.215Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+      "[2026-08-09T14:26:32.215Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+      "[2026-08-09T14:26:32.215Z] [warning] yui: NOT loaded: squarespace-performance"
+    ],
     "failedRequests": [],
     "pendingRequestsAtInspection": [
       "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
       "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
     ],
-    "healthy": true,
-    "consoleErrors": [],
-    "consoleWarnings": [
-      "[2026-08-09T14:19:26.210Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
-      "[2026-08-09T14:19:26.210Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
-      "[2026-08-09T14:19:26.210Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
-      "[2026-08-09T14:19:26.210Z] [warning] yui: NOT loaded: squarespace-common_vendors",
-      "[2026-08-09T14:19:26.211Z] [warning] yui: NOT loaded: squarespace-performance"
-    ]
+    "healthy": true
   },
   "provenance": {
     "sourceHost": "www.ehf.org",
@@ -190,9 +191,9 @@
   },
   "screenshot": {
     "path": "article-chemergy-desktop.png",
-    "sha256": "8be51a20c001e4c14a25a463d1ac6e23268239b3cb2ee800c5b0075b95f483db",
-    "widthPx": 436,
-    "heightPx": 2000,
+    "sha256": "68bfd2fe4ce8ddc06fc52840cd37dad8b108c470d12a00fbfc859e80f71b76b1",
+    "widthPx": 1440,
+    "heightPx": 6605,
     "channels": 3,
     "fullPage": true
   }

@@ -1,7 +1,7 @@
 {
   "requestedUrl": "https://www.ehf.org/read/scaling-kiwi-healthcare-business-at-home-and-going-global",
   "finalUrl": "https://www.ehf.org/read/scaling-kiwi-healthcare-business-at-home-and-going-global",
-  "capturedAt": "2026-08-09T14:19:40.987Z",
+  "capturedAt": "2026-08-09T14:26:43.723Z",
   "title": "Scaling Kiwi Healthcare Business at home and going global — Edmund Hillary Fellowship",
   "headings": [
     {
@@ -79,10 +79,10 @@
       },
       {
         "tag": "img",
-        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/43be6369-9fb6-4f6b-bf21-b3a2f6121ac6/caroline-lm--m-4tYmtLlI-unsplash.jpg",
-        "complete": false,
-        "naturalWidth": 0,
-        "naturalHeight": 0,
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/43be6369-9fb6-4f6b-bf21-b3a2f6121ac6/caroline-lm--m-4tYmtLlI-unsplash.jpg?format=1500w",
+        "complete": true,
+        "naturalWidth": 1440,
+        "naturalHeight": 1080,
         "remote": true
       },
       {
@@ -122,7 +122,7 @@
       {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 5.9,
         "transferSize": 0,
         "encodedBodySize": 11666,
         "decodedBodySize": 11666,
@@ -132,46 +132,56 @@
       {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1695756918617-JM0RS3LDUGVXLUTYAAJV/1690346370759.jpg?format=1500w",
         "initiatorType": "img",
-        "durationMs": 1575.7,
-        "transferSize": 219266,
+        "durationMs": 3.1,
+        "transferSize": 0,
         "encodedBodySize": 218966,
         "decodedBodySize": 218966,
         "loaded": true,
         "remote": true
       },
       {
-        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/95e6286b-e8bb-46de-871e-15add7e89385/admisscreens.png?format=750w",
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/7df8a1fd-200f-4bec-9a23-a1dfdefaf13b/Dave+and+steve.jpg?format=750w",
         "initiatorType": "img",
-        "durationMs": 872.4,
-        "transferSize": 86886,
-        "encodedBodySize": 86586,
-        "decodedBodySize": 86586,
+        "durationMs": 3.1,
+        "transferSize": 0,
+        "encodedBodySize": 157020,
+        "decodedBodySize": 157020,
         "loaded": true,
         "remote": true
       },
       {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/9ea6b08c-c9b5-44c5-99b9-cf1fb32aec03/phonemockup2.png?format=750w",
         "initiatorType": "img",
-        "durationMs": 1075.4,
-        "transferSize": 199988,
+        "durationMs": 3.2,
+        "transferSize": 0,
         "encodedBodySize": 199688,
         "decodedBodySize": 199688,
         "loaded": true,
         "remote": true
       },
       {
-        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/7df8a1fd-200f-4bec-9a23-a1dfdefaf13b/Dave+and+steve.jpg?format=750w",
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/95e6286b-e8bb-46de-871e-15add7e89385/admisscreens.png?format=750w",
         "initiatorType": "img",
-        "durationMs": 1273.1,
-        "transferSize": 157320,
-        "encodedBodySize": 157020,
-        "decodedBodySize": 157020,
+        "durationMs": 2.8,
+        "transferSize": 0,
+        "encodedBodySize": 86586,
+        "decodedBodySize": 86586,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/43be6369-9fb6-4f6b-bf21-b3a2f6121ac6/caroline-lm--m-4tYmtLlI-unsplash.jpg?format=1500w",
+        "initiatorType": "img",
+        "durationMs": 72.9,
+        "transferSize": 134106,
+        "encodedBodySize": 133806,
+        "decodedBodySize": 133806,
         "loaded": true,
         "remote": true
       }
     ],
-    "loadedElementCount": 6,
-    "unloadedElementCount": 5,
+    "loadedElementCount": 7,
+    "unloadedElementCount": 4,
     "remoteElementCount": 11
   },
   "paginationLinks": [],
@@ -191,26 +201,26 @@
     "waitedForFonts": true,
     "scrollIncrementPx": 600,
     "returnedToTop": true,
-    "fullPageScreenshot": true
+    "fullPageScreenshot": true,
+    "captureTransport": "Page.captureScreenshot via gstack browse shared Chromium without UI downscaling"
   },
   "health": {
     "httpStatus": 200,
     "redirectWithinApprovedEhfScope": true,
+    "consoleErrors": [],
+    "consoleWarnings": [
+      "[2026-08-09T14:26:42.395Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+      "[2026-08-09T14:26:42.395Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+      "[2026-08-09T14:26:42.395Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+      "[2026-08-09T14:26:42.395Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+      "[2026-08-09T14:26:42.395Z] [warning] yui: NOT loaded: squarespace-performance"
+    ],
     "failedRequests": [],
     "pendingRequestsAtInspection": [
       "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
-      "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)",
-      "GET https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/43be6369-9fb6-4f6b-bf21-b3a2f6121ac6/caroline-lm--m-4tYmtLlI-unsplash.jpg?format=1500w → pending (?ms, ?B)"
+      "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
     ],
-    "healthy": true,
-    "consoleErrors": [],
-    "consoleWarnings": [
-      "[2026-08-09T14:19:38.412Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
-      "[2026-08-09T14:19:38.412Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
-      "[2026-08-09T14:19:38.412Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
-      "[2026-08-09T14:19:38.412Z] [warning] yui: NOT loaded: squarespace-common_vendors",
-      "[2026-08-09T14:19:38.412Z] [warning] yui: NOT loaded: squarespace-performance"
-    ]
+    "healthy": true
   },
   "provenance": {
     "sourceHost": "www.ehf.org",
@@ -219,9 +229,9 @@
   },
   "screenshot": {
     "path": "article-image-heavy-desktop.png",
-    "sha256": "91d8b33e7771052cbe8ce32feb6c60083ce0a9e961289aa51735ef4c6db02a33",
-    "widthPx": 325,
-    "heightPx": 1998,
+    "sha256": "d12ac21303434686b013b6a85f50db2d321a90951b9edd546b9e3a72df252ffd",
+    "widthPx": 1440,
+    "heightPx": 8853,
     "channels": 3,
     "fullPage": true
   }

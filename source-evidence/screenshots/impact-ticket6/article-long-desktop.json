@@ -1,7 +1,7 @@
 {
   "requestedUrl": "https://www.ehf.org/read/shifting-the-equity-conversation-from-aspiration-to-action",
   "finalUrl": "https://www.ehf.org/read/shifting-the-equity-conversation-from-aspiration-to-action",
-  "capturedAt": "2026-08-09T14:19:35.716Z",
+  "capturedAt": "2026-08-09T14:26:40.198Z",
   "title": "Shifting the equity conversation from aspiration to action — Edmund Hillary Fellowship",
   "headings": [
     {
@@ -82,7 +82,7 @@
       {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
         "initiatorType": "img",
-        "durationMs": 0,
+        "durationMs": 5.6,
         "transferSize": 0,
         "encodedBodySize": 11666,
         "decodedBodySize": 11666,
@@ -92,8 +92,8 @@
       {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/b0b30bc6-4b1d-42e5-abf6-da79de7beca2/utsman-media-2Z7Eb3II6ck-unsplash.jpg?format=1500w",
         "initiatorType": "img",
-        "durationMs": 798.7,
-        "transferSize": 70974,
+        "durationMs": 1.1,
+        "transferSize": 0,
         "encodedBodySize": 70674,
         "decodedBodySize": 70674,
         "loaded": true,
@@ -102,8 +102,8 @@
       {
         "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/e869a30c-b012-4c6e-825d-1a4dd13e480c/DKjRRceUIAA9QI6.jpg?format=1500w",
         "initiatorType": "img",
-        "durationMs": 714.2,
-        "transferSize": 125422,
+        "durationMs": 1.1,
+        "transferSize": 0,
         "encodedBodySize": 125122,
         "decodedBodySize": 125122,
         "loaded": true,
@@ -116,7 +116,7 @@
   },
   "paginationLinks": [],
   "fonts": {
-    "status": "loading",
+    "status": "loaded",
     "size": 59
   },
   "state": "article-long",
@@ -131,26 +131,26 @@
     "waitedForFonts": true,
     "scrollIncrementPx": 600,
     "returnedToTop": true,
-    "fullPageScreenshot": true
+    "fullPageScreenshot": true,
+    "captureTransport": "Page.captureScreenshot via gstack browse shared Chromium without UI downscaling"
   },
   "health": {
     "httpStatus": 200,
     "redirectWithinApprovedEhfScope": true,
+    "consoleErrors": [],
+    "consoleWarnings": [
+      "[2026-08-09T14:26:38.689Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+      "[2026-08-09T14:26:38.689Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+      "[2026-08-09T14:26:38.689Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+      "[2026-08-09T14:26:38.689Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+      "[2026-08-09T14:26:38.690Z] [warning] yui: NOT loaded: squarespace-performance"
+    ],
     "failedRequests": [],
     "pendingRequestsAtInspection": [
       "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
-      "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)",
-      "GET https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/5a7a71f0-f5e5-4aea-9f95-8bee1071bee3/latin-ext.woff2 → pending (?ms, ?B)"
+      "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
     ],
-    "healthy": true,
-    "consoleErrors": [],
-    "consoleWarnings": [
-      "[2026-08-09T14:19:33.968Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
-      "[2026-08-09T14:19:33.968Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
-      "[2026-08-09T14:19:33.968Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
-      "[2026-08-09T14:19:33.968Z] [warning] yui: NOT loaded: squarespace-common_vendors",
-      "[2026-08-09T14:19:33.969Z] [warning] yui: NOT loaded: squarespace-performance"
-    ]
+    "healthy": true
   },
   "provenance": {
     "sourceHost": "www.ehf.org",
@@ -159,9 +159,9 @@
   },
   "screenshot": {
     "path": "article-long-desktop.png",
-    "sha256": "7640ec517b6b6c7a889d16a5f7c6873aff5b3de2840414193542a14c5ec7a984",
-    "widthPx": 348,
-    "heightPx": 1997,
+    "sha256": "c7ca085aec282bbc4a0718c3da1564fa4ebe7aa9b3573b291058de04028d2364",
+    "widthPx": 1440,
+    "heightPx": 8265,
     "channels": 3,
     "fullPage": true
   }
