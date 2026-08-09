@@ -608,6 +608,30 @@
       "contentHash": "48bc73272f73217ada14f6411bed7ae36105686fe0e078db7d8b67d16e4b365e"
     },
     {
+      "route": "/read/page/2",
+      "template": "impact-listing",
+      "localInput": null,
+      "contentHash": null
+    },
+    {
+      "route": "/read/page/3",
+      "template": "impact-listing",
+      "localInput": null,
+      "contentHash": null
+    },
+    {
+      "route": "/read/page/4",
+      "template": "impact-listing",
+      "localInput": null,
+      "contentHash": null
+    },
+    {
+      "route": "/read/page/5",
+      "template": "impact-listing",
+      "localInput": null,
+      "contentHash": null
+    },
+    {
       "route": "/read/powering-purpose-with-electric-utility-bikes",
       "template": "impact-article",
       "localInput": "src/content/impact/powering-purpose-with-electric-utility-bikes.md",

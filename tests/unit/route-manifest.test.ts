@@ -13,11 +13,10 @@ const MONTHLY_ARCHIVE_REDIRECTS = Array.from({ length: 31 }, (_, index) => ({
 
 const includedRoutes = [
   { path: '/', kind: 'included' as const, family: 'homepage' as const },
-  { path: '/impact', kind: 'included' as const, family: 'impact-listing' as const },
-  { path: '/read', kind: 'included' as const, family: 'news-listing' as const },
+  { path: '/read', kind: 'included' as const, family: 'impact-listing' as const },
   { path: '/404', kind: 'included' as const, family: 'not-found' as const },
   { path: '/23-annual-report', kind: 'included' as const, family: 'annual-report-document' as const },
-  { path: '/read/how-chemergy-is-changing-the-game-in-waste-to-energy', kind: 'included' as const, family: 'news-article' as const }
+  { path: '/read/how-chemergy-is-changing-the-game-in-waste-to-energy', kind: 'included' as const, family: 'impact-article' as const }
 ];
 
 function validManifest(): RouteManifest {
@@ -36,7 +35,7 @@ function validManifest(): RouteManifest {
 test('loads a complete normalized manifest with approved permanent redirects', () => {
   const manifest = loadRouteManifest(validManifest());
 
-  expect(manifest.routes).toHaveLength(40);
+  expect(manifest.routes).toHaveLength(39);
   expect(manifest.routes.filter((route) => route.kind === 'redirect')).toHaveLength(34);
   expect(manifest.routes.filter((route) => route.kind === 'redirect' && route.redirectType === 'monthly-archive')).toHaveLength(31);
 });
@@ -57,7 +56,7 @@ test('loads the checked-in route inventory without unclassified sitemap candidat
     candidates: routeManifest.routes.filter((route) => route.path !== '/').map((route) => route.path)
   });
 
-  expect(manifest.routes).toHaveLength(275);
+  expect(manifest.routes).toHaveLength(279);
 });
 
 test('rejects a manifest that omits an inventory candidate', () => {
@@ -69,9 +68,9 @@ test('rejects a manifest that omits an inventory candidate', () => {
 test('rejects a second homepage route family', () => {
   const manifest = validManifest();
   const included = manifest.routes.find(
-    (route): route is IncludedRouteRecord => route.path === '/impact' && route.kind === 'included'
+    (route): route is IncludedRouteRecord => route.path === '/read' && route.kind === 'included'
   );
-  if (!included) throw new Error('expected /impact included fixture');
+  if (!included) throw new Error('expected /read included fixture');
   included.family = 'homepage';
 
   expect(() => loadRouteManifest(manifest)).toThrow('only / may use the homepage family');

@@ -62,6 +62,246 @@
       "externalUrl": null
     },
     {
+      "id": "asset-images-cards-amy-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/amy.webp",
+      "sha256": "f254b322ced19808435b934e93e9ac5649d877ca3f7a7a1949db2576dacc86c9",
+      "bytes": 1213362,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-cards-anthony-lee-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/anthony-lee.webp",
+      "sha256": "64e6c667b57fdd071ede9dd9607651957f433830b82afeae996703d79f0ba073",
+      "bytes": 1197130,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-cards-atypical-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/atypical.webp",
+      "sha256": "51eafd673a00a9f6f4ecbdac08f7573dcd200463af38d284b199dd68c0ee8eac",
+      "bytes": 1233074,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-cards-biogold-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/biogold.webp",
+      "sha256": "445ad9eb2809a7e5bd0ef6936acea5cf6d22d7859885b424beda1e3e8fb9f37e",
+      "bytes": 1080016,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-cards-chemergy-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/chemergy.webp",
+      "sha256": "c8b77e45b2849182a549626a67b2db8401a6b705676f6a8e1f200d628b217b96",
+      "bytes": 1471096,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-cards-earthshare-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/earthshare.webp",
+      "sha256": "ce5c0e46ef066120cc5160a3610594ca24ab5eed1d5e2a7f32d2c713ec8cb751",
+      "bytes": 1453086,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-cards-energybank-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/energybank.webp",
+      "sha256": "82cbdfe1ce682ed39e630e53a70123e99a15c59936a9caaf7f28cd897fbcdcfd",
+      "bytes": 1227568,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-cards-futureverse-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/futureverse.webp",
+      "sha256": "08e040b90fedf7a8ef7e24bc24a86cbf7db237f2d7dc164f80de6a98ab26d3bc",
+      "bytes": 893808,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-cards-hauora-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/hauora.webp",
+      "sha256": "abc032d840136f85935a538f1dc64c477ae0dccfd8c19781916d740a58783dc8",
+      "bytes": 1402458,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-cards-hazel-niue-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/hazel-niue.webp",
+      "sha256": "75d9766b3462573fc26c20274eb03423a91e1cb5c78241b6246db3c9764b9416",
+      "bytes": 1293496,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-cards-humble-bee-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/humble-bee.webp",
+      "sha256": "25db36442ea3b594b9cc0ee7d0cc1d37493d7cdb9929e875429c9b2784118ac5",
+      "bytes": 1209984,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-cards-i-am-the-river-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/i-am-the-river.webp",
+      "sha256": "1b0869868c29b911952265aedd1cd020f667fec2cbecfa6f1367795e5be6873c",
+      "bytes": 1281510,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-cards-james-mielke-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/james-mielke.webp",
+      "sha256": "8fb119a0bca3e09003f452b2119a781588fd5ac535a3c021fd0f194558c5c235",
+      "bytes": 679598,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-cards-mea-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/mea.webp",
+      "sha256": "76199ed3cb0971820621b2480f8716de70b29553bd56b763372e44ad303f6378",
+      "bytes": 1225862,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-cards-nikora-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/nikora.webp",
+      "sha256": "655e6732832dd6d8e95799bb56474278d46cc8ba0a239c84dbc3e227f26d5cda",
+      "bytes": 709866,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-cards-oceanworks-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/oceanworks.webp",
+      "sha256": "765eb9def0bc0cace5b531c8747e37ced6fcceb76fa2a57242781305369931c7",
+      "bytes": 1519386,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-cards-sonnar-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/sonnar.webp",
+      "sha256": "79562cf34ab31e7e398f563de124215661789cfe0fc2541cd0d9c6c4211eb7f5",
+      "bytes": 1183372,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-cards-te-pa-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/te-pa.webp",
+      "sha256": "607280e6dcfe230a167d0d8e3548714e4431602b0fd6105cfcd0f4b457726e32",
+      "bytes": 640644,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-cards-tolaga-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/tolaga.webp",
+      "sha256": "d8efeefd0d59da54a9b4b508900458b711d34d5e05c91737d9393f71a1caf178",
+      "bytes": 1049900,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-cards-usedfully-webp",
+      "classification": "local",
+      "localPath": "/assets/images/cards/usedfully.webp",
+      "sha256": "0e73e79057488b14792e592a831047fb904747fb36105751f7fcf122b5e0d97e",
+      "bytes": 2066118,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read"
+      ],
+      "externalUrl": null
+    },
+    {
       "id": "asset-images-content-2025-hillary-innovation-summit-breakout-sessions-summary-1-webp",
       "classification": "local",
       "localPath": "/assets/images/content/2025-hillary-innovation-summit-breakout-sessions-summary-1.webp",
@@ -2680,6 +2920,42 @@
       "externalUrl": null
     },
     {
+      "id": "asset-images-home-hero-webp",
+      "classification": "local",
+      "localPath": "/assets/images/home-hero.webp",
+      "sha256": "ec3a6bff4311c7d28e7b3f8cd9d3d6670db37bb86d6fbca4d487f03298df1dad",
+      "bytes": 821100,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-home-organisation-mobile-webp",
+      "classification": "local",
+      "localPath": "/assets/images/home-organisation-mobile.webp",
+      "sha256": "ae85245a91009b2c5591eead3ddb535762cee468bc9682d9879aaa0106959b1a",
+      "bytes": 221106,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-home-organisation-webp",
+      "classification": "local",
+      "localPath": "/assets/images/home-organisation.webp",
+      "sha256": "06a9af123c14101241ebd2a01c884089a42b01f4c21e23803fbac570464acb2c",
+      "bytes": 220912,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/"
+      ],
+      "externalUrl": null
+    },
+    {
       "id": "external-cdn-embedly-com-widgets-media-html-fa71e42accb4",
       "classification": "external",
       "localPath": null,
@@ -2714,42 +2990,6 @@
         "/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report"
       ],
       "externalUrl": "https://e.issuu.com/embed.html?d=16309_ehf_hi_annual_report_2024_issuu&u=edmundhillaryfellowship"
-    },
-    {
-      "id": "asset-images-home-hero-webp",
-      "classification": "local",
-      "localPath": "/assets/images/home-hero.webp",
-      "sha256": "ec3a6bff4311c7d28e7b3f8cd9d3d6670db37bb86d6fbca4d487f03298df1dad",
-      "bytes": 821100,
-      "mediaType": "image/webp",
-      "routeUses": [
-        "/"
-      ],
-      "externalUrl": null
-    },
-    {
-      "id": "asset-images-home-organisation-webp",
-      "classification": "local",
-      "localPath": "/assets/images/home-organisation.webp",
-      "sha256": "06a9af123c14101241ebd2a01c884089a42b01f4c21e23803fbac570464acb2c",
-      "bytes": 220912,
-      "mediaType": "image/webp",
-      "routeUses": [
-        "/"
-      ],
-      "externalUrl": null
-    },
-    {
-      "id": "asset-images-home-organisation-mobile-webp",
-      "classification": "local",
-      "localPath": "/assets/images/home-organisation-mobile.webp",
-      "sha256": "ae85245a91009b2c5591eead3ddb535762cee468bc9682d9879aaa0106959b1a",
-      "bytes": 221106,
-      "mediaType": "image/webp",
-      "routeUses": [
-        "/"
-      ],
-      "externalUrl": null
     },
     {
       "id": "external-www-youtube-com-embed-a-8xyxsqki-bfe34389b064",

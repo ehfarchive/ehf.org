@@ -1,20 +1,33 @@
 ---
-interface Props {
-  title: string;
-  href: string;
-  excerpt: string;
-  image: string;
-  imageAlt: string;
+import ResponsiveImage from './ResponsiveImage.astro';
+
+interface CardImage {
+  assetId: string;
+  alt: string;
+  width: number;
+  height: number;
   focal?: string;
   landscape?: boolean;
 }
 
-const { title, href, excerpt, image, imageAlt, focal = '50% 50%', landscape = false } = Astro.props;
+interface Props {
+  title: string;
+  href: string;
+  excerpt: string;
+  publishedAt: Date;
+  image?: CardImage;
+  slug: string;
+}
+
+const { title, href, excerpt, publishedAt, image, slug } = Astro.props;
 ---
-<article class={`post-card${landscape ? ' post-card--landscape' : ''}`} data-read-card>
-  <a class="post-card__image" href={href} aria-label={title}>
-    <img src={image} alt={imageAlt} loading="eager" style={`object-position: ${focal}`} />
-  </a>
+<article class={`post-card${image?.landscape ? ' post-card--landscape' : ''}`} data-read-card data-impact-slug={slug}>
+  {image && (
+    <a class="post-card__image" href={href} aria-label={title} style={image.focal ? `--post-card-focal: ${image.focal}` : undefined}>
+      <ResponsiveImage assetId={image.assetId} alt={image.alt} width={image.width} height={image.height} sizes="(max-width: 767px) 100vw, 25vw" />
+    </a>
+  )}
   <h2><a href={href}>{title}</a></h2>
-  {excerpt && <p>{excerpt}</p>}
+  <time datetime={publishedAt.toISOString()}>{publishedAt.toLocaleDateString('en-NZ', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })}</time>
+  <p>{excerpt}</p>
 </article>

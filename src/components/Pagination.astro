@@ -1,0 +1,28 @@
+---
+interface PageLink {
+  number: number;
+  href: string;
+}
+
+interface Props {
+  currentPage: number;
+  pages: readonly PageLink[];
+}
+
+const { currentPage, pages } = Astro.props;
+---
+{pages.length > 1 && (
+  <nav class="impact-pagination" aria-label="Impact pagination">
+    <ol>
+      {pages.map((page) => (
+        <li>
+          {page.number === currentPage ? (
+            <span aria-current="page">Page {page.number}</span>
+          ) : (
+            <a href={page.href}>Page {page.number}</a>
+          )}
+        </li>
+      ))}
+    </ol>
+  </nav>
+)}

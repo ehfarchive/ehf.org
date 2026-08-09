@@ -602,3 +602,33 @@ test('homepage six-state comparable captures honour committed source evidence an
   ));
   expect(missingManifestAssets, 'Homepage media is manifest-backed for the canonical route').toEqual([]);
 });
+
+test('Impact representative article states render local semantic media without runtime faults', async ({ page }, testInfo) => {
+  const representatives = [
+    { slug: 'revolutionising-tech-from-nz', minimumFigures: 0 },
+    { slug: 'shifting-the-equity-conversation-from-aspiration-to-action', minimumFigures: 0 },
+    { slug: 'scaling-kiwi-healthcare-business-at-home-and-going-global', minimumFigures: 9 }
+  ] as const;
+  const runtimeFaults: string[] = [];
+  page.on('console', (message) => {
+    if (message.type() === 'error') runtimeFaults.push(message.text());
+  });
+  page.on('pageerror', (error) => runtimeFaults.push(error.message));
+
+  for (const representative of representatives) {
+    await page.goto(`/read/${representative.slug}`);
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await expect(page.locator('[data-impact-article]')).toBeVisible();
+    expect(await page.locator('.article-page__body figure').count()).toBeGreaterThanOrEqual(representative.minimumFigures);
+    const mediaPaths = await page.locator('article img').evaluateAll((images) =>
+      images.map((image) => new URL(image.getAttribute('src') ?? '', window.location.href).pathname)
+    );
+    expect(mediaPaths.every((path) => path.startsWith('/assets/'))).toBe(true);
+    await testInfo.attach(`${representative.slug}-${testInfo.project.name}.png`, {
+      body: await page.screenshot({ fullPage: true }),
+      contentType: 'image/png'
+    });
+  }
+
+  expect(runtimeFaults).toEqual([]);
+});

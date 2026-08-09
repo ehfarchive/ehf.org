@@ -2,23 +2,42 @@
 import ResponsiveImage from '../components/ResponsiveImage.astro';
 import SiteLayout from './SiteLayout.astro';
 
-interface Props {
-  title: string;
-  description?: string;
-  publishedAt?: Date;
-  heroAssetId: string;
-  heroAlt: string;
-  next?: { href: string; title: string };
+interface HeroImage {
+  assetId: string;
+  alt: string;
 }
 
-const { title, description, publishedAt, heroAssetId, heroAlt, next } = Astro.props;
+interface ArticleLink {
+  href: string;
+  title: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  publishedAt: Date;
+  hero?: HeroImage;
+  next?: ArticleLink;
+}
+
+const { title, description, publishedAt, hero, next } = Astro.props;
+const displayDate = publishedAt.toLocaleDateString('en-NZ', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC'
+});
 ---
 <SiteLayout title={`${title} — Edmund Hillary Fellowship`} description={description}>
-  <article class="article-page content-width">
+  <article class="article-page content-width" data-impact-article>
     <header class="article-page__header">
       <h1>{title}</h1>
-      {publishedAt && <time datetime={publishedAt.toISOString()}>{publishedAt.toLocaleDateString('en-NZ')}</time>}
-      <ResponsiveImage assetId={heroAssetId} alt={heroAlt} width={940} height={627} sizes="(max-width: 767px) 100vw, 940px" loading="eager" class="article-page__hero" />
+      <time datetime={publishedAt.toISOString()}>{displayDate}</time>
+      {hero && (
+        <figure class="article-page__hero">
+          <ResponsiveImage assetId={hero.assetId} alt={hero.alt} width={940} height={627} sizes="(max-width: 767px) 100vw, 940px" loading="eager" />
+        </figure>
+      )}
     </header>
     <div class="article-page__body"><slot /></div>
     {next && <nav class="article-page__next" aria-label="Article navigation">
@@ -27,3 +46,37 @@ const { title, description, publishedAt, heroAssetId, heroAlt, next } = Astro.pr
     </nav>}
   </article>
 </SiteLayout>
+<script>
+  for (const body of document.querySelectorAll('.article-page__body')) {
+    for (const paragraph of [...body.querySelectorAll(':scope > p')]) {
+      const image = paragraph.firstElementChild;
+      if (!(image instanceof HTMLImageElement) || paragraph.children.length !== 1 || paragraph.textContent?.trim()) continue;
+
+      const figure = document.createElement('figure');
+      paragraph.replaceWith(figure);
+      figure.append(image);
+
+      const captionParagraph = figure.nextElementSibling;
+      const captionSource = captionParagraph?.firstElementChild;
+      if (
+        captionParagraph instanceof HTMLParagraphElement &&
+        captionSource instanceof HTMLElement &&
+        captionSource.tagName === 'EM' &&
+        captionParagraph.children.length === 1 &&
+        captionParagraph.textContent?.trim()
+      ) {
+        const caption = document.createElement('figcaption');
+        caption.append(captionSource);
+        captionParagraph.replaceWith(caption);
+        figure.append(caption);
+      }
+    }
+    for (const link of body.querySelectorAll<HTMLAnchorElement>('a[href^="/"]')) {
+      link.replaceWith(document.createTextNode(link.textContent ?? ''));
+    }
+    for (const link of body.querySelectorAll<HTMLAnchorElement>('a[href^="https://"]')) {
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+    }
+  }
+</script>

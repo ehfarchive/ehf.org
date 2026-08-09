@@ -819,6 +819,26 @@
       "family": "impact-article"
     },
     {
+      "path": "/read/page/2",
+      "kind": "included",
+      "family": "impact-listing"
+    },
+    {
+      "path": "/read/page/3",
+      "kind": "included",
+      "family": "impact-listing"
+    },
+    {
+      "path": "/read/page/4",
+      "kind": "included",
+      "family": "impact-listing"
+    },
+    {
+      "path": "/read/page/5",
+      "kind": "included",
+      "family": "impact-listing"
+    },
+    {
       "path": "/read/powering-purpose-with-electric-utility-bikes",
       "kind": "included",
       "family": "impact-article"

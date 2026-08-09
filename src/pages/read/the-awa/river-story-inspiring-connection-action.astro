@@ -1,20 +1,16 @@
 ---
 import { render } from 'astro:content';
-import { assetIdForLocalPath } from '../../data/site';
-import ArticleLayout from '../../layouts/ArticleLayout.astro';
-import { loadImpactArticles } from './_impact';
+import { assetIdForLocalPath } from '../../../data/site';
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { isDeclaredImpactArticlePath, loadImpactArticles } from '../_impact';
 
-export async function getStaticPaths() {
-  const articles = await loadImpactArticles();
-  return articles
-    .filter((article) => article.path === `/read/${article.entry.id}`)
-    .map((article) => ({ params: { slug: article.entry.id }, props: { article } }));
-}
-
-const { article } = Astro.props;
+const path = '/read/the-awa/river-story-inspiring-connection-action';
+if (!isDeclaredImpactArticlePath(path)) throw new Error(`Impact route is not declared: ${path}`);
 const articles = await loadImpactArticles();
-const position = articles.findIndex((candidate) => candidate.entry.id === article.entry.id);
-const nextArticle = position >= 0 ? articles[position + 1] : undefined;
+const position = articles.findIndex((candidate) => candidate.path === path);
+const article = articles[position];
+if (!article) throw new Error(`Impact content is not declared: ${path}`);
+const nextArticle = articles[position + 1];
 const { Content } = await render(article.entry);
 const publishedAt = new Date(`${article.entry.data.publishedAt}T00:00:00.000Z`);
 const hero = article.entry.data.heroImage ? {
