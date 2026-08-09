@@ -96,6 +96,12 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
 
 .article-page { max-width: var(--prose-width); padding-top: calc(var(--header-height) + 28.8px); padding-bottom: 44.86px; }
 .article-page__header h1 { margin: 0 0 68px; font-size: var(--text-display); line-height: var(--lh-article-display); text-align: center; }
+.article-page__hero {
+  display: block;
+  inline-size: min(940px, 100%);
+  max-inline-size: 100%;
+  block-size: auto;
+}
 .article-page__body p,
 .article-page__body li,
 .article-page__body figcaption {
