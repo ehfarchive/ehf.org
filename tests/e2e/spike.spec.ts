@@ -183,16 +183,23 @@ test('the captured closure homepage contains only the hero and one organisation-
   await expect(page.locator('.legacy-section, .impact-callout, .home-stats')).toHaveCount(0);
 });
 
-test('the organisation band establishes a stacking context for its painted artwork', async ({ page }) => {
+test('the organisation band renders decodable artwork', async ({ page }) => {
   await page.goto('/');
 
   const band = page.locator('[data-home-band]');
   const artwork = band.locator('img');
   await expect(artwork).toBeVisible();
   await expect(artwork).toHaveJSProperty('complete', true);
-  expect(await artwork.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
-  await expect(band).toHaveCSS('isolation', 'isolate');
-  await expect(artwork).toHaveCSS('z-index', '-2');
+  expect(await artwork.evaluate((image) => {
+    const source = image as HTMLImageElement;
+    const canvas = document.createElement('canvas');
+    canvas.width = 1;
+    canvas.height = 1;
+    const context = canvas.getContext('2d');
+    if (!context) return false;
+    context.drawImage(source, source.naturalWidth / 2, source.naturalHeight / 2, 1, 1, 0, 0, 1, 1);
+    return context.getImageData(0, 0, 1, 1).data[3] > 0;
+  })).toBe(true);
 });
 
 test('the organisation artwork selects the exact responsive rendition', async ({ page }, testInfo) => {

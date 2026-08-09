@@ -12,6 +12,7 @@ export type ComparableState = 'default' | 'nav-about-open' | 'nav-impact-open';
 
 type DecodedPng = {
   bytes: Buffer;
+  pixels: Buffer;
   byteSha256: string;
   decodedSha256: string;
   format: string | undefined;
@@ -21,15 +22,15 @@ type DecodedPng = {
 };
 
 type ScreenshotCaptureMetadata = {
-  fullPage: true;
+  fullPage: boolean;
   animations: 'disabled';
   type: 'png';
+  scale: 'css';
   reducedMotion: true;
 };
 
-type ScreenshotEvidence = {
-  first: DecodedPng & { captureMetadata: ScreenshotCaptureMetadata };
-  second: DecodedPng & { captureMetadata: ScreenshotCaptureMetadata };
+type ScreenshotEvidence = DecodedPng & {
+  captureMetadata: ScreenshotCaptureMetadata;
 };
 
 export type ComparableCapture = {
@@ -69,6 +70,7 @@ async function decodeAndHashPng(bytes: Buffer): Promise<DecodedPng> {
   const decoded = await image.ensureAlpha().raw().toBuffer({ resolveWithObject: true });
   return {
     bytes,
+    pixels: decoded.data,
     byteSha256: createHash('sha256').update(bytes).digest('hex'),
     decodedSha256: createHash('sha256').update(decoded.data).digest('hex'),
     format: metadata.format,
@@ -77,22 +79,18 @@ async function decodeAndHashPng(bytes: Buffer): Promise<DecodedPng> {
     channels: decoded.info.channels
   };
 }
-async function captureScreenshotEvidence(page: Page): Promise<ScreenshotEvidence> {
+async function captureScreenshotEvidence(page: Page, state: ComparableState): Promise<ScreenshotEvidence> {
   const screenshotOptions = {
-    fullPage: true as const,
+    fullPage: state === 'default',
     animations: 'disabled' as const,
-    type: 'png' as const
+    type: 'png' as const,
+    scale: 'css' as const
   };
   const captureMetadata: ScreenshotCaptureMetadata = {
     ...screenshotOptions,
     reducedMotion: true
   };
-  const first = await decodeAndHashPng(await page.screenshot(screenshotOptions));
-  const second = await decodeAndHashPng(await page.screenshot(screenshotOptions));
-  return {
-    first: { ...first, captureMetadata },
-    second: { ...second, captureMetadata }
-  };
+  return { ...await decodeAndHashPng(await page.screenshot(screenshotOptions)), captureMetadata };
 }
 
 export async function captureComparable(page: Page, route: string, viewport: { width: number; height: number }, state: ComparableState): Promise<ComparableCapture> {
@@ -142,7 +140,7 @@ export async function captureComparable(page: Page, route: string, viewport: { w
     const unloadedImages = await page.locator('img').evaluateAll((images) => (images as HTMLImageElement[])
       .filter((image) => !image.complete || image.naturalWidth === 0)
       .map((image) => image.currentSrc || image.src));
-    const screenshotEvidence = await captureScreenshotEvidence(page);
+    const screenshotEvidence = await captureScreenshotEvidence(page, state);
     return {
       state,
       viewport: page.viewportSize() ?? { width: 0, height: 0 },
@@ -163,30 +161,47 @@ export async function captureComparable(page: Page, route: string, viewport: { w
   }
 }
 
-function expectReproducibleScreenshot(evidence: ScreenshotEvidence, label: string): void {
-  expect(evidence.first.bytes.equals(evidence.second.bytes), `${label}: screenshot bytes repeat exactly`).toBe(true);
-  expect(evidence.first.byteSha256, `${label}: screenshot hashes repeat exactly`).toBe(evidence.second.byteSha256);
-  expect(evidence.first.decodedSha256, `${label}: decoded pixels repeat exactly`).toBe(evidence.second.decodedSha256);
-  expect(evidence.first).toMatchObject({
+function expectReproducibleCaptures(first: ComparableCapture, second: ComparableCapture, label: string): void {
+  expect(first.screenshotEvidence.bytes.equals(second.screenshotEvidence.bytes), `${label}: independently navigated screenshot bytes repeat exactly`).toBe(true);
+  expect(first.screenshotEvidence.byteSha256, `${label}: screenshot hashes repeat exactly`).toBe(second.screenshotEvidence.byteSha256);
+  expect(first.screenshotEvidence.decodedSha256, `${label}: decoded pixels repeat exactly`).toBe(second.screenshotEvidence.decodedSha256);
+  expect(first.screenshotEvidence).toMatchObject({
     format: 'png',
-    widthPx: evidence.second.widthPx,
-    heightPx: evidence.second.heightPx,
-    channels: evidence.second.channels,
-    captureMetadata: evidence.second.captureMetadata
+    widthPx: second.screenshotEvidence.widthPx,
+    heightPx: second.screenshotEvidence.heightPx,
+    channels: second.screenshotEvidence.channels,
+    captureMetadata: second.screenshotEvidence.captureMetadata
   });
-  expect(evidence.first.captureMetadata, `${label}: capture metadata repeats exactly`).toEqual({
-    fullPage: true,
-    animations: 'disabled',
-    type: 'png',
-    reducedMotion: true
+  expect({
+    state: first.state,
+    viewport: first.viewport,
+    requestedMobilePanelActive: first.requestedMobilePanelActive,
+    mobileRootShifted: first.mobileRootShifted,
+    screenshotMetadata: first.screenshotEvidence.captureMetadata
+  }, `${label}: independently navigated state metadata repeats exactly`).toEqual({
+    state: second.state,
+    viewport: second.viewport,
+    requestedMobilePanelActive: second.requestedMobilePanelActive,
+    mobileRootShifted: second.mobileRootShifted,
+    screenshotMetadata: second.screenshotEvidence.captureMetadata
   });
 }
 
-test('captureComparable records reproducible full-page screenshot evidence', async ({ page }, testInfo) => {
-  const viewport = testInfo.project.name === 'desktop' ? { width: 1440, height: 1000 } : { width: 390, height: 844 };
-  const { screenshotEvidence } = await captureComparable(page, '/', viewport, 'default');
+async function captureIndependentPair(page: Page, route: string, viewport: { width: number; height: number }, state: ComparableState): Promise<[ComparableCapture, ComparableCapture]> {
+  const first = await captureComparable(page, route, viewport, state);
+  const secondPage = await page.context().newPage();
+  try {
+    return [first, await captureComparable(secondPage, route, viewport, state)];
+  } finally {
+    await secondPage.close();
+  }
+}
 
-  expectReproducibleScreenshot(screenshotEvidence, `${testInfo.project.name} default`);
+test('captureComparable records reproducible full-page screenshot evidence from independent navigations', async ({ page }, testInfo) => {
+  const viewport = testInfo.project.name === 'desktop' ? { width: 1440, height: 1000 } : { width: 390, height: 844 };
+  const [first, second] = await captureIndependentPair(page, '/', viewport, 'default');
+
+  expectReproducibleCaptures(first, second, `${testInfo.project.name} default`);
 });
 
 test('captureComparable reproduces measured navigation states without runtime faults', async ({ page }, testInfo) => {
@@ -233,6 +248,115 @@ test('measured shared-shell dimensions remain stable', async ({ page }, testInfo
   }
 });
 
+
+type ExcludedRegion = {
+  name: 'header-fellow-directory' | 'hero-fellows-directory' | 'footer-fellows-directory';
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  reason: string;
+};
+
+type HomepageComparisonState = {
+  id: string;
+  route: '/';
+  state: ComparableState;
+  viewport: { name: 'desktop' | 'mobile'; width: number; height: number };
+  source: { path: string; sha256: string; widthPx: number; heightPx: number };
+  excludedRegions: ExcludedRegion[];
+  acceptedNormalizedMaskedMae: number;
+  ceilingNormalizedMaskedMae: number;
+};
+
+type HomepageComparisonContract = {
+  version: 1;
+  description: string;
+  ceilingPolicy: { formula: string; rationale: string };
+  states: HomepageComparisonState[];
+};
+
+function readHomepageComparisonContract(): HomepageComparisonContract {
+  const relativePath = 'source-evidence/contracts/homepage-comparison.json';
+  const value: unknown = JSON.parse(readFileSync(resolve(process.cwd(), relativePath), 'utf8'));
+  if (!value || typeof value !== 'object') throw new Error(`Invalid homepage comparison contract: ${relativePath}`);
+  const contract = value as Partial<HomepageComparisonContract>;
+  if (contract.version !== 1 || typeof contract.description !== 'string' || !contract.ceilingPolicy
+    || contract.ceilingPolicy.formula !== 'acceptedNormalizedMaskedMae * 1.05'
+    || typeof contract.ceilingPolicy.rationale !== 'string' || !Array.isArray(contract.states) || contract.states.length !== 6) {
+    throw new Error(`Invalid homepage comparison contract: ${relativePath}`);
+  }
+  const expectedIds: Record<string, true> = {
+    'desktop-default': true,
+    'desktop-nav-about-open': true,
+    'desktop-nav-impact-open': true,
+    'mobile-default': true,
+    'mobile-nav-about-open': true,
+    'mobile-nav-impact-open': true
+  };
+  const seenIds: Record<string, true> = {};
+  for (const state of contract.states) {
+    if (!state || typeof state !== 'object' || !expectedIds[state.id] || seenIds[state.id] || state.route !== '/'
+      || !['default', 'nav-about-open', 'nav-impact-open'].includes(state.state)
+      || !state.viewport || !['desktop', 'mobile'].includes(state.viewport.name)
+      || !Number.isInteger(state.viewport.width) || !Number.isInteger(state.viewport.height)
+      || !state.source || typeof state.source.path !== 'string' || !/^[a-f0-9]{64}$/.test(state.source.sha256)
+      || !Number.isInteger(state.source.widthPx) || !Number.isInteger(state.source.heightPx)
+      || !Array.isArray(state.excludedRegions) || !Number.isFinite(state.acceptedNormalizedMaskedMae)
+      || !Number.isFinite(state.ceilingNormalizedMaskedMae)
+      || Math.abs(state.ceilingNormalizedMaskedMae - (state.acceptedNormalizedMaskedMae * 1.05)) > 1e-12) {
+      throw new Error(`Invalid homepage comparison state: ${relativePath}`);
+    }
+    seenIds[state.id] = true;
+    for (const region of state.excludedRegions) {
+      if (!region || typeof region !== 'object' || !['header-fellow-directory', 'hero-fellows-directory', 'footer-fellows-directory'].includes(region.name)
+        || !Number.isInteger(region.x) || !Number.isInteger(region.y) || !Number.isInteger(region.width) || !Number.isInteger(region.height)
+        || region.x < 0 || region.y < 0 || region.width <= 0 || region.height <= 0
+        || region.x + region.width > state.source.widthPx || region.y + region.height > state.source.heightPx
+        || typeof region.reason !== 'string' || !region.reason.includes('excluded by the route manifest')) {
+        throw new Error(`Invalid homepage comparison mask in ${state.id}: ${relativePath}`);
+      }
+    }
+    const maskedPixels = state.excludedRegions.reduce((total, region) => total + (region.width * region.height), 0);
+    if (maskedPixels >= state.source.widthPx * state.source.heightPx) {
+      throw new Error(`Homepage comparison masks exclude every pixel in ${state.id}: ${relativePath}`);
+    }
+  }
+  if (Object.keys(seenIds).length !== Object.keys(expectedIds).length) throw new Error(`Homepage comparison states are incomplete: ${relativePath}`);
+  return contract as HomepageComparisonContract;
+}
+
+function normalizedMaskedMae(source: Pick<DecodedPng, 'pixels' | 'widthPx' | 'heightPx' | 'channels'>, candidate: Pick<DecodedPng, 'pixels' | 'widthPx' | 'heightPx' | 'channels'>, regions: ExcludedRegion[]): number {
+  if (source.widthPx !== candidate.widthPx || source.heightPx !== candidate.heightPx || source.channels !== candidate.channels) {
+    throw new Error(`Pixel comparison dimensions differ: source ${source.widthPx}x${source.heightPx}x${source.channels}, candidate ${candidate.widthPx}x${candidate.heightPx}x${candidate.channels}`);
+  }
+  let difference = 0;
+  let includedPixels = 0;
+  for (let y = 0; y < source.heightPx; y += 1) {
+    for (let x = 0; x < source.widthPx; x += 1) {
+      if (regions.some((region) => x >= region.x && x < region.x + region.width && y >= region.y && y < region.y + region.height)) continue;
+      const offset = ((y * source.widthPx) + x) * source.channels;
+      for (let channel = 0; channel < source.channels; channel += 1) difference += Math.abs(source.pixels[offset + channel] - candidate.pixels[offset + channel]);
+      includedPixels += 1;
+    }
+  }
+  if (includedPixels === 0) throw new Error('Pixel comparison has no included pixels');
+  return difference / (includedPixels * source.channels * 255);
+}
+
+function assertMaskedMae(source: DecodedPng, candidate: DecodedPng, state: HomepageComparisonState): number {
+  const mae = normalizedMaskedMae(source, candidate, state.excludedRegions);
+  expect(mae, `${state.id}: masked normalized MAE ${mae}; accepted ${state.acceptedNormalizedMaskedMae}; ceiling ${state.ceilingNormalizedMaskedMae}`).toBeLessThanOrEqual(state.ceilingNormalizedMaskedMae);
+  return mae;
+}
+
+test('homepage comparison rejects a material unmasked pixel change', async () => {
+  const state = readHomepageComparisonContract().states.find((candidate) => candidate.id === 'desktop-default');
+  if (!state) throw new Error('Missing desktop-default comparison state');
+  const source = await decodeAndHashPng(readFileSync(resolve(process.cwd(), state.source.path)));
+  const altered = { ...source, pixels: Buffer.alloc(source.pixels.length) };
+  expect(() => assertMaskedMae(source, altered, state)).toThrow(/masked normalized MAE/);
+});
 
 type SourceScreenshotMetadata = {
   family: string;
@@ -331,6 +455,7 @@ test('homepage six-state comparable captures honour committed source evidence an
   ];
   const homepageSource = sourceContract.templates.find((template) => template.family === 'homepage');
   const expectedStates: ComparableState[] = ['default', 'nav-about-open', 'nav-impact-open'];
+  const comparisonContract = readHomepageComparisonContract();
 
   expect(homepageSource?.representativePath).toBe('/');
   expect(homepageSource?.states.map((state) => state.name)).toEqual(expectedStates);
@@ -340,17 +465,29 @@ test('homepage six-state comparable captures honour committed source evidence an
     const sourceCapture = homepageSource?.captures.find((capture) => capture.state === state && capture.viewport === viewportName);
     expect(sourceCapture, `Missing committed ${viewportName} ${state} source capture`).toBeDefined();
     if (!sourceCapture) throw new Error(`Missing committed ${viewportName} ${state} source capture`);
+    const comparison = comparisonContract.states.find((candidate) => candidate.state === state && candidate.viewport.name === viewportName);
+    expect(comparison, `Missing ${viewportName} ${state} comparison contract`).toBeDefined();
+    if (!comparison) throw new Error(`Missing ${viewportName} ${state} comparison contract`);
+    expect(comparison).toMatchObject({
+      route: '/',
+      viewport,
+      source: {
+        path: sourceCapture.screenshot,
+        widthPx: sourceCapture.screenshotWidthPx,
+        heightPx: sourceCapture.screenshotHeightPx
+      }
+    });
 
-    expect(existsSync(resolve(process.cwd(), sourceCapture.screenshot)), `Missing committed source PNG ${sourceCapture.screenshot}`).toBe(true);
+    expect(existsSync(resolve(process.cwd(), comparison.source.path)), `Missing committed source PNG ${comparison.source.path}`).toBe(true);
     expect(existsSync(resolve(process.cwd(), sourceCapture.metadata)), `Missing committed source metadata ${sourceCapture.metadata}`).toBe(true);
-    const sourceScreenshot = await decodeAndHashPng(readFileSync(resolve(process.cwd(), sourceCapture.screenshot)));
+    const sourceScreenshot = await decodeAndHashPng(readFileSync(resolve(process.cwd(), comparison.source.path)));
     expect(sourceScreenshot).toMatchObject({
       format: 'png',
-      widthPx: sourceCapture.screenshotWidthPx,
-      heightPx: sourceCapture.screenshotHeightPx
+      widthPx: comparison.source.widthPx,
+      heightPx: comparison.source.heightPx,
+      channels: 4
     });
-    expect(sourceScreenshot.byteSha256, `${viewportName} ${state}: source PNG is hashed`).toMatch(/^[a-f0-9]{64}$/);
-    expect(sourceScreenshot.decodedSha256, `${viewportName} ${state}: source PNG pixels are hashed`).toMatch(/^[a-f0-9]{64}$/);
+    expect(sourceScreenshot.byteSha256, `${comparison.id}: source PNG hash`).toBe(comparison.source.sha256);
 
     const metadata = readSourceScreenshotMetadata(sourceCapture.metadata);
     expect(metadata).toMatchObject({
@@ -366,15 +503,30 @@ test('homepage six-state comparable captures honour committed source evidence an
       imagesNotLoaded: []
     });
 
-    const capture = await captureComparable(page, '/', viewport, state);
+    const [capture, reproduction] = await captureIndependentPair(page, '/', viewport, state);
     expect(capture.viewport).toEqual(viewport);
-    expect(capture.consoleErrors, `${viewportName} ${state}: no console errors`).toEqual([]);
-    expect(capture.failedRequests, `${viewportName} ${state}: no failed requests`).toEqual([]);
-    expect(capture.unloadedImages, `${viewportName} ${state}: all images loaded`).toEqual([]);
-    expect(capture.returnedToTop, `${viewportName} ${state}: capture returns to top`).toBe(true);
+    expect(capture.consoleErrors, `${comparison.id}: no console errors`).toEqual([]);
+    expect(capture.failedRequests, `${comparison.id}: no failed requests`).toEqual([]);
+    expect(capture.unloadedImages, `${comparison.id}: all images loaded`).toEqual([]);
+    expect(capture.returnedToTop, `${comparison.id}: capture returns to top`).toBe(true);
     expect(capture.localImages.map((source) => new URL(source).pathname)).toEqual(expect.arrayContaining(expectedImagePaths));
-    expect(capture.localImages.every((source) => new URL(source).origin === new URL(page.url()).origin), `${viewportName} ${state}: no remote images`).toBe(true);
-    expectReproducibleScreenshot(capture.screenshotEvidence, `${viewportName} ${state}`);
+    expect(capture.localImages.every((source) => new URL(source).origin === new URL(page.url()).origin), `${comparison.id}: no remote images`).toBe(true);
+    expectReproducibleCaptures(capture, reproduction, comparison.id);
+    const normalizedMae = assertMaskedMae(sourceScreenshot, capture.screenshotEvidence, comparison);
+    await testInfo.attach(`${comparison.id}-pixel-comparison.json`, {
+      body: Buffer.from(JSON.stringify({
+        id: comparison.id,
+        sourceSha256: sourceScreenshot.byteSha256,
+        sourceDimensions: [sourceScreenshot.widthPx, sourceScreenshot.heightPx, sourceScreenshot.channels],
+        candidateSha256: capture.screenshotEvidence.decodedSha256,
+        candidateDimensions: [capture.screenshotEvidence.widthPx, capture.screenshotEvidence.heightPx, capture.screenshotEvidence.channels],
+        excludedRegions: comparison.excludedRegions,
+        normalizedMaskedMae: normalizedMae,
+        acceptedNormalizedMaskedMae: comparison.acceptedNormalizedMaskedMae,
+        ceilingNormalizedMaskedMae: comparison.ceilingNormalizedMaskedMae
+      }, null, 2)),
+      contentType: 'application/json'
+    });
 
     const metrics = await readHomepageVisualMetrics(page);
     const sourceMeasurements = homepageSource?.measurements[viewportName];

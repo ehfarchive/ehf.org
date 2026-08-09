@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "description": "Source-derived homepage pixel comparison contract. Masks cover only the three Fellow Directory source affordances that the route manifest excludes; every other pixel remains comparable.",
+  "ceilingPolicy": {
+    "formula": "acceptedNormalizedMaskedMae * 1.05",
+    "rationale": "A five-percent relative allowance is the narrow deterministic-raster tolerance derived from the accepted six-state bundle; it is not a visual-scope allowance."
+  },
+  "states": [
+    {
+      "id": "desktop-default",
+      "route": "/",
+      "state": "default",
+      "viewport": { "name": "desktop", "width": 1440, "height": 1000 },
+      "source": {
+        "path": "source-evidence/screenshots/homepage/default-desktop.png",
+        "sha256": "d3a82bb34e5e2306482d89fb4b1ca31ae77613fd32ce8fa9e6fdd54aae35eae5",
+        "widthPx": 1440,
+        "heightPx": 2048
+      },
+      "excludedRegions": [
+        { "name": "header-fellow-directory", "x": 1229, "y": 36, "width": 182, "height": 51, "reason": "Fellow Directory is excluded by the route manifest." },
+        { "name": "hero-fellows-directory", "x": 29, "y": 889, "width": 195, "height": 51, "reason": "Fellow Directory is excluded by the route manifest." },
+        { "name": "footer-fellows-directory", "x": 262, "y": 1900, "width": 255, "height": 28, "reason": "Fellow Directory is excluded by the route manifest." }
+      ],
+      "acceptedNormalizedMaskedMae": 0.01235124,
+      "ceilingNormalizedMaskedMae": 0.012968802
+    },
+    {
+      "id": "desktop-nav-about-open",
+      "route": "/",
+      "state": "nav-about-open",
+      "viewport": { "name": "desktop", "width": 1440, "height": 1000 },
+      "source": {
+        "path": "source-evidence/screenshots/homepage/nav-about-open-desktop.png",
+        "sha256": "59e6d1a74b098caab89072cf1a541a50a05e18d9f19d2a47ff15b746806d5fdd",
+        "widthPx": 1440,
+        "heightPx": 1000
+      },
+      "excludedRegions": [
+        { "name": "header-fellow-directory", "x": 1229, "y": 36, "width": 182, "height": 51, "reason": "Fellow Directory is excluded by the route manifest." },
+        { "name": "hero-fellows-directory", "x": 29, "y": 889, "width": 195, "height": 51, "reason": "Fellow Directory is excluded by the route manifest." }
+      ],
+      "acceptedNormalizedMaskedMae": 0.01071815,
+      "ceilingNormalizedMaskedMae": 0.0112540575
+    },
+    {
+      "id": "desktop-nav-impact-open",
+      "route": "/",
+      "state": "nav-impact-open",
+      "viewport": { "name": "desktop", "width": 1440, "height": 1000 },
+      "source": {
+        "path": "source-evidence/screenshots/homepage/nav-impact-open-desktop.png",
+        "sha256": "46068cf2fb5fbed4315a1a31dc9ed226b89acc9b0bd8d5d650352e149a5e7859",
+        "widthPx": 1440,
+        "heightPx": 1000
+      },
+      "excludedRegions": [
+        { "name": "header-fellow-directory", "x": 1229, "y": 36, "width": 182, "height": 51, "reason": "Fellow Directory is excluded by the route manifest." },
+        { "name": "hero-fellows-directory", "x": 29, "y": 889, "width": 195, "height": 51, "reason": "Fellow Directory is excluded by the route manifest." }
+      ],
+      "acceptedNormalizedMaskedMae": 0.0110652,
+      "ceilingNormalizedMaskedMae": 0.01161846
+    },
+    {
+      "id": "mobile-default",
+      "route": "/",
+      "state": "default",
+      "viewport": { "name": "mobile", "width": 390, "height": 844 },
+      "source": {
+        "path": "source-evidence/screenshots/homepage/default-mobile.png",
+        "sha256": "4af6ca4ec4f81f1baea21c07da8e61b7b3976eb38630a6b7cb6dbf6076abcd3e",
+        "widthPx": 390,
+        "heightPx": 2442
+      },
+      "excludedRegions": [
+        { "name": "hero-fellows-directory", "x": 97, "y": 1319, "width": 196, "height": 51, "reason": "Fellow Directory is excluded by the route manifest." },
+        { "name": "footer-fellows-directory", "x": 85, "y": 2214, "width": 199, "height": 25, "reason": "Fellow Directory is excluded by the route manifest." }
+      ],
+      "acceptedNormalizedMaskedMae": 0.04453077,
+      "ceilingNormalizedMaskedMae": 0.0467573085
+    },
+    {
+      "id": "mobile-nav-about-open",
+      "route": "/",
+      "state": "nav-about-open",
+      "viewport": { "name": "mobile", "width": 390, "height": 844 },
+      "source": {
+        "path": "source-evidence/screenshots/homepage/nav-about-open-mobile.png",
+        "sha256": "17b8259da08bea39d98ac3a3f8a605304c9b8122e5431a76a2d9c7f509607dd8",
+        "widthPx": 390,
+        "heightPx": 844
+      },
+      "excludedRegions": [],
+      "acceptedNormalizedMaskedMae": 0.01881317,
+      "ceilingNormalizedMaskedMae": 0.0197538285
+    },
+    {
+      "id": "mobile-nav-impact-open",
+      "route": "/",
+      "state": "nav-impact-open",
+      "viewport": { "name": "mobile", "width": 390, "height": 844 },
+      "source": {
+        "path": "source-evidence/screenshots/homepage/nav-impact-open-mobile.png",
+        "sha256": "d9ec6219dd14f0aa8922312422c7cb9b7b6525343c44496b4a2fd2a86da53aa0",
+        "widthPx": 390,
+        "heightPx": 844
+      },
+      "excludedRegions": [],
+      "acceptedNormalizedMaskedMae": 0.0483875,
+      "ceilingNormalizedMaskedMae": 0.050806875
+    }
+  ]
+}

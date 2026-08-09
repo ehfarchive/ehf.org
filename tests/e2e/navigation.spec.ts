@@ -113,10 +113,10 @@ test('mobile modal traps focus and makes parent controls inert in child panels',
   await page.getByRole('button', { name: 'Open menu', exact: true }).click();
   const dialog = page.getByRole('dialog', { name: /site navigation/i });
   const close = dialog.getByRole('button', { name: 'Close menu', exact: true });
-  const lastRootControl = dialog.locator('[data-mobile-root]').getByRole('link', { name: 'Archive', exact: true });
+  const brand = dialog.getByRole('link', { name: 'Edmund Hillary Fellowship', exact: true });
   await expect(close).toBeFocused();
   await page.keyboard.press('Shift+Tab');
-  await expect(lastRootControl).toBeFocused();
+  await expect(brand).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(close).toBeFocused();
   await dialog.getByRole('button', { name: /^about$/i }).click();
@@ -131,6 +131,39 @@ test('mobile modal traps focus and makes parent controls inert in child panels',
   await expect(about).toBeFocused();
   await page.keyboard.press('Tab');
   await expect(dialog.locator('[data-mobile-root] [data-mobile-folder-open="impact"]')).toBeFocused();
+});
+
+test('mobile child panels include the home brand once in the modal keyboard cycle', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile', 'mobile menu contract');
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Open menu', exact: true }).click();
+  const dialog = page.getByRole('dialog', { name: /site navigation/i });
+  const close = dialog.getByRole('button', { name: 'Close menu', exact: true });
+  const brand = dialog.getByRole('link', { name: 'Edmund Hillary Fellowship', exact: true });
+
+  await expect(brand).toHaveCount(1);
+  for (const label of ['About', 'Impact']) {
+    await dialog.getByRole('button', { name: label, exact: true }).click();
+    const panel = dialog.locator(`[data-mobile-folder="${label.toLowerCase()}"]`);
+    const back = panel.getByRole('button', { name: '< Back', exact: true });
+    const links = panel.getByRole('link');
+
+    await expect(back).toBeFocused();
+    await page.keyboard.press('Shift+Tab');
+    await expect(close).toBeFocused();
+    await page.keyboard.press('Shift+Tab');
+    await expect(brand).toBeFocused();
+    await page.keyboard.press('Tab');
+    await expect(close).toBeFocused();
+    await page.keyboard.press('Tab');
+    await expect(back).toBeFocused();
+    for (let index = 0; index < await links.count(); index += 1) await page.keyboard.press('Tab');
+    await expect(links.last()).toBeFocused();
+    await page.keyboard.press('Tab');
+    await expect(brand).toBeFocused();
+
+    await back.click();
+  }
 });
 
 test('same-task child open and Back leaves only the root panel active', async ({ page }, testInfo) => {
