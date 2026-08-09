@@ -1,0 +1,15 @@
+{
+  "route": "/read",
+  "viewport": {
+    "name": "mobile",
+    "width": 390,
+    "height": 844
+  },
+  "state": "default",
+  "capturedAt": "2026-08-07T15:03:36.239Z",
+  "documentHeight": 9892,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [],
+  "implementationUrl": "http://127.0.0.1:4321/read"
+}

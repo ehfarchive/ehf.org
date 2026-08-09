@@ -1,0 +1,27 @@
+---
+import { fellowDirectory, navigationItems } from './navigation';
+---
+<button class="mobile-menu__trigger" type="button" aria-expanded="false" aria-controls="site-navigation-dialog" data-mobile-menu-trigger>
+  <svg aria-hidden="true" viewBox="0 0 35 12" fill="none"><line x1="0" y1="0.5" x2="35" y2="0.5" stroke="currentColor" stroke-width="1"/><line x1="0" y1="11.5" x2="35" y2="11.5" stroke="currentColor" stroke-width="1"/></svg><span class="visually-hidden">Open menu</span>
+</button>
+<dialog id="site-navigation-dialog" class="mobile-menu" aria-label="Site navigation" hidden data-mobile-menu>
+  <div class="mobile-menu__panel" data-mobile-root>
+    <button class="mobile-menu__close" type="button" data-mobile-menu-close><svg aria-hidden="true" viewBox="0 0 21 21" fill="none"><line x1="0.5" y1="0.5" x2="20.5" y2="20.5" stroke="currentColor" stroke-width="1"/><line x1="20.5" y1="0.5" x2="0.5" y2="20.5" stroke="currentColor" stroke-width="1"/></svg><span class="visually-hidden">Close menu</span></button>
+    <nav aria-label="Primary navigation">
+      <ul>
+        {navigationItems.map((item) => item.children ? (
+          <li><button type="button" data-mobile-folder-open={item.label.toLowerCase()}><span>{item.label}</span><span class="mobile-menu__chevron" aria-hidden="true"></span></button></li>
+        ) : <li><a href={item.href}>{item.label}</a></li>)}
+      </ul>
+    </nav>
+    <a class="button button--directory" href={fellowDirectory.href}>{fellowDirectory.label}</a>
+  </div>
+  {navigationItems.filter((item) => item.children).map((item) => (
+    <div class="mobile-menu__panel mobile-menu__panel--children" hidden data-mobile-folder={item.label.toLowerCase()}>
+      <button type="button" data-mobile-folder-back>Back</button>
+      <nav aria-label={`${item.label} navigation`}>
+        <ul>{item.children?.map((child) => <li><a href={child.href}>{child.label}</a></li>)}</ul>
+      </nav>
+    </div>
+  ))}
+</dialog>

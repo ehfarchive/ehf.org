@@ -1,0 +1,15 @@
+{
+  "route": "/read",
+  "viewport": {
+    "name": "desktop",
+    "width": 1440,
+    "height": 1000
+  },
+  "state": "default",
+  "capturedAt": "2026-08-07T15:03:34.999Z",
+  "documentHeight": 3600,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [],
+  "implementationUrl": "http://127.0.0.1:4321/read"
+}

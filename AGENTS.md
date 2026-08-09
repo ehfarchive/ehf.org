@@ -45,7 +45,7 @@ Do not begin by cloning the whole site. First complete the four-page Astro spike
 - Homepage: `/`
 - Impact archive listing: `/read`
 - Impact article: `/read/how-chemergy-is-changing-the-game-in-waste-to-energy`
-- Annual Reports: `/annual-reports`
+- 2022/23 Annual Report and financial statements: `/23-annual-report`
 
 These pages deliberately exercise four different templates: a bespoke landing page, a collection listing, a long-form article, and a document-oriented institutional page. The spike must prove source capture, local assets, shared navigation and footer, responsive fidelity, content modeling, static output, and browser verification.
 

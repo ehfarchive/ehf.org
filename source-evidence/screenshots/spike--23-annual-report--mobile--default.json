@@ -1,0 +1,15 @@
+{
+  "sourceUrl": "https://www.ehf.org/23-annual-report",
+  "route": "/23-annual-report",
+  "viewport": {
+    "name": "mobile",
+    "width": 390,
+    "height": 844
+  },
+  "state": "default",
+  "capturedAt": "2026-08-07T08:38:45Z",
+  "documentHeight": 1520,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": []
+}

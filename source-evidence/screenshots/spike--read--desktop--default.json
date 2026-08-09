@@ -1,0 +1,14 @@
+{
+  "sourceUrl": "https://www.ehf.org/read",
+  "route": "/read",
+  "viewport": {
+    "name": "desktop",
+    "width": 1440,
+    "height": 1000
+  },
+  "state": "default",
+  "capturedAt": "2026-08-07T07:39:14Z",
+  "documentHeight": 3658,
+  "consoleErrors": [],
+  "failedRequests": []
+}

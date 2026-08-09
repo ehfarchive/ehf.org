@@ -1,0 +1,15 @@
+{
+  "route": "/",
+  "viewport": {
+    "name": "desktop",
+    "width": 1440,
+    "height": 1000
+  },
+  "state": "about-menu",
+  "capturedAt": "2026-08-07T15:03:41.001Z",
+  "documentHeight": 2048,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [],
+  "implementationUrl": "http://127.0.0.1:4321/"
+}

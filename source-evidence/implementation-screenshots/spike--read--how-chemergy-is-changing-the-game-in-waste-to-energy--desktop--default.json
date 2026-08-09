@@ -1,0 +1,15 @@
+{
+  "route": "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+  "viewport": {
+    "name": "desktop",
+    "width": 1440,
+    "height": 1000
+  },
+  "state": "default",
+  "capturedAt": "2026-08-07T15:03:37.326Z",
+  "documentHeight": 6643,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [],
+  "implementationUrl": "http://127.0.0.1:4321/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
+}

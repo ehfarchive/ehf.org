@@ -1,0 +1,27 @@
+---
+import SiteLayout from './SiteLayout.astro';
+
+interface Props {
+  title: string;
+  publishedAt?: Date;
+  heroImage: string;
+  heroAlt: string;
+  nextSlug?: string;
+}
+
+const { title, nextSlug } = Astro.props;
+const nextTitle = "Harnessing Pine Pollen's Power to Transform Wellbeing";
+---
+<SiteLayout title={`${title} — Edmund Hillary Fellowship`}>
+  <article class="article-page site-container">
+    <header class="article-page__header">
+      <h1>{title}</h1>
+
+    </header>
+    <div class="article-page__body"><slot /></div>
+    {nextSlug && <nav class="article-page__next" aria-label="Article navigation">
+      <a href={`/read/${nextSlug}`}>{nextTitle}</a>
+      <span class="article-page__next-chevron" aria-hidden="true"></span>
+    </nav>}
+  </article>
+</SiteLayout>
