@@ -81,7 +81,7 @@ test('migrates each raw body and link once at the PageSection loader boundary', 
   };
 
   expect(loadPageSections(raw, '/about-ehf')).toEqual([
-    { heading: 'About EHF', body: 'First body' },
+    { body: 'First body' },
     { body: 'Second body', links: [{ label: 'Read more', href: 'https://example.test' }] }
   ]);
 });
@@ -97,6 +97,5 @@ test('all eight institutional and legal inputs retain every body and link exactl
     const sections = loadPageSections(raw, record.route);
     expect(sections.map((section) => section.body), record.route).toEqual(raw.body);
     expect(sections.flatMap((section) => section.links ?? []), record.route).toEqual(raw.links);
-    expect(sections.filter((section) => section.heading)).toHaveLength(1);
   }
 });

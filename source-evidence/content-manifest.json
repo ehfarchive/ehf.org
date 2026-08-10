@@ -797,7 +797,7 @@
       "route": "/summer-edition-2025",
       "template": "institutional",
       "localInput": "src/content/pages/institutional/summer-edition-2025.json",
-      "contentHash": "89ffac816fd822e432c5ec2bf930993e58469db9efca6a389f024a623b6752f0"
+      "contentHash": "e8e3ecddefa3bf1ccfd056c64f94eb5b88b355b10f557adcadd50401bc846146"
     },
     {
       "route": "/terms-of-use",

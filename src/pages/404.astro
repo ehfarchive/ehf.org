@@ -5,13 +5,22 @@ import SiteLayout from '../layouts/SiteLayout.astro';
   <article class="not-found" data-page-template="not-found">
     <h1>Page not found</h1>
     <p>The page you requested is not available.</p>
-    <a href="/">Return to the homepage</a>
+    <a class="button" href="/">Home Page</a>
+    <ul>
+      <li>There may be an error in the URL entered into your web browser.</li>
+      <li>The page you are looking for may have been moved or deleted.</li>
+    </ul>
   </article>
 </SiteLayout>
 
 <style>
-  .not-found { width: min(760px, calc(100% - 2 * var(--gutter))); min-height: 48vh; margin: 0 auto; padding-top: calc(var(--header-height) + 108px); padding-bottom: 120px; text-align: center; }
+  .not-found { width: min(760px, calc(100% - 2 * var(--gutter))); margin: 0 auto; padding-top: calc(var(--header-height) + 108px); padding-bottom: 120px; text-align: center; }
   .not-found h1 { margin: 0 0 20px; font-size: var(--text-display); line-height: var(--lh-display); }
   .not-found p { margin: 0 0 28px; }
-  .not-found a { color: var(--color-brand); }
+  .not-found ul { max-width: 620px; margin: 32px auto 0; padding-left: 20px; text-align: left; }
+  .not-found li + li { margin-top: 10px; }
+  @media (max-width: 767px) {
+    .not-found { padding-top: calc(var(--header-height) + 20px); padding-bottom: 48px; }
+    .not-found ul { margin-top: 24px; }
+  }
 </style>

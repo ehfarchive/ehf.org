@@ -1,7 +1,7 @@
 *, *::before, *::after { box-sizing: border-box; }
-html { color: var(--color-text); background: var(--color-surface); }
-body { margin: 0; min-width: 320px; }
-body.menu-open { overflow: hidden; }
+html { color: var(--color-text); background: var(--color-surface); overflow-x: clip; }
+body { margin: 0; min-width: 320px; max-width: 100%; overflow-x: clip; }
+body.menu-open { position: fixed; inset-inline: 0; width: 100%; overflow: hidden; }
 [hidden] { display: none !important; }
 .sr-only,
 .visually-hidden {

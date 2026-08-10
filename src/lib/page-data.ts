@@ -27,7 +27,6 @@ export type ContentManifest = {
 export type PageLink = { label: string; href: string };
 
 export type PageSection = {
-  heading?: string;
   body: string;
   imageAssetId?: string;
   imageAlt?: string;
@@ -80,7 +79,6 @@ export function loadPageSections(input: unknown, route: string): PageSection[] {
       : undefined;
     if (mediaCounts[index] > 1) mediaOffset += mediaCounts[index] - 1;
     return {
-      ...(index === 0 ? { heading: page.heading } : {}),
       body,
       ...(imageAssetId ? { imageAssetId, imageAlt: '' } : {}),
       ...(links ? { links } : {})

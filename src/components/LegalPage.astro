@@ -1,4 +1,6 @@
 ---
+import RichTextBlock from './RichTextBlock.astro';
+import { inlineText, parseRichText } from '../lib/rich-text';
 import type { PageSection } from '../lib/page-data';
 
 interface Props {
@@ -8,19 +10,19 @@ interface Props {
 
 const { title, sections } = Astro.props;
 const external = (href: string) => /^https?:\/\//.test(href);
-const displayBody = (body: string) => body
-  .replace(/^#{1,6}\s+/, '')
-  .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
-  .replaceAll('**', '')
-  .replaceAll('*', '');
+const parsedSections = sections.map((section) => ({ ...section, block: parseRichText(section.body) }));
+const inlineHrefs = new Set(sections.flatMap((section) => [...section.body.matchAll(/\[[^\]]+\]\(([^)]*)\)/g)].map((match) => match[1])));
+const firstBlock = parsedSections[0]?.block;
+const hasContentTitle = firstBlock?.kind === 'heading' && firstBlock.level <= 3;
+const visibleTitle = hasContentTitle ? inlineText(firstBlock.children) : title;
+const visibleSections = parsedSections.filter((_, index) => index !== 0 || !hasContentTitle);
 ---
 <article class="legal-page" data-page-template="legal">
-  <header><h1>{title}</h1></header>
-  {sections.map((section) => <section class="legal-page__section">
-    {section.heading && section.body !== section.heading && <h2>{section.heading}</h2>}
-    {!section.heading || section.body !== section.heading ? <p>{displayBody(section.body)}</p> : null}
+  <header><h1>{visibleTitle}</h1></header>
+  {visibleSections.map((section) => <section class="legal-page__section">
+    <RichTextBlock block={section.block} />
     {section.links && <ul class="legal-page__links">
-      {section.links.map((link) => <li><a href={link.href} {...(external(link.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{link.label}</a></li>)}
+      {section.links.filter((link) => !inlineHrefs.has(link.href)).map((link) => <li><a href={link.href} {...(external(link.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{link.label}</a></li>)}
     </ul>}
   </section>)}
 </article>
@@ -31,7 +33,7 @@ const displayBody = (body: string) => body
   .legal-page h1 { margin: 0; font-size: var(--text-display); line-height: var(--lh-display); }
   .legal-page h2 { margin: 48px 0 16px; font-size: var(--text-heading); line-height: var(--lh-heading); }
   .legal-page p { margin: 0 0 20px; white-space: pre-line; }
-  .legal-page__links { margin: 0 0 24px; padding-left: 20px; }
-  .legal-page__links a { color: var(--color-brand); overflow-wrap: anywhere; }
+  .legal-page :global(.rich-text-list) { margin: 0 0 20px; padding-left: 20px; }
+  .legal-page :global(a) { color: var(--color-brand); overflow-wrap: anywhere; }
   @media (max-width: 767px) { .legal-page { padding-top: calc(var(--header-height) + 42px); padding-bottom: 72px; } .legal-page header { margin-bottom: 42px; } .legal-page h2 { margin-top: 34px; } }
 </style>

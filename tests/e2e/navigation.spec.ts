@@ -35,16 +35,20 @@ test('desktop submenu pointer state is truthful', async ({ page }, testInfo) => 
   await expect(page.getByRole('navigation', { name: /about submenu/i })).toBeVisible();
 });
 
-test('mobile menu locks page scroll and restores focus when dismissed', async ({ page }, testInfo) => {
+test('mobile menu fixes the document at its previous scroll position and restores it when dismissed', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'mobile', 'mobile menu contract');
-  await page.goto('/');
+  await page.goto('/privacy-policy');
+  await page.evaluate(() => scrollTo(0, 700));
+  await expect.poll(() => page.evaluate(() => scrollY)).toBe(700);
   const trigger = page.getByRole('button', { name: 'Open menu', exact: true });
-  await trigger.click();
+  await trigger.evaluate((element) => (element as HTMLButtonElement).click());
   await expect(page.getByRole('dialog', { name: /site navigation/i })).toBeVisible();
-  await expect(page.locator('body')).toHaveClass(/menu-open/);
+  await expect(page.locator('body')).toHaveCSS('position', 'fixed');
+  await expect(page.locator('body')).toHaveCSS('top', '-700px');
   await page.keyboard.press('Escape');
   await expect(page.getByRole('dialog', { name: /site navigation/i })).toBeHidden();
-  await expect(page.locator('body')).not.toHaveClass(/menu-open/);
+  await expect(page.locator('body')).toHaveCSS('position', 'static');
+  await expect.poll(() => page.evaluate(() => scrollY)).toBe(700);
   await expect(trigger).toBeFocused();
 });
 

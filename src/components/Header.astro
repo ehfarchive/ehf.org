@@ -54,6 +54,7 @@ import MobileNav from './MobileNav.astro';
   const mobileRoot = document.querySelector<HTMLElement>('[data-mobile-root]');
   const mobilePanels = [...document.querySelectorAll<HTMLElement>('[data-mobile-folder]')];
   let mobileTransitionFrame: number | undefined;
+  let mobileScrollY = 0;
 
   function openMenu(trigger: HTMLButtonElement) {
     if (!mobileMenu || !mobileRoot) return;
@@ -71,6 +72,8 @@ import MobileNav from './MobileNav.astro';
       panel.classList.remove('is-active');
     });
     trigger.setAttribute('aria-expanded', 'true');
+    mobileScrollY = window.scrollY;
+    document.body.style.top = `-${mobileScrollY}px`;
     document.body.classList.add('menu-open');
     mobileClose?.focus();
   }
@@ -94,7 +97,9 @@ import MobileNav from './MobileNav.astro';
     }
     mobileTrigger.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('menu-open');
-    mobileTrigger.focus();
+    document.body.style.removeProperty('top');
+    mobileTrigger.focus({ preventScroll: true });
+    requestAnimationFrame(() => window.scrollTo(0, mobileScrollY));
   }
 
   mobileTrigger?.addEventListener('click', () => openMenu(mobileTrigger));

@@ -1,5 +1,7 @@
 ---
 import ResponsiveImage from './ResponsiveImage.astro';
+import RichTextBlock from './RichTextBlock.astro';
+import { inlineText, parseRichText } from '../lib/rich-text';
 import type { PageSection } from '../lib/page-data';
 
 interface Props {
@@ -14,24 +16,25 @@ const supplementalSummerImages: Readonly<Record<string, readonly string[]>> = {
   'asset-images-summer-edition-2025-10': ['asset-images-summer-edition-2025-11', 'asset-images-summer-edition-2025-12'],
   'asset-images-summer-edition-2025-13': ['asset-images-summer-edition-2025-14']
 };
-const displayBody = (body: string) => body
-  .replace(/^#{1,6}\s+/, '')
-  .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
-  .replaceAll('**', '')
-  .replaceAll('*', '');
+const parsedSections = sections.map((section) => ({ ...section, block: parseRichText(section.body) }));
+const inlineHrefs = new Set(sections.flatMap((section) => [...section.body.matchAll(/\[[^\]]+\]\(([^)]*)\)/g)].map((match) => match[1])));
+
+const firstBlock = parsedSections[0]?.block;
+const hasContentTitle = firstBlock?.kind === 'heading' && firstBlock.level <= 3;
+const visibleTitle = hasContentTitle ? inlineText(firstBlock.children) : title;
+const visibleSections = parsedSections.filter((_, index) => index !== 0 || (!hasContentTitle && sections[0].body !== title));
 ---
 <article class="standard-page" data-page-template="institutional">
-  <header><h1>{title}</h1></header>
-  {sections.map((section) => {
+  <header><h1>{visibleTitle}</h1></header>
+  {visibleSections.map((section) => {
     const imageLink = section.links?.find((link) => link.href === 'https://www.nztcc.org/commitee/');
-    const textLinks = section.links?.filter((link) => link !== imageLink) ?? [];
+    const textLinks = section.links?.filter((link) => link !== imageLink && !inlineHrefs.has(link.href)) ?? [];
     if (imageLink && imageLink.label !== 'Te Ara Rangatira') throw new Error('unexpected Summer image-link label');
     const imageAssetIds = section.imageAssetId
       ? [section.imageAssetId, ...(supplementalSummerImages[section.imageAssetId] ?? [])]
       : [];
     return <section class="standard-page__section">
-      {section.heading && section.body !== section.heading && <h2>{section.heading}</h2>}
-      {!section.heading || section.body !== section.heading ? <p>{displayBody(section.body)}</p> : null}
+      <RichTextBlock block={section.block} />
       {imageAssetIds.map((assetId, index) => imageLink && index === 0 ? (
         <a href={imageLink.href} target="_blank" rel="noopener noreferrer" aria-label="Te Ara Rangatira">
           <ResponsiveImage assetId={assetId} alt={section.imageAlt ?? ''} width={510} height={340} sizes="(max-width: 767px) 100vw, 510px" />
@@ -52,8 +55,9 @@ const displayBody = (body: string) => body
   .standard-page h1 { margin: 0; font-size: var(--text-display); line-height: var(--lh-display); }
   .standard-page h2 { margin: 56px 0 18px; font-size: var(--text-heading); line-height: var(--lh-heading); }
   .standard-page p { margin: 0 0 24px; white-space: pre-line; }
+  .standard-page :global(.rich-text-list) { margin: 0 0 24px; padding-left: 20px; }
+  .standard-page :global(a) { color: var(--color-brand); overflow-wrap: anywhere; }
   .standard-page img { display: block; width: min(100%, 510px); height: auto; margin: 28px 0; }
   .standard-page__links { margin: 0 0 28px; padding-left: 20px; }
-  .standard-page__links a { color: var(--color-brand); }
   @media (max-width: 767px) { .standard-page { padding-top: calc(var(--header-height) + 42px); padding-bottom: 72px; } .standard-page header { margin-bottom: 42px; } .standard-page h2 { margin-top: 38px; } }
 </style>

@@ -948,6 +948,51 @@ test('Ticket 9 institutional, legal, Summer, and 404 matrix stays responsive and
   await expect(page.locator('a[href="https://stripe.com/nz/legal%20and%20https://www.paypal.com/ad/webapps/mpp/ua/useragreement-full%20for%20more%20details"]')).toHaveAttribute('rel', 'noopener noreferrer');
 });
 
+test('Ticket 9 preserves rich semantics and repaired shared shell behavior', async ({ page }, testInfo) => {
+  const viewport = testInfo.project.name === 'desktop' ? { width: 1440, height: 1000 } : { width: 390, height: 844 };
+  await page.setViewportSize(viewport);
+  await page.goto('/about-ehf');
+  await expect(page.getByRole('heading', { name: 'About the Edmund Hillary Fellowship', exact: true })).toHaveCount(1);
+  await expect(page.getByRole('heading', { name: 'Our story', exact: true })).toBeVisible();
+
+  await page.goto('/privacy-policy');
+  await expect(page.getByRole('heading', { name: 'Privacy and Data Protection Policy', exact: true })).toHaveCount(1);
+  await expect(page.getByRole('heading', { name: 'INTRODUCTION', exact: true })).toBeVisible();
+  await expect(page.locator('strong').filter({ hasText: 'EHF' }).first()).toBeVisible();
+  await expect(page.getByRole('link', { name: 'www.privacy.org.nz', exact: true })).toHaveAttribute('href', 'http://www.privacy.org.nz/');
+  await expect(page.getByRole('link', { name: 'here', exact: true })).toHaveAttribute('href', '/terms-of-use');
+  await expect(page.locator('em').filter({ hasText: 'Application Terms' }).first()).toBeVisible();
+  await expect(page.locator('.rich-text-list li').first()).toBeVisible();
+
+  await page.goto('/summer-edition-2025');
+  await expect(page.getByRole('heading', { name: 'Fellows in action 🎬', exact: true })).toBeVisible();
+  await expect(page.locator('strong').filter({ hasText: 'Rangimarie Parata Takurua' }).first()).toBeVisible();
+
+  await page.goto('/404');
+  await expect(page.getByRole('link', { name: 'Home Page', exact: true })).toHaveClass(/button/);
+  await expect(page.locator('[data-page-template="not-found"] li')).toHaveCount(2);
+  expect(await page.locator('footer').evaluate((footer) => Math.abs(footer.getBoundingClientRect().bottom - innerHeight) < 1)).toBe(true);
+
+  await expect(page.locator('[data-newsletter-form] input')).toBeDisabled();
+  await expect(page.locator('[data-newsletter-form] button')).toBeDisabled();
+  await expect(page.locator('[data-newsletter-form] button')).toHaveCSS('cursor', 'not-allowed');
+
+  if (testInfo.project.name === 'desktop') {
+    await page.getByRole('button', { name: 'About' }).hover();
+    const submenu = page.locator('#submenu-about');
+    await expect(submenu).toBeVisible();
+    expect(await submenu.evaluate((element) => {
+      const styles = getComputedStyle(element);
+      return styles.backgroundColor !== 'rgba(0, 0, 0, 0)' && styles.boxShadow !== 'none';
+    })).toBe(true);
+  } else {
+    for (const route of ['/about-ehf', '/privacy-policy', '/summer-edition-2025', '/404']) {
+      await page.goto(route);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
+    }
+  }
+});
+
 test('Ticket 10 form source matrix has eighteen immutable captures and healthy default-filled local states', async ({ page }, testInfo) => {
   type Ticket10Field = { id: string; type: 'text' | 'email' | 'textarea' | 'checkbox'; filledValue: string | boolean };
   type Ticket10Capture = { viewport: 'desktop' | 'mobile'; png: string; json: string; pngSha256?: string; jsonSha256?: string };
