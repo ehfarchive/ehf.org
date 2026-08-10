@@ -24,6 +24,70 @@ export type ContentManifest = {
   content: readonly ContentManifestRecord[];
 };
 
+export type PageLink = { label: string; href: string };
+
+export type PageSection = {
+  heading?: string;
+  body: string;
+  imageAssetId?: string;
+  imageAlt?: string;
+  links?: readonly PageLink[];
+};
+
+export type RawPageRecord = {
+  route: string;
+  title: string;
+  description: string;
+  heading: string;
+  body: readonly string[];
+  heroImage: string | null;
+  heroAlt: string | null;
+  links: readonly PageLink[];
+};
+
+const rawPageKeys = ['route', 'title', 'description', 'heading', 'body', 'heroImage', 'heroAlt', 'links'];
+const summerLinkCounts = [0, 0, 0, 0, 1, 2, 2, 1, 3, 1, 3, 1, 0, 1, 1, 1, 1, 1, 2, 1, 1, 1, 0, 0] as const;
+const summerMediaCounts = [0, 0, 0, 0, 1, 1, 1, 2, 1, 1, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0] as const;
+
+function asRawPageRecord(input: unknown, route: string): RawPageRecord {
+  if (typeof input !== 'object' || input === null || Array.isArray(input)) throw new Error(`page input must be an object: ${route}`);
+  const value = input as Record<string, unknown>;
+  if (Object.keys(value).length !== rawPageKeys.length || !rawPageKeys.every((key) => Object.hasOwn(value, key))) throw new Error(`page input must use exact schema: ${route}`);
+  if (value.route !== route || ![value.title, value.description, value.heading].every((field) => typeof field === 'string' && field.trim())) throw new Error(`page input route or text is invalid: ${route}`);
+  if (!Array.isArray(value.body) || value.body.length === 0 || value.body.some((body) => typeof body !== 'string' || !body.trim())) throw new Error(`page input body is invalid: ${route}`);
+  if (value.heroImage !== null && (typeof value.heroImage !== 'string' || !value.heroImage.startsWith('/assets/'))) throw new Error(`page input heroImage is invalid: ${route}`);
+  if (value.heroAlt !== null && typeof value.heroAlt !== 'string') throw new Error(`page input heroAlt is invalid: ${route}`);
+  if (!Array.isArray(value.links) || value.links.some((link) => typeof link !== 'object' || link === null || Array.isArray(link) || Object.keys(link).length !== 2 || typeof (link as PageLink).label !== 'string' || typeof (link as PageLink).href !== 'string' || !(link as PageLink).href)) throw new Error(`page input links are invalid: ${route}`);
+  return value as unknown as RawPageRecord;
+}
+
+export function loadPageSections(input: unknown, route: string): PageSection[] {
+  const page = asRawPageRecord(input, route);
+  const linkCounts = route === '/summer-edition-2025' ? summerLinkCounts : page.body.map((_, index) => index === page.body.length - 1 ? page.links.length : 0);
+  const mediaCounts = route === '/summer-edition-2025' ? summerMediaCounts : page.body.map((_, index) => index === 0 && page.heroImage ? 1 : 0);
+  if (linkCounts.length !== page.body.length || mediaCounts.length !== page.body.length || linkCounts.reduce((total, count) => total + count, 0) !== page.links.length) throw new Error(`page input section mapping is invalid: ${route}`);
+
+  let linkOffset = 0;
+  let mediaOffset = 0;
+  return page.body.map((body, index) => {
+    const links = linkCounts[index] ? page.links.slice(linkOffset, linkOffset += linkCounts[index]) : undefined;
+    const imageAssetId = mediaCounts[index]
+      ? route === '/summer-edition-2025'
+        ? `asset-images-summer-edition-2025-${String(3 + mediaOffset++).padStart(2, '0')}`
+        : page.heroImage
+          ? `asset-images-${page.heroImage.split('/').pop()?.replace(/\.[^.]+$/, '').replaceAll(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '')}`
+          : undefined
+      : undefined;
+    if (mediaCounts[index] > 1) mediaOffset += mediaCounts[index] - 1;
+    return {
+      ...(index === 0 ? { heading: page.heading } : {}),
+      body,
+      ...(imageAssetId ? { imageAssetId, imageAlt: '' } : {}),
+      ...(links ? { links } : {})
+    };
+  });
+}
+
 const recordKeys = ['route', 'template', 'localInput', 'contentHash'];
 const localInputPattern = /^src\/content\/(?:impact|news|events|pages\/(?:institutional|legal|reports|contact-media-donation))\/[a-z0-9][a-z0-9-]*\.(?:md|json)$/;
 

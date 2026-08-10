@@ -2956,6 +2956,270 @@
       "externalUrl": null
     },
     {
+      "id": "asset-images-summer-edition-2025-03",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/03-screenshot_2025-03-04_at_10.57.44_am.png",
+      "sha256": "0162fc01b9d865597a0812577b0a91898a50cad41bc7bcf8be30f1cc3137104a",
+      "bytes": 934925,
+      "mediaType": "image/png",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-04",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/04-125_jojo__rangimarie__huia__sarah__helen__nikora_credit_erica_austin__peanut_productions_photography.jpg",
+      "sha256": "937c33b57b78c525da8f5855d7ec0f5c43ae1570e8e2c77abf912f72a8718567",
+      "bytes": 411479,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-05",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/05-38_adam_grosser_credit_erica_austin__peanut_productions_photography.jpg",
+      "sha256": "16413222a42dd500e2872f7bd542912c2cd1c9fed0ff0a827a6da71f37c67e8b",
+      "bytes": 266954,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-06",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/06-randy.jpeg",
+      "sha256": "e1bcd2745d206c523f674e3654faaf10767c81268e77951d96e6ce696b877b40",
+      "bytes": 104637,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-07",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/07-cindyloughridgephotographylianvifstudio001crop.jpeg",
+      "sha256": "a0a2f98a7c20afccdb3587f5f3272a2704f08d0d9497d84071e82c778ca70831",
+      "bytes": 23120,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-08",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/08-alexheadphones.jpg",
+      "sha256": "f4b0491257f2ac86cf9617b15b156e3226f915c39b03a987b5fe02ebd9999ad0",
+      "bytes": 51879,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-09",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/09-rebeccamillsheadshot.jpg",
+      "sha256": "57c89b0dfea69a2182234c811ba577920d2daae062ebda7e4c236561d7d5648a",
+      "bytes": 185870,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-10",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/10-ericdahlstrom1.jpg",
+      "sha256": "7b9e9cd4377496b65112a3e1b6c2b73b0fa8fe2efe5c62f6c197f038cfcf9721",
+      "bytes": 42633,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-11",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/11-emelinepaatdahlstrom1.jpg",
+      "sha256": "3db2dbe1eaeb05291d834633a6991bfd38e67bec57d2226725d05fdcd5cc628c",
+      "bytes": 52547,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-12",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/12-aim.jpg",
+      "sha256": "95859d008cb07e42982f26364a9fd40b78206a86cef3ab0f30fbfbdaf6b770ce",
+      "bytes": 194156,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-13",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/13-120_lily_stender_credit_erica_austin__peanut_productions_photography.jpg",
+      "sha256": "505b9e76fc2ab71e84fb94a5fe35f5130581e55c37c925406e323796c35e6043",
+      "bytes": 123326,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-14",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/14-scott.jpg",
+      "sha256": "839ceea7b496391db10554b5c09cf2d2c57430f821daf82d3eb0a0389ae9cca2",
+      "bytes": 94148,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-15",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/15-1739392694939.jpeg",
+      "sha256": "ef47306ff03573e26b6b825f422963f4b9dd5ef95baa71c7404a6ffa8e77f077",
+      "bytes": 81293,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-16",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/16-rsz_sasha_4678_c.jpg",
+      "sha256": "676430e9711fc8c8596522a7fa4f50e0466ec9f2ce59f12058c6eb92e4f975a5",
+      "bytes": 66659,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-17",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/17-mark.jpg",
+      "sha256": "71db7d3c0537dd00f2779ad8cb51844db1181189e88bb54d5e2ea3129215fc6a",
+      "bytes": 132771,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-18",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/18-yasmine33.jpg",
+      "sha256": "36fe239f1d0e747174e63458a2940d6276b36ca66c38d9b6eaa937d00bb4b713",
+      "bytes": 163013,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-19",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/19-0gpbw9t_400x400.jpg",
+      "sha256": "54c39947c0411bcee686c6d5a37f5f3b68d003413715345f72e98d5b4d9e9220",
+      "bytes": 20586,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-20",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/20-ed_baker_square.jpg",
+      "sha256": "51a1561bd6d3f0cff2bfe0c0247f154836ca2313f0e1a4b9cbe890daeb22daf8",
+      "bytes": 86691,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-21",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/21-harv.png",
+      "sha256": "b95c289cf65a5e14836a50c3176ea497d86baaf00ca5e2abd666e736d4f13e3c",
+      "bytes": 283043,
+      "mediaType": "image/png",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-22",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/22-headshotsquaresmall.jpg",
+      "sha256": "5b6ac3f7cde69e522229ae959dbb730f9affd7a643c69db7f8ff0316dde31423",
+      "bytes": 103582,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-23",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/23-ebiosquare.jpg",
+      "sha256": "7bdd1dc9373cb1a887170a7b0d40a6cd8450ec683a2798a5f8d5df814ca8cec5",
+      "bytes": 23371,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-24",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/24-steven.jpg",
+      "sha256": "c4d252a9b969f6f808fb3874968728f04fd4f2186231553cfb74f5d8c268adc5",
+      "bytes": 273998,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
       "id": "external-cdn-embedly-com-widgets-media-html-fa71e42accb4",
       "classification": "external",
       "localPath": null,

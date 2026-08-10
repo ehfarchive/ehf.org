@@ -1,0 +1,17 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+<SiteLayout title="Page not found — Edmund Hillary Fellowship" description="The requested page is not available.">
+  <article class="not-found" data-page-template="not-found">
+    <h1>Page not found</h1>
+    <p>The page you requested is not available.</p>
+    <a href="/">Return to the homepage</a>
+  </article>
+</SiteLayout>
+
+<style>
+  .not-found { width: min(760px, calc(100% - 2 * var(--gutter))); min-height: 48vh; margin: 0 auto; padding-top: calc(var(--header-height) + 108px); padding-bottom: 120px; text-align: center; }
+  .not-found h1 { margin: 0 0 20px; font-size: var(--text-display); line-height: var(--lh-display); }
+  .not-found p { margin: 0 0 28px; }
+  .not-found a { color: var(--color-brand); }
+</style>

@@ -872,3 +872,41 @@ test('Ticket 8 representative event and report matrix preserves active source st
   ]);
   await expect(page.locator('iframe')).toHaveCount(0);
 });
+
+test('Ticket 9 institutional, legal, Summer, and 404 matrix stays responsive and locally healthy', async ({ page }, testInfo) => {
+  const viewport = testInfo.project.name === 'desktop' ? { width: 1440, height: 1000 } : { width: 390, height: 844 };
+  const cases: ReadonlyArray<{ route: string; state: ComparableState }> = [
+    { route: '/about-ehf', state: 'default' },
+    { route: '/about-ehf', state: 'nav-about-open' },
+    { route: '/privacy-policy', state: 'default' },
+    { route: '/privacy-policy', state: 'nav-about-open' },
+    { route: '/summer-edition-2025', state: 'default' },
+    { route: '/404', state: 'default' },
+    { route: '/404', state: 'nav-about-open' }
+  ];
+  const summerSource = testInfo.project.name === 'desktop'
+    ? 'source-evidence/screenshots/news-ticket7/summer-edition-desktop.png'
+    : 'source-evidence/screenshots/news-ticket7/summer-edition-mobile.png';
+  const expectedSummerHash = testInfo.project.name === 'desktop'
+    ? 'f164d8881fca5c3009717042064fd0fd3d104f3d2a1457326f9ef9a0375e0f3d'
+    : '9d6f320999e4008d2d8ef63bd8292b960d79a4f942a2aa12e7456bb69a9287ef';
+  expect(createHash('sha256').update(readFileSync(resolve(process.cwd(), summerSource))).digest('hex')).toBe(expectedSummerHash);
+
+  for (const item of cases) {
+    const capture = await captureComparable(page, item.route, viewport, item.state);
+    expect(capture.consoleErrors, `${item.route} ${item.state}`).toEqual([]);
+    expect(capture.failedRequests, `${item.route} ${item.state}`).toEqual([]);
+    expect(capture.unloadedImages, `${item.route} ${item.state}`).toEqual([]);
+    expect(capture.returnedToTop, `${item.route} ${item.state}`).toBe(true);
+    if (testInfo.project.name === 'mobile' && item.state === 'nav-about-open') {
+      expect(capture.requestedMobilePanelActive, `${item.route} ${item.state}`).toBe(true);
+      expect(capture.mobileRootShifted, `${item.route} ${item.state}`).toBe(true);
+    }
+  }
+
+  await page.goto('/summer-edition-2025');
+  await expect(page.locator('[data-page-template="institutional"] img')).toHaveCount(22);
+  await expect(page.locator('iframe')).toHaveCount(0);
+  await page.goto('/terms-of-use');
+  await expect(page.locator('a[href="https://stripe.com/nz/legal%20and%20https://www.paypal.com/ad/webapps/mpp/ua/useragreement-full%20for%20more%20details"]')).toHaveAttribute('rel', 'noopener noreferrer');
+});

@@ -437,3 +437,52 @@ test('Annual reports render only their five declared local document controls, se
     await expect(page.locator('[data-report-download^="asset-documents-"]')).toHaveCount(expectedCount);
   }
 });
+
+const institutionalLegalPaths = [
+  '/about-ehf',
+  '/communitycollective',
+  '/journey',
+  '/our-values',
+  '/summer-edition-2025',
+  '/privacy-policy',
+  '/refund-policy-terms-and-conditions',
+  '/terms-of-use'
+] as const;
+
+test('institutional and legal routes are exactly manifest-bounded and unmatched paths serve the intentional 404', async ({ page }) => {
+  const emitted = routeManifest.routes
+    .filter((route) => route.kind === 'included' && (route.family === 'institutional' || route.family === 'legal'))
+    .map((route) => route.path)
+    .sort();
+  expect(emitted).toEqual([...institutionalLegalPaths].sort());
+
+  for (const route of institutionalLegalPaths) {
+    const response = await page.goto(route);
+    expect(response?.status()).toBe(200);
+    await expect(page.locator('main article')).toHaveCount(1);
+  }
+
+  for (const route of ['/homepage', '/january-2023', '/not-a-page']) {
+    const response = await page.goto(route);
+    expect(response?.status()).toBe(404);
+    await expect(page.getByRole('heading', { name: /page not found/i })).toBeVisible();
+  }
+});
+
+test('legal source links preserve all twenty href bytes, including the documented merged Stripe and PayPal defect', async ({ page }) => {
+  const legalRecords = contentManifest.content.filter((record) => record.template === 'legal' && typeof record.localInput === 'string');
+  const links = legalRecords.flatMap((record) => {
+    const input = JSON.parse(readFileSync(resolve(process.cwd(), record.localInput!), 'utf8')) as { route: string; links: { label: string; href: string }[] };
+    return input.links.map((link) => ({ ...link, route: input.route }));
+  });
+  expect(links).toHaveLength(20);
+  for (const legalRecord of legalRecords) {
+    const input = JSON.parse(readFileSync(resolve(process.cwd(), legalRecord.localInput!), 'utf8')) as { route: string; links: { href: string }[] };
+    await page.goto(input.route);
+    const rendered = await page.locator('[data-page-template="legal"] a').evaluateAll((anchors) => anchors.map((anchor) => anchor.getAttribute('href')));
+    expect(rendered).toEqual(input.links.map((link) => link.href));
+  }
+  const defect = 'https://stripe.com/nz/legal%20and%20https://www.paypal.com/ad/webapps/mpp/ua/useragreement-full%20for%20more%20details';
+  expect(links.find((link) => link.href === defect)?.href).toBe(defect);
+  expect(createHash('sha256').update(defect, 'utf8').digest('hex')).toBe('c189373a81f8f2c329a923bc00f77a5612a0c76ef59113d1aef00f72a1e5d2d8');
+});

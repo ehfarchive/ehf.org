@@ -795,9 +795,9 @@
     },
     {
       "route": "/summer-edition-2025",
-      "template": "news-listing",
-      "localInput": null,
-      "contentHash": null
+      "template": "institutional",
+      "localInput": "src/content/pages/institutional/summer-edition-2025.json",
+      "contentHash": "89ffac816fd822e432c5ec2bf930993e58469db9efca6a389f024a623b6752f0"
     },
     {
       "route": "/terms-of-use",
