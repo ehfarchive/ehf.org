@@ -1,0 +1,75 @@
+---
+import { resolve } from 'node:path';
+import assetManifestInput from '../../source-evidence/asset-manifest.json';
+import { resolveLocalAsset, type AssetManifest } from '../lib/assets';
+
+type ReportDocument = {
+  route: string;
+  title: string;
+  description: string;
+  heading: string;
+  body: readonly string[];
+  links: readonly { label: string; href: string }[];
+};
+
+type DocumentControl = {
+  assetId: string;
+  label: string;
+};
+
+interface Props {
+  report: ReportDocument;
+  documentControls: readonly DocumentControl[];
+}
+
+type ReportGroup = { heading: string; prose: readonly string[] };
+
+const { report, documentControls } = Astro.props;
+const assetManifest = assetManifestInput as AssetManifest;
+const controls = documentControls.map((control) => ({ ...control, href: resolveLocalAsset(control.assetId, assetManifest, resolve(process.cwd(), 'public/assets')) }));
+const groups: ReportGroup[] = [];
+let current: { heading: string; prose: string[] } | undefined;
+for (const line of report.body.slice(1)) {
+  if (line.startsWith('### ')) {
+    current = { heading: line.slice(4), prose: [] };
+    groups.push(current);
+  } else if (current) {
+    current.prose.push(line);
+  }
+}
+if (groups.length === 0) throw new Error(`annual report has no source sections: ${report.route}`);
+if (controls.length !== report.links.length || controls.some((control, index) => control.label !== report.links[index]?.label)) {
+  throw new Error(`annual report controls do not match typed source links: ${report.route}`);
+}
+let cursor = 0;
+const controlsByGroup = groups.map((_, index) => {
+  const count = index === groups.length - 1 ? controls.length - cursor : 1;
+  const groupControls = controls.slice(cursor, cursor + count);
+  cursor += count;
+  return groupControls;
+});
+if (cursor !== controls.length) throw new Error(`annual report controls are not rendered: ${report.route}`);
+---
+
+<section class="annual-report site-container" data-annual-report-document>
+  <h1>{report.body[0]?.replace(/^##\s+/, '') ?? report.heading}</h1>
+  <div class="annual-report__grid" data-report-grid>
+    {groups.map((group, index) => (
+      <section class="annual-report__group" data-report-group>
+        <h2>{group.heading}</h2>
+        <div data-report-prose>
+          {group.prose.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+        {controlsByGroup[index].map((control) => (
+          <a
+            class="button annual-report__download"
+            data-report-download={control.assetId}
+            href={control.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >{control.label}</a>
+        ))}
+      </section>
+    ))}
+  </div>
+</section>

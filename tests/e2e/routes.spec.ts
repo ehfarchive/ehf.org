@@ -1,6 +1,8 @@
 import { expect, test } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { createHash } from 'node:crypto';
+import assetManifest from '../../source-evidence/asset-manifest.json';
 import contentManifest from '../../source-evidence/content-manifest.json';
 import routeManifest from '../../source-evidence/route-manifest.json';
 import { parseStrictUtcIsoDate } from '../../src/lib/iso-date';
@@ -329,5 +331,109 @@ test('News representative editorial image keeps its source desktop measure witho
     expect(geometry.imageWidth).toBeCloseTo(645, -1);
   } else {
     expect(geometry.imageWidth).toBeCloseTo(geometry.articleWidth, 1);
+  }
+});
+
+const eventProgrammePaths = routeManifest.routes
+  .filter((route) => route.kind === 'included' && route.family === 'event-programme')
+  .map((route) => route.path);
+const annualReportPaths = routeManifest.routes
+  .filter((route) => route.kind === 'included' && route.family === 'annual-report-document')
+  .map((route) => route.path);
+
+test('Event and report routes are exactly manifest-bounded and use their matching typed inputs', async ({ page }) => {
+  expect(eventProgrammePaths).toEqual([
+    '/2025-hillary-innovation-summit-breakout-sessions-summary',
+    '/2025-summit-programme'
+  ]);
+  expect(annualReportPaths).toEqual(['/22-annual-report', '/23-annual-report']);
+
+  const expectedInputs: Record<string, string> = {
+    '/2025-hillary-innovation-summit-breakout-sessions-summary': 'src/content/events/2025-hillary-innovation-summit-breakout-sessions-summary.md',
+    '/2025-summit-programme': 'src/content/events/2025-summit-programme.md',
+    '/22-annual-report': 'src/content/pages/reports/22-annual-report.json',
+    '/23-annual-report': 'src/content/pages/reports/23-annual-report.json'
+  };
+  const records = contentManifest.content.filter((record) => Object.hasOwn(expectedInputs, record.route));
+  expect(records.map((record) => [record.route, record.localInput])).toEqual(Object.entries(expectedInputs));
+
+  for (const path of [...eventProgrammePaths, ...annualReportPaths]) {
+    const response = await page.goto(path);
+    expect(response?.ok(), path).toBe(true);
+    await expect(page.getByRole('main')).toHaveCount(1);
+  }
+
+  for (const path of [
+    '/events',
+    '/events/2025-summit-programme',
+    '/annual-reports',
+    '/annual-reports/23-annual-report',
+    '/24-annual-report'
+  ]) {
+    const response = await page.goto(path);
+    expect(response?.status(), path).toBe(404);
+  }
+});
+
+test('Annual reports render only their five declared local document controls, separate from prose', async ({ page }) => {
+  const controls = [
+    {
+      route: '/22-annual-report',
+      id: 'asset-documents-hillary-institute-ehf-annual-report-2022-pdf',
+      href: '/assets/documents/hillary-institute-ehf-annual-report-2022.pdf',
+      sha256: '6c443487b0eed8a032890ba760b3ce68ce634ab1cba05bf43c426dfe370702e2'
+    },
+    {
+      route: '/22-annual-report',
+      id: 'asset-documents-certified-fs-hillary-institute-and-subsidiary-2022-pdf',
+      href: '/assets/documents/certified-fs-hillary-institute-and-subsidiary-2022.pdf',
+      sha256: '3d62b3ad366f3325d34e43b8cbc2b7987d67b7a6df5ca52a5a0a46b7ad8d5c63'
+    },
+    {
+      route: '/23-annual-report',
+      id: 'asset-documents-ehf-hi-annual-report-2023-pdf',
+      href: '/assets/documents/ehf-hi-annual-report-2023.pdf',
+      sha256: 'aff78c73d7574fafefc238392c692dfff1803ff5e7bcfed10ae229f5523d9021'
+    },
+    {
+      route: '/23-annual-report',
+      id: 'asset-documents-edmund-hillary-fellowship-limited-2023-financial-statements-pdf',
+      href: '/assets/documents/edmund-hillary-fellowship-limited-2023-financial-statements.pdf',
+      sha256: '68fa767afc8e112fb3617c32f319fa788908472bab9e3fcfc532d5ba762d4109'
+    },
+    {
+      route: '/23-annual-report',
+      id: 'asset-documents-the-hillary-institute-subsidiary-entities-2023-financial-statements-pdf',
+      href: '/assets/documents/the-hillary-institute-subsidiary-entities-2023-financial-statements.pdf',
+      sha256: '83aa88a331e589e463595d9cd6c0d821b97847a82389364f0bdfc3226c7ea8e4'
+    }
+  ] as const;
+
+  expect(controls).toHaveLength(5);
+  for (const control of controls) {
+    const asset = assetManifest.assets.find((candidate) => candidate.id === control.id);
+    expect(asset).toMatchObject({
+      classification: 'local',
+      localPath: control.href,
+      sha256: control.sha256,
+      routeUses: [control.route]
+    });
+    expect(readFileSync(resolve(process.cwd(), `public${control.href}`))).toBeDefined();
+
+    await page.goto(control.route);
+    const link = page.locator(`[data-report-download="${control.id}"]`);
+    expect(createHash('sha256').update(readFileSync(resolve(process.cwd(), `public${control.href}`))).digest('hex')).toBe(control.sha256);
+    await expect(link).toHaveAttribute('href', control.href);
+    await expect(link).toHaveAttribute('target', '_blank');
+    await expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+  }
+
+  for (const route of annualReportPaths) {
+    await page.goto(route);
+    const controlsOnPage = page.locator('[data-report-download]');
+    const expectedCount = controls.filter((control) => control.route === route).length;
+    await expect(controlsOnPage).toHaveCount(expectedCount);
+    await expect(page.locator('[data-report-prose] a')).toHaveCount(0);
+    await expect(page.locator('[data-report-download^="asset-documents-"]')).toHaveCount(expectedCount);
   }
 });

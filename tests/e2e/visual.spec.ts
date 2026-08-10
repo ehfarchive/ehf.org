@@ -737,3 +737,88 @@ test('News visual contract retains two-column editorial cards and centered artic
   expect(article.imageCenter).toBeCloseTo(article.articleCenter, 1);
   expect(article.imageWidth).toBeCloseTo(testInfo.project.name === 'desktop' ? 645 : article.articleWidth, testInfo.project.name === 'desktop' ? -1 : 1);
 });
+
+
+test('Ticket 8 representative event and report matrix preserves active source states, local media, content order, and responsive grids', async ({ page }, testInfo) => {
+  const eventTemplate = sourceContract.templates.find((template) => template.family === 'event-programme');
+  const reportTemplate = sourceContract.templates.find((template) => template.family === 'annual-report-document');
+  const expectedCaptureIds = [
+    'default-desktop',
+    'default-mobile',
+    'nav-impact-open-desktop',
+    'nav-impact-open-mobile'
+  ];
+  const expectedReportCaptureIds = [
+    'default-desktop',
+    'default-mobile',
+    'nav-about-open-desktop',
+    'nav-about-open-mobile'
+  ];
+  expect(eventTemplate?.representativePath).toBe('/2025-summit-programme');
+  expect(eventTemplate?.captures.map((capture) => `${capture.state}-${capture.viewport}`)).toEqual(expectedCaptureIds);
+  expect(reportTemplate?.representativePath).toBe('/23-annual-report');
+  expect(reportTemplate?.captures.map((capture) => `${capture.state}-${capture.viewport}`)).toEqual(expectedReportCaptureIds);
+  expect([...eventTemplate?.states ?? [], ...reportTemplate?.states ?? []].every((state) => state.sourceObserved)).toBe(true);
+  expect([...eventTemplate?.captures ?? [], ...reportTemplate?.captures ?? []].every((capture) =>
+    capture.browserHealth.consoleErrors.length === 0
+    && capture.browserHealth.failedRequests.length === 0
+    && capture.browserHealth.unloadedImages.length === 0
+  )).toBe(true);
+
+  const viewport = testInfo.project.name === 'desktop' ? { width: 1440, height: 1000 } : { width: 390, height: 844 };
+  const cases: ReadonlyArray<{ route: string; state: ComparableState; family: 'event' | 'report' }> = [
+    { route: '/2025-summit-programme', state: 'default', family: 'event' },
+    { route: '/2025-summit-programme', state: 'nav-impact-open', family: 'event' },
+    { route: '/23-annual-report', state: 'default', family: 'report' },
+    { route: '/23-annual-report', state: 'nav-about-open', family: 'report' }
+  ];
+  for (const item of cases) {
+    const capture = await captureComparable(page, item.route, viewport, item.state);
+    expect(capture.consoleErrors, `${item.route} ${item.state}`).toEqual([]);
+    expect(capture.failedRequests, `${item.route} ${item.state}`).toEqual([]);
+    expect(capture.unloadedImages, `${item.route} ${item.state}`).toEqual([]);
+    expect(capture.returnedToTop, `${item.route} ${item.state}`).toBe(true);
+    if (testInfo.project.name === 'mobile' && item.state !== 'default') {
+      expect(capture.requestedMobilePanelActive, `${item.route} ${item.state}`).toBe(true);
+      expect(capture.mobileRootShifted, `${item.route} ${item.state}`).toBe(true);
+    }
+  }
+
+  await page.goto('/2025-summit-programme');
+  await expect(page.locator('[data-event-programme]')).toBeVisible();
+  await expect(page.locator('[data-event-programme] h1')).toHaveText('2025 Summit Programme');
+  const eventLayout = await page.locator('[data-event-programme]').evaluate((root) => {
+    const schedule = root.querySelector<HTMLElement>('[data-event-schedule]')!;
+    const times = [...schedule.querySelectorAll('[data-event-time]')].map((time) => time.textContent?.trim() ?? '');
+    const heading = root.querySelector('h1');
+    return {
+      itemCount: schedule.querySelectorAll('[data-event-item]').length,
+      firstEntries: times.slice(0, 2),
+      columns: getComputedStyle(schedule.querySelector<HTMLElement>('[data-event-item]')!).gridTemplateColumns.split(' ').filter(Boolean).length,
+      headingBeforeSchedule: Boolean(heading && heading.compareDocumentPosition(schedule) & Node.DOCUMENT_POSITION_FOLLOWING)
+    };
+  });
+  expect(eventLayout.itemCount).toBeGreaterThan(20);
+  expect(eventLayout.firstEntries).toEqual(['8.00am', '9.00am']);
+  expect(eventLayout.columns).toBe(2);
+  expect(eventLayout.headingBeforeSchedule).toBe(true);
+  await page.goto('/23-annual-report');
+  await expect(page.locator('[data-annual-report-document]')).toBeVisible();
+  await expect(page.locator('[data-annual-report-document] h1')).toHaveText('2022/23 Annual Report - Hillary Institute & Edmund Hillary Fellowship');
+  const reportLayout = await page.locator('[data-annual-report-document]').evaluate((root) => {
+    const grid = root.querySelector<HTMLElement>('[data-report-grid]')!;
+    return {
+      columns: getComputedStyle(grid).gridTemplateColumns.split(' ').filter(Boolean).length,
+      headings: [...root.querySelectorAll('h2')].map((heading) => heading.textContent?.trim()),
+      proseBeforeControls: [...root.querySelectorAll('[data-report-group]')].every((group) => {
+        const prose = group.querySelector('[data-report-prose]');
+        const control = group.querySelector('[data-report-download]');
+        return Boolean(prose && control && prose.compareDocumentPosition(control) & Node.DOCUMENT_POSITION_FOLLOWING);
+      })
+    };
+  });
+  expect(reportLayout.columns).toBe(testInfo.project.name === 'desktop' ? 2 : 1);
+  expect(reportLayout.headings).toEqual(['Annual Report', 'Financial Statements']);
+  expect(reportLayout.proseBeforeControls).toBe(true);
+  await expect(page.locator('iframe')).toHaveCount(0);
+});
