@@ -795,6 +795,17 @@ test('Ticket 8 representative event and report matrix preserves active source st
     const tracks = [...schedule.querySelectorAll<HTMLElement>('[data-event-track]')].map((track) => track.textContent?.trim() ?? '');
     const firstItem = schedule.querySelector<HTMLElement>('[data-event-item]')!;
     const time = firstItem.querySelector<HTMLElement>('[data-event-time]')!;
+    const speakerParagraphs = [...schedule.querySelectorAll<HTMLParagraphElement>('.event-programme__item-content p')]
+      .filter((paragraph) => /Nigel Bradly|Larry Tchiou/.test(paragraph.textContent ?? ''))
+      .map((paragraph) => paragraph.textContent?.trim() ?? '');
+    const adamParagraph = [...schedule.querySelectorAll<HTMLParagraphElement>('.event-programme__item-content p')]
+      .find((paragraph) => paragraph.textContent?.includes('Adam Grosser'))!;
+    const trackOwners = [...schedule.querySelectorAll<HTMLElement>('[data-event-track]')].map((track) => ({
+      time: track.closest<HTMLElement>('[data-event-item]')?.querySelector<HTMLElement>('[data-event-time]')?.textContent?.trim() ?? null,
+      timeBorderRightWidth: track.closest<HTMLElement>('[data-event-item]')?.querySelector<HTMLElement>('[data-event-time]')
+        ? getComputedStyle(track.closest<HTMLElement>('[data-event-item]')!.querySelector<HTMLElement>('[data-event-time]')!).borderRightWidth
+        : null
+    }));
     return {
       itemCount: schedule.querySelectorAll('[data-event-item]').length,
       firstEntries: times.slice(0, 2),
@@ -803,6 +814,14 @@ test('Ticket 8 representative event and report matrix preserves active source st
       agendaText: schedule.textContent ?? '',
       tabs: dayTabs.map((tab) => ({ label: tab.textContent?.trim(), selected: tab.getAttribute('aria-selected'), controls: tab.getAttribute('aria-controls') })),
       tracks,
+      trackOwners,
+      speakerParagraphs,
+      adamParagraph: {
+        text: adamParagraph?.textContent?.trim() ?? '',
+        strong: adamParagraph?.querySelector('strong')?.textContent?.trim() ?? '',
+        emphasis: adamParagraph?.querySelector('em')?.textContent?.trim() ?? '',
+        strongWeight: adamParagraph?.querySelector('strong') ? getComputedStyle(adamParagraph.querySelector('strong')!).fontWeight : ''
+      },
       timePaint: {
         fontWeight: getComputedStyle(time).fontWeight,
         fontSize: getComputedStyle(time).fontSize,
@@ -826,6 +845,24 @@ test('Ticket 8 representative event and report matrix preserves active source st
   expect(Number(eventLayout.timePaint.fontWeight)).toBeLessThanOrEqual(400);
   expect(eventLayout.timePaint.fontSize).toBe('15px');
   expect(eventLayout.timePaint.borderRightWidth).toBe('1px');
+  expect(eventLayout.trackOwners).toEqual([
+    { time: '2.45pm', timeBorderRightWidth: '1px' },
+    { time: '2.45pm', timeBorderRightWidth: '1px' },
+    { time: '2.45pm', timeBorderRightWidth: '1px' },
+    { time: '4.00pm', timeBorderRightWidth: '1px' },
+    { time: '4.00pm', timeBorderRightWidth: '1px' },
+    { time: '4.00pm', timeBorderRightWidth: '1px' }
+  ]);
+  expect(eventLayout.adamParagraph).toEqual({
+    text: 'Adam Grosser, EHF Fellow; Chairman & Managing Partner, UP.Partners',
+    strong: 'Adam Grosser',
+    emphasis: 'EHF Fellow; Chairman & Managing Partner',
+    strongWeight: '700'
+  });
+  expect(eventLayout.speakerParagraphs).toEqual([
+    'Nigel Bradly, Founder & CEO, Envirostrat',
+    'Larry Tchiou, EHF Fellow; Impact Entrepreneur & Innovation Consultant'
+  ]);
   const dayOnePanel = page.locator('#summit-day-1-panel');
   const dayTwoTab = page.getByRole('tab', { name: 'Day 2 – 18 FEBRUARY 2025', exact: true });
   const dayTwoPanel = page.locator('#summit-day-2-panel');

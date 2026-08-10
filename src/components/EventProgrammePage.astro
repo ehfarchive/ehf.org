@@ -2,9 +2,11 @@
 import ResponsiveImage from './ResponsiveImage.astro';
 
 type InlineSegment = { text: string; emphasis: 'plain' | 'strong' | 'em' | 'strong-em' };
-type ProgrammeItem = { kind: 'item'; time: string; content: string[] };
+type ProgrammeText = { kind: 'text'; content: string[] };
+type ProgrammeItem = { kind: 'item'; time: string; sections: ProgrammeSection[] };
 type ProgrammeTrack = { kind: 'track'; label: string; treatment: 'future' | 'innovation' | 'planetary'; content: string[] };
-type ProgrammeEntry = ProgrammeItem | ProgrammeTrack;
+type ProgrammeSection = ProgrammeText | ProgrammeTrack;
+type ProgrammeEntry = ProgrammeItem;
 
 interface Props {
   title: string;
@@ -67,7 +69,8 @@ function plainInlineText(text: string) {
 
 
 const programmeDaysEntries: ProgrammeEntry[][] = [[]];
-let currentProgrammeEntry: ProgrammeItem | ProgrammeTrack | undefined;
+let currentProgrammeItem: ProgrammeItem | undefined;
+let currentProgrammeSection: ProgrammeSection | undefined;
 let dayIndex = 0;
 for (const rawLine of programmeLines ?? []) {
   const line = rawLine.trim();
@@ -76,15 +79,20 @@ for (const rawLine of programmeLines ?? []) {
       dayIndex += 1;
       programmeDaysEntries.push([]);
     }
-    currentProgrammeEntry = { kind: 'item', time: line, content: [] };
-    programmeDaysEntries[dayIndex].push(currentProgrammeEntry);
-  } else if (line) {
+    currentProgrammeItem = { kind: 'item', time: line, sections: [] };
+    currentProgrammeSection = undefined;
+    programmeDaysEntries[dayIndex].push(currentProgrammeItem);
+  } else if (line && currentProgrammeItem) {
     const plainLine = plainInlineText(line);
     if (trackLabels.has(plainLine)) {
-      currentProgrammeEntry = { kind: 'track', label: plainLine, treatment: trackTreatments[plainLine as keyof typeof trackTreatments], content: [] };
-      programmeDaysEntries[dayIndex].push(currentProgrammeEntry);
-    } else if (currentProgrammeEntry) {
-      currentProgrammeEntry.content.push(line);
+      currentProgrammeSection = { kind: 'track', label: plainLine, treatment: trackTreatments[plainLine as keyof typeof trackTreatments], content: [] };
+      currentProgrammeItem.sections.push(currentProgrammeSection);
+    } else {
+      if (!currentProgrammeSection || currentProgrammeSection.kind !== 'text') {
+        currentProgrammeSection = { kind: 'text', content: [] };
+        currentProgrammeItem.sections.push(currentProgrammeSection);
+      }
+      currentProgrammeSection.content.push(line);
     }
   }
 }
@@ -95,7 +103,7 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
 ---
 
 <section class="event-programme site-container" data-event-programme>
-  <header class="event-programme__header">
+  <header class:list={['event-programme__header', { 'event-programme__header--programme': showProgrammeDays }]}>
     <h1 class="visually-hidden">{title}</h1>
     {showProgrammeDays && (
       <div class="event-programme__tablist" role="tablist" aria-label="Summit programme days">
@@ -136,25 +144,29 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
       data-event-schedule
       data-event-day-panel
     >
-      {entries.map((entry) => entry.kind === 'track' ? (
-        <>
-          <div class:list={['event-programme__track', `event-programme__track--${entry.treatment}`]} data-event-track>{entry.label}</div>
-          <div class="event-programme__track-content" data-event-content>
-            {entry.content.map((line) => line.startsWith('- ') ? (
-              <li>{parseInline(line.slice(2)).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</li>
-            ) : (
-              <p>{parseInline(line).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</p>
-            ))}
-          </div>
-        </>
-      ) : (
+      {entries.map((entry) => (
         <section class="event-programme__item" data-event-item>
           <p class="event-programme__time" data-event-time>{entry.time}</p>
           <div class="event-programme__item-content" data-event-content>
-            {entry.content.map((line) => line.startsWith('- ') ? (
-              <li>{parseInline(line.slice(2)).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</li>
+            {entry.sections.map((section) => section.kind === 'track' ? (
+              <section class="event-programme__track-section">
+                <div class:list={['event-programme__track', `event-programme__track--${section.treatment}`]} data-event-track>{section.label}</div>
+                <div class="event-programme__track-content">
+                  {section.content.map((line) => line.startsWith('- ') ? (
+                    <li>{parseInline(line.slice(2)).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</li>
+                  ) : (
+                    <p>{parseInline(line).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</p>
+                  ))}
+                </div>
+              </section>
             ) : (
-              <p>{parseInline(line).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</p>
+              <div class="event-programme__plain-content">
+                {section.content.map((line) => line.startsWith('- ') ? (
+                  <li>{parseInline(line.slice(2)).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</li>
+                ) : (
+                  <p>{parseInline(line).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</p>
+                ))}
+              </div>
             ))}
           </div>
         </section>
@@ -193,9 +205,10 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
 <style>
   .event-programme { padding-top: calc(var(--header-height) + 29px); padding-bottom: 96px; }
   .event-programme__header { margin-bottom: 18px; }
+  .event-programme__header--programme { margin-bottom: 89px; }
   .event-programme__tablist { display: flex; align-items: end; gap: 4px; border-bottom: 1px solid #ddd; }
-  .event-programme__tab { position: relative; z-index: 1; margin-bottom: -1px; border: 1px solid #ddd; border-bottom-color: #ddd; border-radius: 5px 5px 0 0; padding: 15px 20px; background: #ededed; color: inherit; font: 700 20px/1.2 var(--font-display); text-transform: none; cursor: pointer; }
-  .event-programme__tab[aria-selected='true'] { border-bottom-color: var(--color-surface); background: var(--color-surface); }
+  .event-programme__tab { position: relative; z-index: 1; margin-bottom: -1px; border: 1px solid #ddd; border-bottom-color: #ddd; border-radius: 5px 5px 0 0; padding: 15px 20px; background: #ededed; color: inherit; font: 400 20px/1.2 var(--font-body); text-transform: none; cursor: pointer; }
+  .event-programme__tab[aria-selected='true'] { border-bottom-color: var(--color-surface); background: var(--color-surface); font-weight: 700; }
   .event-programme__description { max-width: 918px; margin: 0; }
   :global(.event-programme__hero) { display: block; width: 100%; height: auto; margin: 0 0 36px; }
   .event-programme__content { border-top: 1px solid #ddd; }
@@ -208,11 +221,14 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
   .event-programme__item { display: grid; grid-template-columns: minmax(108px, 0.16fr) minmax(0, 1fr); border-bottom: 1px solid #e2e2e2; }
   .event-programme__item:first-of-type { background: #f3f3f3; }
   .event-programme__time { margin: 0; border-right: 1px solid #e2e2e2; padding: 15px 18px; font: 400 15px/1.4 var(--font-body); }
-  .event-programme__item-content { min-width: 0; padding: 15px 18px; }
+  .event-programme__item-content { min-width: 0; }
+  .event-programme__plain-content { padding: 15px 18px; }
   .event-programme__item-content p { margin: 0 0 10px; font-size: 16px; line-height: 1.8; }
   .event-programme__item-content p:last-child { margin-bottom: 0; }
   .event-programme__item-content li { margin: 0 0 8px; font: 16px/1.5 var(--font-body); }
-  .event-programme__track { grid-column: 1 / -1; padding: 12px 18px; color: var(--color-surface); font: 700 16px/1.2 var(--font-display); }
+  .event-programme__item-content strong { font-weight: 700; }
+  .event-programme__track-section + .event-programme__track-section { border-top: 1px solid #e2e2e2; }
+  .event-programme__track { padding: 26px 18px; color: var(--color-surface); font: 400 16px/1.2 var(--font-body); }
   .event-programme__track--future { background: #92c5e3; }
   .event-programme__track--innovation { background: #806daf; }
   .event-programme__track--planetary { background: #75b2bd; }
@@ -227,13 +243,14 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
     .event-programme__tab { flex: 1; padding: 10px 8px; font-size: 12px; text-align: center; }
     .event-programme__content :global(p) { padding: 12px 10px; }
     .event-programme__content :global(h3), .event-programme__content :global(h4) { padding: 12px 10px; }
-    .event-programme__time, .event-programme__item-content { padding: 15px 18px; }
-    .event-programme__time { font-size: 15px; }
+    .event-programme__header--programme { margin-bottom: 83px; }
+    .event-programme__time { padding: 15px 18px; font-size: 15px; }
+    .event-programme__plain-content { padding: 15px 18px; }
     .event-programme__item-content p { font-size: 16px; line-height: 1.8; }
     .event-programme__item-content li { font-size: 16px; }
     .event-programme__track-content { padding: 15px 18px; }
     .event-programme__track-content p { font-size: 16px; line-height: 1.8; }
     .event-programme__track-content li { font-size: 16px; }
-    .event-programme__track { padding: 12px 18px; font-size: 16px; }
+    .event-programme__track { padding: 26px 18px; font-size: 16px; }
   }
 </style>

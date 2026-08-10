@@ -52,7 +52,7 @@ His Excellency provides firsthand insight into the experience of Pacific countri
 
 - The power of global cooperation across indigenous and western cultures, including Aotearoa NZ
 
-**His Excellency Anote Tong**, *2012 Hillary Laureate; Former President,***The Republic of Kiribati**; *Chair*, **The Pacific Elder's Voice (PEV)**
+**His Excellency Anote Tong**, *2012 Hillary Laureate; Former President,* ***The Republic of Kiribati**; *Chair*, **The Pacific Elder's Voice (PEV)**
 
 11.00am
 
@@ -130,13 +130,13 @@ How will new technologies and emerging innovations transform travel in the futur
 
 ***Panelists:***
 
-**Adam Grosser**, *EHF Fellow; Chairman & Managing Partner,***UP.Partners**
+**Adam Grosser**, *EHF Fellow; Chairman & Managing Partner,* ***UP.Partners**
 
-**Nikhil Ravishankar**, *Chief Digital Officer,***Air New Zealand**
+**Nikhil Ravishankar**, *Chief Digital Officer,* ***Air New Zealand**
 
-**David Stout**, *CEO and Co-Founder,***WebAI**
+**David Stout**, *CEO and Co-Founder,* ***WebAI**
 
-**Darrin Grafton**, *CEO,***Serko**
+**Darrin Grafton**, *CEO,* ***Serko**
 
 ***Moderator:***
 
@@ -148,7 +148,7 @@ How will new technologies and emerging innovations transform travel in the futur
 
 Being a founder from New Zealand can be tough. As a US mentor it can be as tough helping. Linda, through her LevelUp programme, has worked with 75 Kiwi entrepreneurs to figure out the formula. Join Linda as she explains her 'mentoring' experiment and join in a discussion about what works for founders and what it takes to be an effective mentor in the New Zealand founder ecosystem.
 
-**Linda Jenkinson**, *Founder, Chair & CEO,***LevelUp**
+**Linda Jenkinson**, *Founder, Chair & CEO,* ***LevelUp**
 
 **Planetary Action**
 
@@ -156,7 +156,9 @@ Being a founder from New Zealand can be tough. As a US mentor it can be as tough
 
 Dive deep into a case study of how a blended finance model has catalysed new ocean-based ventures in Aotearoa NZ - and explore how it might be applied as a new model for Pacific climate innovation.
 
-**Nigel Bradly**, *Founder & CEO*, **Envirostrat** **Larry Tchiou**, *EHF Fellow; Impact Entrepreneur & Innovation Consultant*
+**Nigel Bradly**, *Founder & CEO*, **Envirostrat**
+
+**Larry Tchiou**, *EHF Fellow; Impact Entrepreneur & Innovation Consultant*
 
 3.30pm
 
@@ -188,15 +190,15 @@ Explore how to leverage Aotearoa NZ’s inherent strengths and overcome barriers
 
 ***Panelists:***
 
-**Mat Rowe**, *Founding Partner,***Outset Ventures**
+**Mat Rowe**, *Founding Partner,* ***Outset Ventures**
 
-**Sean Simpson**, *Founder,***Lanzatech**
+**Sean Simpson**, *Founder,* ***Lanzatech**
 
-**Peter Crabtree**, *Former Head,***NZ Space Agency**
+**Peter Crabtree**, *Former Head,* ***NZ Space Agency**
 
-**Will Charles**, *Investment Director,***Auckland UniServices**
+**Will Charles**, *Investment Director,* ***Auckland UniServices**
 
-**Pam Ford**, *Director Economic Development,***Tātaki Auckland Unlimited**
+**Pam Ford**, *Director Economic Development,* ***Tātaki Auckland Unlimited**
 
 **Planetary Action**
 
@@ -330,7 +332,7 @@ How can we create an education system that embraces global change while being gr
 
 **Joanne McEachen**, *EHF Fellow; Founder*, **The Learner First**
 
-**Nikora Ngaropo**, *EHF Fellow; Founder,***NNMD**
+**Nikora Ngaropo**, *EHF Fellow; Founder,* ***NNMD**
 
 **Rangimarie Parata Takurua**, *EHF Fellow; Founder*, **Te Pā o Rākaihautū**
 
