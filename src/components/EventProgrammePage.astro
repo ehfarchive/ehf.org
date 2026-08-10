@@ -1,27 +1,96 @@
 ---
 import ResponsiveImage from './ResponsiveImage.astro';
 
-type ProgrammeItem = { time: string; content: readonly string[] };
+type InlineSegment = { text: string; emphasis: 'plain' | 'strong' | 'em' | 'strong-em' };
+type ProgrammeItem = { kind: 'item'; time: string; content: string[] };
+type ProgrammeTrack = { kind: 'track'; label: string; treatment: 'future' | 'innovation' | 'planetary'; content: string[] };
+type ProgrammeEntry = ProgrammeItem | ProgrammeTrack;
 
 interface Props {
   title: string;
   description: string;
   hero?: { assetId: string; alt: string };
   programmeLines?: readonly string[];
+  programmeDays?: readonly string[];
   showProgrammeDays?: boolean;
 }
 
-const { title, description, hero, programmeLines, showProgrammeDays = false } = Astro.props;
-const programmeItems: ProgrammeItem[] = [];
-let currentProgrammeItem: { time: string; content: string[] } | undefined;
+const { title, description, hero, programmeLines, programmeDays = [], showProgrammeDays = false } = Astro.props;
+const trackTreatments = {
+  'Future Of': 'future',
+  'Innovation Economy': 'innovation',
+  'Planetary Action': 'planetary'
+} as const;
+const trackLabels = new Set(Object.keys(trackTreatments));
+
+function parseInline(text: string): InlineSegment[] {
+  const segments: InlineSegment[] = [];
+  let buffer = '';
+  let strong = false;
+  let em = false;
+
+  const flush = () => {
+    if (!buffer) return;
+    segments.push({ text: buffer, emphasis: strong && em ? 'strong-em' : strong ? 'strong' : em ? 'em' : 'plain' });
+    buffer = '';
+  };
+
+  for (let index = 0; index < text.length;) {
+    if (text[index] !== '*') {
+      buffer += text[index];
+      index += 1;
+      continue;
+    }
+    let end = index;
+    while (text[end] === '*') end += 1;
+    let count = end - index;
+    flush();
+    while (count >= 3) {
+      if (em) em = false;
+      else {
+        strong = !strong;
+        em = true;
+      }
+      count -= 3;
+    }
+    if (count === 2) strong = !strong;
+    if (count === 1) em = !em;
+    index = end;
+  }
+  flush();
+  return segments;
+}
+
+function plainInlineText(text: string) {
+  return parseInline(text).map((segment) => segment.text).join('');
+}
+
+
+const programmeDaysEntries: ProgrammeEntry[][] = [[]];
+let currentProgrammeEntry: ProgrammeItem | ProgrammeTrack | undefined;
+let dayIndex = 0;
 for (const rawLine of programmeLines ?? []) {
   const line = rawLine.trim();
   if (/^\d{1,2}\.\d{2}(?:am|pm)(?:\s*-\s*\d{1,2}\.\d{2}(?:am|pm))?$/i.test(line)) {
-    currentProgrammeItem = { time: line, content: [] };
-    programmeItems.push(currentProgrammeItem);
-  } else if (line && currentProgrammeItem) {
-    currentProgrammeItem.content.push(line);
+    if (line === '8.00am' && programmeDaysEntries[dayIndex].some((entry) => entry.kind === 'item')) {
+      dayIndex += 1;
+      programmeDaysEntries.push([]);
+    }
+    currentProgrammeEntry = { kind: 'item', time: line, content: [] };
+    programmeDaysEntries[dayIndex].push(currentProgrammeEntry);
+  } else if (line) {
+    const plainLine = plainInlineText(line);
+    if (trackLabels.has(plainLine)) {
+      currentProgrammeEntry = { kind: 'track', label: plainLine, treatment: trackTreatments[plainLine as keyof typeof trackTreatments], content: [] };
+      programmeDaysEntries[dayIndex].push(currentProgrammeEntry);
+    } else if (currentProgrammeEntry) {
+      currentProgrammeEntry.content.push(line);
+    }
   }
+}
+const days = programmeDaysEntries.filter((entries) => entries.length > 0);
+if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
+  throw new Error('summit programme requires two labelled source days');
 }
 ---
 
@@ -29,10 +98,20 @@ for (const rawLine of programmeLines ?? []) {
   <header class="event-programme__header">
     <h1 class="visually-hidden">{title}</h1>
     {showProgrammeDays && (
-      <nav class="event-programme__days" aria-label="Summit programme days">
-        <span aria-current="page">Day 1 - 19 February 2025</span>
-        <span>Day 2 - 19 February 2025</span>
-      </nav>
+      <div class="event-programme__tablist" role="tablist" aria-label="Summit programme days">
+        {programmeDays.map((day, index) => (
+          <button
+            class="event-programme__tab"
+            type="button"
+            role="tab"
+            id={`summit-day-${index + 1}-tab`}
+            aria-controls={`summit-day-${index + 1}-panel`}
+            aria-selected={index === 0 ? 'true' : 'false'}
+            tabindex={index === 0 ? 0 : -1}
+            data-event-day-tab
+          >{day}</button>
+        ))}
+      </div>
     )}
     {!showProgrammeDays && <p class="event-programme__description">{description}</p>}
   </header>
@@ -47,28 +126,76 @@ for (const rawLine of programmeLines ?? []) {
       class="event-programme__hero"
     />
   )}
-  {programmeItems.length > 0 ? (
-    <div class="event-programme__schedule" data-event-schedule>
-      {programmeItems.map((item) => (
+  {days.length > 0 ? days.map((entries, index) => (
+    <section
+      class="event-programme__schedule"
+      id={`summit-day-${index + 1}-panel`}
+      role={showProgrammeDays ? 'tabpanel' : undefined}
+      aria-labelledby={showProgrammeDays ? `summit-day-${index + 1}-tab` : undefined}
+      hidden={showProgrammeDays && index !== 0}
+      data-event-schedule
+      data-event-day-panel
+    >
+      {entries.map((entry) => entry.kind === 'track' ? (
+        <>
+          <div class:list={['event-programme__track', `event-programme__track--${entry.treatment}`]} data-event-track>{entry.label}</div>
+          <div class="event-programme__track-content" data-event-content>
+            {entry.content.map((line) => line.startsWith('- ') ? (
+              <li>{parseInline(line.slice(2)).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</li>
+            ) : (
+              <p>{parseInline(line).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</p>
+            ))}
+          </div>
+        </>
+      ) : (
         <section class="event-programme__item" data-event-item>
-          <p class="event-programme__time" data-event-time>{item.time}</p>
+          <p class="event-programme__time" data-event-time>{entry.time}</p>
           <div class="event-programme__item-content" data-event-content>
-            {item.content.map((line) => line.startsWith('- ') ? <li>{line.slice(2)}</li> : <p>{line}</p>)}
+            {entry.content.map((line) => line.startsWith('- ') ? (
+              <li>{parseInline(line.slice(2)).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</li>
+            ) : (
+              <p>{parseInline(line).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</p>
+            ))}
           </div>
         </section>
       ))}
-    </div>
-  ) : (
+    </section>
+  )) : (
     <article class="event-programme__content" data-event-schedule><slot /></article>
   )}
 </section>
 
+{showProgrammeDays && (
+  <script>
+    const tabs = [...document.querySelectorAll<HTMLButtonElement>('[data-event-day-tab]')];
+    const panels = [...document.querySelectorAll<HTMLElement>('[data-event-day-panel]')];
+    const selectDay = (selectedIndex: number) => {
+      tabs.forEach((tab, index) => {
+        const selected = index === selectedIndex;
+        tab.setAttribute('aria-selected', String(selected));
+        tab.tabIndex = selected ? 0 : -1;
+        panels[index].hidden = !selected;
+      });
+    };
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => selectDay(index));
+      tab.addEventListener('keydown', (event) => {
+        if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+        event.preventDefault();
+        const nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+        tabs[nextIndex].focus();
+        selectDay(nextIndex);
+      });
+    });
+  </script>
+)}
+
 <style>
   .event-programme { padding-top: calc(var(--header-height) + 29px); padding-bottom: 96px; }
   .event-programme__header { margin-bottom: 18px; }
-  .event-programme__days { display: flex; gap: 4px; border-bottom: 1px solid #ddd; }
-  .event-programme__days span { padding: 12px 18px; font: 700 14px/1.2 var(--font-display); text-transform: uppercase; }
-  .event-programme__days [aria-current='page'] { background: #f3f3f3; }
+  .event-programme__tablist { display: flex; align-items: end; gap: 4px; border-bottom: 1px solid #ddd; }
+  .event-programme__tab { position: relative; z-index: 1; margin-bottom: -1px; border: 1px solid #ddd; border-bottom-color: #ddd; border-radius: 5px 5px 0 0; padding: 15px 20px; background: #ededed; color: inherit; font: 700 20px/1.2 var(--font-display); text-transform: none; cursor: pointer; }
+  .event-programme__tab[aria-selected='true'] { border-bottom-color: var(--color-surface); background: var(--color-surface); }
   .event-programme__description { max-width: 918px; margin: 0; }
   :global(.event-programme__hero) { display: block; width: 100%; height: auto; margin: 0 0 36px; }
   .event-programme__content { border-top: 1px solid #ddd; }
@@ -79,21 +206,34 @@ for (const rawLine of programmeLines ?? []) {
   .event-programme__content :global(a) { color: var(--color-brand); }
   .event-programme__schedule { border-top: 1px solid #ddd; }
   .event-programme__item { display: grid; grid-template-columns: minmax(108px, 0.16fr) minmax(0, 1fr); border-bottom: 1px solid #e2e2e2; }
-  .event-programme__time { margin: 0; padding: 15px 18px; background: #f3f3f3; font: 700 13px/1.4 var(--font-display); }
+  .event-programme__item:first-of-type { background: #f3f3f3; }
+  .event-programme__time { margin: 0; border-right: 1px solid #e2e2e2; padding: 15px 18px; font: 400 15px/1.4 var(--font-body); }
   .event-programme__item-content { min-width: 0; padding: 15px 18px; }
   .event-programme__item-content p { margin: 0 0 10px; font-size: 16px; line-height: 1.8; }
   .event-programme__item-content p:last-child { margin-bottom: 0; }
   .event-programme__item-content li { margin: 0 0 8px; font: 16px/1.5 var(--font-body); }
+  .event-programme__track { grid-column: 1 / -1; padding: 12px 18px; color: var(--color-surface); font: 700 16px/1.2 var(--font-display); }
+  .event-programme__track--future { background: #92c5e3; }
+  .event-programme__track--innovation { background: #806daf; }
+  .event-programme__track--planetary { background: #75b2bd; }
+  .event-programme__track-content { border-bottom: 1px solid #e2e2e2; padding: 15px 18px; }
+  .event-programme__track-content p { margin: 0 0 10px; font-size: 16px; line-height: 1.8; }
+  .event-programme__track-content p:last-child { margin-bottom: 0; }
+  .event-programme__track-content li { margin: 0 0 8px; font: 16px/1.5 var(--font-body); }
 
   @media (max-width: 767px) {
     .event-programme { padding-top: calc(var(--header-height) + 12px); padding-bottom: 64px; }
-    .event-programme__days { gap: 2px; }
-    .event-programme__days span { flex: 1; padding: 10px 8px; font-size: 10px; text-align: center; }
+    .event-programme__tablist { gap: 2px; }
+    .event-programme__tab { flex: 1; padding: 10px 8px; font-size: 12px; text-align: center; }
     .event-programme__content :global(p) { padding: 12px 10px; }
     .event-programme__content :global(h3), .event-programme__content :global(h4) { padding: 12px 10px; }
-    .event-programme__item { grid-template-columns: 30% minmax(0, 1fr); }
-    .event-programme__time, .event-programme__item-content { padding: 10px; }
-    .event-programme__item-content p { font-size: 14px; line-height: 1.55; }
-    .event-programme__item-content li { font-size: 14px; }
+    .event-programme__time, .event-programme__item-content { padding: 15px 18px; }
+    .event-programme__time { font-size: 15px; }
+    .event-programme__item-content p { font-size: 16px; line-height: 1.8; }
+    .event-programme__item-content li { font-size: 16px; }
+    .event-programme__track-content { padding: 15px 18px; }
+    .event-programme__track-content p { font-size: 16px; line-height: 1.8; }
+    .event-programme__track-content li { font-size: 16px; }
+    .event-programme__track { padding: 12px 18px; font-size: 16px; }
   }
 </style>

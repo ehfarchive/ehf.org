@@ -791,34 +791,84 @@ test('Ticket 8 representative event and report matrix preserves active source st
     const schedule = root.querySelector<HTMLElement>('[data-event-schedule]')!;
     const times = [...schedule.querySelectorAll('[data-event-time]')].map((time) => time.textContent?.trim() ?? '');
     const heading = root.querySelector('h1');
+    const dayTabs = [...root.querySelectorAll<HTMLElement>('[role="tab"]')];
+    const tracks = [...schedule.querySelectorAll<HTMLElement>('[data-event-track]')].map((track) => track.textContent?.trim() ?? '');
+    const firstItem = schedule.querySelector<HTMLElement>('[data-event-item]')!;
+    const time = firstItem.querySelector<HTMLElement>('[data-event-time]')!;
     return {
       itemCount: schedule.querySelectorAll('[data-event-item]').length,
       firstEntries: times.slice(0, 2),
-      columns: getComputedStyle(schedule.querySelector<HTMLElement>('[data-event-item]')!).gridTemplateColumns.split(' ').filter(Boolean).length,
-      headingBeforeSchedule: Boolean(heading && heading.compareDocumentPosition(schedule) & Node.DOCUMENT_POSITION_FOLLOWING)
+      columns: getComputedStyle(firstItem).gridTemplateColumns.split(' ').filter(Boolean).length,
+      headingBeforeSchedule: Boolean(heading && heading.compareDocumentPosition(schedule) & Node.DOCUMENT_POSITION_FOLLOWING),
+      agendaText: schedule.textContent ?? '',
+      tabs: dayTabs.map((tab) => ({ label: tab.textContent?.trim(), selected: tab.getAttribute('aria-selected'), controls: tab.getAttribute('aria-controls') })),
+      tracks,
+      timePaint: {
+        fontWeight: getComputedStyle(time).fontWeight,
+        fontSize: getComputedStyle(time).fontSize,
+        borderRightWidth: getComputedStyle(time).borderRightWidth
+      }
     };
   });
   expect(eventLayout.itemCount).toBeGreaterThan(20);
   expect(eventLayout.firstEntries).toEqual(['8.00am', '9.00am']);
   expect(eventLayout.columns).toBe(2);
   expect(eventLayout.headingBeforeSchedule).toBe(true);
+  expect(eventLayout.agendaText).not.toContain('*');
+  expect(eventLayout.tabs).toEqual([
+    { label: 'Day 1 – 17 FEBRUARY 2025', selected: 'true', controls: 'summit-day-1-panel' },
+    { label: 'Day 2 – 18 FEBRUARY 2025', selected: 'false', controls: 'summit-day-2-panel' }
+  ]);
+  expect(eventLayout.tracks).toEqual([
+    'Future Of', 'Innovation Economy', 'Planetary Action',
+    'Future Of', 'Innovation Economy', 'Planetary Action'
+  ]);
+  expect(Number(eventLayout.timePaint.fontWeight)).toBeLessThanOrEqual(400);
+  expect(eventLayout.timePaint.fontSize).toBe('15px');
+  expect(eventLayout.timePaint.borderRightWidth).toBe('1px');
+  const dayOnePanel = page.locator('#summit-day-1-panel');
+  const dayTwoTab = page.getByRole('tab', { name: 'Day 2 – 18 FEBRUARY 2025', exact: true });
+  const dayTwoPanel = page.locator('#summit-day-2-panel');
+  await expect(dayOnePanel).toBeVisible();
+  await expect(dayTwoPanel).toBeHidden();
+  await dayTwoTab.focus();
+  await page.keyboard.press('Enter');
+  await expect(dayTwoTab).toHaveAttribute('aria-selected', 'true');
+  await expect(dayTwoPanel).toBeVisible();
+  await expect(dayOnePanel).toBeHidden();
+  await expect(dayTwoPanel.locator('[data-event-track]')).toHaveText([
+    'Future Of', 'Innovation Economy', 'Planetary Action',
+    'Future Of', 'Innovation Economy', 'Planetary Action',
+    'Future Of', 'Innovation Economy', 'Planetary Action'
+  ]);
   await page.goto('/23-annual-report');
   await expect(page.locator('[data-annual-report-document]')).toBeVisible();
   await expect(page.locator('[data-annual-report-document] h1')).toHaveText('2022/23 Annual Report - Hillary Institute & Edmund Hillary Fellowship');
   const reportLayout = await page.locator('[data-annual-report-document]').evaluate((root) => {
     const grid = root.querySelector<HTMLElement>('[data-report-grid]')!;
+    const financialStatements = root.querySelector<HTMLElement>('[data-report-group]:last-child')!;
+    const financialChildren = [...financialStatements.querySelectorAll<HTMLElement>('[data-report-prose], [data-report-download]')].flatMap((element) =>
+      element.matches('[data-report-prose]') ? [...element.querySelectorAll('p')].map((paragraph) => `paragraph:${paragraph.textContent?.trim()}`) : [`download:${element.getAttribute('aria-label')}`]
+    );
     return {
       columns: getComputedStyle(grid).gridTemplateColumns.split(' ').filter(Boolean).length,
       headings: [...root.querySelectorAll('h2')].map((heading) => heading.textContent?.trim()),
-      proseBeforeControls: [...root.querySelectorAll('[data-report-group]')].every((group) => {
-        const prose = group.querySelector('[data-report-prose]');
-        const control = group.querySelector('[data-report-download]');
-        return Boolean(prose && control && prose.compareDocumentPosition(control) & Node.DOCUMENT_POSITION_FOLLOWING);
-      })
+      financialChildren,
+      downloadNames: [...root.querySelectorAll('[data-report-download]')].map((control) => control.getAttribute('aria-label'))
     };
   });
   expect(reportLayout.columns).toBe(testInfo.project.name === 'desktop' ? 2 : 1);
   expect(reportLayout.headings).toEqual(['Annual Report', 'Financial Statements']);
-  expect(reportLayout.proseBeforeControls).toBe(true);
+  expect(reportLayout.financialChildren).toEqual([
+    'paragraph:View the accompanying Financial Statements for Edmund Hillary Fellowship Ltd.',
+    'download:Download financial statements for Edmund Hillary Fellowship Ltd.',
+    'paragraph:View the accompanying Financial Statements for The Hillary Institute of International Leadership and Subsidiary Entities for 2022/23.',
+    'download:Download financial statements for The Hillary Institute of International Leadership and Subsidiary Entities for 2022/23.'
+  ]);
+  expect(reportLayout.downloadNames).toEqual([
+    'Download Annual Report',
+    'Download financial statements for Edmund Hillary Fellowship Ltd.',
+    'Download financial statements for The Hillary Institute of International Leadership and Subsidiary Entities for 2022/23.'
+  ]);
   await expect(page.locator('iframe')).toHaveCount(0);
 });

@@ -15,6 +15,7 @@ type ReportDocument = {
 type DocumentControl = {
   assetId: string;
   label: string;
+  accessibleName?: string;
 };
 
 interface Props {
@@ -26,7 +27,7 @@ type ReportGroup = { heading: string; prose: readonly string[] };
 
 const { report, documentControls } = Astro.props;
 const assetManifest = assetManifestInput as AssetManifest;
-const controls = documentControls.map((control) => ({ ...control, href: resolveLocalAsset(control.assetId, assetManifest, resolve(process.cwd(), 'public/assets')) }));
+const controls = documentControls.map((control) => ({ ...control, accessibleName: control.accessibleName ?? control.label, href: resolveLocalAsset(control.assetId, assetManifest, resolve(process.cwd(), 'public/assets')) }));
 const groups: ReportGroup[] = [];
 let current: { heading: string; prose: string[] } | undefined;
 for (const line of report.body.slice(1)) {
@@ -57,17 +58,21 @@ if (cursor !== controls.length) throw new Error(`annual report controls are not 
     {groups.map((group, index) => (
       <section class="annual-report__group" data-report-group>
         <h2>{group.heading}</h2>
-        <div data-report-prose>
-          {group.prose.map((paragraph) => <p>{paragraph}</p>)}
-        </div>
-        {controlsByGroup[index].map((control) => (
-          <a
-            class="button annual-report__download"
-            data-report-download={control.assetId}
-            href={control.href}
-            target="_blank"
-            rel="noopener noreferrer"
-          >{control.label}</a>
+        {group.prose.map((paragraph, proseIndex) => (
+          <>
+            <div data-report-prose><p>{paragraph}</p></div>
+            {controlsByGroup[index][proseIndex] && (
+              <a
+                class="button annual-report__download"
+                data-report-download={controlsByGroup[index][proseIndex].assetId}
+                data-pdf-download
+                href={controlsByGroup[index][proseIndex].href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={controlsByGroup[index][proseIndex].accessibleName}
+              >{controlsByGroup[index][proseIndex].label}</a>
+            )}
+          </>
         ))}
       </section>
     ))}

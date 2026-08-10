@@ -13,9 +13,9 @@ const contentRecord = loadPageData(route, 'annual-report-document', contentManif
 const entry = (await getCollection('reportPages')).find((candidate) => `src/content/pages/reports/${candidate.id}.json` === contentRecord.localInput);
 if (!entry || entry.data.route !== route) throw new Error(`missing typed annual report content: ${contentRecord.localInput}`);
 const documentControls = [
-  { assetId: 'asset-documents-ehf-hi-annual-report-2023-pdf', label: 'Download Annual Report' },
-  { assetId: 'asset-documents-edmund-hillary-fellowship-limited-2023-financial-statements-pdf', label: 'Download here' },
-  { assetId: 'asset-documents-the-hillary-institute-subsidiary-entities-2023-financial-statements-pdf', label: 'Download here' }
+  { assetId: 'asset-documents-ehf-hi-annual-report-2023-pdf', label: 'Download Annual Report', accessibleName: 'Download Annual Report' },
+  { assetId: 'asset-documents-edmund-hillary-fellowship-limited-2023-financial-statements-pdf', label: 'Download here', accessibleName: 'Download financial statements for Edmund Hillary Fellowship Ltd.' },
+  { assetId: 'asset-documents-the-hillary-institute-subsidiary-entities-2023-financial-statements-pdf', label: 'Download here', accessibleName: 'Download financial statements for The Hillary Institute of International Leadership and Subsidiary Entities for 2022/23.' }
 ] as const;
 ---
 

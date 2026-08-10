@@ -18,7 +18,7 @@ import { navigationItems } from './navigation';
   </div>
   {navigationItems.filter((item) => item.children).map((item) => (
     <div class="mobile-menu__panel mobile-menu__panel--children" hidden data-mobile-folder={item.label.toLowerCase()}>
-      <button type="button" data-mobile-folder-back>&lt; Back</button>
+      <button type="button" data-mobile-folder-back aria-label="Back"><span class="mobile-menu__back-chevron" aria-hidden="true">‹</span><span>Back</span></button>
       <nav aria-label={`${item.label} navigation`}>
         <ul>{item.children?.map((child) => <li><a href={child.href} target={child.kind === 'external' ? '_blank' : undefined} rel={child.kind === 'external' ? 'noreferrer' : undefined}>{child.label}</a></li>)}</ul>
       </nav>

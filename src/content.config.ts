@@ -32,7 +32,10 @@ const news = defineCollection({
 
 const events = defineCollection({
   loader: glob({ base: './src/content/events', pattern: '**/*.md' }),
-  schema: z.object(contentFields).strict()
+  schema: z.object({
+    ...contentFields,
+    programmeDays: z.tuple([z.string().min(1), z.string().min(1)]).optional()
+  }).strict()
 });
 
 const pageFields = z.object({

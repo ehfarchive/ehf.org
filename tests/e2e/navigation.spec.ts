@@ -121,7 +121,7 @@ test('mobile modal traps focus and makes parent controls inert in child panels',
   await expect(close).toBeFocused();
   await dialog.getByRole('button', { name: /^about$/i }).click();
   await expect(dialog.locator('[data-mobile-root]')).toHaveAttribute('inert', '');
-  const back = dialog.getByRole('button', { name: '< Back', exact: true });
+  const back = dialog.getByRole('button', { name: 'Back', exact: true });
   await expect(back).toBeFocused();
   await page.keyboard.press('Shift+Tab');
   await page.keyboard.press('Tab');
@@ -145,9 +145,10 @@ test('mobile child panels include the home brand once in the modal keyboard cycl
   for (const label of ['About', 'Impact']) {
     await dialog.getByRole('button', { name: label, exact: true }).click();
     const panel = dialog.locator(`[data-mobile-folder="${label.toLowerCase()}"]`);
-    const back = panel.getByRole('button', { name: '< Back', exact: true });
+    const back = panel.getByRole('button', { name: 'Back', exact: true });
     const links = panel.getByRole('link');
 
+    await expect(dialog.locator('.mobile-menu__brand')).toBeVisible();
     await expect(back).toBeFocused();
     await page.keyboard.press('Shift+Tab');
     await expect(close).toBeFocused();
@@ -376,7 +377,7 @@ test('mobile submenu keeps the source-observed home brand and close dismissal co
 
     await expect(dialog.getByRole('link', { name: 'Edmund Hillary Fellowship', exact: true })).toHaveAttribute('href', '/');
     await expect(dialog.getByRole('button', { name: 'Close menu', exact: true })).toBeVisible();
-    await expect(dialog.getByRole('button', { name: '< Back', exact: true })).toBeVisible();
+    await expect(dialog.getByRole('button', { name: 'Back', exact: true })).toBeVisible();
     await expect(dialog.getByRole('link', { name: /fellow directory|impact snapshots|ehf fellows articles/i })).toHaveCount(0);
     await expect(dialog.locator('a[href="/news#fellows"], a[href="/news#impact-snapshots"]')).toHaveCount(0);
 
