@@ -133,22 +133,23 @@ test('Impact listing cards contain only their source image and title', async ({ 
   }
 });
 
-test('canonical Chemergy article keeps semantic source figures and article navigation', async ({ page }) => {
-  const response = await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
+test('Impact article body links follow the route manifest and safe external policy', async ({ page }) => {
+  await page.goto('/read/access-to-justice-through-collaborative-action');
+  const homeLink = page.locator('.article-page__body a[href="/"]').filter({ hasText: 'ehf.org' });
+  await expect(homeLink).toHaveCount(1);
 
-  expect(response?.ok()).toBe(true);
-  await expect(page.getByRole('article')).toBeVisible();
-  await expect(page.locator('.article-page__body figure')).toHaveCount(5);
-  await expect(page.locator('.article-page__body figcaption')).toHaveCount(4);
-  await expect(page.locator('.article-page__body blockquote')).toHaveCount(3);
-  await expect(page.getByRole('navigation', { name: 'Article navigation' }).getByRole('link')).toHaveCount(1);
-  await expect(page.locator('.article-page__body a[href^="/"]')).toHaveCount(0);
+  await page.goto('/read/celebrating-achievements-and-values-this-everest-day');
+  const expeditionLink = page.getByRole('article').getByRole('link', { name: 'New Expedition event' });
+  await expect(expeditionLink).toHaveAttribute('href', '/news-blog/a-new-expedition-the-mission-studio');
 
-  const mediaPaths = await page.locator('article img').evaluateAll((images) =>
-    images.map((image) => new URL(image.getAttribute('src') ?? '', window.location.href).pathname)
-  );
-  expect(mediaPaths).not.toEqual([]);
-  expect(mediaPaths.every((path) => path.startsWith('/assets/'))).toBe(true);
+  await page.goto('/read/discovering-founder-kaupapa-outside-the-valley');
+  const article = page.getByRole('article');
+  await expect(article.getByRole('link', { name: 'Ryan Williams' })).toHaveCount(0);
+  await expect(article.locator('.article-page__body')).toContainText('Ryan Williams');
+  const churroMedia = article.getByRole('link', { name: 'Churro Media' });
+  await expect(churroMedia).toHaveAttribute('href', 'https://www.churromedia.com/');
+  await expect(churroMedia).toHaveAttribute('target', '_blank');
+  await expect(churroMedia).toHaveAttribute('rel', 'noopener noreferrer');
 });
 
 

@@ -1,7 +1,7 @@
 ---
 import ResponsiveImage from '../components/ResponsiveImage.astro';
+import { renderArticleBody, type FigureAlignment } from '../lib/article-body';
 import SiteLayout from './SiteLayout.astro';
-
 interface HeroImage {
   assetId: string;
   alt: string;
@@ -12,7 +12,6 @@ interface ArticleLink {
   title: string;
 }
 
-type FigureAlignment = 'left' | 'right';
 
 interface Props {
   title: string;
@@ -26,6 +25,7 @@ interface Props {
 }
 
 const { title, description, hero, previous, next, suppressHero = false, figureAlignments = [] } = Astro.props;
+const articleBody = renderArticleBody(await Astro.slots.render('default'), figureAlignments);
 ---
 <SiteLayout title={`${title} — Edmund Hillary Fellowship`} description={description}>
   <article class="article-page content-width" data-impact-article data-figure-alignments={JSON.stringify(figureAlignments)}>
@@ -37,48 +37,10 @@ const { title, description, hero, previous, next, suppressHero = false, figureAl
         </figure>
       )}
     </header>
-    <div class="article-page__body"><slot /></div>
+    <div class="article-page__body" set:html={articleBody} />
     {(previous || next) && <nav class="article-page__next" aria-label="Article navigation">
       {previous && <a href={previous.href}>{previous.title}</a>}
       {next && <a href={next.href}>{next.title}</a>}
     </nav>}
   </article>
 </SiteLayout>
-<script>
-  for (const body of document.querySelectorAll('.article-page__body')) {
-    for (const paragraph of [...body.querySelectorAll(':scope > p')]) {
-      const image = paragraph.firstElementChild;
-      if (!(image instanceof HTMLImageElement) || paragraph.children.length !== 1 || paragraph.textContent?.trim()) continue;
-
-      const figure = document.createElement('figure');
-      paragraph.replaceWith(figure);
-      figure.append(image);
-
-      const captionParagraph = figure.nextElementSibling;
-      const captionSource = captionParagraph?.firstElementChild;
-      if (
-        captionParagraph instanceof HTMLParagraphElement &&
-        captionSource instanceof HTMLElement &&
-        captionSource.tagName === 'EM' &&
-        captionParagraph.children.length === 1 &&
-        captionParagraph.textContent?.trim()
-      ) {
-        const caption = document.createElement('figcaption');
-        caption.append(captionSource);
-        captionParagraph.replaceWith(caption);
-        figure.append(caption);
-      }
-    }
-    const figureAlignments: Array<'left' | 'right'> = JSON.parse(body.closest<HTMLElement>('[data-figure-alignments]')?.dataset.figureAlignments ?? '[]');
-    for (const [index, alignment] of figureAlignments.entries()) {
-      if (alignment) body.querySelectorAll(':scope > figure')[index]?.setAttribute('data-archived-align', alignment);
-    }
-    for (const link of body.querySelectorAll<HTMLAnchorElement>('a[href^="/"]')) {
-      link.replaceWith(document.createTextNode(link.textContent ?? ''));
-    }
-    for (const link of body.querySelectorAll<HTMLAnchorElement>('a[href^="https://"]')) {
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-    }
-  }
-</script>
