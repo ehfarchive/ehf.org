@@ -137,3 +137,35 @@ test('Ticket 10 renders the captured update-group semantics and source-form shar
   await skipLink.focus();
   await expect(skipLink).toHaveCSS('clip', 'auto');
 });
+
+test('Ticket 10 applies the captured type hierarchy across every route and viewport', async ({ page }) => {
+  for (const viewport of [
+    { name: 'desktop', width: 1440, height: 1000 },
+    { name: 'mobile', width: 390, height: 844 }
+  ] as const) {
+    await page.setViewportSize(viewport);
+
+    for (const formContract of contract.routes) {
+      await page.goto(formContract.route);
+      const heading = page.getByRole('heading', { name: formContract.heading, exact: true });
+      await expect(heading).toHaveCSS('font-family', /Roboto/);
+      await expect(heading).toHaveCSS('letter-spacing', viewport.name === 'desktop' && formContract.route === '/contact-media' ? '1.4px' : viewport.name === 'desktop' ? '1.68px' : '1.12px');
+      await expect(heading).toHaveCSS('font-size', viewport.name === 'desktop' && formContract.route === '/contact-media' ? '35px' : viewport.name === 'desktop' ? '42px' : '28px');
+
+      const form = page.locator('main form');
+      await expect(form).toHaveCSS('font-family', /Roboto/);
+      await expect(form).toHaveCSS('font-size', '16px');
+      await expect(form.locator('legend').first()).toHaveCSS('font-size', '20px');
+      await expect(form.locator('.display-only-form__label-required').first()).toHaveCSS('font-size', '12px');
+      await expect(form.locator('input:not([type="checkbox"])').first()).toHaveCSS('font-family', /Merriweather/);
+      await expect(form.locator('input:not([type="checkbox"])').first()).toHaveCSS('font-size', viewport.name === 'desktop' ? '19px' : '17px');
+    }
+  }
+});
+
+test('Ticket 10 keeps update helper, checkbox, and privacy text at the captured form scale', async ({ page }) => {
+  await page.goto('/news-and-events-updates');
+  await expect(page.locator('.display-only-form__check-help')).toHaveCSS('font-size', '16px');
+  await expect(page.locator('.display-only-form__check').first()).toHaveCSS('font-size', '16px');
+  await expect(page.locator('.display-only-form__privacy')).toHaveCSS('font-size', '16px');
+});
