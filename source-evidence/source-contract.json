@@ -16,6 +16,60 @@
     "reducedMotion": true,
     "lazyLoadScrollPx": 600
   },
+  "ticket7NewsVisualAcceptance": {
+    "status": "ACCEPTED",
+    "reviewArtifact": "agent://VisualDesignerTicket7FinalOpus",
+    "reviewRuntime": "anthropic/claude-opus-5",
+    "routes": [
+      "/news-blog",
+      "/news-blog/announcing-the-new-ceo-for-ehf"
+    ],
+    "statesPassed": "8/8",
+    "visualCalls": {
+      "used": 2,
+      "limit": 2,
+      "hardCapExhausted": true,
+      "callsRemaining": 0,
+      "noFurtherCall": true
+    },
+    "totals": {
+      "P0": 0,
+      "P1": 0,
+      "P2": 0,
+      "P3": 4
+    },
+    "closedFindings": [
+      "F1",
+      "F2"
+    ],
+    "evidenceIntegrity": {
+      "healthCleanStates": "8/8",
+      "repeatByteIdenticalStates": "8/8",
+      "sourceImmutableEntries": "16/16"
+    },
+    "retainedP3Summaries": [
+      {
+        "id": "P3-1",
+        "states": "listing-nav-impact-open-desktop, listing-default-desktop",
+        "summary": "Listing card title scale and intra-card spacing are smaller and tighter than source."
+      },
+      {
+        "id": "P3-2",
+        "states": "article-default-desktop, article-nav-about-open-desktop",
+        "summary": "Article body copy is approximately 10% larger and opening paragraphs render as one continuous block."
+      },
+      {
+        "id": "P3-3",
+        "states": "listing-nav-impact-open-mobile, article-nav-about-open-mobile",
+        "summary": "Mobile menu Back uses a literal angle-bracket glyph and the item stack is slightly lower with tighter leading."
+      },
+      {
+        "id": "P3-4",
+        "states": "listing-nav-impact-open-desktop, article-nav-about-open-desktop",
+        "summary": "Desktop dropdown lacks the source's bounded panel treatment."
+      }
+    ]
+  },
   "templates": [
     {
       "family": "homepage",
