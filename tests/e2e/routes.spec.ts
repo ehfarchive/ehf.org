@@ -486,3 +486,29 @@ test('legal source links preserve all twenty href bytes, including the documente
   expect(links.find((link) => link.href === defect)?.href).toBe(defect);
   expect(createHash('sha256').update(defect, 'utf8').digest('hex')).toBe('c189373a81f8f2c329a923bc00f77a5612a0c76ef59113d1aef00f72a1e5d2d8');
 });
+
+test('Ticket 10 emits all and only the nine declared contact-media-donation routes', async ({ page }) => {
+  const expected = [
+    '/contact-media',
+    '/contact-us',
+    '/donation-more-than-10k',
+    '/donation-outside-nz-and-us',
+    '/donation-pledge',
+    '/donation-refund-request',
+    '/ehf-friendly-sharks-waiting-list',
+    '/media-inquiries',
+    '/news-and-events-updates'
+  ];
+  const declared = routeManifest.routes
+    .filter((route) => route.kind === 'included' && route.family === 'contact-media-donation')
+    .map((route) => route.path);
+  expect(declared).toEqual(expected);
+
+  for (const route of declared) {
+    const response = await page.goto(route);
+    expect(response?.status(), route).toBe(200);
+  }
+
+  const donate = await page.goto('/donate');
+  expect(donate?.status()).toBe(404);
+});

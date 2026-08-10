@@ -1,0 +1,12 @@
+---
+import DisplayOnlyForm from '../components/DisplayOnlyForm.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+const fields = [
+  { id: 'first-name', label: 'First Name (required)', type: 'text', autocomplete: 'given-name' },
+  { id: 'last-name', label: 'Last Name (required)', type: 'text', autocomplete: 'family-name' },
+  { id: 'email', label: 'Email (required)', type: 'email', autocomplete: 'false' },
+  { id: 'subject', label: 'Subject (required)', type: 'text', autocomplete: 'false' },
+  { id: 'message', label: 'Message (required)', type: 'textarea' }
+] as const;
+---
+<SiteLayout title="Media Enquiry"><DisplayOnlyForm heading="Media Enquiry" fields={fields} submitLabel="Submit" /></SiteLayout>

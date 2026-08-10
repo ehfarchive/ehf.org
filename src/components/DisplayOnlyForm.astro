@@ -1,0 +1,71 @@
+---
+export type DisplayOnlyField = {
+  id: string;
+  label: string;
+  type: 'text' | 'email' | 'textarea' | 'checkbox';
+  autocomplete?: string;
+};
+
+interface Props {
+  heading: string;
+  fields: readonly DisplayOnlyField[];
+  submitLabel: string;
+}
+
+const { heading, fields, submitLabel } = Astro.props;
+const nameFields = fields.slice(0, 2).every((field, index) => field.id === (index === 0 ? 'first-name' : 'last-name'))
+  ? fields.slice(0, 2)
+  : [];
+const remainingFields = nameFields.length ? fields.slice(2) : fields;
+---
+<article class="display-only-form">
+  <header class="display-only-form__header"><h1>{heading}</h1></header>
+  <form data-display-only-form>
+    {nameFields.length > 0 && <fieldset class="display-only-form__name-group">
+      <legend>Name</legend>
+      <div class="display-only-form__name-fields">
+        {nameFields.map((field) => <label for={field.id}>{field.label}<input id={field.id} type={field.type as 'text' | 'email'} autocomplete={field.autocomplete} /></label>)}
+      </div>
+    </fieldset>}
+    {remainingFields.map((field) => field.type === 'textarea' ? (
+      <label class="display-only-form__field" for={field.id}>{field.label}<textarea id={field.id}></textarea></label>
+    ) : field.type === 'checkbox' ? (
+      <label class="display-only-form__check" for={field.id}><input id={field.id} type="checkbox" />{field.label}</label>
+    ) : (
+      <label class="display-only-form__field" for={field.id}>{field.label}<input id={field.id} type={field.type} autocomplete={field.autocomplete} /></label>
+    ))}
+    <button type="submit">{submitLabel}</button>
+  </form>
+</article>
+<script>
+  document.querySelector<HTMLFormElement>('[data-display-only-form]')?.addEventListener('submit', (event) => event.preventDefault());
+</script>
+
+<style>
+  .display-only-form { width: min(918px, calc(100% - 2 * var(--gutter))); margin: 0 auto; padding: calc(var(--header-height) + 102px) 0 170px; }
+  .display-only-form__header { margin: 0 0 113px; text-align: center; }
+  .display-only-form h1 { margin: 0; color: var(--color-text); font-family: var(--font-heading); font-size: 35px; font-weight: 900; letter-spacing: -0.04em; line-height: 1.2; }
+  .display-only-form form { color: var(--color-text); font-family: var(--font-body); font-size: 18px; line-height: 1.45; }
+  .display-only-form fieldset { border: 0; margin: 0; padding: 0; }
+  .display-only-form legend { margin: 0 0 16px; padding: 0; }
+  .display-only-form__name-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .display-only-form label { display: block; }
+  .display-only-form__field { margin-top: 24px; }
+  .display-only-form__name-group + .display-only-form__field { margin-top: 24px; }
+  .display-only-form input:not([type="checkbox"]), .display-only-form textarea { box-sizing: border-box; display: block; width: 100%; margin-top: 4px; border: 1px solid #27242e; border-radius: 0; background: #fafafa; color: var(--color-text); font: inherit; font-size: 19px; line-height: 1.5; padding: 10px; }
+  .display-only-form input:not([type="checkbox"]) { height: 57px; }
+  .display-only-form textarea { min-height: 100px; resize: vertical; }
+  .display-only-form__check { display: flex; align-items: flex-start; gap: 10px; margin-top: 20px; }
+  .display-only-form__check input { width: 18px; height: 18px; margin: 4px 0 0; accent-color: var(--color-brand); }
+  .display-only-form button { display: block; min-width: 112px; height: 51px; margin: 20px auto 0; border: 0; border-radius: 6px; background: var(--color-brand); color: #fff; font-family: var(--font-heading); font-size: 16px; font-weight: 900; }
+  .display-only-form button:hover { background: var(--color-brand-deep); }
+  @media (max-width: 767px) {
+    .display-only-form { width: min(343px, calc(100% - 2 * var(--gutter))); padding: calc(var(--header-height) + 63px) 0 72px; }
+    .display-only-form__header { margin-bottom: 64px; }
+    .display-only-form h1 { font-size: 31px; line-height: 1.18; }
+    .display-only-form form { font-size: 17px; }
+    .display-only-form__name-fields { grid-template-columns: 1fr; gap: 24px; }
+    .display-only-form input:not([type="checkbox"]), .display-only-form textarea { font-size: 17px; }
+    .display-only-form button { margin-top: 24px; }
+  }
+</style>

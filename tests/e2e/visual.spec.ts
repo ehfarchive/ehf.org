@@ -910,3 +910,46 @@ test('Ticket 9 institutional, legal, Summer, and 404 matrix stays responsive and
   await page.goto('/terms-of-use');
   await expect(page.locator('a[href="https://stripe.com/nz/legal%20and%20https://www.paypal.com/ad/webapps/mpp/ua/useragreement-full%20for%20more%20details"]')).toHaveAttribute('rel', 'noopener noreferrer');
 });
+
+test('Ticket 10 form source matrix has eighteen immutable captures and healthy default-filled local states', async ({ page }, testInfo) => {
+  type Ticket10Field = { id: string; type: 'text' | 'email' | 'textarea' | 'checkbox'; filledValue: string | boolean };
+  type Ticket10Capture = { viewport: 'desktop' | 'mobile'; png: string; json: string; pngSha256?: string; jsonSha256?: string };
+  type Ticket10Route = { route: string; fields: Ticket10Field[]; captures: Ticket10Capture[] };
+  const ticket10 = sourceContract.ticket10ContactForms as unknown as { routes: Ticket10Route[] };
+  const viewport = testInfo.project.name === 'desktop' ? 'desktop' : 'mobile';
+  const expectedViewport = viewport === 'desktop' ? { width: 1440, height: 1000 } : { width: 390, height: 844 };
+  expect(ticket10.routes).toHaveLength(9);
+  expect(ticket10.routes.flatMap((form) => form.captures)).toHaveLength(18);
+
+  for (const form of ticket10.routes) {
+    const captureSource = form.captures.find((capture) => capture.viewport === viewport);
+    expect(captureSource, `${form.route} ${viewport} source capture`).toBeDefined();
+    expect(existsSync(resolve(process.cwd(), captureSource!.png))).toBe(true);
+    expect(existsSync(resolve(process.cwd(), captureSource!.json))).toBe(true);
+    if (captureSource!.pngSha256) {
+      expect(createHash('sha256').update(readFileSync(resolve(process.cwd(), captureSource!.png))).digest('hex')).toBe(captureSource!.pngSha256);
+    }
+    if (captureSource!.jsonSha256) {
+      expect(createHash('sha256').update(readFileSync(resolve(process.cwd(), captureSource!.json))).digest('hex')).toBe(captureSource!.jsonSha256);
+    }
+
+    await page.setViewportSize(expectedViewport);
+    const defaultState = await captureComparable(page, form.route, expectedViewport, 'default');
+    expect(defaultState.consoleErrors, `${form.route} default`).toEqual([]);
+    expect(defaultState.failedRequests, `${form.route} default`).toEqual([]);
+    expect(defaultState.unloadedImages, `${form.route} default`).toEqual([]);
+
+    for (const field of form.fields) {
+      const control = page.locator(`#${field.id}`);
+      if (field.type === 'checkbox') await control.check();
+      else await control.fill(String(field.filledValue));
+    }
+    await page.evaluate(async () => {
+      (document.activeElement as HTMLElement | null)?.blur();
+      await new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
+    });
+    const filled = await page.getByRole('main').screenshot({ animations: 'disabled', type: 'png', scale: 'css' });
+    const repeat = await page.getByRole('main').screenshot({ animations: 'disabled', type: 'png', scale: 'css' });
+    expect(filled.equals(repeat), `${form.route} filled state repeat`).toBe(true);
+  }
+});
