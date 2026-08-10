@@ -31,6 +31,21 @@ test('rematerialization keeps a current reference canonical and removes a lexica
   }
 });
 
+test('preserves manifest-backed archive cards while rematerializing typed content', () => {
+  const manifestPath = 'source-evidence/asset-manifest.json';
+  const before = readFileSync(manifestPath, 'utf8');
+  try {
+    expect(() => migrateContent()).not.toThrow();
+    const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+    expect(manifest.assets).toContainEqual(expect.objectContaining({
+      id: 'asset-images-cards-chemergy-webp',
+      localPath: '/assets/images/cards/chemergy.webp'
+    }));
+  } finally {
+    writeFileSync(manifestPath, before);
+  }
+});
+
 test('keeps live outputs unchanged when a source fetch fails before publication', async () => {
   const target = 'src/content/pages/institutional/about-ehf.json';
   const before = readFileSync(target);

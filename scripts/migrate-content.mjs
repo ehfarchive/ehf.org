@@ -407,6 +407,11 @@ function currentTypedAssetReferences(routes, baseRoot = root) {
 
 function stableAssetRecords(routes, baseRoot = root) {
   const outputAssetsRoot = assetsRootFor(baseRoot);
+  const preservedStaticAssets = JSON.parse(readFileSync(assetManifestPath, 'utf8')).assets.filter((record) =>
+    record.classification === 'local'
+    && !record.localPath.startsWith('/assets/images/content/')
+    && !record.localPath.startsWith('/assets/documents/')
+  );
   const references = currentTypedAssetReferences(routes, baseRoot);
   const recordsByHash = new Map();
   for (const [localPath, routeUses] of references.local) {
@@ -441,7 +446,7 @@ function stableAssetRecords(routes, baseRoot = root) {
     routeUses: [...routeUses].sort(),
     externalUrl
   }));
-  return [...localRecords, ...externalRecords].sort((left, right) => left.id.localeCompare(right.id));
+  return [...preservedStaticAssets, ...localRecords, ...externalRecords].sort((left, right) => left.id.localeCompare(right.id));
 }
 
 function removeUnreferencedManagedAssets(routes, baseRoot = root) {
