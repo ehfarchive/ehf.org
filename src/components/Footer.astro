@@ -1,15 +1,21 @@
 ---
 import { footerNavigation, site } from '../data/site';
 import NewsletterForm from './NewsletterForm.astro';
+
+interface Props {
+  minimal?: boolean;
+}
+
+const { minimal = false } = Astro.props;
 ---
 <footer class="site-footer" role="contentinfo">
   <div class="site-container site-footer__inner">
-    <p>© {site.name} 2016 - 2026</p>
+    <p>{minimal ? '(c) Edmund Hillary Fellowship 2016 - 2026' : `© ${site.name} 2016 - 2026`}</p>
     <nav aria-label="Footer navigation">
       <ul>
-        {footerNavigation.map((item) => <li>{item.kind === 'text' ? <strong>{item.label}</strong> : <a href={item.href} target={item.kind === 'external' ? '_blank' : undefined} rel={item.kind === 'external' ? 'noreferrer' : undefined}>{item.label}</a>}</li>)}
+        {footerNavigation.map((item) => <li>{item.kind === 'text' ? <strong>{item.label}</strong> : <a href={item.href}>{item.label}</a>}</li>)}
       </ul>
     </nav>
-    <NewsletterForm />
+    {!minimal && <NewsletterForm />}
   </div>
 </footer>

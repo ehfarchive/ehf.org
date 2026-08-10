@@ -11,4 +11,4 @@ const fields = [
   { id: 'visa', label: "I'm interested in updates on if the Global Impact Visa reopens", type: 'checkbox' }
 ] as const;
 ---
-<SiteLayout title="I want to receive updates on EHF News and Events"><DisplayOnlyForm heading="I want to receive updates on EHF News and Events" fields={fields} submitLabel="Submit" /></SiteLayout>
+<SiteLayout title="I want to receive updates on EHF News and Events" minimalFooter><DisplayOnlyForm heading="I want to receive updates on EHF News and Events" fields={fields} submitLabel="Submit" layout="centered-narrow" updatesGroup /></SiteLayout>

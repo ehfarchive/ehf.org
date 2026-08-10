@@ -105,3 +105,35 @@ for (const formContract of contract.routes) {
     }
   });
 }
+
+test('Ticket 10 renders the captured update-group semantics and source-form shared affordances', async ({ page }, testInfo) => {
+  await page.goto('/news-and-events-updates');
+  const updates = page.getByRole('group', { name: 'What type of updates are you interested in? (required)', exact: true });
+  await expect(updates).toBeVisible();
+  await expect(updates.getByText("Please select one of the following options so that we can determine which type of updates you're interested in", { exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Privacy Policy', exact: true })).toHaveAttribute('href', '/privacy-policy');
+  await expect(page.locator('.display-only-form__label-required').first()).toHaveText('(required)');
+
+  await page.goto('/contact-us');
+  await expect(page.getByRole('heading', { name: 'Contact Us', exact: true })).toHaveCSS('text-align', 'left');
+
+  await page.goto('/donation-more-than-10k');
+  await expect(page.getByText('Just fill out the below form and someone from our team will be in touch to discuss the options. Thank you for your ongoing support of EHF.', { exact: true })).toBeVisible();
+
+  await expect(page.getByRole('heading', { name: 'Want to donate more than $10,000?', exact: true })).toHaveCSS('text-align', 'left');
+  const footer = page.getByRole('contentinfo');
+  await expect(footer.getByText('(c) Edmund Hillary Fellowship 2016 - 2026', { exact: true })).toBeVisible();
+  await expect(footer.getByRole('link')).toHaveText(['About', 'Impact', 'Archive', 'Privacy']);
+  await expect(footer).not.toContainText('Newsletter updates are not available.');
+
+  const skipLink = page.getByRole('link', { name: 'Skip to content', exact: true });
+  await expect(skipLink).toBeVisible();
+  await expect(skipLink).toHaveCSS('position', 'absolute');
+
+  await page.goto('/about-ehf');
+  const newsletter = page.getByRole('contentinfo').getByText('Newsletter updates are not available.', { exact: true });
+  if (testInfo.project.name === 'desktop') await expect(newsletter).toBeVisible();
+  else await expect(newsletter).toBeHidden();
+  await skipLink.focus();
+  await expect(skipLink).toHaveCSS('clip', 'auto');
+});

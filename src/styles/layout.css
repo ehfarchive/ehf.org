@@ -83,17 +83,32 @@
 .page-shell { min-height: 100dvh; }
 
 .skip-link {
-  position: fixed;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
   top: 0;
   left: var(--gutter);
   z-index: 100;
-  transform: translateY(-150%);
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  clip-path: none;
+  white-space: normal;
   background: var(--color-surface);
   color: var(--color-ink);
   padding: 0.75rem;
 }
-
-.skip-link:focus { transform: translateY(0); }
 
 .site-header {
   position: absolute;

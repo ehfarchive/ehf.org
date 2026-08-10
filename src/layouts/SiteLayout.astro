@@ -10,9 +10,10 @@ import '../styles/templates.css';
 interface Props {
   title: string;
   description?: string;
+  minimalFooter?: boolean;
 }
 
-const { title, description = site.description } = Astro.props;
+const { title, description = site.description, minimalFooter = false } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -26,6 +27,6 @@ const { title, description = site.description } = Astro.props;
     <a class="skip-link" href="#main-content">Skip to content</a>
     <Header />
     <main id="main-content"><slot /></main>
-    <Footer />
+    <Footer minimal={minimalFooter} />
   </body>
 </html>
