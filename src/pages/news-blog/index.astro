@@ -8,9 +8,10 @@ import routeManifestInput from '../../../source-evidence/route-manifest.json';
 import type { ContentManifest, LocalContentManifestRecord } from '../../lib/page-data';
 import { validateContentManifest } from '../../lib/page-data';
 import { loadRouteManifest } from '../../lib/route-manifest';
+import { parseStrictUtcIsoDate } from '../../lib/iso-date';
 
 type NewsEntry = CollectionEntry<'news'>;
-type NewsArticle = { entry: NewsEntry; path: string };
+type NewsArticle = { entry: NewsEntry; path: string; publishedAt: Date };
 
 const routeManifest = loadRouteManifest(routeManifestInput);
 const contentManifest = contentManifestInput as ContentManifest;
@@ -42,10 +43,8 @@ const articles: NewsArticle[] = entries.map((entry) => {
   const path = pathByInput.get(`src/content/news/${entry.id}.md`);
   const publishedAt = entry.data.publishedAt;
   if (!path || !pathSet.has(path)) throw new Error(`News entry is not declared by the manifests: ${entry.id}`);
-  if (typeof publishedAt !== 'string' || Number.isNaN(new Date(`${publishedAt}T00:00:00.000Z`).valueOf())) {
-    throw new Error(`News entry has an invalid publishedAt: ${entry.id}`);
-  }
-  return { entry, path };
+  if (typeof publishedAt !== 'string') throw new Error(`News entry ${entry.id}.publishedAt must be a valid ISO calendar date`);
+  return { entry, path, publishedAt: parseStrictUtcIsoDate(publishedAt, `News entry ${entry.id}.publishedAt`) };
 });
 
 if (articles.length !== 21 || articles.length !== pathSet.size || articles.length !== pathByInput.size
@@ -54,11 +53,10 @@ if (articles.length !== 21 || articles.length !== pathSet.size || articles.lengt
   throw new Error('News manifests and typed collection entries do not agree');
 }
 
-articles.sort((left, right) => right.entry.data.publishedAt!.localeCompare(left.entry.data.publishedAt!)
+articles.sort((left, right) => right.publishedAt.getTime() - left.publishedAt.getTime()
   || left.entry.id.localeCompare(right.entry.id));
-function formatSourceDate(publishedAt: string): string {
-  const date = new Date(`${publishedAt}T00:00:00.000Z`);
-  return `${date.getUTCMonth() + 1}/${date.getUTCDate()}/${String(date.getUTCFullYear()).slice(-2)}`;
+function formatSourceDate(publishedAt: Date): string {
+  return `${publishedAt.getUTCMonth() + 1}/${publishedAt.getUTCDate()}/${String(publishedAt.getUTCFullYear()).slice(-2)}`;
 }
 ---
 
@@ -66,7 +64,7 @@ function formatSourceDate(publishedAt: string): string {
   <section class="news-page site-container" data-news-listing>
     <h1 class="visually-hidden">News</h1>
     <div class="news-grid">
-      {articles.map(({ entry, path }) => (
+      {articles.map(({ entry, path, publishedAt }) => (
         <article class="news-card" data-news-card data-news-slug={entry.id}>
           {entry.data.heroImage && (
             <a class="news-card__image" href={path} aria-label={entry.data.title}>
@@ -80,7 +78,7 @@ function formatSourceDate(publishedAt: string): string {
             </a>
           )}
           <div class="news-card__content">
-            <time datetime={entry.data.publishedAt}>{formatSourceDate(entry.data.publishedAt!)}</time>
+            <time datetime={entry.data.publishedAt}>{formatSourceDate(publishedAt)}</time>
             <h2><a href={path}>{entry.data.title}</a></h2>
             <a class="news-card__read-more" href={path}>Read More</a>
           </div>

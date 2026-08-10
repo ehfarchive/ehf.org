@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import contentManifest from '../../source-evidence/content-manifest.json';
 import routeManifest from '../../source-evidence/route-manifest.json';
+import { parseStrictUtcIsoDate } from '../../src/lib/iso-date';
 
 const impactArticlePaths = routeManifest.routes
   .filter((route) => route.kind === 'included' && route.family === 'impact-article')
@@ -21,15 +22,15 @@ const orderedNews = contentManifest.content
   .map((record) => {
     const input = record.localInput!;
     const body = readFileSync(resolve(process.cwd(), input), 'utf8');
-    const publishedAt = /^publishedAt:\s*"(\d{4}-\d{2}-\d{2})"$/m.exec(body)?.[1];
-    if (!publishedAt) throw new Error(`News content lacks an ISO publishedAt: ${input}`);
+    const publishedAt = /^publishedAt:\s*"([^"]+)"$/m.exec(body)?.[1];
+    if (!publishedAt) throw new Error(`News content lacks publishedAt: ${input}`);
     return {
       path: record.route,
       slug: input.slice('src/content/news/'.length, -'.md'.length),
-      publishedAt
+      publishedAt: parseStrictUtcIsoDate(publishedAt, `News content ${input}.publishedAt`)
     };
   })
-  .sort((left, right) => right.publishedAt.localeCompare(left.publishedAt) || left.slug.localeCompare(right.slug));
+  .sort((left, right) => right.publishedAt.getTime() - left.publishedAt.getTime() || left.slug.localeCompare(right.slug));
 
 test('homepage exposes the site title and main landmark', async ({ page }) => {
   const response = await page.goto('/');

@@ -7,9 +7,10 @@ import routeManifestInput from '../../../source-evidence/route-manifest.json';
 import type { ContentManifest, LocalContentManifestRecord } from '../../lib/page-data';
 import { validateContentManifest } from '../../lib/page-data';
 import { loadRouteManifest } from '../../lib/route-manifest';
+import { parseStrictUtcIsoDate } from '../../lib/iso-date';
 
 type NewsEntry = CollectionEntry<'news'>;
-type NewsArticle = { entry: NewsEntry; path: string };
+type NewsArticle = { entry: NewsEntry; path: string; publishedAt: Date };
 
 const routeManifest = loadRouteManifest(routeManifestInput);
 const contentManifest = contentManifestInput as ContentManifest;
@@ -41,10 +42,8 @@ const articles: NewsArticle[] = entries.map((entry) => {
   const path = pathByInput.get(`src/content/news/${entry.id}.md`);
   const publishedAt = entry.data.publishedAt;
   if (!path || !pathSet.has(path)) throw new Error(`News entry is not declared by the manifests: ${entry.id}`);
-  if (typeof publishedAt !== 'string' || Number.isNaN(new Date(`${publishedAt}T00:00:00.000Z`).valueOf())) {
-    throw new Error(`News entry has an invalid publishedAt: ${entry.id}`);
-  }
-  return { entry, path };
+  if (typeof publishedAt !== 'string') throw new Error(`News entry ${entry.id}.publishedAt must be a valid ISO calendar date`);
+  return { entry, path, publishedAt: parseStrictUtcIsoDate(publishedAt, `News entry ${entry.id}.publishedAt`) };
 });
 
 if (articles.length !== 21 || articles.length !== pathSet.size || articles.length !== pathByInput.size
@@ -53,7 +52,7 @@ if (articles.length !== 21 || articles.length !== pathSet.size || articles.lengt
   throw new Error('News manifests and typed collection entries do not agree');
 }
 
-articles.sort((left, right) => right.entry.data.publishedAt!.localeCompare(left.entry.data.publishedAt!)
+articles.sort((left, right) => right.publishedAt.getTime() - left.publishedAt.getTime()
   || left.entry.id.localeCompare(right.entry.id));
 
 export async function getStaticPaths() {
@@ -85,10 +84,8 @@ export async function getStaticPaths() {
     const path = staticPathByInput.get(`src/content/news/${entry.id}.md`);
     const publishedAt = entry.data.publishedAt;
     if (!path || !staticPathSet.has(path)) throw new Error(`News entry is not declared by the manifests: ${entry.id}`);
-    if (typeof publishedAt !== 'string' || Number.isNaN(new Date(`${publishedAt}T00:00:00.000Z`).valueOf())) {
-      throw new Error(`News entry has an invalid publishedAt: ${entry.id}`);
-    }
-    return { entry, path };
+    if (typeof publishedAt !== 'string') throw new Error(`News entry ${entry.id}.publishedAt must be a valid ISO calendar date`);
+    return { entry, path, publishedAt: parseStrictUtcIsoDate(publishedAt, `News entry ${entry.id}.publishedAt`) };
   });
   if (staticArticles.length !== 21 || staticArticles.length !== staticPathSet.size || staticArticles.length !== staticPathByInput.size
     || new Set(staticArticles.map((article) => article.entry.id)).size !== staticArticles.length
@@ -97,7 +94,7 @@ export async function getStaticPaths() {
   }
 
   return staticArticles
-    .sort((left, right) => right.entry.data.publishedAt!.localeCompare(left.entry.data.publishedAt!) || left.entry.id.localeCompare(right.entry.id))
+    .sort((left, right) => right.publishedAt.getTime() - left.publishedAt.getTime() || left.entry.id.localeCompare(right.entry.id))
     .map((article) => ({ params: { slug: article.path.slice('/news-blog/'.length) }, props: { article } }));
 }
 
@@ -107,7 +104,7 @@ if (position === -1) throw new Error(`News article is not in the declared collec
 const previousArticle = position > 0 ? articles[position - 1] : undefined;
 const nextArticle = position < articles.length - 1 ? articles[position + 1] : undefined;
 const { Content } = await render(article.entry);
-const publishedAt = new Date(`${article.entry.data.publishedAt}T00:00:00.000Z`);
+const publishedAt = article.publishedAt;
 const hero = article.entry.data.heroImage ? {
   assetId: assetIdForLocalPath(article.entry.data.heroImage),
   alt: article.entry.data.heroAlt ?? ''

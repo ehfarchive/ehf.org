@@ -1,13 +1,23 @@
 import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { parseStrictUtcIsoDate } from './lib/iso-date';
+
+const publishedAt = z.string().refine((value) => {
+  try {
+    parseStrictUtcIsoDate(value, 'publishedAt');
+    return true;
+  } catch {
+    return false;
+  }
+}, 'publishedAt must be a valid ISO calendar date').optional();
 
 const contentFields = {
   title: z.string().min(1),
   excerpt: z.string(),
   heroImage: z.string().regex(/^\/assets\//).nullable(),
   heroAlt: z.string().nullable(),
-  publishedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional()
+  publishedAt
 };
 
 const impact = defineCollection({
