@@ -136,4 +136,15 @@ const next = nextArticle ? { href: nextArticle.path, title: nextArticle.entry.da
   suppressHero={suppressHero}
 >
   <Content />
+  <span class="news-article-marker" hidden></span>
 </ArticleLayout>
+
+<style is:global>
+  @media (min-width: 768px) {
+    body:has(.news-article-marker) .article-page__body figure {
+      inline-size: min(645px, 100%);
+      max-inline-size: 100%;
+      margin-inline: auto;
+    }
+  }
+</style>

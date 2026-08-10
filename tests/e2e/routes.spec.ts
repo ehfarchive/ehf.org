@@ -214,6 +214,65 @@ test('News listing renders every approved card once in descending publishedAt an
   await expect(page.getByText(/older posts|newer posts/i)).toHaveCount(0);
 });
 
+test('News cards retain the source editorial metadata and responsive geometry', async ({ page }, testInfo) => {
+  await page.goto('/news-blog');
+
+  const cards = page.locator('[data-news-card]');
+  const cardCount = await cards.count();
+  expect(cardCount).toBe(21);
+  await expect(cards.locator('time')).toHaveCount(21);
+  await expect(cards.getByRole('link', { name: 'Read More' })).toHaveCount(21);
+
+  const metadata = await cards.evaluateAll((elements) => elements.map((card) => {
+    const time = card.querySelector('time');
+    const readMore = [...card.querySelectorAll('a')].find((link) => link.textContent?.trim() === 'Read More');
+    return {
+      date: time?.textContent?.trim(),
+      dateTime: time?.getAttribute('datetime'),
+      readMoreDecoration: readMore ? getComputedStyle(readMore).textDecorationLine : ''
+    };
+  }));
+  expect(metadata).toHaveLength(21);
+  expect(metadata.every(({ date, dateTime, readMoreDecoration }) =>
+    /^\d{1,2}\/\d{1,2}\/\d{2}$/.test(date ?? '')
+    && /^\d{4}-\d{2}-\d{2}$/.test(dateTime ?? '')
+    && readMoreDecoration.includes('underline')
+  )).toBe(true);
+
+  const geometry = await page.locator('[data-news-listing]').evaluate((listing) => {
+    const grid = listing.querySelector<HTMLElement>('.news-grid')!;
+    const cards = [...listing.querySelectorAll<HTMLElement>('[data-news-card]')];
+    const images = cards.flatMap((card) => [...card.querySelectorAll<HTMLImageElement>('img')]);
+    const positions = cards.slice(0, 3).map((card) => {
+      const box = card.getBoundingClientRect();
+      return { top: box.top, left: box.left, width: box.width };
+    });
+    const gridStyle = getComputedStyle(grid);
+    return {
+      columns: gridStyle.gridTemplateColumns.split(' ').filter(Boolean).length,
+      columnGap: Number.parseFloat(gridStyle.columnGap),
+      positions,
+      imageRatios: images.map((image) => {
+        const box = image.getBoundingClientRect();
+        return box.width / box.height;
+      })
+    };
+  });
+
+  expect(geometry.imageRatios.length).toBeGreaterThan(0);
+  expect(geometry.imageRatios.every((ratio) => Math.abs(ratio - (10 / 7)) < 0.03)).toBe(true);
+  if (testInfo.project.name === 'desktop') {
+    expect(geometry.columns).toBe(2);
+    expect(geometry.columnGap).toBeCloseTo(20, 0);
+    expect(geometry.positions[0].top).toBeCloseTo(geometry.positions[1].top, 1);
+    expect(geometry.positions[2].top).toBeGreaterThan(geometry.positions[0].top);
+    expect(geometry.positions[0].width).toBeCloseTo(685, -1);
+  } else {
+    expect(geometry.columns).toBe(1);
+    expect(geometry.positions[1].top).toBeGreaterThan(geometry.positions[0].top);
+  }
+});
+
 test('News undeclared, Hillary, page, and query variants fail closed without a recreated older listing', async ({ page }) => {
   const excludedHillaryPaths = routeManifest.routes
     .filter((route) => route.kind === 'excluded' && route.path.startsWith('/news-blog/'))
@@ -246,4 +305,28 @@ test('News representative preserves its body lead asset without a duplicate hero
     images.map((image) => new URL(image.getAttribute('src') ?? '', window.location.href).pathname)
   );
   expect(mediaPaths).toEqual(['/assets/images/content/news-blog-announcing-the-new-ceo-for-ehf-1.webp']);
+});
+
+test('News representative editorial image keeps its source desktop measure without changing mobile', async ({ page }, testInfo) => {
+  await page.goto('/news-blog/announcing-the-new-ceo-for-ehf');
+
+  const geometry = await page.locator('.article-page__body figure').first().evaluate((figure) => {
+    const image = figure.querySelector('img')!;
+    const article = figure.closest<HTMLElement>('article')!;
+    const imageBox = image.getBoundingClientRect();
+    const articleBox = article.getBoundingClientRect();
+    return {
+      imageWidth: imageBox.width,
+      imageCenter: imageBox.left + (imageBox.width / 2),
+      articleCenter: articleBox.left + (articleBox.width / 2),
+      articleWidth: articleBox.width
+    };
+  });
+
+  expect(geometry.imageCenter).toBeCloseTo(geometry.articleCenter, 1);
+  if (testInfo.project.name === 'desktop') {
+    expect(geometry.imageWidth).toBeCloseTo(645, -1);
+  } else {
+    expect(geometry.imageWidth).toBeCloseTo(geometry.articleWidth, 1);
+  }
 });

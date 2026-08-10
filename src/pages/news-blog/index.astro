@@ -1,6 +1,6 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
-import PostCard from '../../components/PostCard.astro';
+import ResponsiveImage from '../../components/ResponsiveImage.astro';
 import { assetIdForLocalPath } from '../../data/site';
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import contentManifestInput from '../../../source-evidence/content-manifest.json';
@@ -56,6 +56,10 @@ if (articles.length !== 21 || articles.length !== pathSet.size || articles.lengt
 
 articles.sort((left, right) => right.entry.data.publishedAt!.localeCompare(left.entry.data.publishedAt!)
   || left.entry.id.localeCompare(right.entry.id));
+function formatSourceDate(publishedAt: string): string {
+  const date = new Date(`${publishedAt}T00:00:00.000Z`);
+  return `${date.getUTCMonth() + 1}/${date.getUTCDate()}/${String(date.getUTCFullYear()).slice(-2)}`;
+}
 ---
 
 <SiteLayout title="News — Edmund Hillary Fellowship">
@@ -63,19 +67,24 @@ articles.sort((left, right) => right.entry.data.publishedAt!.localeCompare(left.
     <h1 class="visually-hidden">News</h1>
     <div class="news-grid">
       {articles.map(({ entry, path }) => (
-        <div data-news-slug={entry.id}>
-          <PostCard
-            title={entry.data.title}
-            href={path}
-            image={entry.data.heroImage ? {
-              assetId: assetIdForLocalPath(entry.data.heroImage),
-              alt: entry.data.heroAlt ?? '',
-              width: 343,
-              height: 343
-            } : undefined}
-            slug={entry.id}
-          />
-        </div>
+        <article class="news-card" data-news-card data-news-slug={entry.id}>
+          {entry.data.heroImage && (
+            <a class="news-card__image" href={path} aria-label={entry.data.title}>
+              <ResponsiveImage
+                assetId={assetIdForLocalPath(entry.data.heroImage)}
+                alt={entry.data.heroAlt ?? ''}
+                width={685}
+                height={480}
+                sizes="(max-width: 767px) 100vw, 685px"
+              />
+            </a>
+          )}
+          <div class="news-card__content">
+            <time datetime={entry.data.publishedAt}>{formatSourceDate(entry.data.publishedAt!)}</time>
+            <h2><a href={path}>{entry.data.title}</a></h2>
+            <a class="news-card__read-more" href={path}>Read More</a>
+          </div>
+        </article>
       ))}
     </div>
   </section>
@@ -83,10 +92,20 @@ articles.sort((left, right) => right.entry.data.publishedAt!.localeCompare(left.
 
 <style>
   .news-page { padding-top: calc(var(--header-height) + 29px); padding-bottom: 161px; }
-  .news-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 104px 51px; }
+  .news-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; row-gap: 182px; }
+  .news-card { display: flex; min-width: 0; flex-direction: column; }
+  .news-card__image { display: block; overflow: hidden; aspect-ratio: 10 / 7; }
+  .news-card__image :global(img) { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .news-card__content { display: flex; flex: 1; flex-direction: column; align-items: flex-start; }
+  .news-card time { margin-top: 16px; color: var(--color-muted); font-size: 14px; line-height: 20px; }
+  .news-card h2 { margin: 5px 0 0; font-family: var(--font-display); font-size: 24px; font-weight: 700; line-height: 1.16; }
+  .news-card h2 a { color: inherit; text-decoration: none; }
+  .news-card__read-more { margin-top: 20px; color: inherit; font-size: 16px; line-height: 22px; text-decoration: underline; }
 
   @media (max-width: 767px) {
     .news-page { padding-top: calc(var(--header-height) + 8.2px); padding-bottom: 96px; }
-    .news-grid { grid-template-columns: 1fr; row-gap: 26px; }
+    .news-grid { grid-template-columns: 1fr; row-gap: 50px; }
+    .news-card time { margin-top: 13px; }
+    .news-card h2 { font-size: 24px; }
   }
 </style>

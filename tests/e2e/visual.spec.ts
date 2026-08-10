@@ -692,3 +692,48 @@ test('News active comparison states render local media, one main landmark, and n
   await expect(page.getByRole('main')).toHaveCount(1);
   await expect(page.locator('.article-page__hero, .article-page__body iframe')).toHaveCount(0);
 });
+
+test('News visual contract retains two-column editorial cards and centered article media', async ({ page }, testInfo) => {
+  const listingCapture = await captureComparable(
+    page,
+    '/news-blog',
+    testInfo.project.name === 'desktop' ? { width: 1440, height: 1000 } : { width: 390, height: 844 },
+    'default'
+  );
+  expect(listingCapture.consoleErrors).toEqual([]);
+  expect(listingCapture.failedRequests).toEqual([]);
+  expect(listingCapture.unloadedImages).toEqual([]);
+
+  const listing = await page.locator('[data-news-listing]').evaluate((root) => {
+    const grid = root.querySelector<HTMLElement>('.news-grid')!;
+    const cards = [...root.querySelectorAll<HTMLElement>('[data-news-card]')];
+    const firstImage = cards[0].querySelector('img')!.getBoundingClientRect();
+    const style = getComputedStyle(grid);
+    return {
+      cards: cards.length,
+      dates: cards.filter((card) => /^\d{1,2}\/\d{1,2}\/\d{2}$/.test(card.querySelector('time')?.textContent?.trim() ?? '')).length,
+      readMore: cards.filter((card) => [...card.querySelectorAll('a')].some((link) => link.textContent?.trim() === 'Read More')).length,
+      columns: style.gridTemplateColumns.split(' ').filter(Boolean).length,
+      imageRatio: firstImage.width / firstImage.height
+    };
+  });
+  expect(listing.cards).toBe(21);
+  expect(listing.dates).toBe(21);
+  expect(listing.readMore).toBe(21);
+  expect(listing.imageRatio).toBeCloseTo(10 / 7, 2);
+  expect(listing.columns).toBe(testInfo.project.name === 'desktop' ? 2 : 1);
+
+  await page.goto('/news-blog/announcing-the-new-ceo-for-ehf');
+  const article = await page.locator('.article-page__body figure').first().evaluate((figure) => {
+    const imageBox = figure.querySelector('img')!.getBoundingClientRect();
+    const articleBox = figure.closest<HTMLElement>('article')!.getBoundingClientRect();
+    return {
+      imageWidth: imageBox.width,
+      imageCenter: imageBox.left + (imageBox.width / 2),
+      articleCenter: articleBox.left + (articleBox.width / 2),
+      articleWidth: articleBox.width
+    };
+  });
+  expect(article.imageCenter).toBeCloseTo(article.articleCenter, 1);
+  expect(article.imageWidth).toBeCloseTo(testInfo.project.name === 'desktop' ? 645 : article.articleWidth, testInfo.project.name === 'desktop' ? -1 : 1);
+});
