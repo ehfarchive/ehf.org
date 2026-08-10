@@ -1,4 +1,7 @@
 import { expect, test } from '@playwright/test';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import contentManifest from '../../source-evidence/content-manifest.json';
 import routeManifest from '../../source-evidence/route-manifest.json';
 
 const impactArticlePaths = routeManifest.routes
@@ -7,6 +10,26 @@ const impactArticlePaths = routeManifest.routes
 const impactListingPaths = routeManifest.routes
   .filter((route) => route.kind === 'included' && route.family === 'impact-listing')
   .map((route) => route.path);
+const newsArticlePaths = routeManifest.routes
+  .filter((route) => route.kind === 'included' && route.family === 'news-article')
+  .map((route) => route.path);
+const newsListingPaths = routeManifest.routes
+  .filter((route) => route.kind === 'included' && route.family === 'news-listing' && route.path === '/news-blog')
+  .map((route) => route.path);
+const orderedNews = contentManifest.content
+  .filter((record) => record.template === 'news-article' && typeof record.localInput === 'string')
+  .map((record) => {
+    const input = record.localInput!;
+    const body = readFileSync(resolve(process.cwd(), input), 'utf8');
+    const publishedAt = /^publishedAt:\s*"(\d{4}-\d{2}-\d{2})"$/m.exec(body)?.[1];
+    if (!publishedAt) throw new Error(`News content lacks an ISO publishedAt: ${input}`);
+    return {
+      path: record.route,
+      slug: input.slice('src/content/news/'.length, -'.md'.length),
+      publishedAt
+    };
+  })
+  .sort((left, right) => right.publishedAt.localeCompare(left.publishedAt) || left.slug.localeCompare(right.slug));
 
 test('homepage exposes the site title and main landmark', async ({ page }) => {
   const response = await page.goto('/');
@@ -165,4 +188,62 @@ test('Impact external service references remain safe links rather than embedded 
     await expect(externalService).toHaveAttribute('target', '_blank');
     await expect(externalService).toHaveAttribute('rel', 'noopener noreferrer');
   }
+});
+
+test('News emits exactly the owner-approved listing and 21 declared article routes', async ({ page }) => {
+  expect(newsListingPaths).toEqual(['/news-blog']);
+  expect(newsArticlePaths).toHaveLength(21);
+  expect(newsArticlePaths).toContain('/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report');
+  expect(orderedNews.map((article) => article.path).sort()).toEqual([...newsArticlePaths].sort());
+
+  for (const path of [...newsListingPaths, ...newsArticlePaths]) {
+    const response = await page.goto(path);
+    expect(response?.ok(), path).toBe(true);
+  }
+});
+
+test('News listing renders every approved card once in descending publishedAt and ascending slug order without pagination', async ({ page }) => {
+  await page.goto('/news-blog');
+
+  const slugs = await page.locator('[data-news-slug]').evaluateAll((cards) =>
+    cards.map((card) => card.getAttribute('data-news-slug'))
+  );
+  expect(slugs).toEqual(orderedNews.map((article) => article.slug));
+  expect(new Set(slugs).size).toBe(21);
+  await expect(page.locator('[data-news-pagination], nav[aria-label*="pagination" i], a[href*="offset="]')).toHaveCount(0);
+  await expect(page.getByText(/older posts|newer posts/i)).toHaveCount(0);
+});
+
+test('News undeclared, Hillary, page, and query variants fail closed without a recreated older listing', async ({ page }) => {
+  const excludedHillaryPaths = routeManifest.routes
+    .filter((route) => route.kind === 'excluded' && route.path.startsWith('/news-blog/'))
+    .map((route) => route.path);
+
+  expect(excludedHillaryPaths).toHaveLength(6);
+  for (const path of ['/news', '/news-blog/not-a-declared-story', '/news-blog/page/2', ...excludedHillaryPaths]) {
+    const response = await page.goto(path);
+    expect(response?.status(), path).toBe(404);
+  }
+
+  const queryResponse = await page.goto('/news-blog?offset=1675630776192');
+  expect(queryResponse?.ok()).toBe(true);
+  expect(await page.locator('[data-news-slug]').evaluateAll((cards) =>
+    cards.map((card) => card.getAttribute('data-news-slug'))
+  )).toEqual(orderedNews.map((article) => article.slug));
+  await expect(page.locator('a[href*="offset="]')).toHaveCount(0);
+});
+
+test('News representative preserves its body lead asset without a duplicate hero or external embed runtime', async ({ page }) => {
+  const response = await page.goto('/news-blog/announcing-the-new-ceo-for-ehf');
+  expect(response?.ok()).toBe(true);
+
+  const article = page.getByRole('article');
+  await expect(article.getByRole('heading', { level: 1 })).toHaveText('Announcing the new CEO for EHF');
+  await expect(article.locator('.article-page__hero')).toHaveCount(0);
+  await expect(article.locator('.article-page__body figure img')).toHaveCount(1);
+  await expect(article.locator('iframe')).toHaveCount(0);
+  const mediaPaths = await article.locator('img').evaluateAll((images) =>
+    images.map((image) => new URL(image.getAttribute('src') ?? '', window.location.href).pathname)
+  );
+  expect(mediaPaths).toEqual(['/assets/images/content/news-blog-announcing-the-new-ceo-for-ehf-1.webp']);
 });

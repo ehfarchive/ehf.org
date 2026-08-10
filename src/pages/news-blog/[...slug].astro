@@ -1,0 +1,139 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import { assetIdForLocalPath } from '../../data/site';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import contentManifestInput from '../../../source-evidence/content-manifest.json';
+import routeManifestInput from '../../../source-evidence/route-manifest.json';
+import type { ContentManifest, LocalContentManifestRecord } from '../../lib/page-data';
+import { validateContentManifest } from '../../lib/page-data';
+import { loadRouteManifest } from '../../lib/route-manifest';
+
+type NewsEntry = CollectionEntry<'news'>;
+type NewsArticle = { entry: NewsEntry; path: string };
+
+const routeManifest = loadRouteManifest(routeManifestInput);
+const contentManifest = contentManifestInput as ContentManifest;
+const contentErrors = validateContentManifest(contentManifest);
+if (contentErrors.length > 0) throw new Error(contentErrors.join('; '));
+
+const listingPaths = routeManifest.routes
+  .filter((route) => route.kind === 'included' && route.family === 'news-listing' && route.path === '/news-blog')
+  .map((route) => route.path);
+const articlePaths = routeManifest.routes
+  .filter((route) => route.kind === 'included' && route.family === 'news-article')
+  .map((route) => route.path);
+const contentRecords = contentManifest.content
+  .filter((record): record is LocalContentManifestRecord => record.template === 'news-article');
+
+if (listingPaths.length !== 1 || listingPaths[0] !== '/news-blog') throw new Error('News listing is not declared exactly once');
+if (articlePaths.length !== 21 || new Set(articlePaths).size !== 21) throw new Error('News manifest must declare exactly 21 unique articles');
+if (contentRecords.length !== 21 || new Set(contentRecords.map((record) => record.localInput)).size !== 21) {
+  throw new Error('News content manifest must declare exactly 21 unique local inputs');
+}
+if (routeManifest.routes.some((route) => route.kind === 'included' && /^\/news-blog\/page(?:\/|$)/.test(route.path))) {
+  throw new Error('News pagination paths are not permitted');
+}
+
+const pathByInput = new Map(contentRecords.map((record) => [record.localInput, record.route] as const));
+const pathSet = new Set(articlePaths);
+const entries = await getCollection('news');
+const articles: NewsArticle[] = entries.map((entry) => {
+  const path = pathByInput.get(`src/content/news/${entry.id}.md`);
+  const publishedAt = entry.data.publishedAt;
+  if (!path || !pathSet.has(path)) throw new Error(`News entry is not declared by the manifests: ${entry.id}`);
+  if (typeof publishedAt !== 'string' || Number.isNaN(new Date(`${publishedAt}T00:00:00.000Z`).valueOf())) {
+    throw new Error(`News entry has an invalid publishedAt: ${entry.id}`);
+  }
+  return { entry, path };
+});
+
+if (articles.length !== 21 || articles.length !== pathSet.size || articles.length !== pathByInput.size
+  || new Set(articles.map((article) => article.entry.id)).size !== articles.length
+  || new Set(articles.map((article) => article.path)).size !== articles.length) {
+  throw new Error('News manifests and typed collection entries do not agree');
+}
+
+articles.sort((left, right) => right.entry.data.publishedAt!.localeCompare(left.entry.data.publishedAt!)
+  || left.entry.id.localeCompare(right.entry.id));
+
+export async function getStaticPaths() {
+  const staticRouteManifest = loadRouteManifest(routeManifestInput);
+  const staticContentManifest = contentManifestInput as ContentManifest;
+  const staticContentErrors = validateContentManifest(staticContentManifest);
+  if (staticContentErrors.length > 0) throw new Error(staticContentErrors.join('; '));
+
+  const staticListingPaths = staticRouteManifest.routes
+    .filter((route) => route.kind === 'included' && route.family === 'news-listing' && route.path === '/news-blog')
+    .map((route) => route.path);
+  const staticArticlePaths = staticRouteManifest.routes
+    .filter((route) => route.kind === 'included' && route.family === 'news-article')
+    .map((route) => route.path);
+  const staticContentRecords = staticContentManifest.content
+    .filter((record): record is LocalContentManifestRecord => record.template === 'news-article');
+  if (staticListingPaths.length !== 1 || staticListingPaths[0] !== '/news-blog') throw new Error('News listing is not declared exactly once');
+  if (staticArticlePaths.length !== 21 || new Set(staticArticlePaths).size !== 21) throw new Error('News manifest must declare exactly 21 unique articles');
+  if (staticContentRecords.length !== 21 || new Set(staticContentRecords.map((record) => record.localInput)).size !== 21) {
+    throw new Error('News content manifest must declare exactly 21 unique local inputs');
+  }
+  if (staticRouteManifest.routes.some((route) => route.kind === 'included' && /^\/news-blog\/page(?:\/|$)/.test(route.path))) {
+    throw new Error('News pagination paths are not permitted');
+  }
+
+  const staticPathByInput = new Map(staticContentRecords.map((record) => [record.localInput, record.route] as const));
+  const staticPathSet = new Set(staticArticlePaths);
+  const staticArticles: NewsArticle[] = (await getCollection('news')).map((entry) => {
+    const path = staticPathByInput.get(`src/content/news/${entry.id}.md`);
+    const publishedAt = entry.data.publishedAt;
+    if (!path || !staticPathSet.has(path)) throw new Error(`News entry is not declared by the manifests: ${entry.id}`);
+    if (typeof publishedAt !== 'string' || Number.isNaN(new Date(`${publishedAt}T00:00:00.000Z`).valueOf())) {
+      throw new Error(`News entry has an invalid publishedAt: ${entry.id}`);
+    }
+    return { entry, path };
+  });
+  if (staticArticles.length !== 21 || staticArticles.length !== staticPathSet.size || staticArticles.length !== staticPathByInput.size
+    || new Set(staticArticles.map((article) => article.entry.id)).size !== staticArticles.length
+    || new Set(staticArticles.map((article) => article.path)).size !== staticArticles.length) {
+    throw new Error('News manifests and typed collection entries do not agree');
+  }
+
+  return staticArticles
+    .sort((left, right) => right.entry.data.publishedAt!.localeCompare(left.entry.data.publishedAt!) || left.entry.id.localeCompare(right.entry.id))
+    .map((article) => ({ params: { slug: article.path.slice('/news-blog/'.length) }, props: { article } }));
+}
+
+const { article } = Astro.props as { article: NewsArticle };
+const position = articles.findIndex((candidate) => candidate.path === article.path);
+if (position === -1) throw new Error(`News article is not in the declared collection: ${article.entry.id}`);
+const previousArticle = position > 0 ? articles[position - 1] : undefined;
+const nextArticle = position < articles.length - 1 ? articles[position + 1] : undefined;
+const { Content } = await render(article.entry);
+const publishedAt = new Date(`${article.entry.data.publishedAt}T00:00:00.000Z`);
+const hero = article.entry.data.heroImage ? {
+  assetId: assetIdForLocalPath(article.entry.data.heroImage),
+  alt: article.entry.data.heroAlt ?? ''
+} : undefined;
+const firstMarkdownImage = /!\[[^\]]*\]\(\s*(?:<([^>]+)>|([^\s)]+))/.exec(article.entry.body ?? '');
+const firstImagePath = firstMarkdownImage?.[1] ?? firstMarkdownImage?.[2];
+let suppressHero = false;
+if (hero && firstImagePath) {
+  try {
+    suppressHero = assetIdForLocalPath(decodeURIComponent(new URL(firstImagePath, 'https://local.invalid').pathname)) === hero.assetId;
+  } catch {
+    suppressHero = false;
+  }
+}
+const previous = previousArticle ? { href: previousArticle.path, title: previousArticle.entry.data.title } : undefined;
+const next = nextArticle ? { href: nextArticle.path, title: nextArticle.entry.data.title } : undefined;
+---
+
+<ArticleLayout
+  title={article.entry.data.title}
+  description={article.entry.data.excerpt}
+  publishedAt={publishedAt}
+  hero={hero}
+  previous={previous}
+  next={next}
+  suppressHero={suppressHero}
+>
+  <Content />
+</ArticleLayout>

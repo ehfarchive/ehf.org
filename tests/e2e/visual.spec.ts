@@ -632,3 +632,63 @@ test('Impact representative article states render local semantic media without r
 
   expect(runtimeFaults).toEqual([]);
 });
+
+test('News source matrix keeps only owner-approved states active and preserves offset captures as historical source evidence', async () => {
+  const listing = sourceContract.templates.find((template) => template.family === 'news-listing');
+  const article = sourceContract.templates.find((template) => template.family === 'news-article');
+
+  expect(listing?.representativePath).toBe('/news-blog');
+  expect(listing?.states.map((state) => state.name)).toEqual(['default', 'nav-impact-open', 'pagination-older']);
+  expect(listing?.states.filter((state) => state.name !== 'pagination-older').every((state) =>
+    /active owner-approved/i.test(state.description)
+  )).toBe(true);
+  expect(listing?.states.find((state) => state.name === 'pagination-older')?.description).toMatch(/historical.*inactive/i);
+  expect(listing?.captures.filter((capture) => capture.state !== 'pagination-older').map((capture) =>
+    `${capture.state}-${capture.viewport}`
+  )).toEqual(['default-desktop', 'default-mobile', 'nav-impact-open-desktop', 'nav-impact-open-mobile']);
+  expect(listing?.captures.filter((capture) => capture.state === 'pagination-older').map((capture) =>
+    `${capture.state}-${capture.viewport}`
+  )).toEqual(['pagination-older-desktop', 'pagination-older-mobile']);
+  expect(article?.representativePath).toBe('/news-blog/announcing-the-new-ceo-for-ehf');
+  expect(article?.states.map((state) => state.name)).toEqual(['default', 'nav-about-open']);
+  expect(article?.states.every((state) => /active owner-approved/i.test(state.description))).toBe(true);
+  expect(article?.captures.map((capture) => `${capture.state}-${capture.viewport}`)).toEqual([
+    'default-desktop',
+    'default-mobile',
+    'nav-about-open-desktop',
+    'nav-about-open-mobile'
+  ]);
+});
+
+test('News active comparison states render local media, one main landmark, and no runtime faults', async ({ page }, testInfo) => {
+  const viewport = testInfo.project.name === 'desktop' ? { width: 1440, height: 1000 } : { width: 390, height: 844 };
+  const cases: ReadonlyArray<{ route: string; state: ComparableState; label: string }> = [
+    { route: '/news-blog', state: 'default', label: 'listing default' },
+    { route: '/news-blog', state: 'nav-impact-open', label: 'listing impact navigation' },
+    { route: '/news-blog/announcing-the-new-ceo-for-ehf', state: 'default', label: 'article default' },
+    { route: '/news-blog/announcing-the-new-ceo-for-ehf', state: 'nav-about-open', label: 'article about navigation' }
+  ];
+
+  for (const item of cases) {
+    const capture = await captureComparable(page, item.route, viewport, item.state);
+    expect(capture.viewport, item.label).toEqual(viewport);
+    expect(capture.consoleErrors, item.label).toEqual([]);
+    expect(capture.failedRequests, item.label).toEqual([]);
+    expect(capture.localImages.every((src) => new URL(src).pathname.startsWith('/assets/')), item.label).toBe(true);
+    expect(capture.unloadedImages, item.label).toEqual([]);
+    expect(capture.returnedToTop, item.label).toBe(true);
+    expect(capture.screenshotEvidence.format, item.label).toBe('png');
+    if (testInfo.project.name === 'mobile' && item.state !== 'default') {
+      expect(capture.requestedMobilePanelActive, item.label).toBe(true);
+      expect(capture.mobileRootShifted, item.label).toBe(true);
+    }
+  }
+
+  await page.goto('/news-blog');
+  await expect(page.getByRole('main')).toHaveCount(1);
+  await expect(page.locator('[data-news-slug]')).toHaveCount(21);
+  await expect(page.locator('a[href*="offset="], [data-news-pagination]')).toHaveCount(0);
+  await page.goto('/news-blog/announcing-the-new-ceo-for-ehf');
+  await expect(page.getByRole('main')).toHaveCount(1);
+  await expect(page.locator('.article-page__hero, .article-page__body iframe')).toHaveCount(0);
+});

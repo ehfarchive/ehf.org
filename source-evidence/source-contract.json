@@ -1149,17 +1149,17 @@
         {
           "name": "default",
           "sourceObserved": true,
-          "description": "Page as first painted after fonts settle, full 600 px lazy-load scroll pass, and scroll returned to the top."
+          "description": "Active owner-approved News comparison state for the 21 EHF articles, after excluding the six Hillary Institute records; source decision provenance: cc6ffa7d74c7aadbade7eed7c26c9afe3672b6b5."
         },
         {
           "name": "nav-impact-open",
           "sourceObserved": true,
-          "description": "Impact navigation folder expanded: desktop opens the header folder dropdown, mobile opens the burger menu and expands the same folder."
+          "description": "Active owner-approved News comparison state for the 21 EHF articles, with the Impact navigation folder expanded; source decision provenance: cc6ffa7d74c7aadbade7eed7c26c9afe3672b6b5."
         },
         {
           "name": "pagination-older",
           "sourceObserved": true,
-          "description": "Second page of the collection listing reached through the source \"Older Posts\" pagination control."
+          "description": "Historical source-only older-posts capture, explicitly inactive for local News behavior under owner decision cc6ffa7d74c7aadbade7eed7c26c9afe3672b6b5."
         }
       ],
       "measurements": {
@@ -1518,12 +1518,12 @@
         {
           "name": "default",
           "sourceObserved": true,
-          "description": "Page as first painted after fonts settle, full 600 px lazy-load scroll pass, and scroll returned to the top."
+          "description": "Active owner-approved News article comparison state for the representative EHF article; source decision provenance: cc6ffa7d74c7aadbade7eed7c26c9afe3672b6b5."
         },
         {
           "name": "nav-about-open",
           "sourceObserved": true,
-          "description": "About navigation folder expanded: desktop opens the header folder dropdown, mobile opens the burger menu and expands the same folder."
+          "description": "Active owner-approved News article comparison state with the About navigation folder expanded; source decision provenance: cc6ffa7d74c7aadbade7eed7c26c9afe3672b6b5."
         }
       ],
       "measurements": {
