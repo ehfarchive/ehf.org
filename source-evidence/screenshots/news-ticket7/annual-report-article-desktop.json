@@ -1,0 +1,415 @@
+{
+  "schemaVersion": 1,
+  "capture": {
+    "ticket": "Stage 2 Ticket 7",
+    "purpose": "Live EHF News source evidence only; no runtime assets copied into build.",
+    "tool": "gstack browse shared Chromium",
+    "capturedAt": "2026-08-10T00:39:53.011Z",
+    "requestedUrl": "https://www.ehf.org/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report",
+    "finalUrl": "https://www.ehf.org/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report",
+    "viewport": {
+      "name": "desktop",
+      "widthPx": 1440,
+      "heightPx": 1000
+    },
+    "reducedMotion": "reduce",
+    "fontsReady": true,
+    "scrollIncrementPx": 600,
+    "scrolledToDocumentBottom": true,
+    "returnedToTop": true,
+    "screenshot": "full-page PNG",
+    "retry": {
+      "attempted": true,
+      "reason": "Initial capture execution failed before screenshot output because the browser-run Node scope did not expose innerHeight; capture rerun once after querying window.innerHeight in page context."
+    }
+  },
+  "state": "annual-report-article",
+  "health": {
+    "httpStatus": 200,
+    "redirectWithinApprovedEhfScope": true,
+    "consoleErrors": [],
+    "consoleWarnings": [],
+    "failedRequests": [],
+    "pendingRequestsAtInspection": [
+      {
+        "method": "GET",
+        "url": "https://svg.issuu.com/241016023007-85014384abcf5da3985667dcf0b08611/page_2.svg"
+      },
+      {
+        "method": "GET",
+        "url": "https://svg.issuu.com/241016023007-85014384abcf5da3985667dcf0b08611/page_3.svg"
+      },
+      {
+        "method": "GET",
+        "url": "https://svg.issuu.com/241016023007-85014384abcf5da3985667dcf0b08611/page_4.svg"
+      },
+      {
+        "method": "GET",
+        "url": "https://svg.issuu.com/241016023007-85014384abcf5da3985667dcf0b08611/page_5.svg"
+      },
+      {
+        "method": "GET",
+        "url": "https://e.issuu.com/reader4/fc62d75/_next/static/chunks/151.cfb4ade01a8cdaf4.js"
+      },
+      {
+        "method": "GET",
+        "url": "https://issuu.com/api/content-service/public.search.getSimilarDocuments"
+      },
+      {
+        "method": "OPTIONS",
+        "url": "https://issuu.com/api/content-service/public.search.getSimilarDocuments"
+      }
+    ]
+  },
+  "screenshot": {
+    "file": "annual-report-article-desktop.png",
+    "sha256": "969cdde6c193028f3d9025a0d299c0b61f43b51ca770db69478e02481741c31a",
+    "widthPx": 1440,
+    "heightPx": 3813,
+    "bytes": 638106,
+    "channels": 3
+  },
+  "dom": {
+    "title": "A Year of Impact, Value and Momentum - 2023/24 Annual Report — Edmund Hillary Fellowship",
+    "headings": [
+      {
+        "level": 1,
+        "text": "A Year of Impact, Value and Momentum - 2023/24 Annual Report"
+      },
+      {
+        "level": 4,
+        "text": "Fellows a unique force in NZ’s ecosystem"
+      },
+      {
+        "level": 2,
+        "text": "The Hillary Institute and Edmund Hillary Fellowship Submission on the Treaty Principles Bill"
+      },
+      {
+        "level": 2,
+        "text": "Media Statement: Changes needed to make New Zealand the place where talent wants to live, says report"
+      },
+      {
+        "level": 4,
+        "text": "© Edmund Hillary Fellowship 2016 - 2026"
+      },
+      {
+        "level": 3,
+        "text": "About‍ | Fellows Directory‍ |‍ ‍ Impact ‍ | Archive‍ | Closure Statement | Privacy"
+      }
+    ],
+    "cards": [],
+    "pagination": [],
+    "links": [
+      {
+        "text": "0",
+        "href": "https://www.ehf.org/cart"
+      },
+      {
+        "text": "Skip to Content",
+        "href": "https://www.ehf.org/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report#page"
+      },
+      {
+        "text": "",
+        "href": "https://www.ehf.org/"
+      },
+      {
+        "text": "About Us",
+        "href": "https://www.ehf.org/about-ehf"
+      },
+      {
+        "text": "Journey",
+        "href": "https://www.ehf.org/journey"
+      },
+      {
+        "text": "Our Values",
+        "href": "https://www.ehf.org/our-values"
+      },
+      {
+        "text": "Read and Watch",
+        "href": "https://www.ehf.org/impact-in-action"
+      },
+      {
+        "text": "Impact Snapshots",
+        "href": "https://www.ehf.org/news#fellows"
+      },
+      {
+        "text": "EHF Community Collective",
+        "href": "https://www.ehf.org/communitycollective"
+      },
+      {
+        "text": "EHF Fellows Articles",
+        "href": "https://www.ehf.org/ehf-fellows-articles"
+      },
+      {
+        "text": "Archive",
+        "href": "https://www.ehf.org/archive"
+      },
+      {
+        "text": "Fellow Directory",
+        "href": "https://www.ehf.org/fellow-directory"
+      },
+      {
+        "text": "",
+        "href": "https://www.ehf.org/"
+      },
+      {
+        "text": "About Us",
+        "href": "https://www.ehf.org/about-ehf"
+      },
+      {
+        "text": "Journey",
+        "href": "https://www.ehf.org/journey"
+      },
+      {
+        "text": "Our Values",
+        "href": "https://www.ehf.org/our-values"
+      },
+      {
+        "text": "Read and Watch",
+        "href": "https://www.ehf.org/impact-in-action"
+      },
+      {
+        "text": "Impact Snapshots",
+        "href": "https://www.ehf.org/news#fellows"
+      },
+      {
+        "text": "EHF Community Collective",
+        "href": "https://www.ehf.org/communitycollective"
+      },
+      {
+        "text": "EHF Fellows Articles",
+        "href": "https://www.ehf.org/ehf-fellows-articles"
+      },
+      {
+        "text": "Archive",
+        "href": "https://www.ehf.org/archive"
+      },
+      {
+        "text": "Fellow Directory",
+        "href": "https://www.ehf.org/fellow-directory"
+      },
+      {
+        "text": "Folder: About",
+        "href": "https://www.ehf.org/about"
+      },
+      {
+        "text": "Folder: Impact",
+        "href": "https://www.ehf.org/impact"
+      },
+      {
+        "text": "Archive",
+        "href": "https://www.ehf.org/archive"
+      },
+      {
+        "text": "Fellow Directory",
+        "href": "https://www.ehf.org/fellow-directory"
+      },
+      {
+        "text": "Back",
+        "href": "https://www.ehf.org/"
+      },
+      {
+        "text": "About Us",
+        "href": "https://www.ehf.org/about-ehf"
+      },
+      {
+        "text": "Journey",
+        "href": "https://www.ehf.org/journey"
+      },
+      {
+        "text": "Our Values",
+        "href": "https://www.ehf.org/our-values"
+      },
+      {
+        "text": "Back",
+        "href": "https://www.ehf.org/"
+      },
+      {
+        "text": "Read and Watch",
+        "href": "https://www.ehf.org/impact-in-action"
+      },
+      {
+        "text": "Impact Snapshots",
+        "href": "https://www.ehf.org/news#fellows"
+      },
+      {
+        "text": "EHF Community Collective",
+        "href": "https://www.ehf.org/communitycollective"
+      },
+      {
+        "text": "EHF Fellows Articles",
+        "href": "https://www.ehf.org/ehf-fellows-articles"
+      },
+      {
+        "text": "Guest User",
+        "href": "https://www.ehf.org/news-blog?author=6892a05425ca4f5662280094"
+      },
+      {
+        "text": "Guest User",
+        "href": "https://www.ehf.org/news-blog?author=6892a05425ca4f5662280094"
+      },
+      {
+        "text": "Previous The Hillary Institute and Edmund Hillary Fellowship Submission on the Treaty Principles Bill",
+        "href": "https://www.ehf.org/news-blog/the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill"
+      },
+      {
+        "text": "Next Media Statement: Changes needed to make New Zealand the place where talent wants to live, says report",
+        "href": "https://www.ehf.org/news-blog/media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report"
+      },
+      {
+        "text": "About‍",
+        "href": "https://www.ehf.org/about-ehf"
+      },
+      {
+        "text": "Fellows Directory‍",
+        "href": "https://www.ehf.org/fellow-directory-advanced-search"
+      },
+      {
+        "text": "Impact",
+        "href": "https://www.ehf.org/impact-in-action"
+      },
+      {
+        "text": "Archive‍",
+        "href": "https://www.ehf.org/news"
+      }
+    ],
+    "media": [
+      {
+        "order": 1,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
+        "dataSrc": null,
+        "alt": "Edmund Hillary Fellowship",
+        "complete": true,
+        "naturalWidth": 914,
+        "naturalHeight": 154
+      },
+      {
+        "order": 2,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
+        "dataSrc": null,
+        "alt": "Edmund Hillary Fellowship",
+        "complete": true,
+        "naturalWidth": 914,
+        "naturalHeight": 154
+      },
+      {
+        "order": 3,
+        "tag": "iframe",
+        "src": "https://e.issuu.com/embed.html?d=16309_ehf_hi_annual_report_2024_issuu&u=edmundhillaryfellowship",
+        "dataSrc": null,
+        "alt": null,
+        "complete": null,
+        "naturalWidth": null,
+        "naturalHeight": null
+      },
+      {
+        "order": 4,
+        "tag": "img",
+        "src": null,
+        "dataSrc": "https://images.squarespace-cdn.com/content/v2/namespaces/memberAccountAvatars/libraries/64222092b1babe5cc24ce119/fe4c2970e38845428b92e0723ae0056d/fe4c2970e38845428b92e0723ae0056d.jpeg?format=300w",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      }
+    ],
+    "unloadedMedia": [
+      {
+        "order": 4,
+        "tag": "img",
+        "src": null,
+        "dataSrc": "https://images.squarespace-cdn.com/content/v2/namespaces/memberAccountAvatars/libraries/64222092b1babe5cc24ce119/fe4c2970e38845428b92e0723ae0056d/fe4c2970e38845428b92e0723ae0056d.jpeg?format=300w",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 0,
+        "naturalHeight": 0
+      }
+    ],
+    "templateSignals": {
+      "bodyClass": "tweak-blog-alternating-side-by-side-width-inset tweak-blog-alternating-side-by-side-image-aspect-ratio-11-square tweak-blog-alternating-side-by-side-text-alignment-left tweak-blog-alternating-side-by-side-read-more-style-show tweak-blog-alternating-side-by-side-image-text-alignment-middle tweak-blog-alternating-side-by-side-delimiter-bullet tweak-blog-alternating-side-by-side-meta-position-top tweak-blog-alternating-side-by-side-primary-meta-categories tweak-blog-alternating-side-by-side-secondary-meta-date tweak-blog-alternating-side-by-side-excerpt-show image-block-poster-text-alignment-left image-block-card-content-position-center image-block-card-text-alignment-left image-block-overlap-content-position-center image-block-overlap-text-alignment-left image-block-collage-content-position-center image-block-collage-text-alignment-left image-block-stack-text-alignment-left form-use-theme-colors form-field-style-solid form-field-shape-square form-field-border-all form-field-checkbox-type-icon form-field-checkbox-fill-solid form-field-checkbox-color-inverted form-field-checkbox-shape-square form-field-checkbox-layout-stack form-field-radio-type-icon form-field-radio-fill-solid form-field-radio-color-normal form-field-radio-shape-pill form-field-radio-layout-stack form-field-survey-fill-solid form-field-survey-color-normal form-field-survey-shape-pill form-field-hover-focus-outline form-submit-button-style-label  tweak-global-animations-complexity-level-detailed tweak-global-animations-animation-style-fade tweak-global-animations-animation-type-none tweak-global-animations-animation-curve-ease tweak-blog-masonry-width-full tweak-blog-masonry-text-alignment-left tweak-blog-masonry-primary-meta-none tweak-blog-masonry-secondary-meta-none tweak-blog-masonry-meta-position-top tweak-blog-masonry-read-more-style-hide tweak-blog-masonry-delimiter-bullet tweak-blog-masonry-image-placement-above tweak-blog-masonry-excerpt-hide tweak-portfolio-grid-overlay-width-full tweak-portfolio-grid-overlay-height-large tweak-portfolio-grid-overlay-image-aspect-ratio-11-square tweak-portfolio-grid-overlay-text-placement-center tweak-portfolio-grid-overlay-show-text-after-hover tweak-blog-single-column-width-inset tweak-blog-single-column-text-alignment-center tweak-blog-single-column-image-placement-above tweak-blog-single-column-delimiter-bullet tweak-blog-single-column-read-more-style-show tweak-blog-single-column-primary-meta-categories tweak-blog-single-column-secondary-meta-date tweak-blog-single-column-meta-position-top tweak-blog-single-column-content-full-post header-width-inset   tweak-fixed-header-style-basic tweak-blog-item-width-custom tweak-blog-item-text-alignment-center tweak-blog-item-meta-position-below-title tweak-blog-item-show-categories    tweak-blog-item-delimiter-bullet tweak-blog-side-by-side-width-full tweak-blog-side-by-side-image-placement-left tweak-blog-side-by-side-image-aspect-ratio-11-square tweak-blog-side-by-side-primary-meta-categories tweak-blog-side-by-side-secondary-meta-none tweak-blog-side-by-side-meta-position-top tweak-blog-side-by-side-text-alignment-left tweak-blog-side-by-side-image-text-alignment-middle tweak-blog-side-by-side-read-more-style-show tweak-blog-side-by-side-delimiter-bullet tweak-blog-side-by-side-excerpt-hide primary-button-style-solid primary-button-shape-rounded secondary-button-style-solid secondary-button-shape-rounded tertiary-button-style-solid tertiary-button-shape-rounded tweak-events-stacked-width-full tweak-events-stacked-height-large  tweak-events-stacked-show-thumbnails tweak-events-stacked-thumbnail-size-32-standard tweak-events-stacked-date-style-with-text tweak-events-stacked-show-time tweak-events-stacked-show-location  tweak-events-stacked-show-excerpt  tweak-blog-basic-grid-width-inset tweak-blog-basic-grid-image-aspect-ratio-32-standard tweak-blog-basic-grid-text-alignment-left tweak-blog-basic-grid-delimiter-bullet tweak-blog-basic-grid-image-placement-above tweak-blog-basic-grid-read-more-style-show tweak-blog-basic-grid-primary-meta-categories tweak-blog-basic-grid-secondary-meta-date tweak-blog-basic-grid-excerpt-show tweak-portfolio-grid-basic-width-full tweak-portfolio-grid-basic-height-large tweak-portfolio-grid-basic-image-aspect-ratio-11-square tweak-portfolio-grid-basic-text-alignment-left tweak-portfolio-grid-basic-hover-effect-fade header-overlay-alignment-center tweak-portfolio-index-background-link-format-stacked tweak-portfolio-index-background-width-full-bleed tweak-portfolio-index-background-height-large  tweak-portfolio-index-background-vertical-alignment-middle tweak-portfolio-index-background-horizontal-alignment-center tweak-portfolio-index-background-delimiter-none tweak-portfolio-index-background-animation-type-fade tweak-portfolio-index-background-animation-duration-medium tweak-portfolio-hover-follow-layout-inline  tweak-portfolio-hover-follow-delimiter-bullet tweak-portfolio-hover-follow-animation-type-fade tweak-portfolio-hover-follow-animation-duration-fast tweak-portfolio-hover-static-layout-inline tweak-portfolio-hover-static-front tweak-portfolio-hover-static-delimiter-hyphen tweak-portfolio-hover-static-animation-type-fade tweak-portfolio-hover-static-animation-duration-fast hide-opentable-icons opentable-style-dark tweak-product-quick-view-button-style-floating tweak-product-quick-view-button-position-bottom tweak-product-quick-view-lightbox-excerpt-display-truncate tweak-product-quick-view-lightbox-show-arrows tweak-product-quick-view-lightbox-show-close-button tweak-product-quick-view-lightbox-controls-weight-light native-currency-code-usd collection-6343538858527913618401a0 view-item collection-layout-default collection-type-blog-basic-grid mobile-style-available sqs-seven-one\n      \n        \n          \n            \n              has-banner-image\n              item-main-image\n            \n          \n        \n      \n     seven-one-global-animations",
+      "collectionType": null,
+      "collectionId": null,
+      "blogItemCount": 0,
+      "hasBlogCollection": true,
+      "hasBlogItem": false,
+      "hasPageSections": true,
+      "hasNotFoundText": false
+    },
+    "meta": [
+      {
+        "key": "viewport",
+        "content": "width=device-width, initial-scale=1"
+      },
+      {
+        "key": "og:site_name",
+        "content": "Edmund Hillary Fellowship"
+      },
+      {
+        "key": "og:title",
+        "content": "A Year of Impact, Value and Momentum - 2023/24 Annual Report  — Edmund Hillary Fellowship"
+      },
+      {
+        "key": "og:latitude",
+        "content": "40.7207559"
+      },
+      {
+        "key": "og:longitude",
+        "content": "-74.0007613"
+      },
+      {
+        "key": "og:locality",
+        "content": null
+      },
+      {
+        "key": "og:url",
+        "content": "https://www.ehf.org/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report"
+      },
+      {
+        "key": "og:type",
+        "content": "article"
+      },
+      {
+        "key": "og:description",
+        "content": "17 October 2024   In 2023/24, Edmund Hillary Fellows continued to build on the value of the Global Impact Visa programme, founding businesses, creating jobs, providing direct investment and access to capital, and supporting communities across Aotearoa New Zealand.  Building on the strong foundation "
+      },
+      {
+        "key": "og:image",
+        "content": "http://static1.squarespace.com/static/5f3874da9e73700975a00b12/t/670f00d5241530557f5bbac0/1754439764706/16309+EHF+HI+Annual+Report+2024+Cover.jpg?format=1500w"
+      },
+      {
+        "key": "og:image:width",
+        "content": "1500"
+      },
+      {
+        "key": "og:image:height",
+        "content": "2121"
+      },
+      {
+        "key": "twitter:title",
+        "content": "A Year of Impact, Value and Momentum - 2023/24 Annual Report  — Edmund Hillary Fellowship"
+      },
+      {
+        "key": "twitter:image",
+        "content": "http://static1.squarespace.com/static/5f3874da9e73700975a00b12/t/670f00d5241530557f5bbac0/1754439764706/16309+EHF+HI+Annual+Report+2024+Cover.jpg?format=1500w"
+      },
+      {
+        "key": "twitter:url",
+        "content": "https://www.ehf.org/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report"
+      },
+      {
+        "key": "twitter:card",
+        "content": "summary"
+      },
+      {
+        "key": "twitter:description",
+        "content": "17 October 2024   In 2023/24, Edmund Hillary Fellows continued to build on the value of the Global Impact Visa programme, founding businesses, creating jobs, providing direct investment and access to capital, and supporting communities across Aotearoa New Zealand.  Building on the strong foundation "
+      },
+      {
+        "key": "description",
+        "content": null
+      }
+    ]
+  }
+}

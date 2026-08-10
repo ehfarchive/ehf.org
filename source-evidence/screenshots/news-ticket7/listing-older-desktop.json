@@ -1,0 +1,592 @@
+{
+  "schemaVersion": 1,
+  "capture": {
+    "ticket": "Stage 2 Ticket 7",
+    "purpose": "Live EHF News source evidence only; no runtime assets copied into build.",
+    "tool": "gstack browse shared Chromium",
+    "capturedAt": "2026-08-10T00:39:31.352Z",
+    "requestedUrl": "https://www.ehf.org/news-blog?offset=1675630776192",
+    "finalUrl": "https://www.ehf.org/news-blog?offset=1675630776192",
+    "viewport": {
+      "name": "desktop",
+      "widthPx": 1440,
+      "heightPx": 1000
+    },
+    "reducedMotion": "reduce",
+    "fontsReady": true,
+    "scrollIncrementPx": 600,
+    "scrolledToDocumentBottom": true,
+    "returnedToTop": true,
+    "screenshot": "full-page PNG",
+    "retry": {
+      "attempted": true,
+      "reason": "Initial capture execution failed before screenshot output because the browser-run Node scope did not expose innerHeight; capture rerun once after querying window.innerHeight in page context.",
+      "navigation": "clicked Older Posts from default desktop listing"
+    }
+  },
+  "state": "listing-older",
+  "health": {
+    "httpStatus": 200,
+    "redirectWithinApprovedEhfScope": true,
+    "consoleErrors": [],
+    "consoleWarnings": [],
+    "failedRequests": [],
+    "pendingRequestsAtInspection": []
+  },
+  "screenshot": {
+    "file": "listing-older-desktop.png",
+    "sha256": "3763c072f5fa9cec45ffbbabb254c3a3d7eb85506c9a8655e84a3a0dedfd7264",
+    "widthPx": 1440,
+    "heightPx": 4148,
+    "bytes": 2860743,
+    "channels": 3
+  },
+  "dom": {
+    "title": "EHF Organisation News — Edmund Hillary Fellowship",
+    "headings": [
+      {
+        "level": 1,
+        "text": "EHF welcomes more than 100 Fellows in 2022"
+      },
+      {
+        "level": 1,
+        "text": "2021/2022 Annual Report shows year of impact"
+      },
+      {
+        "level": 1,
+        "text": "Closer Alignment between Hillary Institute & EHF to unlock potential"
+      },
+      {
+        "level": 1,
+        "text": "Media release: Anna Kominik announced as new Board Chair"
+      },
+      {
+        "level": 1,
+        "text": "Farewell, thank you and congratulations to Paul Atkins"
+      },
+      {
+        "level": 1,
+        "text": "Announcing the new CEO for EHF"
+      },
+      {
+        "level": 1,
+        "text": "New Hillary Institute & Edmund Hillary Fellowship board chair elected"
+      },
+      {
+        "level": 4,
+        "text": "© Edmund Hillary Fellowship 2016 - 2026"
+      },
+      {
+        "level": 3,
+        "text": "About‍ | Fellows Directory‍ |‍ ‍ Impact ‍ | Archive‍ | Closure Statement | Privacy"
+      }
+    ],
+    "cards": [
+      {
+        "order": 1,
+        "title": "EHF welcomes more than 100 Fellows in 2022",
+        "href": "https://www.ehf.org/news-blog/ehf-welcomes-more-than-100-fellows-in-2022",
+        "date": "12/23/22",
+        "image": {
+          "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1671746815070-C9D9ARMR809ANF46XUDJ/Rosalie.jpg?format=2500w",
+          "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1671746815070-C9D9ARMR809ANF46XUDJ/Rosalie.jpg",
+          "alt": "EHF welcomes more than 100 Fellows in 2022",
+          "declaredWidth": "5472",
+          "declaredHeight": "3648",
+          "complete": true,
+          "naturalWidth": 1620,
+          "naturalHeight": 1080
+        }
+      },
+      {
+        "order": 2,
+        "title": "2021/2022 Annual Report shows year of impact",
+        "href": "https://www.ehf.org/news-blog/2021-2022-annual-report-shows-year-of-impact",
+        "date": "11/22/22",
+        "image": {
+          "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1669090799544-5CYJYHLNC51XF2E7FCCT/Hi%2B2022%2BAnnual%2BReport%2BImage.png?format=1000w",
+          "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1669090799544-5CYJYHLNC51XF2E7FCCT/Hi%2B2022%2BAnnual%2BReport%2BImage.png",
+          "alt": "2021/2022 Annual Report shows year of impact",
+          "declaredWidth": "1057",
+          "declaredHeight": "1484",
+          "complete": true,
+          "naturalWidth": 769,
+          "naturalHeight": 1080
+        }
+      },
+      {
+        "order": 3,
+        "title": "Closer Alignment between Hillary Institute & EHF to unlock potential",
+        "href": "https://www.ehf.org/news-blog/closer-alignment-between-hillary-institute-ehf-to-unlock-potential",
+        "date": "10/10/22",
+        "image": {
+          "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1665357046064-BR7REEU253EAYB89B2JF/29021FD0-3072-49F3-8DB2-CBB3C787AB0E_1_105_c.jpeg?format=2500w",
+          "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1665357046064-BR7REEU253EAYB89B2JF/29021FD0-3072-49F3-8DB2-CBB3C787AB0E_1_105_c.jpeg",
+          "alt": "Closer Alignment between Hillary Institute &amp; EHF to unlock potential",
+          "declaredWidth": "1217",
+          "declaredHeight": "645",
+          "complete": true,
+          "naturalWidth": 991,
+          "naturalHeight": 525
+        }
+      },
+      {
+        "order": 4,
+        "title": "Media release: Anna Kominik announced as new Board Chair",
+        "href": "https://www.ehf.org/news-blog/media-release-anna-kominik-announced-as-new-board-chair",
+        "date": "10/28/21",
+        "image": {
+          "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1635371220746-3T8GE0XVWFYH6QNQMNUR/Anna%2BKominik%2Bedited.jpeg?format=2500w",
+          "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1635371220746-3T8GE0XVWFYH6QNQMNUR/Anna%2BKominik%2Bedited.jpeg",
+          "alt": "Media release: Anna Kominik announced as new Board Chair",
+          "declaredWidth": "865",
+          "declaredHeight": "576",
+          "complete": true,
+          "naturalWidth": 561,
+          "naturalHeight": 373
+        }
+      },
+      {
+        "order": 5,
+        "title": "Farewell, thank you and congratulations to Paul Atkins",
+        "href": "https://www.ehf.org/news-blog/farewell-thank-you-and-congratulations-to-paul-atkins",
+        "date": "8/11/21",
+        "image": {
+          "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1628659753811-93UYX517O4FJ9L0WH0B4/Paul.jpeg?format=2500w",
+          "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1628659753811-93UYX517O4FJ9L0WH0B4/Paul.jpeg",
+          "alt": "Farewell, thank you and congratulations to Paul Atkins",
+          "declaredWidth": "1458",
+          "declaredHeight": "976",
+          "complete": true,
+          "naturalWidth": 940,
+          "naturalHeight": 629
+        }
+      },
+      {
+        "order": 6,
+        "title": "Announcing the new CEO for EHF",
+        "href": "https://www.ehf.org/news-blog/announcing-the-new-ceo-for-ehf",
+        "date": "2/3/21",
+        "image": {
+          "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1612293072669-LK70C65L3GL57GDMEKIQ/Rosalie+Nelson.jpeg?format=2500w",
+          "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1612293072669-LK70C65L3GL57GDMEKIQ/Rosalie+Nelson.jpeg",
+          "alt": "Announcing the new CEO for EHF",
+          "declaredWidth": "640",
+          "declaredHeight": "457",
+          "complete": true,
+          "naturalWidth": 387,
+          "naturalHeight": 276
+        }
+      },
+      {
+        "order": 7,
+        "title": "New Hillary Institute & Edmund Hillary Fellowship board chair elected",
+        "href": "https://www.ehf.org/news-blog/new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected",
+        "date": "12/17/20",
+        "image": {
+          "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1608267728936-YXWOKTHSFHZLAYGO802L/Blog+Post+Thumb+Long.jpg?format=750w",
+          "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1608267728936-YXWOKTHSFHZLAYGO802L/Blog+Post+Thumb+Long.jpg",
+          "alt": "New Hillary Institute &amp; Edmund Hillary Fellowship board chair elected",
+          "declaredWidth": "750",
+          "declaredHeight": "1214",
+          "complete": true,
+          "naturalWidth": 720,
+          "naturalHeight": 1165
+        }
+      }
+    ],
+    "pagination": [
+      {
+        "label": "Newer Posts",
+        "href": "https://www.ehf.org/news-blog?offset=1671747295026&reversePaginate=true"
+      }
+    ],
+    "links": [
+      {
+        "text": "0",
+        "href": "https://www.ehf.org/cart"
+      },
+      {
+        "text": "Skip to Content",
+        "href": "https://www.ehf.org/news-blog?offset=1675630776192#page"
+      },
+      {
+        "text": "",
+        "href": "https://www.ehf.org/"
+      },
+      {
+        "text": "About Us",
+        "href": "https://www.ehf.org/about-ehf"
+      },
+      {
+        "text": "Journey",
+        "href": "https://www.ehf.org/journey"
+      },
+      {
+        "text": "Our Values",
+        "href": "https://www.ehf.org/our-values"
+      },
+      {
+        "text": "Read and Watch",
+        "href": "https://www.ehf.org/impact-in-action"
+      },
+      {
+        "text": "Impact Snapshots",
+        "href": "https://www.ehf.org/news#fellows"
+      },
+      {
+        "text": "EHF Community Collective",
+        "href": "https://www.ehf.org/communitycollective"
+      },
+      {
+        "text": "EHF Fellows Articles",
+        "href": "https://www.ehf.org/ehf-fellows-articles"
+      },
+      {
+        "text": "Archive",
+        "href": "https://www.ehf.org/archive"
+      },
+      {
+        "text": "Fellow Directory",
+        "href": "https://www.ehf.org/fellow-directory"
+      },
+      {
+        "text": "",
+        "href": "https://www.ehf.org/"
+      },
+      {
+        "text": "About Us",
+        "href": "https://www.ehf.org/about-ehf"
+      },
+      {
+        "text": "Journey",
+        "href": "https://www.ehf.org/journey"
+      },
+      {
+        "text": "Our Values",
+        "href": "https://www.ehf.org/our-values"
+      },
+      {
+        "text": "Read and Watch",
+        "href": "https://www.ehf.org/impact-in-action"
+      },
+      {
+        "text": "Impact Snapshots",
+        "href": "https://www.ehf.org/news#fellows"
+      },
+      {
+        "text": "EHF Community Collective",
+        "href": "https://www.ehf.org/communitycollective"
+      },
+      {
+        "text": "EHF Fellows Articles",
+        "href": "https://www.ehf.org/ehf-fellows-articles"
+      },
+      {
+        "text": "Archive",
+        "href": "https://www.ehf.org/archive"
+      },
+      {
+        "text": "Fellow Directory",
+        "href": "https://www.ehf.org/fellow-directory"
+      },
+      {
+        "text": "Folder: About",
+        "href": "https://www.ehf.org/about"
+      },
+      {
+        "text": "Folder: Impact",
+        "href": "https://www.ehf.org/impact"
+      },
+      {
+        "text": "Archive",
+        "href": "https://www.ehf.org/archive"
+      },
+      {
+        "text": "Fellow Directory",
+        "href": "https://www.ehf.org/fellow-directory"
+      },
+      {
+        "text": "Back",
+        "href": "https://www.ehf.org/"
+      },
+      {
+        "text": "About Us",
+        "href": "https://www.ehf.org/about-ehf"
+      },
+      {
+        "text": "Journey",
+        "href": "https://www.ehf.org/journey"
+      },
+      {
+        "text": "Our Values",
+        "href": "https://www.ehf.org/our-values"
+      },
+      {
+        "text": "Back",
+        "href": "https://www.ehf.org/"
+      },
+      {
+        "text": "Read and Watch",
+        "href": "https://www.ehf.org/impact-in-action"
+      },
+      {
+        "text": "Impact Snapshots",
+        "href": "https://www.ehf.org/news#fellows"
+      },
+      {
+        "text": "EHF Community Collective",
+        "href": "https://www.ehf.org/communitycollective"
+      },
+      {
+        "text": "EHF Fellows Articles",
+        "href": "https://www.ehf.org/ehf-fellows-articles"
+      },
+      {
+        "text": "",
+        "href": "https://www.ehf.org/news-blog/ehf-welcomes-more-than-100-fellows-in-2022"
+      },
+      {
+        "text": "EHF welcomes more than 100 Fellows in 2022",
+        "href": "https://www.ehf.org/news-blog/ehf-welcomes-more-than-100-fellows-in-2022"
+      },
+      {
+        "text": "Read More",
+        "href": "https://www.ehf.org/news-blog/ehf-welcomes-more-than-100-fellows-in-2022"
+      },
+      {
+        "text": "",
+        "href": "https://www.ehf.org/news-blog/2021-2022-annual-report-shows-year-of-impact"
+      },
+      {
+        "text": "2021/2022 Annual Report shows year of impact",
+        "href": "https://www.ehf.org/news-blog/2021-2022-annual-report-shows-year-of-impact"
+      },
+      {
+        "text": "Read More",
+        "href": "https://www.ehf.org/news-blog/2021-2022-annual-report-shows-year-of-impact"
+      },
+      {
+        "text": "",
+        "href": "https://www.ehf.org/news-blog/closer-alignment-between-hillary-institute-ehf-to-unlock-potential"
+      },
+      {
+        "text": "Closer Alignment between Hillary Institute & EHF to unlock potential",
+        "href": "https://www.ehf.org/news-blog/closer-alignment-between-hillary-institute-ehf-to-unlock-potential"
+      },
+      {
+        "text": "Read More",
+        "href": "https://www.ehf.org/news-blog/closer-alignment-between-hillary-institute-ehf-to-unlock-potential"
+      },
+      {
+        "text": "",
+        "href": "https://www.ehf.org/news-blog/media-release-anna-kominik-announced-as-new-board-chair"
+      },
+      {
+        "text": "Media release: Anna Kominik announced as new Board Chair",
+        "href": "https://www.ehf.org/news-blog/media-release-anna-kominik-announced-as-new-board-chair"
+      },
+      {
+        "text": "Read More",
+        "href": "https://www.ehf.org/news-blog/media-release-anna-kominik-announced-as-new-board-chair"
+      },
+      {
+        "text": "",
+        "href": "https://www.ehf.org/news-blog/farewell-thank-you-and-congratulations-to-paul-atkins"
+      },
+      {
+        "text": "Farewell, thank you and congratulations to Paul Atkins",
+        "href": "https://www.ehf.org/news-blog/farewell-thank-you-and-congratulations-to-paul-atkins"
+      },
+      {
+        "text": "Read More",
+        "href": "https://www.ehf.org/news-blog/farewell-thank-you-and-congratulations-to-paul-atkins"
+      },
+      {
+        "text": "",
+        "href": "https://www.ehf.org/news-blog/announcing-the-new-ceo-for-ehf"
+      },
+      {
+        "text": "Announcing the new CEO for EHF",
+        "href": "https://www.ehf.org/news-blog/announcing-the-new-ceo-for-ehf"
+      },
+      {
+        "text": "Read More",
+        "href": "https://www.ehf.org/news-blog/announcing-the-new-ceo-for-ehf"
+      },
+      {
+        "text": "",
+        "href": "https://www.ehf.org/news-blog/new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected"
+      },
+      {
+        "text": "New Hillary Institute & Edmund Hillary Fellowship board chair elected",
+        "href": "https://www.ehf.org/news-blog/new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected"
+      },
+      {
+        "text": "Read More",
+        "href": "https://www.ehf.org/news-blog/new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected"
+      },
+      {
+        "text": "Newer Posts",
+        "href": "https://www.ehf.org/news-blog?offset=1671747295026&reversePaginate=true"
+      },
+      {
+        "text": "About‍",
+        "href": "https://www.ehf.org/about-ehf"
+      },
+      {
+        "text": "Fellows Directory‍",
+        "href": "https://www.ehf.org/fellow-directory-advanced-search"
+      },
+      {
+        "text": "Impact",
+        "href": "https://www.ehf.org/impact-in-action"
+      },
+      {
+        "text": "Archive‍",
+        "href": "https://www.ehf.org/news"
+      }
+    ],
+    "media": [
+      {
+        "order": 1,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
+        "dataSrc": null,
+        "alt": "Edmund Hillary Fellowship",
+        "complete": true,
+        "naturalWidth": 914,
+        "naturalHeight": 154
+      },
+      {
+        "order": 2,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
+        "dataSrc": null,
+        "alt": "Edmund Hillary Fellowship",
+        "complete": true,
+        "naturalWidth": 914,
+        "naturalHeight": 154
+      },
+      {
+        "order": 3,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1671746815070-C9D9ARMR809ANF46XUDJ/Rosalie.jpg?format=2500w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1671746815070-C9D9ARMR809ANF46XUDJ/Rosalie.jpg",
+        "alt": "EHF welcomes more than 100 Fellows in 2022",
+        "complete": true,
+        "naturalWidth": 1620,
+        "naturalHeight": 1080
+      },
+      {
+        "order": 4,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1669090799544-5CYJYHLNC51XF2E7FCCT/Hi%2B2022%2BAnnual%2BReport%2BImage.png?format=1000w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1669090799544-5CYJYHLNC51XF2E7FCCT/Hi%2B2022%2BAnnual%2BReport%2BImage.png",
+        "alt": "2021/2022 Annual Report shows year of impact",
+        "complete": true,
+        "naturalWidth": 769,
+        "naturalHeight": 1080
+      },
+      {
+        "order": 5,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1665357046064-BR7REEU253EAYB89B2JF/29021FD0-3072-49F3-8DB2-CBB3C787AB0E_1_105_c.jpeg?format=2500w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1665357046064-BR7REEU253EAYB89B2JF/29021FD0-3072-49F3-8DB2-CBB3C787AB0E_1_105_c.jpeg",
+        "alt": "Closer Alignment between Hillary Institute &amp; EHF to unlock potential",
+        "complete": true,
+        "naturalWidth": 991,
+        "naturalHeight": 525
+      },
+      {
+        "order": 6,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1635371220746-3T8GE0XVWFYH6QNQMNUR/Anna%2BKominik%2Bedited.jpeg?format=2500w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1635371220746-3T8GE0XVWFYH6QNQMNUR/Anna%2BKominik%2Bedited.jpeg",
+        "alt": "Media release: Anna Kominik announced as new Board Chair",
+        "complete": true,
+        "naturalWidth": 561,
+        "naturalHeight": 373
+      },
+      {
+        "order": 7,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1628659753811-93UYX517O4FJ9L0WH0B4/Paul.jpeg?format=2500w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1628659753811-93UYX517O4FJ9L0WH0B4/Paul.jpeg",
+        "alt": "Farewell, thank you and congratulations to Paul Atkins",
+        "complete": true,
+        "naturalWidth": 940,
+        "naturalHeight": 629
+      },
+      {
+        "order": 8,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1612293072669-LK70C65L3GL57GDMEKIQ/Rosalie+Nelson.jpeg?format=2500w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1612293072669-LK70C65L3GL57GDMEKIQ/Rosalie+Nelson.jpeg",
+        "alt": "Announcing the new CEO for EHF",
+        "complete": true,
+        "naturalWidth": 387,
+        "naturalHeight": 276
+      },
+      {
+        "order": 9,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1608267728936-YXWOKTHSFHZLAYGO802L/Blog+Post+Thumb+Long.jpg?format=750w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1608267728936-YXWOKTHSFHZLAYGO802L/Blog+Post+Thumb+Long.jpg",
+        "alt": "New Hillary Institute &amp; Edmund Hillary Fellowship board chair elected",
+        "complete": true,
+        "naturalWidth": 720,
+        "naturalHeight": 1165
+      }
+    ],
+    "unloadedMedia": [],
+    "templateSignals": {
+      "bodyClass": "tweak-blog-alternating-side-by-side-width-inset tweak-blog-alternating-side-by-side-image-aspect-ratio-11-square tweak-blog-alternating-side-by-side-text-alignment-left tweak-blog-alternating-side-by-side-read-more-style-show tweak-blog-alternating-side-by-side-image-text-alignment-middle tweak-blog-alternating-side-by-side-delimiter-bullet tweak-blog-alternating-side-by-side-meta-position-top tweak-blog-alternating-side-by-side-primary-meta-categories tweak-blog-alternating-side-by-side-secondary-meta-date tweak-blog-alternating-side-by-side-excerpt-show image-block-poster-text-alignment-left image-block-card-content-position-center image-block-card-text-alignment-left image-block-overlap-content-position-center image-block-overlap-text-alignment-left image-block-collage-content-position-center image-block-collage-text-alignment-left image-block-stack-text-alignment-left form-use-theme-colors form-field-style-solid form-field-shape-square form-field-border-all form-field-checkbox-type-icon form-field-checkbox-fill-solid form-field-checkbox-color-inverted form-field-checkbox-shape-square form-field-checkbox-layout-stack form-field-radio-type-icon form-field-radio-fill-solid form-field-radio-color-normal form-field-radio-shape-pill form-field-radio-layout-stack form-field-survey-fill-solid form-field-survey-color-normal form-field-survey-shape-pill form-field-hover-focus-outline form-submit-button-style-label  tweak-global-animations-complexity-level-detailed tweak-global-animations-animation-style-fade tweak-global-animations-animation-type-none tweak-global-animations-animation-curve-ease tweak-blog-masonry-width-full tweak-blog-masonry-text-alignment-left tweak-blog-masonry-primary-meta-none tweak-blog-masonry-secondary-meta-none tweak-blog-masonry-meta-position-top tweak-blog-masonry-read-more-style-hide tweak-blog-masonry-delimiter-bullet tweak-blog-masonry-image-placement-above tweak-blog-masonry-excerpt-hide tweak-portfolio-grid-overlay-width-full tweak-portfolio-grid-overlay-height-large tweak-portfolio-grid-overlay-image-aspect-ratio-11-square tweak-portfolio-grid-overlay-text-placement-center tweak-portfolio-grid-overlay-show-text-after-hover tweak-blog-single-column-width-inset tweak-blog-single-column-text-alignment-center tweak-blog-single-column-image-placement-above tweak-blog-single-column-delimiter-bullet tweak-blog-single-column-read-more-style-show tweak-blog-single-column-primary-meta-categories tweak-blog-single-column-secondary-meta-date tweak-blog-single-column-meta-position-top tweak-blog-single-column-content-full-post header-width-inset   tweak-fixed-header-style-basic tweak-blog-item-width-custom tweak-blog-item-text-alignment-center tweak-blog-item-meta-position-below-title tweak-blog-item-show-categories    tweak-blog-item-delimiter-bullet tweak-blog-side-by-side-width-full tweak-blog-side-by-side-image-placement-left tweak-blog-side-by-side-image-aspect-ratio-11-square tweak-blog-side-by-side-primary-meta-categories tweak-blog-side-by-side-secondary-meta-none tweak-blog-side-by-side-meta-position-top tweak-blog-side-by-side-text-alignment-left tweak-blog-side-by-side-image-text-alignment-middle tweak-blog-side-by-side-read-more-style-show tweak-blog-side-by-side-delimiter-bullet tweak-blog-side-by-side-excerpt-hide primary-button-style-solid primary-button-shape-rounded secondary-button-style-solid secondary-button-shape-rounded tertiary-button-style-solid tertiary-button-shape-rounded tweak-events-stacked-width-full tweak-events-stacked-height-large  tweak-events-stacked-show-thumbnails tweak-events-stacked-thumbnail-size-32-standard tweak-events-stacked-date-style-with-text tweak-events-stacked-show-time tweak-events-stacked-show-location  tweak-events-stacked-show-excerpt  tweak-blog-basic-grid-width-inset tweak-blog-basic-grid-image-aspect-ratio-32-standard tweak-blog-basic-grid-text-alignment-left tweak-blog-basic-grid-delimiter-bullet tweak-blog-basic-grid-image-placement-above tweak-blog-basic-grid-read-more-style-show tweak-blog-basic-grid-primary-meta-categories tweak-blog-basic-grid-secondary-meta-date tweak-blog-basic-grid-excerpt-show tweak-portfolio-grid-basic-width-full tweak-portfolio-grid-basic-height-large tweak-portfolio-grid-basic-image-aspect-ratio-11-square tweak-portfolio-grid-basic-text-alignment-left tweak-portfolio-grid-basic-hover-effect-fade header-overlay-alignment-center tweak-portfolio-index-background-link-format-stacked tweak-portfolio-index-background-width-full-bleed tweak-portfolio-index-background-height-large  tweak-portfolio-index-background-vertical-alignment-middle tweak-portfolio-index-background-horizontal-alignment-center tweak-portfolio-index-background-delimiter-none tweak-portfolio-index-background-animation-type-fade tweak-portfolio-index-background-animation-duration-medium tweak-portfolio-hover-follow-layout-inline  tweak-portfolio-hover-follow-delimiter-bullet tweak-portfolio-hover-follow-animation-type-fade tweak-portfolio-hover-follow-animation-duration-fast tweak-portfolio-hover-static-layout-inline tweak-portfolio-hover-static-front tweak-portfolio-hover-static-delimiter-hyphen tweak-portfolio-hover-static-animation-type-fade tweak-portfolio-hover-static-animation-duration-fast hide-opentable-icons opentable-style-dark tweak-product-quick-view-button-style-floating tweak-product-quick-view-button-position-bottom tweak-product-quick-view-lightbox-excerpt-display-truncate tweak-product-quick-view-lightbox-show-arrows tweak-product-quick-view-lightbox-show-close-button tweak-product-quick-view-lightbox-controls-weight-light native-currency-code-usd collection-6343538858527913618401a0 collection-layout-default collection-type-blog-basic-grid view-list mobile-style-available sqs-seven-one\n      \n        \n          \n        \n      \n     seven-one-global-animations",
+      "collectionType": null,
+      "collectionId": null,
+      "blogItemCount": 7,
+      "hasBlogCollection": true,
+      "hasBlogItem": true,
+      "hasPageSections": true,
+      "hasNotFoundText": false
+    },
+    "meta": [
+      {
+        "key": "viewport",
+        "content": "width=device-width, initial-scale=1"
+      },
+      {
+        "key": "og:site_name",
+        "content": "Edmund Hillary Fellowship"
+      },
+      {
+        "key": "og:title",
+        "content": "EHF Organisation News — Edmund Hillary Fellowship"
+      },
+      {
+        "key": "og:url",
+        "content": "https://www.ehf.org/news-blog"
+      },
+      {
+        "key": "og:type",
+        "content": "website"
+      },
+      {
+        "key": "twitter:title",
+        "content": "EHF Organisation News — Edmund Hillary Fellowship"
+      },
+      {
+        "key": "twitter:url",
+        "content": "https://www.ehf.org/news-blog"
+      },
+      {
+        "key": "twitter:card",
+        "content": "summary"
+      },
+      {
+        "key": "description",
+        "content": null
+      }
+    ]
+  }
+}
