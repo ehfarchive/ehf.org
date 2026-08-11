@@ -17,7 +17,7 @@
       "route": "/2025-summit-programme",
       "template": "event-programme",
       "localInput": "src/content/events/2025-summit-programme.md",
-      "contentHash": "d121235e3a5420eb4b992acc5febf653e0539d8537693ee36e45808e070b65a3"
+      "contentHash": "d9a88926792e64b7b7e7f97f3cb2fbf035427234d2fcd1d4dba49dc7f87c09ec"
     },
     {
       "route": "/22-annual-report",
@@ -240,6 +240,12 @@
       "template": "news-article",
       "localInput": "src/content/news/new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected.md",
       "contentHash": "5700ebb1e94db5ed45c8e03bb0272c17dbf8cd8d5634d243f7dd2d2b6be0340e"
+    },
+    {
+      "route": "/news-blog/page/2",
+      "template": "news-listing",
+      "localInput": null,
+      "contentHash": null
     },
     {
       "route": "/news-blog/reflections-of-sir-edmund-hillarys-legacy-on-everest-day",

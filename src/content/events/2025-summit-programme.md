@@ -17,6 +17,7 @@ Registration Opens
 **Pōwhiri**
 
 Ngāti Pāoa
+<!-- summit-spacer -->
 
 9.30am
 

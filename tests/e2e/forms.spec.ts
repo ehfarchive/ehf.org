@@ -125,8 +125,8 @@ test('Ticket 10 renders the captured update-group semantics and source-form shar
   await expect(footer.getByText('(c) Edmund Hillary Fellowship 2016 - 2026', { exact: true })).toBeVisible();
   await expect(footer.getByRole('link')).toHaveText(['About', 'Impact', 'Archive', 'Privacy']);
 
-  const skipLink = page.getByRole('link', { name: 'Skip to content', exact: true });
-  await expect(skipLink).toBeVisible();
+  const skipLink = page.getByRole('link', { name: 'Skip to Content', exact: true });
+  await expect(skipLink).toHaveAttribute('href', '#main-content');
   await expect(skipLink).toHaveCSS('position', 'absolute');
 
   await skipLink.focus();
@@ -144,23 +144,25 @@ test('Ticket 10 applies the captured type hierarchy across every route and viewp
       await page.goto(formContract.route);
       const heading = page.getByRole('heading', { name: formContract.heading, exact: true });
       await expect(heading).toHaveCSS('font-family', /Roboto/);
-      await expect(heading).toHaveCSS('letter-spacing', viewport.name === 'desktop' && formContract.route === '/contact-media' ? '-0.525px' : viewport.name === 'desktop' ? '-0.60288px' : '-0.42px');
-      await expect(heading).toHaveCSS('font-size', viewport.name === 'desktop' && formContract.route === '/contact-media' ? '35px' : viewport.name === 'desktop' ? '40.192px' : '28px');
+      const isMedia = formContract.route === '/contact-media';
+      await expect(heading).toHaveCSS('letter-spacing', isMedia ? viewport.name === 'desktop' ? '-0.4992px' : '-0.39192px' : viewport.name === 'desktop' ? '-0.60288px' : '-0.42px');
+      await expect(heading).toHaveCSS('font-size', isMedia ? viewport.name === 'desktop' ? '33.28px' : '26.128px' : viewport.name === 'desktop' ? '40.192px' : '28px');
 
       const form = page.locator('main form');
-      await expect(form).toHaveCSS('font-family', /Roboto/);
-      await expect(form).toHaveCSS('font-size', '16px');
+      await expect(form).toHaveCSS('font-family', /Merriweather/);
+      await expect(form).toHaveCSS('font-size', viewport.name === 'desktop' ? '19.456px' : '18.0256px');
       await expect(form.locator('legend').first()).toHaveCSS('font-size', viewport.name === 'desktop' ? '19.456px' : '18.0256px');
-      await expect(form.locator('.display-only-form__label-required').first()).toHaveCSS('font-size', '12px');
+      await expect(form.locator('.display-only-form__label-required').first()).toHaveCSS('font-size', '16px');
       await expect(form.locator('input:not([type="checkbox"])').first()).toHaveCSS('font-family', /Merriweather/);
-      await expect(form.locator('input:not([type="checkbox"])').first()).toHaveCSS('font-size', viewport.name === 'desktop' ? '19.456px' : '17px');
+      await expect(form.locator('input:not([type="checkbox"])').first()).toHaveCSS('font-size', viewport.name === 'desktop' ? '19.456px' : '18.0256px');
     }
   }
 });
 
-test('Ticket 10 keeps update helper, checkbox, and privacy text at the captured form scale', async ({ page }) => {
+test('Ticket 10 keeps update helper, checkbox, and privacy text at their source form scale', async ({ page }, testInfo) => {
   await page.goto('/news-and-events-updates');
+  const bodySize = testInfo.project.name === 'desktop' ? '19.456px' : '18.0256px';
   await expect(page.locator('.display-only-form__check-help')).toHaveCSS('font-size', '16px');
-  await expect(page.locator('.display-only-form__check').first()).toHaveCSS('font-size', '16px');
+  await expect(page.locator('.display-only-form__check').first()).toHaveCSS('font-size', bodySize);
   await expect(page.locator('.display-only-form__privacy')).toHaveCSS('font-size', '16px');
 });

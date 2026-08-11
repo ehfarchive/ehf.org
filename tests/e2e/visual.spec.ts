@@ -799,33 +799,29 @@ test('Ticket 8 representative event and report matrix preserves active source st
   await expect(page.locator('[data-event-programme]')).toBeVisible();
   await expect(page.locator('[data-event-programme] h1')).toHaveText('2025 Summit Programme');
   const eventLayout = await page.locator('[data-event-programme]').evaluate((root) => {
-    const schedule = root.querySelector<HTMLElement>('[data-event-schedule]')!;
-    const times = [...schedule.querySelectorAll('[data-event-time]')].map((time) => time.textContent?.trim() ?? '');
+    const schedule = root.querySelector<HTMLTableElement>('[data-event-schedule]')!;
+    const rows = [...schedule.querySelectorAll<HTMLTableRowElement>('tbody > tr')];
     const heading = root.querySelector('h1');
     const dayTabs = [...root.querySelectorAll<HTMLElement>('[role="tab"]')];
-    const tracks = [...schedule.querySelectorAll<HTMLElement>('[data-event-track]')].map((track) => track.textContent?.trim() ?? '');
-    const firstItem = schedule.querySelector<HTMLElement>('[data-event-item]')!;
-    const time = firstItem.querySelector<HTMLElement>('[data-event-time]')!;
+    const firstRow = rows[0];
+    const time = firstRow.querySelector<HTMLElement>('[data-event-time]')!;
     const speakerParagraphs = [...schedule.querySelectorAll<HTMLParagraphElement>('.event-programme__item-content p')]
       .filter((paragraph) => /Nigel Bradly|Larry Tchiou/.test(paragraph.textContent ?? ''))
       .map((paragraph) => paragraph.textContent?.trim() ?? '');
     const adamParagraph = [...schedule.querySelectorAll<HTMLParagraphElement>('.event-programme__item-content p')]
       .find((paragraph) => paragraph.textContent?.includes('Adam Grosser'))!;
-    const trackOwners = [...schedule.querySelectorAll<HTMLElement>('[data-event-track]')].map((track) => ({
-      time: track.closest<HTMLElement>('[data-event-item]')?.querySelector<HTMLElement>('[data-event-time]')?.textContent?.trim() ?? null,
-      timeBorderRightWidth: track.closest<HTMLElement>('[data-event-item]')?.querySelector<HTMLElement>('[data-event-time]')
-        ? getComputedStyle(track.closest<HTMLElement>('[data-event-item]')!.querySelector<HTMLElement>('[data-event-time]')!).borderRightWidth
-        : null
-    }));
     return {
-      itemCount: schedule.querySelectorAll('[data-event-item]').length,
-      firstEntries: times.slice(0, 2),
-      columns: getComputedStyle(firstItem).gridTemplateColumns.split(' ').filter(Boolean).length,
+      itemCount: rows.length,
+      cellCounts: rows.map((row) => row.cells.length),
+      firstEntries: rows.slice(0, 4).map((row) => row.querySelector<HTMLElement>('[data-event-time]')?.textContent?.trim() ?? ''),
+      timeColumnWidth: time.getBoundingClientRect().width,
       headingBeforeSchedule: Boolean(heading && heading.compareDocumentPosition(schedule) & Node.DOCUMENT_POSITION_FOLLOWING),
       agendaText: schedule.textContent ?? '',
       tabs: dayTabs.map((tab) => ({ label: tab.textContent?.trim(), selected: tab.getAttribute('aria-selected'), controls: tab.getAttribute('aria-controls') })),
-      tracks,
-      trackOwners,
+      tracks: [...schedule.querySelectorAll<HTMLElement>('[data-event-track]')].map((track) => track.textContent?.trim() ?? ''),
+      trackOwners: [...schedule.querySelectorAll<HTMLElement>('[data-event-track]')].map((track) =>
+        track.closest<HTMLTableRowElement>('[data-event-item]')?.querySelector<HTMLElement>('[data-event-time]')?.textContent?.trim() ?? null
+      ),
       speakerParagraphs,
       adamParagraph: {
         text: adamParagraph?.textContent?.trim() ?? '',
@@ -840,30 +836,24 @@ test('Ticket 8 representative event and report matrix preserves active source st
       }
     };
   });
-  expect(eventLayout.itemCount).toBeGreaterThan(20);
-  expect(eventLayout.firstEntries).toEqual(['8.00am', '9.00am']);
-  expect(eventLayout.columns).toBe(2);
+  expect(eventLayout.itemCount).toBe(33);
+  expect(eventLayout.cellCounts[2]).toBe(0);
+  expect(eventLayout.firstEntries).toEqual(['8.00am', '9.00am', '', '9.30am']);
+  expect(eventLayout.timeColumnWidth).toBeCloseTo(111, 0);
   expect(eventLayout.headingBeforeSchedule).toBe(true);
   expect(eventLayout.agendaText).not.toContain('*');
   expect(eventLayout.tabs).toEqual([
-    { label: 'Day 1 – 17 FEBRUARY 2025', selected: 'true', controls: 'summit-day-1-panel' },
-    { label: 'Day 2 – 18 FEBRUARY 2025', selected: 'false', controls: 'summit-day-2-panel' }
+    { label: 'Day 1 - 17 FEBRUARY 2025', selected: 'true', controls: 'summit-day-1-panel' },
+    { label: 'Day 2 - 18 FEBRUARY 2025', selected: 'false', controls: 'summit-day-2-panel' }
   ]);
   expect(eventLayout.tracks).toEqual([
     'Future Of', 'Innovation Economy', 'Planetary Action',
     'Future Of', 'Innovation Economy', 'Planetary Action'
   ]);
   expect(Number(eventLayout.timePaint.fontWeight)).toBeLessThanOrEqual(400);
-  expect(eventLayout.timePaint.fontSize).toBe('15px');
+  expect(eventLayout.timePaint.fontSize).toBe('16px');
   expect(eventLayout.timePaint.borderRightWidth).toBe('1px');
-  expect(eventLayout.trackOwners).toEqual([
-    { time: '2.45pm', timeBorderRightWidth: '1px' },
-    { time: '2.45pm', timeBorderRightWidth: '1px' },
-    { time: '2.45pm', timeBorderRightWidth: '1px' },
-    { time: '4.00pm', timeBorderRightWidth: '1px' },
-    { time: '4.00pm', timeBorderRightWidth: '1px' },
-    { time: '4.00pm', timeBorderRightWidth: '1px' }
-  ]);
+  expect(eventLayout.trackOwners).toEqual(['2.45pm', '', '', '4.00pm', '', '']);
   expect(eventLayout.adamParagraph).toEqual({
     text: 'Adam Grosser, EHF Fellow; Chairman & Managing Partner, UP.Partners',
     strong: 'Adam Grosser',
@@ -875,20 +865,26 @@ test('Ticket 8 representative event and report matrix preserves active source st
     'Larry Tchiou, EHF Fellow; Impact Entrepreneur & Innovation Consultant'
   ]);
   const dayOnePanel = page.locator('#summit-day-1-panel');
-  const dayTwoTab = page.getByRole('tab', { name: 'Day 2 – 18 FEBRUARY 2025', exact: true });
+  const dayOneTab = page.getByRole('tab', { name: 'Day 1 - 17 FEBRUARY 2025', exact: true });
+  const dayTwoTab = page.getByRole('tab', { name: 'Day 2 - 18 FEBRUARY 2025', exact: true });
   const dayTwoPanel = page.locator('#summit-day-2-panel');
   await expect(dayOnePanel).toBeVisible();
   await expect(dayTwoPanel).toBeHidden();
-  await dayTwoTab.focus();
-  await page.keyboard.press('Enter');
+  await dayOneTab.focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(dayTwoTab).toBeFocused();
   await expect(dayTwoTab).toHaveAttribute('aria-selected', 'true');
   await expect(dayTwoPanel).toBeVisible();
   await expect(dayOnePanel).toBeHidden();
+  await expect(dayTwoPanel.locator('tbody > tr')).toHaveCount(30);
   await expect(dayTwoPanel.locator('[data-event-track]')).toHaveText([
     'Future Of', 'Innovation Economy', 'Planetary Action',
     'Future Of', 'Innovation Economy', 'Planetary Action',
     'Future Of', 'Innovation Economy', 'Planetary Action'
   ]);
+  expect(await dayTwoPanel.locator('tbody > tr').evaluateAll((rows) =>
+    rows.slice(6, 12).map((row) => row.querySelector<HTMLElement>('[data-event-time]')?.textContent?.trim() ?? null)
+  )).toEqual(['11.15am', '', '', '', '', '']);
   await page.goto('/23-annual-report');
   await expect(page.locator('[data-annual-report-document]')).toBeVisible();
   await expect(page.locator('[data-annual-report-document] h1')).toHaveText('2022/23 Annual Report - Hillary Institute & Edmund Hillary Fellowship');
@@ -921,76 +917,56 @@ test('Ticket 8 representative event and report matrix preserves active source st
   await expect(page.locator('iframe')).toHaveCount(0);
 });
 
-test('Ticket 8 programme matches the source grid rhythm, paint, and responsive day tabs', async ({ page }, testInfo) => {
+test('Ticket 8 programme keeps source paint without adding height-based layout contracts', async ({ page }, testInfo) => {
   await page.goto('/2025-summit-programme');
-  const expectedBreaks = [
+  const expectedDayOneBreaks = [
     'Registration Opens',
     'Morning Break - Say hello to someone new!',
     'Lunch Break - Explore the natural surrounds of Waipuna',
     'Take a moment and make your way to your first breakout session',
     'Afternoon Break - Extend your discussion over a cuppa or enjoy a pause in nature',
     'Summit Day One End',
-    'Connection Hour - Day One: Connect and Celebrate',
-    'Summit Day One Dinner (Add-On Ticket)'
+    'Connection Hour - Day One: Connect and Celebrate'
   ];
   const layout = await page.locator('[data-event-programme]').evaluate((root) => {
-    const schedule = root.querySelector<HTMLElement>('[data-event-schedule]')!;
-    const tabs = [...root.querySelectorAll<HTMLElement>('[data-event-day-tab]')];
-    const rows = [...schedule.querySelectorAll<HTMLElement>('[data-event-item]')];
+    const schedule = root.querySelector<HTMLTableElement>('[data-event-schedule]')!;
+    const rows = [...schedule.querySelectorAll<HTMLTableRowElement>('tbody > tr')];
     const firstRow = rows[0];
     const firstTime = firstRow.querySelector<HTMLElement>('[data-event-time]')!;
     const breakRows = rows.filter((row) => row.classList.contains('event-programme__item--break'));
     const rangeRows = rows
-      .map((row) => row.querySelector<HTMLElement>('[data-event-time]')!)
-      .filter((time) => ['5.30pm - 6.30pm', '7.00pm - 9.00pm'].includes(time.innerText.trim()));
+      .map((row) => row.querySelector<HTMLElement>('[data-event-time]'))
+      .filter((time): time is HTMLElement => Boolean(time && ['5.30pm - 6.30pm', '7.00pm - 9.00pm'].includes(time.innerText.trim())));
 
     return {
       scheduleBorder: {
         left: getComputedStyle(schedule).borderLeftColor,
         right: getComputedStyle(schedule).borderRightColor
       },
-      firstRow: {
-        height: firstRow.getBoundingClientRect().height,
-        columns: getComputedStyle(firstRow).gridTemplateColumns,
+      firstTime: {
+        width: firstTime.getBoundingClientRect().width,
         paddingBlock: [getComputedStyle(firstTime).paddingTop, getComputedStyle(firstTime).paddingBottom],
         paddingInline: [getComputedStyle(firstTime).paddingLeft, getComputedStyle(firstTime).paddingRight],
         timeRule: getComputedStyle(firstTime).borderRightColor
       },
       breakRows: breakRows.map((row) => ({
-        text: row.querySelector<HTMLElement>('[data-event-content] p')?.textContent?.trim() ?? '',
+        text: row.querySelector<HTMLElement>('[data-event-content]')?.textContent?.trim() ?? '',
         background: getComputedStyle(row).backgroundColor
       })),
-      rangeWraps: rangeRows.map((time) => time.getBoundingClientRect().height > parseFloat(getComputedStyle(time).lineHeight)),
-      firstTabTop: tabs[0]?.getBoundingClientRect().top,
-      tabs: tabs.map((tab) => {
-        const styles = getComputedStyle(tab);
-        return {
-          fontSize: styles.fontSize,
-          lineHeight: styles.lineHeight,
-          minHeight: styles.minHeight,
-          textAlign: styles.textAlign
-        };
-      })
+      rangeWraps: rangeRows.map((time) => time.getBoundingClientRect().height > parseFloat(getComputedStyle(time).lineHeight))
     };
   });
 
   expect(layout.scheduleBorder).toEqual({ left: 'rgb(204, 204, 204)', right: 'rgb(204, 204, 204)' });
-  expect(layout.firstRow.columns.split(' ')[0]).toBe('111px');
-  expect(layout.firstRow.paddingBlock).toEqual(['18px', '18px']);
-  expect(layout.firstRow.paddingInline).toEqual(['18px', '18px']);
-  expect(layout.firstRow.timeRule).toBe('rgb(204, 204, 204)');
-  expect(layout.breakRows).toEqual(expectedBreaks.map((text) => ({ text, background: 'rgb(238, 238, 238)' })));
-
-  if (testInfo.project.name === 'desktop') {
-    expect(layout.firstRow.height).toBe(72);
-    expect(layout.rangeWraps).toEqual([true, true]);
-    expect(layout.firstTabTop).toBeCloseTo(218, 0);
-  } else {
-    expect(layout.firstTabTop).toBeCloseTo(142, 0);
-    expect(layout.tabs).toEqual([
-      { fontSize: '13px', lineHeight: '33px', minHeight: '115px', textAlign: 'left' },
-      { fontSize: '13px', lineHeight: '33px', minHeight: '115px', textAlign: 'left' }
-    ]);
+  expect(layout.firstTime.width).toBeCloseTo(111, 0);
+  expect(layout.firstTime.paddingBlock).toEqual(['21px', '21px']);
+  expect(layout.firstTime.paddingInline).toEqual(['18px', '18px']);
+  expect(layout.firstTime.timeRule).toBe('rgb(204, 204, 204)');
+  expect(layout.breakRows.map((row) => expectedDayOneBreaks.find((label) => row.text.startsWith(label)) ?? null)).toEqual(expectedDayOneBreaks);
+  expect(layout.breakRows.every((row) => row.background === 'rgb(238, 238, 238)')).toBe(true);
+  expect(layout.rangeWraps).toEqual([true, true]);
+  if (testInfo.project.name === 'mobile') {
+    await expect(page.locator('[data-event-day-tab]')).toHaveCount(2);
   }
 });
 

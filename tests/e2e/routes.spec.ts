@@ -401,26 +401,61 @@ test('Event and report routes are exactly manifest-bounded and use their matchin
   }
 });
 
-test('Ticket 8 programme marks exactly the eight source break rows', async ({ page }) => {
+test('Ticket 8 programme renders every live Summit row as an ordered semantic table', async ({ page }) => {
   await page.goto('/2025-summit-programme');
-  const expectedBreaks = [
+
+  const dayOne = page.locator('#summit-day-1-panel');
+  const dayTwo = page.locator('#summit-day-2-panel');
+  await expect(dayOne.locator('table')).toHaveCount(1);
+  await expect(dayOne.locator('tbody > tr')).toHaveCount(33);
+  await expect(dayTwo.locator('tbody > tr')).toHaveCount(30);
+
+  const dayOneRows = await dayOne.locator('tbody > tr').evaluateAll((rows) => rows.map((row) => ({
+    time: row.querySelector<HTMLElement>('[data-event-time]')?.textContent?.trim() ?? null,
+    text: row.textContent?.trim() ?? '',
+    content: row.querySelector<HTMLElement>('[data-event-content]')?.textContent?.trim() ?? '',
+    cellCount: (row as HTMLTableRowElement).cells.length,
+    isBreak: row.classList.contains('event-programme__item--break')
+  })));
+  expect(dayOneRows[2]).toEqual({ time: null, text: '', content: '', cellCount: 0, isBreak: false });
+  expect(dayOneRows.slice(14, 20).map((row) => row.time)).toEqual(['2.45pm', '', '', '', '', '']);
+  expect(dayOneRows.slice(21, 27).map((row) => row.time)).toEqual(['4.00pm', '', '', '', '', '']);
+  expect(dayOneRows.slice(14, 20).map((row) => row.content)).toEqual([
+    'Future Of',
+    'The Future Of: TravelHow will new technologies and emerging innovations transform travel in the future? What role will Aotearoa play in this transformation? Join two US and 2 NZ panelists to explore the connection opportunities between NZ and the US.Panelists:Adam Grosser, EHF Fellow; Chairman & Managing Partner, UP.PartnersNikhil Ravishankar, Chief Digital Officer, Air New ZealandDavid Stout, CEO and Co-Founder, WebAIDarrin Grafton, CEO, SerkoModerator:Michael Tchao, EHF Fellow; VP Product Marketing, Apple',
+    'Innovation Economy',
+    'Founder First: How We Connect and Support Innovation LeadersBeing a founder from New Zealand can be tough. As a US mentor it can be as tough helping. Linda, through her LevelUp programme, has worked with 75 Kiwi entrepreneurs to figure out the formula. Join Linda as she explains her \'mentoring\' experiment and join in a discussion about what works for founders and what it takes to be an effective mentor in the New Zealand founder ecosystem.Linda Jenkinson, Founder, Chair & CEO, LevelUp',
+    'Planetary Action',
+    'Case Study: Catalysing Ocean-Based Ventures for the PacificDive deep into a case study of how a blended finance model has catalysed new ocean-based ventures in Aotearoa NZ - and explore how it might be applied as a new model for Pacific climate innovation.Nigel Bradly, Founder & CEO, EnvirostratLarry Tchiou, EHF Fellow; Impact Entrepreneur & Innovation Consultant'
+  ]);
+
+  const expectedBreakLabels = [
     'Registration Opens',
     'Morning Break - Say hello to someone new!',
     'Lunch Break - Explore the natural surrounds of Waipuna',
     'Take a moment and make your way to your first breakout session',
     'Afternoon Break - Extend your discussion over a cuppa or enjoy a pause in nature',
     'Summit Day One End',
-    'Connection Hour - Day One: Connect and Celebrate',
-    'Summit Day One Dinner (Add-On Ticket)'
+    'Connection Hour - Day One: Connect and Celebrate'
   ];
-  const rows = await page.locator('[data-event-item]').evaluateAll((items) => items.map((item) => ({
-    text: item.querySelector<HTMLElement>('[data-event-content] p')?.textContent?.trim() ?? '',
-    isBreak: item.classList.contains('event-programme__item--break')
+  const breakRows = dayOneRows.filter((row) => row.isBreak);
+  expect(breakRows).toHaveLength(expectedBreakLabels.length);
+  expect(breakRows.map((row) => expectedBreakLabels.find((label) => row.content.startsWith(label)) ?? null)).toEqual(expectedBreakLabels);
+  const dayTwoRows = await dayTwo.locator('tbody > tr').evaluateAll((rows) => rows.map((row) => ({
+    time: row.querySelector<HTMLElement>('[data-event-time]')?.textContent?.trim() ?? null,
+    content: row.querySelector<HTMLElement>('[data-event-content]')?.textContent?.trim() ?? '',
+    isBreak: row.classList.contains('event-programme__item--break')
   })));
-  const breakRows = rows.filter((row) => row.isBreak).map((row) => row.text);
-
-  expect(breakRows).toEqual(expectedBreaks);
-  expect(rows.filter((row) => expectedBreaks.includes(row.text) !== row.isBreak)).toEqual([]);
+  expect(dayTwoRows.slice(6, 12).map((row) => row.time)).toEqual(['11.15am', '', '', '', '', '']);
+  expect(dayTwoRows.slice(13, 19).map((row) => row.time)).toEqual(['12.15pm', '', '', '', '', '']);
+  expect(dayTwoRows.slice(20, 26).map((row) => row.time)).toEqual(['2.00pm', '', '', '', '', '']);
+  expect(dayTwoRows.filter((row) => row.isBreak).map((row) => row.content)).toEqual([
+    'Arrival Tea and Coffee',
+    'Morning Break',
+    'Switch Rooms',
+    'Lunch Break - Enjoy some kai with others',
+    'Make your way back to the Theatre'
+  ]);
 });
 
 test('Annual reports render only their five declared local document controls, separate from prose', async ({ page }) => {

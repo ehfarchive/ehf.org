@@ -48,16 +48,16 @@ const renderFieldLabel = (field: DisplayOnlyField) => {
       <div class="display-only-form__name-fields">
         {nameFields.map((field) => {
           const label = renderFieldLabel(field);
-          return <label for={field.id}><span class="display-only-form__label-text"><span>{label.name}</span>{label.required && <span class="display-only-form__label-required">(required)</span>}</span><input id={field.id} type={field.type as 'text' | 'email'} autocomplete={field.autocomplete} /></label>;
+          return <label for={field.id}><span class="display-only-form__label-text"><span>{label.name}</span>{label.required && <>{' '}<span class="display-only-form__label-required">(required)</span></>}</span><input id={field.id} type={field.type as 'text' | 'email'} autocomplete={field.autocomplete} /></label>;
         })}
       </div>
     </fieldset>}
     {nonCheckFields.map((field) => {
       const label = renderFieldLabel(field);
       return field.type === 'textarea' ? (
-        <label class="display-only-form__field" for={field.id}><span class="display-only-form__label-text"><span>{label.name}</span>{label.required && <span class="display-only-form__label-required">(required)</span>}</span><textarea id={field.id}></textarea></label>
+        <label class="display-only-form__field" for={field.id}><span class="display-only-form__label-text"><span>{label.name}</span>{label.required && <>{' '}<span class="display-only-form__label-required">(required)</span></>}</span><textarea id={field.id}></textarea></label>
       ) : (
-        <label class="display-only-form__field" for={field.id}><span class="display-only-form__label-text"><span>{label.name}</span>{label.required && <span class="display-only-form__label-required">(required)</span>}</span><input id={field.id} type={field.type} autocomplete={field.autocomplete} /></label>
+        <label class="display-only-form__field" for={field.id}><span class="display-only-form__label-text"><span>{label.name}</span>{label.required && <>{' '}<span class="display-only-form__label-required">(required)</span></>}</span><input id={field.id} type={field.type} autocomplete={field.autocomplete} /></label>
       );
     })}
     {checkFields.length > 0 && (updatesGroup ? (

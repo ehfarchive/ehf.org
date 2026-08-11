@@ -2,11 +2,15 @@
 import ResponsiveImage from './ResponsiveImage.astro';
 
 type InlineSegment = { text: string; emphasis: 'plain' | 'strong' | 'em' | 'strong-em' };
-type ProgrammeText = { kind: 'text'; content: string[] };
-type ProgrammeItem = { kind: 'item'; time: string; sections: ProgrammeSection[]; isBreak: boolean };
-type ProgrammeTrack = { kind: 'track'; label: string; treatment: 'future' | 'innovation' | 'planetary'; content: string[] };
-type ProgrammeSection = ProgrammeText | ProgrammeTrack;
-type ProgrammeEntry = ProgrammeItem;
+type ProgrammeBlock = { kind: 'paragraph'; line: string } | { kind: 'list'; lines: string[] };
+type ProgrammeRow = {
+  kind: 'row';
+  time: string;
+  content: string[];
+  isBreak: boolean;
+  trackTreatment?: 'future' | 'innovation' | 'planetary';
+};
+type ProgrammeEntry = ProgrammeRow | { kind: 'spacer' };
 
 interface Props {
   title: string;
@@ -32,8 +36,13 @@ const breakLabels = new Set([
   'Afternoon Break - Extend your discussion over a cuppa or enjoy a pause in nature',
   'Summit Day One End',
   'Connection Hour - Day One: Connect and Celebrate',
-  'Summit Day One Dinner (Add-On Ticket)'
+  'Arrival Tea and Coffee',
+  'Morning Break',
+  'Switch Rooms',
+  'Lunch Break - Enjoy some kai with others',
+  'Make your way back to the Theatre'
 ]);
+const timePattern = /^\d{1,2}\.\d{2}(?:am|pm)(?:\s*-\s*\d{1,2}\.\d{2}(?:am|pm))?$/i;
 
 function parseInline(text: string): InlineSegment[] {
   const segments: InlineSegment[] = [];
@@ -77,42 +86,65 @@ function plainInlineText(text: string) {
   return parseInline(text).map((segment) => segment.text).join('');
 }
 
+function blocksFor(lines: readonly string[]): ProgrammeBlock[] {
+  const blocks: ProgrammeBlock[] = [];
+  let listLines: string[] = [];
+  const flushList = () => {
+    if (listLines.length > 0) blocks.push({ kind: 'list', lines: listLines });
+    listLines = [];
+  };
+
+  for (const line of lines) {
+    if (line.startsWith('- ')) {
+      listLines.push(line.slice(2));
+      continue;
+    }
+    flushList();
+    blocks.push({ kind: 'paragraph', line });
+  }
+  flushList();
+  return blocks;
+}
 
 const programmeDaysEntries: ProgrammeEntry[][] = [[]];
-let currentProgrammeItem: ProgrammeItem | undefined;
-let currentProgrammeSection: ProgrammeSection | undefined;
+let currentProgrammeRow: ProgrammeRow | undefined;
 let dayIndex = 0;
 for (const rawLine of programmeLines ?? []) {
-  // Source rows carry a few deliberate blank paragraphs. They arrive as a lone
-  // non-breaking space, which trim() would erase along with real blank lines,
-  // so keep that one character and let it set its own line box.
+  // A lone NBSP is a deliberate source paragraph; ordinary blank Markdown lines
+  // remain separators. The explicit marker preserves the source's cell-free row.
   const line = rawLine.trim() || (rawLine.includes('\u00a0') ? '\u00a0' : '');
-  if (/^\d{1,2}\.\d{2}(?:am|pm)(?:\s*-\s*\d{1,2}\.\d{2}(?:am|pm))?$/i.test(line)) {
-    if (line === '8.00am' && programmeDaysEntries[dayIndex].some((entry) => entry.kind === 'item')) {
+  if (line === '<!-- summit-spacer -->') {
+    programmeDaysEntries[dayIndex].push({ kind: 'spacer' });
+    currentProgrammeRow = undefined;
+  } else if (timePattern.test(line)) {
+    if (line === '8.00am' && programmeDaysEntries[dayIndex].some((entry) => entry.kind === 'row')) {
       dayIndex += 1;
       programmeDaysEntries.push([]);
     }
-    currentProgrammeItem = { kind: 'item', time: line, sections: [], isBreak: false };
-    currentProgrammeSection = undefined;
-    programmeDaysEntries[dayIndex].push(currentProgrammeItem);
-  } else if (line && currentProgrammeItem) {
+    currentProgrammeRow = { kind: 'row', time: line, content: [], isBreak: false };
+    programmeDaysEntries[dayIndex].push(currentProgrammeRow);
+  } else if (line && currentProgrammeRow) {
     const plainLine = plainInlineText(line);
-    if (breakLabels.has(plainLine)) currentProgrammeItem.isBreak = true;
     if (trackLabels.has(plainLine)) {
-      currentProgrammeSection = { kind: 'track', label: plainLine, treatment: trackTreatments[plainLine as keyof typeof trackTreatments], content: [] };
-      currentProgrammeItem.sections.push(currentProgrammeSection);
-    } else {
-      if (!currentProgrammeSection || currentProgrammeSection.kind !== 'text') {
-        currentProgrammeSection = { kind: 'text', content: [] };
-        currentProgrammeItem.sections.push(currentProgrammeSection);
+      if (currentProgrammeRow.content.length > 0 || currentProgrammeRow.trackTreatment) {
+        currentProgrammeRow = { kind: 'row', time: '', content: [], isBreak: false };
+        programmeDaysEntries[dayIndex].push(currentProgrammeRow);
       }
-      currentProgrammeSection.content.push(line);
+      currentProgrammeRow.content.push(line);
+      currentProgrammeRow.trackTreatment = trackTreatments[plainLine as keyof typeof trackTreatments];
+    } else {
+      if (currentProgrammeRow.trackTreatment) {
+        currentProgrammeRow = { kind: 'row', time: '', content: [], isBreak: false };
+        programmeDaysEntries[dayIndex].push(currentProgrammeRow);
+      }
+      currentProgrammeRow.content.push(line);
+      if (breakLabels.has(plainLine)) currentProgrammeRow.isBreak = true;
     }
   }
 }
 const days = programmeDaysEntries.filter((entries) => entries.length > 0);
-if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
-  throw new Error('summit programme requires two labelled source days');
+if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2 || days[0].length !== 33 || days[1].length !== 30)) {
+  throw new Error('summit programme requires 33 Day 1 rows and 30 Day 2 rows');
 }
 ---
 
@@ -150,41 +182,41 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
   )}
   {days.length > 0 ? days.map((entries, index) => (
     <section
-      class="event-programme__schedule"
       id={`summit-day-${index + 1}-panel`}
       role={showProgrammeDays ? 'tabpanel' : undefined}
       aria-labelledby={showProgrammeDays ? `summit-day-${index + 1}-tab` : undefined}
       hidden={showProgrammeDays && index !== 0}
-      data-event-schedule
       data-event-day-panel
     >
-      {entries.map((entry) => (
-        <section class:list={['event-programme__item', { 'event-programme__item--break': entry.isBreak }]} data-event-item>
-          <p class="event-programme__time" data-event-time>{entry.time}</p>
-          <div class="event-programme__item-content" data-event-content>
-            {entry.sections.map((section) => section.kind === 'track' ? (
-              <section class="event-programme__track-section">
-                <div class:list={['event-programme__track', `event-programme__track--${section.treatment}`]} data-event-track>{section.label}</div>
-                <div class="event-programme__track-content">
-                  {section.content.map((line) => line.startsWith('- ') ? (
-                    <li>{parseInline(line.slice(2)).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</li>
-                  ) : (
-                    <p>{parseInline(line).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</p>
-                  ))}
-                </div>
-              </section>
-            ) : (
-              <div class="event-programme__plain-content">
-                {section.content.map((line) => line.startsWith('- ') ? (
-                  <li>{parseInline(line.slice(2)).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</li>
+      <table class="event-programme__schedule" data-event-schedule>
+        <caption class="visually-hidden">{programmeDays[index] ?? title}</caption>
+        <colgroup><col class="event-programme__time-column" /><col /></colgroup>
+        <thead class="visually-hidden"><tr><th scope="col">Time</th><th scope="col">Programme</th></tr></thead>
+        <tbody>
+          {entries.map((entry) => entry.kind === 'spacer' ? (
+            <tr data-event-item data-event-spacer aria-hidden="true"></tr>
+          ) : (
+            <tr class:list={['event-programme__item', { 'event-programme__item--break': entry.isBreak }]} data-event-item>
+              <td class="event-programme__time" data-event-time>{entry.time}</td>
+              <td class:list={['event-programme__item-content', { 'event-programme__item-content--track': entry.trackTreatment }]} data-event-content>
+                {entry.trackTreatment ? (
+                  <div class:list={['event-programme__track', `event-programme__track--${entry.trackTreatment}`]} data-event-track>
+                    {parseInline(entry.content[0]).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}
+                  </div>
                 ) : (
-                  <p>{parseInline(line).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</p>
-                ))}
-              </div>
-            ))}
-          </div>
-        </section>
-      ))}
+                  <div class="event-programme__plain-content">
+                    {blocksFor(entry.content).map((block) => block.kind === 'list' ? (
+                      <ul>{block.lines.map((line) => <li>{parseInline(line).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</li>)}</ul>
+                    ) : (
+                      <p>{parseInline(block.line).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</p>
+                    ))}
+                  </div>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </section>
   )) : (
     <article class="event-programme__content" data-event-schedule><slot /></article>
@@ -221,10 +253,6 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
   .event-programme__header { margin-bottom: 18px; }
   .event-programme__header--programme { margin-bottom: 20px; }
   .event-programme__tablist { display: flex; align-items: end; gap: 5px; }
-  /* Source paints no rule under the tab strip and no bottom border on either
-     tab: the 56px box is 1px of top border over a 35.0208px line box with 10px
-     of padding above and below. Only the fill and the weight separate the two
-     states. */
   .event-programme__tab { position: relative; z-index: 1; border: 1px solid #ccc; border-bottom: 0; border-radius: 5px 5px 0 0; padding: 10px 20px; background: #f0f0f0; color: #000; font: 300 19.456px/35.0208px var(--font-body); text-transform: none; cursor: pointer; }
   .event-programme__tab[aria-selected='true'] { background: var(--color-surface); font-weight: 700; }
   .event-programme__description { max-width: 918px; margin: 0; }
@@ -235,19 +263,11 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
   .event-programme__content :global(h3), .event-programme__content :global(h4) { margin: 30px 0 0; padding: 14px 18px; background: var(--color-brand); color: var(--color-surface); font-size: var(--text-lead); line-height: var(--lh-lead); }
   .event-programme__content :global(ul) { margin: 0; padding: 16px 38px; border-bottom: 1px solid #e2e2e2; }
   .event-programme__content :global(a) { color: var(--color-brand); }
-  /* Source runs the schedule 13px wider than the container on each side while
-     the tabs stay on the container edge, which puts the time text at 34.8px and
-     the entry text between 145.8px and 1405.2px at desktop (29.4px / 140.4px /
-     360.6px at mobile). */
-  .event-programme__schedule { margin-inline: -13px; border: 1px solid #ccc; }
-  /* Source rows take their height from their copy alone: a 21px inset above and
-     below (5px of cell padding over a 16px paragraph margin) with 16px between
-     stacked paragraphs. A one-line row therefore measures 71.8px on its own, so
-     nothing needs a floor height. */
-  .event-programme__item { display: grid; grid-template-columns: 111px minmax(0, 1fr); border-bottom: 1px solid #ccc; }
+  .event-programme__schedule { width: calc(100% + 26px); margin-inline: -13px; border: 1px solid #ccc; border-collapse: collapse; table-layout: fixed; }
+  .event-programme__item > td { vertical-align: top; border-bottom: 1px solid #ccc; }
+  .event-programme__time-column { width: 111px; }
   .event-programme__item--break { background: #eee; }
-  .event-programme__time { margin: 0; border-right: 1px solid #ccc; padding: 21px 18px; font: 300 16px/28.8px var(--font-body); }
-  /* Source paints the programme rows in pure black, not the site ink. */
+  .event-programme__time { box-sizing: border-box; width: 111px; border-right: 1px solid #ccc; padding: 21px 18px; font: 300 16px/28.8px var(--font-body); }
   .event-programme__time,
   .event-programme__item-content p,
   .event-programme__item-content li { color: #000; }
@@ -255,20 +275,14 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
   .event-programme__plain-content { padding: 21px 18px; }
   .event-programme__item-content p { margin: 0 0 16px; font-size: 16px; line-height: 1.8; }
   .event-programme__item-content p:last-child { margin-bottom: 0; }
-  /* Source sets bullets on a 35.0208px line with no space between them and the
-     usual 16px between the run and the paragraphs around it. */
+  .event-programme__item-content ul { margin: 0 0 16px; padding-left: 20px; }
+  .event-programme__item-content ul:last-child { margin-bottom: 0; }
   .event-programme__item-content li { margin: 0; font: 16px/35.0208px var(--font-body); }
-  .event-programme__item-content li + p { margin-top: 16px; }
   .event-programme__item-content strong { font-weight: 700; }
-  .event-programme__track-section + .event-programme__track-section { border-top: 1px solid #e2e2e2; }
   .event-programme__track { padding: 26px 18px; color: var(--color-surface); font: 400 16px/1.2 var(--font-body); }
   .event-programme__track--future { background: #92c5e3; }
   .event-programme__track--innovation { background: #806daf; }
   .event-programme__track--planetary { background: #75b2bd; }
-  .event-programme__track-content { border-bottom: 1px solid #e2e2e2; padding: 18px; }
-  .event-programme__track-content p { margin: 0 0 10px; font-size: 16px; line-height: 1.8; }
-  .event-programme__track-content p:last-child { margin-bottom: 0; }
-  .event-programme__track-content li { margin: 0 0 8px; font: 16px/1.5 var(--font-body); }
 
   @media (max-width: 767px) {
     .event-programme { padding-top: calc(var(--header-height) + 55px); padding-bottom: 64px; }
@@ -279,9 +293,6 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
     .event-programme__time { padding: 21px 18px; }
     .event-programme__item-content p { font-size: 16px; line-height: 1.8; }
     .event-programme__item-content li { font-size: 16px; }
-    .event-programme__track-content { padding: 15px 18px; }
-    .event-programme__track-content p { font-size: 16px; line-height: 1.8; }
-    .event-programme__track-content li { font-size: 16px; }
     .event-programme__track { padding: 26px 18px; font-size: 16px; }
   }
 </style>
