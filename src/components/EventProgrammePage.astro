@@ -3,7 +3,7 @@ import ResponsiveImage from './ResponsiveImage.astro';
 
 type InlineSegment = { text: string; emphasis: 'plain' | 'strong' | 'em' | 'strong-em' };
 type ProgrammeText = { kind: 'text'; content: string[] };
-type ProgrammeItem = { kind: 'item'; time: string; sections: ProgrammeSection[] };
+type ProgrammeItem = { kind: 'item'; time: string; sections: ProgrammeSection[]; isBreak: boolean };
 type ProgrammeTrack = { kind: 'track'; label: string; treatment: 'future' | 'innovation' | 'planetary'; content: string[] };
 type ProgrammeSection = ProgrammeText | ProgrammeTrack;
 type ProgrammeEntry = ProgrammeItem;
@@ -24,6 +24,16 @@ const trackTreatments = {
   'Planetary Action': 'planetary'
 } as const;
 const trackLabels = new Set(Object.keys(trackTreatments));
+const breakLabels = new Set([
+  'Registration Opens',
+  'Morning Break - Say hello to someone new!',
+  'Lunch Break - Explore the natural surrounds of Waipuna',
+  'Take a moment and make your way to your first breakout session',
+  'Afternoon Break - Extend your discussion over a cuppa or enjoy a pause in nature',
+  'Summit Day One End',
+  'Connection Hour - Day One: Connect and Celebrate',
+  'Summit Day One Dinner (Add-On Ticket)'
+]);
 
 function parseInline(text: string): InlineSegment[] {
   const segments: InlineSegment[] = [];
@@ -79,11 +89,12 @@ for (const rawLine of programmeLines ?? []) {
       dayIndex += 1;
       programmeDaysEntries.push([]);
     }
-    currentProgrammeItem = { kind: 'item', time: line, sections: [] };
+    currentProgrammeItem = { kind: 'item', time: line, sections: [], isBreak: false };
     currentProgrammeSection = undefined;
     programmeDaysEntries[dayIndex].push(currentProgrammeItem);
   } else if (line && currentProgrammeItem) {
     const plainLine = plainInlineText(line);
+    if (breakLabels.has(plainLine)) currentProgrammeItem.isBreak = true;
     if (trackLabels.has(plainLine)) {
       currentProgrammeSection = { kind: 'track', label: plainLine, treatment: trackTreatments[plainLine as keyof typeof trackTreatments], content: [] };
       currentProgrammeItem.sections.push(currentProgrammeSection);
@@ -145,7 +156,7 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
       data-event-day-panel
     >
       {entries.map((entry) => (
-        <section class="event-programme__item" data-event-item>
+        <section class:list={['event-programme__item', { 'event-programme__item--break': entry.isBreak }]} data-event-item>
           <p class="event-programme__time" data-event-time>{entry.time}</p>
           <div class="event-programme__item-content" data-event-content>
             {entry.sections.map((section) => section.kind === 'track' ? (
@@ -203,9 +214,9 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
 )}
 
 <style>
-  .event-programme { padding-top: calc(var(--header-height) + 29px); padding-bottom: 96px; }
+  .event-programme { padding-top: calc(var(--header-height) + 95px); padding-bottom: 96px; }
   .event-programme__header { margin-bottom: 18px; }
-  .event-programme__header--programme { margin-bottom: 89px; }
+  .event-programme__header--programme { margin-bottom: 23px; }
   .event-programme__tablist { display: flex; align-items: end; gap: 4px; border-bottom: 1px solid #ddd; }
   .event-programme__tab { position: relative; z-index: 1; margin-bottom: -1px; border: 1px solid #ddd; border-bottom-color: #ddd; border-radius: 5px 5px 0 0; padding: 15px 20px; background: #ededed; color: inherit; font: 400 20px/1.2 var(--font-body); text-transform: none; cursor: pointer; }
   .event-programme__tab[aria-selected='true'] { border-bottom-color: var(--color-surface); background: var(--color-surface); font-weight: 700; }
@@ -217,12 +228,12 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
   .event-programme__content :global(h3), .event-programme__content :global(h4) { margin: 30px 0 0; padding: 14px 18px; background: var(--color-brand); color: var(--color-surface); font-size: var(--text-lead); line-height: var(--lh-lead); }
   .event-programme__content :global(ul) { margin: 0; padding: 16px 38px; border-bottom: 1px solid #e2e2e2; }
   .event-programme__content :global(a) { color: var(--color-brand); }
-  .event-programme__schedule { border-top: 1px solid #ddd; }
-  .event-programme__item { display: grid; grid-template-columns: minmax(108px, 0.16fr) minmax(0, 1fr); border-bottom: 1px solid #e2e2e2; }
-  .event-programme__item:first-of-type { background: #f3f3f3; }
-  .event-programme__time { margin: 0; border-right: 1px solid #e2e2e2; padding: 15px 18px; font: 400 15px/1.4 var(--font-body); }
+  .event-programme__schedule { border: 1px solid #ccc; }
+  .event-programme__item { display: grid; grid-template-columns: 111px minmax(0, 1fr); min-height: 72px; border-bottom: 1px solid #ccc; }
+  .event-programme__item--break { background: #eee; }
+  .event-programme__time { margin: 0; border-right: 1px solid #ccc; padding: 18px; font: 400 15px/1.4 var(--font-body); }
   .event-programme__item-content { min-width: 0; }
-  .event-programme__plain-content { padding: 15px 18px; }
+  .event-programme__plain-content { padding: 18px; }
   .event-programme__item-content p { margin: 0 0 10px; font-size: 16px; line-height: 1.8; }
   .event-programme__item-content p:last-child { margin-bottom: 0; }
   .event-programme__item-content li { margin: 0 0 8px; font: 16px/1.5 var(--font-body); }
@@ -232,20 +243,19 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
   .event-programme__track--future { background: #92c5e3; }
   .event-programme__track--innovation { background: #806daf; }
   .event-programme__track--planetary { background: #75b2bd; }
-  .event-programme__track-content { border-bottom: 1px solid #e2e2e2; padding: 15px 18px; }
+  .event-programme__track-content { border-bottom: 1px solid #e2e2e2; padding: 18px; }
   .event-programme__track-content p { margin: 0 0 10px; font-size: 16px; line-height: 1.8; }
   .event-programme__track-content p:last-child { margin-bottom: 0; }
   .event-programme__track-content li { margin: 0 0 8px; font: 16px/1.5 var(--font-body); }
 
   @media (max-width: 767px) {
-    .event-programme { padding-top: calc(var(--header-height) + 12px); padding-bottom: 64px; }
+    .event-programme { padding-top: calc(var(--header-height) + 55px); padding-bottom: 64px; }
     .event-programme__tablist { gap: 2px; }
-    .event-programme__tab { flex: 1; padding: 10px 8px; font-size: 12px; text-align: center; }
+    .event-programme__tab { flex: 1; min-height: 115px; padding: 8px; font-size: 13px; line-height: 33px; text-align: left; }
     .event-programme__content :global(p) { padding: 12px 10px; }
     .event-programme__content :global(h3), .event-programme__content :global(h4) { padding: 12px 10px; }
-    .event-programme__header--programme { margin-bottom: 83px; }
-    .event-programme__time { padding: 15px 18px; font-size: 15px; }
-    .event-programme__plain-content { padding: 15px 18px; }
+    .event-programme__header--programme { margin-bottom: 40px; }
+    .event-programme__time { padding: 18px; font-size: 15px; }
     .event-programme__item-content p { font-size: 16px; line-height: 1.8; }
     .event-programme__item-content li { font-size: 16px; }
     .event-programme__track-content { padding: 15px 18px; }

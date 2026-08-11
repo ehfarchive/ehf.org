@@ -910,6 +910,79 @@ test('Ticket 8 representative event and report matrix preserves active source st
   await expect(page.locator('iframe')).toHaveCount(0);
 });
 
+test('Ticket 8 programme matches the source grid rhythm, paint, and responsive day tabs', async ({ page }, testInfo) => {
+  await page.goto('/2025-summit-programme');
+  const expectedBreaks = [
+    'Registration Opens',
+    'Morning Break - Say hello to someone new!',
+    'Lunch Break - Explore the natural surrounds of Waipuna',
+    'Take a moment and make your way to your first breakout session',
+    'Afternoon Break - Extend your discussion over a cuppa or enjoy a pause in nature',
+    'Summit Day One End',
+    'Connection Hour - Day One: Connect and Celebrate',
+    'Summit Day One Dinner (Add-On Ticket)'
+  ];
+  const layout = await page.locator('[data-event-programme]').evaluate((root) => {
+    const schedule = root.querySelector<HTMLElement>('[data-event-schedule]')!;
+    const tabs = [...root.querySelectorAll<HTMLElement>('[data-event-day-tab]')];
+    const rows = [...schedule.querySelectorAll<HTMLElement>('[data-event-item]')];
+    const firstRow = rows[0];
+    const firstTime = firstRow.querySelector<HTMLElement>('[data-event-time]')!;
+    const breakRows = rows.filter((row) => row.classList.contains('event-programme__item--break'));
+    const rangeRows = rows
+      .map((row) => row.querySelector<HTMLElement>('[data-event-time]')!)
+      .filter((time) => ['5.30pm - 6.30pm', '7.00pm - 9.00pm'].includes(time.innerText.trim()));
+
+    return {
+      scheduleBorder: {
+        left: getComputedStyle(schedule).borderLeftColor,
+        right: getComputedStyle(schedule).borderRightColor
+      },
+      firstRow: {
+        height: firstRow.getBoundingClientRect().height,
+        columns: getComputedStyle(firstRow).gridTemplateColumns,
+        paddingBlock: [getComputedStyle(firstTime).paddingTop, getComputedStyle(firstTime).paddingBottom],
+        paddingInline: [getComputedStyle(firstTime).paddingLeft, getComputedStyle(firstTime).paddingRight],
+        timeRule: getComputedStyle(firstTime).borderRightColor
+      },
+      breakRows: breakRows.map((row) => ({
+        text: row.querySelector<HTMLElement>('[data-event-content] p')?.textContent?.trim() ?? '',
+        background: getComputedStyle(row).backgroundColor
+      })),
+      rangeWraps: rangeRows.map((time) => time.getBoundingClientRect().height > parseFloat(getComputedStyle(time).lineHeight)),
+      firstTabTop: tabs[0]?.getBoundingClientRect().top,
+      tabs: tabs.map((tab) => {
+        const styles = getComputedStyle(tab);
+        return {
+          fontSize: styles.fontSize,
+          lineHeight: styles.lineHeight,
+          minHeight: styles.minHeight,
+          textAlign: styles.textAlign
+        };
+      })
+    };
+  });
+
+  expect(layout.scheduleBorder).toEqual({ left: 'rgb(204, 204, 204)', right: 'rgb(204, 204, 204)' });
+  expect(layout.firstRow.columns.split(' ')[0]).toBe('111px');
+  expect(layout.firstRow.paddingBlock).toEqual(['18px', '18px']);
+  expect(layout.firstRow.paddingInline).toEqual(['18px', '18px']);
+  expect(layout.firstRow.timeRule).toBe('rgb(204, 204, 204)');
+  expect(layout.breakRows).toEqual(expectedBreaks.map((text) => ({ text, background: 'rgb(238, 238, 238)' })));
+
+  if (testInfo.project.name === 'desktop') {
+    expect(layout.firstRow.height).toBe(72);
+    expect(layout.rangeWraps).toEqual([true, true]);
+    expect(layout.firstTabTop).toBeCloseTo(218, 0);
+  } else {
+    expect(layout.firstTabTop).toBeCloseTo(142, 0);
+    expect(layout.tabs).toEqual([
+      { fontSize: '13px', lineHeight: '33px', minHeight: '115px', textAlign: 'left' },
+      { fontSize: '13px', lineHeight: '33px', minHeight: '115px', textAlign: 'left' }
+    ]);
+  }
+});
+
 test('Ticket 9 institutional, legal, Summer, and 404 matrix stays responsive and locally healthy', async ({ page }, testInfo) => {
   const viewport = testInfo.project.name === 'desktop' ? { width: 1440, height: 1000 } : { width: 390, height: 844 };
   const cases: ReadonlyArray<{ route: string; state: ComparableState }> = [

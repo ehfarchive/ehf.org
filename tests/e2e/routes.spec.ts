@@ -375,6 +375,28 @@ test('Event and report routes are exactly manifest-bounded and use their matchin
   }
 });
 
+test('Ticket 8 programme marks exactly the eight source break rows', async ({ page }) => {
+  await page.goto('/2025-summit-programme');
+  const expectedBreaks = [
+    'Registration Opens',
+    'Morning Break - Say hello to someone new!',
+    'Lunch Break - Explore the natural surrounds of Waipuna',
+    'Take a moment and make your way to your first breakout session',
+    'Afternoon Break - Extend your discussion over a cuppa or enjoy a pause in nature',
+    'Summit Day One End',
+    'Connection Hour - Day One: Connect and Celebrate',
+    'Summit Day One Dinner (Add-On Ticket)'
+  ];
+  const rows = await page.locator('[data-event-item]').evaluateAll((items) => items.map((item) => ({
+    text: item.querySelector<HTMLElement>('[data-event-content] p')?.textContent?.trim() ?? '',
+    isBreak: item.classList.contains('event-programme__item--break')
+  })));
+  const breakRows = rows.filter((row) => row.isBreak).map((row) => row.text);
+
+  expect(breakRows).toEqual(expectedBreaks);
+  expect(rows.filter((row) => expectedBreaks.includes(row.text) !== row.isBreak)).toEqual([]);
+});
+
 test('Annual reports render only their five declared local document controls, separate from prose', async ({ page }) => {
   const controls = [
     {

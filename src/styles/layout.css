@@ -150,7 +150,7 @@
 
 .desktop-nav button, .mobile-menu button, .mobile-menu__trigger { border: 0; background: transparent; cursor: pointer; }
 .desktop-nav__folder { position: relative; }
- .desktop-nav__submenu {
+.desktop-nav__submenu {
   position: absolute;
   top: 100%;
   right: -16px;
@@ -161,6 +161,15 @@
   box-shadow: 0 10px 24px rgb(24 21 26 / 20%);
 }
 .desktop-nav__submenu ul { display: block; text-align: right; }
+[data-nav-item="impact"] .desktop-nav__submenu {
+  right: 0;
+  width: auto;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+[data-nav-item="impact"] .desktop-nav__submenu ul { text-align: right; }
 .desktop-nav__submenu a:not(.button) { line-height: 20.8px; }
 .desktop-nav__submenu li + li { margin-top: 3.2px; }
 
