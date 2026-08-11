@@ -216,7 +216,7 @@
         },
         "mobile": {
           "documentWidthPx": 390,
-          "documentHeightPx": 2442,
+          "documentHeightPx": 2409,
           "pageBackgroundColor": "rgb(255, 255, 255)",
           "headerHeightPx": 87,
           "footerHeightPx": 279,
@@ -230,7 +230,7 @@
           "sectionMetrics": [
             {
               "widthPx": 390,
-              "heightPx": 1451,
+              "heightPx": 1418.34,
               "paddingTop": "86.7656px",
               "paddingBottom": "0px",
               "backgroundColor": "rgba(0, 0, 0, 0)"

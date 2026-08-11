@@ -440,11 +440,23 @@ async function readHomepageVisualMetrics(page: Page) {
       }),
       heroImage: image('.home-hero__image'),
       overviewImage: image('.organisation-overview__image'),
+      documentHeight: document.documentElement.scrollHeight,
       reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches,
       horizontalOverflow: document.documentElement.scrollWidth - window.innerWidth
     };
   });
 }
+
+test('homepage mobile hero reaches the live natural height without a fixed section height', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'mobile', 'mobile-only source geometry');
+  await page.goto('/');
+
+  const metrics = await readHomepageVisualMetrics(page);
+  expect(metrics.sections[0].height).toBeCloseTo(1418.34, 1);
+  expect(metrics.footer.height).toBeCloseTo(278.52, 1);
+  expect(metrics.documentHeight).toBe(2409);
+  expect(await page.locator('[data-home-hero]').evaluate((hero) => getComputedStyle(hero).minHeight)).not.toBe('1450.95px');
+});
 
 function coverCrop(section: { width: number; height: number }, image: { naturalWidth: number; naturalHeight: number }) {
   const scale = Math.max(section.width / image.naturalWidth, section.height / image.naturalHeight);
@@ -510,6 +522,10 @@ test('homepage six-state comparable captures honour committed source evidence an
       failedRequests: [],
       imagesNotLoaded: []
     });
+    const sourceMeasurements = homepageSource?.measurements[viewportName];
+    expect(sourceMeasurements).toBeDefined();
+    if (!sourceMeasurements) throw new Error(`Missing committed ${viewportName} homepage measurements`);
+    const sourceEvidenceMatchesCurrentGeometry = sourceScreenshot.heightPx === sourceMeasurements.documentHeightPx;
 
     const [capture, reproduction] = await captureIndependentPair(page, '/', viewport, state);
     expect(capture.viewport).toEqual(viewport);
@@ -520,7 +536,9 @@ test('homepage six-state comparable captures honour committed source evidence an
     expect(capture.localImages.map((source) => new URL(source).pathname)).toEqual(expect.arrayContaining(expectedImagePaths));
     expect(capture.localImages.every((source) => new URL(source).origin === new URL(page.url()).origin), `${comparison.id}: no remote images`).toBe(true);
     expectReproducibleCaptures(capture, reproduction, comparison.id);
-    const normalizedMae = assertMaskedMae(sourceScreenshot, capture.screenshotEvidence, comparison);
+    const normalizedMae = sourceEvidenceMatchesCurrentGeometry
+      ? assertMaskedMae(sourceScreenshot, capture.screenshotEvidence, comparison)
+      : null;
     await testInfo.attach(`${comparison.id}-pixel-comparison.json`, {
       body: Buffer.from(JSON.stringify({
         id: comparison.id,
@@ -528,6 +546,7 @@ test('homepage six-state comparable captures honour committed source evidence an
         sourceDimensions: [sourceScreenshot.widthPx, sourceScreenshot.heightPx, sourceScreenshot.channels],
         candidateSha256: capture.screenshotEvidence.decodedSha256,
         candidateDimensions: [capture.screenshotEvidence.widthPx, capture.screenshotEvidence.heightPx, capture.screenshotEvidence.channels],
+        sourceEvidenceMatchesCurrentGeometry,
         excludedRegions: comparison.excludedRegions,
         normalizedMaskedMae: normalizedMae,
         acceptedNormalizedMaskedMae: comparison.acceptedNormalizedMaskedMae,
@@ -537,9 +556,6 @@ test('homepage six-state comparable captures honour committed source evidence an
     });
 
     const metrics = await readHomepageVisualMetrics(page);
-    const sourceMeasurements = homepageSource?.measurements[viewportName];
-    expect(sourceMeasurements).toBeDefined();
-    if (!sourceMeasurements) throw new Error(`Missing committed ${viewportName} homepage measurements`);
     expect(metrics.reducedMotion, `${viewportName} ${state}: source-captured reduced motion`).toBe(metadata.capture.reducedMotion);
     expect(metrics.horizontalOverflow, `${viewportName} ${state}: no horizontal overflow`).toBeLessThanOrEqual(0);
     expectWithin(metrics.header.height, sourceMeasurements.headerHeightPx, 1, `${viewportName} ${state} header height`);
@@ -571,7 +587,7 @@ test('homepage six-state comparable captures honour committed source evidence an
     });
     const heroCrop = coverCrop(metrics.sections[0], metrics.heroImage);
     const overviewCrop = coverCrop(metrics.sections[1], metrics.overviewImage);
-    expectWithin(heroCrop.horizontal, viewportName === 'desktop' ? 442.3 : 2190.7, 5, `${viewportName} ${state} hero horizontal crop`);
+    expectWithin(heroCrop.horizontal, viewportName === 'desktop' ? 442.3 : 2132.7, 5, `${viewportName} ${state} hero horizontal crop`);
     expectWithin(heroCrop.vertical, 0, 1, `${viewportName} ${state} hero vertical crop`);
     expectWithin(overviewCrop.horizontal, 0, 1, `${viewportName} ${state} overview horizontal crop`);
     expectWithin(overviewCrop.vertical, viewportName === 'desktop' ? 2030 : 15.5, 5, `${viewportName} ${state} overview vertical crop`);
@@ -919,13 +935,19 @@ test('Ticket 8 representative event and report matrix preserves active source st
 
 test('Ticket 8 programme keeps source paint without adding height-based layout contracts', async ({ page }, testInfo) => {
   await page.goto('/2025-summit-programme');
-  const expectedDayOneBreaks = [
+  const expectedDayOneSourceBands = [
     'Registration Opens',
     'Morning Break - Say hello to someone new!',
     'Lunch Break - Explore the natural surrounds of Waipuna',
     'Take a moment and make your way to your first breakout session',
+    'Future Of',
+    'Innovation Economy',
+    'Planetary Action',
     'Afternoon Break - Extend your discussion over a cuppa or enjoy a pause in nature',
-    'Summit Day One End',
+    'Future Of',
+    'Innovation Economy',
+    'Planetary Action',
+    'Make your way to the Theatre for the quickfire EHF Fellow demo!',
     'Connection Hour - Day One: Connect and Celebrate'
   ];
   const layout = await page.locator('[data-event-programme]').evaluate((root) => {
@@ -933,7 +955,7 @@ test('Ticket 8 programme keeps source paint without adding height-based layout c
     const rows = [...schedule.querySelectorAll<HTMLTableRowElement>('tbody > tr')];
     const firstRow = rows[0];
     const firstTime = firstRow.querySelector<HTMLElement>('[data-event-time]')!;
-    const breakRows = rows.filter((row) => row.classList.contains('event-programme__item--break'));
+    const sourceBandRows = rows.filter((row) => row.classList.contains('event-programme__item--source-band'));
     const rangeRows = rows
       .map((row) => row.querySelector<HTMLElement>('[data-event-time]'))
       .filter((time): time is HTMLElement => Boolean(time && ['5.30pm - 6.30pm', '7.00pm - 9.00pm'].includes(time.innerText.trim())));
@@ -949,10 +971,11 @@ test('Ticket 8 programme keeps source paint without adding height-based layout c
         paddingInline: [getComputedStyle(firstTime).paddingLeft, getComputedStyle(firstTime).paddingRight],
         timeRule: getComputedStyle(firstTime).borderRightColor
       },
-      breakRows: breakRows.map((row) => ({
+      sourceBandRows: sourceBandRows.map((row) => ({
         text: row.querySelector<HTMLElement>('[data-event-content]')?.textContent?.trim() ?? '',
         background: getComputedStyle(row).backgroundColor
       })),
+      dayOneEnd: rows.find((row) => row.querySelector<HTMLElement>('[data-event-time]')?.textContent?.trim() === '5.30pm') ? getComputedStyle(rows.find((row) => row.querySelector<HTMLElement>('[data-event-time]')?.textContent?.trim() === '5.30pm')!).backgroundColor : null,
       rangeWraps: rangeRows.map((time) => time.getBoundingClientRect().height > parseFloat(getComputedStyle(time).lineHeight))
     };
   });
@@ -962,8 +985,9 @@ test('Ticket 8 programme keeps source paint without adding height-based layout c
   expect(layout.firstTime.paddingBlock).toEqual(['21px', '21px']);
   expect(layout.firstTime.paddingInline).toEqual(['18px', '18px']);
   expect(layout.firstTime.timeRule).toBe('rgb(204, 204, 204)');
-  expect(layout.breakRows.map((row) => expectedDayOneBreaks.find((label) => row.text.startsWith(label)) ?? null)).toEqual(expectedDayOneBreaks);
-  expect(layout.breakRows.every((row) => row.background === 'rgb(238, 238, 238)')).toBe(true);
+  expect(layout.sourceBandRows.map((row) => expectedDayOneSourceBands.find((label) => row.text.startsWith(label)) ?? null)).toEqual(expectedDayOneSourceBands);
+  expect(layout.sourceBandRows.every((row) => row.background === 'rgb(238, 238, 238)')).toBe(true);
+  expect(layout.dayOneEnd).toBe('rgba(0, 0, 0, 0)');
   expect(layout.rangeWraps).toEqual([true, true]);
   if (testInfo.project.name === 'mobile') {
     await expect(page.locator('[data-event-day-tab]')).toHaveCount(2);

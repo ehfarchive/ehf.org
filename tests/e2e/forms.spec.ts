@@ -71,16 +71,16 @@ for (const formContract of contract.routes) {
       if (request.isNavigationRequest() || request.method() !== 'GET') requests.push(request.url());
     });
 
-    const form = page.locator('main form');
-    await expect(form).toHaveCount(1);
-    await expect(form).not.toHaveAttribute('action');
-    await expect(form).not.toHaveAttribute('method');
-    await expect(form.locator('[required]')).toHaveCount(0);
-    await expect(form.locator('input, textarea')).toHaveCount(formContract.fields.length);
+    const controls = page.locator('main [data-display-only-controls]');
+    await expect(page.locator('main form')).toHaveCount(0);
+    await expect(controls).toHaveCount(1);
+    await expect(controls).toHaveAttribute('role', 'group');
+    await expect(controls.locator('[required]')).toHaveCount(0);
+    await expect(controls.locator('input, textarea')).toHaveCount(formContract.fields.length);
 
     for (const [index, field] of formContract.fields.entries()) {
-      const control = form.locator('input, textarea').nth(index);
-      await expect(form.getByLabel(field.label, { exact: true })).toHaveAttribute('id', field.id);
+      const control = controls.locator('input, textarea').nth(index);
+      await expect(controls.getByLabel(field.label, { exact: true })).toHaveAttribute('id', field.id);
       await expect(control).toHaveAttribute('id', field.id);
       if (field.type === 'textarea') {
         await expect(control).toHaveJSProperty('tagName', 'TEXTAREA');
@@ -94,8 +94,10 @@ for (const formContract of contract.routes) {
     }
 
     await fillCapturedValues(page, formContract.fields);
-    await form.getByRole('button', { name: formContract.submitLabel, exact: true }).click();
-    await expect(form.getByText(/success|thank you|sent/i)).toHaveCount(0);
+    const button = controls.getByRole('button', { name: formContract.submitLabel, exact: true });
+    await expect(button).toHaveAttribute('type', 'button');
+    await button.click();
+    await expect(controls.getByText(/success|thank you|sent/i)).toHaveCount(0);
     expect(requests).toEqual([]);
 
     for (const field of formContract.fields) {
@@ -105,6 +107,32 @@ for (const formContract of contract.routes) {
     }
   });
 }
+
+test('Ticket 10 display controls keep personal data local without JavaScript', async ({ browser }) => {
+  const formContract = contract.routes.find((route) => route.route === '/contact-us');
+  if (!formContract) throw new Error('missing contact-us source contract');
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+
+  try {
+    await page.goto(formContract.route);
+    const controls = page.locator('[data-display-only-controls]');
+    const navigationRequests: string[] = [];
+    page.on('request', (request) => {
+      if (request.isNavigationRequest() || request.method() !== 'GET') navigationRequests.push(request.url());
+    });
+    await expect(page.locator('form')).toHaveCount(0);
+    await fillCapturedValues(page, formContract.fields);
+    const before = page.url();
+    await controls.getByRole('button', { name: formContract.submitLabel, exact: true }).click();
+    await expect(page).toHaveURL(before);
+    expect(navigationRequests).toEqual([]);
+    await expect(page.locator('#first-name')).toHaveValue(String(formContract.fields[0].filledValue));
+  } finally {
+    await context.close();
+  }
+});
+
 
 test('Ticket 10 renders the captured update-group semantics and source-form shared affordances', async ({ page }) => {
   await page.goto('/news-and-events-updates');
@@ -148,13 +176,13 @@ test('Ticket 10 applies the captured type hierarchy across every route and viewp
       await expect(heading).toHaveCSS('letter-spacing', isMedia ? viewport.name === 'desktop' ? '-0.4992px' : '-0.39192px' : viewport.name === 'desktop' ? '-0.60288px' : '-0.42px');
       await expect(heading).toHaveCSS('font-size', isMedia ? viewport.name === 'desktop' ? '33.28px' : '26.128px' : viewport.name === 'desktop' ? '40.192px' : '28px');
 
-      const form = page.locator('main form');
-      await expect(form).toHaveCSS('font-family', /Merriweather/);
-      await expect(form).toHaveCSS('font-size', viewport.name === 'desktop' ? '19.456px' : '18.0256px');
-      await expect(form.locator('legend').first()).toHaveCSS('font-size', viewport.name === 'desktop' ? '19.456px' : '18.0256px');
-      await expect(form.locator('.display-only-form__label-required').first()).toHaveCSS('font-size', '16px');
-      await expect(form.locator('input:not([type="checkbox"])').first()).toHaveCSS('font-family', /Merriweather/);
-      await expect(form.locator('input:not([type="checkbox"])').first()).toHaveCSS('font-size', viewport.name === 'desktop' ? '19.456px' : '18.0256px');
+      const controls = page.locator('main [data-display-only-controls]');
+      await expect(controls).toHaveCSS('font-family', /Merriweather/);
+      await expect(controls).toHaveCSS('font-size', viewport.name === 'desktop' ? '19.456px' : '18.0256px');
+      await expect(controls.locator('legend').first()).toHaveCSS('font-size', viewport.name === 'desktop' ? '19.456px' : '18.0256px');
+      await expect(controls.locator('.display-only-form__label-required').first()).toHaveCSS('font-size', '16px');
+      await expect(controls.locator('input:not([type="checkbox"])').first()).toHaveCSS('font-family', /Merriweather/);
+      await expect(controls.locator('input:not([type="checkbox"])').first()).toHaveCSS('font-size', viewport.name === 'desktop' ? '19.456px' : '18.0256px');
     }
   }
 });

@@ -42,6 +42,17 @@ test('homepage exposes the site title and main landmark', async ({ page }) => {
   await expect(page.getByRole('main')).toBeVisible();
 });
 
+test('site layout exposes the local PNG favicon without a fallback icon request', async ({ page }) => {
+  const requests: string[] = [];
+  page.on('request', (request) => requests.push(new URL(request.url()).pathname));
+
+  await page.goto('/');
+
+  await expect(page.locator('link[rel="icon"]')).toHaveAttribute('href', '/assets/images/favicon.png');
+  await expect(page.locator('link[rel="icon"]')).toHaveAttribute('type', 'image/png');
+  expect(requests).not.toContain('/favicon.ico');
+});
+
 test('every manifest-declared Impact listing and article path is static', async ({ page }) => {
   expect(impactListingPaths).toEqual(['/read', '/read/page/2', '/read/page/3', '/read/page/4', '/read/page/5']);
   expect(impactArticlePaths).toHaveLength(84);
@@ -415,9 +426,10 @@ test('Ticket 8 programme renders every live Summit row as an ordered semantic ta
     text: row.textContent?.trim() ?? '',
     content: row.querySelector<HTMLElement>('[data-event-content]')?.textContent?.trim() ?? '',
     cellCount: (row as HTMLTableRowElement).cells.length,
-    isBreak: row.classList.contains('event-programme__item--break')
+    isSourceBand: row.classList.contains('event-programme__item--source-band'),
+    background: getComputedStyle(row).backgroundColor
   })));
-  expect(dayOneRows[2]).toEqual({ time: null, text: '', content: '', cellCount: 0, isBreak: false });
+  expect(dayOneRows[2]).toMatchObject({ time: null, text: '', content: '', cellCount: 0, isSourceBand: false });
   expect(dayOneRows.slice(14, 20).map((row) => row.time)).toEqual(['2.45pm', '', '', '', '', '']);
   expect(dayOneRows.slice(21, 27).map((row) => row.time)).toEqual(['4.00pm', '', '', '', '', '']);
   expect(dayOneRows.slice(14, 20).map((row) => row.content)).toEqual([
@@ -429,33 +441,46 @@ test('Ticket 8 programme renders every live Summit row as an ordered semantic ta
     'Case Study: Catalysing Ocean-Based Ventures for the PacificDive deep into a case study of how a blended finance model has catalysed new ocean-based ventures in Aotearoa NZ - and explore how it might be applied as a new model for Pacific climate innovation.Nigel Bradly, Founder & CEO, EnvirostratLarry Tchiou, EHF Fellow; Impact Entrepreneur & Innovation Consultant'
   ]);
 
-  const expectedBreakLabels = [
-    'Registration Opens',
-    'Morning Break - Say hello to someone new!',
-    'Lunch Break - Explore the natural surrounds of Waipuna',
-    'Take a moment and make your way to your first breakout session',
-    'Afternoon Break - Extend your discussion over a cuppa or enjoy a pause in nature',
-    'Summit Day One End',
-    'Connection Hour - Day One: Connect and Celebrate'
-  ];
-  const breakRows = dayOneRows.filter((row) => row.isBreak);
-  expect(breakRows).toHaveLength(expectedBreakLabels.length);
-  expect(breakRows.map((row) => expectedBreakLabels.find((label) => row.content.startsWith(label)) ?? null)).toEqual(expectedBreakLabels);
+  const sourceBandRows = dayOneRows.filter((row) => row.isSourceBand);
+  expect(sourceBandRows).toHaveLength(13);
+  expect(sourceBandRows.every((row) => row.background === 'rgb(238, 238, 238)')).toBe(true);
+  expect(dayOneRows.find((row) => row.time === '5.30pm' && row.content === 'Summit Day One End')).toMatchObject({
+    isSourceBand: false,
+    background: 'rgba(0, 0, 0, 0)'
+  });
+  const caseStudy = dayOne.locator('tbody > tr').nth(12).locator('p').filter({ hasText: 'Case Study: How Mobility, Connectivity and AI are Driving the Future of Travel' });
+  await expect(caseStudy).toHaveCount(1);
+  expect(await caseStudy.evaluate((paragraph) => paragraph.innerHTML.includes('</strong><br'))).toBe(true);
   const dayTwoRows = await dayTwo.locator('tbody > tr').evaluateAll((rows) => rows.map((row) => ({
     time: row.querySelector<HTMLElement>('[data-event-time]')?.textContent?.trim() ?? null,
     content: row.querySelector<HTMLElement>('[data-event-content]')?.textContent?.trim() ?? '',
-    isBreak: row.classList.contains('event-programme__item--break')
+    isSourceBand: row.classList.contains('event-programme__item--source-band'),
+    background: getComputedStyle(row).backgroundColor
   })));
   expect(dayTwoRows.slice(6, 12).map((row) => row.time)).toEqual(['11.15am', '', '', '', '', '']);
   expect(dayTwoRows.slice(13, 19).map((row) => row.time)).toEqual(['12.15pm', '', '', '', '', '']);
   expect(dayTwoRows.slice(20, 26).map((row) => row.time)).toEqual(['2.00pm', '', '', '', '', '']);
-  expect(dayTwoRows.filter((row) => row.isBreak).map((row) => row.content)).toEqual([
-    'Arrival Tea and Coffee',
-    'Morning Break',
-    'Switch Rooms',
-    'Lunch Break - Enjoy some kai with others',
-    'Make your way back to the Theatre'
-  ]);
+  const dayTwoSourceBands = dayTwoRows.filter((row) => row.isSourceBand);
+  expect(dayTwoSourceBands).toHaveLength(14);
+  expect(dayTwoSourceBands.every((row) => row.background === 'rgb(238, 238, 238)')).toBe(true);
+  expect(sourceBandRows.length + dayTwoSourceBands.length).toBe(27);
+});
+
+test('Ticket 8 renders both Summit day tables without JavaScript', async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+
+  try {
+    await page.goto('/2025-summit-programme');
+    const dayOne = page.locator('#summit-day-1-panel');
+    const dayTwo = page.locator('#summit-day-2-panel');
+    await expect(dayOne).toBeVisible();
+    await expect(dayTwo).toBeVisible();
+    await expect(dayOne.locator('tbody > tr')).toHaveCount(33);
+    await expect(dayTwo.locator('tbody > tr')).toHaveCount(30);
+  } finally {
+    await context.close();
+  }
 });
 
 test('Annual reports render only their five declared local document controls, separate from prose', async ({ page }) => {

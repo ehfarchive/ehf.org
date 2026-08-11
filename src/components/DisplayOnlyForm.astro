@@ -42,7 +42,7 @@ const renderFieldLabel = (field: DisplayOnlyField) => {
     <h1>{heading}</h1>
     {intro && <p class="display-only-form__intro">{intro}</p>}
   </header>
-  <form data-display-only-form>
+  <div role="group" aria-label={heading} data-display-only-controls>
     {nameFields.length > 0 && <fieldset class="display-only-form__name-group">
       <legend>Name</legend>
       <div class="display-only-form__name-fields">
@@ -67,13 +67,11 @@ const renderFieldLabel = (field: DisplayOnlyField) => {
         {checkFields.map((field) => <label class="display-only-form__check" for={field.id}><input id={field.id} type="checkbox" /><span>{field.label}</span></label>)}
       </fieldset>
     ) : checkFields.map((field) => <label class="display-only-form__check" for={field.id}><input id={field.id} type="checkbox" /><span>{field.label}</span></label>))}
-    <button type="submit">{submitLabel}</button>
+    <button type="button">{submitLabel}</button>
     {updatesGroup && <p class="display-only-form__privacy">Please read our <a href="/privacy-policy">Privacy Policy</a> about how we store any personal data you share with us via this form</p>}
-  </form>
+  </div>
 </article>
-<script>
-  document.querySelectorAll<HTMLFormElement>('[data-display-only-form]').forEach((form) => form.addEventListener('submit', (event) => event.preventDefault()));
-</script>
+
 
 <style>
   .display-only-form { width: min(918px, calc(100% - 2 * var(--gutter))); margin: 0 auto; padding: calc(var(--header-height) + 29px) 0 170px; }
@@ -90,7 +88,7 @@ const renderFieldLabel = (field: DisplayOnlyField) => {
   .display-only-form__intro { max-width: 760px; margin: 22px 0 0; font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
   .display-only-form__header--centered .display-only-form__intro { margin-inline: auto; }
   /* Source sets the whole form in the Merriweather body step. */
-  .display-only-form form { color: var(--color-text); font-family: var(--font-body); font-size: var(--text-body); font-weight: var(--weight-body); line-height: var(--lh-body); }
+  .display-only-form [data-display-only-controls] { color: var(--color-text); font-family: var(--font-body); font-size: var(--text-body); font-weight: var(--weight-body); line-height: var(--lh-body); }
   .display-only-form fieldset { border: 0; margin: 0; padding: 0; }
   .display-only-form legend { margin: 0 0 4px; padding: 0; font-size: var(--text-body); line-height: var(--lh-body); }
   .display-only-form .display-only-form__name-group { margin-bottom: 20px; }

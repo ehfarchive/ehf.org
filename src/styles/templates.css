@@ -182,8 +182,7 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
 
 @media (max-width: 767px) {
   /* --- Ticket 5: homepage-only presentation block (mobile, start) --- */
-  .home-hero { min-height: 1450.95px; }
-  .home-hero__content { padding-block: 72.2px 81px; margin-left: auto; }
+  .home-hero__content { padding-block: 72.2px 99.68375px; margin-left: auto; }
   .home-hero h1 { max-width: none; margin-bottom: 29px; }
   .home-hero__content > p.home-hero__lead { max-width: none; margin-bottom: 14px; }
   .home-hero__content > p { margin-bottom: 33px; }

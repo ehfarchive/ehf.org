@@ -9,6 +9,7 @@ programmeDays:
 ---
 
 8.00am
+<!-- summit-source-band -->
 
 Registration Opens
 
@@ -56,6 +57,7 @@ His Excellency provides firsthand insight into the experience of Pacific countri
 **His Excellency Anote Tong**, *2012 Hillary Laureate; Former President,* ***The Republic of Kiribati**; *Chair*, **The Pacific Elder's Voice (PEV)**
 
 11.00am
+<!-- summit-source-band -->
 
 Morning Break - Say hello to someone new!
 
@@ -96,6 +98,7 @@ Aotearoa NZ has a thriving startup ecosystem - but faces unique challenges in sc
 Moderator:**Anna Kominik**, *Chair*, **Hillary Institute & Edmund Hillary Fellowship**
 
 12.30pm
+<!-- summit-source-band -->
 
 Lunch Break - Explore the natural surrounds of Waipuna
 
@@ -115,15 +118,17 @@ From autonomous vehicles and electric aircraft to revolutions in supply chain, l
 
  
 
-**Case Study: How Mobility, Connectivity and AI are Driving the Future of Travel** Mobile devices with ubiquitous connectivity are transforming the airline industry, enhancing safety and efficiency, and elevating the guest experience. AI will accelerate this transformation. Learn how Apple and Air New Zealand are working together to move the industry forward and the unique opportunities this presents for Aotearoa to lead the future.
+**Case Study: How Mobility, Connectivity and AI are Driving the Future of Travel**<!-- summit-line-break -->Mobile devices with ubiquitous connectivity are transforming the airline industry, enhancing safety and efficiency, and elevating the guest experience. AI will accelerate this transformation. Learn how Apple and Air New Zealand are working together to move the industry forward and the unique opportunities this presents for Aotearoa to lead the future.
 
 **Michael Tchao**, *EHF Fellow; VP Product Marketing*, **Apple**
 
 2.30pm
+<!-- summit-source-band -->
 
 Take a moment and make your way to your first breakout session
 
 2.45pm
+<!-- summit-source-band -->
 
 **Future Of**
 
@@ -146,6 +151,7 @@ How will new technologies and emerging innovations transform travel in the futur
 **Michael Tchao**, *EHF Fellow; VP Product Marketing*, **Apple**
 
 **Innovation Economy**
+<!-- summit-source-band -->
 
 **Founder First: How We Connect and Support Innovation Leaders**
 
@@ -154,6 +160,7 @@ Being a founder from New Zealand can be tough. As a US mentor it can be as tough
 **Linda Jenkinson**, *Founder, Chair & CEO,* ***LevelUp**
 
 **Planetary Action**
+<!-- summit-source-band -->
 
 **Case Study: Catalysing Ocean-Based Ventures for the Pacific**
 
@@ -164,10 +171,12 @@ Dive deep into a case study of how a blended finance model has catalysed new oce
 **Larry Tchiou**, *EHF Fellow; Impact Entrepreneur & Innovation Consultant*
 
 3.30pm
+<!-- summit-source-band -->
 
 Afternoon Break - Extend your discussion over a cuppa or enjoy a pause in nature
 
 4.00pm
+<!-- summit-source-band -->
 
 **Future Of**
 
@@ -186,6 +195,7 @@ Ranked fourth in the world for rocket launches and a leader of innovation in sol
 **Mark Rocket**, *CEO*, **Kea Aerospace**
 
 **Innovation Economy**
+<!-- summit-source-band -->
 
 **Part 1: Challenging Status Quo Approaches to Innovation in Aotearoa NZ**
 
@@ -204,6 +214,7 @@ Explore how to leverage Aotearoa NZ’s inherent strengths and overcome barriers
 **Pam Ford**, *Director Economic Development,* ***Tātaki Auckland Unlimited**
 
 **Planetary Action**
+<!-- summit-source-band -->
 
 **‘I Am The River, The River Is Me’ - Unlocking the Power of Rights of Nature**
 
@@ -214,6 +225,7 @@ We need a value shift in how we relate to nature: from thinking about nature as 
 **Ned Tapa**, *Whanganui River Guardian*
 
 4.45pm
+<!-- summit-source-band -->
 
 Make your way to the Theatre for the quickfire EHF Fellow demo!
 
@@ -232,6 +244,7 @@ Summit Day One Wrap-Up
 Summit Day One End
 
 5.30pm - 6.30pm
+<!-- summit-source-band -->
 
 **Connection Hour - Day One: Connect and Celebrate**
 
@@ -244,6 +257,7 @@ Wrap up Day One with an informal yet impactful Connection Hour! Grab a drink, mi
 Summit participants who would like to stay on for a special buffet dinner are welcome to purchase an add-on Summit Day One Dinner ticket. This will be at the Waipuna Hotel and Conference Centre, and is an opportunity to share a meal, deepen connections, and enjoy an evening together.
 
 8.00am
+<!-- summit-source-band -->
 
 Arrival Tea and Coffee
 
@@ -290,10 +304,12 @@ Traditional finance has been criticised as being extractive and destructive. How
 **Geoff Davis,** *Chair*, **Social Capital Markets (SOCAP)**; *Senior Advisor and Former CEO*, **Sorenson Impact Institute**
 
 10.45am
+<!-- summit-source-band -->
 
 Morning Break
 
 11.15am
+<!-- summit-source-band -->
 
 **Future Of**
 
@@ -304,6 +320,7 @@ Explore how AI is shaping the future of healthcare by integrating a range of dat
 **Xincheng Zhang**, *EHF Fellow; Co-Founder & CTO*, **QTC Care**
 
 **Innovation Economy**
+<!-- summit-source-band -->
 
 **Māori Innovation Principles**
 
@@ -312,6 +329,7 @@ Can we create ventures that orient around long term success, impact and longevit
 **Shay Wright**, *EHF Fellow;* *Co-Founder*, **Te Whare Hukahuka**
 
 **Planetary Action**
+<!-- summit-source-band -->
 
 **Shaping Aotearoa NZ’s Energy Future: Innovation, Challenges, and Opportunities**
 
@@ -322,10 +340,12 @@ Aotearoa NZ’s energy future relies on bold innovation to reduce emissions and 
 **Michelle Polglase**, *GM Projects Delivery*, **Ara Ake**
 
 12.00pm
+<!-- summit-source-band -->
 
 Switch Rooms
 
 12.15pm
+<!-- summit-source-band -->
 
 **Future Of**
 
@@ -340,6 +360,7 @@ How can we create an education system that embraces global change while being gr
 **Rangimarie Parata Takurua**, *EHF Fellow; Founder*, **Te Pā o Rākaihautū**
 
 **Innovation Economy**
+<!-- summit-source-band -->
 
 **Part 2: Seeking Solutions To Accelerate and Increase the Impact of NZ Innovation**
 
@@ -354,6 +375,7 @@ Dive into the challenges identified in Part 1 of this 2 part session, and develo
 **Daniela McKenzie**, *Chief Strategist,* **Ternary Kinetics**
 
 **Planetary Action**
+<!-- summit-source-band -->
 
 **Regenerative and Catalytic Finance Models**
 
@@ -364,10 +386,12 @@ Explore with two global leaders how regenerative and catalytic financing can hel
 **Aimée Christensen**, *CEO*, **Christensen Global Strategies********
 
 1.00pm
+<!-- summit-source-band -->
 
 Lunch Break - Enjoy some kai with others
 
 2.00pm
+<!-- summit-source-band -->
 
 **Future Of**
 
@@ -380,6 +404,7 @@ AI continues to develop at an accelerated pace, and the impact of this emergent 
  
 
 **Innovation Economy**
+<!-- summit-source-band -->
 
 **East Meets Best: Strengthening the NZ Innovation Economy through P2P Partnerships with Asia**
 
@@ -390,6 +415,7 @@ Success in Asia is not just about what you know - it’s about who you know. At 
  
 
 **Planetary Action**
+<!-- summit-source-band -->
 
 **Partnering for Impact: Building Public-Private Collaborations for Climate Resilience**
 
@@ -400,6 +426,7 @@ Strong partnerships across public and private sector, tangata whenua and communi
 **Sarah Anderson**, *Programme Director*, **Climate Connect Aotearoa and Tātaki Auckland Unlimited**
 
 2.45pm
+<!-- summit-source-band -->
 
 Make your way back to the Theatre
 

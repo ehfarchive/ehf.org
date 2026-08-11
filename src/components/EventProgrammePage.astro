@@ -7,7 +7,7 @@ type ProgrammeRow = {
   kind: 'row';
   time: string;
   content: string[];
-  isBreak: boolean;
+  isSourceBand: boolean;
   trackTreatment?: 'future' | 'innovation' | 'planetary';
 };
 type ProgrammeEntry = ProgrammeRow | { kind: 'spacer' };
@@ -28,20 +28,6 @@ const trackTreatments = {
   'Planetary Action': 'planetary'
 } as const;
 const trackLabels = new Set(Object.keys(trackTreatments));
-const breakLabels = new Set([
-  'Registration Opens',
-  'Morning Break - Say hello to someone new!',
-  'Lunch Break - Explore the natural surrounds of Waipuna',
-  'Take a moment and make your way to your first breakout session',
-  'Afternoon Break - Extend your discussion over a cuppa or enjoy a pause in nature',
-  'Summit Day One End',
-  'Connection Hour - Day One: Connect and Celebrate',
-  'Arrival Tea and Coffee',
-  'Morning Break',
-  'Switch Rooms',
-  'Lunch Break - Enjoy some kai with others',
-  'Make your way back to the Theatre'
-]);
 const timePattern = /^\d{1,2}\.\d{2}(?:am|pm)(?:\s*-\s*\d{1,2}\.\d{2}(?:am|pm))?$/i;
 
 function parseInline(text: string): InlineSegment[] {
@@ -116,29 +102,31 @@ for (const rawLine of programmeLines ?? []) {
   if (line === '<!-- summit-spacer -->') {
     programmeDaysEntries[dayIndex].push({ kind: 'spacer' });
     currentProgrammeRow = undefined;
+  } else if (line === '<!-- summit-source-band -->') {
+    if (!currentProgrammeRow) throw new Error('summit source band must follow a programme row');
+    currentProgrammeRow.isSourceBand = true;
   } else if (timePattern.test(line)) {
     if (line === '8.00am' && programmeDaysEntries[dayIndex].some((entry) => entry.kind === 'row')) {
       dayIndex += 1;
       programmeDaysEntries.push([]);
     }
-    currentProgrammeRow = { kind: 'row', time: line, content: [], isBreak: false };
+    currentProgrammeRow = { kind: 'row', time: line, content: [], isSourceBand: false };
     programmeDaysEntries[dayIndex].push(currentProgrammeRow);
   } else if (line && currentProgrammeRow) {
     const plainLine = plainInlineText(line);
     if (trackLabels.has(plainLine)) {
       if (currentProgrammeRow.content.length > 0 || currentProgrammeRow.trackTreatment) {
-        currentProgrammeRow = { kind: 'row', time: '', content: [], isBreak: false };
+        currentProgrammeRow = { kind: 'row', time: '', content: [], isSourceBand: false };
         programmeDaysEntries[dayIndex].push(currentProgrammeRow);
       }
       currentProgrammeRow.content.push(line);
       currentProgrammeRow.trackTreatment = trackTreatments[plainLine as keyof typeof trackTreatments];
     } else {
       if (currentProgrammeRow.trackTreatment) {
-        currentProgrammeRow = { kind: 'row', time: '', content: [], isBreak: false };
+        currentProgrammeRow = { kind: 'row', time: '', content: [], isSourceBand: false };
         programmeDaysEntries[dayIndex].push(currentProgrammeRow);
       }
       currentProgrammeRow.content.push(line);
-      if (breakLabels.has(plainLine)) currentProgrammeRow.isBreak = true;
     }
   }
 }
@@ -185,7 +173,6 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2 || day
       id={`summit-day-${index + 1}-panel`}
       role={showProgrammeDays ? 'tabpanel' : undefined}
       aria-labelledby={showProgrammeDays ? `summit-day-${index + 1}-tab` : undefined}
-      hidden={showProgrammeDays && index !== 0}
       data-event-day-panel
     >
       <table class="event-programme__schedule" data-event-schedule>
@@ -196,7 +183,7 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2 || day
           {entries.map((entry) => entry.kind === 'spacer' ? (
             <tr data-event-item data-event-spacer aria-hidden="true"></tr>
           ) : (
-            <tr class:list={['event-programme__item', { 'event-programme__item--break': entry.isBreak }]} data-event-item>
+            <tr class:list={['event-programme__item', { 'event-programme__item--source-band': entry.isSourceBand }]} data-event-item>
               <td class="event-programme__time" data-event-time>{entry.time}</td>
               <td class:list={['event-programme__item-content', { 'event-programme__item-content--track': entry.trackTreatment }]} data-event-content>
                 {entry.trackTreatment ? (
@@ -208,7 +195,7 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2 || day
                     {blocksFor(entry.content).map((block) => block.kind === 'list' ? (
                       <ul>{block.lines.map((line) => <li>{parseInline(line).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</li>)}</ul>
                     ) : (
-                      <p>{parseInline(block.line).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</p>
+                      <p>{block.line.split('<!-- summit-line-break -->').map((part, index) => <>{index > 0 && <br />}{parseInline(part).map((segment) => segment.emphasis === 'strong' ? <strong>{segment.text}</strong> : segment.emphasis === 'em' ? <em>{segment.text}</em> : segment.emphasis === 'strong-em' ? <strong><em>{segment.text}</em></strong> : segment.text)}</>)}</p>
                     ))}
                   </div>
                 )}
@@ -223,10 +210,10 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2 || day
   )}
 </section>
 
-{showProgrammeDays && (
   <script>
-    const tabs = [...document.querySelectorAll<HTMLButtonElement>('[data-event-day-tab]')];
-    const panels = [...document.querySelectorAll<HTMLElement>('[data-event-day-panel]')];
+    const programme = document.querySelector<HTMLElement>('[data-event-programme]');
+    const tabs = programme ? [...programme.querySelectorAll<HTMLButtonElement>('[data-event-day-tab]')] : [];
+    const panels = programme ? [...programme.querySelectorAll<HTMLElement>('[data-event-day-panel]')] : [];
     const selectDay = (selectedIndex: number) => {
       tabs.forEach((tab, index) => {
         const selected = index === selectedIndex;
@@ -235,16 +222,20 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2 || day
         panels[index].hidden = !selected;
       });
     };
-    tabs.forEach((tab, index) => {
-      tab.addEventListener('click', () => selectDay(index));
-      tab.addEventListener('keydown', (event) => {
-        if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
-        event.preventDefault();
-        const nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
-        tabs[nextIndex].focus();
-        selectDay(nextIndex);
+    if (programme && tabs.length === panels.length) {
+      programme.dataset.enhanced = 'true';
+      selectDay(0);
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => selectDay(index));
+        tab.addEventListener('keydown', (event) => {
+          if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+          event.preventDefault();
+          const nextIndex = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+          tabs[nextIndex].focus();
+          selectDay(nextIndex);
+        });
       });
-    });
+    }
   </script>
 )}
 
@@ -266,7 +257,7 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2 || day
   .event-programme__schedule { width: calc(100% + 26px); margin-inline: -13px; border: 1px solid #ccc; border-collapse: collapse; table-layout: fixed; }
   .event-programme__item > td { vertical-align: top; border-bottom: 1px solid #ccc; }
   .event-programme__time-column { width: 111px; }
-  .event-programme__item--break { background: #eee; }
+  .event-programme__item--source-band { background: #eee; }
   .event-programme__time { box-sizing: border-box; width: 111px; border-right: 1px solid #ccc; padding: 21px 18px; font: 300 16px/28.8px var(--font-body); }
   .event-programme__time,
   .event-programme__item-content p,
@@ -283,6 +274,7 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2 || day
   .event-programme__track--future { background: #92c5e3; }
   .event-programme__track--innovation { background: #806daf; }
   .event-programme__track--planetary { background: #75b2bd; }
+  .event-programme__item--source-band .event-programme__track { background: transparent; color: #000; }
 
   @media (max-width: 767px) {
     .event-programme { padding-top: calc(var(--header-height) + 55px); padding-bottom: 64px; }
