@@ -170,7 +170,10 @@
   box-shadow: none;
 }
 .desktop-nav__submenu ul { display: block; text-align: right; }
-.desktop-nav__submenu a:not(.button) { line-height: 24px; white-space: nowrap; }
+/* Source paints each submenu destination as its own 24px box: an inline-flex
+   link with 1.6px of padding above and below a 20.8px line box, which is also
+   what sets the 24px pitch between the items. */
+.desktop-nav__submenu a:not(.button) { display: inline-flex; padding: 1.6px 0; line-height: 20.8px; white-space: nowrap; }
 
 .button {
   display: inline-flex;
