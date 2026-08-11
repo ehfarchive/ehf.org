@@ -12,6 +12,7 @@ import summerEdition from '../content/pages/institutional/summer-edition-2025.js
 import privacyPolicy from '../content/pages/legal/privacy-policy.json';
 import refundPolicy from '../content/pages/legal/refund-policy-terms-and-conditions.json';
 import termsOfUse from '../content/pages/legal/terms-of-use.json';
+import { assetIdForLocalPath } from '../data/site';
 import { loadPageData, loadPageSections, type ContentManifest, type RawPageRecord } from '../lib/page-data';
 import { loadRouteManifest, type IncludedRouteRecord } from '../lib/route-manifest';
 
@@ -25,6 +26,12 @@ const pageInputs: Readonly<Record<string, RawPageRecord>> = {
   'src/content/pages/legal/privacy-policy.json': privacyPolicy,
   'src/content/pages/legal/refund-policy-terms-and-conditions.json': refundPolicy,
   'src/content/pages/legal/terms-of-use.json': termsOfUse
+};
+
+/* Only /about-ehf is painted as a full-bleed section on the source; the other
+   institutional pages keep the centred page-surface column. */
+const immersiveBackgrounds: Readonly<Record<string, { assetId: string; alt: string }>> = {
+  '/about-ehf': { assetId: assetIdForLocalPath('/assets/images/content/about-ehf-hero-mountain.png'), alt: '' }
 };
 
 export function getStaticPaths() {
@@ -42,6 +49,6 @@ const sections = loadPageSections(input, route);
 ---
 <SiteLayout title={input.title} description={input.description}>
   {template === 'institutional'
-    ? <StandardPage title={input.heading} sections={sections} />
+    ? <StandardPage title={input.heading} sections={sections} background={immersiveBackgrounds[route]} />
     : <LegalPage title={input.heading} sections={sections} />}
 </SiteLayout>
