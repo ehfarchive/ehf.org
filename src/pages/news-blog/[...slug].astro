@@ -59,11 +59,10 @@ const next = nextArticle ? { href: nextArticle.path, title: nextArticle.entry.da
       margin-inline: auto;
     }
   }
-  /* Source opens a News article with 68px between the title and the lead image
-     and closes the band 34px above the first body paragraph, which is what puts
-     the body 18px lower than a plain figure's margins would. */
+  /* The shared 68px body opening already sets the space above the lead image;
+     the source closes that band 34px above the first paragraph rather than the
+     50px a mid-body figure carries. */
   body:has(.news-article-marker) .article-page__body > figure:first-child {
-    margin-top: 68px;
     margin-bottom: 34px;
   }
 </style>

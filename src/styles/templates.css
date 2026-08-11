@@ -106,6 +106,15 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
 }
 .article-page__body p,
 .article-page__body li { margin-block: 16px; }
+/* Source opens every article body 68px below the title, and each of its content
+   blocks carries 17px of padding, so a boundary between two blocks reads as 34px
+   rather than the 16px a single run of paragraphs collapses to. */
+.article-page__body > :first-child { margin-top: 68px; }
+/* Where the source split its copy into a further content block, the article
+   Markdown carries that block and it opens on the same 34px boundary. The block
+   keeps its closing space, which the source paints as the block's own padding. */
+.article-page__body > .article-block { margin-top: 34px; }
+.article-page__body > .article-block > :first-child { margin-top: 0; }
 .article-page__body a { color: var(--color-brand); }
 .article-page__body blockquote { margin-block: 19.456px; margin-inline: 40px; }
 .article-page__body h2,
@@ -132,9 +141,12 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
 .article-page__body figure[data-archived-align] {
   width: calc(50% - 17px);
   max-width: calc(50% - 17px);
-  margin-top: 0;
+  margin-top: 34px;
   margin-bottom: 24px;
 }
+/* A floated figure opens a new source block, so the copy set beside it starts on
+   the same 34px boundary instead of the usual 16px paragraph step. */
+.article-page__body figure[data-archived-align] + p { margin-top: 34px; }
 .article-page__body figure[data-archived-align] > img { width: 100%; }
 .article-page__body figure[data-archived-align='left'] { float: left; margin-right: 34px; }
 .article-page__body figure[data-archived-align='right'] { float: right; margin-left: 34px; }

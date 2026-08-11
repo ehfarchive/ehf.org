@@ -72,8 +72,12 @@ HyBrTec is well placed to solve the solids burden from wastewater treatment as w
 
 Melahn’s work with Chemergy illustrates the profound difference that innovative, scalable solutions can make in addressing climate challenges. By transforming waste into green hydrogen and valuable resources, Chemergy is not only advancing waste-to-energy technology but also enabling community resilience. His work embodies the impactful, forward-thinking solutions that EHF Fellows are creating to tackle some of the world’s most critical challenges, proving that transformative technology can drive meaningful environmental and societal change.
 
+<div class="article-block">
+
 To learn more about Chemergy, visit [www.chemergy.co.](https://www.chemergy.co/)
 
 Melahn is part of the Fellow group Manu Tukutuku, which had its Welcome Experience in 2023. Learn more about Melahn via the Fellow Directory on our [website](/fellow-detail#search=melahn&numRecords=24&minMatchCharLength=4).
+
+</div>
 
 ## Harnessing Pine Pollen’s Power to Transform Wellbeing
