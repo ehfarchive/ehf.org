@@ -90,20 +90,35 @@ function formatSourceDate(publishedAt: Date): string {
 
 <style>
   .news-page { padding-top: calc(var(--header-height) + 29px); padding-bottom: 161px; }
-  .news-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; row-gap: 182px; }
+  .news-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 30px; row-gap: 50px; }
   .news-card { display: flex; min-width: 0; flex-direction: column; }
-  .news-card__image { display: block; overflow: hidden; aspect-ratio: 10 / 7; }
+  .news-card__image { display: block; overflow: hidden; aspect-ratio: 676 / 452; }
   .news-card__image :global(img) { display: block; width: 100%; height: 100%; object-fit: cover; }
-  .news-card__content { display: flex; flex: 1; flex-direction: column; align-items: flex-start; }
-  .news-card time { margin-top: 16px; color: var(--color-muted); font-size: 14px; line-height: 20px; }
-  .news-card h2 { margin: 5px 0 0; font-family: var(--font-display); font-size: 24px; font-weight: 700; line-height: 1.16; }
+  .news-card__content { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding-top: 50px; }
+  .news-card time { color: var(--color-ink); font-family: var(--font-body); font-size: 16px; font-weight: var(--weight-body); line-height: 19.2px; }
+  .news-card h2 {
+    margin: 37px 0 30px;
+    font-family: var(--font-display);
+    font-size: var(--text-lead);
+    font-weight: var(--weight-heading);
+    line-height: var(--lh-card);
+  }
   .news-card h2 a { color: inherit; text-decoration: none; }
-  .news-card__read-more { margin-top: 20px; color: inherit; font-size: 16px; line-height: 22px; text-decoration: underline; }
+  .news-card__read-more {
+    padding-top: 37px;
+    color: var(--color-brand);
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: var(--weight-body);
+    line-height: 28.8px;
+    text-decoration: none;
+  }
 
   @media (max-width: 767px) {
     .news-page { padding-top: calc(var(--header-height) + 8.2px); padding-bottom: 96px; }
-    .news-grid { grid-template-columns: 1fr; row-gap: 50px; }
-    .news-card time { margin-top: 13px; }
-    .news-card h2 { font-size: 24px; }
+    .news-grid { grid-template-columns: 1fr; row-gap: 30px; }
+    .news-card__content { padding-top: 20px; }
+    .news-card h2 { margin-top: 7.8px; }
+    .news-card__read-more { padding-top: 7.8px; }
   }
 </style>
