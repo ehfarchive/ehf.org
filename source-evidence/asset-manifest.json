@@ -446,6 +446,18 @@
       "externalUrl": null
     },
     {
+      "id": "asset-images-content-news-blog-a-year-of-impact-value-and-momentum-2023-24-annual-report-1-jpg",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-a-year-of-impact-value-and-momentum-2023-24-annual-report-1.jpg",
+      "sha256": "a2b6f37b53b32f56733687955707734a8bc20025f0799158bcf75a5c8b8a6471",
+      "bytes": 599081,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report"
+      ],
+      "externalUrl": null
+    },
+    {
       "id": "asset-images-content-news-blog-announcing-the-new-ceo-for-ehf-1-webp",
       "classification": "local",
       "localPath": "/assets/images/content/news-blog-announcing-the-new-ceo-for-ehf-1.webp",
@@ -878,6 +890,42 @@
       "externalUrl": null
     },
     {
+      "id": "asset-images-content-news-blog-media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report-1-jpg",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report-1.jpg",
+      "sha256": "feb1da266529431f3be834f39dc9c425300bfe60eaee210e69c54a53c61cee48",
+      "bytes": 605254,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/news-blog/media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson-1-jpg",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson-1.jpg",
+      "sha256": "39b6c0b826b668a50736298e304b95efb3de6c9ce38a14d502d2ebebf10b2b59",
+      "bytes": 616355,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/news-blog/navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected-1-jpg",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected-1.jpg",
+      "sha256": "8eda63c64bbe830273e300eba12bbc5491631948b1b80d0e98b3816d30e10355",
+      "bytes": 133113,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/news-blog/new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected"
+      ],
+      "externalUrl": null
+    },
+    {
       "id": "asset-images-content-news-blog-reflections-of-sir-edmund-hillarys-legacy-on-everest-day-1-webp",
       "classification": "local",
       "localPath": "/assets/images/content/news-blog-reflections-of-sir-edmund-hillarys-legacy-on-everest-day-1.webp",
@@ -934,6 +982,30 @@
       "mediaType": "image/webp",
       "routeUses": [
         "/news-blog/reflections-this-waitangi-day-2024"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill-1-png",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill-1.png",
+      "sha256": "3f040fe9eef9b841ce61b1c3e57b5b2686e03a9e0b1a0cd67f75c4e319949ba1",
+      "bytes": 2266889,
+      "mediaType": "image/png",
+      "routeUses": [
+        "/news-blog/the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-the-hillary-institute-ehf-submission-on-amending-foreign-investment-funds-rules-for-migrants-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-the-hillary-institute-ehf-submission-on-amending-foreign-investment-funds-rules-for-migrants-1.webp",
+      "sha256": "db4c69d73d368dae1d4c777e4bce7e61954ca69caf13a7d0c0d9334f9f0e121a",
+      "bytes": 144004,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/the-hillary-institute-ehf-submission-on-amending-foreign-investment-funds-rules-for-migrants"
       ],
       "externalUrl": null
     },

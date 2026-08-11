@@ -1,8 +1,8 @@
 ---
 title: "A Year of Impact, Value and Momentum - 2023/24 Annual Report"
 excerpt: "**17 October 2024**"
-heroImage: null
-heroAlt: null
+heroImage: "/assets/images/content/news-blog-a-year-of-impact-value-and-momentum-2023-24-annual-report-1.jpg"
+heroAlt: "A Year of Impact, Value and Momentum - 2023/24 Annual Report"
 publishedAt: "2024-10-16"
 ---
 

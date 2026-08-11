@@ -1,8 +1,8 @@
 ---
 title: "Media Statement: Changes needed to make New Zealand the place where talent wants to live, says report"
 excerpt: "In what is being called a silent epidemic, New Zealand is inadvertently discouraging expat Kiwis, as well as high-contributing and investment-ready migrants from staying here, a new report by the New Zealand Institute of Economic Research (NZIER) shows."
-heroImage: null
-heroAlt: null
+heroImage: "/assets/images/content/news-blog-media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report-1.jpg"
+heroAlt: "Media Statement: Changes needed to make New Zealand the place where talent wants to live, says report"
 publishedAt: "2024-07-25"
 ---
 

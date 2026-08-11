@@ -1,8 +1,8 @@
 ---
 title: "Navigating 2024 with Stubborn Optimism: A conversation with Rosalie Nelson"
 excerpt: "*With 2024 underway, Hillary Institute and Edmund Hillary Fellowship CEO Rosalie Nelson is looking to the year ahead with optimism. Taking inspiration from Hillary Laureate Christiana Figueres’ stance on*[*why Stubborn Optimism matters*](https://www.globaloptimism.com/why-stubborn-optimism)*, Rosalie sees the power of optimism as a beacon guiding humanity towards innovative solutions and transformative change.*"
-heroImage: null
-heroAlt: null
+heroImage: "/assets/images/content/news-blog-navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson-1.jpg"
+heroAlt: "Navigating 2024 with Stubborn Optimism: A conversation with Rosalie Nelson"
 publishedAt: "2024-01-12"
 ---
 
