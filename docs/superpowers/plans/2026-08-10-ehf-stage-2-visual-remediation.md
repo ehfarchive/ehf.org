@@ -537,6 +537,13 @@ No other source, style, navigation-data, content, manifest, source-capture, pack
 
   **Terminal stop rule:** any P0/P1/P2, provider/protocol error, absent verdict, packet verification failure, or focused-command failure stops Ticket 8. Do not retry the capture, assembler, review, model route, or correction; do not start Ticket 9, 10, 11, or 12; do not push, preview, merge, deploy, change an alias/domain, or take production action. If accepted, record the replacement verdict and packet digest in the Ticket 8 private ledger and plan status, release the Ticket 8 lease, and only then permit Ticket 9 under its existing detailed plan.
 
+### D.1 Terminal Step 7 recovery capture failure — 2026-08-11
+
+- **Recorded attempt:** The approved recovery implementation commit is `b23af6a9a8952cdf6dec84d1d499210737fa0819`; its specification and quality reviews were approved. Exactly one Step 7 capture command was attempted and exited `1` with `1 passed` and `1 failed`. The desktop matrix timed out in `prepareComparableDocument` at `tests/e2e/visual.spec.ts:61` while awaiting `page.waitForTimeout(100)`, called from `captureComparable` at line 121 and the matrix at line 820.
+- **Unproduced downstream work:** The assembler did not run. No replacement packet, manifest, digest, health record, or verdict was produced, and the replacement Opus call was not spent. This record intentionally does not claim that the command made no filesystem action: old-packet movement, raw staging, and output state were deliberately uninspected and remain unverified.
+- **Terminal disposition:** Ticket 8 is not accepted. After the attempt, the repository was clean and `HEAD` remained `b23af6a9a8952cdf6dec84d1d499210737fa0819`. The terminal rule forbids retry, correction, review, and Tickets 9–12, plus push, preview, merge, and deploy, until a new explicit owner plan authorizes further work.
+
+
 ### E. Addendum self-review record
 
 - **Authorization coverage:** preserves `6c2b327` programme work; moves both visible desktop submenu surfaces and the two visible newsletter exclusions to Ticket 8; preserves the homepage/default newsletter; records the `f9f0b202`/`63d7784` Impact Snapshots removal; keeps Annual Report parity, menu semantics/accessibility, accepted P3s, route exclusions, and no Stage 9/10 start before acceptance.
