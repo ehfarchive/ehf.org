@@ -17,7 +17,7 @@ const newsArticlePaths = routeManifest.routes
   .filter((route) => route.kind === 'included' && route.family === 'news-article')
   .map((route) => route.path);
 const newsListingPaths = routeManifest.routes
-  .filter((route) => route.kind === 'included' && route.family === 'news-listing' && route.path === '/news-blog')
+  .filter((route) => route.kind === 'included' && route.family === 'news-listing')
   .map((route) => route.path);
 const orderedNews = contentManifest.content
   .filter((record) => record.template === 'news-article' && typeof record.localInput === 'string')
@@ -209,7 +209,7 @@ test('Impact external service references remain safe links rather than embedded 
 });
 
 test('News emits exactly the manifest-backed listing and 27 declared article routes', async ({ page }) => {
-  expect(newsListingPaths).toEqual(['/news-blog']);
+  expect(newsListingPaths).toEqual(['/news-blog', '/news-blog/page/2']);
   expect(newsArticlePaths).toHaveLength(27);
   expect(newsArticlePaths).toContain('/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report');
   expect(orderedNews.map((article) => article.path).sort()).toEqual([...newsArticlePaths].sort());
@@ -220,30 +220,47 @@ test('News emits exactly the manifest-backed listing and 27 declared article rou
   }
 });
 
-test('News listing preserves the source query pagination split and chronological card order', async ({ page }) => {
+test('News listing uses static page links and preserves chronological card order', async ({ page }) => {
   await page.goto('/news-blog');
-  const firstPageSlugs = await page.locator('[data-news-slug]:visible').evaluateAll((cards) =>
+  const firstPageSlugs = await page.locator('[data-news-slug]').evaluateAll((cards) =>
     cards.map((card) => card.getAttribute('data-news-slug'))
   );
   expect(firstPageSlugs).toEqual(orderedNews.slice(0, 20).map((article) => article.slug));
-  await expect(page.locator('[data-news-slug]:visible')).toHaveCount(20);
-  await expect(page.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '/news-blog?offset=1675630776192');
+  await expect(page.locator('[data-news-slug]')).toHaveCount(20);
+  await expect(page.locator('[data-news-card][hidden]')).toHaveCount(0);
+  const listingMarkup = await page.locator('[data-news-listing]').innerHTML();
+  expect(listingMarkup).not.toContain('data-news-page');
+  expect(listingMarkup).not.toContain('<script');
+  await expect(page.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '/news-blog/page/2');
   await expect(page.getByRole('link', { name: 'Newer Posts' })).toHaveCount(0);
 
-  await page.goto('/news-blog?offset=1675630776192');
-  const olderPageSlugs = await page.locator('[data-news-slug]:visible').evaluateAll((cards) =>
+  await page.goto('/news-blog/page/2');
+  const olderPageSlugs = await page.locator('[data-news-slug]').evaluateAll((cards) =>
     cards.map((card) => card.getAttribute('data-news-slug'))
   );
   expect(olderPageSlugs).toEqual(orderedNews.slice(20).map((article) => article.slug));
-  await expect(page.locator('[data-news-slug]:visible')).toHaveCount(7);
-  await expect(page.getByRole('link', { name: 'Newer Posts' })).toHaveAttribute(
-    'href',
-    '/news-blog?offset=1671747295026&reversePaginate=true'
-  );
+  await expect(page.locator('[data-news-slug]')).toHaveCount(7);
+  await expect(page.locator('[data-news-card][hidden]')).toHaveCount(0);
+  await expect(page.getByRole('link', { name: 'Newer Posts' })).toHaveAttribute('href', '/news-blog');
   await expect(page.getByRole('link', { name: 'Older Posts' })).toHaveCount(0);
 
   await page.goto('/news-blog?offset=unrecognized');
-  await expect(page.locator('[data-news-slug]:visible')).toHaveCount(20);
+  await expect(page.locator('[data-news-slug]')).toHaveCount(20);
+});
+
+test('News pagination works without JavaScript', async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+
+  try {
+    await page.goto('/news-blog');
+    await page.getByRole('link', { name: 'Older Posts' }).click();
+    await page.waitForURL('**/news-blog/page/2');
+    await expect(page.locator('[data-news-slug]')).toHaveCount(7);
+    await expect(page.getByRole('link', { name: 'Newer Posts' })).toHaveAttribute('href', '/news-blog');
+  } finally {
+    await context.close();
+  }
 });
 
 test('News cards retain the source editorial metadata and responsive geometry', async ({ page }, testInfo) => {

@@ -27,6 +27,11 @@ const implementationOrigin = 'http://127.0.0.1:4321';
 
 test.setTimeout(90_000);
 
+test.skip(
+  process.env.EHF_CAPTURE_IMPLEMENTATION_SCREENSHOTS !== '1',
+  'implementation screenshot capture requires EHF_CAPTURE_IMPLEMENTATION_SCREENSHOTS=1'
+);
+
 const captures: Capture[] = [
   { route: '/', viewport: { name: 'desktop', width: 1440, height: 1000 }, state: 'default' },
   { route: '/', viewport: { name: 'mobile', width: 390, height: 844 }, state: 'default' },

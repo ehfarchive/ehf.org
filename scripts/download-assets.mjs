@@ -100,8 +100,15 @@ export async function readBoundedResponse(response, maxBytes = MAX_ASSET_BYTES) 
  * @param {string} origin
  * @param {readonly { path: string, kind: string }[]} [routes]
  * @param {ApprovedFetcher} [fetcher]
+ * @param {(record: { localPath: string }) => string} [destinationFor]
  */
-export async function discoverApprovedDownloads(manifest, origin, routes = JSON.parse(readFileSync(routeManifestPath, 'utf8')).routes, fetcher = fetch) {
+export async function discoverApprovedDownloads(
+  manifest,
+  origin,
+  routes = JSON.parse(readFileSync(routeManifestPath, 'utf8')).routes,
+  fetcher = fetch,
+  destinationFor = destinationForRecord
+) {
   const pending = new Map(manifest.assets.filter((record) => record.classification === 'local').map((record) => [`${record.bytes}:${record.sha256}`, record]));
   const candidates = new Set();
   for (const route of routes.filter((record) => record.kind === 'included')) {
@@ -120,7 +127,7 @@ export async function discoverApprovedDownloads(manifest, origin, routes = JSON.
     const bytes = await readBoundedResponse(response);
     const record = pending.get(`${bytes.length}:${hash(bytes)}`);
     if (!record) continue;
-    const destination = destinationForRecord(record);
+    const destination = destinationFor(record);
     mkdirSync(dirname(destination), { recursive: true });
     writeFileSync(destination, bytes);
     pending.delete(`${record.bytes}:${record.sha256}`);

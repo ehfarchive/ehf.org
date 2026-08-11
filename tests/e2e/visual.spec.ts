@@ -693,11 +693,11 @@ test('News active comparison states render local media, one main landmark, and n
 
   await page.goto('/news-blog');
   await expect(page.getByRole('main')).toHaveCount(1);
-  await expect(page.locator('[data-news-slug]:visible')).toHaveCount(20);
-  await expect(page.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '/news-blog?offset=1675630776192');
-  await page.goto('/news-blog?offset=1675630776192');
-  await expect(page.locator('[data-news-slug]:visible')).toHaveCount(7);
-  await expect(page.getByRole('link', { name: 'Newer Posts' })).toHaveAttribute('href', '/news-blog?offset=1671747295026&reversePaginate=true');
+  await expect(page.locator('[data-news-slug]')).toHaveCount(20);
+  await expect(page.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '/news-blog/page/2');
+  await page.goto('/news-blog/page/2');
+  await expect(page.locator('[data-news-slug]')).toHaveCount(7);
+  await expect(page.getByRole('link', { name: 'Newer Posts' })).toHaveAttribute('href', '/news-blog');
   await page.goto('/news-blog/announcing-the-new-ceo-for-ehf');
   await expect(page.getByRole('main')).toHaveCount(1);
   await expect(page.locator('.article-page__hero, .article-page__body iframe')).toHaveCount(0);

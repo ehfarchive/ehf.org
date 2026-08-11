@@ -1,10 +1,30 @@
 import { createHash } from 'node:crypto';
-import { expect, test, vi } from 'vitest';
+import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { afterAll, expect, test, vi } from 'vitest';
 import { approvedAssetCandidates, discoverApprovedDownloads } from '../../scripts/download-assets.mjs';
 
 const origin = 'https://www.ehf.org';
 
-function localRecord(bytes: Buffer) {
+type LocalAssetRecord = {
+  id: string;
+  classification: 'local';
+  localPath: string;
+  sha256: string;
+  bytes: number;
+  mediaType: string;
+  routeUses: string[];
+  externalUrl: null;
+};
+
+const downloadRoot = mkdtempSync(join(tmpdir(), 'ehf-download-'));
+const fixtureDestination = (record: { localPath: string }) =>
+  join(downloadRoot, record.localPath.slice('/assets/'.length));
+
+afterAll(() => rmSync(downloadRoot, { recursive: true, force: true }));
+
+function localRecord(bytes: Buffer): LocalAssetRecord {
   return {
     id: 'asset-example',
     classification: 'local',
@@ -44,7 +64,13 @@ test('rejects an off-scope redirect before requesting its target', async () => {
     throw new Error(`unexpected request: ${value}`);
   });
 
-  await expect(discoverApprovedDownloads({ schemaVersion: 2, assets: [localRecord(asset)] }, origin, [{ path: '/read/example', kind: 'included' }], fetcher))
+  await expect(discoverApprovedDownloads(
+    { schemaVersion: 2, assets: [localRecord(asset)] },
+    origin,
+    [{ path: '/read/example', kind: 'included' }],
+    fetcher,
+    fixtureDestination
+  ))
     .rejects.toThrow('unapproved asset URL');
   expect(fetcher).toHaveBeenCalledTimes(2);
   expect(fetcher).not.toHaveBeenCalledWith('https://example.org/stolen.jpg', expect.anything());
@@ -67,9 +93,16 @@ test('follows bounded approved source and asset redirects manually', async () =>
     throw new Error(`unexpected request: ${value}`);
   });
 
-  await expect(discoverApprovedDownloads({ schemaVersion: 2, assets: [localRecord(asset)] }, origin, [{ path: '/read/example', kind: 'included' }], fetcher))
+  await expect(discoverApprovedDownloads(
+    { schemaVersion: 2, assets: [localRecord(asset)] },
+    origin,
+    [{ path: '/read/example', kind: 'included' }],
+    fetcher,
+    fixtureDestination
+  ))
     .resolves.toBeUndefined();
   expect(fetcher).toHaveBeenCalledTimes(4);
+  expect(readFileSync(fixtureDestination(localRecord(asset)))).toEqual(asset);
 });
 
 test('does not fetch unrelated links and fails when approved assets remain unresolved', async () => {
@@ -81,7 +114,13 @@ test('does not fetch unrelated links and fails when approved assets remain unres
     throw new Error(`unexpected request: ${value}`);
   });
 
-  await expect(discoverApprovedDownloads({ schemaVersion: 2, assets: [localRecord(Buffer.from('different'))] }, origin, [{ path: '/read/example', kind: 'included' }], fetcher))
+  await expect(discoverApprovedDownloads(
+    { schemaVersion: 2, assets: [localRecord(Buffer.from('different'))] },
+    origin,
+    [{ path: '/read/example', kind: 'included' }],
+    fetcher,
+    fixtureDestination
+  ))
     .rejects.toThrow('could not rediscover approved assets: asset-example');
   expect(fetcher).toHaveBeenCalledTimes(2);
   expect(fetcher).not.toHaveBeenCalledWith('https://example.org/broken', expect.anything());

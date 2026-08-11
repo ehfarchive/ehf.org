@@ -322,6 +322,11 @@
       "family": "contact-media-donation"
     },
     {
+      "path": "/news",
+      "kind": "excluded",
+      "reason": "Stale Impact Snapshots fragment surface; live route returns 404"
+    },
+    {
       "path": "/news-and-events-updates",
       "kind": "included",
       "family": "contact-media-donation"
@@ -435,6 +440,11 @@
       "path": "/news-blog/new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected",
       "kind": "included",
       "family": "news-article"
+    },
+    {
+      "path": "/news-blog/page/2",
+      "kind": "included",
+      "family": "news-listing"
     },
     {
       "path": "/news-blog/reflections-of-sir-edmund-hillarys-legacy-on-everest-day",

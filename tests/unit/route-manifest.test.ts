@@ -56,7 +56,7 @@ test('loads the checked-in route inventory without unclassified sitemap candidat
     candidates: routeManifest.routes.filter((route) => route.path !== '/').map((route) => route.path)
   });
 
-  expect(manifest.routes).toHaveLength(279);
+  expect(manifest.routes).toHaveLength(281);
 });
 
 test('rejects a manifest that omits an inventory candidate', () => {

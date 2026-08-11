@@ -4,7 +4,9 @@ import { join } from 'node:path';
 import { expect, test, vi } from 'vitest';
 import { materializeContent, migrateContent, publishManagedOutputs } from '../../scripts/migrate-content.mjs';
 
-test('removes stale managed typed inputs before validating the manifest', () => {
+const testMutatingMigration = test.skipIf(process.env.EHF_MUTATING_CONTENT_TESTS !== '1');
+
+testMutatingMigration('removes stale managed typed inputs before validating the manifest', () => {
   const stale = 'src/content/pages/institutional/stale-materialization-test.json';
   writeFileSync(stale, '{}\n');
   try {
@@ -15,7 +17,7 @@ test('removes stale managed typed inputs before validating the manifest', () => 
   }
 });
 
-test('rematerialization keeps a current reference canonical and removes a lexically-first stale duplicate', () => {
+testMutatingMigration('rematerialization keeps a current reference canonical and removes a lexically-first stale duplicate', () => {
   const current = 'src/content/impact/a-new-governance-landscape-on-the-moon.md';
   const referencedAsset = 'public/assets/images/content/read-a-new-governance-landscape-on-the-moon-1.webp';
   const stale = 'public/assets/images/content/000-stale-materialization-test.webp';
@@ -31,7 +33,7 @@ test('rematerialization keeps a current reference canonical and removes a lexica
   }
 });
 
-test('preserves manifest-backed archive cards while rematerializing typed content', () => {
+testMutatingMigration('preserves manifest-backed archive cards while rematerializing typed content', () => {
   const manifestPath = 'source-evidence/asset-manifest.json';
   const before = readFileSync(manifestPath, 'utf8');
   try {
