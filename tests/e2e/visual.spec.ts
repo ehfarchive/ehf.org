@@ -2,8 +2,6 @@ import { expect, test, type ConsoleMessage, type Page, type Request, type Respon
 import assetManifest from '../../source-evidence/asset-manifest.json';
 import sourceContract from '../../source-evidence/source-contract.json';
 import { createHash } from 'node:crypto';
-import { execFileSync } from 'node:child_process';
-import { createTicket8CaptureWriter, type Ticket8CaptureId } from '../support/ticket8-capture';
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import sharp from 'sharp';
@@ -775,39 +773,6 @@ test('Ticket 8 representative event and report matrix preserves active source st
     && capture.browserHealth.unloadedImages.length === 0
   )).toBe(true);
 
-  const captureRoot = process.env.TICKET8_CAPTURE_ROOT;
-  if (captureRoot && testInfo.project.name === 'desktop') {
-    const writer = createTicket8CaptureWriter(captureRoot, execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), 'http://127.0.0.1:4321');
-    const rawCases: ReadonlyArray<{ id: Ticket8CaptureId; route: string; state: ComparableState; viewport: { width: number; height: number } }> = [
-      { id: 'event-programme--default-desktop', route: '/2025-summit-programme', state: 'default', viewport: { width: 1440, height: 1000 } },
-      { id: 'event-programme--default-mobile', route: '/2025-summit-programme', state: 'default', viewport: { width: 390, height: 844 } },
-      { id: 'event-programme--nav-impact-open-desktop', route: '/2025-summit-programme', state: 'nav-impact-open', viewport: { width: 1440, height: 1000 } },
-      { id: 'event-programme--nav-impact-open-mobile', route: '/2025-summit-programme', state: 'nav-impact-open', viewport: { width: 390, height: 844 } },
-      { id: 'annual-report-document--default-desktop', route: '/23-annual-report', state: 'default', viewport: { width: 1440, height: 1000 } },
-      { id: 'annual-report-document--default-mobile', route: '/23-annual-report', state: 'default', viewport: { width: 390, height: 844 } },
-      { id: 'annual-report-document--nav-about-open-desktop', route: '/23-annual-report', state: 'nav-about-open', viewport: { width: 1440, height: 1000 } },
-      { id: 'annual-report-document--nav-about-open-mobile', route: '/23-annual-report', state: 'nav-about-open', viewport: { width: 390, height: 844 } }
-    ];
-    try {
-      for (const item of rawCases) {
-        const [local, repeat] = await captureIndependentPair(page, item.route, item.viewport, item.state);
-        await writer.writePair(item.id, item.route, item.state, item.viewport, local, repeat);
-        expect(local.consoleErrors, `${item.id} local console health`).toEqual([]);
-        expect(local.failedRequests, `${item.id} local request health`).toEqual([]);
-        expect(local.unloadedImages, `${item.id} local image health`).toEqual([]);
-        expect(local.iframes, `${item.id} local iframe health`).toEqual([]);
-        expect(local.returnedToTop, `${item.id} local scroll restoration`).toBe(true);
-        if (item.viewport.width < 768 && item.state !== 'default') {
-          expect(local.requestedMobilePanelActive, `${item.id} local mobile panel`).toBe(true);
-          expect(local.mobileRootShifted, `${item.id} local mobile root`).toBe(true);
-        }
-      }
-      writer.finalize();
-    } catch (error) {
-      writer.abort();
-      throw error;
-    }
-  }
 
   const viewport = testInfo.project.name === 'desktop' ? { width: 1440, height: 1000 } : { width: 390, height: 844 };
   const cases: ReadonlyArray<{ route: string; state: ComparableState; family: 'event' | 'report' }> = [

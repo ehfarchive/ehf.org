@@ -869,3 +869,9 @@ No other file is allowed in this commit. In particular, do not change `playwrigh
 - **Self-review — coverage:** F–H preserve D.1's single historical failed attempt and its filesystem uncertainty, require explicit owner approval, bind the new work to this plan-only commit and approved `b23af6a9`, retain the existing matrix/visual/shell/sidecar/assembler contracts, and give one exact success path plus one terminal failure path.
 - **Self-review — types and paths:** all new recorder names, phase labels, fields, signatures, capture kinds, pair-forwarding contract, assertion ID/ordinal mapping, environment variables, exact three-file commit, and new SHA-derived paths are defined before use. The new path protocol does not refer to or mutate a prior `/tmp/ehf-ticket8-*` path.
 - **Self-review — attempt accounting and placeholders:** one instrumentation commit, two no-edit reviews, one capture, one conditional assembly, one conditional verification, and one conditional Opus call are named once. No step uses a placeholder, implicit timeout change, hidden fallback, or ambiguous retry.
+
+## Owner decision: simplify and finish — 2026-08-11
+
+On 2026-08-11, the owner said “simplify and finish.” All custom Ticket 8 packet, hash, raw-repeat, instrumentation, and one-attempt provisions are superseded and must not be executed.
+
+Finish through normal live-vs-local browser comparison, visual fixes, ordinary build/link/accessibility/smoke checks, preview, and owner review. Production remains unchanged until approval. Historical records remain history, not active gates.
