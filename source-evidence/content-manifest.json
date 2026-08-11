@@ -287,7 +287,7 @@
       "route": "/privacy-policy",
       "template": "legal",
       "localInput": "src/content/pages/legal/privacy-policy.json",
-      "contentHash": "332e47f5333d8cddcbe8582762e33c31137679887b082c34ea4363d2e7465f7f"
+      "contentHash": "67834df469ccc9dde465d4f5e6b82d340d8cd1dd9fd4156801319c53613a5fc3"
     },
     {
       "route": "/read",

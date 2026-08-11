@@ -53,7 +53,9 @@ function asRawPageRecord(input: unknown, route: string): RawPageRecord {
   const value = input as Record<string, unknown>;
   if (Object.keys(value).length !== rawPageKeys.length || !rawPageKeys.every((key) => Object.hasOwn(value, key))) throw new Error(`page input must use exact schema: ${route}`);
   if (value.route !== route || ![value.title, value.description, value.heading].every((field) => typeof field === 'string' && field.trim())) throw new Error(`page input route or text is invalid: ${route}`);
-  if (!Array.isArray(value.body) || value.body.length === 0 || value.body.some((body) => typeof body !== 'string' || !body.trim())) throw new Error(`page input body is invalid: ${route}`);
+  /* A body paragraph holding a single non-breaking space is a source spacer
+     block; every other paragraph must carry copy. */
+  if (!Array.isArray(value.body) || value.body.length === 0 || value.body.some((body) => typeof body !== 'string' || (body !== '\u00a0' && !body.trim()))) throw new Error(`page input body is invalid: ${route}`);
   if (value.heroImage !== null && (typeof value.heroImage !== 'string' || !value.heroImage.startsWith('/assets/'))) throw new Error(`page input heroImage is invalid: ${route}`);
   if (value.heroAlt !== null && typeof value.heroAlt !== 'string') throw new Error(`page input heroAlt is invalid: ${route}`);
   if (!Array.isArray(value.links) || value.links.some((link) => typeof link !== 'object' || link === null || Array.isArray(link) || Object.keys(link).length !== 2 || typeof (link as PageLink).label !== 'string' || typeof (link as PageLink).href !== 'string' || !(link as PageLink).href)) throw new Error(`page input links are invalid: ${route}`);

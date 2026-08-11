@@ -268,12 +268,14 @@ export function validatePageRecord(value, route, family, displayPath = route) {
   if (value.heroImage !== null && (typeof value.heroImage !== 'string' || !value.heroImage.startsWith('/assets/'))) errors.push(`page input heroImage must be local or null: ${displayPath}`);
   if (value.heroAlt !== null && typeof value.heroAlt !== 'string') errors.push(`page input heroAlt must be string or null: ${displayPath}`);
   if (!Array.isArray(value.links) || value.links.some((link) => typeof link !== 'object' || link === null || Array.isArray(link) || Object.keys(link).length !== 2 || typeof link.label !== 'string' || typeof link.href !== 'string')) errors.push(`page input links must be label/href records: ${displayPath}`);
+  /* A body paragraph holding a single non-breaking space is a source spacer
+     block; every other paragraph must carry copy. */
   if (['institutional', 'legal', 'annual-report-document'].includes(family)
-    && (!value.title.trim() || !value.description.trim() || !value.heading.trim() || !Array.isArray(value.body) || value.body.length === 0 || value.body.some((paragraph) => !paragraph.trim()))) {
+    && (!value.title.trim() || !value.description.trim() || !value.heading.trim() || !Array.isArray(value.body) || value.body.length === 0 || value.body.some((paragraph) => paragraph !== '\u00a0' && !paragraph.trim()))) {
     errors.push('page input needs non-empty description and body');
   }
   if (family === 'contact-media-donation'
-    && (!value.title.trim() || !value.heading.trim() || !Array.isArray(value.body) || value.body.length === 0 || value.body.some((paragraph) => !paragraph.trim()))) {
+    && (!value.title.trim() || !value.heading.trim() || !Array.isArray(value.body) || value.body.length === 0 || value.body.some((paragraph) => paragraph !== '\u00a0' && !paragraph.trim()))) {
     errors.push('contact/media/donation page input needs non-empty title, heading, and body');
   }
   if (family === 'annual-report-document' && (!Array.isArray(value.links) || !value.links.some((link) => link?.href?.startsWith('/assets/documents/')))) {
