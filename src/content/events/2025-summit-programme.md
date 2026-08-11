@@ -4,8 +4,8 @@ excerpt: "8.00am"
 heroImage: null
 heroAlt: null
 programmeDays:
-  - "Day 1 – 17 FEBRUARY 2025"
-  - "Day 2 – 18 FEBRUARY 2025"
+  - "Day 1 - 17 FEBRUARY 2025"
+  - "Day 2 - 18 FEBRUARY 2025"
 ---
 
 8.00am

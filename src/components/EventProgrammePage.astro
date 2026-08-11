@@ -216,10 +216,14 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
 <style>
   .event-programme { padding-top: calc(var(--header-height) + 95px); padding-bottom: 96px; }
   .event-programme__header { margin-bottom: 18px; }
-  .event-programme__header--programme { margin-bottom: 23px; }
-  .event-programme__tablist { display: flex; align-items: end; gap: 4px; border-bottom: 1px solid #ddd; }
-  .event-programme__tab { position: relative; z-index: 1; margin-bottom: -1px; border: 1px solid #ddd; border-bottom-color: #ddd; border-radius: 5px 5px 0 0; padding: 15px 20px; background: #ededed; color: inherit; font: 400 20px/1.2 var(--font-body); text-transform: none; cursor: pointer; }
-  .event-programme__tab[aria-selected='true'] { border-bottom-color: var(--color-surface); background: var(--color-surface); font-weight: 700; }
+  .event-programme__header--programme { margin-bottom: 20px; }
+  .event-programme__tablist { display: flex; align-items: end; gap: 5px; }
+  /* Source paints no rule under the tab strip and no bottom border on either
+     tab: the 56px box is 1px of top border over a 35.0208px line box with 10px
+     of padding above and below. Only the fill and the weight separate the two
+     states. */
+  .event-programme__tab { position: relative; z-index: 1; border: 1px solid #ccc; border-bottom: 0; border-radius: 5px 5px 0 0; padding: 10px 20px; background: #f0f0f0; color: #000; font: 300 19.456px/35.0208px var(--font-body); text-transform: none; cursor: pointer; }
+  .event-programme__tab[aria-selected='true'] { background: var(--color-surface); font-weight: 700; }
   .event-programme__description { max-width: 918px; margin: 0; }
   :global(.event-programme__hero) { display: block; width: 100%; height: auto; margin: 0 0 36px; }
   .event-programme__content { border-top: 1px solid #ddd; }
@@ -233,18 +237,25 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
      the entry text between 145.8px and 1405.2px at desktop (29.4px / 140.4px /
      360.6px at mobile). */
   .event-programme__schedule { margin-inline: -13px; border: 1px solid #ccc; }
-  .event-programme__item { display: grid; grid-template-columns: 111px minmax(0, 1fr); min-height: 72px; border-bottom: 1px solid #ccc; }
+  /* Source rows take their height from their copy alone: a 21px inset above and
+     below (5px of cell padding over a 16px paragraph margin) with 16px between
+     stacked paragraphs. A one-line row therefore measures 71.8px on its own, so
+     nothing needs a floor height. */
+  .event-programme__item { display: grid; grid-template-columns: 111px minmax(0, 1fr); border-bottom: 1px solid #ccc; }
   .event-programme__item--break { background: #eee; }
-  .event-programme__time { margin: 0; border-right: 1px solid #ccc; padding: 18px; font: 400 15px/1.4 var(--font-body); }
+  .event-programme__time { margin: 0; border-right: 1px solid #ccc; padding: 21px 18px; font: 300 16px/28.8px var(--font-body); }
   /* Source paints the programme rows in pure black, not the site ink. */
   .event-programme__time,
   .event-programme__item-content p,
   .event-programme__item-content li { color: #000; }
   .event-programme__item-content { min-width: 0; }
-  .event-programme__plain-content { padding: 18px; }
-  .event-programme__item-content p { margin: 0 0 10px; font-size: 16px; line-height: 1.8; }
+  .event-programme__plain-content { padding: 21px 18px; }
+  .event-programme__item-content p { margin: 0 0 16px; font-size: 16px; line-height: 1.8; }
   .event-programme__item-content p:last-child { margin-bottom: 0; }
-  .event-programme__item-content li { margin: 0 0 8px; font: 16px/1.5 var(--font-body); }
+  /* Source sets bullets on a 35.0208px line with no space between them and the
+     usual 16px between the run and the paragraphs around it. */
+  .event-programme__item-content li { margin: 0; font: 16px/35.0208px var(--font-body); }
+  .event-programme__item-content li + p { margin-top: 16px; }
   .event-programme__item-content strong { font-weight: 700; }
   .event-programme__track-section + .event-programme__track-section { border-top: 1px solid #e2e2e2; }
   .event-programme__track { padding: 26px 18px; color: var(--color-surface); font: 400 16px/1.2 var(--font-body); }
@@ -258,12 +269,11 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
 
   @media (max-width: 767px) {
     .event-programme { padding-top: calc(var(--header-height) + 55px); padding-bottom: 64px; }
-    .event-programme__tablist { gap: 2px; }
-    .event-programme__tab { flex: 1; min-height: 115px; padding: 8px; font-size: 13px; line-height: 33px; text-align: left; }
+    .event-programme__tablist { gap: 5px; }
+    .event-programme__tab { font-size: 18.0256px; line-height: 32.4461px; }
     .event-programme__content :global(p) { padding: 12px 10px; }
     .event-programme__content :global(h3), .event-programme__content :global(h4) { padding: 12px 10px; }
-    .event-programme__header--programme { margin-bottom: 40px; }
-    .event-programme__time { padding: 18px; font-size: 15px; }
+    .event-programme__time { padding: 21px 18px; }
     .event-programme__item-content p { font-size: 16px; line-height: 1.8; }
     .event-programme__item-content li { font-size: 16px; }
     .event-programme__track-content { padding: 15px 18px; }
