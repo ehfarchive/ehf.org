@@ -228,10 +228,18 @@ if (showProgrammeDays && (programmeDays.length !== 2 || days.length !== 2)) {
   .event-programme__content :global(h3), .event-programme__content :global(h4) { margin: 30px 0 0; padding: 14px 18px; background: var(--color-brand); color: var(--color-surface); font-size: var(--text-lead); line-height: var(--lh-lead); }
   .event-programme__content :global(ul) { margin: 0; padding: 16px 38px; border-bottom: 1px solid #e2e2e2; }
   .event-programme__content :global(a) { color: var(--color-brand); }
-  .event-programme__schedule { border: 1px solid #ccc; }
+  /* Source runs the schedule 13px wider than the container on each side while
+     the tabs stay on the container edge, which puts the time text at 34.8px and
+     the entry text between 145.8px and 1405.2px at desktop (29.4px / 140.4px /
+     360.6px at mobile). */
+  .event-programme__schedule { margin-inline: -13px; border: 1px solid #ccc; }
   .event-programme__item { display: grid; grid-template-columns: 111px minmax(0, 1fr); min-height: 72px; border-bottom: 1px solid #ccc; }
   .event-programme__item--break { background: #eee; }
   .event-programme__time { margin: 0; border-right: 1px solid #ccc; padding: 18px; font: 400 15px/1.4 var(--font-body); }
+  /* Source paints the programme rows in pure black, not the site ink. */
+  .event-programme__time,
+  .event-programme__item-content p,
+  .event-programme__item-content li { color: #000; }
   .event-programme__item-content { min-width: 0; }
   .event-programme__plain-content { padding: 18px; }
   .event-programme__item-content p { margin: 0 0 10px; font-size: 16px; line-height: 1.8; }
