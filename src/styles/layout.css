@@ -95,8 +95,8 @@
 
 .skip-link:focus,
 .skip-link:focus-visible {
-  top: 0;
-  left: var(--gutter);
+  top: 24px;
+  left: 20.8px;
   z-index: 100;
   width: auto;
   height: auto;
@@ -105,9 +105,17 @@
   clip: auto;
   clip-path: none;
   white-space: normal;
-  background: var(--color-surface);
-  color: var(--color-ink);
-  padding: 0.75rem;
+  border-radius: var(--radius);
+  background: var(--color-brand-primary);
+  color: var(--color-surface);
+  font-family: var(--font-display);
+  font-size: var(--text-nav);
+  font-weight: var(--weight-nav);
+  line-height: normal;
+  text-decoration: underline;
+  padding: 16px 28.8px;
+  outline: 2px solid var(--color-ink);
+  outline-offset: 4px;
 }
 
 .site-header {
