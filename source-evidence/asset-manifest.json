@@ -3040,6 +3040,18 @@
       "externalUrl": null
     },
     {
+      "id": "asset-images-favicon-png",
+      "classification": "local",
+      "localPath": "/assets/images/favicon.png",
+      "sha256": "f7611ebd6bb45152ed3b11bde032522e35d820cd695806e4b71ac726955b7a74",
+      "bytes": 1650,
+      "mediaType": "image/png",
+      "routeUses": [
+        "/"
+      ],
+      "externalUrl": null
+    },
+    {
       "id": "asset-images-home-hero-webp",
       "classification": "local",
       "localPath": "/assets/images/home-hero.webp",
