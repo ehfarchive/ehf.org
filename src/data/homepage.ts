@@ -76,7 +76,7 @@ export const homepage: HomepageData = {
     title: 'Edmund Hillary Fellowship (EHF) 2016 - 2026',
     lead: 'Created to give life to the Global Impact Visa, the Edmund Hillary Fellowship brought entrepreneurs, investors and innovators to Aotearoa New Zealand\nto find and build solutions to our toughest challenges.',
     paragraphs: [
-      'Over a ten-year journey, Edmund Hillary Fellows helped create New Zealand jobs, invested millions into Kiwi businesses, supported regional communities, and developed innovative solutions and technology from our shores, delivering a realised benefit of $111 for every $1 of government funds invested. Many laid down deep roots here, with a\ncommitment to honouring Te Tiriti o Waitangi and the values and legacy of Sir Edmund Hillary.',
+      'Over a ten-year journey, Edmund Hillary Fellows helped create New Zealand jobs, invested millions into Kiwi businesses, supported regional communities, and developed innovative solutions and technology from our shores, delivering a realised benefit of $111 for every $1 of government funds invested. Many laid down deep roots here, with a commitment to honouring Te Tiriti o Waitangi and the values and legacy of Sir Edmund Hillary.',
       "While the organisation has now closed, the legacy continues through the Fellows and the impact they continue to create. The EHF name and legacy are held by The Hillary Institute, EHF's parent organisation."
     ],
     stats: ['500+ Fellows', '50+ Nationalities', '$111 impact for every $1 invested by Govt'],

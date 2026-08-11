@@ -23,9 +23,9 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
    purple-to-teal wash. Adding one double-applies it. */
 /* Source prose column is 1208px: its hero body lines measure 1198/1140/1080/930px
    of ink, and the next word never fits, which pins the column below 1228px. The
-   source also paints hard breaks inside the lead and the first body paragraph, so
-   the copy carries those newlines and the paragraphs honour them instead of
-   reflowing straight through. */
+   source paints hard breaks inside the lead only; the body paragraphs below it
+   carry no breaks and reflow straight through, so only the lead honours the
+   newlines in its copy. */
 .home-hero__content { max-width: min(1208px, calc(100% - (var(--gutter) * 2))); padding-block: 105px 119.35px; margin-left: var(--gutter); }
 .home-hero h1 { max-width: 820px; margin: 0 0 47px; font-size: var(--text-display); line-height: var(--lh-display); }
 .home-hero__content > p {
@@ -35,9 +35,8 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
   font-weight: var(--weight-nav);
   line-height: var(--lh-sub);
   letter-spacing: var(--tracking);
-  white-space: pre-line;
 }
-.home-hero__content > p.home-hero__lead { max-width: 1118px; margin-bottom: 34px; font-size: var(--text-lead); font-weight: var(--weight-heading); line-height: var(--lh-lead); }
+.home-hero__content > p.home-hero__lead { max-width: 1118px; margin-bottom: 34px; font-size: var(--text-lead); font-weight: var(--weight-heading); line-height: var(--lh-lead); white-space: pre-line; }
 .home-hero__stats {
   margin: 0 0 31px;
   font-family: var(--font-display);
