@@ -307,3 +307,240 @@ No manifest, redirect, asset, source-capture, package, lockfile, new route, Fell
   The focused test's capture helper returns PNG bytes in memory and does not persist them. The packet therefore labels stale bytes as commit `6c2b327`, so its visual defect counts are not a trustworthy judgment of the current code. The contradiction is direct: GREEN computed styles show a 111px time column, eight `#eee` breaks, `#ccc` enclosure, and 115px/left-aligned mobile tabs; the stale images show a 189px column, one grey break, no enclosure, and approximately 55px centered tabs.
 - **Plan defects requiring owner decision:** The packet sanctions omitted Impact Snapshots even though its stale/dead-route disposition was accepted earlier. Also, the About submenu surface and shared newsletter are visible in Ticket 8 states but deferred to Ticket 9. That makes serial Ticket 8 acceptance with zero P2 findings impossible under the current plan. The owner must authorize a plan revision; this record does not assign the new ownership.
 - **Hard stop:** Ticket 8 is not accepted. A replacement capture or review is not authorized. Ticket 9, Tickets 11–12, push, merge, preview, deploy, and production have not started and are not authorized. Local commits have not been pushed; the remote remains `427ceb2`.
+
+## Owner-authorized Ticket 8 evidence recovery addendum — 2026-08-11
+
+> **Authority and scope:** This addendum is the owner-authorized recovery from the stale-packet provenance failure. It supersedes only the conflicting Ticket 8 portions of Task 1 (especially Steps 1–6), the Ticket 8 starting/gating statements above, and the Ticket 9 newsletter-ownership wording to the extent those statements defer the two Ticket 8 route exclusions. It does not delete or revise the historical execution/blocker record above: `agent://VisualDesignerTicket8RemediationFinal`, its `0/1/9/2` classification, and the old packet remain diagnostic evidence only, because their local/repeat bytes came from the old bundle rather than the correction commit.
+
+### A. Recovery baseline, ownership resolution, and exact files
+
+- **Starting check:** the manager’s execution authorization must export `TICKET8_RECOVERY_PLAN_COMMIT` as the exact current recovery-plan commit SHA. Before editing, run:
+
+  ```bash
+  : "${TICKET8_RECOVERY_PLAN_COMMIT:?manager must supply the exact current recovery-plan commit}" &&
+  test "$(git branch --show-current)" = "feature/ehf-stage-2-implementation" &&
+  test "$(git rev-parse HEAD)" = "$TICKET8_RECOVERY_PLAN_COMMIT" &&
+  test -z "$(git status --porcelain)" &&
+  git merge-base --is-ancestor 5949938ee5ee6306032d4d06df61f04cb80e6bcc HEAD &&
+  git merge-base --is-ancestor 6c2b32727246a9d4fdec40ef49575e9ca49ca461 HEAD
+  ```
+
+  BuildLead must be exactly `openai-codex/gpt-5.6-terra`. Stop and return the differing value before editing if any check fails.
+- **Baseline:** retain correction commit `6c2b32727246a9d4fdec40ef49575e9ca49ca461` as the accepted programme-geometry baseline. Do not reimplement its 111px programme column, eight `#eee` break rows, `#ccc` enclosure, wrapped time ranges, 115px left-aligned mobile tabs, track/speaker markup, or Annual Report document grid.
+- **First-owner correction:** Ticket 8 now owns the only shared-shell work visible in its eight states: the desktop About and Impact submenus must both be transparent, square, unshadowed, and right-aligned; `/2025-summit-programme` and `/23-annual-report` must not render the newsletter. The latter is a route-level `showNewsletter={false}` decision, not a global footer removal. The default remains `true` for every other caller, including the homepage and the later Ticket 9 family.
+- **Sanctioned omission:** `Impact Snapshots` is a stale/dead omitted destination accepted by removal commit `f9f0b202` and final amendment `63d7784`. Record it beside `EHF Fellows Articles` and the Fellow Directory variants in the replacement packet’s `sanctionedNavigation`; do not restore it, add it to `primaryNavigation`, add a route, or classify its absence as a defect.
+- **Ticket 9 resolution:** Ticket 9 must consume this accepted shared shell and must not re-add the newsletter on the two Ticket 8 routes. Its later footer decision remains limited to its own listed catch-all/404 family. No Ticket 9 source, test, manifest, or bundle work begins before this addendum’s replacement acceptance.
+
+| Change kind | Exact paths | Responsibility |
+| --- | --- | --- |
+| Route-specific footer state | `src/components/Footer.astro`; `src/layouts/SiteLayout.astro`; `src/pages/2025-summit-programme.astro`; `src/pages/23-annual-report.astro` | Add a default-preserving `showNewsletter` prop and disable it only at the two Ticket 8 callers. |
+| Shared desktop submenu paint | `src/styles/layout.css` | Apply the same source-faithful bare/right-aligned surface to both existing About and Impact desktop submenus; do not change `DesktopNav.astro` behavior or mobile styles. |
+| Persistent Ticket 8 capture support | `tests/support/ticket8-capture.ts` (create); `tests/e2e/visual.spec.ts` | Persist only explicit-environment Ticket 8 local/repeat captures produced by the existing helpers. |
+| Deterministic packet assembler | `scripts/assemble-ticket8-bundle.mjs` (create) | Build a new packet only from `HEAD` source blobs and the new raw capture root. |
+| Focused contracts | `tests/e2e/navigation.spec.ts`; `tests/e2e/visual.spec.ts`; `tests/unit/ticket8-capture.test.ts` (create); `tests/unit/ticket8-bundle-assembler.test.ts` (create) | Protect shared shell, route exclusion, raw persistence, and assembler invariants. |
+
+No other source, style, navigation-data, content, manifest, source-capture, package, lockfile, route, asset, or evidence file is in this recovery commit. In particular, do not modify `src/components/DesktopNav.astro`, `src/data/site.ts`, `src/components/EventProgrammePage.astro`, `source-evidence/**`, or the old `/tmp/ehf-ticket8-events-reports-bundle` as an assembler input.
+
+### B. RED contracts before recovery implementation
+
+- [ ] **Step 1: Add the shared-shell RED assertions in the existing focused browser suites.**
+
+  In `tests/e2e/navigation.spec.ts`, replace the Impact-only surface expectation in `Impact folder exposes only approved destinations on a bare right-aligned submenu` with a table over `About` and `Impact`. Hover each `[data-nav-item]` trigger and assert its `[data-desktop-submenu]` is visible with:
+
+  ```ts
+  {
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+    borderRadius: '0px',
+    boxShadow: 'none',
+    right: '0px',
+    textAlign: 'right'
+  }
+  ```
+
+  Retain the Impact child order assertion, then additionally assert that no Impact submenu link is named `Impact Snapshots`, `EHF Fellows Articles`, or `Fellow Directory`.
+
+  In the Ticket 8 matrix test in `tests/e2e/visual.spec.ts`, after each route capture, navigate to the route and assert `page.locator('[data-newsletter-form]')` has count `0`. Add a homepage control assertion that the same locator has count `1`, so a global footer removal fails. Retain every existing programme and Annual Report assertion.
+
+  Run:
+
+  ```bash
+  npx playwright test tests/e2e/navigation.spec.ts tests/e2e/visual.spec.ts --grep "Impact folder|Ticket 8 representative event and report matrix"
+  ```
+
+  Expected: FAIL because About retains the white, padded, shadowed surface with `right: -16px`, and both Ticket 8 routes still render the newsletter; all retained programme geometry and Annual Report assertions remain green.
+
+- [ ] **Step 2: Add RED persistence and assembler invariant tests.**
+
+  Create `tests/unit/ticket8-capture.test.ts`. Use a temporary directory and a fixed `ComparableCapture` fixture whose `screenshotEvidence.bytes` is a non-empty `Buffer`. Specify that `createTicket8CaptureWriter(root, commit)` rejects an existing root, creates only `local/` and `repeat/`, and that `writePair()` writes the exact local/repeat PNG buffers plus byte-identical, newline-terminated sidecars. Assert each sidecar has exactly the deterministic fields `schemaVersion`, `commit`, `id`, `route`, `state`, `viewport`, `screenshot`, `browserHealth`, `scroll`, and `navigation`; its `commit`, route/state/viewport, and screenshot SHA-256 must bind the fixture. Assert no writer is constructed when `TICKET8_CAPTURE_ROOT` is absent from the matrix path.
+
+  Create `tests/unit/ticket8-bundle-assembler.test.ts`. Build an eight-state temporary raw fixture from the committed Ticket 8 source PNG bytes and valid deterministic sidecars, then execute `node scripts/assemble-ticket8-bundle.mjs --raw-root <fixture> --output <new-output>`. Assert a successful output has eight `metrics/*.json`, sixteen `normalized/*-{source,local}.png`, eight each of `source/*.png`, `local/*.png`, and `repeat/*.png`, `contact-sheet.png`, `health.json`, `review-status.json`, and `bundle-manifest.json`; re-hash its recorded sorted serialization and require the recorded tree digest to match. In separate fixtures, require a nonzero exit and no output reuse for: an existing output directory; missing expected raw file; an unrecognised extra raw file; sidecar commit not equal to `git rev-parse HEAD`; sidecar/image SHA mismatch; local/repeat PNG mismatch; local/repeat sidecar mismatch; route/state/viewport mismatch; and a source path absent from the committed Ticket 8 capture map. The fixture must never use `/tmp/ehf-ticket8-events-reports-bundle`.
+
+  Run:
+
+  ```bash
+  npm run test:unit -- tests/unit/ticket8-capture.test.ts tests/unit/ticket8-bundle-assembler.test.ts
+  ```
+
+  Expected: FAIL because neither the capture writer nor the assembler exists. The failing assertions must be missing-function/module failures, not fixture or TypeScript errors.
+
+### C. Minimal GREEN implementation
+
+- [ ] **Step 3: Make only the Ticket 8 shell correction.**
+
+  In `src/components/Footer.astro`, change the props interface to:
+
+  ```ts
+  interface Props {
+    minimal?: boolean;
+    showNewsletter?: boolean;
+  }
+  ```
+
+  Destructure `showNewsletter = true`, and render the form only when `!minimal && showNewsletter`. In `src/layouts/SiteLayout.astro`, add `showNewsletter?: boolean` to `Props`, destructure it as `true`, and pass `<Footer minimal={minimalFooter} showNewsletter={showNewsletter} />`. Set `<SiteLayout ... showNewsletter={false}>` only in `src/pages/2025-summit-programme.astro` and `src/pages/23-annual-report.astro`.
+
+  In `src/styles/layout.css`, make the existing `.desktop-nav__submenu` rule itself use `right: 0`, `width: auto`, `padding: 0`, `border-radius: 0`, `background: transparent`, and `box-shadow: none`; retain its positioning, top margin, list display, item pitch, links, focus behavior, and mobile rules. Remove the now-redundant Impact-only override rather than maintaining a second surface rule.
+
+- [ ] **Step 4: Add the explicit, deterministic raw-capture writer.**
+
+  Create `tests/support/ticket8-capture.ts` with these exported types and functions:
+
+  ```ts
+  import type { ComparableCapture, ComparableState } from '../e2e/visual.spec';
+  export type Ticket8CaptureId =
+    | 'event-programme--default-desktop'
+    | 'event-programme--default-mobile'
+    | 'event-programme--nav-impact-open-desktop'
+    | 'event-programme--nav-impact-open-mobile'
+    | 'annual-report-document--default-desktop'
+    | 'annual-report-document--default-mobile'
+    | 'annual-report-document--nav-about-open-desktop'
+    | 'annual-report-document--nav-about-open-mobile';
+
+  export interface Ticket8CaptureWriter {
+    writePair(
+      id: Ticket8CaptureId,
+      route: string,
+      state: ComparableState,
+      viewport: { width: number; height: number },
+      local: ComparableCapture,
+      repeat: ComparableCapture
+    ): void;
+    finalize(): void;
+  }
+
+  export function createTicket8CaptureWriter(root: string, commit: string): Ticket8CaptureWriter;
+  ```
+
+  `createTicket8CaptureWriter()` must require an absolute, non-existent root and create it with only `local/` and `repeat/` children. `Ticket8CaptureWriter.writePair(id, route, state, viewport, local, repeat)` must write `local/<id>.png`, `local/<id>.json`, `repeat/<id>.png`, and `repeat/<id>.json` from the passed `ComparableCapture` objects. PNG bytes are exactly `capture.screenshotEvidence.bytes`; never call `page.screenshot()` again and never use an old root. Serialize the identical sidecar object with `JSON.stringify(object, null, 2) + '\n'`; it contains `schemaVersion: 1`, the current commit, the exact ID/route/state/viewport, screenshot byte/decoded hashes and dimensions/capture metadata, browser health arrays, scroll positions/return-to-top, and navigation state flags. `finalize()` must reject any ID set other than the eight IDs above.
+
+  In `tests/e2e/visual.spec.ts`, export `captureIndependentPair()` with its current signature:
+
+  ```ts
+  export async function captureIndependentPair(
+    page: Page,
+    route: string,
+    viewport: { width: number; height: number },
+    state: ComparableState
+  ): Promise<[ComparableCapture, ComparableCapture]>;
+  ```
+
+  In the existing Ticket 8 matrix, read `TICKET8_CAPTURE_ROOT` once. When it is undefined, retain the current single `captureComparable()` path and create no root, directory, raw PNG, raw JSON, or bundle artifact. When it is set, obtain the current commit with `git rev-parse HEAD`, construct the writer before the loop, call `captureIndependentPair()` for every one of the exact eight route/state/viewport entries, send the returned actual captures to `writePair()`, and call `finalize()` after the loop. Continue all current health and mobile-state assertions against the local member of the pair. This is the only code path that produces persistent Ticket 8 raw evidence.
+
+- [ ] **Step 5: Implement the checked-in assembler with no fallback input.**
+
+  Create `scripts/assemble-ticket8-bundle.mjs` with only Node built-ins, `sharp` already installed for the existing visual suite, and Git. It has exactly two modes:
+
+  ```bash
+  node scripts/assemble-ticket8-bundle.mjs --raw-root <absolute-raw-root> --output /tmp/ehf-ticket8-events-reports-bundle
+  node scripts/assemble-ticket8-bundle.mjs --verify --raw-root <absolute-raw-root> --output /tmp/ehf-ticket8-events-reports-bundle
+  ```
+
+  It must resolve `HEAD` once using `git rev-parse HEAD`; load the two Ticket 8 template capture maps from `git show HEAD:source-evidence/source-contract.json`; and obtain every source PNG/JSON with `git show HEAD:<declared-path>`, not the working tree. Its expected raw names are exactly the eight `Ticket8CaptureId` values above, each with `local` and `repeat` `.png` and `.json`, so the input tree has exactly 32 regular files. Before creating output, reject an existing output path, non-absolute/missing raw root, a symlink/non-file, missing or extra raw input, invalid JSON/schema, any wrong sidecar commit, a route/state/viewport not matching the capture map, any PNG SHA-256 not matching its sidecar, or any local/repeat PNG or sidecar byte mismatch. Do not read, copy, rename, glob, or otherwise consume the old packet path.
+
+  After every validation succeeds, create the previously absent output and write only:
+
+  ```text
+  source/<id>.png                 source/<id>.json
+  local/<id>.png                  local/<id>.json
+  repeat/<id>.png                 repeat/<id>.json
+  normalized/<id>-source.png      normalized/<id>-local.png
+  metrics/<id>.json
+  contact-sheet.png
+  health.json
+  review-status.json
+  bundle-manifest.json
+  ```
+
+  Copy source bytes from `git show` and local/repeat bytes from the validated raw tree. Generate normalized source/local PNGs and the contact sheet with `sharp`; each metric must state the exact ID, source/local byte and decoded hashes, dimensions, and the normalization canvas. `health.json` must report all eight local/repeat health arrays, local `/assets/` image paths, state flags, and zero source-host references. `review-status.json` must set `status` to `pending-replacement-opus`, identify `agent://VisualDesignerTicket8RemediationFinal` as `diagnostic-stale-local-repeat-bytes`, retain Annual Report parity and resolved `VD8-001`/`VD8-005`/`VD8-012`, and list `Impact Snapshots`, `EHF Fellows Articles`, and all four Fellow Directory paths as sanctioned omissions.
+
+  Hash every output file except `bundle-manifest.json`, sort paths in bytewise ascending relative-path order, and form the exact serialization `entries.map(({ sha256, path }) => \`${sha256}  ${path}\`).join('\n') + '\n'`. Put that actual serialization, its SHA-256 as `contentTreeSha256`, the sorted `{ path, byteLength, sha256 }` inventory, `entryCount: inventory.length + 1`, and the resolved commit in `bundle-manifest.json`. This produces a reproducible digest from the final output content without self-hashing the manifest.
+
+  In build mode, the output path must not exist. In `--verify` mode, it must exist and the script must write nothing: revalidate the raw tree and then re-hash every manifest inventory entry, recompute the recorded serialization/digest and entry count, compare all local/repeat PNG and sidecar pairs byte-for-byte, check every sidecar commit against `HEAD`, and compare every bundled source byte to `git show HEAD:<declared-path>`. Return zero only for that complete verification; otherwise return nonzero with the named invariant.
+
+- [ ] **Step 6: Prove focused GREEN, commit, then complete read-only reviews before capture.**
+
+  Run:
+
+  ```bash
+  npm run test:unit -- tests/unit/ticket8-capture.test.ts tests/unit/ticket8-bundle-assembler.test.ts
+  npx playwright test tests/e2e/navigation.spec.ts tests/e2e/visual.spec.ts --grep "Impact folder|Ticket 8 representative event and report matrix"
+  ```
+
+  Expected: PASS. The unit tests prove output refusal, byte/sidecar identity, commit binding, source-blob-only assembly, sorted digest reproduction, and stale/extra input rejection. The browser tests prove both submenu surfaces and `right: 0`, Ticket 8 newsletter absence, homepage newsletter preservation, all Ticket 8 geometry, route exclusions, keyboard/menu behavior, and Annual Report parity.
+
+  Make the only recovery implementation commit:
+
+  ```bash
+  git add src/components/Footer.astro src/layouts/SiteLayout.astro src/pages/2025-summit-programme.astro src/pages/23-annual-report.astro src/styles/layout.css tests/support/ticket8-capture.ts tests/e2e/navigation.spec.ts tests/e2e/visual.spec.ts tests/unit/ticket8-capture.test.ts tests/unit/ticket8-bundle-assembler.test.ts scripts/assemble-ticket8-bundle.mjs
+  git commit -m "fix: repair Ticket 8 evidence provenance"
+  ```
+
+  The commit must contain exactly those paths; no packet, source capture, plan, manifest, package, lockfile, or review artifact is committed.
+
+  Obtain a read-only specification review of the baseline-to-commit diff, then a read-only quality review of that same committed diff. Both must confirm the narrow file map, no reimplementation of `6c2b327`, default newsletter preservation, exact raw/bundle safety contracts, accessibility/menu preservation, and no old-packet input. If either review finds an in-scope defect, the same implementer must correct it, rerun the two focused GREEN commands, and amend this sole recovery commit with `git commit --amend --no-edit`. Repeat the specification review and then the quality review against the amended baseline-to-commit diff; both must approve before Step 7. Do not create another recovery implementation commit, capture, or review packet before both approvals.
+
+### D. One truthful packet, independent verification, and one replacement review
+
+- [ ] **Step 7: Generate the one replacement packet after the approved recovery commit.**
+
+  Preserve the old diagnostic packet without using it as input, then require fresh raw and output paths:
+
+  ```bash
+  RECOVERY_SHA="$(git rev-parse HEAD)" &&
+  RAW_ROOT="/tmp/ehf-ticket8-raw-capture-${RECOVERY_SHA}" &&
+  OLD_PACKET="/tmp/ehf-ticket8-events-reports-bundle-invalid-stale-6c2b327" &&
+  OUTPUT="/tmp/ehf-ticket8-events-reports-bundle" &&
+  test ! -e "$RAW_ROOT" &&
+  if test -e "$OUTPUT"; then test ! -e "$OLD_PACKET" && mv "$OUTPUT" "$OLD_PACKET"; fi &&
+  test ! -e "$OUTPUT" &&
+  TICKET8_CAPTURE_ROOT="$RAW_ROOT" npx playwright test tests/e2e/visual.spec.ts --grep "Ticket 8 representative event and report matrix" &&
+  node scripts/assemble-ticket8-bundle.mjs --raw-root "$RAW_ROOT" --output "$OUTPUT"
+  ```
+
+  Expected: one fresh 32-file raw input rooted at the committed recovery SHA, one fresh output packet, eight actual local/repeat pairs from independent pages, and no source-host/network/image/console-health failure. This command must not delete, overwrite, or inspect the preserved diagnostic packet.
+
+- [ ] **Step 8: Perform manager packet verification before visual review.**
+
+  Independently run the assembler’s read-only verification mode:
+
+  ```bash
+  node scripts/assemble-ticket8-bundle.mjs --verify --raw-root "$RAW_ROOT" --output "$OUTPUT"
+  ```
+
+  Expected: PASS without modifying `"$RAW_ROOT"` or `"$OUTPUT"`. This re-hashes every manifest inventory entry, recomputes `contentTreeSha256` from the recorded serialization, confirms `entryCount`, confirms all eight local/repeat PNG and sidecar pairs are byte-identical, confirms every sidecar commit equals `RECOVERY_SHA`, and confirms source bytes equal `git show "$RECOVERY_SHA:<path>"` for every declared source capture. The manager must record PASS only if this command succeeds. A missing file, hash mismatch, wrong commit, source mismatch, repeated-output attempt, or failed focused command stops Ticket 8 and returns the exact failure to the owner.
+
+- [ ] **Step 9: Spend exactly one replacement Opus judgment.**
+
+  Dispatch `anthropic/claude-opus-5` once, read-only, with only the new `/tmp/ehf-ticket8-events-reports-bundle` packet: `bundle-manifest.json`, `health.json`, `review-status.json`, `contact-sheet.png`, all eight `metrics/*.json`, all sixteen `normalized/*-{source,local}.png`, and the eight source/local raw PNG pairs only if a suspected defect needs adjudication. It must not read the preserved old packet, raw repeat files, repository, browser, source host, history, or execute commands.
+
+  Require explicit classifications for all eight state pairs; both desktop About/Impact bare submenu surfaces; both route-level newsletter exclusions; programme geometry as already corrected by `6c2b327`; Annual Report parity; `Impact Snapshots`/`EHF Fellows Articles`/Fellow Directory sanctioned omissions; and P0/P1/P2/P3 totals. Its acceptance condition is exactly P0/P1/P2 = `0/0/0` with the manager packet verification PASS.
+
+  **Terminal stop rule:** any P0/P1/P2, provider/protocol error, absent verdict, packet verification failure, or focused-command failure stops Ticket 8. Do not retry the capture, assembler, review, model route, or correction; do not start Ticket 9, 10, 11, or 12; do not push, preview, merge, deploy, change an alias/domain, or take production action. If accepted, record the replacement verdict and packet digest in the Ticket 8 private ledger and plan status, release the Ticket 8 lease, and only then permit Ticket 9 under its existing detailed plan.
+
+### E. Addendum self-review record
+
+- **Authorization coverage:** preserves `6c2b327` programme work; moves both visible desktop submenu surfaces and the two visible newsletter exclusions to Ticket 8; preserves the homepage/default newsletter; records the `f9f0b202`/`63d7784` Impact Snapshots removal; keeps Annual Report parity, menu semantics/accessibility, accepted P3s, route exclusions, and no Stage 9/10 start before acceptance.
+- **Evidence provenance:** the matrix writes the exact `captureComparable()` screenshot buffer only under explicit `TICKET8_CAPTURE_ROOT`; independent repeats come only from `captureIndependentPair()`; sidecars bind commit/route/state/viewport; normal tests create no evidence root; and the assembler cannot read the old packet or reuse output.
+- **Assembler safety:** raw input is complete/exact and sidecar/hash/commit checked before output creation; committed source bytes come from `git show HEAD`; local/repeat and sidecars are byte-identical; output inventory/digest use the stated actual sorted serialization; no new dependency or package change is required.
+- **TDD and review order:** focused shared-shell/persistence/assembler RED precedes minimal code; focused GREEN precedes one recovery implementation commit; read-only specification then quality review inspect that committed diff; in-scope review fixes amend that same commit, rerun focused GREEN, and require both reviewers to reapprove before the single evidence generation; manager verification precedes exactly one replacement Opus judgment.
+- **No placeholders or scope expansion:** all paths, identifiers, capture IDs, prop names, helper signatures, root/output paths, commands, dispositions, failure behavior, and downstream gate are named above. This addendum changes no implementation itself and authorizes no source-host capture, push, preview, merge, deployment, or production action.
