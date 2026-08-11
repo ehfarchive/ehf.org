@@ -551,3 +551,321 @@ No other source, style, navigation-data, content, manifest, source-capture, pack
 - **Assembler safety:** raw input is complete/exact and sidecar/hash/commit checked before output creation; committed source bytes come from `git show HEAD`; local/repeat and sidecars are byte-identical; output inventory/digest use the stated actual sorted serialization; no new dependency or package change is required.
 - **TDD and review order:** focused shared-shell/persistence/assembler RED precedes minimal code; focused GREEN precedes one recovery implementation commit; read-only specification then quality review inspect that committed diff; in-scope review fixes amend that same commit, rerun focused GREEN, and require both reviewers to reapprove before the single evidence generation; manager verification precedes exactly one replacement Opus judgment.
 - **No placeholders or scope expansion:** all paths, identifiers, capture IDs, prop names, helper signatures, root/output paths, commands, dispositions, failure behavior, and downstream gate are named above. This addendum changes no implementation itself and authorizes no source-host capture, push, preview, merge, deployment, or production action.
+
+## Owner-review addendum: instrumented Ticket 8 recovery attempt — 2026-08-11
+
+> **Status: implementation blocked pending explicit owner approval.** The owner selected **Diagnose and re-plan**, not execution. This append-only addendum does not alter the historical record in D.1: one authorized Step 7 capture attempt was consumed and failed; its raw staging, old-packet movement, and output filesystem effects remain deliberately uninspected and unproven; assembler, manager verification, and replacement Opus were not run. A previous dispatch that failed before it started because of an invocation-schema error made no repository change and consumes neither a plan nor an execution attempt.
+- **Prospective supersession only:** F–I replace the future execution portions of C.6 and D.7–D.9 only where they conflict, including C.6's former review-fix/amend loop and D.7's former raw/output paths. D.1's failure record, its attempt count, and its filesystem uncertainty remain historical facts and are not revised.
+
+### F. Authorized future boundary and fixed accounting
+
+- **This addendum's starting boundary:** after this document is committed as the plan-only commit, execution may start only on clean `feature/ehf-stage-2-implementation` at that exact commit. The manager must set `TICKET8_INSTRUMENTED_PLAN_COMMIT` to that full SHA only after the owner has explicitly approved this addendum's execution. BuildLead must be `openai-codex/gpt-5.6-terra` at high reasoning effort.
+- **Approved recovery parent:** `b23af6a9a8952cdf6dec84d1d499210737fa0819` remains the exact approved recovery implementation commit. The direct parent of this plan-only commit must be the D.1 record `a48f9df1ad7e4c3e052d94b4808be7fb0ab8a398`, whose direct parent is `b23af6a9a8952cdf6dec84d1d499210737fa0819`. `6c2b32727246a9d4fdec40ef49575e9ca49ca461` remains the accepted programme-visual baseline.
+- **Start command and result:**
+
+  ```bash
+  : "${TICKET8_OWNER_APPROVAL:?explicit owner approval is required}" &&
+  : "${TICKET8_INSTRUMENTED_PLAN_COMMIT:?manager must export this plan-only commit SHA}" &&
+  test "$TICKET8_OWNER_APPROVAL" = "instrumented-ticket8-attempt-authorized" &&
+  test "$(git branch --show-current)" = "feature/ehf-stage-2-implementation" &&
+  test "$(git rev-parse HEAD)" = "$TICKET8_INSTRUMENTED_PLAN_COMMIT" &&
+  test "$(git rev-parse "$TICKET8_INSTRUMENTED_PLAN_COMMIT^")" = "a48f9df1ad7e4c3e052d94b4808be7fb0ab8a398" &&
+  test "$(git rev-parse "$TICKET8_INSTRUMENTED_PLAN_COMMIT^^")" = "b23af6a9a8952cdf6dec84d1d499210737fa0819" &&
+  test -z "$(git status --porcelain=v1)"
+  ```
+
+  Expected: exit `0`. Any missing authorization, wrong runtime, branch, SHA, ancestry, or dirty tree is a terminal pre-start failure: make no edit, review, capture, assembly, verification, or model call.
+- **Immutable protocol counts:** this future authorization permits exactly one instrumentation implementation commit, one specification review, one quality review, one focused instrumented capture command, one assembler invocation only after capture success, one manager verification only after assembly success, and one replacement Opus call only after verification PASS. It authorizes no amendment, correction, retry, timeout change, alternate model, or second review. The D.1 failed capture remains historical attempt `1`; this protocol's capture is one new diagnostic/evidence attempt, not a relabeling or erasure of D.1.
+- **Unchanged gates:** existing Ticket 8 acceptance remains P0/P1/P2 = `0/0/0`; Annual Report parity, the `6c2b327` programme geometry, both source-faithful desktop submenu surfaces, route-level newsletter exclusions, and all sanctioned navigation omissions remain required. Tickets 9–12, publication, push, preview, merge, deploy, alias/domain, and production work remain blocked until Ticket 8 is accepted under those existing gates.
+
+### G. One instrumentation-only commit
+
+**Purpose:** establish phase accounting for the observed 30,000 ms desktop timeout without claiming its root cause. The only proven fact is expiry of the whole-test budget while the current capture was in the scroll-settle await; the 20 desktop versus 4 mobile preparations are a workload difference, not a measured causal allocation. The 30-second timeout must remain unchanged in `playwright.config.ts`; no global Playwright setting or configuration file may change.
+
+**Exact file map:**
+
+| Action | Exact path | Contract |
+| --- | --- | --- |
+| Modify | `tests/e2e/visual.spec.ts` | Add test-scoped trace retention and a local, failure-safe timing recorder only to the named Ticket 8 representative matrix. Preserve its matrix, 30-second inherited budget, ordinary assertions, `captureComparable()` behavior, raw capture staging/atomicity, raw sidecar bytes, and assembler input contract. |
+| Create | `tests/support/ticket8-timing.ts` | Provide the recorder types and synchronous attachment persistence described below. It has no module-level mutable state. |
+| Create | `tests/unit/ticket8-timing.test.ts` | Deterministically prove interrupted-phase persistence and recorder transitions without a browser. |
+
+No other file is allowed in this commit. In particular, do not change `playwright.config.ts`, `tests/support/ticket8-capture.ts`, raw sidecar schemas or bytes, `scripts/assemble-ticket8-bundle.mjs`, the capture matrix, source evidence, application code, package files, or any prior `/tmp/ehf-ticket8-*` path.
+
+- [ ] **Step 1: Write the deterministic RED test before instrumentation.**
+
+  Create `tests/unit/ticket8-timing.test.ts`. It imports the new recorder and `readFileSync`, supplies a deterministic monotonic `nowNs(): bigint` sequence and a fresh temporary output path named `timingPath`, then:
+
+  ```ts
+  const record = recorder.begin({
+    captureId: 'event-programme--default-desktop',
+    ordinal: 1,
+    kind: 'raw-local',
+    route: '/2025-summit-programme',
+    state: 'default',
+    viewport: { width: 1440, height: 1000 }
+  });
+  await recorder.measure(record, 'navigation', async () => undefined);
+  recorder.recordScroll(record, { heightPx: 4800, positionCount: 8 });
+  await expect(recorder.measure(record, 'scroll', async () => {
+    const beforeThrow = JSON.parse(readFileSync(timingPath, 'utf8'));
+    expect(beforeThrow.captures).toHaveLength(1);
+    expect(beforeThrow.captures[0]).toMatchObject({
+      status: 'in-progress',
+      activePhase: 'scroll'
+    });
+    throw new Error('interrupted by test timeout');
+  })).rejects.toThrow('interrupted by test timeout');
+  recorder.interrupt(record, new Error('interrupted by test timeout'));
+  ```
+
+  Read the recorder's output JSON and assert exactly one record with `schemaVersion: 1`, `project: 'desktop'`, ordinal `1`, the supplied ID/route/state/viewport, `status: 'interrupted'`, `activePhase: 'scroll'`, navigation and scroll monotonic durations serialized as decimal strings, `scrollHeightPx: 4800`, `scrollPositionCount: 8`, and the normalized error `{ name: 'Error', message: 'interrupted by test timeout' }`. Assert that the output was already present before the rejected promise returns, so persistence does not depend on a normal capture return.
+
+  Run:
+
+  ```bash
+  npm run test:unit -- tests/unit/ticket8-timing.test.ts
+  ```
+
+  Expected: FAIL because `tests/support/ticket8-timing.ts` and its exported recorder do not exist. A fixture, browser, TypeScript configuration, or unrelated-test failure is not an acceptable RED result.
+
+- [ ] **Step 2: Implement the minimal, test-scoped recorder.**
+
+  Create `tests/support/ticket8-timing.ts` with exactly these public types and signatures:
+
+  ```ts
+  import type { ComparableState } from '../e2e/visual.spec';
+  import type { Ticket8CaptureId } from './ticket8-capture';
+
+  export type Ticket8TimingPhase =
+    | 'navigation'
+    | 'fontsLayout'
+    | 'scroll'
+    | 'imageReadiness'
+    | 'screenshot'
+    | 'writerSharp';
+  export type Ticket8CaptureKind = 'raw-local' | 'raw-repeat' | 'assertion';
+  export type Ticket8TimingStatus = 'in-progress' | 'completed' | 'interrupted';
+
+  export interface Ticket8TimingRecord {
+    captureId: Ticket8CaptureId;
+    ordinal: number;
+    kind: Ticket8CaptureKind;
+    project: string;
+    route: string;
+    state: ComparableState;
+    viewport: { width: number; height: number };
+    status: Ticket8TimingStatus;
+    activePhase: Ticket8TimingPhase | null;
+    durationsNs: Partial<Record<Ticket8TimingPhase, string>>;
+    scrollHeightPx: number | null;
+    scrollPositionCount: number | null;
+    error: { name: string; message: string } | null;
+  }
+
+  export interface Ticket8TimingRecorder {
+    begin(input: Omit<Ticket8TimingRecord, 'project' | 'status' | 'activePhase' | 'durationsNs' | 'scrollHeightPx' | 'scrollPositionCount' | 'error'>): Ticket8TimingRecord;
+    measure<T>(record: Ticket8TimingRecord, phase: Ticket8TimingPhase, operation: () => Promise<T>): Promise<T>;
+    measureShared<T>(records: readonly Ticket8TimingRecord[], phase: 'writerSharp', operation: () => Promise<T>): Promise<T>;
+    recordScroll(record: Ticket8TimingRecord, scroll: { heightPx: number; positionCount: number }): void;
+    markNotApplicable(record: Ticket8TimingRecord, phase: 'writerSharp'): void;
+    complete(record: Ticket8TimingRecord): void;
+    interrupt(record: Ticket8TimingRecord, error: unknown): void;
+    flush(): void;
+  }
+
+  export function createTicket8TimingRecorder(
+    project: string,
+    outputPath: string,
+    nowNs?: () => bigint
+  ): Ticket8TimingRecorder;
+  ```
+
+  `createTicket8TimingRecorder()` owns only its returned closure and its supplied output path; it must not use global mutable state. It writes a complete newline-terminated JSON attachment synchronously after `begin`, before and after every measured phase, after scroll metadata, after completion/interruption, and when `flush()` is called. Write a sibling temporary file and rename it over `outputPath` so every retained attachment is a complete JSON document. Its top-level object is `{ schemaVersion: 1, project, captures }`, where `captures` retains insertion order. Durations are `process.hrtime.bigint()` differences and are serialized only as non-negative base-10 strings; the injected clock exists solely for deterministic unit testing.
+
+  `measure()` sets `activePhase` before awaiting, records the monotonic duration on both success and rejection, flushes in `finally`, and rethrows. `interrupt()` is idempotent, preserves the current `activePhase`, normalizes non-`Error` values to `{ name: 'Error', message: String(error) }`, sets `status` to `interrupted`, and flushes synchronously. `measureShared()` measures the one existing `writer.writePair()`/Sharp operation once and writes that same measured pair-operation duration to both supplied raw records; it must not invoke the operation twice. `markNotApplicable()` writes `durationsNs.writerSharp = 'not-applicable'` only for the four ordinary assertion captures. These rules keep the pre-existing raw PNG/JSON writer and sidecar serialization byte-for-byte unchanged.
+
+- [ ] **Step 3: Wire timing and trace retention into only the Ticket 8 matrix.**
+
+  In `tests/e2e/visual.spec.ts`, put only `Ticket 8 representative event and report matrix preserves active source states, local media, content order, and responsive grids` in a `test.describe()` block with:
+
+  ```ts
+  test.use({ trace: 'retain-on-failure' });
+  ```
+
+  Do not set `trace` elsewhere and do not change `playwright.config.ts`. When `TICKET8_CAPTURE_ROOT` is absent, construct no recorder, create no timing attachment, and preserve the ordinary test path exactly. When it is present for the desktop project, create one recorder with `testInfo.project.name` and:
+
+  ```ts
+  const timingPath = testInfo.outputPath('ticket8-capture-timing.json');
+  ```
+
+  Give every one of the 20 desktop `captureComparable()` preparations a unique ordinal in actual execution order and one of the eight existing `Ticket8CaptureId` values. The 16 raw preparations use `kind: 'raw-local'` or `kind: 'raw-repeat'`; the four existing ordinary matrix preparations use `kind: 'assertion'`. Add these exact exported instrumentation contracts:
+
+  ```ts
+  export type Ticket8CaptureInstrumentation = {
+    recorder: Ticket8TimingRecorder;
+    record: Ticket8TimingRecord;
+  };
+
+  export type Ticket8PairInstrumentation = {
+    local: Ticket8CaptureInstrumentation;
+    repeat: Ticket8CaptureInstrumentation;
+  };
+
+  export async function captureComparable(
+    page: Page,
+    route: string,
+    viewport: { width: number; height: number },
+    state: ComparableState,
+    instrumentation?: Ticket8CaptureInstrumentation
+  ): Promise<ComparableCapture>;
+
+  export async function captureIndependentPair(
+    page: Page,
+    route: string,
+    viewport: { width: number; height: number },
+    state: ComparableState,
+    instrumentation?: Ticket8PairInstrumentation
+  ): Promise<[ComparableCapture, ComparableCapture]> {
+    const first = await captureComparable(page, route, viewport, state, instrumentation?.local);
+    const secondPage = await page.context().newPage();
+    try {
+      return [first, await captureComparable(secondPage, route, viewport, state, instrumentation?.repeat)];
+    } finally {
+      await secondPage.close();
+    }
+  }
+  ```
+
+  The optional fifth `captureIndependentPair()` parameter prospectively supersedes only its prior exact four-argument signature. Every existing four-argument caller keeps its current behavior. For each existing raw case in its present order, create a `local` record and a `repeat` record immediately before calling `captureIndependentPair()` and pass them through this new parameter: their ordinals are respectively `1/2`, `3/4`, `5/6`, `7/8`, `9/10`, `11/12`, `13/14`, and `15/16`. The four desktop ordinary assertions follow that raw sequence with these exact mappings: ordinal `17` is `event-programme--default-desktop`; `18` is `event-programme--nav-impact-open-desktop`; `19` is `annual-report-document--default-desktop`; and `20` is `annual-report-document--nav-about-open-desktop`. These IDs intentionally repeat the corresponding raw IDs; ordinals remain unique.
+
+  For an instrumented call, measure exactly these phases around the existing operations: `navigation` around `page.goto`; `fontsLayout` around `document.fonts.ready` and `scrollHeight` evaluation; `scroll` around the existing 600px loop, recording its observed height and position count; `imageReadiness` around the existing image-ready wait and return-to-top; and `screenshot` around `captureScreenshotEvidence`. On an exception or cancellation, call `interrupt(record, error)` and rethrow; the recorder's synchronous prior and final flushes must retain the current capture ID/ordinal and its last reached phase even when the normal capture return never occurs.
+
+  Keep `createTicket8CaptureWriter()`, `writePair()`, its staging directory, `finalize()`, `abort()`, all sidecar JSON, and raw names unchanged. After the existing local/repeat pair has returned, use `measureShared([localRecord, repeatRecord], 'writerSharp', () => writer.writePair(...))`, then complete both records. Mark the four ordinary assertion records' `writerSharp` phase `not-applicable` before completing them. In an outer `finally`, call `recorder.flush()` and attach the exact file:
+
+  ```ts
+  await testInfo.attach('ticket8-capture-timing', {
+    path: timingPath,
+    contentType: 'application/json'
+  });
+  ```
+
+  The two diagnostic outputs on a failing instrumented matrix are the retained timing JSON attachment and that matrix's failure-only `trace.zip`. Both are Playwright test output, never repository files. A successful ordinary run without `TICKET8_CAPTURE_ROOT` retains neither output and creates neither timing data nor raw capture data; a successful instrumented run retains the attached timing JSON for complete phase accounting.
+
+- [ ] **Step 4: Prove GREEN and make the one instrumentation commit.**
+
+  Run:
+
+  ```bash
+  npm run test:unit -- tests/unit/ticket8-timing.test.ts
+  npx playwright test tests/e2e/visual.spec.ts --grep "Ticket 8 representative event and report matrix"
+  ```
+
+  Expected: both commands PASS under the unchanged inherited 30-second timeout. The second command runs without `TICKET8_CAPTURE_ROOT`, leaves no repository file or raw root, and preserves the eight-state matrix's existing assertions.
+
+  Commit exactly:
+
+  ```bash
+  git add tests/e2e/visual.spec.ts tests/support/ticket8-timing.ts tests/unit/ticket8-timing.test.ts
+  git commit -m "test: retain Ticket 8 capture diagnostics"
+  ```
+
+  Expected: one commit containing exactly those three paths. Any other staged path, a failed GREEN command, or an inability to make the commit is terminal; do not broaden scope, amend another commit, or start a capture.
+
+### H. Two no-edit reviews, then one attempt
+
+- [ ] **Step 5: Conduct exactly one specification review and then exactly one quality review.**
+
+  Give the specification reviewer the plan-only boundary to the instrumentation commit diff, this addendum, `tests/e2e/visual.spec.ts`, `tests/support/ticket8-timing.ts`, and `tests/unit/ticket8-timing.test.ts`. It must verify the exact three-file map, all required attachment fields, monotonic phase boundaries, failure-safe current-record retention, unchanged 30-second budget/matrix/raw sidecars/atomic writer, test-only trace scope, and normal-run no-artifact behavior.
+
+  Only after an APPROVED specification result, give the quality reviewer the same immutable commit and inputs. It must verify deterministic RED coverage, no global mutable cross-project recorder state, no accidental double writer call, type/signature consistency, Playwright attachment/timeout behavior, and that the timing data cannot be mistaken for a raw sidecar or packet input.
+
+  Expected: exactly one read-only specification APPROVED result followed by exactly one read-only quality APPROVED result. A reviewer rejection, provider/model failure, absent result, or any requested code change is terminal under this authorization: do not edit, amend, replace a reviewer, capture, assemble, verify, or call Opus.
+
+- [ ] **Step 6: Run the single instrumented focused capture attempt.**
+
+  From the reviewed instrumentation commit, derive only new paths from its SHA. Do not move, read, delete, list, test, or otherwise inspect any prior `/tmp/ehf-ticket8-*` packet, raw root, staging directory, or output. The assembler accepts an arbitrary absent output argument, so it must receive this new path rather than its historical fixed path.
+
+  ```bash
+  INSTRUMENTATION_SHA="$(git rev-parse HEAD)" &&
+  RAW_ROOT="/tmp/ehf-ticket8-instrumented-raw-${INSTRUMENTATION_SHA}" &&
+  OUTPUT="/tmp/ehf-ticket8-instrumented-packet-${INSTRUMENTATION_SHA}" &&
+  TEST_RESULTS="/tmp/ehf-ticket8-instrumented-test-results-${INSTRUMENTATION_SHA}" &&
+  test ! -e "$RAW_ROOT" &&
+  test ! -e "$OUTPUT" &&
+  test ! -e "$TEST_RESULTS" &&
+  TICKET8_CAPTURE_ROOT="$RAW_ROOT" npx playwright test tests/e2e/visual.spec.ts --grep "Ticket 8 representative event and report matrix" --output "$TEST_RESULTS"
+  ```
+
+  Expected capture success: desktop and mobile both pass under the unchanged 30-second budget; the desktop raw root is newly published by the existing atomic writer; the test-results tree contains one `ticket8-capture-timing.json` attachment with 20 ordinal records; and no assembler has yet run. Capture failure is terminal: retain the failed matrix's `trace.zip` and timing attachment from `"$TEST_RESULTS"`—including the current interrupted record's ID/ordinal and last phase—and stop. Do not inspect the raw root, retry, raise a timeout, fix code, assemble, verify, or call Opus.
+
+- [ ] **Step 7: On capture success only, prove timing and raw completeness, assemble once, and verify once.**
+
+  Run this command only after Step 6 exits `0`; it reads only the new paths from Step 6:
+
+  ```bash
+  node --input-type=module -e "
+  import { readdirSync } from 'node:fs';
+  import { join, relative } from 'node:path';
+  const raw = process.argv[1];
+  const ids = [
+    'event-programme--default-desktop',
+    'event-programme--default-mobile',
+    'event-programme--nav-impact-open-desktop',
+    'event-programme--nav-impact-open-mobile',
+    'annual-report-document--default-desktop',
+    'annual-report-document--default-mobile',
+    'annual-report-document--nav-about-open-desktop',
+    'annual-report-document--nav-about-open-mobile'
+  ];
+  const expected = new Set(ids.flatMap((id) => ['local', 'repeat'].flatMap((member) => [`${member}/${id}.png`, `${member}/${id}.json`])));
+  const actual = [];
+  const collect = (directory) => {
+    for (const member of readdirSync(directory, { withFileTypes: true })) {
+      const path = join(directory, member.name);
+      if (member.isDirectory()) collect(path);
+      else if (member.isFile()) actual.push(relative(raw, path));
+      else throw new Error('raw input contains a non-regular member');
+    }
+  };
+  collect(raw);
+  if (actual.length !== 32 || actual.length !== expected.size || actual.some((path) => !expected.has(path))) {
+    throw new Error('raw input must contain exactly the 32 expected local/repeat PNG/JSON members');
+  }
+  " "$RAW_ROOT" &&
+  node --input-type=module -e "
+  import { readdirSync, readFileSync } from 'node:fs';
+  import { join } from 'node:path';
+  const root = process.argv[1];
+  const timingFiles = readdirSync(root, { recursive: true }).map(String).filter((path) => path.endsWith('ticket8-capture-timing.json'));
+  if (timingFiles.length !== 1) throw new Error('expected exactly one Ticket 8 timing attachment');
+  const trace = JSON.parse(readFileSync(join(root, timingFiles[0]), 'utf8'));
+  const phases = ['navigation', 'fontsLayout', 'scroll', 'imageReadiness', 'screenshot'];
+  if (trace.schemaVersion !== 1 || trace.project !== 'desktop' || trace.captures.length !== 20) throw new Error('timing attachment identity or capture count mismatch');
+  trace.captures.forEach((capture, index) => {
+    if (capture.ordinal !== index + 1 || capture.status !== 'completed' || capture.activePhase !== null || !capture.captureId || !capture.route || !capture.state || !capture.viewport) throw new Error('incomplete capture identity or status');
+    if (phases.some((phase) => !/^[0-9]+$/.test(capture.durationsNs[phase] ?? ''))) throw new Error('missing monotonic phase duration');
+    if (!Number.isInteger(capture.scrollHeightPx) || capture.scrollHeightPx <= 0 || !Number.isInteger(capture.scrollPositionCount) || capture.scrollPositionCount <= 0) throw new Error('missing scroll accounting');
+    if ((capture.kind === 'assertion' && capture.durationsNs.writerSharp !== 'not-applicable') || (capture.kind !== 'assertion' && !/^[0-9]+$/.test(capture.durationsNs.writerSharp ?? ''))) throw new Error('writer/Sharp accounting mismatch');
+  });
+  " "$TEST_RESULTS" &&
+  node scripts/assemble-ticket8-bundle.mjs --raw-root "$RAW_ROOT" --output "$OUTPUT" &&
+  node scripts/assemble-ticket8-bundle.mjs --verify --raw-root "$RAW_ROOT" --output "$OUTPUT"
+  ```
+  Expected: first checker proves exactly 32 raw regular files; second checker proves full 20-capture monotonic phase accounting and writer/Sharp disposition; the assembler runs exactly once to make only the new `"$OUTPUT"`; the verifier runs exactly once and writes nothing. The assembler and verifier retain their existing source-blob-only, raw-sidecar hash/byte, exact-member, staging/atomicity, health, digest, and reproducibility contracts.
+
+  A raw-count/timing failure, assembler failure, verifier failure, missing attachment, unhealthy raw evidence, or any unexpected path is terminal. Preserve the new diagnostic result and stop; do not alter timeout/code, rerun a command, delete a path, reuse an older packet, or call Opus.
+
+- [ ] **Step 8: On verification PASS only, spend the one replacement Opus judgment.**
+
+  Give `anthropic/claude-opus-5` exactly the newly assembled `"$OUTPUT"` packet from this addendum's Step 7 verified new-packet protocol: `bundle-manifest.json`, `health.json`, `review-status.json`, `contact-sheet.png`, all eight `metrics/*.json`, all sixteen `normalized/*-{source,local}.png`, and source/local raw PNGs only to adjudicate a suspected finding. Do not supply old packet paths, raw repeat files, the repository, browser, source host, history, or commands.
+
+  Expected acceptance: one verdict with P0/P1/P2 = `0/0/0`, Annual Report parity, preserved `6c2b327` programme visuals, both required desktop submenu surfaces, route-level newsletter exclusions, and the sanctioned `Impact Snapshots`, `EHF Fellows Articles`, and Fellow Directory omissions. Only that result permits the existing Ticket 8 acceptance record and downstream Ticket 9 gate.
+
+### I. Terminal stops and self-review
+
+- **Hard stops:** a wrong BuildLead model/provider; missing explicit owner approval; start-boundary failure; RED/GREEN failure; commit failure; specification/quality rejection or provider failure; capture timeout/failure; missing trace/timing attachment; raw evidence failure; assembly failure; verification failure; Opus provider/protocol failure or absent verdict; and any P0, P1, or P2 are terminal. There is no retry, review-fix loop, timeout increase, correction, alternate model, capture, assembly, verification, Opus call, Ticket 9–12 work, or publication action after any stop.
+- **Timeout rule:** this addendum never raises the 30,000 ms timeout. If the one instrumented attempt succeeds under that budget, no timeout change is needed. If it fails, only a separate new owner plan based on the retained timing/trace may authorize diagnosis-driven correction or a scoped timeout decision.
+- **Self-review — coverage:** F–H preserve D.1's single historical failed attempt and its filesystem uncertainty, require explicit owner approval, bind the new work to this plan-only commit and approved `b23af6a9`, retain the existing matrix/visual/shell/sidecar/assembler contracts, and give one exact success path plus one terminal failure path.
+- **Self-review — types and paths:** all new recorder names, phase labels, fields, signatures, capture kinds, pair-forwarding contract, assertion ID/ordinal mapping, environment variables, exact three-file commit, and new SHA-derived paths are defined before use. The new path protocol does not refer to or mutate a prior `/tmp/ehf-ticket8-*` path.
+- **Self-review — attempt accounting and placeholders:** one instrumentation commit, two no-edit reviews, one capture, one conditional assembly, one conditional verification, and one conditional Opus call are named once. No step uses a placeholder, implicit timeout change, hidden fallback, or ambiguous retry.
