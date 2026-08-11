@@ -28,12 +28,12 @@ const visibleSections = parsedSections.filter((_, index) => index !== 0 || !hasC
 </article>
 
 <style>
-  .legal-page { width: min(860px, calc(100% - 2 * var(--gutter))); margin: 0 auto; padding: calc(var(--header-height) + 72px) 0 120px; }
-  .legal-page header { margin-bottom: 64px; text-align: center; }
-  .legal-page h1 { margin: 0; font-size: var(--text-display); line-height: var(--lh-display); }
-  .legal-page h2 { margin: 48px 0 16px; font-size: var(--text-heading); line-height: var(--lh-heading); }
-  .legal-page p { margin: 0 0 20px; white-space: pre-line; }
-  .legal-page :global(.rich-text-list) { margin: 0 0 20px; padding-left: 20px; }
+  .legal-page { width: min(1037px, calc(100% - 2 * var(--gutter))); margin: 0 auto; padding: calc(var(--header-height) + 59px) 0 120px; }
+  .legal-page header { margin-bottom: 32px; }
+  .legal-page h1 { margin: 0; font-size: var(--text-lead); line-height: var(--lh-lead); }
+  .legal-page :global(h2) { margin: 0 0 16px; font-size: 16px; font-weight: 700; line-height: 28.8px; }
+  .legal-page :global(p) { margin: 0 0 16px; font-size: 16px; line-height: 28.8px; white-space: pre-line; }
+  .legal-page :global(.rich-text-list) { margin: 0 0 16px; padding-left: 20px; font-size: 16px; line-height: 28.8px; }
   .legal-page :global(a) { color: var(--color-brand); overflow-wrap: anywhere; }
-  @media (max-width: 767px) { .legal-page { padding-top: calc(var(--header-height) + 42px); padding-bottom: 72px; } .legal-page header { margin-bottom: 42px; } .legal-page h2 { margin-top: 34px; } }
+  @media (max-width: 767px) { .legal-page { padding-top: calc(var(--header-height) + 72.2px); padding-bottom: 72px; } }
 </style>
