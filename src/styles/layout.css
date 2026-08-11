@@ -153,17 +153,16 @@
 .desktop-nav__submenu {
   position: absolute;
   top: 100%;
-  right: 0;
-  margin-top: 1.7px;
-  width: auto;
-  padding: 0;
+  right: -16px;
+  margin-top: 2px;
+  min-width: 232px;
+  padding: 8px 16px;
   border-radius: 0;
-  background: transparent;
+  background: var(--color-surface);
   box-shadow: none;
 }
 .desktop-nav__submenu ul { display: block; text-align: right; }
-.desktop-nav__submenu a:not(.button) { line-height: 20.8px; }
-.desktop-nav__submenu li + li { margin-top: 3.2px; }
+.desktop-nav__submenu a:not(.button) { line-height: 24px; white-space: nowrap; }
 
 .button {
   display: inline-flex;
