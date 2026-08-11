@@ -414,6 +414,11 @@ test('Event and report routes are exactly manifest-bounded and use their matchin
 
 test('Ticket 8 programme renders every live Summit row as an ordered semantic table', async ({ page }) => {
   await page.goto('/2025-summit-programme');
+  const rootTextNodes = await page.locator('main').evaluate((main) => [...main.childNodes]
+    .filter((node) => node.nodeType === Node.TEXT_NODE && node.textContent?.trim())
+    .map((node) => node.textContent?.trim()));
+  expect(rootTextNodes).toEqual([]);
+
 
   const dayOne = page.locator('#summit-day-1-panel');
   const dayTwo = page.locator('#summit-day-2-panel');
