@@ -17,7 +17,7 @@
       "route": "/2025-summit-programme",
       "template": "event-programme",
       "localInput": "src/content/events/2025-summit-programme.md",
-      "contentHash": "444f2e73f91a013331dd8f52f6e60d7af5b381e0adad6818aceebe00aa346b4e"
+      "contentHash": "d121235e3a5420eb4b992acc5febf653e0539d8537693ee36e45808e070b65a3"
     },
     {
       "route": "/22-annual-report",

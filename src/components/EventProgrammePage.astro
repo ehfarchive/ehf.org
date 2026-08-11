@@ -83,7 +83,10 @@ let currentProgrammeItem: ProgrammeItem | undefined;
 let currentProgrammeSection: ProgrammeSection | undefined;
 let dayIndex = 0;
 for (const rawLine of programmeLines ?? []) {
-  const line = rawLine.trim();
+  // Source rows carry a few deliberate blank paragraphs. They arrive as a lone
+  // non-breaking space, which trim() would erase along with real blank lines,
+  // so keep that one character and let it set its own line box.
+  const line = rawLine.trim() || (rawLine.includes('\u00a0') ? '\u00a0' : '');
   if (/^\d{1,2}\.\d{2}(?:am|pm)(?:\s*-\s*\d{1,2}\.\d{2}(?:am|pm))?$/i.test(line)) {
     if (line === '8.00am' && programmeDaysEntries[dayIndex].some((entry) => entry.kind === 'item')) {
       dayIndex += 1;

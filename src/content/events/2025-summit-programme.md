@@ -112,6 +112,8 @@ From autonomous vehicles and electric aircraft to revolutions in supply chain, l
 
 **Adam Grosser**, *EHF Fellow; Chairman & Managing Partner*, **UP.Partners**
 
+ 
+
 **Case Study: How Mobility, Connectivity and AI are Driving the Future of Travel** Mobile devices with ubiquitous connectivity are transforming the airline industry, enhancing safety and efficiency, and elevating the guest experience. AI will accelerate this transformation. Learn how Apple and Air New Zealand are working together to move the industry forward and the unique opportunities this presents for Aotearoa to lead the future.
 
 **Michael Tchao**, *EHF Fellow; VP Product Marketing*, **Apple**
@@ -374,6 +376,8 @@ AI continues to develop at an accelerated pace, and the impact of this emergent 
 
 **Lane Rettig**, *EHF Fellow; Head of Research,* **NEAR Foundation**
 
+ 
+
 **Innovation Economy**
 
 **East Meets Best: Strengthening the NZ Innovation Economy through P2P Partnerships with Asia**
@@ -381,6 +385,8 @@ AI continues to develop at an accelerated pace, and the impact of this emergent 
 Success in Asia is not just about what you know - it’s about who you know. At the Asia New Zealand Foundation, we break down barriers, share knowledge, and most importantly, connect people for real, long-term impact. Join us for an Asia-style networking session with authentic snacks, drinks, and real talk from those who navigate business in the region. Make connections that matter and gain insights from trailblazers who have built lasting partnerships across Asia.
 
 **Amarit Charoenphan**, *EHF Fellow; CEO,* **Aim Ventures**
+
+ 
 
 **Planetary Action**
 
