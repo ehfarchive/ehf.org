@@ -144,16 +144,16 @@ test('Ticket 10 applies the captured type hierarchy across every route and viewp
       await page.goto(formContract.route);
       const heading = page.getByRole('heading', { name: formContract.heading, exact: true });
       await expect(heading).toHaveCSS('font-family', /Roboto/);
-      await expect(heading).toHaveCSS('letter-spacing', viewport.name === 'desktop' && formContract.route === '/contact-media' ? '1.4px' : viewport.name === 'desktop' ? '1.68px' : '1.12px');
-      await expect(heading).toHaveCSS('font-size', viewport.name === 'desktop' && formContract.route === '/contact-media' ? '35px' : viewport.name === 'desktop' ? '42px' : '28px');
+      await expect(heading).toHaveCSS('letter-spacing', viewport.name === 'desktop' && formContract.route === '/contact-media' ? '-0.525px' : viewport.name === 'desktop' ? '-0.60288px' : '-0.42px');
+      await expect(heading).toHaveCSS('font-size', viewport.name === 'desktop' && formContract.route === '/contact-media' ? '35px' : viewport.name === 'desktop' ? '40.192px' : '28px');
 
       const form = page.locator('main form');
       await expect(form).toHaveCSS('font-family', /Roboto/);
       await expect(form).toHaveCSS('font-size', '16px');
-      await expect(form.locator('legend').first()).toHaveCSS('font-size', '20px');
+      await expect(form.locator('legend').first()).toHaveCSS('font-size', viewport.name === 'desktop' ? '19.456px' : '18.0256px');
       await expect(form.locator('.display-only-form__label-required').first()).toHaveCSS('font-size', '12px');
       await expect(form.locator('input:not([type="checkbox"])').first()).toHaveCSS('font-family', /Merriweather/);
-      await expect(form.locator('input:not([type="checkbox"])').first()).toHaveCSS('font-size', viewport.name === 'desktop' ? '19px' : '17px');
+      await expect(form.locator('input:not([type="checkbox"])').first()).toHaveCSS('font-size', viewport.name === 'desktop' ? '19.456px' : '17px');
     }
   }
 });

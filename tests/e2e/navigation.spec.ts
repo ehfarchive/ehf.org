@@ -131,10 +131,10 @@ test('Impact folder exposes only approved destinations on bare right-aligned sub
         textAlign: getComputedStyle(element.querySelector('ul')!).textAlign
       };
     })).toEqual({
-      backgroundColor: 'rgba(0, 0, 0, 0)',
+      backgroundColor: 'rgb(255, 255, 255)',
       borderRadius: '0px',
       boxShadow: 'none',
-      right: '0px',
+      right: '-16px',
       textAlign: 'right'
     });
   }

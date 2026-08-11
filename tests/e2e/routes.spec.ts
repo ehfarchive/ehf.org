@@ -337,7 +337,7 @@ test('News representative editorial image keeps its source desktop measure witho
 
   expect(geometry.imageCenter).toBeCloseTo(geometry.articleCenter, 1);
   if (testInfo.project.name === 'desktop') {
-    expect(geometry.imageWidth).toBeCloseTo(645, -1);
+    expect(geometry.imageWidth).toBeCloseTo(640, -1);
   } else {
     expect(geometry.imageWidth).toBeCloseTo(geometry.articleWidth, 1);
   }

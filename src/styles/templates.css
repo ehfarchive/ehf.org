@@ -125,7 +125,7 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
   max-width: 100%;
   margin: 34px auto 50px;
 }
-.article-page__body figure > img { display: block; width: auto; max-width: 100%; height: auto; margin: 0; }
+.article-page__body figure > img { display: block; width: auto; max-width: 100%; height: auto; margin: 0 auto; }
 /* Where the source displayed a crop rather than the whole image, the figure
    carries the source's displayed box and focal point; the ratio holds at every
    width, so the mobile figure crops the same way instead of letter-boxing. */

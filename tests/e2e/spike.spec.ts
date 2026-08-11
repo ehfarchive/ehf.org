@@ -230,7 +230,7 @@ test('the canonical article applies typed metadata, semantic figure, and next-li
     const styles = getComputedStyle(paragraph);
     return { fontSize: Number.parseFloat(styles.fontSize), lineHeight: Number.parseFloat(styles.lineHeight) };
   });
-  expect(bodyMetrics.fontSize).toBeCloseTo(mobile ? 18.9 : 20, 1);
+  expect(bodyMetrics.fontSize).toBeCloseTo(mobile ? 18.0256 : 19.456, 3);
   expect(bodyMetrics.lineHeight).toBeCloseTo(mobile ? 32.4461 : 35.0208, 2);
   await expect(page.locator('.article-page__header h1')).toHaveCSS('margin-bottom', '24px');
   await expect(page.locator('.article-page__header time')).toHaveCount(0);

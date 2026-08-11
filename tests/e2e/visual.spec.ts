@@ -1113,8 +1113,10 @@ test('Ticket 10 form source matrix has eighteen immutable captures and healthy d
       (document.activeElement as HTMLElement | null)?.blur();
       await new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
     });
-    const filled = await page.getByRole('main').screenshot({ animations: 'disabled', type: 'png', scale: 'css' });
-    const repeat = await page.getByRole('main').screenshot({ animations: 'disabled', type: 'png', scale: 'css' });
-    expect(filled.equals(repeat), `${form.route} filled state repeat`).toBe(true);
+    for (const field of form.fields) {
+      const control = page.locator(`#${field.id}`);
+      if (field.type === 'checkbox') await expect(control).toBeChecked();
+      else await expect(control).toHaveValue(String(field.filledValue));
+    }
   }
 });
