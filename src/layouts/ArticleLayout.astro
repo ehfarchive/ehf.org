@@ -38,9 +38,9 @@ const articleBody = renderArticleBody(await Astro.slots.render('default'), archi
       )}
     </header>
     <div class="article-page__body" set:html={articleBody} />
-    {(previous || next) && <nav class="article-page__next" aria-label="Article navigation">
-      {previous && <a href={previous.href} data-direction="previous">{previous.title}</a>}
-      {next && <a href={next.href} data-direction="next">{next.title}</a>}
-    </nav>}
   </article>
+  {(previous || next) && <nav class="article-page__next site-container" aria-label="Article navigation">
+    {previous && <a href={previous.href} data-direction="previous">{previous.title}</a>}
+    {next && <a href={next.href} data-direction="next">{next.title}</a>}
+  </nav>}
 </SiteLayout>
