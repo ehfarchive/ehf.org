@@ -106,7 +106,7 @@ for (const formContract of contract.routes) {
   });
 }
 
-test('Ticket 10 renders the captured update-group semantics and source-form shared affordances', async ({ page }, testInfo) => {
+test('Ticket 10 renders the captured update-group semantics and source-form shared affordances', async ({ page }) => {
   await page.goto('/news-and-events-updates');
   const updates = page.getByRole('group', { name: 'What type of updates are you interested in? (required)', exact: true });
   await expect(updates).toBeVisible();
@@ -124,16 +124,11 @@ test('Ticket 10 renders the captured update-group semantics and source-form shar
   const footer = page.getByRole('contentinfo');
   await expect(footer.getByText('(c) Edmund Hillary Fellowship 2016 - 2026', { exact: true })).toBeVisible();
   await expect(footer.getByRole('link')).toHaveText(['About', 'Impact', 'Archive', 'Privacy']);
-  await expect(footer).not.toContainText('Newsletter updates are not available.');
 
   const skipLink = page.getByRole('link', { name: 'Skip to content', exact: true });
   await expect(skipLink).toBeVisible();
   await expect(skipLink).toHaveCSS('position', 'absolute');
 
-  await page.goto('/about-ehf');
-  const newsletter = page.getByRole('contentinfo').getByText('Newsletter updates are not available.', { exact: true });
-  if (testInfo.project.name === 'desktop') await expect(newsletter).toBeVisible();
-  else await expect(newsletter).toBeHidden();
   await skipLink.focus();
   await expect(skipLink).toHaveCSS('clip', 'auto');
 });

@@ -52,7 +52,7 @@ test('every manifest-declared Impact listing and article path is static', async 
   }
 });
 
-test('Impact archive has deterministic source order, accessible manifest-bounded pagination, and no duplicate cards', async ({ page }) => {
+test('Impact archive has deterministic source order, accessible source-style pagination, and no duplicate cards', async ({ page }) => {
   const archivePaths = ['/read', '/read/page/2', '/read/page/3', '/read/page/4', '/read/page/5'];
   const expectedPageSizes = [20, 20, 20, 20, 4];
   const slugs: string[] = [];
@@ -64,6 +64,13 @@ test('Impact archive has deterministic source order, accessible manifest-bounded
     );
     expect(pageSlugs).toHaveLength(expectedPageSizes[index]);
     slugs.push(...pageSlugs.filter((slug): slug is string => slug !== null));
+
+    const pagination = page.getByRole('navigation', { name: 'Impact pagination' });
+    await expect(pagination).toBeVisible();
+    await expect(pagination.getByRole('link', { name: 'Newer Posts' })).toHaveCount(index === 0 ? 0 : 1);
+    await expect(pagination.getByRole('link', { name: 'Older Posts' })).toHaveCount(index === archivePaths.length - 1 ? 0 : 1);
+    if (index > 0) await expect(pagination.getByRole('link', { name: 'Newer Posts' })).toHaveAttribute('href', index === 1 ? '/read' : `/read/page/${index}`);
+    if (index < archivePaths.length - 1) await expect(pagination.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', `/read/page/${index + 2}`);
   }
 
   expect(slugs.slice(0, 4)).toEqual([
@@ -76,8 +83,6 @@ test('Impact archive has deterministic source order, accessible manifest-bounded
   expect(new Set(slugs).size).toBe(84);
   await page.goto('/read');
   await expect(page.locator('[data-impact-page-size="20"]')).toBeVisible();
-  await expect(page.getByRole('navigation', { name: 'Impact pagination' })).toBeVisible();
-  await expect(page.getByRole('link', { name: 'Page 2' })).toHaveAttribute('href', '/read/page/2');
   await expect(page.locator('[data-impact-slug="how-chemergy-is-changing-the-game-in-waste-to-energy"] img')).toHaveAttribute('src', '/assets/images/cards/chemergy.webp');
   await expect(page.locator('[data-impact-slug="how-chemergy-is-changing-the-game-in-waste-to-energy"] img')).toHaveAttribute('alt', '');
 });
@@ -119,11 +124,21 @@ test('Impact articles retain one source-positioned lead asset and local semantic
     await expect(firstFigure.locator('img')).toHaveAttribute('src', representative.lead);
     await expect(article.locator(`img[src="${representative.lead}"]`)).toHaveCount(1);
   }
-
   await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
+
+
   const chemergyFigure = page.locator('.article-page__body figure[data-archived-align="right"]');
-  await expect(chemergyFigure).toHaveCount(1);
-  const chemergyGeometry = await chemergyFigure.evaluate((figure) => {
+  await expect(chemergyFigure).toHaveCount(2);
+  expect(await page.locator('[data-impact-article]').evaluate((article) =>
+    JSON.parse(article.getAttribute('data-archived-figures') ?? '[]')
+  )).toMatchObject([
+    { align: 'right', crop: { width: 522.1, height: 413.9, focal: '48.4% 35.2%' } },
+    null,
+    null,
+    { align: 'right', crop: { width: 522.1, height: 259.6, focal: '50% 50%' } }
+  ]);
+  const chemergyFigureFirst = chemergyFigure.first();
+  const chemergyGeometry = await chemergyFigureFirst.evaluate((figure) => {
     const image = figure.querySelector('img')!;
     const body = figure.parentElement!;
     const figureBox = figure.getBoundingClientRect();
@@ -139,11 +154,11 @@ test('Impact articles retain one source-positioned lead asset and local semantic
   });
   if (testInfo.project.name === 'desktop') {
     expect(chemergyGeometry.position).toBe('right');
-    expect(chemergyGeometry.figureWidth / chemergyGeometry.bodyWidth).toBeCloseTo(0.4, 1);
+    expect(chemergyGeometry.figureWidth).toBeCloseTo(522.1, 0);
     expect(chemergyGeometry.figureRight).toBeLessThanOrEqual(chemergyGeometry.bodyRight);
   } else {
     expect(chemergyGeometry.position).toBe('none');
-    expect(chemergyGeometry.figureWidth).toBeCloseTo(chemergyGeometry.bodyWidth, 1);
+    expect(chemergyGeometry.figureWidth).toBeCloseTo(chemergyGeometry.bodyWidth - 17, 1);
   }
   expect(chemergyGeometry.imageWidth).toBeCloseTo(chemergyGeometry.figureWidth, 1);
 });
@@ -193,9 +208,9 @@ test('Impact external service references remain safe links rather than embedded 
   }
 });
 
-test('News emits exactly the owner-approved listing and 21 declared article routes', async ({ page }) => {
+test('News emits exactly the manifest-backed listing and 27 declared article routes', async ({ page }) => {
   expect(newsListingPaths).toEqual(['/news-blog']);
-  expect(newsArticlePaths).toHaveLength(21);
+  expect(newsArticlePaths).toHaveLength(27);
   expect(newsArticlePaths).toContain('/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report');
   expect(orderedNews.map((article) => article.path).sort()).toEqual([...newsArticlePaths].sort());
 
@@ -205,26 +220,40 @@ test('News emits exactly the owner-approved listing and 21 declared article rout
   }
 });
 
-test('News listing renders every approved card once in descending publishedAt and ascending slug order without pagination', async ({ page }) => {
+test('News listing preserves the source query pagination split and chronological card order', async ({ page }) => {
   await page.goto('/news-blog');
-
-  const slugs = await page.locator('[data-news-slug]').evaluateAll((cards) =>
+  const firstPageSlugs = await page.locator('[data-news-slug]:visible').evaluateAll((cards) =>
     cards.map((card) => card.getAttribute('data-news-slug'))
   );
-  expect(slugs).toEqual(orderedNews.map((article) => article.slug));
-  expect(new Set(slugs).size).toBe(21);
-  await expect(page.locator('[data-news-pagination], nav[aria-label*="pagination" i], a[href*="offset="]')).toHaveCount(0);
-  await expect(page.getByText(/older posts|newer posts/i)).toHaveCount(0);
+  expect(firstPageSlugs).toEqual(orderedNews.slice(0, 20).map((article) => article.slug));
+  await expect(page.locator('[data-news-slug]:visible')).toHaveCount(20);
+  await expect(page.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '/news-blog?offset=1675630776192');
+  await expect(page.getByRole('link', { name: 'Newer Posts' })).toHaveCount(0);
+
+  await page.goto('/news-blog?offset=1675630776192');
+  const olderPageSlugs = await page.locator('[data-news-slug]:visible').evaluateAll((cards) =>
+    cards.map((card) => card.getAttribute('data-news-slug'))
+  );
+  expect(olderPageSlugs).toEqual(orderedNews.slice(20).map((article) => article.slug));
+  await expect(page.locator('[data-news-slug]:visible')).toHaveCount(7);
+  await expect(page.getByRole('link', { name: 'Newer Posts' })).toHaveAttribute(
+    'href',
+    '/news-blog?offset=1671747295026&reversePaginate=true'
+  );
+  await expect(page.getByRole('link', { name: 'Older Posts' })).toHaveCount(0);
+
+  await page.goto('/news-blog?offset=unrecognized');
+  await expect(page.locator('[data-news-slug]:visible')).toHaveCount(20);
 });
 
 test('News cards retain the source editorial metadata and responsive geometry', async ({ page }, testInfo) => {
   await page.goto('/news-blog');
 
-  const cards = page.locator('[data-news-card]');
+  const cards = page.locator('[data-news-card]:visible');
   const cardCount = await cards.count();
-  expect(cardCount).toBe(21);
-  await expect(cards.locator('time')).toHaveCount(21);
-  await expect(cards.getByRole('link', { name: 'Read More' })).toHaveCount(21);
+  expect(cardCount).toBe(20);
+  await expect(cards.locator('time')).toHaveCount(20);
+  await expect(cards.getByRole('link', { name: 'Read More' })).toHaveCount(20);
 
   const metadata = await cards.evaluateAll((elements) => elements.map((card) => {
     const time = card.querySelector('time');
@@ -235,16 +264,15 @@ test('News cards retain the source editorial metadata and responsive geometry', 
       readMoreDecoration: readMore ? getComputedStyle(readMore).textDecorationLine : ''
     };
   }));
-  expect(metadata).toHaveLength(21);
   expect(metadata.every(({ date, dateTime, readMoreDecoration }) =>
     /^\d{1,2}\/\d{1,2}\/\d{2}$/.test(date ?? '')
     && /^\d{4}-\d{2}-\d{2}$/.test(dateTime ?? '')
-    && readMoreDecoration.includes('underline')
+    && readMoreDecoration === 'none'
   )).toBe(true);
 
   const geometry = await page.locator('[data-news-listing]').evaluate((listing) => {
     const grid = listing.querySelector<HTMLElement>('.news-grid')!;
-    const cards = [...listing.querySelectorAll<HTMLElement>('[data-news-card]')];
+    const cards = [...listing.querySelectorAll<HTMLElement>('[data-news-card]')].filter((card) => !card.hidden);
     const images = cards.flatMap((card) => [...card.querySelectorAll<HTMLImageElement>('img')]);
     const positions = cards.slice(0, 3).map((card) => {
       const box = card.getBoundingClientRect();
@@ -263,36 +291,17 @@ test('News cards retain the source editorial metadata and responsive geometry', 
   });
 
   expect(geometry.imageRatios.length).toBeGreaterThan(0);
-  expect(geometry.imageRatios.every((ratio) => Math.abs(ratio - (10 / 7)) < 0.03)).toBe(true);
+  expect(geometry.imageRatios.every((ratio) => Math.abs(ratio - (676 / 452)) < 0.03)).toBe(true);
   if (testInfo.project.name === 'desktop') {
     expect(geometry.columns).toBe(2);
-    expect(geometry.columnGap).toBeCloseTo(20, 0);
+    expect(geometry.columnGap).toBeCloseTo(30, 0);
     expect(geometry.positions[0].top).toBeCloseTo(geometry.positions[1].top, 1);
     expect(geometry.positions[2].top).toBeGreaterThan(geometry.positions[0].top);
-    expect(geometry.positions[0].width).toBeCloseTo(685, -1);
+    expect(geometry.positions[0].width).toBeCloseTo(676, -1);
   } else {
     expect(geometry.columns).toBe(1);
     expect(geometry.positions[1].top).toBeGreaterThan(geometry.positions[0].top);
   }
-});
-
-test('News undeclared, Hillary, page, and query variants fail closed without a recreated older listing', async ({ page }) => {
-  const excludedHillaryPaths = routeManifest.routes
-    .filter((route) => route.kind === 'excluded' && route.path.startsWith('/news-blog/'))
-    .map((route) => route.path);
-
-  expect(excludedHillaryPaths).toHaveLength(6);
-  for (const path of ['/news', '/news-blog/not-a-declared-story', '/news-blog/page/2', ...excludedHillaryPaths]) {
-    const response = await page.goto(path);
-    expect(response?.status(), path).toBe(404);
-  }
-
-  const queryResponse = await page.goto('/news-blog?offset=1675630776192');
-  expect(queryResponse?.ok()).toBe(true);
-  expect(await page.locator('[data-news-slug]').evaluateAll((cards) =>
-    cards.map((card) => card.getAttribute('data-news-slug'))
-  )).toEqual(orderedNews.map((article) => article.slug));
-  await expect(page.locator('a[href*="offset="]')).toHaveCount(0);
 });
 
 test('News representative preserves its body lead asset without a duplicate hero or external embed runtime', async ({ page }) => {

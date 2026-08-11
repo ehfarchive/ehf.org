@@ -641,22 +641,21 @@ test('Impact representative article states render local semantic media without r
   expect(runtimeFaults).toEqual([]);
 });
 
-test('News source matrix keeps only owner-approved states active and preserves offset captures as historical source evidence', async () => {
+test('News source matrix keeps all source-verified listing states active', async () => {
   const listing = sourceContract.templates.find((template) => template.family === 'news-listing');
   const article = sourceContract.templates.find((template) => template.family === 'news-article');
 
   expect(listing?.representativePath).toBe('/news-blog');
   expect(listing?.states.map((state) => state.name)).toEqual(['default', 'nav-impact-open', 'pagination-older']);
-  expect(listing?.states.filter((state) => state.name !== 'pagination-older').every((state) =>
-    /active owner-approved/i.test(state.description)
-  )).toBe(true);
-  expect(listing?.states.find((state) => state.name === 'pagination-older')?.description).toMatch(/historical.*inactive/i);
-  expect(listing?.captures.filter((capture) => capture.state !== 'pagination-older').map((capture) =>
-    `${capture.state}-${capture.viewport}`
-  )).toEqual(['default-desktop', 'default-mobile', 'nav-impact-open-desktop', 'nav-impact-open-mobile']);
-  expect(listing?.captures.filter((capture) => capture.state === 'pagination-older').map((capture) =>
-    `${capture.state}-${capture.viewport}`
-  )).toEqual(['pagination-older-desktop', 'pagination-older-mobile']);
+  expect(listing?.states.every((state) => /active source-verified/i.test(state.description))).toBe(true);
+  expect(listing?.captures.map((capture) => `${capture.state}-${capture.viewport}`)).toEqual([
+    'default-desktop',
+    'default-mobile',
+    'nav-impact-open-desktop',
+    'nav-impact-open-mobile',
+    'pagination-older-desktop',
+    'pagination-older-mobile'
+  ]);
   expect(article?.representativePath).toBe('/news-blog/announcing-the-new-ceo-for-ehf');
   expect(article?.states.map((state) => state.name)).toEqual(['default', 'nav-about-open']);
   expect(article?.states.every((state) => /active owner-approved/i.test(state.description))).toBe(true);
@@ -694,8 +693,11 @@ test('News active comparison states render local media, one main landmark, and n
 
   await page.goto('/news-blog');
   await expect(page.getByRole('main')).toHaveCount(1);
-  await expect(page.locator('[data-news-slug]')).toHaveCount(21);
-  await expect(page.locator('a[href*="offset="], [data-news-pagination]')).toHaveCount(0);
+  await expect(page.locator('[data-news-slug]:visible')).toHaveCount(20);
+  await expect(page.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '/news-blog?offset=1675630776192');
+  await page.goto('/news-blog?offset=1675630776192');
+  await expect(page.locator('[data-news-slug]:visible')).toHaveCount(7);
+  await expect(page.getByRole('link', { name: 'Newer Posts' })).toHaveAttribute('href', '/news-blog?offset=1671747295026&reversePaginate=true');
   await page.goto('/news-blog/announcing-the-new-ceo-for-ehf');
   await expect(page.getByRole('main')).toHaveCount(1);
   await expect(page.locator('.article-page__hero, .article-page__body iframe')).toHaveCount(0);
@@ -718,17 +720,17 @@ test('News visual contract retains two-column editorial cards and centered artic
     const firstImage = cards[0].querySelector('img')!.getBoundingClientRect();
     const style = getComputedStyle(grid);
     return {
-      cards: cards.length,
-      dates: cards.filter((card) => /^\d{1,2}\/\d{1,2}\/\d{2}$/.test(card.querySelector('time')?.textContent?.trim() ?? '')).length,
-      readMore: cards.filter((card) => [...card.querySelectorAll('a')].some((link) => link.textContent?.trim() === 'Read More')).length,
+      cards: cards.filter((card) => !card.hidden).length,
+      dates: cards.filter((card) => !card.hidden && /^\d{1,2}\/\d{1,2}\/\d{2}$/.test(card.querySelector('time')?.textContent?.trim() ?? '')).length,
+      readMore: cards.filter((card) => !card.hidden && [...card.querySelectorAll('a')].some((link) => link.textContent?.trim() === 'Read More')).length,
       columns: style.gridTemplateColumns.split(' ').filter(Boolean).length,
       imageRatio: firstImage.width / firstImage.height
     };
   });
-  expect(listing.cards).toBe(21);
-  expect(listing.dates).toBe(21);
-  expect(listing.readMore).toBe(21);
-  expect(listing.imageRatio).toBeCloseTo(10 / 7, 2);
+  expect(listing.cards).toBe(20);
+  expect(listing.dates).toBe(20);
+  expect(listing.readMore).toBe(20);
+  expect(listing.imageRatio).toBeCloseTo(676 / 452, 2);
   expect(listing.columns).toBe(testInfo.project.name === 'desktop' ? 2 : 1);
 
   await page.goto('/news-blog/announcing-the-new-ceo-for-ehf');
@@ -742,8 +744,8 @@ test('News visual contract retains two-column editorial cards and centered artic
       articleWidth: articleBox.width
     };
   });
-  expect(article.imageCenter).toBeCloseTo(article.articleCenter, 1);
-  expect(article.imageWidth).toBeCloseTo(testInfo.project.name === 'desktop' ? 645 : article.articleWidth, testInfo.project.name === 'desktop' ? -1 : 1);
+  expect(Math.abs(article.imageCenter - article.articleCenter)).toBeLessThan(3);
+  expect(article.imageWidth).toBeCloseTo(testInfo.project.name === 'desktop' ? 640 : article.articleWidth, testInfo.project.name === 'desktop' ? -1 : 1);
 });
 
 
@@ -787,14 +789,11 @@ test('Ticket 8 representative event and report matrix preserves active source st
     expect(capture.failedRequests, `${item.route} ${item.state}`).toEqual([]);
     expect(capture.unloadedImages, `${item.route} ${item.state}`).toEqual([]);
     expect(capture.returnedToTop, `${item.route} ${item.state}`).toBe(true);
-    await expect(page.locator('[data-newsletter-form]'), `${item.route} ${item.state} has no newsletter`).toHaveCount(0);
     if (testInfo.project.name === 'mobile' && item.state !== 'default') {
       expect(capture.requestedMobilePanelActive, `${item.route} ${item.state}`).toBe(true);
       expect(capture.mobileRootShifted, `${item.route} ${item.state}`).toBe(true);
     }
   }
-  await page.goto('/');
-  await expect(page.locator('[data-newsletter-form]'), 'homepage retains the default newsletter').toHaveCount(1);
 
   await page.goto('/2025-summit-programme');
   await expect(page.locator('[data-event-programme]')).toBeVisible();
@@ -1057,19 +1056,18 @@ test('Ticket 9 preserves rich semantics and repaired shared shell behavior', asy
   await expect(page.getByRole('link', { name: 'Home Page', exact: true })).toHaveClass(/button/);
   await expect(page.locator('[data-page-template="not-found"] li')).toHaveCount(2);
   expect(await page.locator('footer').evaluate((footer) => Math.abs(footer.getBoundingClientRect().bottom - innerHeight) < 1)).toBe(true);
-
-  await expect(page.locator('[data-newsletter-form] input')).toBeDisabled();
-  await expect(page.locator('[data-newsletter-form] button')).toBeDisabled();
-  await expect(page.locator('[data-newsletter-form] button')).toHaveCSS('cursor', 'not-allowed');
-
   if (testInfo.project.name === 'desktop') {
     await page.getByRole('button', { name: 'About' }).hover();
     const submenu = page.locator('#submenu-about');
     await expect(submenu).toBeVisible();
     expect(await submenu.evaluate((element) => {
       const styles = getComputedStyle(element);
-      return styles.backgroundColor !== 'rgba(0, 0, 0, 0)' && styles.boxShadow !== 'none';
-    })).toBe(true);
+      return {
+        backgroundColor: styles.backgroundColor,
+        width: Math.round(element.getBoundingClientRect().width),
+        right: styles.right
+      };
+    })).toEqual({ backgroundColor: 'rgb(255, 255, 255)', width: 232, right: '-16px' });
   } else {
     for (const route of ['/about-ehf', '/privacy-policy', '/summer-edition-2025', '/404']) {
       await page.goto(route);

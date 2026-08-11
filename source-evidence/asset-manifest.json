@@ -62,30 +62,6 @@
       "externalUrl": null
     },
     {
-      "id": "asset-images-article-chemergy-engineer-jpg",
-      "classification": "local",
-      "localPath": "/assets/images/article/chemergy-engineer.jpg",
-      "sha256": "ab3720f123b171e5f7b609698e5de9377dea59cef85c7681cc5b4ce88b8e3ef1",
-      "bytes": 687823,
-      "mediaType": "image/jpeg",
-      "routeUses": [
-        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
-      ],
-      "externalUrl": null
-    },
-    {
-      "id": "asset-images-article-chemergy-portrait-jpg",
-      "classification": "local",
-      "localPath": "/assets/images/article/chemergy-portrait.jpg",
-      "sha256": "5eaa02c3e0684b4a1213abdfece866323994fae534139da4f62c80ce10167177",
-      "bytes": 51741,
-      "mediaType": "image/jpeg",
-      "routeUses": [
-        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
-      ],
-      "externalUrl": null
-    },
-    {
       "id": "asset-images-cards-amy-webp",
       "classification": "local",
       "localPath": "/assets/images/cards/amy.webp",

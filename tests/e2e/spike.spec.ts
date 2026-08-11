@@ -28,7 +28,7 @@ for (const route of spikeRoutes) {
   });
 }
 
-test('the archive renders 20 deterministic first-page cards with declared pagination', async ({ page }) => {
+test('the archive renders 20 deterministic first-page cards with source-style pagination', async ({ page }) => {
   await page.goto('/read');
 
   const cards = page.locator('[data-read-card]');
@@ -37,8 +37,8 @@ test('the archive renders 20 deterministic first-page cards with declared pagina
   await expect(cards.first().locator('img')).toHaveAttribute('src', '/assets/images/cards/chemergy.webp');
   const pagination = page.getByRole('navigation', { name: 'Impact pagination' });
   await expect(pagination).toBeVisible();
-  await expect(pagination.locator('[aria-current="page"]')).toHaveText('Page 1');
-  await expect(pagination.getByRole('link', { name: 'Page 2' })).toHaveAttribute('href', '/read/page/2');
+  await expect(pagination.getByRole('link', { name: 'Newer Posts' })).toHaveCount(0);
+  await expect(pagination.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '/read/page/2');
 });
 
 test('the archive uses a single source-order stack on mobile', async ({ page }, testInfo) => {
@@ -94,15 +94,20 @@ test('the article keeps its fixed-source engineer figure within a 320px viewport
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
 });
 
-test('Impact pagination exposes its declared numbered destinations', async ({ page }) => {
+test('Impact pagination exposes declared source-style destinations', async ({ page }) => {
   await page.goto('/read');
 
-  const pagination = page.getByRole('navigation', { name: 'Impact pagination' });
-  await expect(pagination).toBeVisible();
-  await expect(pagination.getByRole('link', { name: 'Page 5' })).toHaveAttribute('href', '/read/page/5');
+  const firstPagePagination = page.getByRole('navigation', { name: 'Impact pagination' });
+  await expect(firstPagePagination.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '/read/page/2');
+  await page.goto('/read/page/3');
+  const middlePagePagination = page.getByRole('navigation', { name: 'Impact pagination' });
+  await expect(middlePagePagination.getByRole('link', { name: 'Newer Posts' })).toHaveAttribute('href', '/read/page/2');
+  await expect(middlePagePagination.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '/read/page/4');
   await page.goto('/read/page/5');
   await expect(page.locator('[data-read-card]')).toHaveCount(4);
-  await expect(page.getByRole('navigation', { name: 'Impact pagination' }).locator('[aria-current="page"]')).toHaveText('Page 5');
+  const finalPagePagination = page.getByRole('navigation', { name: 'Impact pagination' });
+  await expect(finalPagePagination.getByRole('link', { name: 'Newer Posts' })).toHaveAttribute('href', '/read/page/4');
+  await expect(finalPagePagination.getByRole('link', { name: 'Older Posts' })).toHaveCount(0);
 });
 
 test('manifest-declared Impact articles beyond Chemergy are generated', async ({ page }) => {

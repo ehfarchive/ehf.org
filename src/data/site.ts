@@ -25,12 +25,9 @@ function internal(label: string, href: string): SiteLink {
 
 export const site = {
   name: 'Edmund Hillary Fellowship',
-  description: 'The public archive of the Edmund Hillary Fellowship.',
-  newsletter: {
-    mode: 'display-only' as const,
-    message: 'Newsletter updates are not available.'
-  }
+  description: 'The public archive of the Edmund Hillary Fellowship.'
 } as const;
+
 
 export const primaryNavigation: readonly SiteNavigationItem[] = [
   {

@@ -10,19 +10,14 @@ interface Props {
 }
 
 const { currentPage, pages } = Astro.props;
+const currentIndex = pages.findIndex((page) => page.number === currentPage);
+if (currentIndex === -1) throw new Error(`Impact pagination does not declare page ${currentPage}`);
+const newer = pages[currentIndex - 1];
+const older = pages[currentIndex + 1];
 ---
 {pages.length > 1 && (
   <nav class="impact-pagination" aria-label="Impact pagination">
-    <ol>
-      {pages.map((page) => (
-        <li>
-          {page.number === currentPage ? (
-            <span aria-current="page">Page {page.number}</span>
-          ) : (
-            <a href={page.href}>Page {page.number}</a>
-          )}
-        </li>
-      ))}
-    </ol>
+    {newer && <a href={newer.href}>Newer Posts</a>}
+    {older && <a href={older.href}>Older Posts</a>}
   </nav>
 )}

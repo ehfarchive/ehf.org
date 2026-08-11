@@ -1203,17 +1203,17 @@
         {
           "name": "default",
           "sourceObserved": true,
-          "description": "Active owner-approved News comparison state for the 21 EHF articles, after excluding the six Hillary Institute records; source decision provenance: cc6ffa7d74c7aadbade7eed7c26c9afe3672b6b5."
+          "description": "Active source-verified News comparison state for the first 20 of 27 manifest-backed articles."
         },
         {
           "name": "nav-impact-open",
           "sourceObserved": true,
-          "description": "Active owner-approved News comparison state for the 21 EHF articles, with the Impact navigation folder expanded; source decision provenance: cc6ffa7d74c7aadbade7eed7c26c9afe3672b6b5."
+          "description": "Active source-verified News comparison state for the first 20 of 27 manifest-backed articles, with the Impact navigation folder expanded."
         },
         {
           "name": "pagination-older",
           "sourceObserved": true,
-          "description": "Historical source-only older-posts capture, explicitly inactive for local News behavior under owner decision cc6ffa7d74c7aadbade7eed7c26c9afe3672b6b5."
+          "description": "Active source-verified older-posts state for the remaining 7 of 27 manifest-backed articles, reached through the source Older Posts query."
         }
       ],
       "measurements": {

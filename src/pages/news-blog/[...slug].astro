@@ -8,6 +8,7 @@ import type { ContentManifest, LocalContentManifestRecord } from '../../lib/page
 import { validateContentManifest } from '../../lib/page-data';
 import { loadRouteManifest } from '../../lib/route-manifest';
 import { parseStrictUtcIsoDate } from '../../lib/iso-date';
+import { NEWS_ARTICLE_COUNT } from '../../lib/news';
 
 type NewsEntry = CollectionEntry<'news'>;
 type NewsArticle = { entry: NewsEntry; path: string; publishedAt: Date };
@@ -27,9 +28,11 @@ const contentRecords = contentManifest.content
   .filter((record): record is LocalContentManifestRecord => record.template === 'news-article');
 
 if (listingPaths.length !== 1 || listingPaths[0] !== '/news-blog') throw new Error('News listing is not declared exactly once');
-if (articlePaths.length !== 21 || new Set(articlePaths).size !== 21) throw new Error('News manifest must declare exactly 21 unique articles');
-if (contentRecords.length !== 21 || new Set(contentRecords.map((record) => record.localInput)).size !== 21) {
-  throw new Error('News content manifest must declare exactly 21 unique local inputs');
+if (articlePaths.length !== NEWS_ARTICLE_COUNT || new Set(articlePaths).size !== NEWS_ARTICLE_COUNT) {
+  throw new Error(`News manifest must declare exactly ${NEWS_ARTICLE_COUNT} unique articles`);
+}
+if (contentRecords.length !== NEWS_ARTICLE_COUNT || new Set(contentRecords.map((record) => record.localInput)).size !== NEWS_ARTICLE_COUNT) {
+  throw new Error(`News content manifest must declare exactly ${NEWS_ARTICLE_COUNT} unique local inputs`);
 }
 if (routeManifest.routes.some((route) => route.kind === 'included' && /^\/news-blog\/page(?:\/|$)/.test(route.path))) {
   throw new Error('News pagination paths are not permitted');
@@ -46,7 +49,7 @@ const articles: NewsArticle[] = entries.map((entry) => {
   return { entry, path, publishedAt: parseStrictUtcIsoDate(publishedAt, `News entry ${entry.id}.publishedAt`) };
 });
 
-if (articles.length !== 21 || articles.length !== pathSet.size || articles.length !== pathByInput.size
+if (articles.length !== NEWS_ARTICLE_COUNT || articles.length !== pathSet.size || articles.length !== pathByInput.size
   || new Set(articles.map((article) => article.entry.id)).size !== articles.length
   || new Set(articles.map((article) => article.path)).size !== articles.length) {
   throw new Error('News manifests and typed collection entries do not agree');
@@ -70,9 +73,11 @@ export async function getStaticPaths() {
   const staticContentRecords = staticContentManifest.content
     .filter((record): record is LocalContentManifestRecord => record.template === 'news-article');
   if (staticListingPaths.length !== 1 || staticListingPaths[0] !== '/news-blog') throw new Error('News listing is not declared exactly once');
-  if (staticArticlePaths.length !== 21 || new Set(staticArticlePaths).size !== 21) throw new Error('News manifest must declare exactly 21 unique articles');
-  if (staticContentRecords.length !== 21 || new Set(staticContentRecords.map((record) => record.localInput)).size !== 21) {
-    throw new Error('News content manifest must declare exactly 21 unique local inputs');
+  if (staticArticlePaths.length !== NEWS_ARTICLE_COUNT || new Set(staticArticlePaths).size !== NEWS_ARTICLE_COUNT) {
+    throw new Error(`News manifest must declare exactly ${NEWS_ARTICLE_COUNT} unique articles`);
+  }
+  if (staticContentRecords.length !== NEWS_ARTICLE_COUNT || new Set(staticContentRecords.map((record) => record.localInput)).size !== NEWS_ARTICLE_COUNT) {
+    throw new Error(`News content manifest must declare exactly ${NEWS_ARTICLE_COUNT} unique local inputs`);
   }
   if (staticRouteManifest.routes.some((route) => route.kind === 'included' && /^\/news-blog\/page(?:\/|$)/.test(route.path))) {
     throw new Error('News pagination paths are not permitted');
@@ -87,7 +92,7 @@ export async function getStaticPaths() {
     if (typeof publishedAt !== 'string') throw new Error(`News entry ${entry.id}.publishedAt must be a valid ISO calendar date`);
     return { entry, path, publishedAt: parseStrictUtcIsoDate(publishedAt, `News entry ${entry.id}.publishedAt`) };
   });
-  if (staticArticles.length !== 21 || staticArticles.length !== staticPathSet.size || staticArticles.length !== staticPathByInput.size
+  if (staticArticles.length !== NEWS_ARTICLE_COUNT || staticArticles.length !== staticPathSet.size || staticArticles.length !== staticPathByInput.size
     || new Set(staticArticles.map((article) => article.entry.id)).size !== staticArticles.length
     || new Set(staticArticles.map((article) => article.path)).size !== staticArticles.length) {
     throw new Error('News manifests and typed collection entries do not agree');

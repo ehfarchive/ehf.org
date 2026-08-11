@@ -84,12 +84,9 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
 .post-card--landscape .post-card__image { aspect-ratio: 343 / 288; }
 .post-card h2 { margin: 25px 0 0; font-size: var(--text-lead); line-height: var(--lh-card); }
 .post-card h2 a { color: var(--color-ink); text-decoration: none; }
-.impact-pagination { margin-top: 48px; }
-.impact-pagination ol { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 12px; margin: 0; padding: 0; list-style: none; }
-.impact-pagination a,
-.impact-pagination [aria-current='page'] { display: inline-block; min-width: 44px; padding: 10px 12px; color: var(--color-ink); font-family: var(--font-body); font-size: var(--text-body); line-height: var(--lh-body); text-align: center; }
-.impact-pagination a { text-decoration: none; }
-.impact-pagination [aria-current='page'] { color: var(--color-brand); font-weight: var(--weight-heading); }
+.impact-pagination { display: flex; justify-content: space-between; gap: 24px; margin-top: 48px; }
+.impact-pagination a { color: var(--color-brand); font-family: var(--font-body); font-size: var(--text-body); line-height: var(--lh-body); text-decoration: none; }
+.impact-pagination a:last-child { margin-left: auto; }
 
 .article-page { max-width: var(--prose-width); padding-top: calc(var(--header-height) + 28.8px); padding-bottom: 44.86px; }
 .article-page__header h1 { margin: 0 0 24px; font-size: var(--text-display); line-height: var(--lh-article-display); text-align: center; }
@@ -191,7 +188,7 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
   .read-masonry { grid-template-columns: 1fr; row-gap: 26px; }
   .post-card { margin: 0; }
   .impact-pagination { margin-top: 32px; }
-  .impact-pagination ol { justify-content: center; }
+  .impact-pagination { justify-content: space-between; }
   .article-page { padding-top: calc(var(--header-height) + 24px); padding-bottom: 11.35px; }
   .article-page__header h1 { margin-bottom: 24px; }
   .article-page__body blockquote { margin-block: 18.0256px; }

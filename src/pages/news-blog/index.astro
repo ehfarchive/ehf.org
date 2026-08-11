@@ -9,6 +9,13 @@ import type { ContentManifest, LocalContentManifestRecord } from '../../lib/page
 import { validateContentManifest } from '../../lib/page-data';
 import { loadRouteManifest } from '../../lib/route-manifest';
 import { parseStrictUtcIsoDate } from '../../lib/iso-date';
+import {
+  NEWS_ARTICLE_COUNT,
+  NEWS_NEWER_PAGE_HREF,
+  NEWS_OLDER_PAGE_HREF,
+  NEWS_OLDER_PAGE_OFFSET,
+  NEWS_PAGE_SIZE
+} from '../../lib/news';
 
 type NewsEntry = CollectionEntry<'news'>;
 type NewsArticle = { entry: NewsEntry; path: string; publishedAt: Date };
@@ -28,9 +35,11 @@ const contentRecords = contentManifest.content
   .filter((record): record is LocalContentManifestRecord => record.template === 'news-article');
 
 if (listingPaths.length !== 1 || listingPaths[0] !== '/news-blog') throw new Error('News listing is not declared exactly once');
-if (articlePaths.length !== 21 || new Set(articlePaths).size !== 21) throw new Error('News manifest must declare exactly 21 unique articles');
-if (contentRecords.length !== 21 || new Set(contentRecords.map((record) => record.localInput)).size !== 21) {
-  throw new Error('News content manifest must declare exactly 21 unique local inputs');
+if (articlePaths.length !== NEWS_ARTICLE_COUNT || new Set(articlePaths).size !== NEWS_ARTICLE_COUNT) {
+  throw new Error(`News manifest must declare exactly ${NEWS_ARTICLE_COUNT} unique articles`);
+}
+if (contentRecords.length !== NEWS_ARTICLE_COUNT || new Set(contentRecords.map((record) => record.localInput)).size !== NEWS_ARTICLE_COUNT) {
+  throw new Error(`News content manifest must declare exactly ${NEWS_ARTICLE_COUNT} unique local inputs`);
 }
 if (routeManifest.routes.some((route) => route.kind === 'included' && /^\/news-blog\/page(?:\/|$)/.test(route.path))) {
   throw new Error('News pagination paths are not permitted');
@@ -47,7 +56,7 @@ const articles: NewsArticle[] = entries.map((entry) => {
   return { entry, path, publishedAt: parseStrictUtcIsoDate(publishedAt, `News entry ${entry.id}.publishedAt`) };
 });
 
-if (articles.length !== 21 || articles.length !== pathSet.size || articles.length !== pathByInput.size
+if (articles.length !== NEWS_ARTICLE_COUNT || articles.length !== pathSet.size || articles.length !== pathByInput.size
   || new Set(articles.map((article) => article.entry.id)).size !== articles.length
   || new Set(articles.map((article) => article.path)).size !== articles.length) {
   throw new Error('News manifests and typed collection entries do not agree');
@@ -58,14 +67,22 @@ articles.sort((left, right) => right.publishedAt.getTime() - left.publishedAt.ge
 function formatSourceDate(publishedAt: Date): string {
   return `${publishedAt.getUTCMonth() + 1}/${publishedAt.getUTCDate()}/${String(publishedAt.getUTCFullYear()).slice(-2)}`;
 }
+const currentArticles = articles.slice(0, NEWS_PAGE_SIZE);
+const olderArticles = articles.slice(NEWS_PAGE_SIZE);
 ---
+
+<script is:inline define:vars={{ olderOffset: NEWS_OLDER_PAGE_OFFSET }}>
+  if (new URLSearchParams(window.location.search).get('offset') === olderOffset) {
+    document.documentElement.dataset.newsPage = 'older';
+  }
+</script>
 
 <SiteLayout title="News — Edmund Hillary Fellowship">
   <section class="news-page site-container" data-news-listing>
     <h1 class="visually-hidden">News</h1>
     <div class="news-grid">
-      {articles.map(({ entry, path, publishedAt }) => (
-        <article class="news-card" data-news-card data-news-slug={entry.id}>
+      {currentArticles.map(({ entry, path, publishedAt }) => (
+        <article class="news-card" data-news-card data-news-page="current" data-news-slug={entry.id}>
           {entry.data.heroImage && (
             <a class="news-card__image" href={path} aria-label={entry.data.title}>
               <ResponsiveImage
@@ -84,7 +101,40 @@ function formatSourceDate(publishedAt: Date): string {
           </div>
         </article>
       ))}
+      {olderArticles.map(({ entry, path, publishedAt }) => (
+        <article class="news-card" data-news-card data-news-page="older" data-news-slug={entry.id} hidden>
+          {entry.data.heroImage && (
+            <a class="news-card__image" href={path} aria-label={entry.data.title}>
+              <ResponsiveImage
+                assetId={assetIdForLocalPath(entry.data.heroImage)}
+                alt={entry.data.heroAlt ?? ''}
+                width={685}
+                height={480}
+                sizes="(max-width: 767px) 100vw, 685px"
+                loading="eager"
+              />
+            </a>
+          )}
+          <div class="news-card__content">
+            <time datetime={entry.data.publishedAt}>{formatSourceDate(publishedAt)}</time>
+            <h2><a href={path}>{entry.data.title}</a></h2>
+            <a class="news-card__read-more" href={path}>Read More</a>
+          </div>
+        </article>
+      ))}
     </div>
+    <nav class="news-pagination" aria-label="News pagination" data-news-pagination>
+      <a href={NEWS_NEWER_PAGE_HREF} data-news-newer hidden>Newer Posts</a>
+      <a href={NEWS_OLDER_PAGE_HREF} data-news-older>Older Posts</a>
+    </nav>
+    <script is:inline>
+      if (document.documentElement.dataset.newsPage === 'older') {
+        document.querySelectorAll('[data-news-page="current"]').forEach((card) => card.toggleAttribute('hidden', true));
+        document.querySelectorAll('[data-news-page="older"]').forEach((card) => card.toggleAttribute('hidden', false));
+        document.querySelector('[data-news-newer]').toggleAttribute('hidden', false);
+        document.querySelector('[data-news-older]').toggleAttribute('hidden', true);
+      }
+    </script>
   </section>
 </SiteLayout>
 
@@ -113,6 +163,11 @@ function formatSourceDate(publishedAt: Date): string {
     line-height: 28.8px;
     text-decoration: none;
   }
+  .news-pagination { display: flex; justify-content: space-between; gap: 24px; margin-top: 66px; }
+  .news-pagination a { color: var(--color-brand); font-family: var(--font-body); font-size: 16px; font-weight: var(--weight-body); line-height: 28.8px; }
+  .news-pagination a[data-news-newer] { margin-right: auto; }
+  .news-pagination a[data-news-older] { margin-left: auto; }
+  :global(html[data-news-page="older"]) .news-card[data-news-page="current"] { display: none; }
 
   @media (max-width: 767px) {
     .news-page { padding-top: calc(var(--header-height) + 8.2px); padding-bottom: 96px; }
@@ -120,5 +175,6 @@ function formatSourceDate(publishedAt: Date): string {
     .news-card__content { padding-top: 20px; }
     .news-card h2 { margin-top: 7.8px; }
     .news-card__read-more { padding-top: 7.8px; }
+    .news-pagination { margin-top: 40px; }
   }
 </style>

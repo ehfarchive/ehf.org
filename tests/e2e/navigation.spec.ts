@@ -332,35 +332,6 @@ test('the shared shell has a single described main landmark without directory na
   await expect(page.locator('header a[href*="fellow-directory"], footer a[href*="fellow-directory"]')).toHaveCount(0);
 });
 
-test('newsletter is display-only and prevents a real submission without a request, navigation, or success state', async ({ page }, testInfo) => {
-  test.skip(testInfo.project.name !== 'desktop', 'desktop newsletter contract');
-  await page.goto('/');
-  const requests: string[] = [];
-  const navigations: string[] = [];
-  page.on('request', (request) => requests.push(request.url()));
-  page.on('framenavigated', (frame) => {
-    if (frame === page.mainFrame()) navigations.push(frame.url());
-  });
-  const form = page.locator('[data-newsletter-form]');
-  await expect(form).toBeVisible();
-  const input = form.getByRole('textbox', { name: /email/i });
-  const subscribe = form.getByRole('button', { name: /subscribe/i });
-  await expect(input).toBeDisabled();
-  await expect(input).toHaveAttribute('aria-describedby', 'newsletter-availability');
-  await expect(subscribe).toBeDisabled();
-  await expect(form).toContainText(/not available/i);
-  await expect(form.locator('[data-newsletter-success]')).toHaveCount(0);
-  expect(await form.evaluate((element) => new Promise<boolean>((resolve) => {
-    const formElement = element as HTMLFormElement;
-    formElement.addEventListener('submit', (event) => resolve(event.defaultPrevented), { once: true });
-    formElement.requestSubmit();
-  }))).toBe(true);
-  await page.waitForTimeout(100);
-  expect(requests).toEqual([]);
-  expect(navigations).toEqual([]);
-  await expect(page).toHaveURL('/');
-  await expect(form.locator('[data-newsletter-success]')).toHaveCount(0);
-});
 
 test('all rendered shell images resolve from local assets', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'desktop', 'desktop asset contract');
