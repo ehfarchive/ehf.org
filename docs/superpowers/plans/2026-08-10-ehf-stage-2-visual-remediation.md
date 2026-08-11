@@ -289,3 +289,21 @@ No manifest, redirect, asset, source-capture, package, lockfile, new route, Fell
 - **Ownership:** Ticket 8 lands the shared Impact submenu/surface first; Ticket 9 consumes it and limits its shared change to About active state; Ticket 10 is component-local. Downstream bundle regeneration follows each accepted shared change.
 - **Protocol:** Every ticket has RED, minimal correction, GREEN, one correction commit, complete immutable/repeatable bundle regeneration, exactly one fresh Opus recheck, and an owner stop rule. Tickets 11–12 retain their existing detailed plan and hard prerequisites.
 - **Scope:** This plan contains no implementation action, validation result, evidence mutation, package change, route expansion, merge, deployment, preview, or production promotion.
+
+
+## Ticket 8 execution and blocker record — 2026-08-11
+
+- **Execution evidence:** Correction commit `6c2b327` recorded the focused RED result as 5 failed and 1 skipped, then the final GREEN result as 7 passed and 1 skipped. The spec re-review approved the exact-eight programme-break correction and the Impact-only/base submenu correction. The quality review approved the correction with one Minor: no assertion for `right: 0`.
+- **Packet and terminal review:** `/tmp/ehf-ticket8-events-reports-bundle` inventories 75 files with content-tree SHA-256 `ef18d06c1c78ca9b255e2c7749f59092c095a27000f984c26f811dd41ae53db6`. The fresh Opus artifact `agent://VisualDesignerTicket8RemediationFinal` returned `BLOCKED` with P0/P1/P2/P3 counts `0/1/9/2`.
+- **Provenance failure:** `history://BuildLeadTicket8Evidence` shows that, after the focused test, the packet assembler copied every `local/` and `repeat/` PNG and JSON sidecar from the pre-correction `old_root`, using:
+
+  ```python
+  for sub in ('local','repeat'):
+      for ext in ('png','json'):
+          data=(old_root/sub/f'{sid}.{ext}').read_bytes()
+          (stage/sub/f'{sid}.{ext}').write_bytes(data)
+  ```
+
+  The focused test's capture helper returns PNG bytes in memory and does not persist them. The packet therefore labels stale bytes as commit `6c2b327`, so its visual defect counts are not a trustworthy judgment of the current code. The contradiction is direct: GREEN computed styles show a 111px time column, eight `#eee` breaks, `#ccc` enclosure, and 115px/left-aligned mobile tabs; the stale images show a 189px column, one grey break, no enclosure, and approximately 55px centered tabs.
+- **Plan defects requiring owner decision:** The packet sanctions omitted Impact Snapshots even though its stale/dead-route disposition was accepted earlier. Also, the About submenu surface and shared newsletter are visible in Ticket 8 states but deferred to Ticket 9. That makes serial Ticket 8 acceptance with zero P2 findings impossible under the current plan. The owner must authorize a plan revision; this record does not assign the new ownership.
+- **Hard stop:** Ticket 8 is not accepted. A replacement capture or review is not authorized. Ticket 9, Tickets 11–12, push, merge, preview, deploy, and production have not started and are not authorized. Local commits have not been pushed; the remote remains `427ceb2`.
