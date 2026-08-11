@@ -48,16 +48,16 @@ const renderFieldLabel = (field: DisplayOnlyField) => {
       <div class="display-only-form__name-fields">
         {nameFields.map((field) => {
           const label = renderFieldLabel(field);
-          return <label for={field.id}><span>{label.name}</span>{label.required && <> <span class="display-only-form__label-required">(required)</span></>}<input id={field.id} type={field.type as 'text' | 'email'} autocomplete={field.autocomplete} /></label>;
+          return <label for={field.id}><span class="display-only-form__label-text"><span>{label.name}</span>{label.required && <span class="display-only-form__label-required">(required)</span>}</span><input id={field.id} type={field.type as 'text' | 'email'} autocomplete={field.autocomplete} /></label>;
         })}
       </div>
     </fieldset>}
     {nonCheckFields.map((field) => {
       const label = renderFieldLabel(field);
       return field.type === 'textarea' ? (
-        <label class="display-only-form__field" for={field.id}><span>{label.name}</span>{label.required && <> <span class="display-only-form__label-required">(required)</span></>}<textarea id={field.id}></textarea></label>
+        <label class="display-only-form__field" for={field.id}><span class="display-only-form__label-text"><span>{label.name}</span>{label.required && <span class="display-only-form__label-required">(required)</span>}</span><textarea id={field.id}></textarea></label>
       ) : (
-        <label class="display-only-form__field" for={field.id}><span>{label.name}</span>{label.required && <> <span class="display-only-form__label-required">(required)</span></>}<input id={field.id} type={field.type} autocomplete={field.autocomplete} /></label>
+        <label class="display-only-form__field" for={field.id}><span class="display-only-form__label-text"><span>{label.name}</span>{label.required && <span class="display-only-form__label-required">(required)</span>}</span><input id={field.id} type={field.type} autocomplete={field.autocomplete} /></label>
       );
     })}
     {checkFields.length > 0 && (updatesGroup ? (
@@ -80,42 +80,54 @@ const renderFieldLabel = (field: DisplayOnlyField) => {
   .display-only-form--centered-narrow { width: min(692px, calc(100% - 2 * var(--gutter))); }
   .display-only-form--left-wide { margin-inline: var(--gutter) auto; }
   .display-only-form--left-sharks { width: min(860px, calc(100% - 2 * var(--gutter))); margin-inline: var(--gutter) auto; }
+  /* Source places the media enquiry title 102.69px below the header band and
+     leaves 110.33px to the first field and 213.83px to the footer. */
+  .display-only-form--centered-wide { padding: calc(var(--header-height) + 102.69px) 0 213.83px; }
   .display-only-form__header { margin: 0 0 34px; text-align: left; }
-  .display-only-form__header--centered { text-align: center; }
+  .display-only-form__header--centered { margin-bottom: 110.33px; text-align: center; }
   .display-only-form h1 { margin: 0; color: var(--color-text); font-family: var(--font-heading); font-size: var(--text-heading); font-weight: 900; letter-spacing: var(--tracking); line-height: var(--lh-heading); }
-  .display-only-form--heading-media h1 { font-size: 35px; }
+  .display-only-form--heading-media h1 { font-size: var(--text-lead); line-height: var(--lh-lead); }
   .display-only-form__intro { max-width: 760px; margin: 22px 0 0; font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
   .display-only-form__header--centered .display-only-form__intro { margin-inline: auto; }
-  .display-only-form form { color: var(--color-text); font-family: var(--font-heading); font-size: 16px; line-height: 1.45; }
+  /* Source sets the whole form in the Merriweather body step. */
+  .display-only-form form { color: var(--color-text); font-family: var(--font-body); font-size: var(--text-body); font-weight: var(--weight-body); line-height: var(--lh-body); }
   .display-only-form fieldset { border: 0; margin: 0; padding: 0; }
   .display-only-form legend { margin: 0 0 4px; padding: 0; font-size: var(--text-body); line-height: var(--lh-body); }
+  .display-only-form .display-only-form__name-group { margin-bottom: 20px; }
   .display-only-form__name-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .display-only-form label { display: block; }
-  .display-only-form__label-required { margin-left: 5px; color: #77747c; font-size: 12px; font-weight: 300; white-space: nowrap; }
-  .display-only-form__field { margin-top: 24px; }
-  .display-only-form__name-group + .display-only-form__field { margin-top: 24px; }
-  .display-only-form input:not([type="checkbox"]), .display-only-form textarea { box-sizing: border-box; display: block; width: 100%; margin-top: 4px; border: 1px solid #000; border-radius: 0; background: #fafafa; color: var(--color-text); font-family: var(--font-body); font-size: var(--text-body); line-height: var(--lh-body); padding: 10px; }
-  .display-only-form input:not([type="checkbox"]) { height: 57px; }
+  /* Source lays each label out as a row that wraps the required note onto its
+     own line when the column is too narrow to hold both. */
+  .display-only-form__label-text { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 10.77px; }
+  /* Source sets the paired name captions in a 12px label whose visible copy
+     stays at the 16px small step, and keeps both inputs on one baseline. */
+  .display-only-form__name-fields label { display: flex; flex-direction: column; justify-content: flex-end; padding-top: 4px; font-size: 12px; line-height: 28.8px; }
+  .display-only-form__name-fields .display-only-form__label-text { column-gap: 8.87px; }
+  .display-only-form__name-fields .display-only-form__label-text > span { font-size: 16px; }
+  .display-only-form__label-required { color: var(--color-text); font-size: 16px; font-weight: var(--weight-body); line-height: 28.8px; opacity: 0.7; white-space: nowrap; }
+  .display-only-form__name-fields .display-only-form__label-required { line-height: 16px; }
+  .display-only-form__field { margin: 0 0 20px; }
+  .display-only-form input:not([type="checkbox"]), .display-only-form textarea { box-sizing: border-box; display: block; width: 100%; margin-top: 4px; border: 1px solid #000; border-radius: 0; background: #fafafa; color: var(--color-text); font-family: var(--font-body); font-size: var(--text-body); font-weight: var(--weight-body); line-height: var(--lh-body); padding: 10px; }
   .display-only-form textarea { min-height: 100px; resize: vertical; }
+  .display-only-form .display-only-form__name-fields input { margin-top: 2px; }
   .display-only-form__check-group { margin-top: 24px; }
   .display-only-form__check-group legend { margin-bottom: 10px; }
   .display-only-form__check-help { margin: 0 0 16px; color: #77747c; font-size: 16px; line-height: 1.5; }
   .display-only-form__check { display: grid; grid-template-columns: 18px minmax(0, 1fr); column-gap: 10px; align-items: start; margin-top: 14px; }
   .display-only-form__check input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--color-brand); }
-  .display-only-form button { display: block; width: 94px; height: 51px; margin: 20px 0 0; border: 0; border-radius: var(--radius); background: var(--color-brand); color: #fff; font-family: var(--font-heading); font-size: 16px; font-weight: 900; }
+  .display-only-form button { display: block; width: fit-content; margin: 0; padding: 16px 28.8px; border: 0; border-radius: var(--radius); background: var(--color-brand); color: #fff; font-family: var(--font-heading); font-size: 16px; font-weight: 900; line-height: normal; }
   .display-only-form--centered-wide button { margin-inline: auto; }
   .display-only-form button:hover { background: var(--color-brand-deep); }
   .display-only-form__privacy { margin: 24px 0 0; font-size: 16px; line-height: 1.6; }
   .display-only-form__privacy a { color: inherit; }
   @media (max-width: 767px) {
     .display-only-form, .display-only-form--centered-narrow, .display-only-form--left-sharks { width: min(343px, calc(100% - 2 * var(--gutter))); margin-inline: auto; padding: calc(var(--header-height) + 36px) 0 72px; }
+    .display-only-form--centered-wide { padding: calc(var(--header-height) + 76.03px) 0 27.84px; }
     .display-only-form__header { margin-bottom: 42px; }
+    .display-only-form__header--centered { margin-bottom: 59.2px; }
     .display-only-form h1 { font-size: 28px; line-height: 1.18; }
+    .display-only-form--heading-media h1 { font-size: var(--text-lead); line-height: var(--lh-lead); }
     .display-only-form__intro { font-size: 15px; line-height: 1.6; }
-    .display-only-form form { font-size: 16px; }
     .display-only-form__name-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-    .display-only-form input:not([type="checkbox"]), .display-only-form textarea { font-size: 17px; }
-    .display-only-form__label-required { font-size: 12px; }
-    .display-only-form button { margin-top: 24px; }
   }
 </style>
