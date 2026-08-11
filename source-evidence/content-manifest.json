@@ -149,7 +149,7 @@
       "route": "/news-blog/announcing-the-new-ceo-for-ehf",
       "template": "news-article",
       "localInput": "src/content/news/announcing-the-new-ceo-for-ehf.md",
-      "contentHash": "6f0221347696bde0d257470280cb6f46e80b69057ac9f2848af035539311bb2e"
+      "contentHash": "aa0654cbaf8d2c77ef526c7ccc80543e733e4790d24f060e2b8a7012989ed96f"
     },
     {
       "route": "/news-blog/building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit",
