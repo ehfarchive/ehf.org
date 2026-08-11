@@ -111,31 +111,38 @@ test('desktop pointer can enter a submenu and follow its source destination', as
   await expect(page).toHaveURL(/\/impact-in-action$/);
 });
 
-test('Impact folder exposes only approved destinations on a bare right-aligned submenu', async ({ page }, testInfo) => {
+test('Impact folder exposes only approved destinations on bare right-aligned submenus', async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== 'desktop', 'desktop menu contract');
   await page.goto('/');
-  const impact = page.locator('[data-nav-item="impact"]');
-  const trigger = impact.getByRole('button', { name: 'Impact', exact: true });
-  const submenu = impact.locator('[data-desktop-submenu]');
 
-  await trigger.hover();
-  await expect(submenu).toBeVisible();
+  for (const name of ['About', 'Impact'] as const) {
+    const folder = page.locator(`[data-nav-item="${name.toLowerCase()}"]`);
+    const trigger = folder.getByRole('button', { name, exact: true });
+    const submenu = folder.locator('[data-desktop-submenu]');
+    await trigger.hover();
+    await expect(submenu).toBeVisible();
+    expect(await submenu.evaluate((element) => {
+      const styles = getComputedStyle(element);
+      return {
+        backgroundColor: styles.backgroundColor,
+        borderRadius: styles.borderRadius,
+        boxShadow: styles.boxShadow,
+        right: styles.right,
+        textAlign: getComputedStyle(element.querySelector('ul')!).textAlign
+      };
+    })).toEqual({
+      backgroundColor: 'rgba(0, 0, 0, 0)',
+      borderRadius: '0px',
+      boxShadow: 'none',
+      right: '0px',
+      textAlign: 'right'
+    });
+  }
+
+  const impact = page.locator('[data-nav-item="impact"]');
+  const submenu = impact.locator('[data-desktop-submenu]');
   await expect(submenu.getByRole('link')).toHaveText(['Read and Watch', 'EHF Community Collective']);
-  await expect(submenu.getByRole('link', { name: /EHF Fellows Articles|Fellow Directory/i })).toHaveCount(0);
-  expect(await submenu.evaluate((element) => {
-    const styles = getComputedStyle(element);
-    return {
-      backgroundColor: styles.backgroundColor,
-      borderRadius: styles.borderRadius,
-      boxShadow: styles.boxShadow,
-      textAlign: getComputedStyle(element.querySelector('ul')!).textAlign
-    };
-  })).toEqual({
-    backgroundColor: 'rgba(0, 0, 0, 0)',
-    borderRadius: '0px',
-    boxShadow: 'none',
-    textAlign: 'right'
-  });
+  await expect(submenu.getByRole('link', { name: /Impact Snapshots|EHF Fellows Articles|Fellow Directory/i })).toHaveCount(0);
 });
 
 test('mobile modal traps focus and makes parent controls inert in child panels', async ({ page }, testInfo) => {

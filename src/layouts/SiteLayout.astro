@@ -11,9 +11,10 @@ interface Props {
   title: string;
   description?: string;
   minimalFooter?: boolean;
+  showNewsletter?: boolean;
 }
 
-const { title, description = site.description, minimalFooter = false } = Astro.props;
+const { title, description = site.description, minimalFooter = false, showNewsletter = true } = Astro.props;
 ---
 <!doctype html>
 <html lang="en">
@@ -27,6 +28,6 @@ const { title, description = site.description, minimalFooter = false } = Astro.p
     <a class="skip-link" href="#main-content">Skip to content</a>
     <Header />
     <main id="main-content"><slot /></main>
-    <Footer minimal={minimalFooter} />
+    <Footer minimal={minimalFooter} showNewsletter={showNewsletter} />
   </body>
 </html>

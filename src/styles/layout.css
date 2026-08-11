@@ -153,23 +153,15 @@
 .desktop-nav__submenu {
   position: absolute;
   top: 100%;
-  right: -16px;
-  margin-top: 1.7px;
-  width: 232px;
-  padding: 7.5px 16px 11.7px;
-  background: var(--color-surface);
-  box-shadow: 0 10px 24px rgb(24 21 26 / 20%);
-}
-.desktop-nav__submenu ul { display: block; text-align: right; }
-[data-nav-item="impact"] .desktop-nav__submenu {
   right: 0;
+  margin-top: 1.7px;
   width: auto;
   padding: 0;
   border-radius: 0;
   background: transparent;
   box-shadow: none;
 }
-[data-nav-item="impact"] .desktop-nav__submenu ul { text-align: right; }
+.desktop-nav__submenu ul { display: block; text-align: right; }
 .desktop-nav__submenu a:not(.button) { line-height: 20.8px; }
 .desktop-nav__submenu li + li { margin-top: 3.2px; }
 
