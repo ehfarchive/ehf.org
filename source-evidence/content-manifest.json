@@ -164,6 +164,12 @@
       "contentHash": "702662e36d35f474a9f08be79cbd619b9f9b1768c7e133069d44debe855f77f1"
     },
     {
+      "route": "/news-blog/closer-alignment-between-hillary-institute-ehf-to-unlock-potential",
+      "template": "news-article",
+      "localInput": "src/content/news/closer-alignment-between-hillary-institute-ehf-to-unlock-potential.md",
+      "contentHash": "6190fe0f145555931e49bb439aabc027be2c11ec069b2810be86e1b23636266d"
+    },
+    {
       "route": "/news-blog/ehf-welcomes-95-fellows-in-march-welcome-experience",
       "template": "news-article",
       "localInput": "src/content/news/ehf-welcomes-95-fellows-in-march-welcome-experience.md",
@@ -194,6 +200,12 @@
       "contentHash": "a011f32ea926baa72371791b21cd52f7bbff025c1291ca3c7b911089718dfd6a"
     },
     {
+      "route": "/news-blog/hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members",
+      "template": "news-article",
+      "localInput": "src/content/news/hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members.md",
+      "contentHash": "eb58df3b799c75238e2f888fc6a5946307c113db1d95188f5c863aa53b7c85cf"
+    },
+    {
       "route": "/news-blog/impact-springboard-showcases-leading-innovation-for-global-impact",
       "template": "news-article",
       "localInput": "src/content/news/impact-springboard-showcases-leading-innovation-for-global-impact.md",
@@ -206,6 +218,12 @@
       "contentHash": "7bef306c339111796afd1be3ddf4cb1c9dcaba5f4eddca7bb833970260be4da0"
     },
     {
+      "route": "/news-blog/media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp",
+      "template": "news-article",
+      "localInput": "src/content/news/media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp.md",
+      "contentHash": "54fcf3edd09aa10ca9a14893fbbd166757ed6523c6fc5c7d275a5504f86e8253"
+    },
+    {
       "route": "/news-blog/media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report",
       "template": "news-article",
       "localInput": "src/content/news/media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report.md",
@@ -216,6 +234,12 @@
       "template": "news-article",
       "localInput": "src/content/news/navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson.md",
       "contentHash": "6b892550f27065b36527136ddc4d2a6ec555c354f8665e550bf0ab999ea6d904"
+    },
+    {
+      "route": "/news-blog/new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected",
+      "template": "news-article",
+      "localInput": "src/content/news/new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected.md",
+      "contentHash": "c99a32422b83896fc82389454711efc0cac324bab41e132b5ceda4ee7363f62e"
     },
     {
       "route": "/news-blog/reflections-of-sir-edmund-hillarys-legacy-on-everest-day",
@@ -234,6 +258,18 @@
       "template": "news-article",
       "localInput": "src/content/news/reflections-this-waitangi-day-2024.md",
       "contentHash": "cc4a1ea83587df7b0f93c250327beedabb9197d00d321862329646cadebc47cb"
+    },
+    {
+      "route": "/news-blog/the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill",
+      "template": "news-article",
+      "localInput": "src/content/news/the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill.md",
+      "contentHash": "bef8b59244d513fe2350bb8dba04c2589ed4898025639f4a1bbb61ddeffb7eac"
+    },
+    {
+      "route": "/news-blog/the-hillary-institute-ehf-submission-on-amending-foreign-investment-funds-rules-for-migrants",
+      "template": "news-article",
+      "localInput": "src/content/news/the-hillary-institute-ehf-submission-on-amending-foreign-investment-funds-rules-for-migrants.md",
+      "contentHash": "af2218d639cbf89ea5b07299658c063447bc9238a8924a808d0e4d339240b8f6"
     },
     {
       "route": "/news-blog/the-mission-studio-first-convening",

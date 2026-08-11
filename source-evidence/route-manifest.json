@@ -373,8 +373,8 @@
     },
     {
       "path": "/news-blog/closer-alignment-between-hillary-institute-ehf-to-unlock-potential",
-      "kind": "excluded",
-      "reason": "Hillary Institute content; excluded scope (BuildLead approved)"
+      "kind": "included",
+      "family": "news-article"
     },
     {
       "path": "/news-blog/ehf-welcomes-95-fellows-in-march-welcome-experience",
@@ -403,8 +403,8 @@
     },
     {
       "path": "/news-blog/hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members",
-      "kind": "excluded",
-      "reason": "Hillary Institute content; excluded scope (BuildLead approved)"
+      "kind": "included",
+      "family": "news-article"
     },
     {
       "path": "/news-blog/impact-springboard-showcases-leading-innovation-for-global-impact",
@@ -418,8 +418,8 @@
     },
     {
       "path": "/news-blog/media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp",
-      "kind": "excluded",
-      "reason": "Hillary Institute content; excluded scope (BuildLead approved)"
+      "kind": "included",
+      "family": "news-article"
     },
     {
       "path": "/news-blog/media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report",
@@ -433,8 +433,8 @@
     },
     {
       "path": "/news-blog/new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected",
-      "kind": "excluded",
-      "reason": "Hillary Institute content; excluded scope (BuildLead approved)"
+      "kind": "included",
+      "family": "news-article"
     },
     {
       "path": "/news-blog/reflections-of-sir-edmund-hillarys-legacy-on-everest-day",
@@ -453,13 +453,13 @@
     },
     {
       "path": "/news-blog/the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill",
-      "kind": "excluded",
-      "reason": "Hillary Institute content; excluded scope (BuildLead approved)"
+      "kind": "included",
+      "family": "news-article"
     },
     {
       "path": "/news-blog/the-hillary-institute-ehf-submission-on-amending-foreign-investment-funds-rules-for-migrants",
-      "kind": "excluded",
-      "reason": "Hillary Institute content; excluded scope (BuildLead approved)"
+      "kind": "included",
+      "family": "news-article"
     },
     {
       "path": "/news-blog/the-mission-studio-first-convening",

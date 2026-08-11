@@ -62,6 +62,30 @@
       "externalUrl": null
     },
     {
+      "id": "asset-images-article-chemergy-engineer-jpg",
+      "classification": "local",
+      "localPath": "/assets/images/article/chemergy-engineer.jpg",
+      "sha256": "ab3720f123b171e5f7b609698e5de9377dea59cef85c7681cc5b4ce88b8e3ef1",
+      "bytes": 687823,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-article-chemergy-portrait-jpg",
+      "classification": "local",
+      "localPath": "/assets/images/article/chemergy-portrait.jpg",
+      "sha256": "5eaa02c3e0684b4a1213abdfece866323994fae534139da4f62c80ce10167177",
+      "bytes": 51741,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
+      ],
+      "externalUrl": null
+    },
+    {
       "id": "asset-images-cards-amy-webp",
       "classification": "local",
       "localPath": "/assets/images/cards/amy.webp",
@@ -314,6 +338,18 @@
       "externalUrl": null
     },
     {
+      "id": "asset-images-content-about-ehf-hero-mountain-png",
+      "classification": "local",
+      "localPath": "/assets/images/content/about-ehf-hero-mountain.png",
+      "sha256": "037b1ff613727d7f4902b097c1a318bae778751293e8831ada75c9f0b4f066a2",
+      "bytes": 561464,
+      "mediaType": "image/png",
+      "routeUses": [
+        "/about-ehf"
+      ],
+      "externalUrl": null
+    },
+    {
       "id": "asset-images-content-news-blog-2021-2022-annual-report-shows-year-of-impact-1-webp",
       "classification": "local",
       "localPath": "/assets/images/content/news-blog-2021-2022-annual-report-shows-year-of-impact-1.webp",
@@ -526,6 +562,18 @@
       "mediaType": "image/webp",
       "routeUses": [
         "/news-blog/building-innovation-growth-through-global-talent"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-closer-alignment-between-hillary-institute-ehf-to-unlock-potential-1-jpg",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-closer-alignment-between-hillary-institute-ehf-to-unlock-potential-1.jpg",
+      "sha256": "e65609bd2a6bc8c228c022350959e394182f215f893f2fd18453491545e1f826",
+      "bytes": 185040,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/news-blog/closer-alignment-between-hillary-institute-ehf-to-unlock-potential"
       ],
       "externalUrl": null
     },
@@ -806,6 +854,18 @@
       "externalUrl": null
     },
     {
+      "id": "asset-images-content-news-blog-hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members-1.webp",
+      "sha256": "4d222533c04bd7d25a9f05a0444b9960e9e6de2bc26c6bd8fe17e3773a131e00",
+      "bytes": 875748,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members"
+      ],
+      "externalUrl": null
+    },
+    {
       "id": "asset-images-content-news-blog-impact-springboard-showcases-leading-innovation-for-global-impact-1-webp",
       "classification": "local",
       "localPath": "/assets/images/content/news-blog-impact-springboard-showcases-leading-innovation-for-global-impact-1.webp",
@@ -826,6 +886,18 @@
       "mediaType": "image/webp",
       "routeUses": [
         "/news-blog/media-release-anna-kominik-announced-as-new-board-chair"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp-1-png",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp-1.png",
+      "sha256": "eebeff4b7bb398f9592ceb414d98e64fedaf2db650625d8cfa09898f87d4dfee",
+      "bytes": 806786,
+      "mediaType": "image/png",
+      "routeUses": [
+        "/news-blog/media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp"
       ],
       "externalUrl": null
     },
