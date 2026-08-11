@@ -4,6 +4,16 @@ import { loadRouteManifest } from './route-manifest';
 
 export type FigureAlignment = 'left' | 'right';
 
+/**
+ * How the archived source painted one body figure: which side it floated to
+ * and, where the source displayed a crop rather than the whole image, the
+ * displayed box and the focal point it cropped around.
+ */
+export type ArchivedFigure = {
+  align: FigureAlignment;
+  crop?: { width: number; height: number; focal: string };
+};
+
 type Node = DefaultTreeAdapterTypes.ChildNode;
 type Element = DefaultTreeAdapterTypes.Element;
 type ParentNode = DefaultTreeAdapterTypes.DocumentFragment | Element;
@@ -79,7 +89,7 @@ function dropCapturedPaginationHeadings(fragment: DefaultTreeAdapterTypes.Docume
   }
 }
 
-function promoteFigures(fragment: DefaultTreeAdapterTypes.DocumentFragment, figureAlignments: readonly (FigureAlignment | null)[]) {
+function promoteFigures(fragment: DefaultTreeAdapterTypes.DocumentFragment, archivedFigures: readonly (ArchivedFigure | null)[]) {
   for (const child of [...fragment.childNodes]) {
     if (!isElement(child, 'p')) continue;
     const children = elementChildren(child);
@@ -106,10 +116,13 @@ function promoteFigures(fragment: DefaultTreeAdapterTypes.DocumentFragment, figu
   }
 
   const figures = fragment.childNodes.filter((child): child is Element => isElement(child, 'figure'));
-  for (const [index, alignment] of figureAlignments.entries()) {
-    if (!alignment) continue;
+  for (const [index, archived] of archivedFigures.entries()) {
     const figure = figures[index];
-    if (figure) setAttribute(figure, 'data-archived-align', alignment);
+    if (!archived || !figure) continue;
+    setAttribute(figure, 'data-archived-align', archived.align);
+    if (archived.crop) {
+      setAttribute(figure, 'style', `--figure-crop: ${archived.crop.width} / ${archived.crop.height}; --figure-focal: ${archived.crop.focal};`);
+    }
   }
 }
 
@@ -165,10 +178,10 @@ function applyLinkPolicy(node: ParentNode | Node) {
   }
 }
 
-export function renderArticleBody(html: string, figureAlignments: readonly (FigureAlignment | null)[]): string {
+export function renderArticleBody(html: string, archivedFigures: readonly (ArchivedFigure | null)[]): string {
   const fragment = parseFragment(html);
   dropCapturedPaginationHeadings(fragment);
-  promoteFigures(fragment, figureAlignments);
+  promoteFigures(fragment, archivedFigures);
   applyLinkPolicy(fragment);
   return serialize(fragment);
 }

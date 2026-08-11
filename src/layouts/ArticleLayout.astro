@@ -1,6 +1,6 @@
 ---
 import ResponsiveImage from '../components/ResponsiveImage.astro';
-import { renderArticleBody, type FigureAlignment } from '../lib/article-body';
+import { renderArticleBody, type ArchivedFigure } from '../lib/article-body';
 import SiteLayout from './SiteLayout.astro';
 interface HeroImage {
   assetId: string;
@@ -21,14 +21,14 @@ interface Props {
   previous?: ArticleLink;
   next?: ArticleLink;
   suppressHero?: boolean;
-  figureAlignments?: readonly (FigureAlignment | null)[];
+  archivedFigures?: readonly (ArchivedFigure | null)[];
 }
 
-const { title, description, hero, previous, next, suppressHero = false, figureAlignments = [] } = Astro.props;
-const articleBody = renderArticleBody(await Astro.slots.render('default'), figureAlignments);
+const { title, description, hero, previous, next, suppressHero = false, archivedFigures = [] } = Astro.props;
+const articleBody = renderArticleBody(await Astro.slots.render('default'), archivedFigures);
 ---
 <SiteLayout title={`${title} — Edmund Hillary Fellowship`} description={description}>
-  <article class="article-page content-width" data-impact-article data-figure-alignments={JSON.stringify(figureAlignments)}>
+  <article class="article-page content-width" data-impact-article data-archived-figures={JSON.stringify(archivedFigures)}>
     <header class="article-page__header">
       <h1>{title}</h1>
       {hero && !suppressHero && (

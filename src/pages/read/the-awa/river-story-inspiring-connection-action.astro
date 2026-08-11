@@ -2,7 +2,7 @@
 import { render } from 'astro:content';
 import { assetIdForLocalPath } from '../../../data/site';
 import ArticleLayout from '../../../layouts/ArticleLayout.astro';
-import { archivedFigureAlignmentsForImpactArticle, featuredImageIsFirstBodyFigure, isDeclaredImpactArticlePath, loadImpactArticles } from '../_impact';
+import { archivedFiguresForImpactArticle, featuredImageIsFirstBodyFigure, isDeclaredImpactArticlePath, loadImpactArticles } from '../_impact';
 
 const path = '/read/the-awa/river-story-inspiring-connection-action';
 if (!isDeclaredImpactArticlePath(path)) throw new Error(`Impact route is not declared: ${path}`);
@@ -28,7 +28,7 @@ const next = nextArticle ? { href: nextArticle.path, title: nextArticle.entry.da
   hero={hero}
   previous={previous}
   suppressHero={featuredImageIsFirstBodyFigure(article)}
-  figureAlignments={archivedFigureAlignmentsForImpactArticle(article)}
+  archivedFigures={archivedFiguresForImpactArticle(article)}
   next={next}
 >
   <Content />

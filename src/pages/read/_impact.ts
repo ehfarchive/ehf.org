@@ -2,6 +2,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import { impactArchive } from '../../data/impactArchive';
 import contentManifestInput from '../../../source-evidence/content-manifest.json';
 import routeManifestInput from '../../../source-evidence/route-manifest.json';
+import type { ArchivedFigure } from '../../lib/article-body';
 import type { ContentManifest, LocalContentManifestRecord } from '../../lib/page-data';
 import { validateContentManifest } from '../../lib/page-data';
 import { loadRouteManifest } from '../../lib/route-manifest';
@@ -62,11 +63,19 @@ export function sourceCardForImpactPath(path: string): ImpactCardImage | undefin
   return sourceCardsByPath.get(path);
 }
 
-export type ImpactFigureAlignment = 'left' | 'right';
-
-/** Per-figure alignment observed on the archived source article, indexed by body figure. */
-const archivedFigureAlignments: Record<string, readonly (ImpactFigureAlignment | null)[]> = {
-  'how-chemergy-is-changing-the-game-in-waste-to-energy': ['right', null, null, 'right']
+/**
+ * How the archived source painted each body figure, indexed by body figure.
+ * The two floated Chemergy figures are displayed crops on the source, not the
+ * whole image: a 522.1x413.9 box focused above centre so the subject's head
+ * stays in frame, and a 522.1x259.6 box on its centre.
+ */
+const archivedFigures: Record<string, readonly (ArchivedFigure | null)[]> = {
+  'how-chemergy-is-changing-the-game-in-waste-to-energy': [
+    { align: 'right', crop: { width: 522.1, height: 413.9, focal: '48.4% 35.2%' } },
+    null,
+    null,
+    { align: 'right', crop: { width: 522.1, height: 259.6, focal: '50% 50%' } }
+  ]
 };
 
 function firstMarkdownImageAssetId(body: string): string | undefined {
@@ -88,8 +97,8 @@ export function featuredImageIsFirstBodyFigure(article: ImpactArticle): boolean 
   return firstMarkdownImageAssetId(article.entry.body) === assetIdForLocalPath(heroImage);
 }
 
-export function archivedFigureAlignmentsForImpactArticle(article: ImpactArticle): readonly (ImpactFigureAlignment | null)[] {
-  return archivedFigureAlignments[article.entry.id] ?? [];
+export function archivedFiguresForImpactArticle(article: ImpactArticle): readonly (ArchivedFigure | null)[] {
+  return archivedFigures[article.entry.id] ?? [];
 }
 
 export async function loadImpactArticles(): Promise<readonly ImpactArticle[]> {
