@@ -17,7 +17,7 @@ const { Content } = await render(entry);
 const hero = entry.data.heroImage ? { assetId: assetIdForLocalPath(entry.data.heroImage), alt: entry.data.heroAlt ?? '' } : undefined;
 ---
 
-<SiteLayout title={`${entry.data.title} — Edmund Hillary Fellowship`} description={entry.data.excerpt} showNewsletter={false}>
+<SiteLayout title={`${entry.data.title} — Edmund Hillary Fellowship`} description={entry.data.excerpt}>
   <EventProgrammePage title={entry.data.title} description={entry.data.excerpt} hero={hero} programmeLines={entry.body?.split('\n') ?? []} programmeDays={entry.data.programmeDays} showProgrammeDays>
     <Content />
   </EventProgrammePage>

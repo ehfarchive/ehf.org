@@ -1,13 +1,11 @@
 ---
 import { footerNavigation, site } from '../data/site';
-import NewsletterForm from './NewsletterForm.astro';
 
 interface Props {
   minimal?: boolean;
-  showNewsletter?: boolean;
 }
 
-const { minimal = false, showNewsletter = true } = Astro.props;
+const { minimal = false } = Astro.props;
 ---
 <footer class="site-footer" role="contentinfo">
   <div class="site-container site-footer__inner">
@@ -17,6 +15,5 @@ const { minimal = false, showNewsletter = true } = Astro.props;
         {footerNavigation.map((item) => <li>{item.kind === 'text' ? <strong>{item.label}</strong> : <a href={item.href}>{item.label}</a>}</li>)}
       </ul>
     </nav>
-    {!minimal && showNewsletter && <NewsletterForm />}
   </div>
 </footer>
