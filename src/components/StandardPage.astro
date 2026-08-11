@@ -76,7 +76,9 @@ const visibleSections = parsedSections.filter((_, index) => index !== 0 || (!has
     isolation: isolate;
     width: 100%;
     margin: 0;
-    padding: calc(var(--header-height) + 95.04px) var(--gutter) 95.04px;
+    /* Source leaves 95.04px above the title and 118.25px between the closing
+       line of copy and the footer. */
+    padding: calc(var(--header-height) + 95.04px) var(--gutter) 118.25px;
     color: var(--color-surface);
   }
   /* The artwork spans the section from row 0 so its cover crop resolves against
@@ -107,11 +109,17 @@ const visibleSections = parsedSections.filter((_, index) => index !== 0 || (!has
     margin: 0;
     font-size: var(--text-sub);
     line-height: var(--lh-sub);
+    white-space: pre-line;
   }
+  /* The opening statement is set in a narrower 918px measure than the body
+     blocks below it, which is what wraps its third line in the source. */
+  .standard-page--immersive .standard-page__section:first-of-type :global(h2:not([data-level='1'])) { max-width: 917.95px; }
   @media (max-width: 767px) {
     .standard-page--immersive { padding: calc(var(--header-height) + 55.7px) var(--gutter) 55.7px; }
     .standard-page--immersive h1,
-    .standard-page--immersive :global(h2) { max-width: none; }
+    .standard-page--immersive :global(h2),
+    .standard-page--immersive .standard-page__section:first-of-type :global(h2:not([data-level='1'])) { max-width: none; }
     .standard-page--immersive :global(h2[data-level='1']) { margin-top: 20.7px; }
+    .standard-page--immersive header { margin-bottom: 6.37px; }
   }
 </style>

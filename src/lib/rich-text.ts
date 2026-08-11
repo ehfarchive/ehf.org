@@ -43,7 +43,7 @@ function parseInline(value: string): RichTextNode[] {
 }
 
 export function parseRichText(value: string): RichTextBlock {
-  const heading = value.match(/^(#{1,6})\s+(.+)$/);
+  const heading = value.match(/^(#{1,6})[ \t]+([\s\S]+)$/);
   if (heading) return { kind: 'heading', level: heading[1].length, children: parseInline(heading[2]) };
   const strongHeading = value.match(/^\*\*(.+)\*\*$/);
   if (strongHeading) return { kind: 'heading', level: 3, children: parseInline(strongHeading[1]) };

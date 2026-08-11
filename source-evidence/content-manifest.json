@@ -41,7 +41,7 @@
       "route": "/about-ehf",
       "template": "institutional",
       "localInput": "src/content/pages/institutional/about-ehf.json",
-      "contentHash": "886cb495b7c41cf2158ccb958550a048c8d162cc9381c92c4ed082e0fff6b092"
+      "contentHash": "805e7b2448a5dac84e588439379384e051530495d2245eab51c45e3301cab9ee"
     },
     {
       "route": "/communitycollective",
