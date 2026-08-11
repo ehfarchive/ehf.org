@@ -21,7 +21,7 @@ interface Props {
   previous?: ArticleLink;
   next?: ArticleLink;
   suppressHero?: boolean;
-  figureAlignments?: readonly FigureAlignment[];
+  figureAlignments?: readonly (FigureAlignment | null)[];
 }
 
 const { title, description, hero, previous, next, suppressHero = false, figureAlignments = [] } = Astro.props;
@@ -39,8 +39,8 @@ const articleBody = renderArticleBody(await Astro.slots.render('default'), figur
     </header>
     <div class="article-page__body" set:html={articleBody} />
     {(previous || next) && <nav class="article-page__next" aria-label="Article navigation">
-      {previous && <a href={previous.href}>{previous.title}</a>}
-      {next && <a href={next.href}>{next.title}</a>}
+      {previous && <a href={previous.href} data-direction="previous">{previous.title}</a>}
+      {next && <a href={next.href} data-direction="next">{next.title}</a>}
     </nav>}
   </article>
 </SiteLayout>

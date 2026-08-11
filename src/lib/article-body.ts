@@ -59,7 +59,27 @@ function isAllowedSameSiteRoute(url: URL): LinkPolicy {
   return { kind: 'anchor', href: `${url.pathname}${url.search}${url.hash}`, external: false };
 }
 
-function promoteFigures(fragment: DefaultTreeAdapterTypes.DocumentFragment, figureAlignments: readonly FigureAlignment[]) {
+const HEADING_TAGS: Record<string, true> = { h1: true, h2: true, h3: true, h4: true, h5: true, h6: true };
+
+/**
+ * The archived article bodies were captured from pages whose previous/next
+ * control is itself a heading, so a captured body can end with one or two
+ * headings that repeat neighbouring article titles. The source never ends an
+ * article body with a heading, and the layout renders that control itself, so
+ * drop the captured copies instead of printing the titles twice.
+ */
+function dropCapturedPaginationHeadings(fragment: DefaultTreeAdapterTypes.DocumentFragment) {
+  for (let removed = 0; removed < 2; removed += 1) {
+    const rendered = elementChildren(fragment).filter((element) => !element.attrs.some((attribute) => attribute.name === 'hidden'));
+    const last = rendered[rendered.length - 1];
+    if (!last || !HEADING_TAGS[last.tagName]) return;
+    const index = fragment.childNodes.indexOf(last);
+    if (index < 0) return;
+    fragment.childNodes.splice(index, 1);
+  }
+}
+
+function promoteFigures(fragment: DefaultTreeAdapterTypes.DocumentFragment, figureAlignments: readonly (FigureAlignment | null)[]) {
   for (const child of [...fragment.childNodes]) {
     if (!isElement(child, 'p')) continue;
     const children = elementChildren(child);
@@ -87,6 +107,7 @@ function promoteFigures(fragment: DefaultTreeAdapterTypes.DocumentFragment, figu
 
   const figures = fragment.childNodes.filter((child): child is Element => isElement(child, 'figure'));
   for (const [index, alignment] of figureAlignments.entries()) {
+    if (!alignment) continue;
     const figure = figures[index];
     if (figure) setAttribute(figure, 'data-archived-align', alignment);
   }
@@ -144,8 +165,9 @@ function applyLinkPolicy(node: ParentNode | Node) {
   }
 }
 
-export function renderArticleBody(html: string, figureAlignments: readonly FigureAlignment[]): string {
+export function renderArticleBody(html: string, figureAlignments: readonly (FigureAlignment | null)[]): string {
   const fragment = parseFragment(html);
+  dropCapturedPaginationHeadings(fragment);
   promoteFigures(fragment, figureAlignments);
   applyLinkPolicy(fragment);
   return serialize(fragment);

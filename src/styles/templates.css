@@ -104,7 +104,7 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
 .article-page__body li,
 .article-page__body figcaption {
   font-family: var(--font-body);
-  font-size: 20px;
+  font-size: var(--text-body);
   font-weight: var(--weight-body);
   line-height: var(--lh-body);
 }
@@ -123,16 +123,21 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
   letter-spacing: var(--tracking);
   line-height: var(--lh-sub);
 }
-.article-page__body figure { margin: 34px 0 50px; }
-.article-page__body figure > img { display: block; width: 100%; max-width: 100%; height: auto; margin: 0; }
+.article-page__body figure {
+  width: fit-content;
+  max-width: 100%;
+  margin: 34px auto 50px;
+}
+.article-page__body figure > img { display: block; width: auto; max-width: 100%; height: auto; margin: 0; }
 .article-page__body figure[data-archived-align] {
-  width: 40%;
-  max-width: 40%;
+  width: calc(50% - 17px);
+  max-width: calc(50% - 17px);
   margin-top: 0;
   margin-bottom: 24px;
 }
-.article-page__body figure[data-archived-align='left'] { float: left; margin-right: 32px; }
-.article-page__body figure[data-archived-align='right'] { float: right; margin-left: 32px; }
+.article-page__body figure[data-archived-align] > img { width: 100%; }
+.article-page__body figure[data-archived-align='left'] { float: left; margin-right: 34px; }
+.article-page__body figure[data-archived-align='right'] { float: right; margin-left: 34px; }
 .article-page__body figcaption { margin-top: 16px; }
 .article-page__body h2,
 .article-page__body h3,
@@ -149,6 +154,7 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
   line-height: var(--lh-sub);
 }
 .article-page__next a { color: var(--color-brand); text-decoration: none; }
+.article-page__next a[data-direction='next'] { margin-inline-start: auto; text-align: right; }
 /* --- Ticket 6: Impact listing/article presentation block (end) --------- */
 
 .annual-report { padding-top: calc(var(--header-height) + 98.2px); padding-bottom: 43px; }
@@ -180,19 +186,16 @@ p { font-family: var(--font-body); font-weight: var(--weight-body); font-size: v
   .impact-pagination ol { justify-content: center; }
   .article-page { padding-top: calc(var(--header-height) + 24px); padding-bottom: 11.35px; }
   .article-page__header h1 { margin-bottom: 24px; }
-  .article-page__body p,
-  .article-page__body li,
-  .article-page__body figcaption { font-size: 18.9px; }
   .article-page__body blockquote { margin-block: 18.0256px; }
   .article-page__body figure[data-archived-align] {
     float: none;
-    width: auto;
-    max-width: none;
-    margin: 34px 0 50px;
+    width: calc(100% - 17px);
+    max-width: calc(100% - 17px);
+    margin: 34px 0 50px auto;
   }
   .article-page__next { flex-direction: column; align-items: stretch; margin-top: 63.67px; line-height: 20.05px; }
   .article-page__next a { display: block; max-width: none; }
-  .article-page__next a:last-child { align-self: flex-end; text-align: right; }
+  .article-page__next a[data-direction='next'] { align-self: flex-end; text-align: right; }
   /* --- Ticket 6: Impact listing/article presentation block (mobile end) */
   .annual-report { padding-top: calc(var(--header-height) + 54.8px); padding-bottom: 46px; }
   .annual-report > h1 { margin-bottom: 110.5px; }

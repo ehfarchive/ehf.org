@@ -64,8 +64,9 @@ export function sourceCardForImpactPath(path: string): ImpactCardImage | undefin
 
 export type ImpactFigureAlignment = 'left' | 'right';
 
-const archivedFigureAlignments: Record<string, readonly ImpactFigureAlignment[]> = {
-  'how-chemergy-is-changing-the-game-in-waste-to-energy': ['right']
+/** Per-figure alignment observed on the archived source article, indexed by body figure. */
+const archivedFigureAlignments: Record<string, readonly (ImpactFigureAlignment | null)[]> = {
+  'how-chemergy-is-changing-the-game-in-waste-to-energy': ['right', null, null, 'right']
 };
 
 function firstMarkdownImageAssetId(body: string): string | undefined {
@@ -87,7 +88,7 @@ export function featuredImageIsFirstBodyFigure(article: ImpactArticle): boolean 
   return firstMarkdownImageAssetId(article.entry.body) === assetIdForLocalPath(heroImage);
 }
 
-export function archivedFigureAlignmentsForImpactArticle(article: ImpactArticle): readonly ImpactFigureAlignment[] {
+export function archivedFigureAlignmentsForImpactArticle(article: ImpactArticle): readonly (ImpactFigureAlignment | null)[] {
   return archivedFigureAlignments[article.entry.id] ?? [];
 }
 
