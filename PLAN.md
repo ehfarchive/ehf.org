@@ -552,6 +552,26 @@ Stop here and request the project owner's gate decision. Do not begin Task 2 unt
 
 Stage 2 is conditional on an approved `GO` decision in `SPIKE-RESULTS.md`.
 
+## Deferred Post-Merge Follow-Up: Restore the Archive Route
+
+> **Deferred:** This correction is recorded for work after this merge. Do not start it as part of merging the current implementation.
+
+- [ ] **Step 1: Remove the incorrect Archive redirect**
+
+`/archive` and `/read` are distinct current live pages. Remove the `/archive` → `/read` redirect while preserving the Archive navigation href as `/archive`.
+
+- [ ] **Step 2: Capture and model the standalone Archive page**
+
+Include the standalone `/archive` page and its organisation-news, fellows-news, annual-reports, and events sections in the route and content model.
+
+- [ ] **Step 3: Keep Impact separate**
+
+Keep `/read` as the separate Impact listing. Add separate route, content, and browser contracts for `/archive` and `/read`.
+
+- [ ] **Step 4: Refresh preview and obtain owner review**
+
+Refresh the preview after the correction and obtain owner review before treating the Archive work as complete.
+
 ## Task 2: Inventory and Approve the Route Scope
 
 **Files:**
