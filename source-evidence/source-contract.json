@@ -1,0 +1,3929 @@
+{
+  "schemaVersion": 1,
+  "capture": {
+    "viewports": [
+      {
+        "name": "desktop",
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "name": "mobile",
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "reducedMotion": true,
+    "lazyLoadScrollPx": 600
+  },
+  "ticket7NewsVisualAcceptance": {
+    "status": "ACCEPTED",
+    "reviewArtifact": "agent://VisualDesignerTicket7FinalOpus",
+    "reviewRuntime": "anthropic/claude-opus-5",
+    "routes": [
+      "/news-blog",
+      "/news-blog/announcing-the-new-ceo-for-ehf"
+    ],
+    "statesPassed": "8/8",
+    "visualCalls": {
+      "used": 2,
+      "limit": 2,
+      "hardCapExhausted": true,
+      "callsRemaining": 0,
+      "noFurtherCall": true
+    },
+    "totals": {
+      "P0": 0,
+      "P1": 0,
+      "P2": 0,
+      "P3": 4
+    },
+    "closedFindings": [
+      "F1",
+      "F2"
+    ],
+    "evidenceIntegrity": {
+      "healthCleanStates": "8/8",
+      "repeatByteIdenticalStates": "8/8",
+      "sourceImmutableEntries": "16/16"
+    },
+    "retainedP3Summaries": [
+      {
+        "id": "P3-1",
+        "states": "listing-nav-impact-open-desktop, listing-default-desktop",
+        "summary": "Listing card title scale and intra-card spacing are smaller and tighter than source."
+      },
+      {
+        "id": "P3-2",
+        "states": "article-default-desktop, article-nav-about-open-desktop",
+        "summary": "Article body copy is approximately 10% larger and opening paragraphs render as one continuous block."
+      },
+      {
+        "id": "P3-3",
+        "states": "listing-nav-impact-open-mobile, article-nav-about-open-mobile",
+        "summary": "Mobile menu Back uses a literal angle-bracket glyph and the item stack is slightly lower with tighter leading."
+      },
+      {
+        "id": "P3-4",
+        "states": "listing-nav-impact-open-desktop, article-nav-about-open-desktop",
+        "summary": "Desktop dropdown lacks the source's bounded panel treatment."
+      }
+    ]
+  },
+  "templates": [
+    {
+      "family": "homepage",
+      "representativePath": "/",
+      "states": [
+        {
+          "name": "default",
+          "sourceObserved": true,
+          "description": "Page as first painted after fonts settle, full 600 px lazy-load scroll pass, and scroll returned to the top."
+        },
+        {
+          "name": "nav-about-open",
+          "sourceObserved": true,
+          "description": "About navigation folder expanded: desktop opens the header folder dropdown, mobile opens the burger menu and expands the same folder."
+        },
+        {
+          "name": "nav-impact-open",
+          "sourceObserved": true,
+          "description": "Impact navigation folder expanded: desktop opens the header folder dropdown, mobile opens the burger menu and expands the same folder."
+        }
+      ],
+      "measurements": {
+        "desktop": {
+          "documentWidthPx": 1440,
+          "documentHeightPx": 2048,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 123,
+          "footerHeightPx": 330,
+          "mainWidthPx": 1440,
+          "widestContentColumnPx": 1440,
+          "observedContentColumnWidthsPx": [
+            1440,
+            1416,
+            1382,
+            1324,
+            1208
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 1440,
+              "heightPx": 1058,
+              "paddingTop": "123px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1440,
+              "heightPx": 660,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1440,
+              "heightPx": 330,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1416,
+              "heightPx": 103,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": {
+              "fontFamily": "Roboto",
+              "fontSize": "60.928px",
+              "fontWeight": "900",
+              "lineHeight": "70.9689px",
+              "letterSpacing": "-0.91392px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 860
+            },
+            "h2": null,
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "33.28px",
+              "fontWeight": "900",
+              "lineHeight": "41.5334px",
+              "letterSpacing": "-0.4992px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 1208
+            },
+            "bodyTextBlock": {
+              "tagName": "h4",
+              "fontFamily": "Roboto",
+              "fontSize": "22.912px",
+              "fontWeight": "900",
+              "lineHeight": "29.309px",
+              "letterSpacing": "-0.34368px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "0px",
+              "marginBottom": "32px",
+              "maxRenderedWidthPx": 1208
+            },
+            "inlineLink": {
+              "text": "Fellows Directory",
+              "fontFamily": "Roboto",
+              "fontSize": "16px",
+              "fontWeight": "900",
+              "lineHeight": "normal",
+              "letterSpacing": "normal",
+              "color": "rgb(116, 65, 210)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 196,
+              "textDecorationLine": "none"
+            }
+          },
+          "primaryCallToAction": {
+            "text": "Fellow Directory",
+            "fontFamily": "Roboto",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "color": "rgb(255, 255, 255)",
+            "backgroundColor": "rgb(116, 65, 210)",
+            "borderRadius": "6.4px",
+            "padding": "16px 28.8px",
+            "heightPx": 51
+          },
+          "elementCounts": {
+            "h1": 3,
+            "h2": 0,
+            "h3": 3,
+            "p": 0,
+            "img": 4,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 35
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        },
+        "mobile": {
+          "documentWidthPx": 390,
+          "documentHeightPx": 2409,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 87,
+          "footerHeightPx": 279,
+          "mainWidthPx": 390,
+          "widestContentColumnPx": 390,
+          "observedContentColumnWidthsPx": [
+            390,
+            377,
+            343
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 390,
+              "heightPx": 1418.34,
+              "paddingTop": "86.7656px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 390,
+              "heightPx": 713,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 390,
+              "heightPx": 279,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 377,
+              "heightPx": 215,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": {
+              "fontFamily": "Roboto",
+              "fontSize": "42.3328px",
+              "fontWeight": "900",
+              "lineHeight": "49.3092px",
+              "letterSpacing": "-0.634992px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "h2": null,
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "26.128px",
+              "fontWeight": "900",
+              "lineHeight": "32.6077px",
+              "letterSpacing": "-0.39192px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "bodyTextBlock": {
+              "tagName": "h4",
+              "fontFamily": "Roboto",
+              "fontSize": "20.0512px",
+              "fontWeight": "900",
+              "lineHeight": "25.6495px",
+              "letterSpacing": "-0.300768px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "0px",
+              "marginBottom": "32px",
+              "maxRenderedWidthPx": 343
+            },
+            "inlineLink": {
+              "text": "Fellows Directory",
+              "fontFamily": "Roboto",
+              "fontSize": "16px",
+              "fontWeight": "900",
+              "lineHeight": "normal",
+              "letterSpacing": "normal",
+              "color": "rgb(116, 65, 210)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 196,
+              "textDecorationLine": "none"
+            }
+          },
+          "primaryCallToAction": {
+            "text": "Fellows Directory",
+            "fontFamily": "Roboto",
+            "fontSize": "16px",
+            "fontWeight": "900",
+            "color": "rgb(116, 65, 210)",
+            "backgroundColor": "rgb(255, 255, 255)",
+            "borderRadius": "6.4px",
+            "padding": "16px 28.8px",
+            "heightPx": 51
+          },
+          "elementCounts": {
+            "h1": 3,
+            "h2": 0,
+            "h3": 3,
+            "p": 0,
+            "img": 4,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 35
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        }
+      },
+      "captures": [
+        {
+          "state": "default",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/homepage/default-desktop.png",
+          "metadata": "source-evidence/screenshots/homepage/default-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 2048,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "default",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/homepage/default-mobile.png",
+          "metadata": "source-evidence/screenshots/homepage/default-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 2442,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-about-open",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/homepage/nav-about-open-desktop.png",
+          "metadata": "source-evidence/screenshots/homepage/nav-about-open-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/",
+          "interaction": {
+            "mechanism": "desktop header folder dropdown button",
+            "control": "button.header-nav-folder-title[aria-controls=\"about\"]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-about-open",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/homepage/nav-about-open-mobile.png",
+          "metadata": "source-evidence/screenshots/homepage/nav-about-open-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 844,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/",
+          "interaction": {
+            "mechanism": "mobile burger menu then folder expansion",
+            "control": "button.header-burger-btn + .header-menu-nav-item a[Folder: About]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-impact-open",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/homepage/nav-impact-open-desktop.png",
+          "metadata": "source-evidence/screenshots/homepage/nav-impact-open-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/",
+          "interaction": {
+            "mechanism": "desktop header folder dropdown button",
+            "control": "button.header-nav-folder-title[aria-controls=\"impact\"]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-impact-open",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/homepage/nav-impact-open-mobile.png",
+          "metadata": "source-evidence/screenshots/homepage/nav-impact-open-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 844,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/",
+          "interaction": {
+            "mechanism": "mobile burger menu then folder expansion",
+            "control": "button.header-burger-btn + .header-menu-nav-item a[Folder: Impact]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        }
+      ]
+    },
+    {
+      "family": "impact-listing",
+      "representativePath": "/read",
+      "states": [
+        {
+          "name": "default",
+          "sourceObserved": true,
+          "description": "Page as first painted after fonts settle, full 600 px lazy-load scroll pass, and scroll returned to the top."
+        },
+        {
+          "name": "nav-impact-open",
+          "sourceObserved": true,
+          "description": "Impact navigation folder expanded: desktop opens the header folder dropdown, mobile opens the burger menu and expands the same folder."
+        },
+        {
+          "name": "pagination-older",
+          "sourceObserved": true,
+          "description": "Second page of the collection listing reached through the source \"Older Posts\" pagination control."
+        }
+      ],
+      "measurements": {
+        "desktop": {
+          "documentWidthPx": 1440,
+          "documentHeightPx": 3658,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 123,
+          "footerHeightPx": 330,
+          "mainWidthPx": 1440,
+          "widestContentColumnPx": 1440,
+          "observedContentColumnWidthsPx": [
+            1440,
+            1416,
+            1382
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 1440,
+              "heightPx": 3242,
+              "paddingTop": "123px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1440,
+              "heightPx": 330,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1416,
+              "heightPx": 103,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": {
+              "fontFamily": "Roboto",
+              "fontSize": "33.28px",
+              "fontWeight": "900",
+              "lineHeight": "43.264px",
+              "letterSpacing": "-0.4992px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 307
+            },
+            "h2": null,
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "33.28px",
+              "fontWeight": "900",
+              "lineHeight": "41.5334px",
+              "letterSpacing": "-0.4992px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 1382
+            },
+            "bodyTextBlock": {
+              "tagName": "h3",
+              "fontFamily": "Roboto",
+              "fontSize": "33.28px",
+              "fontWeight": "900",
+              "lineHeight": "41.5334px",
+              "letterSpacing": "-0.4992px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 1382
+            },
+            "inlineLink": {
+              "text": "How Chemergy is Changing the Game in Was",
+              "fontFamily": "Roboto",
+              "fontSize": "33.28px",
+              "fontWeight": "900",
+              "lineHeight": "43.264px",
+              "letterSpacing": "-0.4992px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 288,
+              "textDecorationLine": "none"
+            }
+          },
+          "primaryCallToAction": {
+            "text": "Fellow Directory",
+            "fontFamily": "Roboto",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "color": "rgb(255, 255, 255)",
+            "backgroundColor": "rgb(116, 65, 210)",
+            "borderRadius": "6.4px",
+            "padding": "16px 28.8px",
+            "heightPx": 51
+          },
+          "elementCounts": {
+            "h1": 20,
+            "h2": 0,
+            "h3": 1,
+            "p": 0,
+            "img": 22,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 96
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        },
+        "mobile": {
+          "documentWidthPx": 390,
+          "documentHeightPx": 9870,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 87,
+          "footerHeightPx": 279,
+          "mainWidthPx": 390,
+          "widestContentColumnPx": 390,
+          "observedContentColumnWidthsPx": [
+            390,
+            377,
+            343
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 390,
+              "heightPx": 9568,
+              "paddingTop": "86.7656px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 390,
+              "heightPx": 279,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 377,
+              "heightPx": 215,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": {
+              "fontFamily": "Roboto",
+              "fontSize": "26.128px",
+              "fontWeight": "900",
+              "lineHeight": "33.9664px",
+              "letterSpacing": "-0.39192px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "h2": null,
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "26.128px",
+              "fontWeight": "900",
+              "lineHeight": "32.6077px",
+              "letterSpacing": "-0.39192px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "bodyTextBlock": {
+              "tagName": "h3",
+              "fontFamily": "Roboto",
+              "fontSize": "26.128px",
+              "fontWeight": "900",
+              "lineHeight": "32.6077px",
+              "letterSpacing": "-0.39192px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "inlineLink": {
+              "text": "How Chemergy is Changing the Game in Was",
+              "fontFamily": "Roboto",
+              "fontSize": "26.128px",
+              "fontWeight": "900",
+              "lineHeight": "33.9664px",
+              "letterSpacing": "-0.39192px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 318,
+              "textDecorationLine": "none"
+            }
+          },
+          "primaryCallToAction": null,
+          "elementCounts": {
+            "h1": 20,
+            "h2": 0,
+            "h3": 1,
+            "p": 0,
+            "img": 22,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 96
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        }
+      },
+      "captures": [
+        {
+          "state": "default",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/impact-listing/default-desktop.png",
+          "metadata": "source-evidence/screenshots/impact-listing/default-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 3658,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/read",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "default",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/impact-listing/default-mobile.png",
+          "metadata": "source-evidence/screenshots/impact-listing/default-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 9870,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/read",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-impact-open",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/impact-listing/nav-impact-open-desktop.png",
+          "metadata": "source-evidence/screenshots/impact-listing/nav-impact-open-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/read",
+          "interaction": {
+            "mechanism": "desktop header folder dropdown button",
+            "control": "button.header-nav-folder-title[aria-controls=\"impact\"]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-impact-open",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/impact-listing/nav-impact-open-mobile.png",
+          "metadata": "source-evidence/screenshots/impact-listing/nav-impact-open-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 844,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/read",
+          "interaction": {
+            "mechanism": "mobile burger menu then folder expansion",
+            "control": "button.header-burger-btn + .header-menu-nav-item a[Folder: Impact]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "pagination-older",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/impact-listing/pagination-older-desktop.png",
+          "metadata": "source-evidence/screenshots/impact-listing/pagination-older-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/read?offset=1715571924869",
+          "interaction": {
+            "mechanism": "source \"Older Posts\" pagination link",
+            "control": "a[href=\"/read?offset=1715571924869\"]",
+            "resultingUrl": "https://www.ehf.org/read?offset=1715571924869"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "pagination-older",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/impact-listing/pagination-older-mobile.png",
+          "metadata": "source-evidence/screenshots/impact-listing/pagination-older-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 844,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/read?offset=1715571924869",
+          "interaction": {
+            "mechanism": "source \"Older Posts\" pagination link",
+            "control": "a[href=\"/read?offset=1715571924869\"]",
+            "resultingUrl": "https://www.ehf.org/read?offset=1715571924869"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        }
+      ]
+    },
+    {
+      "family": "impact-article",
+      "representativePath": "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+      "states": [
+        {
+          "name": "default",
+          "sourceObserved": true,
+          "description": "Page as first painted after fonts settle, full 600 px lazy-load scroll pass, and scroll returned to the top."
+        },
+        {
+          "name": "nav-impact-open",
+          "sourceObserved": true,
+          "description": "Impact navigation folder expanded: desktop opens the header folder dropdown, mobile opens the burger menu and expands the same folder."
+        }
+      ],
+      "measurements": {
+        "desktop": {
+          "documentWidthPx": 1440,
+          "documentHeightPx": 6605,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 123,
+          "footerHeightPx": 330,
+          "mainWidthPx": 1440,
+          "widestContentColumnPx": 1440,
+          "observedContentColumnWidthsPx": [
+            1440,
+            1416,
+            1382,
+            1112,
+            1078
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 1440,
+              "heightPx": 6157,
+              "paddingTop": "123px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1112,
+              "heightPx": 5725,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1440,
+              "heightPx": 330,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1416,
+              "heightPx": 103,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": {
+              "fontFamily": "Roboto",
+              "fontSize": "60.928px",
+              "fontWeight": "900",
+              "lineHeight": "70.0672px",
+              "letterSpacing": "-0.91392px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 1078
+            },
+            "h2": {
+              "fontFamily": "Roboto",
+              "fontSize": "22.912px",
+              "fontWeight": "900",
+              "lineHeight": "22.912px",
+              "letterSpacing": "-0.34368px",
+              "color": "rgb(116, 65, 210)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 570
+            },
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "33.28px",
+              "fontWeight": "900",
+              "lineHeight": "41.5334px",
+              "letterSpacing": "-0.4992px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 1382
+            },
+            "bodyTextBlock": {
+              "tagName": "p",
+              "fontFamily": "Merriweather",
+              "fontSize": "19.456px",
+              "fontWeight": "300",
+              "lineHeight": "35.0208px",
+              "letterSpacing": "normal",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "16px",
+              "maxRenderedWidthPx": 1078
+            },
+            "inlineLink": {
+              "text": "Dr Melahn Parker",
+              "fontFamily": "Merriweather",
+              "fontSize": "19.456px",
+              "fontWeight": "300",
+              "lineHeight": "35.0208px",
+              "letterSpacing": "normal",
+              "color": "rgb(116, 65, 210)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 156,
+              "textDecorationLine": "underline"
+            }
+          },
+          "primaryCallToAction": {
+            "text": "Fellow Directory",
+            "fontFamily": "Roboto",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "color": "rgb(255, 255, 255)",
+            "backgroundColor": "rgb(116, 65, 210)",
+            "borderRadius": "6.4px",
+            "padding": "16px 28.8px",
+            "heightPx": 51
+          },
+          "elementCounts": {
+            "h1": 1,
+            "h2": 1,
+            "h3": 1,
+            "p": 26,
+            "img": 8,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 39
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        },
+        "mobile": {
+          "documentWidthPx": 390,
+          "documentHeightPx": 10986,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 87,
+          "footerHeightPx": 279,
+          "mainWidthPx": 390,
+          "widestContentColumnPx": 390,
+          "observedContentColumnWidthsPx": [
+            390,
+            377,
+            343,
+            326
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 390,
+              "heightPx": 10584,
+              "paddingTop": "86.7656px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 377,
+              "heightPx": 10189,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 390,
+              "heightPx": 279,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 377,
+              "heightPx": 215,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": {
+              "fontFamily": "Roboto",
+              "fontSize": "42.3328px",
+              "fontWeight": "900",
+              "lineHeight": "48.6827px",
+              "letterSpacing": "-0.634992px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "h2": {
+              "fontFamily": "Roboto",
+              "fontSize": "20.0512px",
+              "fontWeight": "900",
+              "lineHeight": "20.0512px",
+              "letterSpacing": "-0.300768px",
+              "color": "rgb(116, 65, 210)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 129
+            },
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "26.128px",
+              "fontWeight": "900",
+              "lineHeight": "32.6077px",
+              "letterSpacing": "-0.39192px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "bodyTextBlock": {
+              "tagName": "p",
+              "fontFamily": "Merriweather",
+              "fontSize": "18.0256px",
+              "fontWeight": "300",
+              "lineHeight": "32.4461px",
+              "letterSpacing": "normal",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "16px",
+              "maxRenderedWidthPx": 343
+            },
+            "inlineLink": {
+              "text": "Dr Melahn Parker",
+              "fontFamily": "Merriweather",
+              "fontSize": "18.0256px",
+              "fontWeight": "300",
+              "lineHeight": "32.4461px",
+              "letterSpacing": "normal",
+              "color": "rgb(116, 65, 210)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 299,
+              "textDecorationLine": "underline"
+            }
+          },
+          "primaryCallToAction": null,
+          "elementCounts": {
+            "h1": 1,
+            "h2": 1,
+            "h3": 1,
+            "p": 26,
+            "img": 8,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 39
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        }
+      },
+      "captures": [
+        {
+          "state": "default",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/impact-article/default-desktop.png",
+          "metadata": "source-evidence/screenshots/impact-article/default-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 6605,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": [
+              "<img> with empty src attribute"
+            ]
+          }
+        },
+        {
+          "state": "default",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/impact-article/default-mobile.png",
+          "metadata": "source-evidence/screenshots/impact-article/default-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 10986,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": [
+              "<img> with empty src attribute"
+            ]
+          }
+        },
+        {
+          "state": "nav-impact-open",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/impact-article/nav-impact-open-desktop.png",
+          "metadata": "source-evidence/screenshots/impact-article/nav-impact-open-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+          "interaction": {
+            "mechanism": "desktop header folder dropdown button",
+            "control": "button.header-nav-folder-title[aria-controls=\"impact\"]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": [
+              "<img> with empty src attribute"
+            ]
+          }
+        },
+        {
+          "state": "nav-impact-open",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/impact-article/nav-impact-open-mobile.png",
+          "metadata": "source-evidence/screenshots/impact-article/nav-impact-open-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 844,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+          "interaction": {
+            "mechanism": "mobile burger menu then folder expansion",
+            "control": "button.header-burger-btn + .header-menu-nav-item a[Folder: Impact]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": [
+              "<img> with empty src attribute"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "family": "news-listing",
+      "representativePath": "/news-blog",
+      "states": [
+        {
+          "name": "default",
+          "sourceObserved": true,
+          "description": "Active source-verified News comparison state for the first 20 of 27 manifest-backed articles."
+        },
+        {
+          "name": "nav-impact-open",
+          "sourceObserved": true,
+          "description": "Active source-verified News comparison state for the first 20 of 27 manifest-backed articles, with the Impact navigation folder expanded."
+        },
+        {
+          "name": "pagination-older",
+          "sourceObserved": true,
+          "description": "Active source-verified older-posts state for the remaining 7 of 27 manifest-backed articles, reached through the source Older Posts query."
+        }
+      ],
+      "measurements": {
+        "desktop": {
+          "documentWidthPx": 1440,
+          "documentHeightPx": 8860,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 123,
+          "footerHeightPx": 330,
+          "mainWidthPx": 1440,
+          "widestContentColumnPx": 1440,
+          "observedContentColumnWidthsPx": [
+            1440,
+            1416,
+            1382
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 1440,
+              "heightPx": 8444,
+              "paddingTop": "123px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1440,
+              "heightPx": 330,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1416,
+              "heightPx": 103,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": {
+              "fontFamily": "Roboto",
+              "fontSize": "33.28px",
+              "fontWeight": "900",
+              "lineHeight": "43.264px",
+              "letterSpacing": "-0.4992px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "30px",
+              "maxRenderedWidthPx": 676
+            },
+            "h2": null,
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "33.28px",
+              "fontWeight": "900",
+              "lineHeight": "41.5334px",
+              "letterSpacing": "-0.4992px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 1382
+            },
+            "bodyTextBlock": {
+              "tagName": "h3",
+              "fontFamily": "Roboto",
+              "fontSize": "33.28px",
+              "fontWeight": "900",
+              "lineHeight": "41.5334px",
+              "letterSpacing": "-0.4992px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 1382
+            },
+            "inlineLink": {
+              "text": "Media Release: New Executive Directors t",
+              "fontFamily": "Roboto",
+              "fontSize": "33.28px",
+              "fontWeight": "900",
+              "lineHeight": "43.264px",
+              "letterSpacing": "-0.4992px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 631,
+              "textDecorationLine": "none"
+            }
+          },
+          "primaryCallToAction": {
+            "text": "Fellow Directory",
+            "fontFamily": "Roboto",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "color": "rgb(255, 255, 255)",
+            "backgroundColor": "rgb(116, 65, 210)",
+            "borderRadius": "6.4px",
+            "padding": "16px 28.8px",
+            "heightPx": 51
+          },
+          "elementCounts": {
+            "h1": 20,
+            "h2": 0,
+            "h3": 1,
+            "p": 0,
+            "img": 22,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 96
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        },
+        "mobile": {
+          "documentWidthPx": 390,
+          "documentHeightPx": 10011,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 87,
+          "footerHeightPx": 279,
+          "mainWidthPx": 390,
+          "widestContentColumnPx": 390,
+          "observedContentColumnWidthsPx": [
+            390,
+            377,
+            343
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 390,
+              "heightPx": 9710,
+              "paddingTop": "86.7656px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 390,
+              "heightPx": 279,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 377,
+              "heightPx": 215,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": {
+              "fontFamily": "Roboto",
+              "fontSize": "26.128px",
+              "fontWeight": "900",
+              "lineHeight": "33.9664px",
+              "letterSpacing": "-0.39192px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "30px",
+              "maxRenderedWidthPx": 343
+            },
+            "h2": null,
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "26.128px",
+              "fontWeight": "900",
+              "lineHeight": "32.6077px",
+              "letterSpacing": "-0.39192px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "bodyTextBlock": {
+              "tagName": "h3",
+              "fontFamily": "Roboto",
+              "fontSize": "26.128px",
+              "fontWeight": "900",
+              "lineHeight": "32.6077px",
+              "letterSpacing": "-0.39192px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "inlineLink": {
+              "text": "Media Release: New Executive Directors t",
+              "fontFamily": "Roboto",
+              "fontSize": "26.128px",
+              "fontWeight": "900",
+              "lineHeight": "33.9664px",
+              "letterSpacing": "-0.39192px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 318,
+              "textDecorationLine": "none"
+            }
+          },
+          "primaryCallToAction": null,
+          "elementCounts": {
+            "h1": 20,
+            "h2": 0,
+            "h3": 1,
+            "p": 0,
+            "img": 22,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 96
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        }
+      },
+      "captures": [
+        {
+          "state": "default",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/news-listing/default-desktop.png",
+          "metadata": "source-evidence/screenshots/news-listing/default-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 8860,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/news-blog",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "default",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/news-listing/default-mobile.png",
+          "metadata": "source-evidence/screenshots/news-listing/default-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 10011,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/news-blog",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-impact-open",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/news-listing/nav-impact-open-desktop.png",
+          "metadata": "source-evidence/screenshots/news-listing/nav-impact-open-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/news-blog",
+          "interaction": {
+            "mechanism": "desktop header folder dropdown button",
+            "control": "button.header-nav-folder-title[aria-controls=\"impact\"]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-impact-open",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/news-listing/nav-impact-open-mobile.png",
+          "metadata": "source-evidence/screenshots/news-listing/nav-impact-open-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 844,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/news-blog",
+          "interaction": {
+            "mechanism": "mobile burger menu then folder expansion",
+            "control": "button.header-burger-btn + .header-menu-nav-item a[Folder: Impact]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "pagination-older",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/news-listing/pagination-older-desktop.png",
+          "metadata": "source-evidence/screenshots/news-listing/pagination-older-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/news-blog?offset=1675630776192",
+          "interaction": {
+            "mechanism": "source \"Older Posts\" pagination link",
+            "control": "a[href=\"/news-blog?offset=1675630776192\"]",
+            "resultingUrl": "https://www.ehf.org/news-blog?offset=1675630776192"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "pagination-older",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/news-listing/pagination-older-mobile.png",
+          "metadata": "source-evidence/screenshots/news-listing/pagination-older-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 844,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/news-blog?offset=1675630776192",
+          "interaction": {
+            "mechanism": "source \"Older Posts\" pagination link",
+            "control": "a[href=\"/news-blog?offset=1675630776192\"]",
+            "resultingUrl": "https://www.ehf.org/news-blog?offset=1675630776192"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        }
+      ]
+    },
+    {
+      "family": "news-article",
+      "representativePath": "/news-blog/announcing-the-new-ceo-for-ehf",
+      "states": [
+        {
+          "name": "default",
+          "sourceObserved": true,
+          "description": "Active owner-approved News article comparison state for the representative EHF article; source decision provenance: cc6ffa7d74c7aadbade7eed7c26c9afe3672b6b5."
+        },
+        {
+          "name": "nav-about-open",
+          "sourceObserved": true,
+          "description": "Active owner-approved News article comparison state with the About navigation folder expanded; source decision provenance: cc6ffa7d74c7aadbade7eed7c26c9afe3672b6b5."
+        }
+      ],
+      "measurements": {
+        "desktop": {
+          "documentWidthPx": 1440,
+          "documentHeightPx": 2788,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 123,
+          "footerHeightPx": 330,
+          "mainWidthPx": 1440,
+          "widestContentColumnPx": 1440,
+          "observedContentColumnWidthsPx": [
+            1440,
+            1416,
+            1382,
+            1112,
+            1078
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 1440,
+              "heightPx": 2325,
+              "paddingTop": "123px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1112,
+              "heightPx": 1964,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1440,
+              "heightPx": 330,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1416,
+              "heightPx": 103,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": {
+              "fontFamily": "Roboto",
+              "fontSize": "60.928px",
+              "fontWeight": "900",
+              "lineHeight": "70.0672px",
+              "letterSpacing": "-0.91392px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 1078
+            },
+            "h2": {
+              "fontFamily": "Roboto",
+              "fontSize": "22.912px",
+              "fontWeight": "900",
+              "lineHeight": "22.912px",
+              "letterSpacing": "-0.34368px",
+              "color": "rgb(116, 65, 210)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 560
+            },
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "33.28px",
+              "fontWeight": "900",
+              "lineHeight": "41.5334px",
+              "letterSpacing": "-0.4992px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 1382
+            },
+            "bodyTextBlock": {
+              "tagName": "p",
+              "fontFamily": "Merriweather",
+              "fontSize": "19.456px",
+              "fontWeight": "300",
+              "lineHeight": "35.0208px",
+              "letterSpacing": "normal",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "16px",
+              "maxRenderedWidthPx": 1078
+            },
+            "inlineLink": {
+              "text": "Rosalie Nelson",
+              "fontFamily": "Merriweather",
+              "fontSize": "19.456px",
+              "fontWeight": "300",
+              "lineHeight": "35.0208px",
+              "letterSpacing": "normal",
+              "color": "rgb(116, 65, 210)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 137,
+              "textDecorationLine": "underline"
+            }
+          },
+          "primaryCallToAction": {
+            "text": "Fellow Directory",
+            "fontFamily": "Roboto",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "color": "rgb(255, 255, 255)",
+            "backgroundColor": "rgb(116, 65, 210)",
+            "borderRadius": "6.4px",
+            "padding": "16px 28.8px",
+            "heightPx": 51
+          },
+          "elementCounts": {
+            "h1": 1,
+            "h2": 2,
+            "h3": 1,
+            "p": 11,
+            "img": 3,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 39
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        },
+        "mobile": {
+          "documentWidthPx": 390,
+          "documentHeightPx": 4329,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 87,
+          "footerHeightPx": 279,
+          "mainWidthPx": 390,
+          "widestContentColumnPx": 390,
+          "observedContentColumnWidthsPx": [
+            390,
+            377,
+            343
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 390,
+              "heightPx": 3886,
+              "paddingTop": "86.7656px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 377,
+              "heightPx": 3589,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 390,
+              "heightPx": 279,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 377,
+              "heightPx": 215,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": {
+              "fontFamily": "Roboto",
+              "fontSize": "42.3328px",
+              "fontWeight": "900",
+              "lineHeight": "48.6827px",
+              "letterSpacing": "-0.634992px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "h2": {
+              "fontFamily": "Roboto",
+              "fontSize": "20.0512px",
+              "fontWeight": "900",
+              "lineHeight": "20.0512px",
+              "letterSpacing": "-0.300768px",
+              "color": "rgb(116, 65, 210)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 142
+            },
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "26.128px",
+              "fontWeight": "900",
+              "lineHeight": "32.6077px",
+              "letterSpacing": "-0.39192px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "bodyTextBlock": {
+              "tagName": "p",
+              "fontFamily": "Merriweather",
+              "fontSize": "18.0256px",
+              "fontWeight": "300",
+              "lineHeight": "32.4461px",
+              "letterSpacing": "normal",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "16px",
+              "maxRenderedWidthPx": 343
+            },
+            "inlineLink": {
+              "text": "Rosalie Nelson",
+              "fontFamily": "Merriweather",
+              "fontSize": "18.0256px",
+              "fontWeight": "300",
+              "lineHeight": "32.4461px",
+              "letterSpacing": "normal",
+              "color": "rgb(116, 65, 210)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 131,
+              "textDecorationLine": "underline"
+            }
+          },
+          "primaryCallToAction": null,
+          "elementCounts": {
+            "h1": 1,
+            "h2": 2,
+            "h3": 1,
+            "p": 11,
+            "img": 3,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 39
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        }
+      },
+      "captures": [
+        {
+          "state": "default",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/news-article/default-desktop.png",
+          "metadata": "source-evidence/screenshots/news-article/default-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 2788,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/news-blog/announcing-the-new-ceo-for-ehf",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "default",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/news-article/default-mobile.png",
+          "metadata": "source-evidence/screenshots/news-article/default-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 4329,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/news-blog/announcing-the-new-ceo-for-ehf",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-about-open",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/news-article/nav-about-open-desktop.png",
+          "metadata": "source-evidence/screenshots/news-article/nav-about-open-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/news-blog/announcing-the-new-ceo-for-ehf",
+          "interaction": {
+            "mechanism": "desktop header folder dropdown button",
+            "control": "button.header-nav-folder-title[aria-controls=\"about\"]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-about-open",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/news-article/nav-about-open-mobile.png",
+          "metadata": "source-evidence/screenshots/news-article/nav-about-open-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 844,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/news-blog/announcing-the-new-ceo-for-ehf",
+          "interaction": {
+            "mechanism": "mobile burger menu then folder expansion",
+            "control": "button.header-burger-btn + .header-menu-nav-item a[Folder: About]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        }
+      ]
+    },
+    {
+      "family": "event-programme",
+      "representativePath": "/2025-summit-programme",
+      "states": [
+        {
+          "name": "default",
+          "sourceObserved": true,
+          "description": "Page as first painted after fonts settle, full 600 px lazy-load scroll pass, and scroll returned to the top."
+        },
+        {
+          "name": "nav-impact-open",
+          "sourceObserved": true,
+          "description": "Impact navigation folder expanded: desktop opens the header folder dropdown, mobile opens the burger menu and expands the same folder."
+        }
+      ],
+      "measurements": {
+        "desktop": {
+          "documentWidthPx": 1440,
+          "documentHeightPx": 6413,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 123,
+          "footerHeightPx": 330,
+          "mainWidthPx": 1440,
+          "widestContentColumnPx": 1440,
+          "observedContentColumnWidthsPx": [
+            1440,
+            1416,
+            1382
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 1440,
+              "heightPx": 6083,
+              "paddingTop": "123px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1440,
+              "heightPx": 330,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1416,
+              "heightPx": 103,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": null,
+            "h2": null,
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "33.28px",
+              "fontWeight": "900",
+              "lineHeight": "41.5334px",
+              "letterSpacing": "-0.4992px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 1382
+            },
+            "bodyTextBlock": {
+              "tagName": "p",
+              "fontFamily": "Merriweather",
+              "fontSize": "16px",
+              "fontWeight": "300",
+              "lineHeight": "28.8px",
+              "letterSpacing": "normal",
+              "color": "rgb(0, 0, 0)",
+              "marginTop": "16px",
+              "marginBottom": "16px",
+              "maxRenderedWidthPx": 1259
+            },
+            "inlineLink": null
+          },
+          "primaryCallToAction": {
+            "text": "Fellow Directory",
+            "fontFamily": "Roboto",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "color": "rgb(255, 255, 255)",
+            "backgroundColor": "rgb(116, 65, 210)",
+            "borderRadius": "6.4px",
+            "padding": "16px 28.8px",
+            "heightPx": 51
+          },
+          "elementCounts": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 1,
+            "p": 211,
+            "img": 2,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 35
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        },
+        "mobile": {
+          "documentWidthPx": 390,
+          "documentHeightPx": 14814,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 87,
+          "footerHeightPx": 279,
+          "mainWidthPx": 390,
+          "widestContentColumnPx": 390,
+          "observedContentColumnWidthsPx": [
+            390,
+            377,
+            343
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 390,
+              "heightPx": 14536,
+              "paddingTop": "86.7656px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 390,
+              "heightPx": 279,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 377,
+              "heightPx": 215,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": null,
+            "h2": null,
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "26.128px",
+              "fontWeight": "900",
+              "lineHeight": "32.6077px",
+              "letterSpacing": "-0.39192px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "bodyTextBlock": {
+              "tagName": "p",
+              "fontFamily": "Merriweather",
+              "fontSize": "16px",
+              "fontWeight": "300",
+              "lineHeight": "28.8px",
+              "letterSpacing": "normal",
+              "color": "rgb(0, 0, 0)",
+              "marginTop": "16px",
+              "marginBottom": "16px",
+              "maxRenderedWidthPx": 220
+            },
+            "inlineLink": null
+          },
+          "primaryCallToAction": null,
+          "elementCounts": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 1,
+            "p": 211,
+            "img": 2,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 35
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        }
+      },
+      "captures": [
+        {
+          "state": "default",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/event-programme/default-desktop.png",
+          "metadata": "source-evidence/screenshots/event-programme/default-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 6413,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/2025-summit-programme",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "default",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/event-programme/default-mobile.png",
+          "metadata": "source-evidence/screenshots/event-programme/default-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 14814,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/2025-summit-programme",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-impact-open",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/event-programme/nav-impact-open-desktop.png",
+          "metadata": "source-evidence/screenshots/event-programme/nav-impact-open-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/2025-summit-programme",
+          "interaction": {
+            "mechanism": "desktop header folder dropdown button",
+            "control": "button.header-nav-folder-title[aria-controls=\"impact\"]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-impact-open",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/event-programme/nav-impact-open-mobile.png",
+          "metadata": "source-evidence/screenshots/event-programme/nav-impact-open-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 844,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/2025-summit-programme",
+          "interaction": {
+            "mechanism": "mobile burger menu then folder expansion",
+            "control": "button.header-burger-btn + .header-menu-nav-item a[Folder: Impact]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        }
+      ]
+    },
+    {
+      "family": "annual-report-document",
+      "representativePath": "/23-annual-report",
+      "states": [
+        {
+          "name": "default",
+          "sourceObserved": true,
+          "description": "Page as first painted after fonts settle, full 600 px lazy-load scroll pass, and scroll returned to the top."
+        },
+        {
+          "name": "nav-about-open",
+          "sourceObserved": true,
+          "description": "About navigation folder expanded: desktop opens the header folder dropdown, mobile opens the burger menu and expands the same folder."
+        }
+      ],
+      "measurements": {
+        "desktop": {
+          "documentWidthPx": 1440,
+          "documentHeightPx": 1406,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 123,
+          "footerHeightPx": 330,
+          "mainWidthPx": 1440,
+          "widestContentColumnPx": 1440,
+          "observedContentColumnWidthsPx": [
+            1440,
+            1416,
+            1382,
+            918,
+            628
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 1440,
+              "heightPx": 1076,
+              "paddingTop": "123px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1440,
+              "heightPx": 330,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1416,
+              "heightPx": 103,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": null,
+            "h2": {
+              "fontFamily": "Roboto",
+              "fontSize": "40.192px",
+              "fontWeight": "900",
+              "lineHeight": "49.3236px",
+              "letterSpacing": "-0.60288px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 918
+            },
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "33.28px",
+              "fontWeight": "900",
+              "lineHeight": "41.5334px",
+              "letterSpacing": "-0.4992px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 628
+            },
+            "bodyTextBlock": {
+              "tagName": "p",
+              "fontFamily": "Merriweather",
+              "fontSize": "19.456px",
+              "fontWeight": "300",
+              "lineHeight": "35.0208px",
+              "letterSpacing": "normal",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 628
+            },
+            "inlineLink": {
+              "text": "Download Annual Report",
+              "fontFamily": "Roboto",
+              "fontSize": "16px",
+              "fontWeight": "900",
+              "lineHeight": "normal",
+              "letterSpacing": "normal",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 337,
+              "textDecorationLine": "none"
+            }
+          },
+          "primaryCallToAction": {
+            "text": "Fellow Directory",
+            "fontFamily": "Roboto",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "color": "rgb(255, 255, 255)",
+            "backgroundColor": "rgb(116, 65, 210)",
+            "borderRadius": "6.4px",
+            "padding": "16px 28.8px",
+            "heightPx": 51
+          },
+          "elementCounts": {
+            "h1": 0,
+            "h2": 1,
+            "h3": 3,
+            "p": 3,
+            "img": 2,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 38
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        },
+        "mobile": {
+          "documentWidthPx": 390,
+          "documentHeightPx": 1520,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 87,
+          "footerHeightPx": 279,
+          "mainWidthPx": 390,
+          "widestContentColumnPx": 390,
+          "observedContentColumnWidthsPx": [
+            390,
+            377,
+            343
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 390,
+              "heightPx": 1241,
+              "paddingTop": "86.7656px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 390,
+              "heightPx": 279,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 377,
+              "heightPx": 215,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": null,
+            "h2": {
+              "fontFamily": "Roboto",
+              "fontSize": "30.1792px",
+              "fontWeight": "900",
+              "lineHeight": "37.0359px",
+              "letterSpacing": "-0.452688px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "26.128px",
+              "fontWeight": "900",
+              "lineHeight": "32.6077px",
+              "letterSpacing": "-0.39192px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "bodyTextBlock": {
+              "tagName": "p",
+              "fontFamily": "Merriweather",
+              "fontSize": "18.0256px",
+              "fontWeight": "300",
+              "lineHeight": "32.4461px",
+              "letterSpacing": "normal",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "inlineLink": {
+              "text": "Download Annual Report",
+              "fontFamily": "Roboto",
+              "fontSize": "16px",
+              "fontWeight": "900",
+              "lineHeight": "normal",
+              "letterSpacing": "normal",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343,
+              "textDecorationLine": "none"
+            }
+          },
+          "primaryCallToAction": {
+            "text": "Download Annual Report",
+            "fontFamily": "Roboto",
+            "fontSize": "16px",
+            "fontWeight": "900",
+            "color": "rgb(255, 255, 255)",
+            "backgroundColor": "rgb(116, 65, 210)",
+            "borderRadius": "6.4px",
+            "padding": "0px 28.8px",
+            "heightPx": 59
+          },
+          "elementCounts": {
+            "h1": 0,
+            "h2": 1,
+            "h3": 3,
+            "p": 3,
+            "img": 2,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 38
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        }
+      },
+      "captures": [
+        {
+          "state": "default",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/annual-report-document/default-desktop.png",
+          "metadata": "source-evidence/screenshots/annual-report-document/default-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1406,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/23-annual-report",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "default",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/annual-report-document/default-mobile.png",
+          "metadata": "source-evidence/screenshots/annual-report-document/default-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 1520,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/23-annual-report",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-about-open",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/annual-report-document/nav-about-open-desktop.png",
+          "metadata": "source-evidence/screenshots/annual-report-document/nav-about-open-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/23-annual-report",
+          "interaction": {
+            "mechanism": "desktop header folder dropdown button",
+            "control": "button.header-nav-folder-title[aria-controls=\"about\"]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-about-open",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/annual-report-document/nav-about-open-mobile.png",
+          "metadata": "source-evidence/screenshots/annual-report-document/nav-about-open-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 844,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/23-annual-report",
+          "interaction": {
+            "mechanism": "mobile burger menu then folder expansion",
+            "control": "button.header-burger-btn + .header-menu-nav-item a[Folder: About]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        }
+      ]
+    },
+    {
+      "family": "institutional",
+      "representativePath": "/about-ehf",
+      "states": [
+        {
+          "name": "default",
+          "sourceObserved": true,
+          "description": "Page as first painted after fonts settle, full 600 px lazy-load scroll pass, and scroll returned to the top."
+        },
+        {
+          "name": "nav-about-open",
+          "sourceObserved": true,
+          "description": "About navigation folder expanded: desktop opens the header folder dropdown, mobile opens the burger menu and expands the same folder."
+        }
+      ],
+      "measurements": {
+        "desktop": {
+          "documentWidthPx": 1440,
+          "documentHeightPx": 1676,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 123,
+          "footerHeightPx": 330,
+          "mainWidthPx": 1440,
+          "widestContentColumnPx": 1440,
+          "observedContentColumnWidthsPx": [
+            1440,
+            1416,
+            1382,
+            1034,
+            976
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 1440,
+              "heightPx": 1346,
+              "paddingTop": "123px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1440,
+              "heightPx": 330,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1416,
+              "heightPx": 103,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": {
+              "fontFamily": "Roboto",
+              "fontSize": "60.928px",
+              "fontWeight": "900",
+              "lineHeight": "70.9689px",
+              "letterSpacing": "-0.91392px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 1034
+            },
+            "h2": null,
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "33.28px",
+              "fontWeight": "900",
+              "lineHeight": "41.5334px",
+              "letterSpacing": "-0.4992px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 1382
+            },
+            "bodyTextBlock": {
+              "tagName": "h4",
+              "fontFamily": "Roboto",
+              "fontSize": "22.912px",
+              "fontWeight": "900",
+              "lineHeight": "29.309px",
+              "letterSpacing": "-0.34368px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 976
+            },
+            "inlineLink": null
+          },
+          "primaryCallToAction": {
+            "text": "Fellow Directory",
+            "fontFamily": "Roboto",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "color": "rgb(255, 255, 255)",
+            "backgroundColor": "rgb(116, 65, 210)",
+            "borderRadius": "6.4px",
+            "padding": "16px 28.8px",
+            "heightPx": 51
+          },
+          "elementCounts": {
+            "h1": 4,
+            "h2": 0,
+            "h3": 1,
+            "p": 0,
+            "img": 3,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 35
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        },
+        "mobile": {
+          "documentWidthPx": 390,
+          "documentHeightPx": 1965,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 87,
+          "footerHeightPx": 279,
+          "mainWidthPx": 390,
+          "widestContentColumnPx": 390,
+          "observedContentColumnWidthsPx": [
+            390,
+            377,
+            343
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 390,
+              "heightPx": 1687,
+              "paddingTop": "86.7656px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 390,
+              "heightPx": 279,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 377,
+              "heightPx": 215,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": {
+              "fontFamily": "Roboto",
+              "fontSize": "42.3328px",
+              "fontWeight": "900",
+              "lineHeight": "49.3092px",
+              "letterSpacing": "-0.634992px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "h2": null,
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "26.128px",
+              "fontWeight": "900",
+              "lineHeight": "32.6077px",
+              "letterSpacing": "-0.39192px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "bodyTextBlock": {
+              "tagName": "h4",
+              "fontFamily": "Roboto",
+              "fontSize": "20.0512px",
+              "fontWeight": "900",
+              "lineHeight": "25.6495px",
+              "letterSpacing": "-0.300768px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "inlineLink": null
+          },
+          "primaryCallToAction": null,
+          "elementCounts": {
+            "h1": 4,
+            "h2": 0,
+            "h3": 1,
+            "p": 0,
+            "img": 3,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 35
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        }
+      },
+      "captures": [
+        {
+          "state": "default",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/institutional/default-desktop.png",
+          "metadata": "source-evidence/screenshots/institutional/default-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1676,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/about-ehf",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "default",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/institutional/default-mobile.png",
+          "metadata": "source-evidence/screenshots/institutional/default-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 1965,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/about-ehf",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-about-open",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/institutional/nav-about-open-desktop.png",
+          "metadata": "source-evidence/screenshots/institutional/nav-about-open-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/about-ehf",
+          "interaction": {
+            "mechanism": "desktop header folder dropdown button",
+            "control": "button.header-nav-folder-title[aria-controls=\"about\"]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-about-open",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/institutional/nav-about-open-mobile.png",
+          "metadata": "source-evidence/screenshots/institutional/nav-about-open-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 844,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/about-ehf",
+          "interaction": {
+            "mechanism": "mobile burger menu then folder expansion",
+            "control": "button.header-burger-btn + .header-menu-nav-item a[Folder: About]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        }
+      ]
+    },
+    {
+      "family": "contact-media-donation",
+      "representativePath": "/contact-media",
+      "states": [
+        {
+          "name": "default",
+          "sourceObserved": true,
+          "description": "Page as first painted after fonts settle, full 600 px lazy-load scroll pass, and scroll returned to the top."
+        },
+        {
+          "name": "form-filled",
+          "sourceObserved": true,
+          "description": "Source inquiry form with every visible text control populated and no submission performed."
+        }
+      ],
+      "measurements": {
+        "desktop": {
+          "documentWidthPx": 1440,
+          "documentHeightPx": 1514,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 123,
+          "footerHeightPx": 330,
+          "mainWidthPx": 1440,
+          "widestContentColumnPx": 1440,
+          "observedContentColumnWidthsPx": [
+            1440,
+            1416,
+            1382,
+            1150,
+            918
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 1440,
+              "heightPx": 1184,
+              "paddingTop": "123px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1440,
+              "heightPx": 330,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1416,
+              "heightPx": 103,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": null,
+            "h2": null,
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "33.28px",
+              "fontWeight": "900",
+              "lineHeight": "41.5334px",
+              "letterSpacing": "-0.4992px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 1150
+            },
+            "bodyTextBlock": {
+              "tagName": "h3",
+              "fontFamily": "Roboto",
+              "fontSize": "33.28px",
+              "fontWeight": "900",
+              "lineHeight": "41.5334px",
+              "letterSpacing": "-0.4992px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 1382
+            },
+            "inlineLink": null
+          },
+          "primaryCallToAction": {
+            "text": "Fellow Directory",
+            "fontFamily": "Roboto",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "color": "rgb(255, 255, 255)",
+            "backgroundColor": "rgb(116, 65, 210)",
+            "borderRadius": "6.4px",
+            "padding": "16px 28.8px",
+            "heightPx": 51
+          },
+          "elementCounts": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 2,
+            "p": 0,
+            "img": 2,
+            "iframe": 0,
+            "form": 1,
+            "internalLinks": 35
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        },
+        "mobile": {
+          "documentWidthPx": 390,
+          "documentHeightPx": 1152,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 87,
+          "footerHeightPx": 279,
+          "mainWidthPx": 390,
+          "widestContentColumnPx": 390,
+          "observedContentColumnWidthsPx": [
+            390,
+            377,
+            343
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 390,
+              "heightPx": 873,
+              "paddingTop": "86.7656px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 390,
+              "heightPx": 279,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 377,
+              "heightPx": 215,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": null,
+            "h2": null,
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "26.128px",
+              "fontWeight": "900",
+              "lineHeight": "32.6077px",
+              "letterSpacing": "-0.39192px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "bodyTextBlock": {
+              "tagName": "h3",
+              "fontFamily": "Roboto",
+              "fontSize": "26.128px",
+              "fontWeight": "900",
+              "lineHeight": "32.6077px",
+              "letterSpacing": "-0.39192px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "inlineLink": null
+          },
+          "primaryCallToAction": null,
+          "elementCounts": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 2,
+            "p": 0,
+            "img": 2,
+            "iframe": 0,
+            "form": 1,
+            "internalLinks": 35
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        }
+      },
+      "captures": [
+        {
+          "state": "default",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/contact-media-donation/default-desktop.png",
+          "metadata": "source-evidence/screenshots/contact-media-donation/default-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1514,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/contact-media",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "default",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/contact-media-donation/default-mobile.png",
+          "metadata": "source-evidence/screenshots/contact-media-donation/default-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 1152,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/contact-media",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "form-filled",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/contact-media-donation/form-filled-desktop.png",
+          "metadata": "source-evidence/screenshots/contact-media-donation/form-filled-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/contact-media",
+          "interaction": {
+            "mechanism": "every visible form control populated, no submit dispatched",
+            "control": "form",
+            "filledFields": [
+              "fname=Sample",
+              "lname=Visitor",
+              "email-yui_3_17_2_1_1658829221668_6805-field=sample.visitor@example.com",
+              "text-yui_3_17_2_1_1658829221668_6806-field=Sample Organisation",
+              "textarea-yui_3_17_2_1_1658829221668_6807-field=Deterministic capture text for source visual evidence.",
+              "message-yui_425aff86-e3a2-431e-aebd-f9928b9cb495-field=Sample Organisation"
+            ]
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "form-filled",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/contact-media-donation/form-filled-mobile.png",
+          "metadata": "source-evidence/screenshots/contact-media-donation/form-filled-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 844,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/contact-media",
+          "interaction": {
+            "mechanism": "every visible form control populated, no submit dispatched",
+            "control": "form",
+            "filledFields": [
+              "fname=Sample",
+              "lname=Visitor",
+              "email-yui_3_17_2_1_1658829221668_6805-field=sample.visitor@example.com",
+              "text-yui_3_17_2_1_1658829221668_6806-field=Sample Organisation",
+              "textarea-yui_3_17_2_1_1658829221668_6807-field=Deterministic capture text for source visual evidence.",
+              "message-yui_c41a2dbd-41a5-45b3-b364-ecd182ed41b1-field=Sample Organisation"
+            ]
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        }
+      ]
+    },
+    {
+      "family": "legal",
+      "representativePath": "/privacy-policy",
+      "states": [
+        {
+          "name": "default",
+          "sourceObserved": true,
+          "description": "Page as first painted after fonts settle, full 600 px lazy-load scroll pass, and scroll returned to the top."
+        },
+        {
+          "name": "nav-about-open",
+          "sourceObserved": true,
+          "description": "About navigation folder expanded: desktop opens the header folder dropdown, mobile opens the burger menu and expands the same folder."
+        }
+      ],
+      "measurements": {
+        "desktop": {
+          "documentWidthPx": 1440,
+          "documentHeightPx": 6017,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 123,
+          "footerHeightPx": 330,
+          "mainWidthPx": 1440,
+          "widestContentColumnPx": 1440,
+          "observedContentColumnWidthsPx": [
+            1440,
+            1416,
+            1382,
+            1071,
+            1037
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 1440,
+              "heightPx": 5687,
+              "paddingTop": "123px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1071,
+              "heightPx": 5374,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1440,
+              "heightPx": 330,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1416,
+              "heightPx": 103,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": null,
+            "h2": null,
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "33.28px",
+              "fontWeight": "900",
+              "lineHeight": "41.5334px",
+              "letterSpacing": "-0.4992px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "32px",
+              "maxRenderedWidthPx": 1037
+            },
+            "bodyTextBlock": {
+              "tagName": "p",
+              "fontFamily": "Merriweather",
+              "fontSize": "16px",
+              "fontWeight": "300",
+              "lineHeight": "28.8px",
+              "letterSpacing": "normal",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "8px",
+              "marginBottom": "8px",
+              "maxRenderedWidthPx": 997
+            },
+            "inlineLink": {
+              "text": "www.privacy.org.nz",
+              "fontFamily": "Merriweather",
+              "fontSize": "16px",
+              "fontWeight": "300",
+              "lineHeight": "28.8px",
+              "letterSpacing": "normal",
+              "color": "rgb(116, 65, 210)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 150,
+              "textDecorationLine": "underline"
+            }
+          },
+          "primaryCallToAction": {
+            "text": "Fellow Directory",
+            "fontFamily": "Roboto",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "color": "rgb(255, 255, 255)",
+            "backgroundColor": "rgb(116, 65, 210)",
+            "borderRadius": "6.4px",
+            "padding": "16px 28.8px",
+            "heightPx": 51
+          },
+          "elementCounts": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 2,
+            "p": 81,
+            "img": 2,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 35
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        },
+        "mobile": {
+          "documentWidthPx": 390,
+          "documentHeightPx": 12607,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 87,
+          "footerHeightPx": 279,
+          "mainWidthPx": 390,
+          "widestContentColumnPx": 390,
+          "observedContentColumnWidthsPx": [
+            390,
+            377,
+            343
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 390,
+              "heightPx": 12328,
+              "paddingTop": "86.7656px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 377,
+              "heightPx": 12130,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 390,
+              "heightPx": 279,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 377,
+              "heightPx": 215,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": null,
+            "h2": null,
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "26.128px",
+              "fontWeight": "900",
+              "lineHeight": "32.6077px",
+              "letterSpacing": "-0.39192px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "32px",
+              "maxRenderedWidthPx": 343
+            },
+            "bodyTextBlock": {
+              "tagName": "p",
+              "fontFamily": "Merriweather",
+              "fontSize": "16px",
+              "fontWeight": "300",
+              "lineHeight": "28.8px",
+              "letterSpacing": "normal",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "8px",
+              "marginBottom": "8px",
+              "maxRenderedWidthPx": 303
+            },
+            "inlineLink": {
+              "text": "www.privacy.org.nz",
+              "fontFamily": "Merriweather",
+              "fontSize": "16px",
+              "fontWeight": "300",
+              "lineHeight": "28.8px",
+              "letterSpacing": "normal",
+              "color": "rgb(116, 65, 210)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 150,
+              "textDecorationLine": "underline"
+            }
+          },
+          "primaryCallToAction": null,
+          "elementCounts": {
+            "h1": 0,
+            "h2": 0,
+            "h3": 2,
+            "p": 81,
+            "img": 2,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 35
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        }
+      },
+      "captures": [
+        {
+          "state": "default",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/legal/default-desktop.png",
+          "metadata": "source-evidence/screenshots/legal/default-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 6017,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/privacy-policy",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "default",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/legal/default-mobile.png",
+          "metadata": "source-evidence/screenshots/legal/default-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 12607,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/privacy-policy",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-about-open",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/legal/nav-about-open-desktop.png",
+          "metadata": "source-evidence/screenshots/legal/nav-about-open-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/privacy-policy",
+          "interaction": {
+            "mechanism": "desktop header folder dropdown button",
+            "control": "button.header-nav-folder-title[aria-controls=\"about\"]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-about-open",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/legal/nav-about-open-mobile.png",
+          "metadata": "source-evidence/screenshots/legal/nav-about-open-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 844,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/privacy-policy",
+          "interaction": {
+            "mechanism": "mobile burger menu then folder expansion",
+            "control": "button.header-burger-btn + .header-menu-nav-item a[Folder: About]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        }
+      ]
+    },
+    {
+      "family": "not-found",
+      "representativePath": "/404",
+      "states": [
+        {
+          "name": "default",
+          "sourceObserved": true,
+          "description": "Page as first painted after fonts settle, full 600 px lazy-load scroll pass, and scroll returned to the top."
+        },
+        {
+          "name": "nav-about-open",
+          "sourceObserved": true,
+          "description": "About navigation folder expanded: desktop opens the header folder dropdown, mobile opens the burger menu and expands the same folder."
+        }
+      ],
+      "measurements": {
+        "desktop": {
+          "documentWidthPx": 1440,
+          "documentHeightPx": 1000,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 123,
+          "footerHeightPx": 330,
+          "mainWidthPx": 1440,
+          "widestContentColumnPx": 1440,
+          "observedContentColumnWidthsPx": [
+            1440,
+            1416,
+            1382
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 1440,
+              "heightPx": 574,
+              "paddingTop": "123px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1416,
+              "heightPx": 327,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1440,
+              "heightPx": 330,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 1416,
+              "heightPx": 103,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": null,
+            "h2": {
+              "fontFamily": "Roboto",
+              "fontSize": "40.192px",
+              "fontWeight": "900",
+              "lineHeight": "49.3236px",
+              "letterSpacing": "-0.60288px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "32px",
+              "maxRenderedWidthPx": 1382
+            },
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "33.28px",
+              "fontWeight": "900",
+              "lineHeight": "41.5334px",
+              "letterSpacing": "-0.4992px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 1382
+            },
+            "bodyTextBlock": {
+              "tagName": "h3",
+              "fontFamily": "Roboto",
+              "fontSize": "33.28px",
+              "fontWeight": "900",
+              "lineHeight": "41.5334px",
+              "letterSpacing": "-0.4992px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 1382
+            },
+            "inlineLink": {
+              "text": "Home Page",
+              "fontFamily": "Roboto",
+              "fontSize": "16px",
+              "fontWeight": "900",
+              "lineHeight": "normal",
+              "letterSpacing": "normal",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 147,
+              "textDecorationLine": "none"
+            }
+          },
+          "primaryCallToAction": {
+            "text": "Fellow Directory",
+            "fontFamily": "Roboto",
+            "fontSize": "16px",
+            "fontWeight": "700",
+            "color": "rgb(255, 255, 255)",
+            "backgroundColor": "rgb(116, 65, 210)",
+            "borderRadius": "6.4px",
+            "padding": "16px 28.8px",
+            "heightPx": 51
+          },
+          "elementCounts": {
+            "h1": 0,
+            "h2": 1,
+            "h3": 1,
+            "p": 3,
+            "img": 2,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 36
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        },
+        "mobile": {
+          "documentWidthPx": 390,
+          "documentHeightPx": 848,
+          "pageBackgroundColor": "rgb(255, 255, 255)",
+          "headerHeightPx": 87,
+          "footerHeightPx": 279,
+          "mainWidthPx": 390,
+          "widestContentColumnPx": 390,
+          "observedContentColumnWidthsPx": [
+            390,
+            377,
+            343
+          ],
+          "sectionMetrics": [
+            {
+              "widthPx": 390,
+              "heightPx": 569,
+              "paddingTop": "86.7656px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 377,
+              "heightPx": 419,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 390,
+              "heightPx": 279,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            },
+            {
+              "widthPx": 377,
+              "heightPx": 215,
+              "paddingTop": "0px",
+              "paddingBottom": "0px",
+              "backgroundColor": "rgba(0, 0, 0, 0)"
+            }
+          ],
+          "typography": {
+            "h1": null,
+            "h2": {
+              "fontFamily": "Roboto",
+              "fontSize": "30.1792px",
+              "fontWeight": "900",
+              "lineHeight": "37.0359px",
+              "letterSpacing": "-0.452688px",
+              "color": "rgb(39, 36, 46)",
+              "marginTop": "0px",
+              "marginBottom": "32px",
+              "maxRenderedWidthPx": 343
+            },
+            "h3": {
+              "fontFamily": "Roboto",
+              "fontSize": "26.128px",
+              "fontWeight": "900",
+              "lineHeight": "32.6077px",
+              "letterSpacing": "-0.39192px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "bodyTextBlock": {
+              "tagName": "h3",
+              "fontFamily": "Roboto",
+              "fontSize": "26.128px",
+              "fontWeight": "900",
+              "lineHeight": "32.6077px",
+              "letterSpacing": "-0.39192px",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "32px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 343
+            },
+            "inlineLink": {
+              "text": "Home Page",
+              "fontFamily": "Roboto",
+              "fontSize": "16px",
+              "fontWeight": "900",
+              "lineHeight": "normal",
+              "letterSpacing": "normal",
+              "color": "rgb(255, 255, 255)",
+              "marginTop": "0px",
+              "marginBottom": "0px",
+              "maxRenderedWidthPx": 147,
+              "textDecorationLine": "none"
+            }
+          },
+          "primaryCallToAction": {
+            "text": "Home Page",
+            "fontFamily": "Roboto",
+            "fontSize": "16px",
+            "fontWeight": "900",
+            "color": "rgb(255, 255, 255)",
+            "backgroundColor": "rgb(116, 65, 210)",
+            "borderRadius": "6.4px",
+            "padding": "16px 28.8px",
+            "heightPx": 51
+          },
+          "elementCounts": {
+            "h1": 0,
+            "h2": 1,
+            "h3": 1,
+            "p": 3,
+            "img": 2,
+            "iframe": 0,
+            "form": 0,
+            "internalLinks": 36
+          },
+          "fontFamiliesInUse": [
+            "Merriweather",
+            "Roboto"
+          ],
+          "prefersReducedMotionMatches": true
+        }
+      },
+      "captures": [
+        {
+          "state": "default",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/not-found/default-desktop.png",
+          "metadata": "source-evidence/screenshots/not-found/default-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/404",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "default",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/not-found/default-mobile.png",
+          "metadata": "source-evidence/screenshots/not-found/default-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 848,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/404",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-about-open",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/not-found/nav-about-open-desktop.png",
+          "metadata": "source-evidence/screenshots/not-found/nav-about-open-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/404",
+          "interaction": {
+            "mechanism": "desktop header folder dropdown button",
+            "control": "button.header-nav-folder-title[aria-controls=\"about\"]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "nav-about-open",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/not-found/nav-about-open-mobile.png",
+          "metadata": "source-evidence/screenshots/not-found/nav-about-open-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 844,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/404",
+          "interaction": {
+            "mechanism": "mobile burger menu then folder expansion",
+            "control": "button.header-burger-btn + .header-menu-nav-item a[Folder: About]"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        }
+      ]
+    }
+  ],
+  "ticket10ContactForms": {
+    "captureManifest": {
+      "path": "source-evidence/screenshots/contact-ticket10/capture-manifest.json",
+      "commit": "4f0acc82f1d8193b7b1dc807471ba10b4b69640a",
+      "sha256": "12fa4045faf86aa32e7000d08544a8a1a3393a921a6040ad8cdb092ec55bdc6f"
+    },
+    "family": "contact-media-donation",
+    "routes": [
+      {
+        "route": "/contact-media",
+        "heading": "Media Enquiry",
+        "submitLabel": "Submit",
+        "fields": [
+          { "id": "first-name", "label": "First Name (required)", "type": "text", "autocomplete": "given-name", "filledValue": "Sample contact" },
+          { "id": "last-name", "label": "Last Name (required)", "type": "text", "autocomplete": "family-name", "filledValue": "Sample contact" },
+          { "id": "email", "label": "Email (required)", "type": "email", "autocomplete": "false", "filledValue": "sample@example.test" },
+          { "id": "subject", "label": "Subject (required)", "type": "text", "autocomplete": "false", "filledValue": "Sample contact" },
+          { "id": "message", "label": "Message (required)", "type": "textarea", "filledValue": "Sample message." }
+        ],
+        "captures": [
+          { "viewport": "desktop", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/contact-media-desktop.png", "json": "source-evidence/screenshots/contact-ticket10/contact-media-desktop.json", "pngSha256": "3f57a121c39e287a5830d8175e9433c1a8f3dcc22b4daf2ce070e9d76e35db31", "jsonSha256": "6a4014da08135e8e5d9116717adbb6530a280a209b82db066add9060487b76b0" },
+          { "viewport": "mobile", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/contact-media-mobile.png", "json": "source-evidence/screenshots/contact-ticket10/contact-media-mobile.json", "pngSha256": "3a09610299916ae2e655a97f6622a5886ab3e28b8d1a11d95701160482557b58", "jsonSha256": "f8456bd77916663a46ae15daf7417fcfe21b0b591c93449e4c05840d64d57871" }
+        ]
+      },
+      {
+        "route": "/contact-us",
+        "heading": "Contact Us",
+        "submitLabel": "Send",
+        "fields": [
+          { "id": "first-name", "label": "First Name (required)", "type": "text", "autocomplete": "given-name", "filledValue": "Sample contact" },
+          { "id": "last-name", "label": "Last Name (required)", "type": "text", "autocomplete": "family-name", "filledValue": "Sample contact" },
+          { "id": "email", "label": "Email (required)", "type": "email", "autocomplete": "false", "filledValue": "sample@example.test" },
+          { "id": "message", "label": "Message (required)", "type": "textarea", "filledValue": "Sample message." }
+        ],
+        "captures": [
+          { "viewport": "desktop", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/contact-us-desktop.png", "json": "source-evidence/screenshots/contact-ticket10/contact-us-desktop.json", "pngSha256": "dfba47840b730644fbf491ad06d4ee7e59bd9a09446f11356aa03ab2e5b64afc", "jsonSha256": "ee4de54a75c7323edd535ad53e3702d2870dd44fb4fb210f4b79e44ce7c0b71b" },
+          { "viewport": "mobile", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/contact-us-mobile.png", "json": "source-evidence/screenshots/contact-ticket10/contact-us-mobile.json", "pngSha256": "937dd2efedcf90af8c210b021ccf29e28d7fa30e6b7e7bd66c1bfacb9b1186d9", "jsonSha256": "fd7e0a8a19c45f358d3a9f0085d660a3c1b324d1a4683f8b5e18935a0f0783a8" }
+        ]
+      },
+      {
+        "route": "/donation-more-than-10k",
+        "heading": "Want to donate more than $10,000?",
+        "submitLabel": "Submit",
+        "fields": [
+          { "id": "first-name", "label": "First Name (required)", "type": "text", "autocomplete": "given-name", "filledValue": "Sample contact" },
+          { "id": "last-name", "label": "Last Name (required)", "type": "text", "autocomplete": "family-name", "filledValue": "Sample contact" },
+          { "id": "email", "label": "Email (required)", "type": "email", "autocomplete": "false", "filledValue": "sample@example.test" },
+          { "id": "subject", "label": "Subject (required)", "type": "text", "autocomplete": "false", "filledValue": "Sample contact" },
+          { "id": "message", "label": "Message (required)", "type": "textarea", "filledValue": "Sample message." }
+        ],
+        "captures": [
+          { "viewport": "desktop", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/donation-more-than-10k-desktop.png", "json": "source-evidence/screenshots/contact-ticket10/donation-more-than-10k-desktop.json", "pngSha256": "7ef62bf5969b18d4707b1be24abfc7b8961ad49814baee28d5857710aa0605f1", "jsonSha256": "97e1654246ce22ea9054361bca5a120a33e13d20df48ae0dd9a2cb6e1a309ce7" },
+          { "viewport": "mobile", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/donation-more-than-10k-mobile.png", "json": "source-evidence/screenshots/contact-ticket10/donation-more-than-10k-mobile.json", "pngSha256": "55ffff23ee9c193ffe78f99eb332fa7e18a65c3d3f0a9ed4fb0b621a2887d18b", "jsonSha256": "7d3cee70b11945202c5b63d29cf5b194a14c3bbb5ab3799844fb54d76d8f12ea" }
+        ]
+      },
+      {
+        "route": "/donation-outside-nz-and-us",
+        "heading": "Do you live outside New Zealand and the US but still want to donate to EHF?",
+        "submitLabel": "Submit",
+        "fields": [
+          { "id": "first-name", "label": "First Name (required)", "type": "text", "autocomplete": "given-name", "filledValue": "Sample contact" },
+          { "id": "last-name", "label": "Last Name (required)", "type": "text", "autocomplete": "family-name", "filledValue": "Sample contact" },
+          { "id": "email", "label": "Email (required)", "type": "email", "autocomplete": "false", "filledValue": "sample@example.test" },
+          { "id": "subject", "label": "Subject (required)", "type": "text", "autocomplete": "false", "filledValue": "Sample contact" },
+          { "id": "message", "label": "Message (required)", "type": "textarea", "filledValue": "Sample message." }
+        ],
+        "captures": [
+          { "viewport": "desktop", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/donation-outside-nz-and-us-desktop.png", "json": "source-evidence/screenshots/contact-ticket10/donation-outside-nz-and-us-desktop.json", "pngSha256": "131b8fc8b72ad957d304dc3456190830a977857869d54959fc611e02778c1166", "jsonSha256": "046eb1d26a31ca7c3480567f578c3786ed4cb2e65821cc271e9be314b5ad729a" },
+          { "viewport": "mobile", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/donation-outside-nz-and-us-mobile.png", "json": "source-evidence/screenshots/contact-ticket10/donation-outside-nz-and-us-mobile.json", "pngSha256": "9e66f3ab513c98aea3a81d83a532040a74376bfc380eb94ecc2ed7933e269818", "jsonSha256": "5e6b0ce08d6c96abd9487509ca51e68479291b51ab491c938a44918397d6f4ed" }
+        ]
+      },
+      {
+        "route": "/donation-pledge",
+        "heading": "Want to donate to EHF at a later time?",
+        "submitLabel": "Submit",
+        "fields": [
+          { "id": "first-name", "label": "First Name (required)", "type": "text", "autocomplete": "given-name", "filledValue": "Sample contact" },
+          { "id": "last-name", "label": "Last Name (required)", "type": "text", "autocomplete": "family-name", "filledValue": "Sample contact" },
+          { "id": "email", "label": "Email (required)", "type": "email", "autocomplete": "false", "filledValue": "sample@example.test" },
+          { "id": "subject", "label": "Subject (required)", "type": "text", "autocomplete": "false", "filledValue": "Sample contact" },
+          { "id": "message", "label": "Message (required)", "type": "textarea", "filledValue": "Sample message." }
+        ],
+        "captures": [
+          { "viewport": "desktop", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/donation-pledge-desktop.png", "json": "source-evidence/screenshots/contact-ticket10/donation-pledge-desktop.json", "pngSha256": "0189d07eacff9b645376dd89b5deb755766e474e1220390a25b1c41b2de5d721", "jsonSha256": "540a3746e458665a11365072643a128396de009d99919989bedf2b7eb679fcb2" },
+          { "viewport": "mobile", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/donation-pledge-mobile.png", "json": "source-evidence/screenshots/contact-ticket10/donation-pledge-mobile.json", "pngSha256": "5480f1f6da1063314f342479d0894bc7ede950249ffd620fe016342346f94666", "jsonSha256": "aecbcc74e82703f691fa64af7a585cc49359e53c46c75631ec2768d657c9c0b4" }
+        ]
+      },
+      {
+        "route": "/donation-refund-request",
+        "heading": "Want to enquire about our refund policy?",
+        "submitLabel": "Submit",
+        "fields": [
+          { "id": "first-name", "label": "First Name (required)", "type": "text", "autocomplete": "given-name", "filledValue": "Sample contact" },
+          { "id": "last-name", "label": "Last Name (required)", "type": "text", "autocomplete": "family-name", "filledValue": "Sample contact" },
+          { "id": "email", "label": "Email (required)", "type": "email", "autocomplete": "false", "filledValue": "sample@example.test" },
+          { "id": "subject", "label": "Subject (required)", "type": "text", "autocomplete": "false", "filledValue": "Sample contact" },
+          { "id": "message", "label": "Message (required)", "type": "textarea", "filledValue": "Sample message." }
+        ],
+        "captures": [
+          { "viewport": "desktop", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/donation-refund-request-desktop.png", "json": "source-evidence/screenshots/contact-ticket10/donation-refund-request-desktop.json", "pngSha256": "1f4148a16c07eac5c9fc3f1518060cdfbf1bbc6c71b823d1ba96e4b84db1a762", "jsonSha256": "813fb00cbbf41240d3307bcfd39530b45ddb77216dc970282bdc984075e96663" },
+          { "viewport": "mobile", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/donation-refund-request-mobile.png", "json": "source-evidence/screenshots/contact-ticket10/donation-refund-request-mobile.json", "pngSha256": "35ffbe0c847c17fda36f27ea78502422829938cb1c54fd56ac0214a2b69274b9", "jsonSha256": "34399f2cb8f25dee8ccd0eb9f10d0aad5ad0ce4be7bdf8423e57840fb9ab4e3a" }
+        ]
+      },
+      {
+        "route": "/ehf-friendly-sharks-waiting-list",
+        "heading": "Add me to the EHF ‘Friendly Sharks’ waiting list",
+        "submitLabel": "Submit",
+        "fields": [
+          { "id": "first-name", "label": "First Name (required)", "type": "text", "autocomplete": "given-name", "filledValue": "Sample contact" },
+          { "id": "last-name", "label": "Last Name (required)", "type": "text", "autocomplete": "family-name", "filledValue": "Sample contact" },
+          { "id": "email", "label": "Email (required)", "type": "email", "autocomplete": "false", "filledValue": "sample@example.test" },
+          { "id": "subject", "label": "Subject (required)", "type": "text", "autocomplete": "false", "filledValue": "Sample contact" },
+          { "id": "message", "label": "Message (required)", "type": "textarea", "filledValue": "Sample message." }
+        ],
+        "captures": [
+          { "viewport": "desktop", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/ehf-friendly-sharks-waiting-list-desktop.png", "json": "source-evidence/screenshots/contact-ticket10/ehf-friendly-sharks-waiting-list-desktop.json", "pngSha256": "e319f408e20c077e601d63cb3494141f2aaa970fd5d9acd029ffcdd1116eef32", "jsonSha256": "bd232e3abd7b4458a737502995b2a7610e8a478c37a9142d9452df7838806f9d" },
+          { "viewport": "mobile", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/ehf-friendly-sharks-waiting-list-mobile.png", "json": "source-evidence/screenshots/contact-ticket10/ehf-friendly-sharks-waiting-list-mobile.json", "pngSha256": "393e0659ba908fc5290387cefede3b69d8206130a301303b782d5ef6f663f2b9", "jsonSha256": "a4516c635454204403a1f07b0bf2e8188ca445efcb555106a83e4599704bbd1f" }
+        ]
+      },
+      {
+        "route": "/media-inquiries",
+        "heading": "Media Inquiry",
+        "submitLabel": "Send",
+        "fields": [
+          { "id": "first-name", "label": "First Name (required)", "type": "text", "autocomplete": "given-name", "filledValue": "Sample contact" },
+          { "id": "last-name", "label": "Last Name (required)", "type": "text", "autocomplete": "family-name", "filledValue": "Sample contact" },
+          { "id": "email", "label": "Email (required)", "type": "email", "autocomplete": "false", "filledValue": "sample@example.test" },
+          { "id": "message", "label": "Message (required)", "type": "textarea", "filledValue": "Sample message." }
+        ],
+        "captures": [
+          { "viewport": "desktop", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/media-inquiries-desktop.png", "json": "source-evidence/screenshots/contact-ticket10/media-inquiries-desktop.json", "pngSha256": "ab02b31a4340498b227712e9820c825bf297fb40f8ff8fbe6e00ff6fd8fe2a89", "jsonSha256": "0088edfcefc313bd8b457ff3668ef031acd31807987030fcd226e65480b1a33d" },
+          { "viewport": "mobile", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/media-inquiries-mobile.png", "json": "source-evidence/screenshots/contact-ticket10/media-inquiries-mobile.json", "pngSha256": "898ca19b99bb70dc13bdd40b5757ff763ab228bf027c8512fe51cf0e8d649624", "jsonSha256": "0d53f2038674bc881420e6fe8f9339c0e0cdcb0f537ad686f75efba8c19cc7ba" }
+        ]
+      },
+      {
+        "route": "/news-and-events-updates",
+        "heading": "I want to receive updates on EHF News and Events",
+        "submitLabel": "Submit",
+        "fields": [
+          { "id": "first-name", "label": "First Name (required)", "type": "text", "autocomplete": "given-name", "filledValue": "Sample contact" },
+          { "id": "last-name", "label": "Last Name (required)", "type": "text", "autocomplete": "family-name", "filledValue": "Sample contact" },
+          { "id": "email", "label": "Email (required)", "type": "email", "autocomplete": "false", "filledValue": "sample@example.test" },
+          { "id": "interest", "label": "What is your interest in EHF and New Zealand? (required)", "type": "textarea", "filledValue": "Sample message." },
+          { "id": "referral", "label": "How did you hear about EHF? (required)", "type": "textarea", "filledValue": "Sample message." },
+          { "id": "ecosystem", "label": "I'm part of the NZ ecosystem and am interested to learn about EHF news and events updates", "type": "checkbox", "filledValue": true },
+          { "id": "visa", "label": "I'm interested in updates on if the Global Impact Visa reopens", "type": "checkbox", "filledValue": true }
+        ],
+        "captures": [
+          { "viewport": "desktop", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/news-and-events-updates-desktop.png", "json": "source-evidence/screenshots/contact-ticket10/news-and-events-updates-desktop.json", "pngSha256": "0d23d07eaeddd3ce0ce6367ea1d4aa2bbf884e03b5c7856dd497f86661c9aa9e", "jsonSha256": "5b43e78c8cb246c3368359adcc06f4ec1225174888747643fb5a7cb25bc9211f" },
+          { "viewport": "mobile", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/news-and-events-updates-mobile.png", "json": "source-evidence/screenshots/contact-ticket10/news-and-events-updates-mobile.json", "pngSha256": "2534ac2b69816d287db8217046733ea434ae7e00c33603fd46a952784291c521", "jsonSha256": "d75666bfca9bf136b74c3a86d560d68bcb4a335eb9aba2f065750c8ac99f6e33" }
+        ]
+      }
+    ],
+    "prohibited": {
+      "routes": ["/donate"],
+      "controls": ["payment", "video", "social", "external donation link", "honeypot", "reCAPTCHA"]
+    }
+  }
+}

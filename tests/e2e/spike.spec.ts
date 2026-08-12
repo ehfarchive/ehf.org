@@ -16,28 +16,6 @@ async function settleGeometry(page: Page) {
   });
 }
 
-const archiveTitles = [
-  'How Chemergy is Changing the Game in Waste-to-Energy',
-  "Harnessing Pine Pollen's Power to Transform Wellbeing",
-  'Globalising Kiwi Innovation',
-  'Helping to Solve the Unsolvable Challenges',
-  'Championing Māori and Indigenous Enterprise and Cultural Values',
-  'Unlocking the Potential of Offshore Wind',
-  'Building Climate Resilience in the Pacific & Aotearoa',
-  'Leading the Metaverse Revolution from Aotearoa NZ',
-  'Solving the Ocean Plastics Problem',
-  'Nature-Inspired Solutions for Global Environmental Health',
-  'Catalysing Environmental Action for a Sustainable Future',
-  'Tackling Global Textile Waste through Innovative Solutions',
-  'The Awa/River Story Inspiring Connection & Action',
-  'Te Pā o Rākaihautū: From Vision to Reality',
-  'Creating opportunities for Māori & Pasifika talent in gaming',
-  "Activating Generational Change for Aotearoa NZ's Wellbeing",
-  'Transforming lives in Niue by eliminating Hepatitis',
-  'Cultivating Indigenous Entrepreneurship',
-  "Accessible Tech that's Breaking Down Barriers",
-  'Opening doors for rangatahi (young people) in tech'
-] as const;
 
 for (const route of spikeRoutes) {
   test(`${route} renders source-backed content in the shared shell`, async ({ page }) => {
@@ -50,16 +28,17 @@ for (const route of spikeRoutes) {
   });
 }
 
-test('the archive preserves all 20 source cards in source order', async ({ page }) => {
+test('the archive renders 20 deterministic first-page cards with source-style pagination', async ({ page }) => {
   await page.goto('/read');
 
   const cards = page.locator('[data-read-card]');
   await expect(cards).toHaveCount(20);
-  expect(await cards.locator('h2').allTextContents()).toEqual(archiveTitles);
-  const older = page.getByRole('link', { name: 'Older Posts' });
-  await expect(older).toBeVisible();
-  await expect(older.locator('.read-page__older-chevron')).toHaveText('');
-  await expect(older).toHaveCSS('text-decoration-line', 'none');
+  await expect(cards.first()).toHaveAttribute('data-impact-slug', 'how-chemergy-is-changing-the-game-in-waste-to-energy');
+  await expect(cards.first().locator('img')).toHaveAttribute('src', '/assets/images/cards/chemergy.webp');
+  const pagination = page.getByRole('navigation', { name: 'Impact pagination' });
+  await expect(pagination).toBeVisible();
+  await expect(pagination.getByRole('link', { name: 'Newer Posts' })).toHaveCount(0);
+  await expect(pagination.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '/read/page/2');
 });
 
 test('the archive uses a single source-order stack on mobile', async ({ page }, testInfo) => {
@@ -76,8 +55,8 @@ test('the archive uses a single source-order stack on mobile', async ({ page }, 
   expect(positions.map(({ top }) => top)).toEqual([...positions.map(({ top }) => top)].sort((a, b) => a - b));
 });
 
-test('desktop archive places each card in the true shortest source column', async ({ page }, testInfo) => {
-  test.skip(testInfo.project.name !== 'desktop', 'desktop masonry contract');
+test('desktop archive maintains a stable four-column card grid', async ({ page }, testInfo) => {
+  test.skip(testInfo.project.name !== 'desktop', 'desktop grid contract');
   await page.goto('/read');
   await settleGeometry(page);
 
@@ -87,8 +66,8 @@ test('desktop archive places each card in the true shortest source column', asyn
   }));
   const columns = cards.slice(0, 4).map(({ left }) => left);
 
-  expect(cards.map(({ left }) => columns.indexOf(left))).toEqual([0, 1, 2, 3, 2, 0]);
-  expect(cards[4].top).toBeLessThan(cards[5].top);
+  expect(cards.map(({ left }) => columns.indexOf(left))).toEqual([0, 1, 2, 3, 0, 1]);
+  expect(cards[4].top).toBe(cards[5].top);
 });
 
 test('only the Awa/River card preserves its source landscape image ratio', async ({ page }) => {
@@ -115,40 +94,27 @@ test('the article keeps its fixed-source engineer figure within a 320px viewport
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
 });
 
-test('Older Posts uses the measured body line box and masked source caret', async ({ page }, testInfo) => {
+test('Impact pagination exposes declared source-style destinations', async ({ page }) => {
   await page.goto('/read');
 
-  const older = page.getByRole('link', { name: 'Older Posts' });
-  const lineHeight = await older.evaluate((link) => Number.parseFloat(getComputedStyle(link).lineHeight));
-  expect(lineHeight).toBeCloseTo(testInfo.project.name === 'desktop' ? 35.0208 : 32.4461, 2);
-
-  const caret = older.locator('.read-page__older-chevron');
-  await expect(caret).toHaveAttribute('aria-hidden', 'true');
-  expect(await caret.evaluate((icon) => {
-    const styles = getComputedStyle(icon);
-    const rect = icon.getBoundingClientRect();
-    return {
-      backgroundColor: styles.backgroundColor,
-      borderBottomWidth: styles.borderBottomWidth,
-      borderRightWidth: styles.borderRightWidth,
-      height: rect.height,
-      maskImage: styles.maskImage,
-      width: rect.width
-    };
-  })).toEqual({
-    backgroundColor: 'rgb(39, 36, 46)',
-    borderBottomWidth: '0px',
-    borderRightWidth: '0px',
-    height: 16,
-    maskImage: expect.not.stringMatching(/^none$/),
-    width: 9
-  });
+  const firstPagePagination = page.getByRole('navigation', { name: 'Impact pagination' });
+  await expect(firstPagePagination.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '/read/page/2');
+  await page.goto('/read/page/3');
+  const middlePagePagination = page.getByRole('navigation', { name: 'Impact pagination' });
+  await expect(middlePagePagination.getByRole('link', { name: 'Newer Posts' })).toHaveAttribute('href', '/read/page/2');
+  await expect(middlePagePagination.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '/read/page/4');
+  await page.goto('/read/page/5');
+  await expect(page.locator('[data-read-card]')).toHaveCount(4);
+  const finalPagePagination = page.getByRole('navigation', { name: 'Impact pagination' });
+  await expect(finalPagePagination.getByRole('link', { name: 'Newer Posts' })).toHaveAttribute('href', '/read/page/4');
+  await expect(finalPagePagination.getByRole('link', { name: 'Older Posts' })).toHaveCount(0);
 });
 
-test('only the accepted impact Markdown article is generated', async ({ page }) => {
-  await expect(page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy')).resolves.not.toBeNull();
-  const rejected = await page.goto('/read/harnessing-pine-pollens-power-to-transform-wellbeing');
-  expect(rejected?.status()).toBe(404);
+test('manifest-declared Impact articles beyond Chemergy are generated', async ({ page }) => {
+  const neighbour = await page.goto('/read/harnessing-pine-pollens-power-to-transform-wellbeing');
+  expect(neighbour?.status()).toBe(200);
+  const finalPage = await page.goto('/read/page/5');
+  expect(finalPage?.status()).toBe(200);
 });
 
 test('the annual report supplies three safe local PDF downloads', async ({ page }) => {
@@ -173,7 +139,7 @@ test('the captured closure homepage contains only the hero and one organisation-
   const hero = page.locator('[data-home-hero]');
   await expect(hero).toContainText('500+ Fellows');
   await expect(hero).toContainText('50+ Nationalities');
-  await expect(hero.getByRole('link', { name: 'Fellows Directory' })).toBeVisible();
+  await expect(hero.getByRole('link', { name: /fellow.?directory/i })).toHaveCount(0);
 
   const band = page.locator('[data-home-band]');
   await expect(band).toContainText('EHF - The Organisation');
@@ -183,16 +149,52 @@ test('the captured closure homepage contains only the hero and one organisation-
   await expect(page.locator('.legacy-section, .impact-callout, .home-stats')).toHaveCount(0);
 });
 
-test('the organisation band establishes a stacking context for its painted artwork', async ({ page }) => {
+test('the organisation band renders decodable artwork', async ({ page }) => {
   await page.goto('/');
 
   const band = page.locator('[data-home-band]');
   const artwork = band.locator('img');
   await expect(artwork).toBeVisible();
   await expect(artwork).toHaveJSProperty('complete', true);
-  expect(await artwork.evaluate((image) => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
-  await expect(band).toHaveCSS('isolation', 'isolate');
-  await expect(artwork).toHaveCSS('z-index', '-2');
+  expect(await artwork.evaluate((image) => {
+    const source = image as HTMLImageElement;
+    const canvas = document.createElement('canvas');
+    canvas.width = 1;
+    canvas.height = 1;
+    const context = canvas.getContext('2d');
+    if (!context) return false;
+    context.drawImage(source, source.naturalWidth / 2, source.naturalHeight / 2, 1, 1, 0, 0, 1, 1);
+    return context.getImageData(0, 0, 1, 1).data[3] > 0;
+  })).toBe(true);
+});
+
+test('the organisation artwork selects the exact responsive rendition', async ({ page }, testInfo) => {
+  await page.goto('/');
+
+  const picture = page.locator('[data-home-band] picture');
+  const mobileSource = picture.locator('source[media="(max-width: 767px)"]');
+  const artwork = picture.locator('img');
+  const expectedCurrentSrc = testInfo.project.name === 'mobile'
+    ? '/assets/images/home-organisation-mobile.webp'
+    : '/assets/images/home-organisation.webp';
+
+  await expect(picture.locator('source')).toHaveCount(1);
+  await expect(mobileSource).toHaveAttribute('srcset', '/assets/images/home-organisation-mobile.webp');
+  await expect(artwork).toHaveAttribute('src', '/assets/images/home-organisation.webp');
+  await expect(artwork).toHaveJSProperty('complete', true);
+
+  const loaded = await artwork.evaluate((image) => {
+    const renderedImage = image as HTMLImageElement;
+    return {
+      currentSrc: renderedImage.currentSrc,
+      naturalWidth: renderedImage.naturalWidth,
+      naturalHeight: renderedImage.naturalHeight
+    };
+  });
+
+  expect(loaded.currentSrc).toBe(new URL(expectedCurrentSrc, page.url()).href);
+  expect(loaded.naturalWidth).toBeGreaterThan(0);
+  expect(loaded.naturalHeight).toBeGreaterThan(0);
 });
 
 test('the archive has only a semantic hidden heading', async ({ page }) => {
@@ -200,26 +202,26 @@ test('the archive has only a semantic hidden heading', async ({ page }) => {
   await expect(page.locator('.read-page > h1')).toHaveClass(/visually-hidden/);
 });
 
-test('the article omits unsourced author chrome and keeps a title-only next link', async ({ page }) => {
+test('the article omits unsourced author chrome and keeps a title-only deterministic next link', async ({ page }) => {
   await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
 
   await expect(page.locator('img[src="/assets/images/article/author-avatar.webp"]')).toHaveCount(0);
   const next = page.getByRole('navigation', { name: 'Article navigation' });
   await expect(next).not.toContainText('Next');
-  await expect(next.getByRole('link', { name: "Harnessing Pine Pollen's Power to Transform Wellbeing" })).toBeVisible();
+  await expect(next.getByRole('link', { name: 'Harnessing Pine Pollen’s Power to Transform Wellbeing' })).toBeVisible();
 });
 
-test('the article uses the rotated source images, semantic credits, and stable section hook', async ({ page }) => {
+test('the canonical article keeps source body images and converts source captions to semantic figures', async ({ page }) => {
   await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
 
-  await expect(page.locator('.article-figure--dsc-crop img')).toHaveAttribute('src', '/assets/images/article/chemergy-figure-1.webp');
-  await expect(page.locator('.article-page__body figure').nth(1).locator('img')).toHaveAttribute('src', '/assets/images/article/chemergy-figure-2.webp');
-  await expect(page.locator('.article-figure--engineer-float img')).toHaveAttribute('src', '/assets/images/article/dsc-3025.webp');
-  await expect(page.locator('.article-page__body figcaption em')).toHaveCount(4);
-  await expect(page.locator('.article-section-break')).toHaveCount(1);
+  const figures = page.locator('.article-page__body figure');
+  await expect(figures).toHaveCount(5);
+  await expect(figures.nth(0).locator('img')).toHaveAttribute('src', '/assets/images/content/read-how-chemergy-is-changing-the-game-in-waste-to-energy-1.webp');
+  await expect(figures.nth(1).locator('img')).toHaveAttribute('src', '/assets/images/content/read-how-chemergy-is-changing-the-game-in-waste-to-energy-2.webp');
+  await expect(page.locator('.article-page__body figcaption')).toHaveCount(4);
 });
 
-test('the article applies measured type, figure, and pagination geometry', async ({ page }, testInfo) => {
+test('the canonical article applies typed metadata, semantic figure, and next-link geometry', async ({ page }, testInfo) => {
   await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
   await settleGeometry(page);
 
@@ -228,56 +230,47 @@ test('the article applies measured type, figure, and pagination geometry', async
     const styles = getComputedStyle(paragraph);
     return { fontSize: Number.parseFloat(styles.fontSize), lineHeight: Number.parseFloat(styles.lineHeight) };
   });
-  expect(bodyMetrics.fontSize).toBeCloseTo(mobile ? 18.9 : 20, 1);
+  expect(bodyMetrics.fontSize).toBeCloseTo(mobile ? 18.0256 : 19.456, 3);
   expect(bodyMetrics.lineHeight).toBeCloseTo(mobile ? 32.4461 : 35.0208, 2);
-  await expect(page.locator('.article-page__header h1')).toHaveCSS('margin-bottom', mobile ? '71px' : '68px');
+  await expect(page.locator('.article-page__header h1')).toHaveCSS('margin-bottom', '24px');
+  await expect(page.locator('.article-page__header time')).toHaveCount(0);
   await expect(page.locator('.article-page__body blockquote').first()).toHaveCSS('margin-left', '40px');
   await expect(page.locator('.article-page__body figcaption').first()).toHaveCSS('margin-top', '16px');
-  await expect(page.locator('.article-page__body h2').first()).toHaveCSS('margin-top', '32.4px');
-  await expect(page.locator('.article-section-break')).toHaveCSS('margin-top', '34px');
+  await expect(page.locator('.article-page__body h4').first()).toHaveCSS('margin-top', '32.4px');
 
-  const dsc = page.locator('.article-figure--dsc-crop img');
-  const engineer = page.locator('.article-figure--engineer-float img');
-  const dscBox = await dsc.boundingBox();
-  const engineerBox = await engineer.boundingBox();
-  expect(dscBox?.height).toBeCloseTo(mobile ? 124.96 : 392.39, 0);
-  expect(engineerBox?.height).toBeCloseTo(mobile ? 163 : 259, 0);
+  const figure = page.locator('.article-page__body figure').first();
+  expect(await figure.evaluate((element) => {
+    const image = element.querySelector('img')!;
+    return image.getBoundingClientRect().width <= element.parentElement!.getBoundingClientRect().width;
+  })).toBe(true);
 
   const next = page.getByRole('navigation', { name: 'Article navigation' });
   await expect(next).toHaveCSS('display', 'flex');
-  const caret = next.locator('.article-page__next-chevron');
-  await expect(caret).toHaveAttribute('aria-hidden', 'true');
-  expect(await caret.evaluate((icon) => {
-    const styles = getComputedStyle(icon);
-    const rect = icon.getBoundingClientRect();
-    return {
-      backgroundColor: styles.backgroundColor,
-      borderBottomWidth: styles.borderBottomWidth,
-      borderRightWidth: styles.borderRightWidth,
-      height: rect.height,
-      maskImage: styles.maskImage,
-      width: rect.width
-    };
-  })).toEqual({
-    backgroundColor: 'rgb(39, 36, 46)',
-    borderBottomWidth: '0px',
-    borderRightWidth: '0px',
-    height: 32,
-    maskImage: expect.not.stringMatching(/^none$/),
-    width: 18
-  });
   await expect(next.getByRole('link')).toHaveCSS('color', 'rgb(116, 65, 210)');
   await expect(next.getByRole('link')).toHaveCSS('text-decoration-line', 'none');
 
-  if (mobile) {
-    expect(await next.getByRole('link').evaluate((link) => {
-      const range = document.createRange();
-      range.selectNodeContents(link);
-      return range.getClientRects().length;
-    })).toBe(5);
+  if (mobile) expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(390);
+});
+
+test('article pagination keeps previous and next on one desktop row and stacks them on mobile', async ({ page }, testInfo) => {
+  await page.goto('/read/revolutionising-tech-from-nz');
+  await settleGeometry(page);
+
+  const navigation = page.getByRole('navigation', { name: 'Article navigation' });
+  const links = navigation.getByRole('link');
+  await expect(links).toHaveCount(2);
+  const geometry = await links.evaluateAll((nodes) => nodes.map((node) => {
+    const { left, top } = node.getBoundingClientRect();
+    return { left: Math.round(left), top: Math.round(top) };
+  }));
+
+  if (testInfo.project.name === 'desktop') {
+    await expect(navigation).toHaveCSS('flex-direction', 'row');
+    expect(geometry[0].top).toBe(geometry[1].top);
+    expect(geometry[0].left).toBeLessThan(geometry[1].left);
   } else {
-    await expect(engineer).toHaveCSS('object-fit', 'cover');
-    await expect(page.locator('.article-figure--engineer-float')).toHaveCSS('float', 'right');
+    await expect(navigation).toHaveCSS('flex-direction', 'column');
+    expect(geometry[0].top).toBeLessThan(geometry[1].top);
   }
 });
 
@@ -326,13 +319,13 @@ test('the footer keeps semantic links while permitting source-like inline wrappi
   const footer = page.locator('.site-footer');
   await expect(footer.getByRole('heading')).toHaveCount(0);
   const items = footer.locator('nav ul > li');
-  await expect(items).toHaveCount(6);
+  await expect(items).toHaveCount(5);
   expect(await items.evaluateAll((nodes) => nodes.map((node) => getComputedStyle(node).display))).toEqual(
-    Array(6).fill('inline')
+    Array(5).fill('inline')
   );
 
   if (testInfo.project.name === 'mobile') {
-    const copyright = await footer.locator('p').evaluate((node) => {
+    const copyright = await footer.locator('.site-footer__inner > p').evaluate((node) => {
       const range = document.createRange();
       range.selectNodeContents(node);
       return { lines: range.getClientRects().length, height: node.getBoundingClientRect().height };

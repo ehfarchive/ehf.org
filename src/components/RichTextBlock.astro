@@ -1,0 +1,11 @@
+---
+import { renderInlineHtml, type RichTextBlock } from '../lib/rich-text';
+
+interface Props {
+  block: RichTextBlock;
+}
+
+const { block } = Astro.props;
+const content = renderInlineHtml(block.children);
+---
+{block.kind === 'heading' ? <h2 data-level={block.level} set:html={content}></h2> : block.kind === 'list-item' ? <ul class="rich-text-list"><li set:html={content}></li></ul> : <p set:html={content}></p>}

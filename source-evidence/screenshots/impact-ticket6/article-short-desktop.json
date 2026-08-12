@@ -1,0 +1,135 @@
+{
+  "requestedUrl": "https://www.ehf.org/read/revolutionising-tech-from-nz",
+  "finalUrl": "https://www.ehf.org/read/revolutionising-tech-from-nz",
+  "capturedAt": "2026-08-09T14:26:36.712Z",
+  "title": "Revolutionising tech from NZ — Edmund Hillary Fellowship",
+  "headings": [
+    {
+      "level": 1,
+      "text": "Revolutionising tech from NZ"
+    },
+    {
+      "level": 2,
+      "text": "Disrupting lending systems"
+    },
+    {
+      "level": 2,
+      "text": "Cultivating regenerative organic futures"
+    },
+    {
+      "level": 3,
+      "text": "About‍   |   Fellows Directory‍   |‍  ‍ Impact  ‍ |   Archive‍   |   Closure Statement   |   Privacy"
+    }
+  ],
+  "documentHeightPx": 2386,
+  "viewport": {
+    "widthPx": 1440,
+    "heightPx": 1000,
+    "devicePixelRatio": 1
+  },
+  "media": {
+    "elements": [
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
+        "complete": true,
+        "naturalWidth": 914,
+        "naturalHeight": 154,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
+        "complete": true,
+        "naturalWidth": 914,
+        "naturalHeight": 154,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/c538dd17-46b4-40bf-90a9-d74df6f891d4/boydmulterer.jpg?format=1500w",
+        "complete": true,
+        "naturalWidth": 1440,
+        "naturalHeight": 864,
+        "remote": true
+      }
+    ],
+    "resources": [
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
+        "initiatorType": "img",
+        "durationMs": 6.9,
+        "transferSize": 0,
+        "encodedBodySize": 11666,
+        "decodedBodySize": 11666,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/c538dd17-46b4-40bf-90a9-d74df6f891d4/boydmulterer.jpg?format=1500w",
+        "initiatorType": "img",
+        "durationMs": 2.1,
+        "transferSize": 0,
+        "encodedBodySize": 194626,
+        "decodedBodySize": 194626,
+        "loaded": true,
+        "remote": true
+      }
+    ],
+    "loadedElementCount": 3,
+    "unloadedElementCount": 0,
+    "remoteElementCount": 3
+  },
+  "paginationLinks": [],
+  "fonts": {
+    "status": "loaded",
+    "size": 59
+  },
+  "state": "article-short",
+  "localRoute": "/read/revolutionising-tech-from-nz",
+  "captureViewport": {
+    "name": "desktop",
+    "widthPx": 1440,
+    "heightPx": 1000
+  },
+  "captureProcedure": {
+    "waitedForNetworkIdle": true,
+    "waitedForFonts": true,
+    "scrollIncrementPx": 600,
+    "returnedToTop": true,
+    "fullPageScreenshot": true,
+    "captureTransport": "Page.captureScreenshot via gstack browse shared Chromium without UI downscaling"
+  },
+  "health": {
+    "httpStatus": 200,
+    "redirectWithinApprovedEhfScope": true,
+    "consoleErrors": [],
+    "consoleWarnings": [
+      "[2026-08-09T14:26:35.581Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+      "[2026-08-09T14:26:35.581Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+      "[2026-08-09T14:26:35.581Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+      "[2026-08-09T14:26:35.581Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+      "[2026-08-09T14:26:35.581Z] [warning] yui: NOT loaded: squarespace-performance"
+    ],
+    "failedRequests": [],
+    "pendingRequestsAtInspection": [
+      "POST https://tracing.squarespace.com/v1/logs → pending (?ms, ?B)",
+      "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
+      "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
+    ],
+    "healthy": true
+  },
+  "provenance": {
+    "sourceHost": "www.ehf.org",
+    "captureTool": "gstack browse shared Chromium",
+    "runtimeAssetsCopiedIntoBuild": false
+  },
+  "screenshot": {
+    "path": "article-short-desktop.png",
+    "sha256": "f7abcaf58d5ddccea035b04d12c36aa7daf4c52001a7b271a5efbb1e5c965f2d",
+    "widthPx": 1440,
+    "heightPx": 2386,
+    "channels": 3,
+    "fullPage": true
+  }
+}

@@ -1,20 +1,19 @@
 ---
-import { fellowDirectory, navigationItems } from './navigation';
+import { navigationItems } from './navigation';
 ---
 <nav class="desktop-nav" aria-label="Primary navigation">
   <ul>
     {navigationItems.map((item) => item.children ? (
-      <li class="desktop-nav__folder" data-desktop-folder>
+      <li class="desktop-nav__folder" data-desktop-folder data-nav-item={item.label.toLowerCase()}>
         <button type="button" aria-expanded="false" aria-controls={`submenu-${item.label.toLowerCase()}`} data-menu-trigger>
           {item.label}
         </button>
-        <nav id={`submenu-${item.label.toLowerCase()}`} class="desktop-nav__submenu" aria-label={`${item.label} submenu`} hidden data-submenu>
+        <nav id={`submenu-${item.label.toLowerCase()}`} class="desktop-nav__submenu" aria-label={`${item.label} submenu`} hidden data-submenu data-desktop-submenu>
           <ul>
-            {item.children.map((child) => <li><a href={child.href}>{child.label}</a></li>)}
+            {item.children.map((child) => <li><a href={child.href} target={child.kind === 'external' ? '_blank' : undefined} rel={child.kind === 'external' ? 'noreferrer' : undefined}>{child.label}</a></li>)}
           </ul>
         </nav>
       </li>
-    ) : <li><a href={item.href}>{item.label}</a></li>)}
-    <li><a class="button button--directory" href={fellowDirectory.href}>{fellowDirectory.label}</a></li>
+    ) : <li data-nav-item={item.label.toLowerCase()}><a href={item.href}>{item.label}</a></li>)}
   </ul>
 </nav>

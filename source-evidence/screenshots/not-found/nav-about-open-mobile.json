@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "family": "not-found",
+  "route": "/404",
+  "sourceUrl": "https://www.ehf.org/404",
+  "httpStatus": 200,
+  "finalUrl": "https://www.ehf.org/404",
+  "state": "nav-about-open",
+  "stateDescription": "About navigation folder expanded: desktop opens the header folder dropdown, mobile opens the burger menu and expands the same folder.",
+  "sourceObserved": true,
+  "interaction": {
+    "mechanism": "mobile burger menu then folder expansion",
+    "control": "button.header-burger-btn + .header-menu-nav-item a[Folder: About]"
+  },
+  "viewport": {
+    "name": "mobile",
+    "width": 390,
+    "height": 844,
+    "deviceScaleFactor": 1
+  },
+  "capture": {
+    "reducedMotion": true,
+    "fontsReady": true,
+    "lazyLoadScrollPx": 600,
+    "fullPage": false,
+    "animations": "disabled"
+  },
+  "screenshot": {
+    "path": "source-evidence/screenshots/not-found/nav-about-open-mobile.png",
+    "widthPx": 390,
+    "heightPx": 844
+  },
+  "documentHeight": 848,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [],
+  "capturedAt": "2026-08-09T03:45:15.644Z"
+}

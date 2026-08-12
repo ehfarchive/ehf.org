@@ -1,950 +1,3415 @@
 {
-  "schemaVersion": 1,
-  "producer": "ContentAssetsPublicationRemediation",
-  "runtimeRoute": "openrouter/deepseek/deepseek-v4-flash-0731",
-  "generatedAt": "2026-08-08T06:39:16Z",
-  "scope": {
-    "routes": [
-      "/",
-      "/read",
-      "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
-      "/23-annual-report"
-    ]
-  },
-  "stats": {
-    "assetCount": 40,
-    "totalBytes": 32781469,
-    "pdfCount": 3,
-    "deduplicatedCount": 4,
-    "uniqueByteCount": 40
-  },
+  "schemaVersion": 2,
   "assets": [
     {
-      "id": "edmund-hillary-fellowship-limited-2023-financial-statements-pdf",
-      "role": "annual-report-pdf",
-      "sourceUrl": "https://static1.squarespace.com/static/5f3874da9e73700975a00b12/t/65763c4d62edb91666edc8e5/1754439764706/Edmund+Hillary+Fellowship+Limited+-+2023+Financial+Statements+%282%29.pdf",
+      "id": "asset-documents-certified-fs-hillary-institute-and-subsidiary-2022-pdf",
+      "classification": "local",
+      "localPath": "/assets/documents/certified-fs-hillary-institute-and-subsidiary-2022.pdf",
+      "sha256": "3d62b3ad366f3325d34e43b8cbc2b7987d67b7a6df5ca52a5a0a46b7ad8d5c63",
+      "bytes": 2821762,
+      "mediaType": "application/pdf",
+      "routeUses": [
+        "/22-annual-report"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-documents-edmund-hillary-fellowship-limited-2023-financial-statements-pdf",
+      "classification": "local",
       "localPath": "/assets/documents/edmund-hillary-fellowship-limited-2023-financial-statements.pdf",
       "sha256": "68fa767afc8e112fb3617c32f319fa788908472bab9e3fcfc532d5ba762d4109",
       "bytes": 1111587,
-      "contentType": "application/pdf",
-      "permissionStatus": "approved-local",
-      "attribution": "Public downloadable document on www.ehf.org/23-annual-report; EHF-owned, owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "application/pdf",
       "routeUses": [
         "/23-annual-report"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned document / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "ehf-hi-annual-report-2023-pdf",
-      "role": "annual-report-pdf",
-      "sourceUrl": "https://static1.squarespace.com/static/5f3874da9e73700975a00b12/t/654bd29348dd7301d92e71c8/1744598713755/EHF+HI+Annual+Report+2023.pdf",
+      "id": "asset-documents-ehf-hi-annual-report-2023-pdf",
+      "classification": "local",
       "localPath": "/assets/documents/ehf-hi-annual-report-2023.pdf",
       "sha256": "aff78c73d7574fafefc238392c692dfff1803ff5e7bcfed10ae229f5523d9021",
       "bytes": 3527782,
-      "contentType": "application/pdf",
-      "permissionStatus": "approved-local",
-      "attribution": "Public downloadable document on www.ehf.org/23-annual-report; EHF-owned, owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "application/pdf",
       "routeUses": [
         "/23-annual-report"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned document / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "the-hillary-institute-subsidiary-entities-2023-financial-statements-pdf",
-      "role": "annual-report-pdf",
-      "sourceUrl": "https://static1.squarespace.com/static/5f3874da9e73700975a00b12/t/6578bd2e08f84c1db21ab5ba/1754439764706/The+Hillary+Institute+of+International+Leadership+_+Subsidiary+Entities+-+2023+Financial+Stat+%282%29+%281%29.pdf",
+      "id": "asset-documents-hillary-institute-ehf-annual-report-2022-pdf",
+      "classification": "local",
+      "localPath": "/assets/documents/hillary-institute-ehf-annual-report-2022.pdf",
+      "sha256": "6c443487b0eed8a032890ba760b3ce68ce634ab1cba05bf43c426dfe370702e2",
+      "bytes": 7082662,
+      "mediaType": "application/pdf",
+      "routeUses": [
+        "/22-annual-report"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-documents-the-hillary-institute-subsidiary-entities-2023-financial-statements-pdf",
+      "classification": "local",
       "localPath": "/assets/documents/the-hillary-institute-subsidiary-entities-2023-financial-statements.pdf",
       "sha256": "83aa88a331e589e463595d9cd6c0d821b97847a82389364f0bdfc3226c7ea8e4",
       "bytes": 1230540,
-      "contentType": "application/pdf",
-      "permissionStatus": "approved-local",
-      "attribution": "Public downloadable document on www.ehf.org/23-annual-report; EHF-owned, owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "application/pdf",
       "routeUses": [
         "/23-annual-report"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned document / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "merriweather-300-italic-latin-ext-woff2",
-      "role": "font",
-      "sourceUrl": "https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/5a7a71f0-f5e5-4aea-9f95-8bee1071bee3/latin-ext.woff2",
-      "localPath": "/assets/fonts/merriweather-300-italic-latin-ext.woff2",
-      "sha256": "5cc39bd526a2c29c3ffe4d21d042f1fd30d9ee124a64af5e2fa4aca610dd27ca",
-      "bytes": 73584,
-      "contentType": "font/woff2",
-      "permissionStatus": "approved-local",
-      "attribution": "OFL-1.1 font shadowed locally from www.ehf.org / images.squarespace-cdn.com (source https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/5a7a71f0-f5e5-4aea-9f95-8bee1071bee3/latin-ext.woff2). Copyright 2024 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather4), with Reserved Font Name \"Merriweather\". Full OFL 1.1 text and notice shipped with /assets/fonts/.",
-      "routeUses": [
-        "/",
-        "/read",
-        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
-        "/23-annual-report"
-      ],
-      "retainedExternalUrl": null,
-      "license": "SIL Open Font License 1.1 (OFL-1.1)",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution",
-        "licenseFamily": "OFL-1.1",
-        "licenseNotice": "Copyright 2024 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather4), with Reserved Font Name \"Merriweather\""
-      }
-    },
-    {
-      "id": "merriweather-300-italic-latin-woff2",
-      "role": "font",
-      "sourceUrl": "https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/098784a4-16b7-4286-a7c6-3311559a8a95/latin.woff2",
-      "localPath": "/assets/fonts/merriweather-300-italic-latin.woff2",
-      "sha256": "9157cc947f9e77ad62229b8ad990b3aa01418841954ebd21246c238bd3785d05",
-      "bytes": 97900,
-      "contentType": "font/woff2",
-      "permissionStatus": "approved-local",
-      "attribution": "OFL-1.1 font shadowed locally from www.ehf.org / images.squarespace-cdn.com (source https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/098784a4-16b7-4286-a7c6-3311559a8a95/latin.woff2). Copyright 2024 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather4), with Reserved Font Name \"Merriweather\". Full OFL 1.1 text and notice shipped with /assets/fonts/.",
-      "routeUses": [
-        "/",
-        "/read",
-        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
-        "/23-annual-report"
-      ],
-      "retainedExternalUrl": null,
-      "license": "SIL Open Font License 1.1 (OFL-1.1)",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution",
-        "licenseFamily": "OFL-1.1",
-        "licenseNotice": "Copyright 2024 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather4), with Reserved Font Name \"Merriweather\""
-      }
-    },
-    {
-      "id": "merriweather-300-latin-ext-woff2",
-      "role": "font",
-      "sourceUrl": "https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/c74501d2-fa87-406d-b097-39df7ed42a23/latin-ext.woff2",
-      "localPath": "/assets/fonts/merriweather-300-latin-ext.woff2",
-      "sha256": "e3412b907546065d12773cb6e99947cbf60f1e0a8388a8170d2f6c457b660759",
-      "bytes": 70208,
-      "contentType": "font/woff2",
-      "permissionStatus": "approved-local",
-      "attribution": "OFL-1.1 font shadowed locally from www.ehf.org / images.squarespace-cdn.com (source https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/c74501d2-fa87-406d-b097-39df7ed42a23/latin-ext.woff2). Copyright 2024 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather4), with Reserved Font Name \"Merriweather\". Full OFL 1.1 text and notice shipped with /assets/fonts/.",
-      "routeUses": [
-        "/",
-        "/read",
-        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
-        "/23-annual-report"
-      ],
-      "retainedExternalUrl": null,
-      "license": "SIL Open Font License 1.1 (OFL-1.1)",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution",
-        "licenseFamily": "OFL-1.1",
-        "licenseNotice": "Copyright 2024 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather4), with Reserved Font Name \"Merriweather\""
-      }
-    },
-    {
-      "id": "merriweather-300-latin-woff2",
-      "role": "font",
-      "sourceUrl": "https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/c0120ee3-d64a-4b32-b3e3-5944e8eb8664/latin.woff2",
-      "localPath": "/assets/fonts/merriweather-300-latin.woff2",
-      "sha256": "57ac203a6565fbb60a2285b7e1c0577b363b646174da288457e7a422ce049f53",
-      "bytes": 95360,
-      "contentType": "font/woff2",
-      "permissionStatus": "approved-local",
-      "attribution": "OFL-1.1 font shadowed locally from www.ehf.org / images.squarespace-cdn.com (source https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/c0120ee3-d64a-4b32-b3e3-5944e8eb8664/latin.woff2). Copyright 2024 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather4), with Reserved Font Name \"Merriweather\". Full OFL 1.1 text and notice shipped with /assets/fonts/.",
-      "routeUses": [
-        "/",
-        "/read",
-        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
-        "/23-annual-report"
-      ],
-      "retainedExternalUrl": null,
-      "license": "SIL Open Font License 1.1 (OFL-1.1)",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution",
-        "licenseFamily": "OFL-1.1",
-        "licenseNotice": "Copyright 2024 The Merriweather Project Authors (https://github.com/EbenSorkin/Merriweather4), with Reserved Font Name \"Merriweather\""
-      }
-    },
-    {
-      "id": "roboto-700-italic-latin-ext-woff2",
-      "role": "font",
-      "sourceUrl": "https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/a1817c48-4c90-4bc9-9077-0161466f6da9/latin-ext.woff2",
-      "localPath": "/assets/fonts/roboto-700-italic-latin-ext.woff2",
-      "sha256": "35a8163ab457ede2fad30cbda5df8934b9f3e70b75e3fee94a11bb2f59d04aa7",
-      "bytes": 22888,
-      "contentType": "font/woff2",
-      "permissionStatus": "approved-local",
-      "attribution": "OFL-1.1 font shadowed locally from www.ehf.org / images.squarespace-cdn.com (source https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/a1817c48-4c90-4bc9-9077-0161466f6da9/latin-ext.woff2). Copyright 2011 The Roboto Project Authors (https://github.com/googlefonts/roboto-classic). Full OFL 1.1 text and notice shipped with /assets/fonts/.",
-      "routeUses": [
-        "/",
-        "/read",
-        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
-        "/23-annual-report"
-      ],
-      "retainedExternalUrl": null,
-      "license": "SIL Open Font License 1.1 (OFL-1.1)",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution",
-        "licenseFamily": "OFL-1.1",
-        "licenseNotice": "Copyright 2011 The Roboto Project Authors (https://github.com/googlefonts/roboto-classic)"
-      }
-    },
-    {
-      "id": "roboto-700-italic-latin-woff2",
-      "role": "font",
-      "sourceUrl": "https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/7eb1420a-ddb6-4804-ae07-1af5dfc2a7f5/latin.woff2",
-      "localPath": "/assets/fonts/roboto-700-italic-latin.woff2",
-      "sha256": "093083ba0c922d04a18db9f5bc6b8ec9301858f4baef38ffd5248956e6d0ac8c",
-      "bytes": 34372,
-      "contentType": "font/woff2",
-      "permissionStatus": "approved-local",
-      "attribution": "OFL-1.1 font shadowed locally from www.ehf.org / images.squarespace-cdn.com (source https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/7eb1420a-ddb6-4804-ae07-1af5dfc2a7f5/latin.woff2). Copyright 2011 The Roboto Project Authors (https://github.com/googlefonts/roboto-classic). Full OFL 1.1 text and notice shipped with /assets/fonts/.",
-      "routeUses": [
-        "/",
-        "/read",
-        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
-        "/23-annual-report"
-      ],
-      "retainedExternalUrl": null,
-      "license": "SIL Open Font License 1.1 (OFL-1.1)",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution",
-        "licenseFamily": "OFL-1.1",
-        "licenseNotice": "Copyright 2011 The Roboto Project Authors (https://github.com/googlefonts/roboto-classic)"
-      }
-    },
-    {
-      "id": "roboto-700-latin-ext-woff2",
-      "role": "font",
-      "sourceUrl": "https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/0bf6b02d-72f7-4a4a-b433-cd007998fec7/latin-ext.woff2",
-      "localPath": "/assets/fonts/roboto-700-latin-ext.woff2",
-      "sha256": "2b24b306a5f592a477a5745518da6db68cc2c6737c80fc52e43a7c2b778e58e9",
-      "bytes": 20724,
-      "contentType": "font/woff2",
-      "permissionStatus": "approved-local",
-      "attribution": "OFL-1.1 font shadowed locally from www.ehf.org / images.squarespace-cdn.com (source https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/0bf6b02d-72f7-4a4a-b433-cd007998fec7/latin-ext.woff2). Copyright 2011 The Roboto Project Authors (https://github.com/googlefonts/roboto-classic). Full OFL 1.1 text and notice shipped with /assets/fonts/.",
-      "routeUses": [
-        "/",
-        "/read",
-        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
-        "/23-annual-report"
-      ],
-      "retainedExternalUrl": null,
-      "license": "SIL Open Font License 1.1 (OFL-1.1)",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution",
-        "licenseFamily": "OFL-1.1",
-        "licenseNotice": "Copyright 2011 The Roboto Project Authors (https://github.com/googlefonts/roboto-classic)"
-      }
-    },
-    {
-      "id": "roboto-700-latin-woff2",
-      "role": "font",
-      "sourceUrl": "https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/c5eb5305-ba43-45a4-97e1-2fcb7b175375/latin.woff2",
-      "localPath": "/assets/fonts/roboto-700-latin.woff2",
-      "sha256": "87e0911de2f1fcfac96376f3019699425b82e25b16ce1facd93a255b76f67657",
-      "bytes": 30504,
-      "contentType": "font/woff2",
-      "permissionStatus": "approved-local",
-      "attribution": "OFL-1.1 font shadowed locally from www.ehf.org / images.squarespace-cdn.com (source https://file.squarespace-cdn.com/content/v2/namespaces/fonts/libraries/sqsp/assets/c5eb5305-ba43-45a4-97e1-2fcb7b175375/latin.woff2). Copyright 2011 The Roboto Project Authors (https://github.com/googlefonts/roboto-classic). Full OFL 1.1 text and notice shipped with /assets/fonts/.",
-      "routeUses": [
-        "/",
-        "/read",
-        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
-        "/23-annual-report"
-      ],
-      "retainedExternalUrl": null,
-      "license": "SIL Open Font License 1.1 (OFL-1.1)",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution",
-        "licenseFamily": "OFL-1.1",
-        "licenseNotice": "Copyright 2011 The Roboto Project Authors (https://github.com/googlefonts/roboto-classic)"
-      }
-    },
-    {
-      "id": "author-avatar-webp",
-      "role": "article-author-avatar",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v2/namespaces/memberAccountAvatars/libraries/64222092b1babe5cc24ce119/fe4c2970e38845428b92e0723ae0056d/fe4c2970e38845428b92e0723ae0056d.jpeg",
-      "localPath": "/assets/images/article/author-avatar.webp",
-      "sha256": "26efe01853d7a8152f4872afbd1cb03c1bb933ffa222bfe2e3e17b3112f502b5",
-      "bytes": 1718,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v2/namespaces/memberAccountAvatars/libraries/64222092b1babe5cc24ce119/fe4c2970e38845428b92e0723ae0056d/fe4c2970e38845428b92e0723ae0056d.jpeg); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
-      "routeUses": [
-        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
-      ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
-    },
-    {
-      "id": "chemergy-figure-1-webp",
-      "role": "article-inline-figure",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/2449e596-40ac-407c-b703-41dc813ead85/Screenshot+2025-06-06+at+8.54.29+AM.png",
-      "localPath": "/assets/images/article/chemergy-figure-1.webp",
-      "sha256": "2aafaacda7bdf66f2c7c57acb4c87d7a584faafdb8c22480c0a0ad2b0592311f",
-      "bytes": 585340,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "Chemergy; reproduced locally from www.ehf.org public article for the Stage 1 spike with EHF-confirmed written permission for public redistribution (2026-08-08). © Chemergy.",
-      "routeUses": [
-        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
-      ],
-      "retainedExternalUrl": null,
-      "license": "Third-party © / owner-confirmed written permission",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "third-party-written-permission",
-        "creditedTo": "Chemergy"
-      }
-    },
-    {
-      "id": "chemergy-figure-2-webp",
-      "role": "article-inline-figure",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/ed144c81-6bfd-4a32-90fc-1963b72a1bc3/Screenshot+2025-06-06+at+8.56.16+AM.png",
-      "localPath": "/assets/images/article/chemergy-figure-2.webp",
-      "sha256": "21dfec2f49714d1ec73ba91711ddffccfe723026c12d85c3b6043b4e85e5871e",
-      "bytes": 179836,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "Chemergy; reproduced locally from www.ehf.org public article for the Stage 1 spike with EHF-confirmed written permission for public redistribution (2026-08-08). © Chemergy.",
-      "routeUses": [
-        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
-      ],
-      "retainedExternalUrl": null,
-      "license": "Third-party © / owner-confirmed written permission",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "third-party-written-permission",
-        "creditedTo": "Chemergy"
-      }
-    },
-    {
-      "id": "chemergy-hero-webp",
-      "role": "article-inline-image",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/a0566b7c-2063-4b71-92d2-6b52e84709f0/hero_seaweed_940x529.jpg",
-      "localPath": "/assets/images/article/chemergy-hero.webp",
-      "sha256": "91cefb0ea232dce6848620828b12f46247727b87318eca61841031c099841722",
-      "bytes": 122330,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "Michael Montero / University of Miami (UM) News; reproduced locally from www.ehf.org public article for the Stage 1 spike with EHF-confirmed written permission for public redistribution (2026-08-08). © Michael Montero / University of Miami (UM) News.",
-      "routeUses": [
-        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
-      ],
-      "retainedExternalUrl": null,
-      "license": "Third-party © / owner-confirmed written permission",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "third-party-written-permission",
-        "creditedTo": "Michael Montero / University of Miami (UM) News"
-      }
-    },
-    {
-      "id": "dsc-3025-webp",
-      "role": "article-inline-image",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/2e2ca535-6551-4cad-8cee-2066393b0820/DSC_3025.JPG",
-      "localPath": "/assets/images/article/dsc-3025.webp",
-      "sha256": "b01b8d6913c2d122d5f2afec5efd4beadd901209bb33fe7ea70751557946b61c",
-      "bytes": 461822,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "Chemergy; reproduced locally from www.ehf.org public article for the Stage 1 spike with EHF-confirmed written permission for public redistribution (2026-08-08). © Chemergy.",
-      "routeUses": [
-        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
-      ],
-      "retainedExternalUrl": null,
-      "license": "Third-party © / owner-confirmed written permission",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "third-party-written-permission",
-        "creditedTo": "Chemergy"
-      }
-    },
-    {
-      "id": "melahn-webp",
-      "role": "article-inline-image",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/b80efcaf-4501-460e-b074-f7048d078dd6/Melahn.jpg",
-      "localPath": "/assets/images/article/melahn.webp",
-      "sha256": "d5e6c46c7891a00400d01d5b0916d1049ad0fdb3bd068a65fb8b30ca271dea8f",
-      "bytes": 30156,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/b80efcaf-4501-460e-b074-f7048d078dd6/Melahn.jpg); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
-      "routeUses": [
-        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
-      ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
-    },
-    {
-      "id": "amy-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730144701269-YPDBLEEV8NBD9YE1U003/Amy+case+study_Annual+Report+Highlights+%28LinkedIn+Post%29.png",
+      "id": "asset-images-cards-amy-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/amy.webp",
       "sha256": "f254b322ced19808435b934e93e9ac5649d877ca3f7a7a1949db2576dacc86c9",
       "bytes": 1213362,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730144701269-YPDBLEEV8NBD9YE1U003/Amy+case+study_Annual+Report+Highlights+%28LinkedIn+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "anthony-lee-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730932021378-D678R17K048CSNEN8GR0/Anthony+Lee+case+study_Annual+Report+Highlights+%28LinkedIn+Post%29.png",
+      "id": "asset-images-cards-anthony-lee-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/anthony-lee.webp",
       "sha256": "64e6c667b57fdd071ede9dd9607651957f433830b82afeae996703d79f0ba073",
       "bytes": 1197130,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730932021378-D678R17K048CSNEN8GR0/Anthony+Lee+case+study_Annual+Report+Highlights+%28LinkedIn+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "atypical-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1731357318328-7JTHCFJKH8PKS64JPBMF/_Atypical+case+study_Annual+Report+Highlights+%28LinkedIn+Post%29.png",
+      "id": "asset-images-cards-atypical-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/atypical.webp",
       "sha256": "51eafd673a00a9f6f4ecbdac08f7573dcd200463af38d284b199dd68c0ee8eac",
       "bytes": 1233074,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1731357318328-7JTHCFJKH8PKS64JPBMF/_Atypical+case+study_Annual+Report+Highlights+%28LinkedIn+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "biogold-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1733953966679-2SVMY1YG59QLKYPXWKE9/Biogold+LinkedIn+Post+%28LinkedIn+Post%29.png",
+      "id": "asset-images-cards-biogold-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/biogold.webp",
       "sha256": "445ad9eb2809a7e5bd0ef6936acea5cf6d22d7859885b424beda1e3e8fb9f37e",
       "bytes": 1080016,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1733953966679-2SVMY1YG59QLKYPXWKE9/Biogold+LinkedIn+Post+%28LinkedIn+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "chemergy-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1749157566486-5BOI3J4XVBNCEBIYZNCZ/Chemergy+LinkedIn+Post+%28LinkedIn+Post%29.png",
+      "id": "asset-images-cards-chemergy-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/chemergy.webp",
       "sha256": "c8b77e45b2849182a549626a67b2db8401a6b705676f6a8e1f200d628b217b96",
       "bytes": 1471096,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1749157566486-5BOI3J4XVBNCEBIYZNCZ/Chemergy+LinkedIn+Post+%28LinkedIn+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "earthshare-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1724707963855-X1ULWZ8TEZKTBMEIDJ64/EarthShare+LinkedIn+Post+%28Instagram+Post%29.png",
+      "id": "asset-images-cards-earthshare-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/earthshare.webp",
       "sha256": "ce5c0e46ef066120cc5160a3610594ca24ab5eed1d5e2a7f32d2c713ec8cb751",
       "bytes": 1453086,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1724707963855-X1ULWZ8TEZKTBMEIDJ64/EarthShare+LinkedIn+Post+%28Instagram+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "energybank-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730238191006-FOS77XW2IY7KK0L5X2FJ/Case+study+EnergyBank_Annual+Report+Highlights+%28LinkedIn+Post%29.png",
+      "id": "asset-images-cards-energybank-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/energybank.webp",
       "sha256": "82cbdfe1ce682ed39e630e53a70123e99a15c59936a9caaf7f28cd897fbcdcfd",
       "bytes": 1227568,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730238191006-FOS77XW2IY7KK0L5X2FJ/Case+study+EnergyBank_Annual+Report+Highlights+%28LinkedIn+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "futureverse-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1729718676038-9VPEBKDHB9A1S73R5B0F/Case+study+Futureverse_Annual+Report+Highlights+%28Instagram+Post%29.png",
+      "id": "asset-images-cards-futureverse-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/futureverse.webp",
       "sha256": "08e040b90fedf7a8ef7e24bc24a86cbf7db237f2d7dc164f80de6a98ab26d3bc",
       "bytes": 893808,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1729718676038-9VPEBKDHB9A1S73R5B0F/Case+study+Futureverse_Annual+Report+Highlights+%28Instagram+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "hauora-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718832243281-OTKCBYAKJ5IRAI88VPXC/Hauora+Aotearoa+web+thumbnail+.png",
+      "id": "asset-images-cards-hauora-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/hauora.webp",
       "sha256": "abc032d840136f85935a538f1dc64c477ae0dccfd8c19781916d740a58783dc8",
       "bytes": 1402458,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718832243281-OTKCBYAKJ5IRAI88VPXC/Hauora+Aotearoa+web+thumbnail+.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "hazel-niue-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718673599384-OE9H244NAUMC1X2C47YO/Hazel+Niue+web+thumbnail++%281%29.png",
+      "id": "asset-images-cards-hazel-niue-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/hazel-niue.webp",
       "sha256": "75d9766b3462573fc26c20274eb03423a91e1cb5c78241b6246db3c9764b9416",
       "bytes": 1293496,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718673599384-OE9H244NAUMC1X2C47YO/Hazel+Niue+web+thumbnail++%281%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "humble-bee-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1725325653316-OZCEM3YQ1N0P6E0C9V7G/Humble+Bee+Bio+LinkedIn+Post+%28LinkedIn+Post%29.png",
+      "id": "asset-images-cards-humble-bee-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/humble-bee.webp",
       "sha256": "25db36442ea3b594b9cc0ee7d0cc1d37493d7cdb9929e875429c9b2784118ac5",
       "bytes": 1209984,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1725325653316-OZCEM3YQ1N0P6E0C9V7G/Humble+Bee+Bio+LinkedIn+Post+%28LinkedIn+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "i-am-the-river-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1720659078584-FNE9IKYK0QLG63BNID5E/I+am+the+river+web+thumbnail++%28Facebook+Post%29.png",
+      "id": "asset-images-cards-i-am-the-river-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/i-am-the-river.webp",
       "sha256": "1b0869868c29b911952265aedd1cd020f667fec2cbecfa6f1367795e5be6873c",
       "bytes": 1281510,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1720659078584-FNE9IKYK0QLG63BNID5E/I+am+the+river+web+thumbnail++%28Facebook+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "james-mielke-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718926135768-UAF3FNR25JVGE4PT229R/James+Mielke+web+thumbnail++%282%29.png",
+      "id": "asset-images-cards-james-mielke-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/james-mielke.webp",
       "sha256": "8fb119a0bca3e09003f452b2119a781588fd5ac535a3c021fd0f194558c5c235",
       "bytes": 679598,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718926135768-UAF3FNR25JVGE4PT229R/James+Mielke+web+thumbnail++%282%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "mea-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730940947147-939G150OPSKPC1RF0H8C/Case+study+MEA_Annual+Report+Highlights+%28LinkedIn+Post%29.png",
+      "id": "asset-images-cards-mea-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/mea.webp",
       "sha256": "76199ed3cb0971820621b2480f8716de70b29553bd56b763372e44ad303f6378",
       "bytes": 1225862,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1730940947147-939G150OPSKPC1RF0H8C/Case+study+MEA_Annual+Report+Highlights+%28LinkedIn+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "nikora-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1715571405467-EGAJI0L77ZN9YZSOFRNW/1.+Nikora+IG.png",
+      "id": "asset-images-cards-nikora-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/nikora.webp",
       "sha256": "655e6732832dd6d8e95799bb56474278d46cc8ba0a239c84dbc3e227f26d5cda",
       "bytes": 709866,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1715571405467-EGAJI0L77ZN9YZSOFRNW/1.+Nikora+IG.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "oceanworks-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1725496808914-NDJ7NT5XHB2SV44KJ7BA/Oceanworks+LinkedIn+Post+%28LinkedIn+Post%29.png",
+      "id": "asset-images-cards-oceanworks-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/oceanworks.webp",
       "sha256": "765eb9def0bc0cace5b531c8747e37ced6fcceb76fa2a57242781305369931c7",
       "bytes": 1519386,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1725496808914-NDJ7NT5XHB2SV44KJ7BA/Oceanworks+LinkedIn+Post+%28LinkedIn+Post%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "sonnar-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1716935133635-VS2H6XBXAQJ6CRY1ZRA9/Sonnar+web+thumbnail.png",
+      "id": "asset-images-cards-sonnar-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/sonnar.webp",
       "sha256": "79562cf34ab31e7e398f563de124215661789cfe0fc2541cd0d9c6c4211eb7f5",
       "bytes": 1183372,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1716935133635-VS2H6XBXAQJ6CRY1ZRA9/Sonnar+web+thumbnail.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "te-pa-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718923635044-XH7DWPRNWMPOAR2Q5B21/Te+Pa%CC%84+web+thumbnail+.png",
+      "id": "asset-images-cards-te-pa-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/te-pa.webp",
       "sha256": "607280e6dcfe230a167d0d8e3548714e4431602b0fd6105cfcd0f4b457726e32",
       "bytes": 640644,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718923635044-XH7DWPRNWMPOAR2Q5B21/Te+Pa%CC%84+web+thumbnail+.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "tolaga-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718579599587-CM26IDCPZ6ENPPQWOM1Y/Tolaga.org+web+thumbnail+.png",
+      "id": "asset-images-cards-tolaga-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/tolaga.webp",
       "sha256": "d8efeefd0d59da54a9b4b508900458b711d34d5e05c91737d9393f71a1caf178",
       "bytes": 1049900,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1718579599587-CM26IDCPZ6ENPPQWOM1Y/Tolaga.org+web+thumbnail+.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "usedfully-webp",
-      "role": "read-card",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1724015315445-XFI7IGNVDKL09KVB9YNC/UsedFULLY+LinkedIn+Post.png",
+      "id": "asset-images-cards-usedfully-webp",
+      "classification": "local",
       "localPath": "/assets/images/cards/usedfully.webp",
       "sha256": "0e73e79057488b14792e592a831047fb904747fb36105751f7fcf122b5e0d97e",
       "bytes": 2066118,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1724015315445-XFI7IGNVDKL09KVB9YNC/UsedFULLY+LinkedIn+Post.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/read"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "ehf-logo-webp",
-      "role": "header-logo",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png",
-      "localPath": "/assets/images/ehf-logo.webp",
-      "sha256": "ecda70e8cfbe766d88aef42cb76fcc5825051643cbbc8a6e02411012d271f075",
-      "bytes": 11472,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "id": "asset-images-content-2025-hillary-innovation-summit-breakout-sessions-summary-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/2025-hillary-innovation-summit-breakout-sessions-summary-1.webp",
+      "sha256": "7d18f702724876ec78663077701644ed502baed45ae2affaff8b66f24119ab9e",
+      "bytes": 1155662,
+      "mediaType": "image/webp",
       "routeUses": [
-        "/",
-        "/read",
-        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
-        "/23-annual-report"
+        "/2025-hillary-innovation-summit-breakout-sessions-summary"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "home-hero-webp",
-      "role": "home-hero",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/5d75a977-434f-4dc6-b990-59e19761ec7a/Copy+of+Pukaki+banner+mock+up+%289%29.png",
+      "id": "asset-images-content-about-ehf-hero-mountain-png",
+      "classification": "local",
+      "localPath": "/assets/images/content/about-ehf-hero-mountain.png",
+      "sha256": "037b1ff613727d7f4902b097c1a318bae778751293e8831ada75c9f0b4f066a2",
+      "bytes": 561464,
+      "mediaType": "image/png",
+      "routeUses": [
+        "/about-ehf"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-2021-2022-annual-report-shows-year-of-impact-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-2021-2022-annual-report-shows-year-of-impact-1.webp",
+      "sha256": "f1a015c3a0ec597db8e548b0b57e0b43e6988a4815ced2707c49d60606369be9",
+      "bytes": 84024,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/2021-2022-annual-report-shows-year-of-impact"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz-1.webp",
+      "sha256": "d62a66fc6768e98aa1e8c75a6f78dca776019cb0425684c9b12b33b6e9704f43",
+      "bytes": 339290,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz-2.webp",
+      "sha256": "31cf6cf63794b3fc9a320db2ff7c3748319c90b1db78e91b930c7ed790e76d90",
+      "bytes": 127596,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-2023-a-year-of-connections-impact-and-milestones-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-2023-a-year-of-connections-impact-and-milestones-1.webp",
+      "sha256": "d58f1f755b641061842accccb1ffb4ea8812c861ce020fb288a1b3a2224ff8c7",
+      "bytes": 86654,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/2023-a-year-of-connections-impact-and-milestones"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-2023-a-year-of-connections-impact-and-milestones-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-2023-a-year-of-connections-impact-and-milestones-2.webp",
+      "sha256": "017a42ce1ebf744e0788f62a8eb105eaa36ac4b0ff02accfc612033e2502c783",
+      "bytes": 282380,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/2023-a-year-of-connections-impact-and-milestones"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-2023-a-year-of-connections-impact-and-milestones-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-2023-a-year-of-connections-impact-and-milestones-3.webp",
+      "sha256": "0d565365e5c140a2e719ff31171ccf9cde589043aa284d0730900637a97c6ada",
+      "bytes": 552278,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/2023-a-year-of-connections-impact-and-milestones"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-2023-a-year-of-connections-impact-and-milestones-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-2023-a-year-of-connections-impact-and-milestones-4.webp",
+      "sha256": "9b5bd6b4bc13fd12b328a0dc2b3bc3d8013d9e4c46540444a0bdbfa65cec0bc3",
+      "bytes": 1663916,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/2023-a-year-of-connections-impact-and-milestones"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-a-new-expedition-the-mission-studio-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-a-new-expedition-the-mission-studio-1.webp",
+      "sha256": "f08106258ad935a872691e3118a2463d7fdcabbf9e3ae15d01ea7e26f9e0b3f8",
+      "bytes": 2129758,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/a-new-expedition-the-mission-studio"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-a-new-expedition-the-mission-studio-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-a-new-expedition-the-mission-studio-2.webp",
+      "sha256": "eefe188a02276d351487b40a8e61ff53583809cea894ed10af8cb5e5425a4772",
+      "bytes": 211074,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/a-new-expedition-the-mission-studio"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-a-new-expedition-the-mission-studio-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-a-new-expedition-the-mission-studio-3.webp",
+      "sha256": "2735d03e002cc82e1ceebff2bc209c548cefaf4e547fc61674eb4332c2206fcf",
+      "bytes": 43730,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/a-new-expedition-the-mission-studio"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-a-year-of-impact-value-and-momentum-2023-24-annual-report-1-jpg",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-a-year-of-impact-value-and-momentum-2023-24-annual-report-1.jpg",
+      "sha256": "a2b6f37b53b32f56733687955707734a8bc20025f0799158bcf75a5c8b8a6471",
+      "bytes": 599081,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-announcing-the-new-ceo-for-ehf-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-announcing-the-new-ceo-for-ehf-1.webp",
+      "sha256": "903dc772e49d1111ca6aa4d49a70a802f9d702a5e9e4a07d0b5291c85b8011da",
+      "bytes": 49746,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/announcing-the-new-ceo-for-ehf"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit-1.webp",
+      "sha256": "038576de220298843368b01ddb4de74f76a7dfc5a3f0484b9af75c3770aab28e",
+      "bytes": 297190,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit-2.webp",
+      "sha256": "858e2bf21596719f91b73a412892b2ed0eb4046405dc831a428a44f5effd03aa",
+      "bytes": 405944,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit-3.webp",
+      "sha256": "282e8fad5690d39e90c57aad95c7e8724ae2a8090b6bc924d658399f8637499b",
+      "bytes": 382214,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit-4.webp",
+      "sha256": "c9ab103be28ccd133730654d9846b651f59cf0172d8805ebc093f8cf30520913",
+      "bytes": 311386,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit-5-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit-5.webp",
+      "sha256": "d3a02810a8a542e8177cdbc566fd631aaeedefb2ee2174c7ab0f9fb44ae8ebfe",
+      "bytes": 176356,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit-6-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit-6.webp",
+      "sha256": "668bb436feb32b6a3dce6e452c06a549740f328da3c01fe84b0f2ee165393836",
+      "bytes": 167656,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-building-innovation-growth-through-global-talent-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-building-innovation-growth-through-global-talent-1.webp",
+      "sha256": "591a29295706e3fe65ad9092ac09c90a8b7c36c4700a172fe2f8681ebc6e85a8",
+      "bytes": 1002728,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/building-innovation-growth-through-global-talent"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-closer-alignment-between-hillary-institute-ehf-to-unlock-potential-1-jpg",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-closer-alignment-between-hillary-institute-ehf-to-unlock-potential-1.jpg",
+      "sha256": "e65609bd2a6bc8c228c022350959e394182f215f893f2fd18453491545e1f826",
+      "bytes": 185040,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/news-blog/closer-alignment-between-hillary-institute-ehf-to-unlock-potential"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-1.webp",
+      "sha256": "7d0668f8f4bfc855b2d1cbe7d2a7ac321f5cd495a7a056f749859852691a1920",
+      "bytes": 594894,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/ehf-welcomes-95-fellows-in-march-welcome-experience"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-2.webp",
+      "sha256": "92fb19264ecb8266c6fe10577c88d64b41ffc4c98a8dd6cd935e51966fbdf8b1",
+      "bytes": 367144,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/ehf-welcomes-95-fellows-in-march-welcome-experience"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-3.webp",
+      "sha256": "4ce85a4f1126831244f00dd659dd0474bcea9876b35394e25fd5562c300379a0",
+      "bytes": 821202,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/ehf-welcomes-95-fellows-in-march-welcome-experience"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-4.webp",
+      "sha256": "4fd2f987949142cc39a782bfe95494f9146b5f81e5c447f519ed7c8a68f06476",
+      "bytes": 465610,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/ehf-welcomes-95-fellows-in-march-welcome-experience"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-5-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-5.webp",
+      "sha256": "c0d4a3e9fc2a5f5406bf737f657fece88e0e9e415999d8b7f5abd12ebca2fca7",
+      "bytes": 422516,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/ehf-welcomes-95-fellows-in-march-welcome-experience"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-6-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-6.webp",
+      "sha256": "cbdace30d0b7002f352fb46392ebe44d61f0127d358ab5baf4e9eaac4ac68912",
+      "bytes": 289312,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/ehf-welcomes-95-fellows-in-march-welcome-experience"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-7-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-7.webp",
+      "sha256": "3360efa6670dfde75d765cf83fe007749e466aa08b3efa810ac25c8a03cebea9",
+      "bytes": 477222,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/ehf-welcomes-95-fellows-in-march-welcome-experience"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-ehf-welcomes-more-than-100-fellows-in-2022-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehf-welcomes-more-than-100-fellows-in-2022-1.webp",
+      "sha256": "726abd63e1c0edbda8f9ff7abdbafe9d51296cb1d7960623d23f802e702198bc",
+      "bytes": 278086,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/ehf-welcomes-more-than-100-fellows-in-2022"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-ehf-welcomes-more-than-100-fellows-in-2022-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehf-welcomes-more-than-100-fellows-in-2022-2.webp",
+      "sha256": "e851d7863f0ddfdb105dbb76df85f17d2333485dcb7d4e28f5cd75d764cf8fa6",
+      "bytes": 693244,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/ehf-welcomes-more-than-100-fellows-in-2022"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-ehf-welcomes-more-than-100-fellows-in-2022-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehf-welcomes-more-than-100-fellows-in-2022-3.webp",
+      "sha256": "1753b9a442d1955ccc7447b5cb2df9885dcfe4d16e6c96d728de3087b8224a0a",
+      "bytes": 779246,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/ehf-welcomes-more-than-100-fellows-in-2022"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-1.webp",
+      "sha256": "5aaea1c2759f27af9d9d1656ba4371009e33c263700e34ecbe6e5b03714045c8",
+      "bytes": 974774,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-2.webp",
+      "sha256": "14695e1995561b167faa6f58ce1c0e5c8c80bfaf743f2cce077ab366264f4118",
+      "bytes": 700996,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-3.webp",
+      "sha256": "0c8f5a335f17eaf5a2db22110d5c40af7ce419fbf5a850f9d23ed4e40a45ca18",
+      "bytes": 382158,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-4.webp",
+      "sha256": "817ba56275dddada99ef0361b1b1fad4736975e55171b320fe6fcab56de8bba9",
+      "bytes": 343446,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-5-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-5.webp",
+      "sha256": "f09b816f87a8d6f506e833b5dd5b3b862145bed3fa84588c113f14632ff5f399",
+      "bytes": 519820,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-6-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-6.webp",
+      "sha256": "3163f0e7cb7099957e36df4de787e4b7ac9b5e2376b76e82959981eb0af32c0f",
+      "bytes": 379020,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-7-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-7.webp",
+      "sha256": "8cdd7fcde9b6bfab45284787f13a760f2e3ffef04e04dd7013e5ea6183829edd",
+      "bytes": 339026,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-8-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-8.webp",
+      "sha256": "fd2158747f5ac2e337e46cb884f7fa19b7cc4d8e410e96db7673caf745910e18",
+      "bytes": 207742,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-farewell-thank-you-and-congratulations-to-paul-atkins-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-farewell-thank-you-and-congratulations-to-paul-atkins-1.webp",
+      "sha256": "4eca31cdee32ac784e600a714e97188d60762b1323458d702899d38aa15bfbf7",
+      "bytes": 112792,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/farewell-thank-you-and-congratulations-to-paul-atkins"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-fellow-led-board-established-with-four-fellows-appointed-as-new-directors-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-fellow-led-board-established-with-four-fellows-appointed-as-new-directors-1.webp",
+      "sha256": "a1081c5600910ca13469a0d5cdfe006d1fd94549f96aede845de974630633be4",
+      "bytes": 49216,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/fellow-led-board-established-with-four-fellows-appointed-as-new-directors"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-fellow-led-board-established-with-four-fellows-appointed-as-new-directors-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-fellow-led-board-established-with-four-fellows-appointed-as-new-directors-2.webp",
+      "sha256": "346b19df025fbc6da0940d7db0e83e061483e0db83b61e4a5e287c95a505ff85",
+      "bytes": 11944,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/fellow-led-board-established-with-four-fellows-appointed-as-new-directors"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-fellow-led-board-established-with-four-fellows-appointed-as-new-directors-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-fellow-led-board-established-with-four-fellows-appointed-as-new-directors-3.webp",
+      "sha256": "a50874c9e0e4d62c9bdf93ee0f60f0811203bc3ffdbda9bb63095eb28441465a",
+      "bytes": 19458,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/fellow-led-board-established-with-four-fellows-appointed-as-new-directors"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-fellow-led-board-established-with-four-fellows-appointed-as-new-directors-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-fellow-led-board-established-with-four-fellows-appointed-as-new-directors-4.webp",
+      "sha256": "4ded4c4b4d444416fc07d5c98cebccc6b705e10bdab09ba0405be566cddd4196",
+      "bytes": 48748,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/fellow-led-board-established-with-four-fellows-appointed-as-new-directors"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members-1.webp",
+      "sha256": "4d222533c04bd7d25a9f05a0444b9960e9e6de2bc26c6bd8fe17e3773a131e00",
+      "bytes": 875748,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-impact-springboard-showcases-leading-innovation-for-global-impact-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-impact-springboard-showcases-leading-innovation-for-global-impact-1.webp",
+      "sha256": "9ebecaef25bd62ce01106cfebe357433546f9c088394b3475d3c5e99fde601dc",
+      "bytes": 1245554,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/impact-springboard-showcases-leading-innovation-for-global-impact"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-media-release-anna-kominik-announced-as-new-board-chair-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-media-release-anna-kominik-announced-as-new-board-chair-1.webp",
+      "sha256": "20e00ad2f6e421e2c9ecc152b7e1e24f1d7cf74af85623b42e24286cd17efbdd",
+      "bytes": 15366,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/media-release-anna-kominik-announced-as-new-board-chair"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp-1-png",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp-1.png",
+      "sha256": "eebeff4b7bb398f9592ceb414d98e64fedaf2db650625d8cfa09898f87d4dfee",
+      "bytes": 806786,
+      "mediaType": "image/png",
+      "routeUses": [
+        "/news-blog/media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report-1-jpg",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report-1.jpg",
+      "sha256": "feb1da266529431f3be834f39dc9c425300bfe60eaee210e69c54a53c61cee48",
+      "bytes": 605254,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/news-blog/media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson-1-jpg",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson-1.jpg",
+      "sha256": "39b6c0b826b668a50736298e304b95efb3de6c9ce38a14d502d2ebebf10b2b59",
+      "bytes": 616355,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/news-blog/navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected-1-jpg",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected-1.jpg",
+      "sha256": "8eda63c64bbe830273e300eba12bbc5491631948b1b80d0e98b3816d30e10355",
+      "bytes": 133113,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/news-blog/new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-reflections-of-sir-edmund-hillarys-legacy-on-everest-day-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-reflections-of-sir-edmund-hillarys-legacy-on-everest-day-1.webp",
+      "sha256": "e3a9fc506fc5bb2ba9304786f21511cfe36c86a75e1c2dec4593446616e741e6",
+      "bytes": 47450,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/reflections-of-sir-edmund-hillarys-legacy-on-everest-day"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-reflections-of-sir-edmund-hillarys-legacy-on-everest-day-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-reflections-of-sir-edmund-hillarys-legacy-on-everest-day-2.webp",
+      "sha256": "2c61d7b26d3e88cefa75de8238eff6e7c32dc6caf52381393f3d9909be55e473",
+      "bytes": 372138,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/reflections-of-sir-edmund-hillarys-legacy-on-everest-day"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-reflections-of-sir-edmund-hillarys-legacy-on-everest-day-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-reflections-of-sir-edmund-hillarys-legacy-on-everest-day-3.webp",
+      "sha256": "0a41d4fcb63e3cc87e11a1215089da6a91505950060e032d054eab2459263c85",
+      "bytes": 57270,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/reflections-of-sir-edmund-hillarys-legacy-on-everest-day"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-reflections-this-waitangi-day-2023-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-reflections-this-waitangi-day-2023-1.webp",
+      "sha256": "4acd449f46df1a5d8a8c0ec23402ffa17fa50a4f373fbdc88f687711294e3384",
+      "bytes": 3946752,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/reflections-this-waitangi-day-2023"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-reflections-this-waitangi-day-2024-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-reflections-this-waitangi-day-2024-1.webp",
+      "sha256": "e8e3b6df3dac90b2c47572517f350f15471fff04815436e4343d9531b0716fd5",
+      "bytes": 250356,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/reflections-this-waitangi-day-2024"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill-1-png",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill-1.png",
+      "sha256": "3f040fe9eef9b841ce61b1c3e57b5b2686e03a9e0b1a0cd67f75c4e319949ba1",
+      "bytes": 2266889,
+      "mediaType": "image/png",
+      "routeUses": [
+        "/news-blog/the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-the-hillary-institute-ehf-submission-on-amending-foreign-investment-funds-rules-for-migrants-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-the-hillary-institute-ehf-submission-on-amending-foreign-investment-funds-rules-for-migrants-1.webp",
+      "sha256": "db4c69d73d368dae1d4c777e4bce7e61954ca69caf13a7d0c0d9334f9f0e121a",
+      "bytes": 144004,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/the-hillary-institute-ehf-submission-on-amending-foreign-investment-funds-rules-for-migrants"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-the-mission-studio-first-convening-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-the-mission-studio-first-convening-1.webp",
+      "sha256": "f30a03c394f912bc99b3b0d05b3e1f00b77b7b2b591ab6326df271008460ad00",
+      "bytes": 1290588,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/the-mission-studio-first-convening"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-the-mission-studio-first-convening-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-the-mission-studio-first-convening-2.webp",
+      "sha256": "f2eab5581df9bf0a6ea31e0603860489b9e79f9c3a29cb558e7f1686fdc13712",
+      "bytes": 343988,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/the-mission-studio-first-convening"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-the-mission-studio-first-convening-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-the-mission-studio-first-convening-3.webp",
+      "sha256": "c30c6fc85f7b09dd27ea562c3a1105199b04a3ceebe4906e6b6a2ba6b9fbdece",
+      "bytes": 123774,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/the-mission-studio-first-convening"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-the-mission-studio-first-convening-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-the-mission-studio-first-convening-4.webp",
+      "sha256": "cdeb816f2fa6ba8118dbf5ef734c9378dc3d6654860570cb4745c129aef5d8bc",
+      "bytes": 110590,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/the-mission-studio-first-convening"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-the-mission-studio-first-convening-5-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-the-mission-studio-first-convening-5.webp",
+      "sha256": "89573a65fb946e3cdf7494ba625da40bf746a3466889441738747985caa6e3d5",
+      "bytes": 744256,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/the-mission-studio-first-convening"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-the-mission-studio-first-convening-6-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-the-mission-studio-first-convening-6.webp",
+      "sha256": "018151a4e8b9f05ea5af127d6a36424449f7415d3fd2dc546dda79ff26dce1fa",
+      "bytes": 346896,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/the-mission-studio-first-convening"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-the-mission-studio-first-convening-7-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-the-mission-studio-first-convening-7.webp",
+      "sha256": "f40ce4951abd568beb6ea83bd820ced9114eb2420276d4aec078825cb7d44e8c",
+      "bytes": 247382,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/news-blog/the-mission-studio-first-convening"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-a-new-governance-landscape-on-the-moon-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-a-new-governance-landscape-on-the-moon-1.webp",
+      "sha256": "642963d988eed743301b7598a92d27408ee79f23817b4d5d85bca38e6b76d57c",
+      "bytes": 124546,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/a-new-governance-landscape-on-the-moon"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-a-new-governance-landscape-on-the-moon-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-a-new-governance-landscape-on-the-moon-2.webp",
+      "sha256": "7ae4dcb72e941f4e9d373a5024854b9dee2ec77de5bc49632d5d04e24ae6e6b8",
+      "bytes": 3862502,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/a-new-governance-landscape-on-the-moon"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-a-new-wave-of-entrepreneurial-talent-for-new-zealand-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-a-new-wave-of-entrepreneurial-talent-for-new-zealand-1.webp",
+      "sha256": "41410c7802fab92305020d710bfbac54c7dac3faab2ac67ea3210444ab1724d8",
+      "bytes": 394934,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/a-new-wave-of-entrepreneurial-talent-for-new-zealand"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-a-sweet-symphony-of-collaboration-and-impact-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-a-sweet-symphony-of-collaboration-and-impact-1.webp",
+      "sha256": "9088dd2d0ffa782241f8d12f6598d27b95d06770e362eb04172c016d6f0fe32f",
+      "bytes": 153948,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/a-sweet-symphony-of-collaboration-and-impact"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-a-sweet-symphony-of-collaboration-and-impact-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-a-sweet-symphony-of-collaboration-and-impact-2.webp",
+      "sha256": "a26c1b52a22595d8ee5d698a05e323bd549106a7367a0b50535e51ee375f5b9f",
+      "bytes": 532020,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/a-sweet-symphony-of-collaboration-and-impact"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-a-sweet-symphony-of-collaboration-and-impact-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-a-sweet-symphony-of-collaboration-and-impact-3.webp",
+      "sha256": "e16fe0321908bc9784679d7634a43fdbd3cdd51ea785d023c225b2ccea2a2a0b",
+      "bytes": 63816,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/a-sweet-symphony-of-collaboration-and-impact"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-a-sweet-symphony-of-collaboration-and-impact-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-a-sweet-symphony-of-collaboration-and-impact-4.webp",
+      "sha256": "d0626fe75f3392d31ba8613608f2c2ae22f0477edf53caa05633cf92db6fbfda",
+      "bytes": 272922,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/a-sweet-symphony-of-collaboration-and-impact"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-accelerating-impact-through-the-power-of-the-sun-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-accelerating-impact-through-the-power-of-the-sun-1.webp",
+      "sha256": "d46881b930f1570402bb1cfb438617c2c2295a9e86de73391db237a08028f686",
+      "bytes": 626678,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/accelerating-impact-through-the-power-of-the-sun"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-accelerating-impact-through-the-power-of-the-sun-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-accelerating-impact-through-the-power-of-the-sun-2.webp",
+      "sha256": "75fcceb91df9169b9594c21e408d30755e8e068a5e51966c4d015914703d5e93",
+      "bytes": 875718,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/accelerating-impact-through-the-power-of-the-sun"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-accelerating-impact-through-the-power-of-the-sun-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-accelerating-impact-through-the-power-of-the-sun-3.webp",
+      "sha256": "6a326da3abd78e4592745fe454f4069717f528549557cf47e6f6b09f80c9689b",
+      "bytes": 890298,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/accelerating-impact-through-the-power-of-the-sun"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-access-to-justice-through-collaborative-action-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-access-to-justice-through-collaborative-action-1.webp",
+      "sha256": "5b5b8f96e160357335cdd66991272bf2b5024d7207bc9d665e5f05ee23bab7f5",
+      "bytes": 913326,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/access-to-justice-through-collaborative-action"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-access-to-justice-through-collaborative-action-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-access-to-justice-through-collaborative-action-2.webp",
+      "sha256": "9e1d8b5062fff7ed7d3da0e53890d9d418b90b662555b2a5531880f1a563718c",
+      "bytes": 632812,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/access-to-justice-through-collaborative-action"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-accessible-tech-thats-breaking-down-barriers-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-accessible-tech-thats-breaking-down-barriers-1.webp",
+      "sha256": "400debfe6cc963375b1e0ff9d6bdf662ebe9266bf50a5a17d3d8c2ba5b619eef",
+      "bytes": 232222,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/accessible-tech-thats-breaking-down-barriers"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-activating-generational-change-for-aotearoa-nzs-wellbeing-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-activating-generational-change-for-aotearoa-nzs-wellbeing-1.webp",
+      "sha256": "004804856c615facf61ce9c0cc544915ea2bf54c9e461c45cc8455c6dc10b5ef",
+      "bytes": 165188,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/activating-generational-change-for-aotearoa-nzs-wellbeing"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-activating-generational-change-for-aotearoa-nzs-wellbeing-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-activating-generational-change-for-aotearoa-nzs-wellbeing-2.webp",
+      "sha256": "0c53e3af5acf6a20a4d41c44e1ab6332c67d7020db539a2f47b19993ad87bee4",
+      "bytes": 472430,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/activating-generational-change-for-aotearoa-nzs-wellbeing"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-activating-generational-change-for-aotearoa-nzs-wellbeing-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-activating-generational-change-for-aotearoa-nzs-wellbeing-3.webp",
+      "sha256": "1474762b1e69202c03af89e3ff4fc2959a8ef8b905610f254fe5803f07bd58f8",
+      "bytes": 208960,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/activating-generational-change-for-aotearoa-nzs-wellbeing"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-aerospace-venture-spotlight-kea-aerospace-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-aerospace-venture-spotlight-kea-aerospace-1.webp",
+      "sha256": "8cfdb1c9e78fee153435d1df41ecce34bf00e2c82f03f654aa1b1b2e4ae0e78c",
+      "bytes": 23394,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/aerospace-venture-spotlight-kea-aerospace"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-aotearoa-ideal-basecamp-for-space-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-aotearoa-ideal-basecamp-for-space-1.webp",
+      "sha256": "bff70cadbdeae4a9e9b4ca7cd5c3e6a556249ba92d71179ebee6531babc03cd1",
+      "bytes": 528074,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/aotearoa-ideal-basecamp-for-space"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-aotearoa-ideal-basecamp-for-space-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-aotearoa-ideal-basecamp-for-space-2.webp",
+      "sha256": "936a3b39c9faab04126cc23469595201165db102505c0310f0ecfa6ddd602b5a",
+      "bytes": 208598,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/aotearoa-ideal-basecamp-for-space"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-aotearoa-ideal-basecamp-for-space-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-aotearoa-ideal-basecamp-for-space-3.webp",
+      "sha256": "6f9e70be27501527869c7960428c2b811367d05422875adaba99e1f2771660e2",
+      "bytes": 141706,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/aotearoa-ideal-basecamp-for-space"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-building-aotearoas-leaders-of-tomorrow-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-building-aotearoas-leaders-of-tomorrow-1.webp",
+      "sha256": "20e5f30a6aee468335f96cd997e79d8b85472d8689c34bcc93c2534acdef8996",
+      "bytes": 75586,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/building-aotearoas-leaders-of-tomorrow"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-building-aotearoas-leaders-of-tomorrow-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-building-aotearoas-leaders-of-tomorrow-2.webp",
+      "sha256": "66e89420bd3860383e6b2ab61a3e9d0b5f832734681589429216426e2a490006",
+      "bytes": 103008,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/building-aotearoas-leaders-of-tomorrow"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-building-climate-resilience-in-the-pacific-aotearoa-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-building-climate-resilience-in-the-pacific-aotearoa-1.webp",
+      "sha256": "5c0fc9ce216b5c1911d8f9b5b961e94d49d24b828eebd7062fafdd804cba4ad2",
+      "bytes": 74838,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/building-climate-resilience-in-the-pacific-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-building-climate-resilience-in-the-pacific-aotearoa-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-building-climate-resilience-in-the-pacific-aotearoa-2.webp",
+      "sha256": "b4ebec782a0731e930775f4059e24d7d3128f73c6f43b1ee6c06016257e643e0",
+      "bytes": 218972,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/building-climate-resilience-in-the-pacific-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-building-climate-resilience-in-the-pacific-aotearoa-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-building-climate-resilience-in-the-pacific-aotearoa-3.webp",
+      "sha256": "85b14451eabe2978883e95c875b9c4e2feb6a07f6449a120f32c6308231bed71",
+      "bytes": 379488,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/building-climate-resilience-in-the-pacific-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-catalysing-environmental-action-for-a-sustainable-future-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-catalysing-environmental-action-for-a-sustainable-future-1.webp",
+      "sha256": "6b93e6de5087273dd6b15566e4e524ec9e4fd01ec4d9e0d8436d46b040d6e5f7",
+      "bytes": 300708,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/catalysing-environmental-action-for-a-sustainable-future"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-celebrating-achievements-and-values-this-everest-day-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-celebrating-achievements-and-values-this-everest-day-1.webp",
+      "sha256": "f606a3702677fcaa2f2db4f385e23786fff9ca45fde070a83892ef1c42c645eb",
+      "bytes": 387422,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/celebrating-achievements-and-values-this-everest-day"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-celebrating-achievements-and-values-this-everest-day-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-celebrating-achievements-and-values-this-everest-day-2.webp",
+      "sha256": "f05c5aa95f5293bf371a0892ff8078fb843ca56a4c85d49882bc5a4a021fb269",
+      "bytes": 41956,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/celebrating-achievements-and-values-this-everest-day"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-celebrating-achievements-and-values-this-everest-day-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-celebrating-achievements-and-values-this-everest-day-3.webp",
+      "sha256": "980d620726dc24cffc1b8dbfb5370b24e23eb981a25f2a0a1970958975107133",
+      "bytes": 479822,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/celebrating-achievements-and-values-this-everest-day"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-celebrating-achievements-and-values-this-everest-day-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-celebrating-achievements-and-values-this-everest-day-4.webp",
+      "sha256": "d8712ac57ca00136851e9132061acaefd5f151ccd92067fd310b5e920cfc6789",
+      "bytes": 594586,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/celebrating-achievements-and-values-this-everest-day"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-celebrating-achievements-and-values-this-everest-day-5-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-celebrating-achievements-and-values-this-everest-day-5.webp",
+      "sha256": "5bec44d455781c310f6727b6b377a9b2f8c6720b33c9e5247dbd572612103e36",
+      "bytes": 590430,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/celebrating-achievements-and-values-this-everest-day"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-championing-maori-and-indigenous-enterprise-and-cultural-values-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-championing-maori-and-indigenous-enterprise-and-cultural-values-1.webp",
+      "sha256": "d26518119ea60d8fb0513f71dc44cb94fc36e68588a3f4532605bad885bb0fb8",
+      "bytes": 653820,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/championing-maori-and-indigenous-enterprise-and-cultural-values"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-charting-the-path-how-we-frame-impact-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-charting-the-path-how-we-frame-impact-1.webp",
+      "sha256": "3de6129436b7a04514bfce296c52c7e3f479ccfab0dcf0026d54d895a6eb6997",
+      "bytes": 43866,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/charting-the-path-how-we-frame-impact"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-could-training-and-upskilling-be-the-most-efficient-way-to-transform-aotearoa-into-a-climate-leader-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-could-training-and-upskilling-be-the-most-efficient-way-to-transform-aotearoa-into-a-climate-leader-1.webp",
+      "sha256": "e0ce004f683b953165cede456b3f11a88e5815b25e57330e895fa951e607b341",
+      "bytes": 528616,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/could-training-and-upskilling-be-the-most-efficient-way-to-transform-aotearoa-into-a-climate-leader"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-could-training-and-upskilling-be-the-most-efficient-way-to-transform-aotearoa-into-a-climate-leader-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-could-training-and-upskilling-be-the-most-efficient-way-to-transform-aotearoa-into-a-climate-leader-2.webp",
+      "sha256": "211032fe557761dda360061da5f5c52b067535a8c540ec5a49ce16af76c9502c",
+      "bytes": 357842,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/could-training-and-upskilling-be-the-most-efficient-way-to-transform-aotearoa-into-a-climate-leader"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-could-training-and-upskilling-be-the-most-efficient-way-to-transform-aotearoa-into-a-climate-leader-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-could-training-and-upskilling-be-the-most-efficient-way-to-transform-aotearoa-into-a-climate-leader-3.webp",
+      "sha256": "97f6a63c38146fc44d8ef29bec7b3c6bf0493730f344ae5f48d402e9a49a510d",
+      "bytes": 751620,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/could-training-and-upskilling-be-the-most-efficient-way-to-transform-aotearoa-into-a-climate-leader"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-creating-a-more-accessible-world-for-everyone-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-creating-a-more-accessible-world-for-everyone-1.webp",
+      "sha256": "638dc782058a6c4725347650401dcc3c41cfe910acb8d5072b02d31ada01fd33",
+      "bytes": 53108,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/creating-a-more-accessible-world-for-everyone"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-creating-a-more-accessible-world-for-everyone-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-creating-a-more-accessible-world-for-everyone-2.webp",
+      "sha256": "e32fa32f2d2fde2d624b679583fd21bb5172988fd269e305be34d015a40d291a",
+      "bytes": 31276,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/creating-a-more-accessible-world-for-everyone"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-creating-a-more-accessible-world-for-everyone-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-creating-a-more-accessible-world-for-everyone-3.webp",
+      "sha256": "86a7e67009afb28da23f5c45bf16819c5fcdcfe085bd46424d22f46b76ba8636",
+      "bytes": 155860,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/creating-a-more-accessible-world-for-everyone"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-creating-a-positive-change-for-people-and-planet-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-creating-a-positive-change-for-people-and-planet-1.webp",
+      "sha256": "311ebfa76235d2f7303e05315a8d3af4f3cf65e089361471df27791a63888cf3",
+      "bytes": 169952,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/creating-a-positive-change-for-people-and-planet"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-creating-energy-from-waste-in-aotearoa-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-creating-energy-from-waste-in-aotearoa-1.webp",
+      "sha256": "b2764156cc671ff5f2c23580e27a2dd61ff5f849c0516041aeab3d3c2e9d05c3",
+      "bytes": 440068,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/creating-energy-from-waste-in-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-creating-energy-from-waste-in-aotearoa-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-creating-energy-from-waste-in-aotearoa-2.webp",
+      "sha256": "895a95c13c21ebc087d38dc1872b9eeaa0673ffdcbaba987489371dc898a9d1b",
+      "bytes": 277022,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/creating-energy-from-waste-in-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-creating-energy-from-waste-in-aotearoa-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-creating-energy-from-waste-in-aotearoa-3.webp",
+      "sha256": "b01b942ec921a6861b08d858822106abbc1eda212594188420a4213b3ea0f932",
+      "bytes": 825046,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/creating-energy-from-waste-in-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-creating-energy-from-waste-in-aotearoa-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-creating-energy-from-waste-in-aotearoa-4.webp",
+      "sha256": "d6a4140f797b713fa7e0c397b84c5f1e48cf7a8d748e1d063edac211aea07c27",
+      "bytes": 482368,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/creating-energy-from-waste-in-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-creating-opportunities-for-maori-pasifika-talent-in-gaming-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-creating-opportunities-for-maori-pasifika-talent-in-gaming-1.webp",
+      "sha256": "445a4fda51abb4c823e11f1278b9aeb618e29220600da2b16d5d98c6e28cbbac",
+      "bytes": 446846,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/creating-opportunities-for-maori-pasifika-talent-in-gaming"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-creating-opportunities-for-maori-pasifika-talent-in-gaming-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-creating-opportunities-for-maori-pasifika-talent-in-gaming-2.webp",
+      "sha256": "a9915eeaf15adcda08a657e0f2201445fc9bda5960812c819c9730851fc60f52",
+      "bytes": 299314,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/creating-opportunities-for-maori-pasifika-talent-in-gaming"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-creating-opportunities-for-maori-pasifika-talent-in-gaming-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-creating-opportunities-for-maori-pasifika-talent-in-gaming-3.webp",
+      "sha256": "db20e76214914b22f2a12ca7423a39ff7d7f08b7f3a76837860a81118d19baad",
+      "bytes": 106812,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/creating-opportunities-for-maori-pasifika-talent-in-gaming"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-cultivating-indigenous-entrepreneurship-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-cultivating-indigenous-entrepreneurship-1.webp",
+      "sha256": "1cf062570e05a453a624e64f505cec1103a51143b9511743133651c42c877dfd",
+      "bytes": 211940,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/cultivating-indigenous-entrepreneurship"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-cultivating-indigenous-entrepreneurship-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-cultivating-indigenous-entrepreneurship-2.webp",
+      "sha256": "e185882cb094f4a9decf0c86651752a48153237d8138e8466c7ec35c3468849f",
+      "bytes": 326268,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/cultivating-indigenous-entrepreneurship"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-cultivating-regenerative-organic-futures-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-cultivating-regenerative-organic-futures-1.webp",
+      "sha256": "a509280871a70304b977fc6494df2d5790bbcca345f23b14ea6c47c29eafacfe",
+      "bytes": 214878,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/cultivating-regenerative-organic-futures"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-dealing-a-better-hand-during-covid-19-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-dealing-a-better-hand-during-covid-19-1.webp",
+      "sha256": "f3d7a46daef2567cd5e09961e3497a24360fbfa62c0398d5e1ab0cf778cd29ed",
+      "bytes": 207722,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/dealing-a-better-hand-during-covid-19"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-dealing-a-better-hand-during-covid-19-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-dealing-a-better-hand-during-covid-19-2.webp",
+      "sha256": "98805d15edaee9a60c1799d136b1d6f4be4b3b025d450d18f2f56c63ebf7a791",
+      "bytes": 154314,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/dealing-a-better-hand-during-covid-19"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-decentralised-social-media-by-and-for-the-people-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-decentralised-social-media-by-and-for-the-people-1.webp",
+      "sha256": "04c5d52e001f7ba7ee35be87a4c5a6b5a36e99b31ce450aa26a555f6a6b74554",
+      "bytes": 1827586,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/decentralised-social-media-by-and-for-the-people"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-decentralised-social-media-by-and-for-the-people-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-decentralised-social-media-by-and-for-the-people-2.webp",
+      "sha256": "150618fb1911d26b75ac77e1e9e0f8399fb7c45164283489fc8562d49440a6f5",
+      "bytes": 183566,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/decentralised-social-media-by-and-for-the-people"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-decentralised-social-media-by-and-for-the-people-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-decentralised-social-media-by-and-for-the-people-3.webp",
+      "sha256": "2ce878a88d5f137045ab433af969dc0ef56e34216a79c520b4ab4c46d61f0c38",
+      "bytes": 188682,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/decentralised-social-media-by-and-for-the-people"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-discovering-founder-kaupapa-outside-the-valley-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-discovering-founder-kaupapa-outside-the-valley-1.webp",
+      "sha256": "4c6e13fb650b61b24ef6b070c09d94715aec5a7c57a2de7f9f5a8840d03f7077",
+      "bytes": 1029492,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/discovering-founder-kaupapa-outside-the-valley"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-disrupting-lending-systems-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-disrupting-lending-systems-1.webp",
+      "sha256": "c326fb1b408b601292dab9035010312f71f55f8298df568f407b3138c376df44",
+      "bytes": 401832,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/disrupting-lending-systems"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-enabling-prosperity-through-regeneration-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-enabling-prosperity-through-regeneration-1.webp",
+      "sha256": "21552916f33d4202708b57e286041b11521a87ae3a5332b3fb6ae26e1647e069",
+      "bytes": 100594,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/enabling-prosperity-through-regeneration"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-fellows-in-action-a-global-effort-to-support-ukrainians-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-fellows-in-action-a-global-effort-to-support-ukrainians-1.webp",
+      "sha256": "a26ed8598d60280c02234f81e687f8dbe71309d9b8ff0026d4ea7f600baeaa0e",
+      "bytes": 257892,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/fellows-in-action-a-global-effort-to-support-ukrainians"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-fellows-in-action-a-global-effort-to-support-ukrainians-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-fellows-in-action-a-global-effort-to-support-ukrainians-2.webp",
+      "sha256": "bf7bc1540be387a7c258c38b523db0490380ea0e116883453e1c86439a5fe7c5",
+      "bytes": 276578,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/fellows-in-action-a-global-effort-to-support-ukrainians"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-fellows-in-action-a-global-effort-to-support-ukrainians-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-fellows-in-action-a-global-effort-to-support-ukrainians-3.webp",
+      "sha256": "e0376aca3c1269b6b87d17edd2aa489faaf5694fdada2678c3d2d7dc51988e66",
+      "bytes": 385350,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/fellows-in-action-a-global-effort-to-support-ukrainians"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-getting-the-whole-world-humming-after-a-crisis-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-getting-the-whole-world-humming-after-a-crisis-1.webp",
+      "sha256": "e0cb0cafbf8309eb793bde3b1bf4b5af5c71c6d60b7e669431a53fb1a846979f",
+      "bytes": 141190,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/getting-the-whole-world-humming-after-a-crisis"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-getting-the-whole-world-humming-after-a-crisis-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-getting-the-whole-world-humming-after-a-crisis-2.webp",
+      "sha256": "a6fd1be018c6f1e97d7fdb4cc965d30263f085b8803f8eb6465717e88ab6205a",
+      "bytes": 7436,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/getting-the-whole-world-humming-after-a-crisis"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-getting-the-whole-world-humming-after-a-crisis-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-getting-the-whole-world-humming-after-a-crisis-3.webp",
+      "sha256": "c2f44598bec4aea0cff18ae4fced3680b0aa0acd4a2002dea142d6a376967168",
+      "bytes": 131922,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/getting-the-whole-world-humming-after-a-crisis"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-getting-the-whole-world-humming-after-a-crisis-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-getting-the-whole-world-humming-after-a-crisis-4.webp",
+      "sha256": "f416be83169fd1d00e4b41ac294bd92744d38f664a09317ed587e9550f2e9127",
+      "bytes": 147186,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/getting-the-whole-world-humming-after-a-crisis"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-globalising-kiwi-innovation-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-globalising-kiwi-innovation-1.webp",
+      "sha256": "ea31ad9efb4ef2c1d7387ad94e8de7f30119f1a95b0bca2b8aede23c873b567f",
+      "bytes": 88030,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/globalising-kiwi-innovation"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-globalising-kiwi-innovation-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-globalising-kiwi-innovation-2.webp",
+      "sha256": "a5c0fe5a751e8cb6086642c36e77b130b9d1daea6bfdd5bbd1419950d2678e20",
+      "bytes": 697056,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/globalising-kiwi-innovation"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-harnessing-pine-pollens-power-to-transform-wellbeing-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-harnessing-pine-pollens-power-to-transform-wellbeing-1.webp",
+      "sha256": "0ee11354bf1e1275e00fc7e14552863b6c6723cae7cc44904fe4deb06ebef181",
+      "bytes": 29064,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/harnessing-pine-pollens-power-to-transform-wellbeing"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-helping-to-solve-the-unsolvable-challenges-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-helping-to-solve-the-unsolvable-challenges-1.webp",
+      "sha256": "2e7ea4363af823e2179b73ab9c69fff815842cbf472256fdce55e7623b3e1123",
+      "bytes": 996524,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/helping-to-solve-the-unsolvable-challenges"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-helping-to-solve-the-unsolvable-challenges-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-helping-to-solve-the-unsolvable-challenges-2.webp",
+      "sha256": "7a1e2d60119f554ac4cc43710ed9fffabae8408f1281f6371042a157548a5af8",
+      "bytes": 245862,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/helping-to-solve-the-unsolvable-challenges"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-helping-to-solve-the-unsolvable-challenges-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-helping-to-solve-the-unsolvable-challenges-3.webp",
+      "sha256": "7b69aacda69ba973dce6fe717fe7a3c870e4fbc90fc631a35ddfff12cf3abfde",
+      "bytes": 68058,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/helping-to-solve-the-unsolvable-challenges"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-hepatitis-c-silencing-a-silent-killer-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-hepatitis-c-silencing-a-silent-killer-1.webp",
+      "sha256": "419f7fb5dedecdf11b278def618fe0cf830827f60308380e86b7ec7bbf374c83",
+      "bytes": 48788,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/hepatitis-c-silencing-a-silent-killer"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-how-chemergy-is-changing-the-game-in-waste-to-energy-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-how-chemergy-is-changing-the-game-in-waste-to-energy-1.webp",
+      "sha256": "22212dbdce3c260bc4c080bf5de822ba5c2639896d5345a1418d18d8a608a1e9",
+      "bytes": 33324,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-how-chemergy-is-changing-the-game-in-waste-to-energy-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-how-chemergy-is-changing-the-game-in-waste-to-energy-2.webp",
+      "sha256": "f5e3ad9c0706e13422bfe99aec190b2e5b431f3998c2f018cd3f5b4bff40779c",
+      "bytes": 586098,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-how-chemergy-is-changing-the-game-in-waste-to-energy-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-how-chemergy-is-changing-the-game-in-waste-to-energy-3.webp",
+      "sha256": "bc5d518b763bc81e6d337f95e8766a33491b9de8dc4da562243998df34dab156",
+      "bytes": 180594,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-how-chemergy-is-changing-the-game-in-waste-to-energy-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-how-chemergy-is-changing-the-game-in-waste-to-energy-4.webp",
+      "sha256": "0ff178dad4cb2c3c35297399b9108919d870936f5f107259fb1d13a057a73010",
+      "bytes": 464926,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-how-chemergy-is-changing-the-game-in-waste-to-energy-5-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-how-chemergy-is-changing-the-game-in-waste-to-energy-5.webp",
+      "sha256": "182b67f9bf176b761be28797ef265f1dbafdd03a375955d479a2291a4dc91e2a",
+      "bytes": 125896,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/how-chemergy-is-changing-the-game-in-waste-to-energy"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-how-do-we-design-an-inclusive-future-with-refugee-teens-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-how-do-we-design-an-inclusive-future-with-refugee-teens-1.webp",
+      "sha256": "0ba0a2ac4e1003415894dd6c613274424539a86028e86d804c24aae6da1b207c",
+      "bytes": 180012,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/how-do-we-design-an-inclusive-future-with-refugee-teens"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-how-do-we-design-an-inclusive-future-with-refugee-teens-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-how-do-we-design-an-inclusive-future-with-refugee-teens-2.webp",
+      "sha256": "48e153e687ba75597ceb66f4301d6f9cbfc4ea79d25f87f6d823c8fdc3194dd2",
+      "bytes": 137132,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/how-do-we-design-an-inclusive-future-with-refugee-teens"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-how-do-we-design-an-inclusive-future-with-refugee-teens-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-how-do-we-design-an-inclusive-future-with-refugee-teens-3.webp",
+      "sha256": "f937c97e6fcae80d24a8106faadfc081780bc8cb1f73f780406e2ae938045deb",
+      "bytes": 132560,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/how-do-we-design-an-inclusive-future-with-refugee-teens"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-how-do-we-design-an-inclusive-future-with-refugee-teens-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-how-do-we-design-an-inclusive-future-with-refugee-teens-4.webp",
+      "sha256": "cc6378abcded9681aa367d3838542221e7a44f613a4bf745a35084bd43e1d8fc",
+      "bytes": 175898,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/how-do-we-design-an-inclusive-future-with-refugee-teens"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-inclusivity-in-the-age-of-space-exploration-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-inclusivity-in-the-age-of-space-exploration-1.webp",
+      "sha256": "a9f5cff85f2c384ab4325e97d1966ba0cec4e60d94c25c28b8f52fb179271ba3",
+      "bytes": 135116,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/inclusivity-in-the-age-of-space-exploration"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-information-sharing-for-public-good-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-information-sharing-for-public-good-1.webp",
+      "sha256": "f33676e3c5860afa769993de3217776d6be633b1de19f8c1df94abdb49c14d50",
+      "bytes": 358734,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/information-sharing-for-public-good"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-information-sharing-for-public-good-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-information-sharing-for-public-good-2.webp",
+      "sha256": "d01d11a8e590ffc44e2e37db581f69822bb7a9780a21476c5465fcb7bbe590d5",
+      "bytes": 713804,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/information-sharing-for-public-good"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-ko-te-wananga-kei-a-koutou-kethe-knowledge-is-within-you-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-ko-te-wananga-kei-a-koutou-kethe-knowledge-is-within-you-1.webp",
+      "sha256": "85dc533c8696a03da1b5d7094203b881b1088dc7ee1d0d5c2e14be61cd6c4476",
+      "bytes": 328824,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/ko-te-wananga-kei-a-koutou-kethe-knowledge-is-within-you"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-ko-te-wananga-kei-a-koutou-kethe-knowledge-is-within-you-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-ko-te-wananga-kei-a-koutou-kethe-knowledge-is-within-you-2.webp",
+      "sha256": "067d814f1aea36a5676e0331f2e396076699411c902be5cc731d15176cc644fc",
+      "bytes": 350272,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/ko-te-wananga-kei-a-koutou-kethe-knowledge-is-within-you"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-leading-the-metaverse-revolution-from-aotearoa-nz-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-leading-the-metaverse-revolution-from-aotearoa-nz-1.webp",
+      "sha256": "46fac5ab37a04bd459f4925d67a082cf90da7af3ec008f217a3dc1ffc46a2633",
+      "bytes": 75814,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/leading-the-metaverse-revolution-from-aotearoa-nz"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-leading-the-metaverse-revolution-from-aotearoa-nz-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-leading-the-metaverse-revolution-from-aotearoa-nz-2.webp",
+      "sha256": "91e67650cf5ade49b60d1f63977b104ab5c5fe7526e3d2ce03349d1b6132d95d",
+      "bytes": 1553636,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/leading-the-metaverse-revolution-from-aotearoa-nz"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-leading-the-metaverse-revolution-from-aotearoa-nz-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-leading-the-metaverse-revolution-from-aotearoa-nz-3.webp",
+      "sha256": "c85ee9dff7e96e775bf976be96962705759de139557d6efe390ab75aa035b05c",
+      "bytes": 163548,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/leading-the-metaverse-revolution-from-aotearoa-nz"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-leading-the-metaverse-revolution-from-aotearoa-nz-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-leading-the-metaverse-revolution-from-aotearoa-nz-4.webp",
+      "sha256": "c0b9e51e36d41e93a43cb6f7c8bc377afb64ebb352f94364adcf0c6fd2d728f1",
+      "bytes": 678622,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/leading-the-metaverse-revolution-from-aotearoa-nz"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-making-aotearoa-an-innovation-nation-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-making-aotearoa-an-innovation-nation-1.webp",
+      "sha256": "b72457b0e0a018a64362292fd650f10d08955c9dc7710d9de67302f8d185514f",
+      "bytes": 1346944,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/making-aotearoa-an-innovation-nation"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-measuring-justice-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-measuring-justice-1.webp",
+      "sha256": "321df9aee0b441f4fe6e4dd457e8e40b5410ee47f87b51605936f64257f5c06c",
+      "bytes": 75014,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/measuring-justice"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-media-release-new-zealand-experience-behind-environmental-awakening-for-world-leading-scientists-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-media-release-new-zealand-experience-behind-environmental-awakening-for-world-leading-scientists-1.webp",
+      "sha256": "5e9027552ee97b2e0adbc1248ad67acddce1115b497c404d451d12fdbf6048fd",
+      "bytes": 488444,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/media-release-new-zealand-experience-behind-environmental-awakening-for-world-leading-scientists"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-mindfulness-for-kiwi-kids-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-mindfulness-for-kiwi-kids-1.webp",
+      "sha256": "d7a17c15ff5173b09e95a388623e302d9ad040155c457cd934d9d8139e6157d1",
+      "bytes": 67948,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/mindfulness-for-kiwi-kids"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-mindfulness-for-kiwi-kids-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-mindfulness-for-kiwi-kids-2.webp",
+      "sha256": "1f5974f4016c3b3ba2638a01f5775a2d532eed59d38f436f7d485c69cf7d1ab8",
+      "bytes": 69926,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/mindfulness-for-kiwi-kids"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-mindfulness-for-kiwi-kids-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-mindfulness-for-kiwi-kids-3.webp",
+      "sha256": "eb06d55320bac0f1afa3e759dbe3115b8b08d9299e7a8d028e88ffda8ac0ee37",
+      "bytes": 85804,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/mindfulness-for-kiwi-kids"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-nature-inspired-solutions-for-global-environmental-health-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-nature-inspired-solutions-for-global-environmental-health-1.webp",
+      "sha256": "0f715a6b3de9e82e0b1b6f4e4850381fb99027fda126fa5bac374598b46beb78",
+      "bytes": 256220,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/nature-inspired-solutions-for-global-environmental-health"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-nature-inspired-solutions-for-global-environmental-health-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-nature-inspired-solutions-for-global-environmental-health-2.webp",
+      "sha256": "ea3164fcf474a4f8a7e098558c3a000686fc54cd5b4048e05e319b1984dec414",
+      "bytes": 142048,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/nature-inspired-solutions-for-global-environmental-health"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-nature-inspired-solutions-for-global-environmental-health-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-nature-inspired-solutions-for-global-environmental-health-3.webp",
+      "sha256": "0ab2522354c7f6cbbe105094c674c8b2781bfd8c0f24a3fe7886a1212c589cdd",
+      "bytes": 54892,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/nature-inspired-solutions-for-global-environmental-health"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-nature-inspired-solutions-for-global-environmental-health-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-nature-inspired-solutions-for-global-environmental-health-4.webp",
+      "sha256": "429682e50687fa190e70badec019bf9809c4a248d61214dfa1e266720cc87f40",
+      "bytes": 190374,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/nature-inspired-solutions-for-global-environmental-health"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-nature-inspired-solutions-for-global-environmental-health-5-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-nature-inspired-solutions-for-global-environmental-health-5.webp",
+      "sha256": "cff02bc79a340aaf38c8a655522ee3373d76d7e657d72ec4a2205f34bc1f9c1b",
+      "bytes": 115996,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/nature-inspired-solutions-for-global-environmental-health"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-opening-doors-for-rangatahi-young-people-in-tech-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-opening-doors-for-rangatahi-young-people-in-tech-1.webp",
+      "sha256": "152a8620e8ddd93f91199bbe318f102c20d6ab4ccdbeac39aed7269633e77896",
+      "bytes": 38978,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/opening-doors-for-rangatahi-young-people-in-tech"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-opening-doors-for-rangatahi-young-people-in-tech-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-opening-doors-for-rangatahi-young-people-in-tech-2.webp",
+      "sha256": "baa2b3693863f87c4ffe2fe108103fa58b3a7c3f23ff9f6d21c32f231040cf0b",
+      "bytes": 132986,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/opening-doors-for-rangatahi-young-people-in-tech"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-powering-purpose-with-electric-utility-bikes-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-powering-purpose-with-electric-utility-bikes-1.webp",
+      "sha256": "bf1922eb7b99fddd737aba7d68a9a3794b1468372989c2978c12603f48aab81d",
+      "bytes": 871678,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/powering-purpose-with-electric-utility-bikes"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-powering-purpose-with-electric-utility-bikes-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-powering-purpose-with-electric-utility-bikes-2.webp",
+      "sha256": "1853aa86cbd99cdd28cf0198de5003b528bc62e9b973fc172e5b08595ed60a5c",
+      "bytes": 208062,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/powering-purpose-with-electric-utility-bikes"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-restorative-finance-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-restorative-finance-1.webp",
+      "sha256": "fddf8e7489204491f856e011a66db37c87752b89b49c4d3665eebfa88080a414",
+      "bytes": 111386,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/restorative-finance"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-restorative-finance-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-restorative-finance-2.webp",
+      "sha256": "c64519d204cc969529a56c9df3367923add8e6b3dccd20bd4bf69472a3ad4a1e",
+      "bytes": 447230,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/restorative-finance"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-revolutionising-tech-from-nz-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-revolutionising-tech-from-nz-1.webp",
+      "sha256": "f9378a38f1032d67ec33b2620b77f1f42c464b4cfe1415a8ddc270f2ab0a59d7",
+      "bytes": 401182,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/revolutionising-tech-from-nz"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-scaling-kiwi-healthcare-business-at-home-and-going-global-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-scaling-kiwi-healthcare-business-at-home-and-going-global-1.webp",
+      "sha256": "2b07996e06d4548260d0832614f4719be196860417279e4ad36ddb776cea0cf6",
+      "bytes": 218966,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/scaling-kiwi-healthcare-business-at-home-and-going-global"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-scaling-kiwi-healthcare-business-at-home-and-going-global-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-scaling-kiwi-healthcare-business-at-home-and-going-global-2.webp",
+      "sha256": "25cdc492734900c69d80aec04e5b21a56df208916fb5e036289f02713829a8d4",
+      "bytes": 1194582,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/scaling-kiwi-healthcare-business-at-home-and-going-global"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-scaling-kiwi-healthcare-business-at-home-and-going-global-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-scaling-kiwi-healthcare-business-at-home-and-going-global-3.webp",
+      "sha256": "cc2b4c135dd0319d0cb78b767857f3ccd0b038f933b344d4cef894f44c075a01",
+      "bytes": 1132408,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/scaling-kiwi-healthcare-business-at-home-and-going-global"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-scaling-kiwi-healthcare-business-at-home-and-going-global-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-scaling-kiwi-healthcare-business-at-home-and-going-global-4.webp",
+      "sha256": "a11dd7230c596c6e37bb0c722e2294328be797c73bf67c7f16316d33891c006d",
+      "bytes": 669674,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/scaling-kiwi-healthcare-business-at-home-and-going-global"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-scaling-kiwi-healthcare-business-at-home-and-going-global-5-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-scaling-kiwi-healthcare-business-at-home-and-going-global-5.webp",
+      "sha256": "9cfcfe58f2232a30ffebf86758d88c2ab6013af165bb275b644f6e908dc952b7",
+      "bytes": 308130,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/scaling-kiwi-healthcare-business-at-home-and-going-global"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-scaling-kiwi-healthcare-business-at-home-and-going-global-6-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-scaling-kiwi-healthcare-business-at-home-and-going-global-6.webp",
+      "sha256": "6eada44365d48fa133ff1e4e7cfe4eb0c276d84d5008e904d1469e7a42afe34d",
+      "bytes": 369566,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/scaling-kiwi-healthcare-business-at-home-and-going-global"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-scaling-kiwi-healthcare-business-at-home-and-going-global-7-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-scaling-kiwi-healthcare-business-at-home-and-going-global-7.webp",
+      "sha256": "2b3abc383c70d461f88fc9c5abf83a60b034ea305ec96dd7938c913f222bd0e5",
+      "bytes": 45372,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/scaling-kiwi-healthcare-business-at-home-and-going-global"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-scaling-kiwi-healthcare-business-at-home-and-going-global-8-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-scaling-kiwi-healthcare-business-at-home-and-going-global-8.webp",
+      "sha256": "510f0acad27e6a85cd8e94b9f31f55029bfe8c55bebfeb370477cd98c92b1852",
+      "bytes": 13482,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/scaling-kiwi-healthcare-business-at-home-and-going-global",
+        "/read/supporting-values-based-innovation-in-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-scaling-kiwi-healthcare-business-at-home-and-going-global-9-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-scaling-kiwi-healthcare-business-at-home-and-going-global-9.webp",
+      "sha256": "1396060e617fa754e22829b774ad123c5d9bb91f3fb11c6ba9135276112c00a4",
+      "bytes": 318822,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/scaling-kiwi-healthcare-business-at-home-and-going-global"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-sharing-a-solar-powered-future-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-sharing-a-solar-powered-future-1.webp",
+      "sha256": "4832d63d7c9888f24e8f81953ba1bcf03c35b9f0d7b0a8d6b4fae3d7eba1e0b7",
+      "bytes": 410076,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/sharing-a-solar-powered-future"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-sharing-a-solar-powered-future-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-sharing-a-solar-powered-future-2.webp",
+      "sha256": "21635ee6d5b88766bcdfa7a280877e18e00dafb846656c7b2356d5edecc9f921",
+      "bytes": 193832,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/sharing-a-solar-powered-future"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-sharing-a-solar-powered-future-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-sharing-a-solar-powered-future-3.webp",
+      "sha256": "107df56277ba36e84031a5cd5a56d7b6100b0c35e560dd7ad97b977e7d728769",
+      "bytes": 744214,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/sharing-a-solar-powered-future"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-shifting-the-equity-conversation-from-aspiration-to-action-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-shifting-the-equity-conversation-from-aspiration-to-action-1.webp",
+      "sha256": "057c132396e1eea51ce4e3acfdef89053532e2a481179144c9bc263a6c85b770",
+      "bytes": 170000,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/shifting-the-equity-conversation-from-aspiration-to-action"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-shifting-the-equity-conversation-from-aspiration-to-action-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-shifting-the-equity-conversation-from-aspiration-to-action-2.webp",
+      "sha256": "a52d50acf738dc2bd345f3bb2cba33107567e29dfd4ee0a7116778ea7255d72e",
+      "bytes": 125122,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/shifting-the-equity-conversation-from-aspiration-to-action"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-shining-a-light-on-climate-forward-organisations-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-shining-a-light-on-climate-forward-organisations-1.webp",
+      "sha256": "a0add5141deec02331493f8042cd5c3b7d2f91f2bd4e7e2421c74b680053c6f4",
+      "bytes": 265142,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/shining-a-light-on-climate-forward-organisations"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-shining-a-light-on-climate-forward-organisations-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-shining-a-light-on-climate-forward-organisations-2.webp",
+      "sha256": "a258930033fc93d9a1d41265d96bb8bb780cfcfeee154f28354b6726e9ee0418",
+      "bytes": 87050,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/shining-a-light-on-climate-forward-organisations"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-solving-the-ocean-plastics-problem-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-solving-the-ocean-plastics-problem-1.webp",
+      "sha256": "588933f45c171dc17d1771a75c21dfbc5e2c5abc442980907b5b81c3382c8be2",
+      "bytes": 484048,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/solving-the-ocean-plastics-problem"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-solving-the-ocean-plastics-problem-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-solving-the-ocean-plastics-problem-2.webp",
+      "sha256": "e91d4800c93dabf23383e86aac91ff98e34287a7405a3b9998c6073531b7bc68",
+      "bytes": 26488,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/solving-the-ocean-plastics-problem"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-solving-the-ocean-plastics-problem-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-solving-the-ocean-plastics-problem-3.webp",
+      "sha256": "7b994051be88ba10bcf7476ea9a1d65c6bbee2afb22c9e848c8c0fa0d3d6529f",
+      "bytes": 1159728,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/solving-the-ocean-plastics-problem"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-solving-the-ocean-plastics-problem-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-solving-the-ocean-plastics-problem-4.webp",
+      "sha256": "c4dc4016399b19c47f6045e6d0e5749e5919616d35263f06a86dcfd144d70e42",
+      "bytes": 491292,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/solving-the-ocean-plastics-problem"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-solving-the-ocean-plastics-problem-5-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-solving-the-ocean-plastics-problem-5.webp",
+      "sha256": "3223d07d21b9724cd9af5f5bd5a52f127677b5475df8be85b3b6f8525792db67",
+      "bytes": 26284,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/solving-the-ocean-plastics-problem"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-solving-the-ocean-plastics-problem-6-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-solving-the-ocean-plastics-problem-6.webp",
+      "sha256": "7dc070a0e85c3890ad134e521f363a9f8e81404a7c6e6c2bcdfd064e3a9be05b",
+      "bytes": 39212,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/solving-the-ocean-plastics-problem"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-supporting-grassroots-innovation-at-the-edge-of-the-map-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-supporting-grassroots-innovation-at-the-edge-of-the-map-1.webp",
+      "sha256": "545cfb867b62641da038f25648624611e7bac13ac9043b6facc1254f9f2fa16f",
+      "bytes": 221256,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/supporting-grassroots-innovation-at-the-edge-of-the-map"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-supporting-grassroots-innovation-at-the-edge-of-the-map-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-supporting-grassroots-innovation-at-the-edge-of-the-map-2.webp",
+      "sha256": "fe64770e793287018b28fa25d685f9d4d6b4f372ced9d74416ee0ed78f568266",
+      "bytes": 300222,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/supporting-grassroots-innovation-at-the-edge-of-the-map"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-supporting-grassroots-innovation-at-the-edge-of-the-map-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-supporting-grassroots-innovation-at-the-edge-of-the-map-3.webp",
+      "sha256": "4c994deb5fa3addb82de4da11e2d9d04f92b40266cc320003c48598792a09ead",
+      "bytes": 361230,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/supporting-grassroots-innovation-at-the-edge-of-the-map"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-supporting-kiwi-founders-to-thrive-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-supporting-kiwi-founders-to-thrive-1.webp",
+      "sha256": "a2fff8df8f0d00bb44d63b166374b7c50c86d179eb8d4c74b3af4224ec17f391",
+      "bytes": 87078,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/supporting-kiwi-founders-to-thrive"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-supporting-values-based-innovation-in-aotearoa-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-supporting-values-based-innovation-in-aotearoa-2.webp",
+      "sha256": "e966d8afff27f9821368f0f549d9b0112ef6d19bd0a7b7f640c16437f22376f0",
+      "bytes": 484266,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/supporting-values-based-innovation-in-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-tackling-global-textile-waste-through-innovative-solutions-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-tackling-global-textile-waste-through-innovative-solutions-1.webp",
+      "sha256": "38bb0685f70ae9df20fe04087d8e8d4cf0ded45f4b3cd2b8d5387b546d19aa71",
+      "bytes": 731080,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/tackling-global-textile-waste-through-innovative-solutions"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-te-pa-o-rakaihautu-from-vision-to-reality-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-te-pa-o-rakaihautu-from-vision-to-reality-1.webp",
+      "sha256": "006e99d36808f774a5c04e0aa7c7d6edc88a0ef887a50b0d88c8edcd019ca2bf",
+      "bytes": 118866,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/te-pa-o-rakaihautu-from-vision-to-reality"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-te-pa-o-rakaihautu-from-vision-to-reality-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-te-pa-o-rakaihautu-from-vision-to-reality-2.webp",
+      "sha256": "efb449d0a9e8172c27f3d6b228bddc0398d9abb5c797bc8dbb15bd86e734041c",
+      "bytes": 300456,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/te-pa-o-rakaihautu-from-vision-to-reality"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-te-pa-o-rakaihautu-from-vision-to-reality-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-te-pa-o-rakaihautu-from-vision-to-reality-3.webp",
+      "sha256": "c233928556f9f8b074321a11b0924fd579d2fdbdb4af4c50625c0fc4cf269be1",
+      "bytes": 189982,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/te-pa-o-rakaihautu-from-vision-to-reality"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-te-pa-o-rakaihautu-from-vision-to-reality-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-te-pa-o-rakaihautu-from-vision-to-reality-4.webp",
+      "sha256": "06690542229179c914ce59c57c80c98a1ad427d4c3277ac5919e591cf5d40d01",
+      "bytes": 242978,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/te-pa-o-rakaihautu-from-vision-to-reality"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-te-pa-o-rakaihautu-from-vision-to-reality-5-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-te-pa-o-rakaihautu-from-vision-to-reality-5.webp",
+      "sha256": "5caf6a445edcacb1ca4d69f9db712677d4c207af61d483937869a34f1df046bb",
+      "bytes": 863632,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/te-pa-o-rakaihautu-from-vision-to-reality"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-te-pa-o-rakaihautu-from-vision-to-reality-6-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-te-pa-o-rakaihautu-from-vision-to-reality-6.webp",
+      "sha256": "c5a10d3330bd2c161362705c1a7cc80c40fc569228b2a5687c8d4714a8c4057f",
+      "bytes": 1957352,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/te-pa-o-rakaihautu-from-vision-to-reality"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-te-pa-o-rakaihautu-from-vision-to-reality-7-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-te-pa-o-rakaihautu-from-vision-to-reality-7.webp",
+      "sha256": "4716133d5fa7fb002701a0e50fcfed08e28ea3432e91f52a7ecaa1c6bc096622",
+      "bytes": 59074,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/te-pa-o-rakaihautu-from-vision-to-reality",
+        "/read/transforming-maori-education-and-revitalising-identity"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-the-awa-river-story-inspiring-connection-action-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-the-awa-river-story-inspiring-connection-action-1.webp",
+      "sha256": "1b283f150dda692ae4df56220648e90157c162e6fd1c3ca799b3261f7f77493c",
+      "bytes": 4273264,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/the-awa/river-story-inspiring-connection-action"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-the-awa-river-story-inspiring-connection-action-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-the-awa-river-story-inspiring-connection-action-2.webp",
+      "sha256": "a81715c8111628c1887f07b071099f981c567aa2192f4b61c763efe82ad92347",
+      "bytes": 50388,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/the-awa/river-story-inspiring-connection-action"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-the-awa-river-story-inspiring-connection-action-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-the-awa-river-story-inspiring-connection-action-3.webp",
+      "sha256": "e3928b6d3ebb981332c7d26c4ed30d00c608e4db77716b7f9719976f717c6b29",
+      "bytes": 253964,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/the-awa/river-story-inspiring-connection-action"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-the-awa-river-story-inspiring-connection-action-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-the-awa-river-story-inspiring-connection-action-4.webp",
+      "sha256": "1f1818eae7584721af5012fb6d64f38b41c1dcdbdfa603e4d4a7dfdf41a89e74",
+      "bytes": 748038,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/the-awa/river-story-inspiring-connection-action"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-the-decisive-decade-for-humanitys-future-on-earth-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-the-decisive-decade-for-humanitys-future-on-earth-1.webp",
+      "sha256": "7598c4a14fd1666986ece9a8916f22c2e228ded9e90a201d52894014318b31d8",
+      "bytes": 248508,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/the-decisive-decade-for-humanitys-future-on-earth"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-the-decisive-decade-for-humanitys-future-on-earth-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-the-decisive-decade-for-humanitys-future-on-earth-2.webp",
+      "sha256": "b6f93afa662def5de6c37aea8cf882a0e39949010bbde6a96ea0e0d717f4c6a1",
+      "bytes": 730344,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/the-decisive-decade-for-humanitys-future-on-earth"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-the-decisive-decade-for-humanitys-future-on-earth-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-the-decisive-decade-for-humanitys-future-on-earth-3.webp",
+      "sha256": "4fc5e14073f3c41bf18703f90196cb861bce72353f14754371de2355ff59402f",
+      "bytes": 415872,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/the-decisive-decade-for-humanitys-future-on-earth"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-the-world-changing-power-of-true-stories-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-the-world-changing-power-of-true-stories-1.webp",
+      "sha256": "0b0e40450542b90a50f489391fc526570a6cb0e84e02019f540fb74fd2b1fbab",
+      "bytes": 788742,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/the-world-changing-power-of-true-stories"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-the-world-changing-power-of-true-stories-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-the-world-changing-power-of-true-stories-2.webp",
+      "sha256": "6a757f651a2d057abc2d0fac59817a859c199de2a07db4bcb2f9353d3967baf0",
+      "bytes": 48880,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/the-world-changing-power-of-true-stories"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-the-world-changing-power-of-true-stories-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-the-world-changing-power-of-true-stories-3.webp",
+      "sha256": "eab540d1a3b6e1637ac7a6182e406fbd35f6d1ddb12802f060ce478a9f25b64f",
+      "bytes": 74966,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/the-world-changing-power-of-true-stories"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-transformative-solar-education-in-schools-across-aotearoa-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-transformative-solar-education-in-schools-across-aotearoa-1.webp",
+      "sha256": "b312986239d175550fc8cc5b5705878a94408d6ca6c121d05f8c3003324d6005",
+      "bytes": 56960,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/transformative-solar-education-in-schools-across-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-transformative-solar-education-in-schools-across-aotearoa-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-transformative-solar-education-in-schools-across-aotearoa-2.webp",
+      "sha256": "0e7756583a58792850b997419cec5d34c79fec0428247556d06748eb83cea99a",
+      "bytes": 420020,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/transformative-solar-education-in-schools-across-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-transforming-lives-in-niue-by-eliminating-hepatitis-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-transforming-lives-in-niue-by-eliminating-hepatitis-1.webp",
+      "sha256": "fcac8378eb045ad2de0811b7ecf6b0203920bb4bcfd6632af795d3c2b78024a9",
+      "bytes": 302322,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/transforming-lives-in-niue-by-eliminating-hepatitis"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-transforming-lives-in-niue-by-eliminating-hepatitis-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-transforming-lives-in-niue-by-eliminating-hepatitis-2.webp",
+      "sha256": "6c4a0748554d6b11d60cee1ffadcedca5aed7ca2d0feb348548b908ad2bc1394",
+      "bytes": 742218,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/transforming-lives-in-niue-by-eliminating-hepatitis"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-transforming-lives-in-niue-by-eliminating-hepatitis-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-transforming-lives-in-niue-by-eliminating-hepatitis-3.webp",
+      "sha256": "83a604b2e586b88913e2e90d68726edf1ee3502c598bb011653f8fca0504d2aa",
+      "bytes": 35644,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/transforming-lives-in-niue-by-eliminating-hepatitis"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-unlocking-the-potential-of-offshore-wind-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-unlocking-the-potential-of-offshore-wind-1.webp",
+      "sha256": "9b7721b2dfc6fdad6994ee95876ad62f46ea6a227fd648facfa42da783aefb82",
+      "bytes": 69332,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/unlocking-the-potential-of-offshore-wind"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-unlocking-the-potential-of-offshore-wind-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-unlocking-the-potential-of-offshore-wind-2.webp",
+      "sha256": "646a1abd7eee77812047072fc8fa6b204ddb039645d3b9530153a1c3b84df774",
+      "bytes": 93232,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/unlocking-the-potential-of-offshore-wind"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-unlocking-the-potential-of-offshore-wind-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-unlocking-the-potential-of-offshore-wind-3.webp",
+      "sha256": "31c9c8963f37457629d9ebdcc54d01a545880ecfdce42ed607b009ddb164c15e",
+      "bytes": 169522,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/unlocking-the-potential-of-offshore-wind"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-unlocking-the-potential-of-offshore-wind-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-unlocking-the-potential-of-offshore-wind-4.webp",
+      "sha256": "1c7f2bee79a4df801dbe50b30747422f947249acf44bec69856718a720f0e19f",
+      "bytes": 2576126,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/unlocking-the-potential-of-offshore-wind"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-favicon-png",
+      "classification": "local",
+      "localPath": "/assets/images/favicon.png",
+      "sha256": "f7611ebd6bb45152ed3b11bde032522e35d820cd695806e4b71ac726955b7a74",
+      "bytes": 1650,
+      "mediaType": "image/png",
+      "routeUses": [
+        "/"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-home-hero-webp",
+      "classification": "local",
       "localPath": "/assets/images/home-hero.webp",
       "sha256": "ec3a6bff4311c7d28e7b3f8cd9d3d6670db37bb86d6fbca4d487f03298df1dad",
       "bytes": 821100,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/5d75a977-434f-4dc6-b990-59e19761ec7a/Copy+of+Pukaki+banner+mock+up+%289%29.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
     },
     {
-      "id": "home-organisation-webp",
-      "role": "home-organisation-band",
-      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/75109450-cde7-403b-ac94-d9417c46493b/Group+1234.png",
+      "id": "asset-images-home-organisation-mobile-webp",
+      "classification": "local",
+      "localPath": "/assets/images/home-organisation-mobile.webp",
+      "sha256": "ae85245a91009b2c5591eead3ddb535762cee468bc9682d9879aaa0106959b1a",
+      "bytes": 221106,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-home-organisation-webp",
+      "classification": "local",
       "localPath": "/assets/images/home-organisation.webp",
       "sha256": "06a9af123c14101241ebd2a01c884089a42b01f4c21e23803fbac570464acb2c",
       "bytes": 220912,
-      "contentType": "image/webp",
-      "permissionStatus": "approved-local",
-      "attribution": "EHF-owned asset from www.ehf.org / images.squarespace-cdn.com (source https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/75109450-cde7-403b-ac94-d9417c46493b/Group+1234.png); owner-authorized for public Stage 1 redistribution (2026-08-08). © Edmund Hillary Fellowship.",
+      "mediaType": "image/webp",
       "routeUses": [
         "/"
       ],
-      "retainedExternalUrl": null,
-      "license": "EHF-owned / owner-authorized public redistribution",
-      "rights": {
-        "authority": "EHF owner",
-        "authorizedDate": "2026-08-08",
-        "scope": "public Stage 1 publication",
-        "basis": "owner-authorized-public-redistribution"
-      }
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-03",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/03-screenshot_2025-03-04_at_10.57.44_am.png",
+      "sha256": "0162fc01b9d865597a0812577b0a91898a50cad41bc7bcf8be30f1cc3137104a",
+      "bytes": 934925,
+      "mediaType": "image/png",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-04",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/04-125_jojo__rangimarie__huia__sarah__helen__nikora_credit_erica_austin__peanut_productions_photography.jpg",
+      "sha256": "937c33b57b78c525da8f5855d7ec0f5c43ae1570e8e2c77abf912f72a8718567",
+      "bytes": 411479,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-05",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/05-38_adam_grosser_credit_erica_austin__peanut_productions_photography.jpg",
+      "sha256": "16413222a42dd500e2872f7bd542912c2cd1c9fed0ff0a827a6da71f37c67e8b",
+      "bytes": 266954,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-06",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/06-randy.jpeg",
+      "sha256": "e1bcd2745d206c523f674e3654faaf10767c81268e77951d96e6ce696b877b40",
+      "bytes": 104637,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-07",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/07-cindyloughridgephotographylianvifstudio001crop.jpeg",
+      "sha256": "a0a2f98a7c20afccdb3587f5f3272a2704f08d0d9497d84071e82c778ca70831",
+      "bytes": 23120,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-08",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/08-alexheadphones.jpg",
+      "sha256": "f4b0491257f2ac86cf9617b15b156e3226f915c39b03a987b5fe02ebd9999ad0",
+      "bytes": 51879,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-09",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/09-rebeccamillsheadshot.jpg",
+      "sha256": "57c89b0dfea69a2182234c811ba577920d2daae062ebda7e4c236561d7d5648a",
+      "bytes": 185870,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-10",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/10-ericdahlstrom1.jpg",
+      "sha256": "7b9e9cd4377496b65112a3e1b6c2b73b0fa8fe2efe5c62f6c197f038cfcf9721",
+      "bytes": 42633,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-11",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/11-emelinepaatdahlstrom1.jpg",
+      "sha256": "3db2dbe1eaeb05291d834633a6991bfd38e67bec57d2226725d05fdcd5cc628c",
+      "bytes": 52547,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-12",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/12-aim.jpg",
+      "sha256": "95859d008cb07e42982f26364a9fd40b78206a86cef3ab0f30fbfbdaf6b770ce",
+      "bytes": 194156,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-13",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/13-120_lily_stender_credit_erica_austin__peanut_productions_photography.jpg",
+      "sha256": "505b9e76fc2ab71e84fb94a5fe35f5130581e55c37c925406e323796c35e6043",
+      "bytes": 123326,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-14",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/14-scott.jpg",
+      "sha256": "839ceea7b496391db10554b5c09cf2d2c57430f821daf82d3eb0a0389ae9cca2",
+      "bytes": 94148,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-15",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/15-1739392694939.jpeg",
+      "sha256": "ef47306ff03573e26b6b825f422963f4b9dd5ef95baa71c7404a6ffa8e77f077",
+      "bytes": 81293,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-16",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/16-rsz_sasha_4678_c.jpg",
+      "sha256": "676430e9711fc8c8596522a7fa4f50e0466ec9f2ce59f12058c6eb92e4f975a5",
+      "bytes": 66659,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-17",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/17-mark.jpg",
+      "sha256": "71db7d3c0537dd00f2779ad8cb51844db1181189e88bb54d5e2ea3129215fc6a",
+      "bytes": 132771,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-18",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/18-yasmine33.jpg",
+      "sha256": "36fe239f1d0e747174e63458a2940d6276b36ca66c38d9b6eaa937d00bb4b713",
+      "bytes": 163013,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-19",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/19-0gpbw9t_400x400.jpg",
+      "sha256": "54c39947c0411bcee686c6d5a37f5f3b68d003413715345f72e98d5b4d9e9220",
+      "bytes": 20586,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-20",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/20-ed_baker_square.jpg",
+      "sha256": "51a1561bd6d3f0cff2bfe0c0247f154836ca2313f0e1a4b9cbe890daeb22daf8",
+      "bytes": 86691,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-21",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/21-harv.png",
+      "sha256": "b95c289cf65a5e14836a50c3176ea497d86baaf00ca5e2abd666e736d4f13e3c",
+      "bytes": 283043,
+      "mediaType": "image/png",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-22",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/22-headshotsquaresmall.jpg",
+      "sha256": "5b6ac3f7cde69e522229ae959dbb730f9affd7a643c69db7f8ff0316dde31423",
+      "bytes": 103582,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-23",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/23-ebiosquare.jpg",
+      "sha256": "7bdd1dc9373cb1a887170a7b0d40a6cd8450ec683a2798a5f8d5df814ca8cec5",
+      "bytes": 23371,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-summer-edition-2025-24",
+      "classification": "local",
+      "localPath": "/assets/images/summer-edition-2025/24-steven.jpg",
+      "sha256": "c4d252a9b969f6f808fb3874968728f04fd4f2186231553cfb74f5d8c268adc5",
+      "bytes": 273998,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/summer-edition-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "external-cdn-embedly-com-widgets-media-html-fa71e42accb4",
+      "classification": "external",
+      "localPath": null,
+      "sha256": null,
+      "bytes": null,
+      "mediaType": null,
+      "routeUses": [
+        "/read/discovering-founder-kaupapa-outside-the-valley"
+      ],
+      "externalUrl": "https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fplayer.vimeo.com%2Fvideo%2F485962994%3Fapp_id%3D122963&dntp=1&display_name=Vimeo&url=https%3A%2F%2Fplayer.vimeo.com%2Fvideo%2F485962994&image=http%3A%2F%2Fi.vimeocdn.com%2Fvideo%2F1006199144_1280.jpg&key=61d05c9d54e8455ea7a9677c366be814&type=text%2Fhtml&schema=vimeo&wmode=opaque"
+    },
+    {
+      "id": "external-cdn-embedly-com-widgets-media-html-fad0fc7a0343",
+      "classification": "external",
+      "localPath": null,
+      "sha256": null,
+      "bytes": null,
+      "mediaType": null,
+      "routeUses": [
+        "/read/crowdfunding-land-stewardship-in-regional-aotearoa"
+      ],
+      "externalUrl": "https://cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FSEIpM7KwJng%3Fstart%3D34%26feature%3Doembed%26start%3D34&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DSEIpM7KwJng&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FSEIpM7KwJng%2Fhqdefault.jpg&key=61d05c9d54e8455ea7a9677c366be814&type=text%2Fhtml&schema=youtube"
+    },
+    {
+      "id": "external-e-issuu-com-embed-html-09e02e11ab20",
+      "classification": "external",
+      "localPath": null,
+      "sha256": null,
+      "bytes": null,
+      "mediaType": null,
+      "routeUses": [
+        "/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report"
+      ],
+      "externalUrl": "https://e.issuu.com/embed.html?d=16309_ehf_hi_annual_report_2024_issuu&u=edmundhillaryfellowship"
+    },
+    {
+      "id": "external-www-youtube-com-embed-a-8xyxsqki-bfe34389b064",
+      "classification": "external",
+      "localPath": null,
+      "sha256": null,
+      "bytes": null,
+      "mediaType": null,
+      "routeUses": [
+        "/read/transforming-lives-in-niue-by-eliminating-hepatitis"
+      ],
+      "externalUrl": "https://www.youtube.com/embed/a__8XYXsQkI?si=eVITQmc-mtCJNGN-"
+    },
+    {
+      "id": "external-www-youtube-com-embed-fdwcrfcssum-d9d3bfaecf54",
+      "classification": "external",
+      "localPath": null,
+      "sha256": null,
+      "bytes": null,
+      "mediaType": null,
+      "routeUses": [
+        "/read/transforming-lives-in-niue-by-eliminating-hepatitis"
+      ],
+      "externalUrl": "https://www.youtube.com/embed/fDwcRfcsSUM?si=aNAGDWxVVZU43II8"
     }
   ]
 }

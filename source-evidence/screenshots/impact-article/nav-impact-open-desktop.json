@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "family": "impact-article",
+  "route": "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+  "sourceUrl": "https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+  "httpStatus": 200,
+  "finalUrl": "https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+  "state": "nav-impact-open",
+  "stateDescription": "Impact navigation folder expanded: desktop opens the header folder dropdown, mobile opens the burger menu and expands the same folder.",
+  "sourceObserved": true,
+  "interaction": {
+    "mechanism": "desktop header folder dropdown button",
+    "control": "button.header-nav-folder-title[aria-controls=\"impact\"]"
+  },
+  "viewport": {
+    "name": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "deviceScaleFactor": 1
+  },
+  "capture": {
+    "reducedMotion": true,
+    "fontsReady": true,
+    "lazyLoadScrollPx": 600,
+    "fullPage": false,
+    "animations": "disabled"
+  },
+  "screenshot": {
+    "path": "source-evidence/screenshots/impact-article/nav-impact-open-desktop.png",
+    "widthPx": 1440,
+    "heightPx": 1000
+  },
+  "documentHeight": 6605,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [
+    ""
+  ],
+  "capturedAt": "2026-08-09T03:39:57.329Z"
+}

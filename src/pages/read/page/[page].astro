@@ -1,0 +1,39 @@
+---
+import Pagination from '../../../components/Pagination.astro';
+import PostCard from '../../../components/PostCard.astro';
+import { assetIdForLocalPath } from '../../../data/site';
+import { paginate } from '../../../lib/pagination';
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { IMPACT_PAGE_SIZE, impactListingPagePaths, loadImpactArticles } from '../_impact';
+
+export async function getStaticPaths() {
+  return impactListingPagePaths().map((page) => ({ params: { page: String(page) } }));
+}
+
+const pageNumber = Number(Astro.params.page);
+const articles = await loadImpactArticles();
+const pageItems = paginate(articles, IMPACT_PAGE_SIZE)[pageNumber - 1];
+if (!pageItems) throw new Error(`Impact page is not available: ${pageNumber}`);
+const declaredPages = [{ number: 1, href: '/read' }, ...impactListingPagePaths().map((number) => ({ number, href: `/read/page/${number}` }))];
+---
+<SiteLayout title={`Read — Page ${pageNumber} — Edmund Hillary Fellowship`}>
+  <section class="read-page site-container" data-impact-listing data-impact-page-size={IMPACT_PAGE_SIZE}>
+    <h1 class="visually-hidden">Read, page {pageNumber}</h1>
+    <div class="read-masonry">
+      {pageItems.map(({ entry, path }) => (
+        <PostCard
+          title={entry.data.title}
+          href={path}
+          image={entry.data.heroImage ? {
+            assetId: assetIdForLocalPath(entry.data.heroImage),
+            alt: entry.data.heroAlt ?? '',
+            width: 343,
+            height: 343
+          } : undefined}
+          slug={entry.id}
+        />
+      ))}
+    </div>
+    <Pagination currentPage={pageNumber} pages={declaredPages} />
+  </section>
+</SiteLayout>

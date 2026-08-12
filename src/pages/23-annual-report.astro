@@ -1,22 +1,24 @@
 ---
+import { getCollection } from 'astro:content';
+import AnnualReportDocumentPage from '../components/AnnualReportDocumentPage.astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
+import contentManifestInput from '../../source-evidence/content-manifest.json';
+import routeManifestInput from '../../source-evidence/route-manifest.json';
+import type { ContentManifest } from '../lib/page-data';
+import { loadPageData } from '../lib/page-data';
+import { loadRouteManifest } from '../lib/route-manifest';
+
+const route = '/23-annual-report';
+const contentRecord = loadPageData(route, 'annual-report-document', contentManifestInput as ContentManifest, loadRouteManifest(routeManifestInput));
+const entry = (await getCollection('reportPages')).find((candidate) => `src/content/pages/reports/${candidate.id}.json` === contentRecord.localInput);
+if (!entry || entry.data.route !== route) throw new Error(`missing typed annual report content: ${contentRecord.localInput}`);
+const documentControls = [
+  { assetId: 'asset-documents-ehf-hi-annual-report-2023-pdf', label: 'Download Annual Report', accessibleName: 'Download Annual Report' },
+  { assetId: 'asset-documents-edmund-hillary-fellowship-limited-2023-financial-statements-pdf', label: 'Download here', accessibleName: 'Download financial statements for Edmund Hillary Fellowship Ltd.' },
+  { assetId: 'asset-documents-the-hillary-institute-subsidiary-entities-2023-financial-statements-pdf', label: 'Download here', accessibleName: 'Download financial statements for The Hillary Institute of International Leadership and Subsidiary Entities for 2022/23.' }
+] as const;
 ---
-<SiteLayout title="2022/23 Annual Report — Edmund Hillary Fellowship">
-  <section class="annual-report site-container">
-    <h1>2022/23 Annual Report - Hillary Institute &amp; Edmund Hillary Fellowship</h1>
-    <div class="annual-report__grid">
-      <section class="annual-report__group">
-        <h2>Annual Report</h2>
-        <p>Read the 2022/23 Annual Report for the Hillary Institute &amp; Edmund Hillary Fellowship, including highlights and achievements from Hillary Laureates and EHF Fellows.</p>
-        <a class="button annual-report__download" data-pdf-download href="/assets/documents/ehf-hi-annual-report-2023.pdf" target="_blank" rel="noopener noreferrer">Download Annual Report</a>
-      </section>
-      <section class="annual-report__group">
-        <h2>Financial Statements</h2>
-        <p>View the accompanying Financial Statements for Edmund Hillary Fellowship Ltd.</p>
-        <a class="button annual-report__download" data-pdf-download href="/assets/documents/edmund-hillary-fellowship-limited-2023-financial-statements.pdf" target="_blank" rel="noopener noreferrer">Download here</a>
-        <p>View the accompanying Financial Statements for The Hillary Institute of International Leadership and Subsidiary Entities for 2022/23.</p>
-        <a class="button annual-report__download" data-pdf-download href="/assets/documents/the-hillary-institute-subsidiary-entities-2023-financial-statements.pdf" target="_blank" rel="noopener noreferrer">Download here</a>
-      </section>
-    </div>
-  </section>
+
+<SiteLayout title={`${entry.data.title} — Edmund Hillary Fellowship`} description={entry.data.description}>
+  <AnnualReportDocumentPage report={entry.data} documentControls={documentControls} />
 </SiteLayout>

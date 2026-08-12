@@ -1,0 +1,25 @@
+{
+  "route": "/22-annual-report",
+  "title": "2021/22 Annual Report",
+  "description": "Read the 2021/22 Annual Report for the Hillary Institute & Edmund Hillary Fellowship, including highlights and achievements from Hillary Laureates and EHF Fellows.",
+  "heading": "2021/22 Annual Report",
+  "body": [
+    "## 2021/22 Annual Report - Hillary Institute & Edmund Hillary Fellowship",
+    "### Annual Report",
+    "Read the 2021/22 Annual Report for the Hillary Institute & Edmund Hillary Fellowship, including highlights and achievements from Hillary Laureates and EHF Fellows.",
+    "### Financial Statements",
+    "View the accompanying Financial Statements for The Hillary Institute of International Leadership and Subsidiary Entities for 2021/22"
+  ],
+  "heroImage": null,
+  "heroAlt": null,
+  "links": [
+    {
+      "label": "Download Annual Report",
+      "href": "/assets/documents/hillary-institute-ehf-annual-report-2022.pdf"
+    },
+    {
+      "label": "Download Financial Statements",
+      "href": "/assets/documents/certified-fs-hillary-institute-and-subsidiary-2022.pdf"
+    }
+  ]
+}

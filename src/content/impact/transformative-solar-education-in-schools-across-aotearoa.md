@@ -1,0 +1,47 @@
+---
+title: "Transformative solar education in schools across Aotearoa"
+excerpt: "In mid-2021, EHF caught up with Fellows Joanne McEachen (C8, Waitaha, Ngāti Māmoe, Ngāi Tahu) and Sarah Grant (C2) to [learn about their newly-formed charitable trust, Kia Kotahi Ako](/blog/ko-te-wananga-kei-a-koutou-kethe-knowledge-is-within-you). With Sarah as Tumu Whakarae (CEO), Nikora Ngaropo (C8, Te Rawara, Tuhoe, Ngāti Porou, Ngāpuhi, Ngāti Kahungunu) joining Joanne (Jojo) as a Founding Trustee, and recently joined by Huia Lambie as co-leader (Ngāti Mutunga). With early-stage investment from Satya Kumar (C7) and Rich Bodo (C1), this truly Fellows-led collaboration was created to generate greater learning and well-being outcomes for Aotearoa’s rangatahi and tamariki."
+heroImage: "/assets/images/content/read-transformative-solar-education-in-schools-across-aotearoa-1.webp"
+heroAlt: ""
+publishedAt: "2021-12-08"
+---
+
+![](/assets/images/content/read-transformative-solar-education-in-schools-across-aotearoa-1.webp)
+
+### Ehara taku toa i te toa takitahi, ēngari he toa takitini. My success is not mine alone, it is the success of many.
+
+In mid-2021, EHF caught up with Fellows Joanne McEachen (C8, Waitaha, Ngāti Māmoe, Ngāi Tahu) and Sarah Grant (C2) to [learn about their newly-formed charitable trust, Kia Kotahi Ako](/blog/ko-te-wananga-kei-a-koutou-kethe-knowledge-is-within-you). With Sarah as Tumu Whakarae (CEO), Nikora Ngaropo (C8, Te Rawara, Tuhoe, Ngāti Porou, Ngāpuhi, Ngāti Kahungunu) joining Joanne (Jojo) as a Founding Trustee, and recently joined by Huia Lambie as co-leader (Ngāti Mutunga). With early-stage investment from Satya Kumar (C7) and Rich Bodo (C1), this truly Fellows-led collaboration was created to generate greater learning and well-being outcomes for Aotearoa’s rangatahi and tamariki.
+
+6 months later, their already ambitious collaboration is bringing other Fellows into the room with sector-spanning, nationwide initiatives designed to educate for a thriving planet and people. Their shared kaupapa is to empower learners to be change-makers who will lead us through the global climate emergency.
+
+![](/assets/images/content/read-transformative-solar-education-in-schools-across-aotearoa-2.webp)
+
+When we last spoke with Sarah and Jojo, they were planning a New Zealand roll-out of the global STEM programme, We Share Solar, championed by Barry Neal (C6). The programme has since been piloted at Haeata Community Campus in Christchurch with practical learning opportunities for students to create working solar power systems for communities in need. Barry, who sits on the Board of We Share Solar US and acts as a catalyst for international expansion, also directly contributed some of the funding for the Haeata pilot. “I have a sincere concern and passion for our planet and people, and the interrelated, long-term sustainability for both,” he says. “With We Share Solar, we are providing a robust STEM education programme for underserved students and communities, and empowering those students and communities to make a meaningful contribution toward solutions to combat the existential threat posed by climate change.”
+
+With 8 years of established success in the US, the challenge and the opportunity was in bringing the We Share Solar concept to Aotearoa. “Having worked in education systems and seeing programmes transfer from one context to another, I was quite sensitive about how the programme might work here,” Sarah says, “but when we had the session where the students were building the Solar Suitcases – the really hands-on learning – we had one of those teaching goosebumps moments where every single student in the class was completely enthralled and engaged. The science teacher kept beckoning other class teachers to come in and see what was happening. At that moment, I knew that this was something to throw our energy into.”
+
+We Share Solar is reaping the collaborative benefits, too, Barry says. “I am a renewable energy professional – not a career educator – and it is very clear to me that I would not have been able to achieve the success we have had so far without the education expertise and relationships that are held by Jojo and Sarah. Jojo’s whakapapa positively influences everything we do in our adaptation of the US-based We Share Solar program in Aotearoa, and has also had a significant influence on me, personally, as I continue to learn about the importance of Māori history and culture in everything we do.”
+
+A second pilot in South Auckland was temporarily paused by COVID-19 lockdowns, but the team is already busy launching a third at Ao Tawhiti Unlimited Discovery in Christchurch. They’re also excited to welcome Huia Lambie into the team as co-leader of Kia Kotahi Ako, working to develop a Te Ao Māori experience of the Solar Suitcase programme and ensure the pattern of this kaupapa is a cultural fit for Aotearoa. The pilot for this Māori and rangatahi (youth) led programme is currently being scoped in a Māori educational setting in Taranaki. A long-time instigator, connector and valued steward of the EHF whānau, Huia has a background in iwi and hapū development; she is currently Pouwhakahaere - Project Manager of the Taranaki Māori Business Network, He Toronga Pakihi ki Taranaki.
+
+The impact potential of this collaboration has increased exponentially with the recent addition of more EHF Fellows as new partners. Helios Energy is a developer and builder of large-scale solar energy projects in New Zealand. Helios Founders, Tim Derrick (C4) and Jeff Schlichting (C7), have committed to funding We Share Solar projects in the rural communities where they will be operating in 2022 and beyond. “We are committed to building meaningful partnerships in the communities where we build solar projects,” Tim says. “Through past projects in other communities, we’ve learned that one of the best ways to communicate what we are building is to teach school children in neighbouring schools about solar energy. Kia Kotahi Ako’s We Share Solar program does this effectively and beautifully by way of hands-on, experiential learning that allows kids to learn the science behind solar energy, and build their own solar array.”
+
+The partners have recently signed a Memorandum of Understanding which outlines their shared objectives to: support rangatahi to have equitable access to climate education programmes, inspire and up-skill the future green workforce, and support the acceptance and increase of solar and renewable energy in communities. “It’s a win-win,” Sarah says, “not just in terms of funding for schools, but also in that the students are going to learn about solar power and take that information home to their parents, which will encourage intergenerational learning and greater solar acceptance.” Tim agrees.
+
+> “The fit between Kia Kotahi Ako and Helios Energy is very strong. We cannot be successful in our work of delivering renewable energy solutions if we are not actively engaging and supporting communities, in particular, the local schools. Taken together, both organizations advance each other’s goals.”
+
+With Kia Kotahi Ako in the coordination and facilitation seat, We Share Solar providing the energy learning resources, Helios funding the project scale and Huia bringing the Te Ao Māori lens, this growing collaboration shows huge potential to create opportunities which benefit both learners and the environment through programmes that are unique to Aotearoa. “Ultimately we’ll be supporting each teacher in the programme to employ the We Share Solar resources, but take them wherever the students want,” Sarah says.
+
+> “For instance, we have one teacher who’s weaving in Māori mythology like how Māui slowed down the sun; how we can do that now by capturing the power of the sun with solar panels.”
+
+Perhaps the most ambitious and multi-disciplinary partnership to emerge from the EHF network, this collaboration, Barry says, represents “precisely what this Fellowship is about – many people with common values, diverse experiences and unique skill-sets coming together to take on difficult challenges that our people and planet are facing. I think that we all have shared values of deep conviction and beliefs regarding the climate crisis and the power of education, particularly for vulnerable and underserved populations. Given our shared values and diverse experiences and skill-sets, I firmly believe that the EHF platform provides the opportunity to make a significant and positive impact on the lives of many people and empower those people to ‘pay it forward’’.
+
+> “In short, none of what we have accomplished so far would have happened without EHF and its Fellows; and we are just beginning.”
+
+### Growing this movement
+
+Kia Kotahi are raising $200k so that young people in schools and Māori educational settings and their whānau can learn new skills and be the leaders in the just transition to zero-carbon futures . To learn more about them and contribute to their Open Collective funding, visit [https://www.kiakotahi.org/](https://www.kiakotahi.org/). To learn more about We Share Solar, visit [https://www.wesharesolar.org/](https://www.wesharesolar.org/) and for an introduction to Helios Energy, visit [https://www.heliosenergy.co.nz/](https://www.heliosenergy.co.nz/).
+
+## Fellows in Action: A Global Effort to Support Ukrainians
+
+## The decisive decade for humanity’s future on earth

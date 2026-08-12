@@ -1,0 +1,52 @@
+---
+import RichTextBlock from './RichTextBlock.astro';
+import { inlineText, parseRichText } from '../lib/rich-text';
+import type { PageSection } from '../lib/page-data';
+
+interface Props {
+  title: string;
+  sections: readonly PageSection[];
+}
+
+const { title, sections } = Astro.props;
+const external = (href: string) => /^https?:\/\//.test(href);
+const parsedSections = sections.map((section) => ({ ...section, block: parseRichText(section.body) }));
+const inlineHrefs = new Set(sections.flatMap((section) => [...section.body.matchAll(/\[[^\]]+\]\(([^)]*)\)/g)].map((match) => match[1])));
+const firstBlock = parsedSections[0]?.block;
+const hasContentTitle = firstBlock?.kind === 'heading' && firstBlock.level <= 3;
+const visibleTitle = hasContentTitle ? inlineText(firstBlock.children) : title;
+const visibleSections = parsedSections.filter((_, index) => index !== 0 || !hasContentTitle);
+---
+<article class="legal-page" data-page-template="legal">
+  <header><h1>{visibleTitle}</h1></header>
+  {visibleSections.map((section) => {
+    const textLinks = section.links?.filter((link) => !inlineHrefs.has(link.href)) ?? [];
+    return <section class:list={['legal-page__section', { 'legal-page__section--list': section.block.kind === 'list-item' }]}>
+      <RichTextBlock block={section.block} />
+      {textLinks.length > 0 && <ul class="legal-page__links">
+        {textLinks.map((link) => <li><a href={link.href} {...(external(link.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{link.label}</a></li>)}
+      </ul>}
+    </section>;
+  })}
+</article>
+
+<style>
+  .legal-page { width: min(1037px, calc(100% - 2 * var(--gutter))); margin: 0 auto; padding: calc(var(--header-height) + 95.03px) 0 95.04px; }
+  .legal-page header { margin-bottom: 32px; }
+  .legal-page h1 { margin: 0; font-size: var(--text-lead); line-height: var(--lh-lead); }
+  /* Source sets the section labels as bold body copy, not display type. */
+  .legal-page :global(h2) { margin: 0 0 16px; font-family: var(--font-body); font-size: 16px; font-weight: 700; letter-spacing: normal; line-height: 28.8px; }
+  .legal-page :global(p) { margin: 0 0 16px; font-size: 16px; line-height: 28.8px; white-space: pre-line; }
+  /* Source groups consecutive bullets into one list: the list box is set in
+     the body step, each item's copy in the small step, and items sit 8px
+     apart inside a group with 19.456px above and below the whole group. */
+  .legal-page :global(.rich-text-list) { margin: 8px 0; padding-left: 40px; font-family: var(--font-body); font-size: var(--text-body); font-weight: var(--weight-body); line-height: var(--lh-body); }
+  .legal-page :global(.rich-text-list li) { font-size: 16px; line-height: 28.8px; }
+  .legal-page__section:not(.legal-page__section--list) + .legal-page__section--list > :global(.rich-text-list) { margin-top: var(--text-body); }
+  .legal-page__section--list + .legal-page__section:not(.legal-page__section--list) { margin-top: var(--text-body); }
+  /* Source collapses the closing block's trailing margin out of the column,
+     so the section padding alone sets the gap to the footer. */
+  .legal-page__section:last-child > :global(:last-child) { margin-bottom: 0; }
+  .legal-page :global(a) { color: var(--color-brand); overflow-wrap: anywhere; }
+  @media (max-width: 767px) { .legal-page { padding-top: calc(var(--header-height) + 72.2px); padding-bottom: 72px; } }
+</style>

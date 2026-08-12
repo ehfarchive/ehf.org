@@ -1,0 +1,12 @@
+{
+  "route": "/media-inquiries",
+  "title": "Media Inquiries",
+  "description": "",
+  "heading": "Media Inquiries",
+  "body": [
+    "## Media Inquiry"
+  ],
+  "heroImage": null,
+  "heroAlt": null,
+  "links": []
+}

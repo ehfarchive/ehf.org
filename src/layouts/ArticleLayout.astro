@@ -1,27 +1,46 @@
 ---
+import ResponsiveImage from '../components/ResponsiveImage.astro';
+import { renderArticleBody, type ArchivedFigure } from '../lib/article-body';
 import SiteLayout from './SiteLayout.astro';
+interface HeroImage {
+  assetId: string;
+  alt: string;
+}
+
+interface ArticleLink {
+  href: string;
+  title: string;
+}
+
 
 interface Props {
   title: string;
-  publishedAt?: Date;
-  heroImage: string;
-  heroAlt: string;
-  nextSlug?: string;
+  description: string;
+  publishedAt: Date;
+  hero?: HeroImage;
+  previous?: ArticleLink;
+  next?: ArticleLink;
+  suppressHero?: boolean;
+  archivedFigures?: readonly (ArchivedFigure | null)[];
 }
 
-const { title, nextSlug } = Astro.props;
-const nextTitle = "Harnessing Pine Pollen's Power to Transform Wellbeing";
+const { title, description, hero, previous, next, suppressHero = false, archivedFigures = [] } = Astro.props;
+const articleBody = renderArticleBody(await Astro.slots.render('default'), archivedFigures);
 ---
-<SiteLayout title={`${title} — Edmund Hillary Fellowship`}>
-  <article class="article-page site-container">
+<SiteLayout title={`${title} — Edmund Hillary Fellowship`} description={description}>
+  <article class="article-page content-width" data-impact-article data-archived-figures={JSON.stringify(archivedFigures)}>
     <header class="article-page__header">
       <h1>{title}</h1>
-
+      {hero && !suppressHero && (
+        <figure class="article-page__hero">
+          <ResponsiveImage assetId={hero.assetId} alt={hero.alt} width={940} height={627} sizes="(max-width: 767px) 100vw, 940px" loading="eager" />
+        </figure>
+      )}
     </header>
-    <div class="article-page__body"><slot /></div>
-    {nextSlug && <nav class="article-page__next" aria-label="Article navigation">
-      <a href={`/read/${nextSlug}`}>{nextTitle}</a>
-      <span class="article-page__next-chevron" aria-hidden="true"></span>
-    </nav>}
+    <div class="article-page__body" set:html={articleBody} />
   </article>
+  {(previous || next) && <nav class="article-page__next site-container" aria-label="Article navigation">
+    {previous && <a href={previous.href} data-direction="previous">{previous.title}</a>}
+    {next && <a href={next.href} data-direction="next">{next.title}</a>}
+  </nav>}
 </SiteLayout>

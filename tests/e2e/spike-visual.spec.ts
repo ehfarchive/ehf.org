@@ -27,6 +27,11 @@ const implementationOrigin = 'http://127.0.0.1:4321';
 
 test.setTimeout(90_000);
 
+test.skip(
+  process.env.EHF_CAPTURE_IMPLEMENTATION_SCREENSHOTS !== '1',
+  'implementation screenshot capture requires EHF_CAPTURE_IMPLEMENTATION_SCREENSHOTS=1'
+);
+
 const captures: Capture[] = [
   { route: '/', viewport: { name: 'desktop', width: 1440, height: 1000 }, state: 'default' },
   { route: '/', viewport: { name: 'mobile', width: 390, height: 844 }, state: 'default' },
@@ -62,6 +67,13 @@ async function artifactNames(directory: string, extension: 'json' | 'png') {
 }
 
 async function waitForVisualReadiness(page: Page) {
+  await page.evaluate(async () => {
+    for (let offset = 0; offset < document.documentElement.scrollHeight; offset += window.innerHeight) {
+      window.scrollTo(0, offset);
+      await new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
+    }
+    window.scrollTo(0, 0);
+  });
   await page.evaluate(async () => {
     await document.fonts.ready;
   });

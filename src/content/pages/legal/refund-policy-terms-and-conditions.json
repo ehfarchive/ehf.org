@@ -1,0 +1,42 @@
+{
+  "route": "/refund-policy-terms-and-conditions",
+  "title": "Refund Policy & Terms and Conditions",
+  "description": "Support from donors will enable the EHF organisation to continue amplifying the impact of the extraordinary Edmund Hillary Fellowship. We deeply appreciate your support for our purpose and your belief in our vision.",
+  "heading": "Refund Policy & Terms and Conditions",
+  "body": [
+    "### Terms and Conditions",
+    "#### Donations to EHF",
+    "Support from donors will enable the EHF organisation to continue amplifying the impact of the extraordinary Edmund Hillary Fellowship. We deeply appreciate your support for our purpose and your belief in our vision.",
+    "You may also be entitled to claim a tax rebate for your donation at the end of the financial year. See [http://www.ird.govt.nz/income-tax-individual/tax-credits/donations-taxcredits/donations-taxcredits.html](http://www.ird.govt.nz/income-tax-individual/tax-credits/donations-taxcredits/donations-taxcredits.html) for more information.",
+    "#### Edmund Hillary Fellowship (EHF) Donations Refund Policy",
+    "EHF will refund all donations made that are fraudulent due to unauthorised use of a credit card. In all other circumstances, donations are non-refundable, although EHF may use its discretion to consider individual circumstances. In such cases, any request for a refund would need to be made within 20 working days of the donation being made.",
+    "If you have any questions about this policy or donating, please contact us [here](/donation-refund-request).",
+    "#### Donor Confidentiality",
+    "EHF is committed to protecting your privacy. Any personal information provided to us will not be used other than as described below. We recognise that your donation is voluntary, and as such, your privacy will be held in the strictest confidence.",
+    "We adhere to the following guidelines:",
+    "- Information about donations is handled with respect and confidentiality to the extent provided by law.",
+    "- Some donors prefer anonymity. We will respect the wishes of contributors who prefer their gift to remain confidential.",
+    "- We do not lend, exchange, rent or sell our donor lists to other organisations.",
+    "- The personal information you provide when making an online donation will be protected by EHF and will not be disclosed to any third parties.",
+    "#### What Information We Collect",
+    "EHF collects and uses varied personal information from donors including: amount donated, name of donor, telephone number, and e-mail address.",
+    "#### How We Use That Information",
+    "EHF uses contact information (e-mail, and telephone number) of donors for these purposes only:",
+    "- Provide receipts for donations",
+    "- Thank donors for their donation",
+    "- Inform supporters about upcoming fundraising, events and other activities of EHF",
+    "- Internal analysis and record keeping"
+  ],
+  "heroImage": null,
+  "heroAlt": null,
+  "links": [
+    {
+      "label": "http://www.ird.govt.nz/income-tax-individual/tax-credits/donations-taxcredits/donations-taxcredits.html",
+      "href": "http://www.ird.govt.nz/income-tax-individual/tax-credits/donations-taxcredits/donations-taxcredits.html"
+    },
+    {
+      "label": "here",
+      "href": "/donation-refund-request"
+    }
+  ]
+}

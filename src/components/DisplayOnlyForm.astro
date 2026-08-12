@@ -1,0 +1,131 @@
+---
+export type DisplayOnlyField = {
+  id: string;
+  label: string;
+  type: 'text' | 'email' | 'textarea' | 'checkbox';
+  autocomplete?: string;
+};
+
+type FormLayout = 'centered-narrow' | 'centered-wide' | 'left-wide' | 'left-sharks';
+type HeadingVariant = 'source' | 'media';
+
+interface Props {
+  heading: string;
+  fields: readonly DisplayOnlyField[];
+  submitLabel: string;
+  intro?: string;
+  layout?: FormLayout;
+  headingVariant?: HeadingVariant;
+  updatesGroup?: boolean;
+}
+
+const { heading, fields, submitLabel, intro, layout = 'centered-wide', headingVariant = 'source', updatesGroup = false } = Astro.props;
+const requiredSuffix = ' (required)';
+const labelParts = (label: string) => label.endsWith(requiredSuffix)
+  ? { name: label.slice(0, -requiredSuffix.length), required: true }
+  : { name: label, required: false };
+const nameFields = fields.slice(0, 2).every((field, index) => field.id === (index === 0 ? 'first-name' : 'last-name'))
+  ? fields.slice(0, 2)
+  : [];
+const remainingFields = nameFields.length ? fields.slice(2) : fields;
+const checkFields = remainingFields.filter((field) => field.type === 'checkbox');
+const nonCheckFields = remainingFields.filter((field) => field.type !== 'checkbox');
+const formClass = `display-only-form display-only-form--${layout} display-only-form--heading-${headingVariant}`;
+const headingClass = layout === 'centered-wide' ? 'display-only-form__header display-only-form__header--centered' : 'display-only-form__header';
+const renderFieldLabel = (field: DisplayOnlyField) => {
+  const { name, required } = labelParts(field.label);
+  return { name, required };
+};
+---
+<article class={formClass}>
+  <header class={headingClass}>
+    <h1>{heading}</h1>
+    {intro && <p class="display-only-form__intro">{intro}</p>}
+  </header>
+  <div role="group" aria-label={heading} data-display-only-controls>
+    {nameFields.length > 0 && <fieldset class="display-only-form__name-group">
+      <legend>Name</legend>
+      <div class="display-only-form__name-fields">
+        {nameFields.map((field) => {
+          const label = renderFieldLabel(field);
+          return <label for={field.id}><span class="display-only-form__label-text"><span>{label.name}</span>{label.required && <>{' '}<span class="display-only-form__label-required">(required)</span></>}</span><input id={field.id} type={field.type as 'text' | 'email'} autocomplete={field.autocomplete} /></label>;
+        })}
+      </div>
+    </fieldset>}
+    {nonCheckFields.map((field) => {
+      const label = renderFieldLabel(field);
+      return field.type === 'textarea' ? (
+        <label class="display-only-form__field" for={field.id}><span class="display-only-form__label-text"><span>{label.name}</span>{label.required && <>{' '}<span class="display-only-form__label-required">(required)</span></>}</span><textarea id={field.id}></textarea></label>
+      ) : (
+        <label class="display-only-form__field" for={field.id}><span class="display-only-form__label-text"><span>{label.name}</span>{label.required && <>{' '}<span class="display-only-form__label-required">(required)</span></>}</span><input id={field.id} type={field.type} autocomplete={field.autocomplete} /></label>
+      );
+    })}
+    {checkFields.length > 0 && (updatesGroup ? (
+      <fieldset class="display-only-form__check-group" aria-describedby="updates-help">
+        <legend>What type of updates are you interested in? <span class="display-only-form__label-required">(required)</span></legend>
+        <p id="updates-help" class="display-only-form__check-help">Please select one of the following options so that we can determine which type of updates you're interested in</p>
+        {checkFields.map((field) => <label class="display-only-form__check" for={field.id}><input id={field.id} type="checkbox" /><span>{field.label}</span></label>)}
+      </fieldset>
+    ) : checkFields.map((field) => <label class="display-only-form__check" for={field.id}><input id={field.id} type="checkbox" /><span>{field.label}</span></label>))}
+    <button type="button">{submitLabel}</button>
+    {updatesGroup && <p class="display-only-form__privacy">Please read our <a href="/privacy-policy">Privacy Policy</a> about how we store any personal data you share with us via this form</p>}
+  </div>
+</article>
+
+
+<style>
+  .display-only-form { width: min(918px, calc(100% - 2 * var(--gutter))); margin: 0 auto; padding: calc(var(--header-height) + 29px) 0 170px; }
+  .display-only-form--centered-narrow { width: min(692px, calc(100% - 2 * var(--gutter))); }
+  .display-only-form--left-wide { margin-inline: var(--gutter) auto; }
+  .display-only-form--left-sharks { width: min(860px, calc(100% - 2 * var(--gutter))); margin-inline: var(--gutter) auto; }
+  /* Source places the media enquiry title 102.69px below the header band and
+     leaves 110.33px to the first field and 213.83px to the footer. */
+  .display-only-form--centered-wide { padding: calc(var(--header-height) + 102.69px) 0 213.83px; }
+  .display-only-form__header { margin: 0 0 34px; text-align: left; }
+  .display-only-form__header--centered { margin-bottom: 110.33px; text-align: center; }
+  .display-only-form h1 { margin: 0; color: var(--color-text); font-family: var(--font-heading); font-size: var(--text-heading); font-weight: 900; letter-spacing: var(--tracking); line-height: var(--lh-heading); }
+  .display-only-form--heading-media h1 { font-size: var(--text-lead); line-height: var(--lh-lead); }
+  .display-only-form__intro { max-width: 760px; margin: 22px 0 0; font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
+  .display-only-form__header--centered .display-only-form__intro { margin-inline: auto; }
+  /* Source sets the whole form in the Merriweather body step. */
+  .display-only-form [data-display-only-controls] { color: var(--color-text); font-family: var(--font-body); font-size: var(--text-body); font-weight: var(--weight-body); line-height: var(--lh-body); }
+  .display-only-form fieldset { border: 0; margin: 0; padding: 0; }
+  .display-only-form legend { margin: 0 0 4px; padding: 0; font-size: var(--text-body); line-height: var(--lh-body); }
+  .display-only-form .display-only-form__name-group { margin-bottom: 20px; }
+  .display-only-form__name-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .display-only-form label { display: block; }
+  /* Source lays each label out as a row that wraps the required note onto its
+     own line when the column is too narrow to hold both. */
+  .display-only-form__label-text { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 10.77px; }
+  /* Source sets the paired name captions in a 12px label whose visible copy
+     stays at the 16px small step, and keeps both inputs on one baseline. */
+  .display-only-form__name-fields label { display: flex; flex-direction: column; justify-content: flex-end; padding-top: 4px; font-size: 12px; line-height: 28.8px; }
+  .display-only-form__name-fields .display-only-form__label-text { column-gap: 8.87px; }
+  .display-only-form__name-fields .display-only-form__label-text > span { font-size: 16px; }
+  .display-only-form__label-required { color: var(--color-text); font-size: 16px; font-weight: var(--weight-body); line-height: 28.8px; opacity: 0.7; white-space: nowrap; }
+  .display-only-form__name-fields .display-only-form__label-required { line-height: 16px; }
+  .display-only-form__field { margin: 0 0 20px; }
+  .display-only-form input:not([type="checkbox"]), .display-only-form textarea { box-sizing: border-box; display: block; width: 100%; margin-top: 4px; border: 1px solid #000; border-radius: 0; background: #fafafa; color: var(--color-text); font-family: var(--font-body); font-size: var(--text-body); font-weight: var(--weight-body); line-height: var(--lh-body); padding: 10px; }
+  .display-only-form textarea { min-height: 100px; resize: vertical; }
+  .display-only-form .display-only-form__name-fields input { margin-top: 2px; }
+  .display-only-form__check-group { margin-top: 24px; }
+  .display-only-form__check-group legend { margin-bottom: 10px; }
+  .display-only-form__check-help { margin: 0 0 16px; color: #77747c; font-size: 16px; line-height: 1.5; }
+  .display-only-form__check { display: grid; grid-template-columns: 18px minmax(0, 1fr); column-gap: 10px; align-items: start; margin-top: 14px; }
+  .display-only-form__check input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--color-brand); }
+  .display-only-form button { display: block; width: fit-content; margin: 0; padding: 16px 28.8px; border: 0; border-radius: var(--radius); background: var(--color-brand); color: #fff; font-family: var(--font-heading); font-size: 16px; font-weight: 900; line-height: normal; }
+  .display-only-form--centered-wide button { margin-inline: auto; }
+  .display-only-form button:hover { background: var(--color-brand-deep); }
+  .display-only-form__privacy { margin: 24px 0 0; font-size: 16px; line-height: 1.6; }
+  .display-only-form__privacy a { color: inherit; }
+  @media (max-width: 767px) {
+    .display-only-form, .display-only-form--centered-narrow, .display-only-form--left-sharks { width: min(343px, calc(100% - 2 * var(--gutter))); margin-inline: auto; padding: calc(var(--header-height) + 36px) 0 72px; }
+    .display-only-form--centered-wide { padding: calc(var(--header-height) + 76.03px) 0 27.84px; }
+    .display-only-form__header { margin-bottom: 42px; }
+    .display-only-form__header--centered { margin-bottom: 59.2px; }
+    .display-only-form h1 { font-size: 28px; line-height: 1.18; }
+    .display-only-form--heading-media h1 { font-size: var(--text-lead); line-height: var(--lh-lead); }
+    .display-only-form__intro { font-size: 15px; line-height: 1.6; }
+    .display-only-form__name-fields { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  }
+</style>

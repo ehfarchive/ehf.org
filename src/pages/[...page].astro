@@ -1,0 +1,54 @@
+---
+import StandardPage from '../components/StandardPage.astro';
+import LegalPage from '../components/LegalPage.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import contentManifestInput from '../../source-evidence/content-manifest.json';
+import routeManifestInput from '../../source-evidence/route-manifest.json';
+import aboutEHF from '../content/pages/institutional/about-ehf.json';
+import communityCollective from '../content/pages/institutional/communitycollective.json';
+import journey from '../content/pages/institutional/journey.json';
+import ourValues from '../content/pages/institutional/our-values.json';
+import summerEdition from '../content/pages/institutional/summer-edition-2025.json';
+import privacyPolicy from '../content/pages/legal/privacy-policy.json';
+import refundPolicy from '../content/pages/legal/refund-policy-terms-and-conditions.json';
+import termsOfUse from '../content/pages/legal/terms-of-use.json';
+import { assetIdForLocalPath } from '../data/site';
+import { loadPageData, loadPageSections, type ContentManifest, type RawPageRecord } from '../lib/page-data';
+import { loadRouteManifest, type IncludedRouteRecord } from '../lib/route-manifest';
+
+const currentRouteManifest = loadRouteManifest(routeManifestInput);
+const pageInputs: Readonly<Record<string, RawPageRecord>> = {
+  'src/content/pages/institutional/about-ehf.json': aboutEHF,
+  'src/content/pages/institutional/communitycollective.json': communityCollective,
+  'src/content/pages/institutional/journey.json': journey,
+  'src/content/pages/institutional/our-values.json': ourValues,
+  'src/content/pages/institutional/summer-edition-2025.json': summerEdition,
+  'src/content/pages/legal/privacy-policy.json': privacyPolicy,
+  'src/content/pages/legal/refund-policy-terms-and-conditions.json': refundPolicy,
+  'src/content/pages/legal/terms-of-use.json': termsOfUse
+};
+
+/* Only /about-ehf is painted as a full-bleed section on the source; the other
+   institutional pages keep the centred page-surface column. */
+const immersiveBackgrounds: Readonly<Record<string, { assetId: string; alt: string }>> = {
+  '/about-ehf': { assetId: assetIdForLocalPath('/assets/images/content/about-ehf-hero-mountain.png'), alt: '' }
+};
+
+export function getStaticPaths() {
+  return loadRouteManifest(routeManifestInput).routes
+    .filter((record): record is IncludedRouteRecord => record.kind === 'included' && (record.family === 'institutional' || record.family === 'legal'))
+    .map((record) => ({ params: { page: record.path.slice(1) }, props: { route: record.path, template: record.family } }));
+}
+
+const { route, template } = Astro.props;
+if (template !== 'institutional' && template !== 'legal') throw new Error(`unsupported page template: ${template}`);
+const contentRecord = loadPageData(route, template, contentManifestInput as ContentManifest, currentRouteManifest);
+const input = pageInputs[contentRecord.localInput];
+if (!input) throw new Error(`unapproved page input: ${contentRecord.localInput}`);
+const sections = loadPageSections(input, route);
+---
+<SiteLayout title={input.title} description={input.description}>
+  {template === 'institutional'
+    ? <StandardPage title={input.heading} sections={sections} background={immersiveBackgrounds[route]} />
+    : <LegalPage title={input.heading} sections={sections} />}
+</SiteLayout>

@@ -70,23 +70,53 @@
   font-display: swap;
 }
 
-.site-container {
-  width: min(var(--content-width), calc(100% - (var(--gutter) * 2)));
+.site-container,
+.content-width {
+  width: min(var(--content-max), calc(100% - (var(--page-gutter) * 2)));
   margin-inline: auto;
 }
+.wide-width { width: min(var(--wide-max), calc(100% - (var(--page-gutter) * 2))); margin-inline: auto; }
+.section { padding-block: var(--section-space); }
+.split-layout { display: grid; gap: var(--section-space); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.stack { display: grid; gap: var(--section-space); }
+.cluster { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+.page-shell { min-height: 100dvh; }
 
 .skip-link {
-  position: fixed;
-  top: 0;
-  left: var(--gutter);
-  z-index: 100;
-  transform: translateY(-150%);
-  background: var(--color-surface);
-  color: var(--color-ink);
-  padding: 0.75rem;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
-.skip-link:focus { transform: translateY(0); }
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 24px;
+  left: 20.8px;
+  z-index: 100;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  clip-path: none;
+  white-space: normal;
+  border-radius: var(--radius);
+  background: var(--color-brand-primary);
+  color: var(--color-surface);
+  font-family: var(--font-display);
+  font-size: var(--text-nav);
+  font-weight: var(--weight-nav);
+  line-height: normal;
+  text-decoration: underline;
+  padding: 16px 28.8px;
+  outline: 2px solid var(--color-ink);
+  outline-offset: 4px;
+}
 
 .site-header {
   position: absolute;
@@ -115,8 +145,7 @@
   padding: 0;
   list-style: none;
 }
-/* Source spaces the Fellow Directory pill one gutter, not one nav gap, from Archive. */
-.desktop-nav > ul > li:last-child { margin-left: 2.9px; }
+/* The directory affordance is deliberately absent from the shared shell. */
 
 .desktop-nav a, .desktop-nav button {
   color: var(--color-ink);
@@ -133,14 +162,18 @@
   position: absolute;
   top: 100%;
   right: -16px;
-  margin-top: 1.7px;
-  width: 232px;
-  padding: 7.5px 16px 11.7px;
+  margin-top: 2px;
+  min-width: 232px;
+  padding: 8px 16px;
+  border-radius: 0;
   background: var(--color-surface);
+  box-shadow: none;
 }
 .desktop-nav__submenu ul { display: block; text-align: right; }
-.desktop-nav__submenu a:not(.button) { line-height: 20.8px; }
-.desktop-nav__submenu li + li { margin-top: 3.2px; }
+/* Source paints each submenu destination as its own 24px box: an inline-flex
+   link with 1.6px of padding above and below a 20.8px line box, which is also
+   what sets the 24px pitch between the items. */
+.desktop-nav__submenu a:not(.button) { display: inline-flex; padding: 1.6px 0; line-height: 20.8px; white-space: nowrap; }
 
 .button {
   display: inline-flex;
@@ -159,8 +192,15 @@
 .button:hover { opacity: 0.8; transition: opacity var(--motion-fast) linear; }
 
 .mobile-menu, .mobile-menu__trigger { display: none; }
+.page-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+.page-shell > main { flex: 1 0 auto; min-width: 0; overflow-x: clip; }
 .site-footer {
-  min-height: 330px;
+  flex: none;
+  height: 330px;
   padding-block: 53.6px;
   display: flex;
   flex-direction: column;
@@ -193,7 +233,7 @@
 .site-footer a { color: inherit; font-weight: var(--weight-nav); }
 .site-footer strong { font-weight: var(--weight-nav); }
 
-:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 4px; }
+:focus-visible { outline: 3px solid var(--focus-ring); outline-offset: 4px; }
 .site-footer :focus-visible { outline-color: var(--color-surface); }
 
 @media (max-width: 767px) {
@@ -218,6 +258,7 @@
     position: fixed;
     inset: 0;
     z-index: 20;
+    isolation: isolate;
     width: 100vw;
     max-width: none;
     height: 100dvh;
@@ -228,9 +269,20 @@
     padding: var(--header-height) 0 0;
     background: var(--color-surface);
   }
+  .mobile-menu__brand {
+    display: block;
+    position: absolute;
+    top: calc((var(--header-height) - 40px) / 2);
+    left: var(--page-gutter);
+    z-index: 3;
+    visibility: visible;
+  }
+  .mobile-menu__brand img { display: block; width: min(237.3px, calc(100vw - (var(--page-gutter) * 2) - 47px)); height: auto; }
   .mobile-menu__panel {
+    position: relative;
+    z-index: 1;
     min-height: 100%;
-    padding: 184.5px 27px 24px;
+    padding: 197px 27px 24px;
     transition: transform var(--motion-menu) var(--motion-ease);
   }
   .mobile-menu__panel--children {
@@ -238,10 +290,28 @@
     inset: 0;
     transform: translateX(100%);
   }
+  .mobile-menu__panel--children[data-mobile-folder="about"] { padding-top: 265px; }
+  .mobile-menu__panel--children[data-mobile-folder="impact"] { padding-top: 197px; }
+  .mobile-menu__panel--children [data-mobile-folder-back] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-width: 44px;
+    margin: 0 auto 34px;
+    padding-block: 11.7px 35.1px;
+    color: var(--color-text);
+    opacity: 0.5;
+    font-family: var(--font-heading);
+    font-size: 33.15px;
+    font-weight: var(--weight-nav);
+    line-height: 33.15px;
+  }
+  .mobile-menu__back-chevron { color: #a6a4aa; font-family: var(--font-body); font-size: 42px; font-weight: 300; line-height: 0.6; }
   [data-mobile-root].is-shifted { transform: translateX(-100%); }
   .mobile-menu__panel--children.is-active { transform: translateX(0); }
   .mobile-menu__close {
-    position: absolute;
+    position: fixed;
     top: calc((var(--header-height) - 37px) / 2);
     right: var(--gutter);
     display: flex;
@@ -251,13 +321,15 @@
     height: 37px;
     padding: 0;
     color: var(--color-ink);
+    z-index: 3;
   }
   .mobile-menu__close svg { width: 21px; height: 21px; }
   .mobile-menu nav ul { display: grid; align-items: start; gap: 11.5px; }
+  .mobile-menu__panel--children nav ul { gap: 23px; }
   .mobile-menu nav a, .mobile-menu nav button {
     display: block;
     width: 100%;
-    padding-block: 23.425px;
+    padding-block: 11.7px 35.1px;
     color: var(--color-ink);
     font-family: var(--font-display);
     font-size: 33.15px;
@@ -277,7 +349,8 @@
     mask: var(--icon-chevron-right) no-repeat center / 100% 100%;
   }
   .mobile-menu .button--directory { position: absolute; right: 89px; bottom: 24px; min-height: 61px; padding: 19.2px 34.56px; font-size: 19.2px; }
-  .site-footer { min-height: 278.52px; padding-block: 47.1px 49.9px; }
+  .split-layout { grid-template-columns: 1fr; gap: var(--section-space); }
+  .site-footer { height: 278.52px; padding-block: 47.1px 49.9px; }
   .site-footer ul { margin-inline: auto; }
   .site-footer li:not(:last-child)::after { content: '| ' / ''; margin-inline: 16px; }
 }

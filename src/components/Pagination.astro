@@ -1,0 +1,23 @@
+---
+interface PageLink {
+  number: number;
+  href: string;
+}
+
+interface Props {
+  currentPage: number;
+  pages: readonly PageLink[];
+}
+
+const { currentPage, pages } = Astro.props;
+const currentIndex = pages.findIndex((page) => page.number === currentPage);
+if (currentIndex === -1) throw new Error(`Impact pagination does not declare page ${currentPage}`);
+const newer = pages[currentIndex - 1];
+const older = pages[currentIndex + 1];
+---
+{pages.length > 1 && (
+  <nav class="impact-pagination" aria-label="Impact pagination">
+    {newer && <a href={newer.href}>Newer Posts</a>}
+    {older && <a href={older.href}>Older Posts</a>}
+  </nav>
+)}

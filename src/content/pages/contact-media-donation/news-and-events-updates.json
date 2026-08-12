@@ -1,0 +1,18 @@
+{
+  "route": "/news-and-events-updates",
+  "title": "Sign up for news and events updates",
+  "description": "Please read our [Privacy Policy](/privacy-policy) about how we store any personal data you share with us via this form",
+  "heading": "Sign up for news and events updates",
+  "body": [
+    "## I want to receive updates on EHF News and Events",
+    "Please read our [Privacy Policy](/privacy-policy) about how we store any personal data you share with us via this form"
+  ],
+  "heroImage": null,
+  "heroAlt": null,
+  "links": [
+    {
+      "label": "Privacy Policy",
+      "href": "/privacy-policy"
+    }
+  ]
+}

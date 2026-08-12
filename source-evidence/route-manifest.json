@@ -1,0 +1,1478 @@
+{
+  "schemaVersion": 1,
+  "routes": [
+    {
+      "path": "/",
+      "kind": "included",
+      "family": "homepage"
+    },
+    {
+      "path": "/2025-hillary-innovation-summit-breakout-sessions-summary",
+      "kind": "included",
+      "family": "event-programme"
+    },
+    {
+      "path": "/2025-summit-programme",
+      "kind": "included",
+      "family": "event-programme"
+    },
+    {
+      "path": "/22-annual-report",
+      "kind": "included",
+      "family": "annual-report-document"
+    },
+    {
+      "path": "/23-annual-report",
+      "kind": "included",
+      "family": "annual-report-document"
+    },
+    {
+      "path": "/404",
+      "kind": "included",
+      "family": "not-found"
+    },
+    {
+      "path": "/about-ehf",
+      "kind": "included",
+      "family": "institutional"
+    },
+    {
+      "path": "/alumni-directory",
+      "kind": "excluded",
+      "reason": "Fellow/alumni directory or directory-search page; excluded scope"
+    },
+    {
+      "path": "/alumni-directory-advanced-search",
+      "kind": "excluded",
+      "reason": "Fellow/alumni directory or directory-search page; excluded scope"
+    },
+    {
+      "path": "/april-2023",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/april-2024",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/april-2025",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/archive",
+      "kind": "redirect",
+      "target": "/read",
+      "status": 301,
+      "redirectType": "legacy-alias"
+    },
+    {
+      "path": "/august-2022",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/august-2023",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/august-2024",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/communitycollective",
+      "kind": "included",
+      "family": "institutional"
+    },
+    {
+      "path": "/contact-media",
+      "kind": "included",
+      "family": "contact-media-donation"
+    },
+    {
+      "path": "/contact-us",
+      "kind": "included",
+      "family": "contact-media-donation"
+    },
+    {
+      "path": "/contact-us-check",
+      "kind": "excluded",
+      "reason": "Stale test page (\"Contact Us - Check\")"
+    },
+    {
+      "path": "/copy-060421-exact-match-fellow-directory",
+      "kind": "excluded",
+      "reason": "Duplicate copy of the fellow directory; excluded as duplicate"
+    },
+    {
+      "path": "/december-and-january-2024",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/december22-january23",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/donation-more-than-10k",
+      "kind": "included",
+      "family": "contact-media-donation"
+    },
+    {
+      "path": "/donation-outside-nz-and-us",
+      "kind": "included",
+      "family": "contact-media-donation"
+    },
+    {
+      "path": "/donation-pledge",
+      "kind": "included",
+      "family": "contact-media-donation"
+    },
+    {
+      "path": "/donation-refund-request",
+      "kind": "included",
+      "family": "contact-media-donation"
+    },
+    {
+      "path": "/ehf-fellows-articles",
+      "kind": "excluded",
+      "reason": "Fellow articles section with placeholder-draft permalink slugs; BuildLead approved exclusion"
+    },
+    {
+      "path": "/ehf-fellows-articles/blog-post-title-four-lr658-9ef3n",
+      "kind": "excluded",
+      "reason": "Fellow articles section with placeholder-draft permalink slugs; BuildLead approved exclusion"
+    },
+    {
+      "path": "/ehf-fellows-articles/blog-post-title-three-y3peb-48wxx",
+      "kind": "excluded",
+      "reason": "Fellow articles section with placeholder-draft permalink slugs; BuildLead approved exclusion"
+    },
+    {
+      "path": "/ehf-fellows-articles/blog-post-title-two-t5my5-t4apw",
+      "kind": "excluded",
+      "reason": "Fellow articles section with placeholder-draft permalink slugs; BuildLead approved exclusion"
+    },
+    {
+      "path": "/ehf-fellows-articles/Blog%20Post%20Title%20One-3zaa9-n8kpf",
+      "kind": "excluded",
+      "reason": "Fellow articles section with placeholder-draft permalink slugs; BuildLead approved exclusion"
+    },
+    {
+      "path": "/ehf-friendly-sharks-waiting-list",
+      "kind": "included",
+      "family": "contact-media-donation"
+    },
+    {
+      "path": "/february-2023",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/february-2024",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/fellow-detail",
+      "kind": "excluded",
+      "reason": "Fellow detail page; excluded scope"
+    },
+    {
+      "path": "/fellow-directory",
+      "kind": "excluded",
+      "reason": "Fellow/alumni directory or directory-search page; excluded scope"
+    },
+    {
+      "path": "/fellow-directory-advanced-search",
+      "kind": "excluded",
+      "reason": "Fellow/alumni directory or directory-search page; excluded scope"
+    },
+    {
+      "path": "/homepage",
+      "kind": "redirect",
+      "target": "/",
+      "status": 301,
+      "redirectType": "legacy-alias"
+    },
+    {
+      "path": "/impact-in-action",
+      "kind": "redirect",
+      "target": "/read",
+      "status": 301,
+      "redirectType": "legacy-alias"
+    },
+    {
+      "path": "/journey",
+      "kind": "included",
+      "family": "institutional"
+    },
+    {
+      "path": "/july-2022",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/july-2023",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/july-2024",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/june-2023",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/june-2024",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/june-2025",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/march-2023",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/march-2024",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/march-2025",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/may-2023",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/may-2024",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/may-2025",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/media-inquiries",
+      "kind": "included",
+      "family": "contact-media-donation"
+    },
+    {
+      "path": "/news",
+      "kind": "excluded",
+      "reason": "Stale Impact Snapshots fragment surface; live route returns 404"
+    },
+    {
+      "path": "/news-and-events-updates",
+      "kind": "included",
+      "family": "contact-media-donation"
+    },
+    {
+      "path": "/news-blog",
+      "kind": "included",
+      "family": "news-listing"
+    },
+    {
+      "path": "/news-blog/2021-2022-annual-report-shows-year-of-impact",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/2023-a-year-of-connections-impact-and-milestones",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/a-new-expedition-the-mission-studio",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/announcing-the-new-ceo-for-ehf",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/building-innovation-growth-through-global-talent",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/closer-alignment-between-hillary-institute-ehf-to-unlock-potential",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/ehf-welcomes-95-fellows-in-march-welcome-experience",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/ehf-welcomes-more-than-100-fellows-in-2022",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/farewell-thank-you-and-congratulations-to-paul-atkins",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/fellow-led-board-established-with-four-fellows-appointed-as-new-directors",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/impact-springboard-showcases-leading-innovation-for-global-impact",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/media-release-anna-kominik-announced-as-new-board-chair",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/page/2",
+      "kind": "included",
+      "family": "news-listing"
+    },
+    {
+      "path": "/news-blog/reflections-of-sir-edmund-hillarys-legacy-on-everest-day",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/reflections-this-waitangi-day-2023",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/reflections-this-waitangi-day-2024",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/the-hillary-institute-ehf-submission-on-amending-foreign-investment-funds-rules-for-migrants",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/news-blog/the-mission-studio-first-convening",
+      "kind": "included",
+      "family": "news-article"
+    },
+    {
+      "path": "/november-2022",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/november-2023",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/november-2024",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/october-2022",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/october-2023",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/october-2024",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/our-values",
+      "kind": "included",
+      "family": "institutional"
+    },
+    {
+      "path": "/privacy-policy",
+      "kind": "included",
+      "family": "legal"
+    },
+    {
+      "path": "/read",
+      "kind": "included",
+      "family": "impact-listing"
+    },
+    {
+      "path": "/read/a-new-governance-landscape-on-the-moon",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/a-new-wave-of-entrepreneurial-talent-for-new-zealand",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/a-sweet-symphony-of-collaboration-and-impact",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/accelerating-impact-through-the-power-of-the-sun",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/access-to-justice-through-collaborative-action",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/accessible-tech-thats-breaking-down-barriers",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/activating-generational-change-for-aotearoa-nzs-wellbeing",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/aerospace-venture-spotlight-kea-aerospace",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/aotearoa-ideal-basecamp-for-space",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/authentic-storytelling-in-service-of-impact",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/brewing-hope",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/bringing-the-worlds-unbanked-on-the-path-to-financial-security",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/building-aotearoas-leaders-of-tomorrow",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/building-climate-resilience-in-the-pacific-aotearoa",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/building-financial-literacy-in-the-fight-against-climate-change",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/catalysing-environmental-action-for-a-sustainable-future",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/category/featured+1",
+      "kind": "excluded",
+      "reason": "Stale Squarespace category-filter template path"
+    },
+    {
+      "path": "/read/celebrating-achievements-and-values-this-everest-day",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/celebrating-milestones-and-opening-a-new-chapter",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/championing-maori-and-indigenous-enterprise-and-cultural-values",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/charting-the-path-how-we-frame-impact",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/could-training-and-upskilling-be-the-most-efficient-way-to-transform-aotearoa-into-a-climate-leader",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/creating-a-more-accessible-world-for-everyone",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/creating-a-positive-change-for-people-and-planet",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/creating-energy-from-waste-in-aotearoa",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/creating-opportunities-for-maori-pasifika-talent-in-gaming",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/crowdfunding-land-stewardship-in-regional-aotearoa",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/cultivating-indigenous-entrepreneurship",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/cultivating-regenerative-organic-futures",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/dealing-a-better-hand-during-covid-19",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/decentralised-social-media-by-and-for-the-people",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/destruction-and-rebirth-building-a-new-new-zealand-post-covid-19",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/discovering-founder-kaupapa-outside-the-valley",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/disrupting-lending-systems",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/elevating-connectorship-to-create-change",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/enabling-prosperity-through-regeneration",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/energy-lifelines-enabling-remote-communities",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/expanding-the-global-footprint-of-new-zealand-stories",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/fellows-in-action-a-global-effort-to-support-ukrainians",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/getting-the-whole-world-humming-after-a-crisis",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/globalising-kiwi-innovation",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/harnessing-pine-pollens-power-to-transform-wellbeing",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/helping-to-solve-the-unsolvable-challenges",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/hepatitis-c-silencing-a-silent-killer",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/how-do-we-design-an-inclusive-future-with-refugee-teens",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/inclusivity-in-the-age-of-space-exploration",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/information-sharing-for-public-good",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/investing-in-kiwi-start-ups",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/ko-te-wananga-kei-a-koutou-kethe-knowledge-is-within-you",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/leading-the-metaverse-revolution-from-aotearoa-nz",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/making-aotearoa-an-innovation-nation",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/making-ocean-science-accessible-to-all",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/measuring-justice",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/media-release-new-zealand-experience-behind-environmental-awakening-for-world-leading-scientists",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/mindfulness-for-kiwi-kids",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/nature-inspired-solutions-for-global-environmental-health",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/one-chapter-ends-and-another-begins",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/opening-doors-for-rangatahi-young-people-in-tech",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/page/2",
+      "kind": "included",
+      "family": "impact-listing"
+    },
+    {
+      "path": "/read/page/3",
+      "kind": "included",
+      "family": "impact-listing"
+    },
+    {
+      "path": "/read/page/4",
+      "kind": "included",
+      "family": "impact-listing"
+    },
+    {
+      "path": "/read/page/5",
+      "kind": "included",
+      "family": "impact-listing"
+    },
+    {
+      "path": "/read/powering-purpose-with-electric-utility-bikes",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/removing-bias-in-a-fight-for-social-and-economic-justice",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/restorative-finance",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/revolutionising-tech-from-nz",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/scaling-kiwi-healthcare-business-at-home-and-going-global",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/sharing-a-solar-powered-future",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/shifting-the-equity-conversation-from-aspiration-to-action",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/shining-a-light-on-climate-forward-organisations",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/solving-one-of-our-oldest-hardest-problems-by-turning-human-waste-into-fuel",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/solving-the-ocean-plastics-problem",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/space-venture-spotlight-ceres-robotics",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/supporting-grassroots-innovation-at-the-edge-of-the-map",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/supporting-kiwi-founders-to-thrive",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/supporting-values-based-innovation-in-aotearoa",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/swe2a87gjavk3i0brqd2buom9z1hec",
+      "kind": "excluded",
+      "reason": "Malformed placeholder hash slug"
+    },
+    {
+      "path": "/read/tackling-global-textile-waste-through-innovative-solutions",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/tackling-the-ugly-truth-behind-the-fashion-industry",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/te-pa-o-rakaihautu-from-vision-to-reality",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/the-awa/river-story-inspiring-connection-action",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/the-decisive-decade-for-humanitys-future-on-earth",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/the-future-of-funding-impact-projects",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/the-global-impact-visa-pilot",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/the-world-changing-power-of-true-stories",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/transformative-solar-education-in-schools-across-aotearoa",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/transforming-lives-in-niue-by-eliminating-hepatitis",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/transforming-maori-education-and-revitalising-identity",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/read/unlocking-the-potential-of-offshore-wind",
+      "kind": "included",
+      "family": "impact-article"
+    },
+    {
+      "path": "/refund-policy-terms-and-conditions",
+      "kind": "included",
+      "family": "legal"
+    },
+    {
+      "path": "/september-2022",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/september-2023",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/september-2024",
+      "kind": "redirect",
+      "target": "/news-blog",
+      "status": 301,
+      "redirectType": "monthly-archive"
+    },
+    {
+      "path": "/summer-edition-2025",
+      "kind": "included",
+      "family": "institutional"
+    },
+    {
+      "path": "/terms-of-use",
+      "kind": "included",
+      "family": "legal"
+    },
+    {
+      "path": "/timeline-images",
+      "kind": "excluded",
+      "reason": "Stale template page (\"Gallery 1\")"
+    },
+    {
+      "path": "/typography",
+      "kind": "excluded",
+      "reason": "Stale template page (\"General 5\")"
+    },
+    {
+      "path": "/watch",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c-ds4k6",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c-ds4k6-8ctxa",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c-ds4k6-8ctxa-dlh6p",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c-ds4k6-8ctxa-dlh6p-5r5l9",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t-9fgz5",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t-9fgz5-b8kaz",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t-9fgz5-b8kaz-nnx33",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t-9fgz5-b8kaz-nnx33-l2ba9",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em-2paje",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em-2paje-dbl5z",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em-2paje-dbl5z-d6hy3",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    },
+    {
+      "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em-2paje-dbl5z-d6hy3-tb99x",
+      "kind": "excluded",
+      "reason": "Watch section hash-variant path; all watch variants excluded"
+    }
+  ]
+}

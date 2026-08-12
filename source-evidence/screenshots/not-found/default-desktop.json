@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "family": "not-found",
+  "route": "/404",
+  "sourceUrl": "https://www.ehf.org/404",
+  "httpStatus": 200,
+  "finalUrl": "https://www.ehf.org/404",
+  "state": "default",
+  "stateDescription": "Page as first painted after fonts settle, full 600 px lazy-load scroll pass, and scroll returned to the top.",
+  "sourceObserved": true,
+  "interaction": null,
+  "viewport": {
+    "name": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "deviceScaleFactor": 1
+  },
+  "capture": {
+    "reducedMotion": true,
+    "fontsReady": true,
+    "lazyLoadScrollPx": 600,
+    "fullPage": true,
+    "animations": "disabled"
+  },
+  "screenshot": {
+    "path": "source-evidence/screenshots/not-found/default-desktop.png",
+    "widthPx": 1440,
+    "heightPx": 1000
+  },
+  "documentHeight": 1000,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [],
+  "capturedAt": "2026-08-09T03:45:06.245Z"
+}

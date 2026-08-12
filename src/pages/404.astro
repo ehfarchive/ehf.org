@@ -1,0 +1,33 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+<SiteLayout title="Page not found — Edmund Hillary Fellowship" description="The requested page is not available.">
+  <article class="not-found site-container" data-page-template="not-found">
+    <h1>404 - Page not found.</h1>
+    <p>We couldn't find the page you were looking for.</p>
+    <ul>
+      <li>There may be an error in the URL entered into your web browser.</li>
+      <li>The page you are looking for may have been moved or deleted.</li>
+    </ul>
+    <a class="button" href="/">Home Page</a>
+  </article>
+</SiteLayout>
+
+<style>
+  /* Source lays the page out left-aligned in the full-gutter container: the
+     heading takes the heading step rather than the display step, and the copy,
+     list and button follow in that order. */
+  .not-found { padding-top: calc(var(--header-height) + var(--gutter)); padding-bottom: 120px; }
+  .not-found h1 { margin: 0 0 32px; font-size: var(--text-heading); line-height: var(--lh-heading); }
+  .not-found p { margin: 0; }
+  .not-found ul { margin: 19.5px 0 0; padding-left: 40px; }
+  .not-found li { font-family: var(--font-body); font-weight: var(--weight-body); font-size: var(--text-body); line-height: var(--lh-body); }
+  .not-found li + li { margin-top: 9.7px; }
+  .not-found .button { margin-top: 43.8px; font-weight: var(--weight-heading); }
+  @media (max-width: 767px) {
+    .not-found { padding-bottom: 48px; }
+    .not-found ul { margin-top: 18px; }
+    .not-found li + li { margin-top: 9px; }
+    .not-found .button { margin-top: 43px; }
+  }
+</style>

@@ -1,0 +1,200 @@
+{
+  "requestedUrl": "https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+  "finalUrl": "https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+  "capturedAt": "2026-08-09T14:26:35.056Z",
+  "title": "How Chemergy is Changing the Game in Waste-to-Energy — Edmund Hillary Fellowship",
+  "headings": [
+    {
+      "level": 1,
+      "text": "How Chemergy is Changing the Game in Waste-to-Energy"
+    },
+    {
+      "level": 2,
+      "text": "Harnessing Pine Pollen’s Power to Transform Wellbeing"
+    },
+    {
+      "level": 3,
+      "text": "About‍   |   Fellows Directory‍   |‍  ‍ Impact  ‍ |   Archive‍   |   Closure Statement   |   Privacy"
+    }
+  ],
+  "documentHeightPx": 10986,
+  "viewport": {
+    "widthPx": 390,
+    "heightPx": 844,
+    "devicePixelRatio": 1
+  },
+  "media": {
+    "elements": [
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
+        "complete": true,
+        "naturalWidth": 914,
+        "naturalHeight": 154,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
+        "complete": true,
+        "naturalWidth": 914,
+        "naturalHeight": 154,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/b80efcaf-4501-460e-b074-f7048d078dd6/Melahn.jpg?format=500w",
+        "complete": true,
+        "naturalWidth": 390,
+        "naturalHeight": 390,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/2449e596-40ac-407c-b703-41dc813ead85/Screenshot+2025-06-06+at+8.54.29+AM.png?format=500w",
+        "complete": true,
+        "naturalWidth": 390,
+        "naturalHeight": 141,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/ed144c81-6bfd-4a32-90fc-1963b72a1bc3/Screenshot+2025-06-06+at+8.56.16+AM.png?format=500w",
+        "complete": true,
+        "naturalWidth": 390,
+        "naturalHeight": 152,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/2e2ca535-6551-4cad-8cee-2066393b0820/DSC_3025.JPG?format=500w",
+        "complete": true,
+        "naturalWidth": 390,
+        "naturalHeight": 258,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/a0566b7c-2063-4b71-92d2-6b52e84709f0/hero_seaweed_940x529.jpg",
+        "complete": false,
+        "naturalWidth": 0,
+        "naturalHeight": 0,
+        "remote": true
+      },
+      {
+        "tag": "img",
+        "currentSrc": null,
+        "complete": true,
+        "naturalWidth": 0,
+        "naturalHeight": 0,
+        "remote": false
+      }
+    ],
+    "resources": [
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
+        "initiatorType": "img",
+        "durationMs": 6,
+        "transferSize": 0,
+        "encodedBodySize": 11666,
+        "decodedBodySize": 11666,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/b80efcaf-4501-460e-b074-f7048d078dd6/Melahn.jpg?format=500w",
+        "initiatorType": "img",
+        "durationMs": 0,
+        "transferSize": 0,
+        "encodedBodySize": 21518,
+        "decodedBodySize": 21518,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/2449e596-40ac-407c-b703-41dc813ead85/Screenshot+2025-06-06+at+8.54.29+AM.png?format=500w",
+        "initiatorType": "img",
+        "durationMs": 0,
+        "transferSize": 0,
+        "encodedBodySize": 99058,
+        "decodedBodySize": 99058,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/ed144c81-6bfd-4a32-90fc-1963b72a1bc3/Screenshot+2025-06-06+at+8.56.16+AM.png?format=500w",
+        "initiatorType": "img",
+        "durationMs": 0,
+        "transferSize": 0,
+        "encodedBodySize": 69222,
+        "decodedBodySize": 69222,
+        "loaded": true,
+        "remote": true
+      },
+      {
+        "url": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/2e2ca535-6551-4cad-8cee-2066393b0820/DSC_3025.JPG?format=500w",
+        "initiatorType": "img",
+        "durationMs": 0,
+        "transferSize": 0,
+        "encodedBodySize": 50790,
+        "decodedBodySize": 50790,
+        "loaded": true,
+        "remote": true
+      }
+    ],
+    "loadedElementCount": 7,
+    "unloadedElementCount": 1,
+    "remoteElementCount": 7
+  },
+  "paginationLinks": [],
+  "fonts": {
+    "status": "loaded",
+    "size": 59
+  },
+  "state": "article-chemergy",
+  "localRoute": "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+  "captureViewport": {
+    "name": "mobile",
+    "widthPx": 390,
+    "heightPx": 844
+  },
+  "captureProcedure": {
+    "waitedForNetworkIdle": true,
+    "waitedForFonts": true,
+    "scrollIncrementPx": 600,
+    "returnedToTop": true,
+    "fullPageScreenshot": true,
+    "captureTransport": "Page.captureScreenshot via gstack browse shared Chromium without UI downscaling"
+  },
+  "health": {
+    "httpStatus": 200,
+    "redirectWithinApprovedEhfScope": true,
+    "consoleErrors": [],
+    "consoleWarnings": [
+      "[2026-08-09T14:26:33.925Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+      "[2026-08-09T14:26:33.925Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+      "[2026-08-09T14:26:33.925Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+      "[2026-08-09T14:26:33.925Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+      "[2026-08-09T14:26:33.925Z] [warning] yui: NOT loaded: squarespace-performance"
+    ],
+    "failedRequests": [],
+    "pendingRequestsAtInspection": [
+      "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
+      "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
+    ],
+    "healthy": true
+  },
+  "provenance": {
+    "sourceHost": "www.ehf.org",
+    "captureTool": "gstack browse shared Chromium",
+    "runtimeAssetsCopiedIntoBuild": false
+  },
+  "screenshot": {
+    "path": "article-chemergy-mobile.png",
+    "sha256": "a5f3466931712f47b1c2a2d64e5423191737f9ec8a4ff5d40df141b24de67d59",
+    "widthPx": 390,
+    "heightPx": 10986,
+    "channels": 3,
+    "fullPage": true
+  }
+}

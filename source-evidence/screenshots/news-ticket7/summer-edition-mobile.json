@@ -1,0 +1,639 @@
+{
+  "schemaVersion": 1,
+  "capture": {
+    "ticket": "Stage 2 Ticket 7",
+    "purpose": "Live EHF News source evidence only; no runtime assets copied into build.",
+    "tool": "gstack browse shared Chromium",
+    "capturedAt": "2026-08-10T00:40:17.444Z",
+    "requestedUrl": "https://www.ehf.org/summer-edition-2025",
+    "finalUrl": "https://www.ehf.org/summer-edition-2025",
+    "viewport": {
+      "name": "mobile",
+      "widthPx": 390,
+      "heightPx": 844
+    },
+    "reducedMotion": "reduce",
+    "fontsReady": true,
+    "scrollIncrementPx": 600,
+    "scrolledToDocumentBottom": true,
+    "returnedToTop": true,
+    "screenshot": "full-page PNG",
+    "retry": {
+      "attempted": true,
+      "reason": "Initial capture execution failed before screenshot output because the browser-run Node scope did not expose innerHeight; capture rerun once after querying window.innerHeight in page context."
+    }
+  },
+  "state": "summer-edition",
+  "health": {
+    "httpStatus": 304,
+    "redirectWithinApprovedEhfScope": true,
+    "consoleErrors": [],
+    "consoleWarnings": [],
+    "failedRequests": [],
+    "pendingRequestsAtInspection": []
+  },
+  "screenshot": {
+    "file": "summer-edition-mobile.png",
+    "sha256": "9d6f320999e4008d2d8ef63bd8292b960d79a4f942a2aa12e7456bb69a9287ef",
+    "widthPx": 390,
+    "heightPx": 20855,
+    "bytes": 3884138,
+    "channels": 3
+  },
+  "dom": {
+    "title": "Impact Snapshot (Summer Edition 2025) — Edmund Hillary Fellowship",
+    "headings": [
+      {
+        "level": 1,
+        "text": "Impact Snapshot"
+      },
+      {
+        "level": 4,
+        "text": "Summer Edition (December 2024, January & February 2025)"
+      },
+      {
+        "level": 3,
+        "text": "Fellows in action 🎬"
+      },
+      {
+        "level": 4,
+        "text": "© Edmund Hillary Fellowship 2016 - 2026"
+      },
+      {
+        "level": 3,
+        "text": "About‍ | Fellows Directory‍ |‍ ‍ Impact ‍ | Archive‍ | Closure Statement | Privacy"
+      }
+    ],
+    "cards": [],
+    "pagination": [],
+    "links": [
+      {
+        "text": "0",
+        "href": "https://www.ehf.org/cart"
+      },
+      {
+        "text": "Skip to Content",
+        "href": "https://www.ehf.org/summer-edition-2025#page"
+      },
+      {
+        "text": "",
+        "href": "https://www.ehf.org/"
+      },
+      {
+        "text": "About Us",
+        "href": "https://www.ehf.org/about-ehf"
+      },
+      {
+        "text": "Journey",
+        "href": "https://www.ehf.org/journey"
+      },
+      {
+        "text": "Our Values",
+        "href": "https://www.ehf.org/our-values"
+      },
+      {
+        "text": "Read and Watch",
+        "href": "https://www.ehf.org/impact-in-action"
+      },
+      {
+        "text": "Impact Snapshots",
+        "href": "https://www.ehf.org/news#fellows"
+      },
+      {
+        "text": "EHF Community Collective",
+        "href": "https://www.ehf.org/communitycollective"
+      },
+      {
+        "text": "EHF Fellows Articles",
+        "href": "https://www.ehf.org/ehf-fellows-articles"
+      },
+      {
+        "text": "Archive",
+        "href": "https://www.ehf.org/archive"
+      },
+      {
+        "text": "Fellow Directory",
+        "href": "https://www.ehf.org/fellow-directory"
+      },
+      {
+        "text": "",
+        "href": "https://www.ehf.org/"
+      },
+      {
+        "text": "About Us",
+        "href": "https://www.ehf.org/about-ehf"
+      },
+      {
+        "text": "Journey",
+        "href": "https://www.ehf.org/journey"
+      },
+      {
+        "text": "Our Values",
+        "href": "https://www.ehf.org/our-values"
+      },
+      {
+        "text": "Read and Watch",
+        "href": "https://www.ehf.org/impact-in-action"
+      },
+      {
+        "text": "Impact Snapshots",
+        "href": "https://www.ehf.org/news#fellows"
+      },
+      {
+        "text": "EHF Community Collective",
+        "href": "https://www.ehf.org/communitycollective"
+      },
+      {
+        "text": "EHF Fellows Articles",
+        "href": "https://www.ehf.org/ehf-fellows-articles"
+      },
+      {
+        "text": "Archive",
+        "href": "https://www.ehf.org/archive"
+      },
+      {
+        "text": "Fellow Directory",
+        "href": "https://www.ehf.org/fellow-directory"
+      },
+      {
+        "text": "Folder: About",
+        "href": "https://www.ehf.org/about"
+      },
+      {
+        "text": "Folder: Impact",
+        "href": "https://www.ehf.org/impact"
+      },
+      {
+        "text": "Archive",
+        "href": "https://www.ehf.org/archive"
+      },
+      {
+        "text": "Fellow Directory",
+        "href": "https://www.ehf.org/fellow-directory"
+      },
+      {
+        "text": "Back",
+        "href": "https://www.ehf.org/"
+      },
+      {
+        "text": "About Us",
+        "href": "https://www.ehf.org/about-ehf"
+      },
+      {
+        "text": "Journey",
+        "href": "https://www.ehf.org/journey"
+      },
+      {
+        "text": "Our Values",
+        "href": "https://www.ehf.org/our-values"
+      },
+      {
+        "text": "Back",
+        "href": "https://www.ehf.org/"
+      },
+      {
+        "text": "Read and Watch",
+        "href": "https://www.ehf.org/impact-in-action"
+      },
+      {
+        "text": "Impact Snapshots",
+        "href": "https://www.ehf.org/news#fellows"
+      },
+      {
+        "text": "EHF Community Collective",
+        "href": "https://www.ehf.org/communitycollective"
+      },
+      {
+        "text": "EHF Fellows Articles",
+        "href": "https://www.ehf.org/ehf-fellows-articles"
+      },
+      {
+        "text": "Read more",
+        "href": "https://www.chrislynchmedia.com/news-items/linwood-school-te-pa-o-rakaihautu-wins-prestigious-global-award-in-abu-dhabi/?fbclid=IwY2xjawHzurRleHRuA2FlbQIxMQABHcQywIWrurUdp1wjmm9P6lQ_TpJ4Gdrrut0QaK8RzDdDpcA5Bd2m3gcVmw_aem_7BuMobPu0B7DSmBJNcXKfg"
+      },
+      {
+        "text": "",
+        "href": "https://www.nztcc.org/commitee/"
+      },
+      {
+        "text": "Find out more here",
+        "href": "https://www.twh.co.nz/te-ara-rangatira"
+      },
+      {
+        "text": "Read more here",
+        "href": "https://www.mmi.mit.edu/seniorfellows"
+      },
+      {
+        "text": "Read more here",
+        "href": "https://www.ehf.org/news-blog/building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit"
+      },
+      {
+        "text": "Read article",
+        "href": "https://www.stuff.co.nz/business/360570261/padddddddd"
+      },
+      {
+        "text": "Story Sovereignty: Storytelling Across the Divide",
+        "href": "https://www.linkedin.com/pulse/story-sovereignty-storytelling-across-divide-alexander-alex-lee-1brgc/?trackingId=zdzmLiXRRQanJkp8KuDg4Q%3D%3D"
+      },
+      {
+        "text": "The Future of Documentary – An Evolving Landscape",
+        "href": "https://www.linkedin.com/pulse/future-documentary-evolving-landscape-the-doc-catcher-lm5nc/?trackingId=jLzmOyHHRAq92LvpwIfoOg%3D%3D"
+      },
+      {
+        "text": "The Doc Catcher",
+        "href": "https://www.linkedin.com/company/the-doc-catcher/about/"
+      },
+      {
+        "text": "Read more here",
+        "href": "https://www.purposecapital.co.nz/independent-verification-of-purpose-capitals-impact-principles-alignment-a-first-for-new-zealand/"
+      },
+      {
+        "text": "Global Space Enablers Network",
+        "href": "https://spacebase.co/gsen/"
+      },
+      {
+        "text": "SpaceBase Podcast",
+        "href": "https://www.buzzsprout.com/678467/episodes/16665557"
+      },
+      {
+        "text": "Cattle Credit",
+        "href": "https://www.cattlecredit.com/"
+      },
+      {
+        "text": "Find out more here",
+        "href": "https://www.tolaga.org/"
+      },
+      {
+        "text": "Thriving Communities Aotearoa",
+        "href": "https://www.thrivingaotearoa.org.nz/"
+      },
+      {
+        "text": "Find out more here",
+        "href": "https://www.loom.com/share/ba662c9d1ef244a3a07dc9d633b34955?sid=be74be7a-d9eb-43f8-8546-eaa31fab1d8c"
+      },
+      {
+        "text": "Read more here",
+        "href": "https://www.harvardw3d.com/"
+      },
+      {
+        "text": "Listen/view here",
+        "href": "https://youtu.be/QMInAfhIuTQ?si=98YcZeQBs5lH2fcR"
+      },
+      {
+        "text": "Watch here",
+        "href": "https://youtu.be/Fz-bY-ZMtro?si=mlZaakPEaG6gHXih"
+      },
+      {
+        "text": "Collective Intelligence",
+        "href": "https://www.collectiveintelligence.co.nz/"
+      },
+      {
+        "text": "an interview with The Post",
+        "href": "https://www.thepost.co.nz/nz-news/360556232/manawatu-farmer-turned-entrepreneurs-first-book"
+      },
+      {
+        "text": "Find out more about Coming In From The Cold here",
+        "href": "https://scorpiobooks.co.nz/product/coming-in-from-the-cold/"
+      },
+      {
+        "text": "Listen here",
+        "href": "https://disastrous.co/pages/podcast-disrupting-disasters-with-elizabeth-mcnaughton"
+      },
+      {
+        "text": "Listen to the interview",
+        "href": "https://theseeds.nz/podcast/mike-casey-on-why-we-should-electrify-everything-and-rewiring-aotearoa/"
+      },
+      {
+        "text": "About‍",
+        "href": "https://www.ehf.org/about-ehf"
+      },
+      {
+        "text": "Fellows Directory‍",
+        "href": "https://www.ehf.org/fellow-directory-advanced-search"
+      },
+      {
+        "text": "Impact",
+        "href": "https://www.ehf.org/impact-in-action"
+      },
+      {
+        "text": "Archive‍",
+        "href": "https://www.ehf.org/news"
+      }
+    ],
+    "media": [
+      {
+        "order": 1,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
+        "dataSrc": null,
+        "alt": "Edmund Hillary Fellowship",
+        "complete": true,
+        "naturalWidth": 914,
+        "naturalHeight": 154
+      },
+      {
+        "order": 2,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1598311923613-QLM3MJNU1Q30HCAKGVW0/EHF+Logo+Color+Dark.png?format=1500w",
+        "dataSrc": null,
+        "alt": "Edmund Hillary Fellowship",
+        "complete": true,
+        "naturalWidth": 914,
+        "naturalHeight": 154
+      },
+      {
+        "order": 3,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/24082eaf-7b57-4876-954d-2227803bcaae/Screenshot+2025-03-04+at+10.57.44+AM.png?format=750w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/24082eaf-7b57-4876-954d-2227803bcaae/Screenshot+2025-03-04+at+10.57.44+AM.png",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 343,
+        "naturalHeight": 193
+      },
+      {
+        "order": 4,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/0b7f97fe-1c3f-40ea-9205-f62d42320ea5/125_Jojo%2C+Rangimarie%2C+Huia%2C+Sarah%2C+Helen%2C+Nikora_credit+Erica+Austin%2C+Peanut+Productions+Photography.jpg?format=750w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/0b7f97fe-1c3f-40ea-9205-f62d42320ea5/125_Jojo%2C+Rangimarie%2C+Huia%2C+Sarah%2C+Helen%2C+Nikora_credit+Erica+Austin%2C+Peanut+Productions+Photography.jpg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 343,
+        "naturalHeight": 228
+      },
+      {
+        "order": 5,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/6c652f3d-2c0b-4179-b313-e48467c78b61/38_Adam+Grosser_credit+Erica+Austin%2C+Peanut+Productions+Photography.jpg?format=750w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/6c652f3d-2c0b-4179-b313-e48467c78b61/38_Adam+Grosser_credit+Erica+Austin%2C+Peanut+Productions+Photography.jpg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 343,
+        "naturalHeight": 228
+      },
+      {
+        "order": 6,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/a9c30c6f-3ca9-417f-8a5f-c5c416c825f0/Randy.jpeg?format=300w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/a9c30c6f-3ca9-417f-8a5f-c5c416c825f0/Randy.jpeg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 166,
+        "naturalHeight": 166
+      },
+      {
+        "order": 7,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/aa79e375-3dba-4c30-959a-1bf7f9d983ca/cindyloughridgephotographylianvifstudio001crop.jpeg?format=300w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/aa79e375-3dba-4c30-959a-1bf7f9d983ca/cindyloughridgephotographylianvifstudio001crop.jpeg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 166,
+        "naturalHeight": 166
+      },
+      {
+        "order": 8,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/4223a6e3-346d-40eb-8bff-33e95e643554/alexheadphones.jpg?format=500w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/4223a6e3-346d-40eb-8bff-33e95e643554/alexheadphones.jpg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 312,
+        "naturalHeight": 312
+      },
+      {
+        "order": 9,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/6d6e2167-6972-46fd-809e-42b7599f9e1e/rebeccamillsheadshot.jpg?format=500w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/6d6e2167-6972-46fd-809e-42b7599f9e1e/rebeccamillsheadshot.jpg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 343,
+        "naturalHeight": 228
+      },
+      {
+        "order": 10,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/69bb9073-8eab-4c2a-8bbb-8483124ce15b/ericdahlstrom1.jpg?format=300w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/69bb9073-8eab-4c2a-8bbb-8483124ce15b/ericdahlstrom1.jpg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 166,
+        "naturalHeight": 99
+      },
+      {
+        "order": 11,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/192f05f4-b729-43b5-9afe-bc5f43d801f4/emelinepaatdahlstrom1.jpg?format=300w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/192f05f4-b729-43b5-9afe-bc5f43d801f4/emelinepaatdahlstrom1.jpg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 166,
+        "naturalHeight": 99
+      },
+      {
+        "order": 12,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/0d0789b2-9895-42cd-9258-382d24d99e13/aim.jpg?format=300w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/0d0789b2-9895-42cd-9258-382d24d99e13/aim.jpg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 166,
+        "naturalHeight": 110
+      },
+      {
+        "order": 13,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/9614a56f-08af-4b8f-a2ae-4204e5c31e55/120_Lily+Stender_credit+Erica+Austin%2C+Peanut+Productions+Photography.jpg?format=300w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/9614a56f-08af-4b8f-a2ae-4204e5c31e55/120_Lily+Stender_credit+Erica+Austin%2C+Peanut+Productions+Photography.jpg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 166,
+        "naturalHeight": 110
+      },
+      {
+        "order": 14,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/eb2491dc-d508-4f81-b3b1-d0e4bd58109f/scott.jpg?format=300w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/eb2491dc-d508-4f81-b3b1-d0e4bd58109f/scott.jpg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 166,
+        "naturalHeight": 166
+      },
+      {
+        "order": 15,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/d34cacc3-522d-4627-b0e3-86b90f92be3c/1739392694939.jpeg?format=750w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/d34cacc3-522d-4627-b0e3-86b90f92be3c/1739392694939.jpeg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 343,
+        "naturalHeight": 257
+      },
+      {
+        "order": 16,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/5db085b2-9eef-429e-9504-6634c9fbfcab/rsz_sasha_4678_c.jpg?format=500w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/5db085b2-9eef-429e-9504-6634c9fbfcab/rsz_sasha_4678_c.jpg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 343,
+        "naturalHeight": 343
+      },
+      {
+        "order": 17,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/150b4932-81c0-4f6b-beaa-c4f07e4554c0/mark.jpg?format=500w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/150b4932-81c0-4f6b-beaa-c4f07e4554c0/mark.jpg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 343,
+        "naturalHeight": 343
+      },
+      {
+        "order": 18,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/894f19f8-5e12-4b96-8b6e-5ed065192303/yasmine33.jpg?format=500w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/894f19f8-5e12-4b96-8b6e-5ed065192303/yasmine33.jpg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 343,
+        "naturalHeight": 229
+      },
+      {
+        "order": 19,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/828ada9e-10f1-4a72-b748-1a475a472902/0gpbw9t_400x400.jpg?format=500w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/828ada9e-10f1-4a72-b748-1a475a472902/0gpbw9t_400x400.jpg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 274,
+        "naturalHeight": 274
+      },
+      {
+        "order": 20,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/5783258c-c4de-4068-986a-380486ee25c6/ed_baker_square.jpg?format=500w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/5783258c-c4de-4068-986a-380486ee25c6/ed_baker_square.jpg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 343,
+        "naturalHeight": 343
+      },
+      {
+        "order": 21,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/75011ec9-0747-4e68-a476-87cc67d4acf1/harv.png?format=500w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/75011ec9-0747-4e68-a476-87cc67d4acf1/harv.png",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 343,
+        "naturalHeight": 343
+      },
+      {
+        "order": 22,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/e125b856-23c3-4c9f-86a6-09634e3d522d/headshotsquaresmall.jpg?format=500w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/e125b856-23c3-4c9f-86a6-09634e3d522d/headshotsquaresmall.jpg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 343,
+        "naturalHeight": 343
+      },
+      {
+        "order": 23,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/55f319b2-e1e8-44df-8d8a-e42e21bdc6cd/ebiosquare.jpg?format=500w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/55f319b2-e1e8-44df-8d8a-e42e21bdc6cd/ebiosquare.jpg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 246,
+        "naturalHeight": 246
+      },
+      {
+        "order": 24,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/7e9e5515-1281-428b-be15-6f9934d1bfa1/steven.jpg?format=500w",
+        "dataSrc": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/7e9e5515-1281-428b-be15-6f9934d1bfa1/steven.jpg",
+        "alt": null,
+        "complete": true,
+        "naturalWidth": 343,
+        "naturalHeight": 387
+      }
+    ],
+    "unloadedMedia": [],
+    "templateSignals": {
+      "bodyClass": "tweak-blog-alternating-side-by-side-width-inset tweak-blog-alternating-side-by-side-image-aspect-ratio-11-square tweak-blog-alternating-side-by-side-text-alignment-left tweak-blog-alternating-side-by-side-read-more-style-show tweak-blog-alternating-side-by-side-image-text-alignment-middle tweak-blog-alternating-side-by-side-delimiter-bullet tweak-blog-alternating-side-by-side-meta-position-top tweak-blog-alternating-side-by-side-primary-meta-categories tweak-blog-alternating-side-by-side-secondary-meta-date tweak-blog-alternating-side-by-side-excerpt-show image-block-poster-text-alignment-left image-block-card-content-position-center image-block-card-text-alignment-left image-block-overlap-content-position-center image-block-overlap-text-alignment-left image-block-collage-content-position-center image-block-collage-text-alignment-left image-block-stack-text-alignment-left form-use-theme-colors form-field-style-solid form-field-shape-square form-field-border-all form-field-checkbox-type-icon form-field-checkbox-fill-solid form-field-checkbox-color-inverted form-field-checkbox-shape-square form-field-checkbox-layout-stack form-field-radio-type-icon form-field-radio-fill-solid form-field-radio-color-normal form-field-radio-shape-pill form-field-radio-layout-stack form-field-survey-fill-solid form-field-survey-color-normal form-field-survey-shape-pill form-field-hover-focus-outline form-submit-button-style-label  tweak-global-animations-complexity-level-detailed tweak-global-animations-animation-style-fade tweak-global-animations-animation-type-none tweak-global-animations-animation-curve-ease tweak-blog-masonry-width-full tweak-blog-masonry-text-alignment-left tweak-blog-masonry-primary-meta-none tweak-blog-masonry-secondary-meta-none tweak-blog-masonry-meta-position-top tweak-blog-masonry-read-more-style-hide tweak-blog-masonry-delimiter-bullet tweak-blog-masonry-image-placement-above tweak-blog-masonry-excerpt-hide tweak-portfolio-grid-overlay-width-full tweak-portfolio-grid-overlay-height-large tweak-portfolio-grid-overlay-image-aspect-ratio-11-square tweak-portfolio-grid-overlay-text-placement-center tweak-portfolio-grid-overlay-show-text-after-hover tweak-blog-single-column-width-inset tweak-blog-single-column-text-alignment-center tweak-blog-single-column-image-placement-above tweak-blog-single-column-delimiter-bullet tweak-blog-single-column-read-more-style-show tweak-blog-single-column-primary-meta-categories tweak-blog-single-column-secondary-meta-date tweak-blog-single-column-meta-position-top tweak-blog-single-column-content-full-post header-width-inset   tweak-fixed-header-style-basic tweak-blog-item-width-custom tweak-blog-item-text-alignment-center tweak-blog-item-meta-position-below-title tweak-blog-item-show-categories    tweak-blog-item-delimiter-bullet tweak-blog-side-by-side-width-full tweak-blog-side-by-side-image-placement-left tweak-blog-side-by-side-image-aspect-ratio-11-square tweak-blog-side-by-side-primary-meta-categories tweak-blog-side-by-side-secondary-meta-none tweak-blog-side-by-side-meta-position-top tweak-blog-side-by-side-text-alignment-left tweak-blog-side-by-side-image-text-alignment-middle tweak-blog-side-by-side-read-more-style-show tweak-blog-side-by-side-delimiter-bullet tweak-blog-side-by-side-excerpt-hide primary-button-style-solid primary-button-shape-rounded secondary-button-style-solid secondary-button-shape-rounded tertiary-button-style-solid tertiary-button-shape-rounded tweak-events-stacked-width-full tweak-events-stacked-height-large  tweak-events-stacked-show-thumbnails tweak-events-stacked-thumbnail-size-32-standard tweak-events-stacked-date-style-with-text tweak-events-stacked-show-time tweak-events-stacked-show-location  tweak-events-stacked-show-excerpt  tweak-blog-basic-grid-width-inset tweak-blog-basic-grid-image-aspect-ratio-32-standard tweak-blog-basic-grid-text-alignment-left tweak-blog-basic-grid-delimiter-bullet tweak-blog-basic-grid-image-placement-above tweak-blog-basic-grid-read-more-style-show tweak-blog-basic-grid-primary-meta-categories tweak-blog-basic-grid-secondary-meta-date tweak-blog-basic-grid-excerpt-show tweak-portfolio-grid-basic-width-full tweak-portfolio-grid-basic-height-large tweak-portfolio-grid-basic-image-aspect-ratio-11-square tweak-portfolio-grid-basic-text-alignment-left tweak-portfolio-grid-basic-hover-effect-fade header-overlay-alignment-center tweak-portfolio-index-background-link-format-stacked tweak-portfolio-index-background-width-full-bleed tweak-portfolio-index-background-height-large  tweak-portfolio-index-background-vertical-alignment-middle tweak-portfolio-index-background-horizontal-alignment-center tweak-portfolio-index-background-delimiter-none tweak-portfolio-index-background-animation-type-fade tweak-portfolio-index-background-animation-duration-medium tweak-portfolio-hover-follow-layout-inline  tweak-portfolio-hover-follow-delimiter-bullet tweak-portfolio-hover-follow-animation-type-fade tweak-portfolio-hover-follow-animation-duration-fast tweak-portfolio-hover-static-layout-inline tweak-portfolio-hover-static-front tweak-portfolio-hover-static-delimiter-hyphen tweak-portfolio-hover-static-animation-type-fade tweak-portfolio-hover-static-animation-duration-fast hide-opentable-icons opentable-style-dark tweak-product-quick-view-button-style-floating tweak-product-quick-view-button-position-bottom tweak-product-quick-view-lightbox-excerpt-display-truncate tweak-product-quick-view-lightbox-show-arrows tweak-product-quick-view-lightbox-show-close-button tweak-product-quick-view-lightbox-controls-weight-light native-currency-code-usd collection-67c62a22e20b112c544a7a8b collection-type-page collection-layout-default mobile-style-available sqs-seven-one\n      \n        \n          \n        \n      \n     seven-one-global-animations",
+      "collectionType": null,
+      "collectionId": null,
+      "blogItemCount": 0,
+      "hasBlogCollection": false,
+      "hasBlogItem": false,
+      "hasPageSections": true,
+      "hasNotFoundText": false
+    },
+    "meta": [
+      {
+        "key": "viewport",
+        "content": "width=device-width, initial-scale=1"
+      },
+      {
+        "key": "og:site_name",
+        "content": "Edmund Hillary Fellowship"
+      },
+      {
+        "key": "og:title",
+        "content": "Impact Snapshot (Summer Edition 2025) — Edmund Hillary Fellowship"
+      },
+      {
+        "key": "og:url",
+        "content": "https://www.ehf.org/summer-edition-2025"
+      },
+      {
+        "key": "og:type",
+        "content": "website"
+      },
+      {
+        "key": "og:description",
+        "content": "Find out more about what some of the Fellows have been up to this month, from exciting announcements and launches, to being recognised as an inspiring global Kiwi, to Fellows collaborating to support a community, plus much more."
+      },
+      {
+        "key": "og:image",
+        "content": "http://static1.squarespace.com/static/5f3874da9e73700975a00b12/t/67c62e5fb3807626db8d2bfc/1754439764706/125_Jojo%2C+Rangimarie%2C+Huia%2C+Sarah%2C+Helen%2C+Nikora_credit+Erica+Austin%2C+Peanut+Productions+Photography.jpg?format=1500w"
+      },
+      {
+        "key": "og:image:width",
+        "content": "1500"
+      },
+      {
+        "key": "og:image:height",
+        "content": "1001"
+      },
+      {
+        "key": "twitter:title",
+        "content": "Impact Snapshot (Summer Edition 2025) — Edmund Hillary Fellowship"
+      },
+      {
+        "key": "twitter:image",
+        "content": "http://static1.squarespace.com/static/5f3874da9e73700975a00b12/t/67c62e5fb3807626db8d2bfc/1754439764706/125_Jojo%2C+Rangimarie%2C+Huia%2C+Sarah%2C+Helen%2C+Nikora_credit+Erica+Austin%2C+Peanut+Productions+Photography.jpg?format=1500w"
+      },
+      {
+        "key": "twitter:url",
+        "content": "https://www.ehf.org/summer-edition-2025"
+      },
+      {
+        "key": "twitter:card",
+        "content": "summary"
+      },
+      {
+        "key": "twitter:description",
+        "content": "Find out more about what some of the Fellows have been up to this month, from exciting announcements and launches, to being recognised as an inspiring global Kiwi, to Fellows collaborating to support a community, plus much more."
+      },
+      {
+        "key": "description",
+        "content": "Find out more about what some of the Fellows have been up to this month, from exciting announcements and launches, to being recognised as an inspiring global Kiwi, to Fellows collaborating to support a community, plus much more."
+      }
+    ]
+  }
+}

@@ -1,8 +1,9 @@
 *, *::before, *::after { box-sizing: border-box; }
-html { color: #27242E; background: #FFFFFF; }
-body { margin: 0; min-width: 320px; }
-body.menu-open { overflow: hidden; }
+html { color: var(--color-text); background: var(--color-surface); overflow-x: clip; }
+body { margin: 0; min-width: 320px; max-width: 100%; overflow-x: clip; font-family: sans-serif; }
+body.menu-open { position: fixed; inset-inline: 0; width: 100%; overflow: hidden; }
 [hidden] { display: none !important; }
+.sr-only,
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -13,4 +14,12 @@ body.menu-open { overflow: hidden; }
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -1,0 +1,24 @@
+---
+import { getCollection, render } from 'astro:content';
+import EventProgrammePage from '../components/EventProgrammePage.astro';
+import { assetIdForLocalPath } from '../data/site';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import contentManifestInput from '../../source-evidence/content-manifest.json';
+import routeManifestInput from '../../source-evidence/route-manifest.json';
+import type { ContentManifest } from '../lib/page-data';
+import { loadPageData } from '../lib/page-data';
+import { loadRouteManifest } from '../lib/route-manifest';
+
+const route = '/2025-summit-programme';
+const contentRecord = loadPageData(route, 'event-programme', contentManifestInput as ContentManifest, loadRouteManifest(routeManifestInput));
+const entry = (await getCollection('events')).find((candidate) => `src/content/events/${candidate.id}.md` === contentRecord.localInput);
+if (!entry) throw new Error(`missing typed event content: ${contentRecord.localInput}`);
+const { Content } = await render(entry);
+const hero = entry.data.heroImage ? { assetId: assetIdForLocalPath(entry.data.heroImage), alt: entry.data.heroAlt ?? '' } : undefined;
+---
+
+<SiteLayout title={`${entry.data.title} — Edmund Hillary Fellowship`} description={entry.data.excerpt}>
+  <EventProgrammePage title={entry.data.title} description={entry.data.excerpt} hero={hero} programmeLines={entry.body?.split('\n') ?? []} programmeDays={entry.data.programmeDays} showProgrammeDays>
+    <Content />
+  </EventProgrammePage>
+</SiteLayout>

@@ -2,14 +2,15 @@
 import DesktopNav from './DesktopNav.astro';
 import MobileNav from './MobileNav.astro';
 ---
-<header class="site-header">
-  <a class="site-header__brand" href="/"><img src="/assets/images/ehf-logo.webp" alt="Edmund Hillary Fellowship" /></a>
+<header class="site-header" role="banner">
+  <a class="site-header__brand" href="/"><img src="/assets/images/ehf-logo.webp" alt="Edmund Hillary Fellowship" width="255" height="43" loading="eager" /></a>
   <DesktopNav />
   <MobileNav />
 </header>
 <script>
   const desktopFolders = [...document.querySelectorAll<HTMLElement>('[data-desktop-folder]')];
   let lastDesktopTrigger: HTMLButtonElement | null = null;
+  let desktopActivationFolder: HTMLElement | null = null;
 
   function setDesktopFolder(folder: HTMLElement, open: boolean) {
     const trigger = folder.querySelector<HTMLButtonElement>('[data-menu-trigger]');
@@ -18,6 +19,7 @@ import MobileNav from './MobileNav.astro';
     trigger.setAttribute('aria-expanded', String(open));
     submenu.hidden = !open;
     if (open) lastDesktopTrigger = trigger;
+    if (!open && desktopActivationFolder === folder) desktopActivationFolder = null;
   }
 
   function closeDesktop(except?: HTMLElement) {
@@ -34,18 +36,25 @@ import MobileNav from './MobileNav.astro';
     });
     folder.addEventListener('mouseleave', () => setDesktopFolder(folder, false));
     trigger?.addEventListener('click', () => {
-      const opens = trigger.getAttribute('aria-expanded') !== 'true';
+      const open = desktopActivationFolder !== folder;
       closeDesktop(folder);
-      setDesktopFolder(folder, opens);
+      setDesktopFolder(folder, open);
+      desktopActivationFolder = open ? folder : null;
     });
+  });
+  document.addEventListener('pointerdown', (event) => {
+    if (desktopFolders.some((folder) => folder.contains(event.target as Node))) return;
+    closeDesktop();
   });
 
   const mobileTrigger = document.querySelector<HTMLButtonElement>('[data-mobile-menu-trigger]');
   const mobileMenu = document.querySelector<HTMLDialogElement>('[data-mobile-menu]');
   const mobileClose = document.querySelector<HTMLButtonElement>('[data-mobile-menu-close]');
+  const mobileBrand = document.querySelector<HTMLAnchorElement>('[data-mobile-menu] .mobile-menu__brand');
   const mobileRoot = document.querySelector<HTMLElement>('[data-mobile-root]');
   const mobilePanels = [...document.querySelectorAll<HTMLElement>('[data-mobile-folder]')];
   let mobileTransitionFrame: number | undefined;
+  let mobileScrollY = 0;
 
   function openMenu(trigger: HTMLButtonElement) {
     if (!mobileMenu || !mobileRoot) return;
@@ -63,6 +72,8 @@ import MobileNav from './MobileNav.astro';
       panel.classList.remove('is-active');
     });
     trigger.setAttribute('aria-expanded', 'true');
+    mobileScrollY = window.scrollY;
+    document.body.style.top = `-${mobileScrollY}px`;
     document.body.classList.add('menu-open');
     mobileClose?.focus();
   }
@@ -86,7 +97,9 @@ import MobileNav from './MobileNav.astro';
     }
     mobileTrigger.setAttribute('aria-expanded', 'false');
     document.body.classList.remove('menu-open');
-    mobileTrigger.focus();
+    document.body.style.removeProperty('top');
+    mobileTrigger.focus({ preventScroll: true });
+    requestAnimationFrame(() => window.scrollTo(0, mobileScrollY));
   }
 
   mobileTrigger?.addEventListener('click', () => openMenu(mobileTrigger));
@@ -99,7 +112,7 @@ import MobileNav from './MobileNav.astro';
     if (event.key !== 'Tab') return;
     const activePanel = mobileRoot && !mobileRoot.inert ? mobileRoot : mobilePanels.find((panel) => !panel.hidden);
     if (!activePanel) return;
-    const focusable = [...activePanel.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')];
+    const focusable = [mobileBrand, mobileClose, ...activePanel.querySelectorAll<HTMLElement>('a[href], button:not([disabled])')].filter((element): element is HTMLElement => element !== null);
     const first = focusable[0];
     const last = focusable.at(-1);
     if (!first || !last) return;

@@ -1,0 +1,1186 @@
+{
+  "schemaVersion": 1,
+  "ticket": "Stage 2 Ticket 6",
+  "purpose": "Route-matched live EHF source evidence only; no source runtime assets are build inputs.",
+  "sourceHost": "https://www.ehf.org",
+  "captureTool": "gstack browse shared Chromium",
+  "viewportMatrix": [
+    {
+      "name": "desktop",
+      "widthPx": 1440,
+      "heightPx": 1000
+    },
+    {
+      "name": "mobile",
+      "widthPx": 390,
+      "heightPx": 844
+    }
+  ],
+  "captureProcedure": {
+    "waitForNetworkIdle": true,
+    "waitForFonts": true,
+    "scrollIncrementPx": 600,
+    "scrollToDocumentBottom": true,
+    "returnToTop": true,
+    "screenshot": "full-page",
+    "captureTransport": "Page.captureScreenshot through the gstack browse shared Chromium; full dimensions preserved without the browse UI size guard."
+  },
+  "olderPostsMapping": {
+    "discoveredOnLiveRoute": "https://www.ehf.org/read",
+    "linkText": "Older Posts",
+    "liveDestination": "https://www.ehf.org/read?offset=1715571924869",
+    "localRoute": "/read/page/2",
+    "mappingBasis": "live pagination destination mapped to the declared local second page; no live page URL was invented."
+  },
+  "health": {
+    "allRoutesHttp200": true,
+    "allFinalUrlsWithinApprovedEhfScope": true,
+    "failedRequestCount": 0,
+    "consoleErrorCount": 0,
+    "consoleWarningCount": 60,
+    "healthy": true
+  },
+  "entries": [
+    {
+      "key": "listing-default-desktop",
+      "state": "listing-default",
+      "localRoute": "/read",
+      "requestedUrl": "https://www.ehf.org/read",
+      "finalUrl": "https://www.ehf.org/read",
+      "viewport": {
+        "name": "desktop",
+        "widthPx": 1440,
+        "heightPx": 1000
+      },
+      "png": "listing-default-desktop.png",
+      "json": "listing-default-desktop.json",
+      "pngSha256": "39baf5bfc79394eb13504719352fbb797e3c7c1f645a27f28b3a28436aa30bd1",
+      "widthPx": 1440,
+      "heightPx": 3658,
+      "channels": 3,
+      "health": {
+        "httpStatus": 200,
+        "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:25.235Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:25.235Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:25.235Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:25.235Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:25.236Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
+        "failedRequests": [],
+        "pendingRequestsAtInspection": [
+          "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
+          "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
+        ],
+        "healthy": true
+      },
+      "provenance": {
+        "sourceHost": "www.ehf.org",
+        "captureTool": "gstack browse shared Chromium",
+        "runtimeAssetsCopiedIntoBuild": false
+      },
+      "title": "Read about our Impact in Action | Edmund Hillary Fellowship — Edmund Hillary Fellowship",
+      "headings": [
+        {
+          "level": 1,
+          "text": "How Chemergy is Changing the Game in Waste-to-Energy"
+        },
+        {
+          "level": 1,
+          "text": "Harnessing Pine Pollen’s Power to Transform Wellbeing"
+        },
+        {
+          "level": 1,
+          "text": "Globalising Kiwi Innovation"
+        },
+        {
+          "level": 1,
+          "text": "Helping to Solve the Unsolvable Challenges"
+        },
+        {
+          "level": 1,
+          "text": "Championing Māori and Indigenous Enterprise and Cultural Values"
+        },
+        {
+          "level": 1,
+          "text": "Unlocking the Potential of Offshore Wind"
+        },
+        {
+          "level": 1,
+          "text": "Building Climate Resilience in the Pacific & Aotearoa"
+        },
+        {
+          "level": 1,
+          "text": "Leading the Metaverse Revolution from Aotearoa NZ"
+        },
+        {
+          "level": 1,
+          "text": "Solving the Ocean Plastics Problem"
+        },
+        {
+          "level": 1,
+          "text": "Nature-Inspired Solutions for Global Environmental Health"
+        },
+        {
+          "level": 1,
+          "text": "Catalysing Environmental Action for a Sustainable Future"
+        },
+        {
+          "level": 1,
+          "text": "Tackling Global Textile Waste through Innovative Solutions"
+        },
+        {
+          "level": 1,
+          "text": "The Awa/River Story Inspiring Connection & Action"
+        },
+        {
+          "level": 1,
+          "text": "Te Pā o Rākaihautū: From Vision to Reality"
+        },
+        {
+          "level": 1,
+          "text": "Creating opportunities for Māori & Pasifika talent in gaming"
+        },
+        {
+          "level": 1,
+          "text": "Activating Generational Change for Aotearoa NZ’s Wellbeing"
+        },
+        {
+          "level": 1,
+          "text": "Transforming lives in Niue by eliminating Hepatitis"
+        },
+        {
+          "level": 1,
+          "text": "Cultivating Indigenous Entrepreneurship"
+        },
+        {
+          "level": 1,
+          "text": "Accessible Tech that’s Breaking Down Barriers"
+        },
+        {
+          "level": 1,
+          "text": "Opening doors for rangatahi (young people) in tech"
+        },
+        {
+          "level": 3,
+          "text": "About‍   |   Fellows Directory‍   |‍  ‍ Impact  ‍ |   Archive‍   |   Closure Statement   |   Privacy"
+        }
+      ]
+    },
+    {
+      "key": "listing-default-mobile",
+      "state": "listing-default",
+      "localRoute": "/read",
+      "requestedUrl": "https://www.ehf.org/read",
+      "finalUrl": "https://www.ehf.org/read",
+      "viewport": {
+        "name": "mobile",
+        "widthPx": 390,
+        "heightPx": 844
+      },
+      "png": "listing-default-mobile.png",
+      "json": "listing-default-mobile.json",
+      "pngSha256": "21e2cd7e46a6479f52ecaedb6815601c615bf2226488c648e4e899926dc3ad12",
+      "widthPx": 390,
+      "heightPx": 9870,
+      "channels": 3,
+      "health": {
+        "httpStatus": 200,
+        "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:26.881Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:26.881Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:26.881Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:26.881Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:26.881Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
+        "failedRequests": [],
+        "pendingRequestsAtInspection": [
+          "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
+          "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
+        ],
+        "healthy": true
+      },
+      "provenance": {
+        "sourceHost": "www.ehf.org",
+        "captureTool": "gstack browse shared Chromium",
+        "runtimeAssetsCopiedIntoBuild": false
+      },
+      "title": "Read about our Impact in Action | Edmund Hillary Fellowship — Edmund Hillary Fellowship",
+      "headings": [
+        {
+          "level": 1,
+          "text": "How Chemergy is Changing the Game in Waste-to-Energy"
+        },
+        {
+          "level": 1,
+          "text": "Harnessing Pine Pollen’s Power to Transform Wellbeing"
+        },
+        {
+          "level": 1,
+          "text": "Globalising Kiwi Innovation"
+        },
+        {
+          "level": 1,
+          "text": "Helping to Solve the Unsolvable Challenges"
+        },
+        {
+          "level": 1,
+          "text": "Championing Māori and Indigenous Enterprise and Cultural Values"
+        },
+        {
+          "level": 1,
+          "text": "Unlocking the Potential of Offshore Wind"
+        },
+        {
+          "level": 1,
+          "text": "Building Climate Resilience in the Pacific & Aotearoa"
+        },
+        {
+          "level": 1,
+          "text": "Leading the Metaverse Revolution from Aotearoa NZ"
+        },
+        {
+          "level": 1,
+          "text": "Solving the Ocean Plastics Problem"
+        },
+        {
+          "level": 1,
+          "text": "Nature-Inspired Solutions for Global Environmental Health"
+        },
+        {
+          "level": 1,
+          "text": "Catalysing Environmental Action for a Sustainable Future"
+        },
+        {
+          "level": 1,
+          "text": "Tackling Global Textile Waste through Innovative Solutions"
+        },
+        {
+          "level": 1,
+          "text": "The Awa/River Story Inspiring Connection & Action"
+        },
+        {
+          "level": 1,
+          "text": "Te Pā o Rākaihautū: From Vision to Reality"
+        },
+        {
+          "level": 1,
+          "text": "Creating opportunities for Māori & Pasifika talent in gaming"
+        },
+        {
+          "level": 1,
+          "text": "Activating Generational Change for Aotearoa NZ’s Wellbeing"
+        },
+        {
+          "level": 1,
+          "text": "Transforming lives in Niue by eliminating Hepatitis"
+        },
+        {
+          "level": 1,
+          "text": "Cultivating Indigenous Entrepreneurship"
+        },
+        {
+          "level": 1,
+          "text": "Accessible Tech that’s Breaking Down Barriers"
+        },
+        {
+          "level": 1,
+          "text": "Opening doors for rangatahi (young people) in tech"
+        },
+        {
+          "level": 3,
+          "text": "About‍   |   Fellows Directory‍   |‍  ‍ Impact  ‍ |   Archive‍   |   Closure Statement   |   Privacy"
+        }
+      ]
+    },
+    {
+      "key": "listing-older-desktop",
+      "state": "listing-older",
+      "localRoute": "/read/page/2",
+      "requestedUrl": "https://www.ehf.org/read?offset=1715571924869",
+      "finalUrl": "https://www.ehf.org/read?offset=1715571924869",
+      "viewport": {
+        "name": "desktop",
+        "widthPx": 1440,
+        "heightPx": 1000
+      },
+      "png": "listing-older-desktop.png",
+      "json": "listing-older-desktop.json",
+      "pngSha256": "644a76958846a74fc24dd0ee1edea64de39f58522fb5517e8f83e57bc93dc357",
+      "widthPx": 1440,
+      "heightPx": 3320,
+      "channels": 3,
+      "health": {
+        "httpStatus": 200,
+        "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:28.478Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:28.478Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:28.478Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:28.478Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:28.479Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
+        "failedRequests": [],
+        "pendingRequestsAtInspection": [
+          "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
+          "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
+        ],
+        "healthy": true
+      },
+      "provenance": {
+        "sourceHost": "www.ehf.org",
+        "captureTool": "gstack browse shared Chromium",
+        "runtimeAssetsCopiedIntoBuild": false
+      },
+      "title": "Read about our Impact in Action | Edmund Hillary Fellowship — Edmund Hillary Fellowship",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Energy Lifelines Enabling Remote Communities"
+        },
+        {
+          "level": 1,
+          "text": "Accelerating impact through the power of the sun"
+        },
+        {
+          "level": 1,
+          "text": "Sharing a solar-powered future"
+        },
+        {
+          "level": 1,
+          "text": "A Sweet Symphony of Collaboration and Impact"
+        },
+        {
+          "level": 1,
+          "text": "Space Venture Spotlight: Ceres Robotics"
+        },
+        {
+          "level": 1,
+          "text": "Aerospace Venture Spotlight: Kea Aerospace"
+        },
+        {
+          "level": 1,
+          "text": "Supporting Kiwi founders to thrive"
+        },
+        {
+          "level": 1,
+          "text": "Enabling prosperity through regeneration"
+        },
+        {
+          "level": 1,
+          "text": "Disrupting lending systems"
+        },
+        {
+          "level": 1,
+          "text": "Revolutionising tech from NZ"
+        },
+        {
+          "level": 1,
+          "text": "Cultivating regenerative organic futures"
+        },
+        {
+          "level": 1,
+          "text": "Transforming Māori education and revitalising identity"
+        },
+        {
+          "level": 1,
+          "text": "Scaling Kiwi Healthcare Business At Home And Going Global"
+        },
+        {
+          "level": 1,
+          "text": "Could Training and Upskilling Be The Most Efficient Way to Transform Aotearoa Into A Climate Leader?"
+        },
+        {
+          "level": 1,
+          "text": "Celebrating Achievements and Values This Everest Day"
+        },
+        {
+          "level": 1,
+          "text": "Creating Energy from Waste in Aotearoa"
+        },
+        {
+          "level": 1,
+          "text": "Information-Sharing for the Public Good"
+        },
+        {
+          "level": 1,
+          "text": "Supporting values-based innovation in Aotearoa"
+        },
+        {
+          "level": 1,
+          "text": "Aotearoa - Ideal Basecamp for Space"
+        },
+        {
+          "level": 1,
+          "text": "The World-Changing Power of True Stories"
+        },
+        {
+          "level": 3,
+          "text": "About‍   |   Fellows Directory‍   |‍  ‍ Impact  ‍ |   Archive‍   |   Closure Statement   |   Privacy"
+        }
+      ]
+    },
+    {
+      "key": "listing-older-mobile",
+      "state": "listing-older",
+      "localRoute": "/read/page/2",
+      "requestedUrl": "https://www.ehf.org/read?offset=1715571924869",
+      "finalUrl": "https://www.ehf.org/read?offset=1715571924869",
+      "viewport": {
+        "name": "mobile",
+        "widthPx": 390,
+        "heightPx": 844
+      },
+      "png": "listing-older-mobile.png",
+      "json": "listing-older-mobile.json",
+      "pngSha256": "75890f18e223e0edf1eedc4fcf82661e0f80d3dc5475a4c07d7416c05486c885",
+      "widthPx": 390,
+      "heightPx": 8515,
+      "channels": 3,
+      "health": {
+        "httpStatus": 200,
+        "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:30.095Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:30.095Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:30.095Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:30.095Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:30.095Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
+        "failedRequests": [],
+        "pendingRequestsAtInspection": [
+          "POST https://tracing.squarespace.com/v1/logs → pending (?ms, ?B)",
+          "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
+          "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
+        ],
+        "healthy": true
+      },
+      "provenance": {
+        "sourceHost": "www.ehf.org",
+        "captureTool": "gstack browse shared Chromium",
+        "runtimeAssetsCopiedIntoBuild": false
+      },
+      "title": "Read about our Impact in Action | Edmund Hillary Fellowship — Edmund Hillary Fellowship",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Energy Lifelines Enabling Remote Communities"
+        },
+        {
+          "level": 1,
+          "text": "Accelerating impact through the power of the sun"
+        },
+        {
+          "level": 1,
+          "text": "Sharing a solar-powered future"
+        },
+        {
+          "level": 1,
+          "text": "A Sweet Symphony of Collaboration and Impact"
+        },
+        {
+          "level": 1,
+          "text": "Space Venture Spotlight: Ceres Robotics"
+        },
+        {
+          "level": 1,
+          "text": "Aerospace Venture Spotlight: Kea Aerospace"
+        },
+        {
+          "level": 1,
+          "text": "Supporting Kiwi founders to thrive"
+        },
+        {
+          "level": 1,
+          "text": "Enabling prosperity through regeneration"
+        },
+        {
+          "level": 1,
+          "text": "Disrupting lending systems"
+        },
+        {
+          "level": 1,
+          "text": "Revolutionising tech from NZ"
+        },
+        {
+          "level": 1,
+          "text": "Cultivating regenerative organic futures"
+        },
+        {
+          "level": 1,
+          "text": "Transforming Māori education and revitalising identity"
+        },
+        {
+          "level": 1,
+          "text": "Scaling Kiwi Healthcare Business At Home And Going Global"
+        },
+        {
+          "level": 1,
+          "text": "Could Training and Upskilling Be The Most Efficient Way to Transform Aotearoa Into A Climate Leader?"
+        },
+        {
+          "level": 1,
+          "text": "Celebrating Achievements and Values This Everest Day"
+        },
+        {
+          "level": 1,
+          "text": "Creating Energy from Waste in Aotearoa"
+        },
+        {
+          "level": 1,
+          "text": "Information-Sharing for the Public Good"
+        },
+        {
+          "level": 1,
+          "text": "Supporting values-based innovation in Aotearoa"
+        },
+        {
+          "level": 1,
+          "text": "Aotearoa - Ideal Basecamp for Space"
+        },
+        {
+          "level": 1,
+          "text": "The World-Changing Power of True Stories"
+        },
+        {
+          "level": 3,
+          "text": "About‍   |   Fellows Directory‍   |‍  ‍ Impact  ‍ |   Archive‍   |   Closure Statement   |   Privacy"
+        }
+      ]
+    },
+    {
+      "key": "article-chemergy-desktop",
+      "state": "article-chemergy",
+      "localRoute": "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+      "requestedUrl": "https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+      "finalUrl": "https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+      "viewport": {
+        "name": "desktop",
+        "widthPx": 1440,
+        "heightPx": 1000
+      },
+      "png": "article-chemergy-desktop.png",
+      "json": "article-chemergy-desktop.json",
+      "pngSha256": "68bfd2fe4ce8ddc06fc52840cd37dad8b108c470d12a00fbfc859e80f71b76b1",
+      "widthPx": 1440,
+      "heightPx": 6605,
+      "channels": 3,
+      "health": {
+        "httpStatus": 200,
+        "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:32.215Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:32.215Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:32.215Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:32.215Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:32.215Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
+        "failedRequests": [],
+        "pendingRequestsAtInspection": [
+          "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
+          "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
+        ],
+        "healthy": true
+      },
+      "provenance": {
+        "sourceHost": "www.ehf.org",
+        "captureTool": "gstack browse shared Chromium",
+        "runtimeAssetsCopiedIntoBuild": false
+      },
+      "title": "How Chemergy is Changing the Game in Waste-to-Energy — Edmund Hillary Fellowship",
+      "headings": [
+        {
+          "level": 1,
+          "text": "How Chemergy is Changing the Game in Waste-to-Energy"
+        },
+        {
+          "level": 2,
+          "text": "Harnessing Pine Pollen’s Power to Transform Wellbeing"
+        },
+        {
+          "level": 3,
+          "text": "About‍   |   Fellows Directory‍   |‍  ‍ Impact  ‍ |   Archive‍   |   Closure Statement   |   Privacy"
+        }
+      ]
+    },
+    {
+      "key": "article-chemergy-mobile",
+      "state": "article-chemergy",
+      "localRoute": "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+      "requestedUrl": "https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+      "finalUrl": "https://www.ehf.org/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+      "viewport": {
+        "name": "mobile",
+        "widthPx": 390,
+        "heightPx": 844
+      },
+      "png": "article-chemergy-mobile.png",
+      "json": "article-chemergy-mobile.json",
+      "pngSha256": "a5f3466931712f47b1c2a2d64e5423191737f9ec8a4ff5d40df141b24de67d59",
+      "widthPx": 390,
+      "heightPx": 10986,
+      "channels": 3,
+      "health": {
+        "httpStatus": 200,
+        "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:33.925Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:33.925Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:33.925Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:33.925Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:33.925Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
+        "failedRequests": [],
+        "pendingRequestsAtInspection": [
+          "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
+          "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
+        ],
+        "healthy": true
+      },
+      "provenance": {
+        "sourceHost": "www.ehf.org",
+        "captureTool": "gstack browse shared Chromium",
+        "runtimeAssetsCopiedIntoBuild": false
+      },
+      "title": "How Chemergy is Changing the Game in Waste-to-Energy — Edmund Hillary Fellowship",
+      "headings": [
+        {
+          "level": 1,
+          "text": "How Chemergy is Changing the Game in Waste-to-Energy"
+        },
+        {
+          "level": 2,
+          "text": "Harnessing Pine Pollen’s Power to Transform Wellbeing"
+        },
+        {
+          "level": 3,
+          "text": "About‍   |   Fellows Directory‍   |‍  ‍ Impact  ‍ |   Archive‍   |   Closure Statement   |   Privacy"
+        }
+      ]
+    },
+    {
+      "key": "article-short-desktop",
+      "state": "article-short",
+      "localRoute": "/read/revolutionising-tech-from-nz",
+      "requestedUrl": "https://www.ehf.org/read/revolutionising-tech-from-nz",
+      "finalUrl": "https://www.ehf.org/read/revolutionising-tech-from-nz",
+      "viewport": {
+        "name": "desktop",
+        "widthPx": 1440,
+        "heightPx": 1000
+      },
+      "png": "article-short-desktop.png",
+      "json": "article-short-desktop.json",
+      "pngSha256": "f7abcaf58d5ddccea035b04d12c36aa7daf4c52001a7b271a5efbb1e5c965f2d",
+      "widthPx": 1440,
+      "heightPx": 2386,
+      "channels": 3,
+      "health": {
+        "httpStatus": 200,
+        "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:35.581Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:35.581Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:35.581Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:35.581Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:35.581Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
+        "failedRequests": [],
+        "pendingRequestsAtInspection": [
+          "POST https://tracing.squarespace.com/v1/logs → pending (?ms, ?B)",
+          "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
+          "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
+        ],
+        "healthy": true
+      },
+      "provenance": {
+        "sourceHost": "www.ehf.org",
+        "captureTool": "gstack browse shared Chromium",
+        "runtimeAssetsCopiedIntoBuild": false
+      },
+      "title": "Revolutionising tech from NZ — Edmund Hillary Fellowship",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Revolutionising tech from NZ"
+        },
+        {
+          "level": 2,
+          "text": "Disrupting lending systems"
+        },
+        {
+          "level": 2,
+          "text": "Cultivating regenerative organic futures"
+        },
+        {
+          "level": 3,
+          "text": "About‍   |   Fellows Directory‍   |‍  ‍ Impact  ‍ |   Archive‍   |   Closure Statement   |   Privacy"
+        }
+      ]
+    },
+    {
+      "key": "article-short-mobile",
+      "state": "article-short",
+      "localRoute": "/read/revolutionising-tech-from-nz",
+      "requestedUrl": "https://www.ehf.org/read/revolutionising-tech-from-nz",
+      "finalUrl": "https://www.ehf.org/read/revolutionising-tech-from-nz",
+      "viewport": {
+        "name": "mobile",
+        "widthPx": 390,
+        "heightPx": 844
+      },
+      "png": "article-short-mobile.png",
+      "json": "article-short-mobile.json",
+      "pngSha256": "e09952ec5c31d7ca6c87d56ea36d64c88bfeda0835f8ee92df2b9167b719e7eb",
+      "widthPx": 390,
+      "heightPx": 2894,
+      "channels": 3,
+      "health": {
+        "httpStatus": 200,
+        "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:37.200Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:37.200Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:37.200Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:37.200Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:37.201Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
+        "failedRequests": [],
+        "pendingRequestsAtInspection": [
+          "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
+          "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
+        ],
+        "healthy": true
+      },
+      "provenance": {
+        "sourceHost": "www.ehf.org",
+        "captureTool": "gstack browse shared Chromium",
+        "runtimeAssetsCopiedIntoBuild": false
+      },
+      "title": "Revolutionising tech from NZ — Edmund Hillary Fellowship",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Revolutionising tech from NZ"
+        },
+        {
+          "level": 2,
+          "text": "Disrupting lending systems"
+        },
+        {
+          "level": 2,
+          "text": "Cultivating regenerative organic futures"
+        },
+        {
+          "level": 3,
+          "text": "About‍   |   Fellows Directory‍   |‍  ‍ Impact  ‍ |   Archive‍   |   Closure Statement   |   Privacy"
+        }
+      ]
+    },
+    {
+      "key": "article-long-desktop",
+      "state": "article-long",
+      "localRoute": "/read/shifting-the-equity-conversation-from-aspiration-to-action",
+      "requestedUrl": "https://www.ehf.org/read/shifting-the-equity-conversation-from-aspiration-to-action",
+      "finalUrl": "https://www.ehf.org/read/shifting-the-equity-conversation-from-aspiration-to-action",
+      "viewport": {
+        "name": "desktop",
+        "widthPx": 1440,
+        "heightPx": 1000
+      },
+      "png": "article-long-desktop.png",
+      "json": "article-long-desktop.json",
+      "pngSha256": "c7ca085aec282bbc4a0718c3da1564fa4ebe7aa9b3573b291058de04028d2364",
+      "widthPx": 1440,
+      "heightPx": 8265,
+      "channels": 3,
+      "health": {
+        "httpStatus": 200,
+        "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:38.689Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:38.689Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:38.689Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:38.689Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:38.690Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
+        "failedRequests": [],
+        "pendingRequestsAtInspection": [
+          "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
+          "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
+        ],
+        "healthy": true
+      },
+      "provenance": {
+        "sourceHost": "www.ehf.org",
+        "captureTool": "gstack browse shared Chromium",
+        "runtimeAssetsCopiedIntoBuild": false
+      },
+      "title": "Shifting the equity conversation from aspiration to action — Edmund Hillary Fellowship",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Shifting the equity conversation from aspiration to action"
+        },
+        {
+          "level": 3,
+          "text": "Bringing focus to a shared, systemic challenge"
+        },
+        {
+          "level": 3,
+          "text": "Reflections from Māori Futures Collective"
+        },
+        {
+          "level": 3,
+          "text": "Showcasing Solution-Builders"
+        },
+        {
+          "level": 3,
+          "text": "How can EHF contribute towards positive change and opportunities for Rangatahi?"
+        },
+        {
+          "level": 2,
+          "text": "The decisive decade for humanity’s future on earth"
+        },
+        {
+          "level": 2,
+          "text": "Getting the Whole World Humming After a Crisis"
+        },
+        {
+          "level": 3,
+          "text": "About‍   |   Fellows Directory‍   |‍  ‍ Impact  ‍ |   Archive‍   |   Closure Statement   |   Privacy"
+        }
+      ]
+    },
+    {
+      "key": "article-long-mobile",
+      "state": "article-long",
+      "localRoute": "/read/shifting-the-equity-conversation-from-aspiration-to-action",
+      "requestedUrl": "https://www.ehf.org/read/shifting-the-equity-conversation-from-aspiration-to-action",
+      "finalUrl": "https://www.ehf.org/read/shifting-the-equity-conversation-from-aspiration-to-action",
+      "viewport": {
+        "name": "mobile",
+        "widthPx": 390,
+        "heightPx": 844
+      },
+      "png": "article-long-mobile.png",
+      "json": "article-long-mobile.json",
+      "pngSha256": "be4302edf550388b66b2ac32321a9ef1d00ad937a70ab9e591ad81076cf7e12c",
+      "widthPx": 390,
+      "heightPx": 15434,
+      "channels": 3,
+      "health": {
+        "httpStatus": 200,
+        "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:40.692Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:40.692Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:40.692Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:40.692Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:40.692Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
+        "failedRequests": [],
+        "pendingRequestsAtInspection": [
+          "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
+          "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
+        ],
+        "healthy": true
+      },
+      "provenance": {
+        "sourceHost": "www.ehf.org",
+        "captureTool": "gstack browse shared Chromium",
+        "runtimeAssetsCopiedIntoBuild": false
+      },
+      "title": "Shifting the equity conversation from aspiration to action — Edmund Hillary Fellowship",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Shifting the equity conversation from aspiration to action"
+        },
+        {
+          "level": 3,
+          "text": "Bringing focus to a shared, systemic challenge"
+        },
+        {
+          "level": 3,
+          "text": "Reflections from Māori Futures Collective"
+        },
+        {
+          "level": 3,
+          "text": "Showcasing Solution-Builders"
+        },
+        {
+          "level": 3,
+          "text": "How can EHF contribute towards positive change and opportunities for Rangatahi?"
+        },
+        {
+          "level": 2,
+          "text": "The decisive decade for humanity’s future on earth"
+        },
+        {
+          "level": 2,
+          "text": "Getting the Whole World Humming After a Crisis"
+        },
+        {
+          "level": 3,
+          "text": "About‍   |   Fellows Directory‍   |‍  ‍ Impact  ‍ |   Archive‍   |   Closure Statement   |   Privacy"
+        }
+      ]
+    },
+    {
+      "key": "article-image-heavy-desktop",
+      "state": "article-image-heavy",
+      "localRoute": "/read/scaling-kiwi-healthcare-business-at-home-and-going-global",
+      "requestedUrl": "https://www.ehf.org/read/scaling-kiwi-healthcare-business-at-home-and-going-global",
+      "finalUrl": "https://www.ehf.org/read/scaling-kiwi-healthcare-business-at-home-and-going-global",
+      "viewport": {
+        "name": "desktop",
+        "widthPx": 1440,
+        "heightPx": 1000
+      },
+      "png": "article-image-heavy-desktop.png",
+      "json": "article-image-heavy-desktop.json",
+      "pngSha256": "d12ac21303434686b013b6a85f50db2d321a90951b9edd546b9e3a72df252ffd",
+      "widthPx": 1440,
+      "heightPx": 8853,
+      "channels": 3,
+      "health": {
+        "httpStatus": 200,
+        "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:42.395Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:42.395Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:42.395Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:42.395Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:42.395Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
+        "failedRequests": [],
+        "pendingRequestsAtInspection": [
+          "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
+          "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
+        ],
+        "healthy": true
+      },
+      "provenance": {
+        "sourceHost": "www.ehf.org",
+        "captureTool": "gstack browse shared Chromium",
+        "runtimeAssetsCopiedIntoBuild": false
+      },
+      "title": "Scaling Kiwi Healthcare Business at home and going global — Edmund Hillary Fellowship",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Scaling Kiwi Healthcare Business At Home And Going Global"
+        },
+        {
+          "level": 2,
+          "text": "Transforming Māori education and revitalising identity"
+        },
+        {
+          "level": 2,
+          "text": "Could Training and Upskilling Be The Most Efficient Way to Transform Aotearoa Into A Climate Leader?"
+        },
+        {
+          "level": 3,
+          "text": "About‍   |   Fellows Directory‍   |‍  ‍ Impact  ‍ |   Archive‍   |   Closure Statement   |   Privacy"
+        }
+      ]
+    },
+    {
+      "key": "article-image-heavy-mobile",
+      "state": "article-image-heavy",
+      "localRoute": "/read/scaling-kiwi-healthcare-business-at-home-and-going-global",
+      "requestedUrl": "https://www.ehf.org/read/scaling-kiwi-healthcare-business-at-home-and-going-global",
+      "finalUrl": "https://www.ehf.org/read/scaling-kiwi-healthcare-business-at-home-and-going-global",
+      "viewport": {
+        "name": "mobile",
+        "widthPx": 390,
+        "heightPx": 844
+      },
+      "png": "article-image-heavy-mobile.png",
+      "json": "article-image-heavy-mobile.json",
+      "pngSha256": "3f3794bd089151f3ee59f3b6dda744fe24864fb1c0b7d558880f7c53adf6fdf1",
+      "widthPx": 390,
+      "heightPx": 14287,
+      "channels": 3,
+      "health": {
+        "httpStatus": 200,
+        "redirectWithinApprovedEhfScope": true,
+        "consoleErrors": [],
+        "consoleWarnings": [
+          "[2026-08-09T14:26:44.024Z] [warning] yui: NOT loaded: squarespace-visitor_site_error_reporter",
+          "[2026-08-09T14:26:44.024Z] [warning] yui: NOT loaded: squarespace-cldr_resource_pack",
+          "[2026-08-09T14:26:44.024Z] [warning] yui: NOT loaded: squarespace-common_vendors_stable",
+          "[2026-08-09T14:26:44.024Z] [warning] yui: NOT loaded: squarespace-common_vendors",
+          "[2026-08-09T14:26:44.024Z] [warning] yui: NOT loaded: squarespace-performance"
+        ],
+        "failedRequests": [],
+        "pendingRequestsAtInspection": [
+          "POST https://performance.squarespace.com/api/v1/records → pending (?ms, ?B)",
+          "POST https://o109687.ingest.us.sentry.io/api/4509084831580160/envelope/?sentry_version=7&sentry_key=9fefc56cc6d4ad4ceaa4e5ab9b2d34c8&sentry_client=sentry.javascript.browser%2F10.69.0 → pending (?ms, ?B)"
+        ],
+        "healthy": true
+      },
+      "provenance": {
+        "sourceHost": "www.ehf.org",
+        "captureTool": "gstack browse shared Chromium",
+        "runtimeAssetsCopiedIntoBuild": false
+      },
+      "title": "Scaling Kiwi Healthcare Business at home and going global — Edmund Hillary Fellowship",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Scaling Kiwi Healthcare Business At Home And Going Global"
+        },
+        {
+          "level": 2,
+          "text": "Transforming Māori education and revitalising identity"
+        },
+        {
+          "level": 2,
+          "text": "Could Training and Upskilling Be The Most Efficient Way to Transform Aotearoa Into A Climate Leader?"
+        },
+        {
+          "level": 3,
+          "text": "About‍   |   Fellows Directory‍   |‍  ‍ Impact  ‍ |   Archive‍   |   Closure Statement   |   Privacy"
+        }
+      ]
+    }
+  ],
+  "fileInventory": [
+    {
+      "path": "article-chemergy-desktop.json",
+      "bytes": 7249,
+      "sha256": "ba49995c6b1867f6d82a3ab54d201e37725ca7684db2fc4fad2d6e90223b68ed"
+    },
+    {
+      "path": "article-chemergy-desktop.png",
+      "bytes": 1343748,
+      "sha256": "68bfd2fe4ce8ddc06fc52840cd37dad8b108c470d12a00fbfc859e80f71b76b1"
+    },
+    {
+      "path": "article-chemergy-mobile.json",
+      "bytes": 7217,
+      "sha256": "8fec3812f15d7b74e71f4d3a1a5f538a7d44bfe98261e4754674f44c4e18638e"
+    },
+    {
+      "path": "article-chemergy-mobile.png",
+      "bytes": 1124957,
+      "sha256": "a5f3466931712f47b1c2a2d64e5423191737f9ec8a4ff5d40df141b24de67d59"
+    },
+    {
+      "path": "article-image-heavy-desktop.json",
+      "bytes": 8817,
+      "sha256": "2ba8eff6fc89dbfb45754681b1bf5daf5d8db1e70603135899babc2a50128f67"
+    },
+    {
+      "path": "article-image-heavy-desktop.png",
+      "bytes": 1652584,
+      "sha256": "d12ac21303434686b013b6a85f50db2d321a90951b9edd546b9e3a72df252ffd"
+    },
+    {
+      "path": "article-image-heavy-mobile.json",
+      "bytes": 8023,
+      "sha256": "db2c578d0ade30129ca76d878cc14c89b4d4e3765f80b43a7a30931d78f0a295"
+    },
+    {
+      "path": "article-image-heavy-mobile.png",
+      "bytes": 1389617,
+      "sha256": "3f3794bd089151f3ee59f3b6dda744fe24864fb1c0b7d558880f7c53adf6fdf1"
+    },
+    {
+      "path": "article-long-desktop.json",
+      "bytes": 5878,
+      "sha256": "1d4c85882198e41647e6fb8948ad6f236dd2d18742957f9102722686fef6192b"
+    },
+    {
+      "path": "article-long-desktop.png",
+      "bytes": 2705160,
+      "sha256": "c7ca085aec282bbc4a0718c3da1564fa4ebe7aa9b3573b291058de04028d2364"
+    },
+    {
+      "path": "article-long-mobile.json",
+      "bytes": 5480,
+      "sha256": "66a246e3c6bad7b7e3883074f2830550303f2b19debc76364b66297ebd5bcf71"
+    },
+    {
+      "path": "article-long-mobile.png",
+      "bytes": 1420302,
+      "sha256": "be4302edf550388b66b2ac32321a9ef1d00ad937a70ab9e591ad81076cf7e12c"
+    },
+    {
+      "path": "article-short-desktop.json",
+      "bytes": 4654,
+      "sha256": "11ca6fac545b5ddd914748ba440a62d7f59f879c1796eea200fe20406d641d51"
+    },
+    {
+      "path": "article-short-desktop.png",
+      "bytes": 1164979,
+      "sha256": "f7abcaf58d5ddccea035b04d12c36aa7daf4c52001a7b271a5efbb1e5c965f2d"
+    },
+    {
+      "path": "article-short-mobile.json",
+      "bytes": 4572,
+      "sha256": "94d40586b949fab7101f18391c592f303cc5575c84826a7138179a8bebbf0167"
+    },
+    {
+      "path": "article-short-mobile.png",
+      "bytes": 326597,
+      "sha256": "e09952ec5c31d7ca6c87d56ea36d64c88bfeda0835f8ee92df2b9167b719e7eb"
+    },
+    {
+      "path": "listing-default-desktop.json",
+      "bytes": 20502,
+      "sha256": "12973abedc3935173bbf3ca1d0be191b076ebfe0b8d9b76e1be18f7bdf2cfd7d"
+    },
+    {
+      "path": "listing-default-desktop.png",
+      "bytes": 1097920,
+      "sha256": "39baf5bfc79394eb13504719352fbb797e3c7c1f645a27f28b3a28436aa30bd1"
+    },
+    {
+      "path": "listing-default-mobile.json",
+      "bytes": 20445,
+      "sha256": "9aa3c2db4973ffb356282adbebb24fda029617b5895b4cf25b5f38db28d62a1c"
+    },
+    {
+      "path": "listing-default-mobile.png",
+      "bytes": 503102,
+      "sha256": "21e2cd7e46a6479f52ecaedb6815601c615bf2226488c648e4e899926dc3ad12"
+    },
+    {
+      "path": "listing-older-desktop.json",
+      "bytes": 19961,
+      "sha256": "31f796b9bab749e74327ffe8c96565bc44bc44567173624f2065081a84a4b8e6"
+    },
+    {
+      "path": "listing-older-desktop.png",
+      "bytes": 1253670,
+      "sha256": "644a76958846a74fc24dd0ee1edea64de39f58522fb5517e8f83e57bc93dc357"
+    },
+    {
+      "path": "listing-older-mobile.json",
+      "bytes": 20150,
+      "sha256": "5df0e1ccc2bdb4b55a426b11a4d8a1646bc43c831381db51405ba4c453c89716"
+    },
+    {
+      "path": "listing-older-mobile.png",
+      "bytes": 420997,
+      "sha256": "75890f18e223e0edf1eedc4fcf82661e0f80d3dc5475a4c07d7416c05486c885"
+    }
+  ],
+  "captureManifestHashPolicy": "This manifest lists exact hashes for all 24 PNG/JSON evidence artifacts. Its own SHA-256 is intentionally excluded to avoid a self-referential hash and is verified by the compact bundle manifest."
+}

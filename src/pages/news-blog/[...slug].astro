@@ -1,0 +1,68 @@
+---
+import { render } from 'astro:content';
+import { assetIdForLocalPath } from '../../data/site';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { loadNewsArticles, type NewsArticle } from './_news';
+
+const articles = await loadNewsArticles();
+
+export async function getStaticPaths() {
+  return (await loadNewsArticles()).map((article) => ({
+    params: { slug: article.path.slice('/news-blog/'.length) },
+    props: { article }
+  }));
+}
+
+const { article } = Astro.props as { article: NewsArticle };
+const position = articles.findIndex((candidate) => candidate.path === article.path);
+if (position === -1) throw new Error(`News article is not in the declared collection: ${article.entry.id}`);
+const previousArticle = position > 0 ? articles[position - 1] : undefined;
+const nextArticle = position < articles.length - 1 ? articles[position + 1] : undefined;
+const { Content } = await render(article.entry);
+const publishedAt = article.publishedAt;
+const hero = article.entry.data.heroImage ? {
+  assetId: assetIdForLocalPath(article.entry.data.heroImage),
+  alt: article.entry.data.heroAlt ?? ''
+} : undefined;
+const firstMarkdownImage = /!\[[^\]]*\]\(\s*(?:<([^>]+)>|([^\s)]+))/.exec(article.entry.body ?? '');
+const firstImagePath = firstMarkdownImage?.[1] ?? firstMarkdownImage?.[2];
+let suppressHero = false;
+if (hero && firstImagePath) {
+  try {
+    suppressHero = assetIdForLocalPath(decodeURIComponent(new URL(firstImagePath, 'https://local.invalid').pathname)) === hero.assetId;
+  } catch {
+    suppressHero = false;
+  }
+}
+const previous = previousArticle ? { href: previousArticle.path, title: previousArticle.entry.data.title } : undefined;
+const next = nextArticle ? { href: nextArticle.path, title: nextArticle.entry.data.title } : undefined;
+---
+
+<ArticleLayout
+  title={article.entry.data.title}
+  description={article.entry.data.excerpt}
+  publishedAt={publishedAt}
+  hero={hero}
+  previous={previous}
+  next={next}
+  suppressHero={suppressHero}
+>
+  <Content />
+  <span class="news-article-marker" hidden></span>
+</ArticleLayout>
+
+<style is:global>
+  @media (min-width: 768px) {
+    body:has(.news-article-marker) .article-page__body figure {
+      inline-size: min(645px, 100%);
+      max-inline-size: 100%;
+      margin-inline: auto;
+    }
+  }
+  /* The shared 68px body opening already sets the space above the lead image;
+     the source closes that band 34px above the first paragraph rather than the
+     50px a mid-body figure carries. */
+  body:has(.news-article-marker) .article-page__body > figure:first-child {
+    margin-bottom: 34px;
+  }
+</style>

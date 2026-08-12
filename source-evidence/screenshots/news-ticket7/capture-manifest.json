@@ -1,0 +1,1254 @@
+{
+  "schemaVersion": 1,
+  "ticket": "Stage 2 Ticket 7",
+  "purpose": "Exact public EHF News source evidence resolving the approved-plan/manifest route conflict. Not a build input.",
+  "sourceHost": "https://www.ehf.org",
+  "captureTool": "gstack browse shared Chromium",
+  "runtime": "openai-codex/gpt-5.6-terra",
+  "viewportMatrix": [
+    {
+      "name": "desktop",
+      "widthPx": 1440,
+      "heightPx": 1000
+    },
+    {
+      "name": "mobile",
+      "widthPx": 390,
+      "heightPx": 844
+    }
+  ],
+  "captureProcedure": {
+    "fontsReady": true,
+    "reducedMotion": "reduce",
+    "scrollIncrementPx": 600,
+    "scrollToDocumentBottom": true,
+    "returnToTop": true,
+    "screenshot": "full-page PNG"
+  },
+  "retryDisclosure": {
+    "attemptedOnce": true,
+    "reason": "The first capture execution stopped before any screenshot or JSON output because innerHeight was unavailable in the browser-run Node scope. It was repaired by querying window.innerHeight in page context, then the complete capture was run once."
+  },
+  "olderPosts": {
+    "discoveredBy": "clicked the default desktop listing control labeled Older Posts",
+    "destination": "https://www.ehf.org/news-blog?offset=1675630776192",
+    "clickFinalUrl": "https://www.ehf.org/news-blog?offset=1675630776192"
+  },
+  "expectedStatePairs": {
+    "expected": 8,
+    "captured": 8,
+    "keys": [
+      "listing-default-desktop",
+      "listing-older-desktop",
+      "summer-edition-desktop",
+      "annual-report-article-desktop",
+      "listing-default-mobile",
+      "listing-older-mobile",
+      "summer-edition-mobile",
+      "annual-report-article-mobile"
+    ]
+  },
+  "entries": [
+    {
+      "key": "listing-default-desktop",
+      "state": "listing-default",
+      "viewport": {
+        "name": "desktop",
+        "widthPx": 1440,
+        "heightPx": 1000
+      },
+      "requestedUrl": "https://www.ehf.org/news-blog",
+      "finalUrl": "https://www.ehf.org/news-blog",
+      "httpStatus": 304,
+      "png": "listing-default-desktop.png",
+      "pngSha256": "15f5fcae45d6b442abe3573c9cfb198cee94cbd1c14034f576c21b1bba8190c6",
+      "json": "listing-default-desktop.json",
+      "jsonSha256": "95aef532f28d4393506df2072b47ba65ef0d2b205d32c57d4cd64b82f5365936",
+      "pngWidthPx": 1440,
+      "pngHeightPx": 8860,
+      "cards": 20,
+      "pagination": [
+        {
+          "label": "Older Posts",
+          "href": "https://www.ehf.org/news-blog?offset=1675630776192"
+        }
+      ]
+    },
+    {
+      "key": "listing-older-desktop",
+      "state": "listing-older",
+      "viewport": {
+        "name": "desktop",
+        "widthPx": 1440,
+        "heightPx": 1000
+      },
+      "requestedUrl": "https://www.ehf.org/news-blog?offset=1675630776192",
+      "finalUrl": "https://www.ehf.org/news-blog?offset=1675630776192",
+      "httpStatus": 200,
+      "png": "listing-older-desktop.png",
+      "pngSha256": "3763c072f5fa9cec45ffbbabb254c3a3d7eb85506c9a8655e84a3a0dedfd7264",
+      "json": "listing-older-desktop.json",
+      "jsonSha256": "fd33e70cbcef2ae8ed943c8a6f09cac9a2ee7e4a58d770578996b590826e3e7c",
+      "pngWidthPx": 1440,
+      "pngHeightPx": 4148,
+      "cards": 7,
+      "pagination": [
+        {
+          "label": "Newer Posts",
+          "href": "https://www.ehf.org/news-blog?offset=1671747295026&reversePaginate=true"
+        }
+      ]
+    },
+    {
+      "key": "summer-edition-desktop",
+      "state": "summer-edition",
+      "viewport": {
+        "name": "desktop",
+        "widthPx": 1440,
+        "heightPx": 1000
+      },
+      "requestedUrl": "https://www.ehf.org/summer-edition-2025",
+      "finalUrl": "https://www.ehf.org/summer-edition-2025",
+      "httpStatus": 200,
+      "png": "summer-edition-desktop.png",
+      "pngSha256": "f164d8881fca5c3009717042064fd0fd3d104f3d2a1457326f9ef9a0375e0f3d",
+      "json": "summer-edition-desktop.json",
+      "jsonSha256": "82d9668ed1c3744b6c57efeb3b9ff763faa47da786251379cc715773b17d1ae1",
+      "pngWidthPx": 1440,
+      "pngHeightPx": 12234,
+      "cards": 0,
+      "pagination": []
+    },
+    {
+      "key": "annual-report-article-desktop",
+      "state": "annual-report-article",
+      "viewport": {
+        "name": "desktop",
+        "widthPx": 1440,
+        "heightPx": 1000
+      },
+      "requestedUrl": "https://www.ehf.org/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report",
+      "finalUrl": "https://www.ehf.org/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report",
+      "httpStatus": 200,
+      "png": "annual-report-article-desktop.png",
+      "pngSha256": "969cdde6c193028f3d9025a0d299c0b61f43b51ca770db69478e02481741c31a",
+      "json": "annual-report-article-desktop.json",
+      "jsonSha256": "afbf499d3a897f89f0689c8657b947fe96c252e1aaab389901563b74fa8c124e",
+      "pngWidthPx": 1440,
+      "pngHeightPx": 3813,
+      "cards": 0,
+      "pagination": []
+    },
+    {
+      "key": "listing-default-mobile",
+      "state": "listing-default",
+      "viewport": {
+        "name": "mobile",
+        "widthPx": 390,
+        "heightPx": 844
+      },
+      "requestedUrl": "https://www.ehf.org/news-blog",
+      "finalUrl": "https://www.ehf.org/news-blog",
+      "httpStatus": 304,
+      "png": "listing-default-mobile.png",
+      "pngSha256": "1eca2feeb91183cebd1376a87fbb332e1e8dcd17a9fe42f2a02e06e3273dec9a",
+      "json": "listing-default-mobile.json",
+      "jsonSha256": "a1a1e0ba20f81313c86a5a7a97d44c3e94cedf5c7872b760aeb6f00771d81afc",
+      "pngWidthPx": 390,
+      "pngHeightPx": 9977,
+      "cards": 20,
+      "pagination": [
+        {
+          "label": "Older Posts",
+          "href": "https://www.ehf.org/news-blog?offset=1675630776192"
+        }
+      ]
+    },
+    {
+      "key": "listing-older-mobile",
+      "state": "listing-older",
+      "viewport": {
+        "name": "mobile",
+        "widthPx": 390,
+        "heightPx": 844
+      },
+      "requestedUrl": "https://www.ehf.org/news-blog?offset=1675630776192",
+      "finalUrl": "https://www.ehf.org/news-blog?offset=1675630776192",
+      "httpStatus": 304,
+      "png": "listing-older-mobile.png",
+      "pngSha256": "8dfee9bcbcdbe6e91fc49c8e1e25bf7699b8d8ea43c70be738860e1c0875e2c0",
+      "json": "listing-older-mobile.json",
+      "jsonSha256": "727342fd9e8e1268198d89183d44107c4b3cdd9e5a18eee6a4cb51a43cc37139",
+      "pngWidthPx": 390,
+      "pngHeightPx": 4171,
+      "cards": 7,
+      "pagination": [
+        {
+          "label": "Newer Posts",
+          "href": "https://www.ehf.org/news-blog?offset=1671747295026&reversePaginate=true"
+        }
+      ]
+    },
+    {
+      "key": "summer-edition-mobile",
+      "state": "summer-edition",
+      "viewport": {
+        "name": "mobile",
+        "widthPx": 390,
+        "heightPx": 844
+      },
+      "requestedUrl": "https://www.ehf.org/summer-edition-2025",
+      "finalUrl": "https://www.ehf.org/summer-edition-2025",
+      "httpStatus": 304,
+      "png": "summer-edition-mobile.png",
+      "pngSha256": "9d6f320999e4008d2d8ef63bd8292b960d79a4f942a2aa12e7456bb69a9287ef",
+      "json": "summer-edition-mobile.json",
+      "jsonSha256": "d8bd1a01198c5603b9ab46f1a9fd511437140dd5da87ed5fc40206aeebe72363",
+      "pngWidthPx": 390,
+      "pngHeightPx": 20855,
+      "cards": 0,
+      "pagination": []
+    },
+    {
+      "key": "annual-report-article-mobile",
+      "state": "annual-report-article",
+      "viewport": {
+        "name": "mobile",
+        "widthPx": 390,
+        "heightPx": 844
+      },
+      "requestedUrl": "https://www.ehf.org/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report",
+      "finalUrl": "https://www.ehf.org/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report",
+      "httpStatus": 304,
+      "png": "annual-report-article-mobile.png",
+      "pngSha256": "69b9fc019af28adb04241f8921971e62ab4b322c8e81bebd70ac3697a8289ffb",
+      "json": "annual-report-article-mobile.json",
+      "jsonSha256": "dea6840a85ca89efa31e26bfa7851dcf10b4ed07d39c39fe6947b7678440c466",
+      "pngWidthPx": 390,
+      "pngHeightPx": 6567,
+      "cards": 0,
+      "pagination": []
+    }
+  ],
+  "listingCensus": {
+    "listing-default-desktop": {
+      "cardCount": 20,
+      "cardOrder": [
+        {
+          "order": 1,
+          "title": "Media Release: New Executive Directors to Lead Hillary Institute & Edmund Hillary Fellowship",
+          "href": "https://www.ehf.org/news-blog/media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp",
+          "date": "7/2/25",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1751423336472-J27GYM0WVZQ66BMO3W6N/Untitled+design+%282%29.png?format=1500w",
+            "alt": "Media Release: New Executive Directors to Lead Hillary Institute &amp; Edmund Hillary Fellowship&nbsp;",
+            "complete": true,
+            "naturalWidth": 807,
+            "naturalHeight": 676
+          }
+        },
+        {
+          "order": 2,
+          "title": "Building Innovation Growth through Global Talent",
+          "href": "https://www.ehf.org/news-blog/building-innovation-growth-through-global-talent",
+          "date": "6/4/25",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1749070669936-REHRSAJWAVFY9DQBCY8H/www-wearetravellers-nl-2DM7eOR5iyc-unsplash.jpg?format=2500w",
+            "alt": "Building Innovation Growth through Global Talent",
+            "complete": true,
+            "naturalWidth": 1617,
+            "naturalHeight": 1079
+          }
+        },
+        {
+          "order": 3,
+          "title": "Fellow-Led Board established with Four Fellows Appointed as New Directors",
+          "href": "https://www.ehf.org/news-blog/fellow-led-board-established-with-four-fellows-appointed-as-new-directors",
+          "date": "3/3/25",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1740963885752-YNXCV70XLCPISF89YDQE/New+Board+announcement.png?format=1500w",
+            "alt": "Fellow-Led Board established with Four Fellows Appointed as New Directors",
+            "complete": true,
+            "naturalWidth": 777,
+            "naturalHeight": 777
+          }
+        },
+        {
+          "order": 4,
+          "title": "Building a basecamp for a better world begins at 2025 Hillary Innovation Summit",
+          "href": "https://www.ehf.org/news-blog/building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit",
+          "date": "2/21/25",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1740091066559-WUIPKHE7TIRVJTJ8FL1B/Master+Holding+Slide.png?format=2500w",
+            "alt": "Building a basecamp for a better world begins at 2025 Hillary Innovation Summit",
+            "complete": true,
+            "naturalWidth": 1474,
+            "naturalHeight": 829
+          }
+        },
+        {
+          "order": 5,
+          "title": "The Hillary Institute & EHF Submission on Amending Foreign Investment Funds Rules for Migrants",
+          "href": "https://www.ehf.org/news-blog/the-hillary-institute-ehf-submission-on-amending-foreign-investment-funds-rules-for-migrants",
+          "date": "2/3/25",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1738532025931-5B139JN3J0ZSJ4F1KADS/global-residence-index-LPdaW746WAw-unsplash.jpg?format=2500w",
+            "alt": "The Hillary Institute &amp; EHF Submission on Amending Foreign Investment Funds Rules for Migrants",
+            "complete": true,
+            "naturalWidth": 1620,
+            "naturalHeight": 1080
+          }
+        },
+        {
+          "order": 6,
+          "title": "The Hillary Institute and Edmund Hillary Fellowship Submission on the Treaty Principles Bill",
+          "href": "https://www.ehf.org/news-blog/the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill",
+          "date": "1/7/25",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1736204408365-FLHAIKLBJQOBKVLTW8CW/NY+day+image+post+%28LinkedIn+Post%29.png?format=1500w",
+            "alt": "The Hillary Institute and Edmund Hillary Fellowship Submission on the Treaty Principles Bill",
+            "complete": true,
+            "naturalWidth": 864,
+            "naturalHeight": 864
+          }
+        },
+        {
+          "order": 7,
+          "title": "A Year of Impact, Value and Momentum - 2023/24 Annual Report",
+          "href": "https://www.ehf.org/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report",
+          "date": "10/16/24",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1729036455987-IF7TNNRGH05092NXMX0W/16309+EHF+HI+Annual+Report+2024+Cover.jpg?format=1000w",
+            "alt": "A Year of Impact, Value and Momentum - 2023/24 Annual Report ",
+            "complete": true,
+            "naturalWidth": 763,
+            "naturalHeight": 1079
+          }
+        },
+        {
+          "order": 8,
+          "title": "Media Statement: Changes needed to make New Zealand the place where talent wants to live, says report",
+          "href": "https://www.ehf.org/news-blog/media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report",
+          "date": "7/25/24",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1721854805815-FV87K28EXXI4N9QDHEJS/josh-tere-8dDu2HmWJY8-unsplash.jpg?format=2500w",
+            "alt": "Media Statement: Changes needed to make New Zealand the place where talent wants to live, says report",
+            "complete": true,
+            "naturalWidth": 1621,
+            "naturalHeight": 1080
+          }
+        },
+        {
+          "order": 9,
+          "title": "Impact Springboard showcases leading innovation for global impact",
+          "href": "https://www.ehf.org/news-blog/impact-springboard-showcases-leading-innovation-for-global-impact",
+          "date": "3/5/24",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1709515647666-KWWNGGEA6E0GZ6R07QHW/SEO+image.png?format=1500w",
+            "alt": "Impact Springboard showcases leading innovation for global impact",
+            "complete": true,
+            "naturalWidth": 777,
+            "naturalHeight": 777
+          }
+        },
+        {
+          "order": 10,
+          "title": "Reflections this Waitangi Day (2024)",
+          "href": "https://www.ehf.org/news-blog/reflections-this-waitangi-day-2024",
+          "date": "2/6/24",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1707089201091-NU3OVDFR6FCKFJ74QJDH/NZ+Wharariki+Beach+Nelson+Tasman.jpg?format=1500w",
+            "alt": "Reflections this Waitangi Day (2024)",
+            "complete": true,
+            "naturalWidth": 1440,
+            "naturalHeight": 1080
+          }
+        },
+        {
+          "order": 11,
+          "title": "Navigating 2024 with Stubborn Optimism: A conversation with Rosalie Nelson",
+          "href": "https://www.ehf.org/news-blog/navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson",
+          "date": "1/12/24",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1705022263507-V95MXHCQSQ64XZV4E6P5/NZ+Lake+Rotoiti+Jetty+Nelson+Tasman.jpg?format=2500w",
+            "alt": "Navigating 2024 with Stubborn Optimism: A conversation with Rosalie Nelson",
+            "complete": true,
+            "naturalWidth": 1620,
+            "naturalHeight": 1080
+          }
+        },
+        {
+          "order": 12,
+          "title": "2023: A year of connections, impact and milestones",
+          "href": "https://www.ehf.org/news-blog/2023-a-year-of-connections-impact-and-milestones",
+          "date": "12/20/23",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1702944711354-PBEHZ5DYCO7CKO16TWGD/NZ+Roys+Peak-unsplash.jpg?format=2500w",
+            "alt": "2023: A year of connections, impact and milestones",
+            "complete": true,
+            "naturalWidth": 1919,
+            "naturalHeight": 1079
+          }
+        },
+        {
+          "order": 13,
+          "title": "Media Release: Pilot visa programme drives economic and social impact for Aotearoa NZ",
+          "href": "https://www.ehf.org/news-blog/2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz",
+          "date": "10/3/23",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1696246280051-YI67EY56YTIF13L231JZ/EHF%2BHI%2BAnnual%2BReport%2B2023%2BCover.jpg?format=2500w",
+            "alt": "Media Release: Pilot visa programme drives economic and social impact for Aotearoa NZ",
+            "complete": true,
+            "naturalWidth": 1904,
+            "naturalHeight": 1071
+          }
+        },
+        {
+          "order": 14,
+          "title": "Nature Restoration - First Mission Studio Convening",
+          "href": "https://www.ehf.org/news-blog/the-mission-studio-first-convening",
+          "date": "8/18/23",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1692232759663-PVS7XHYWLFQDQ47TYPB8/EHF_Convening_Grp_shot_1.jpeg?format=2500w",
+            "alt": "Nature Restoration - First Mission Studio Convening",
+            "complete": true,
+            "naturalWidth": 1618,
+            "naturalHeight": 1079
+          }
+        },
+        {
+          "order": 15,
+          "title": "Media Release: Hillary Institute and Edmund Hillary Fellowship Announce New Board Members",
+          "href": "https://www.ehf.org/news-blog/hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members",
+          "date": "8/3/23",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1691015339024-Q70QM8DYQ69Q78SVI25V/Screenshot+2023-08-03+at+10.22.57+AM.png?format=2500w",
+            "alt": "Media Release: Hillary Institute and Edmund Hillary Fellowship Announce New Board Members",
+            "complete": true,
+            "naturalWidth": 1247,
+            "naturalHeight": 629
+          }
+        },
+        {
+          "order": 16,
+          "title": "Reflections of Sir Edmund Hillary’s Legacy on Everest Day",
+          "href": "https://www.ehf.org/news-blog/reflections-of-sir-edmund-hillarys-legacy-on-everest-day",
+          "date": "5/29/23",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1685315115754-1VQXTIBVJ8JHX117OXV8/Hillary_and_tenzing.jpg?format=2500w",
+            "alt": "Reflections of Sir Edmund Hillary’s Legacy on Everest Day",
+            "complete": true,
+            "naturalWidth": 599,
+            "naturalHeight": 357
+          }
+        },
+        {
+          "order": 17,
+          "title": "EHF’s final Welcome Experience sees 60 Fellows welcomed to the Fellowship & Aotearoa",
+          "href": "https://www.ehf.org/news-blog/ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa",
+          "date": "5/17/23",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1684261231442-AHO73D0P61G9L0FM6QD3/USE+THIS+ONE+FOR+WEB+AND+SOCIAL_EHF+May+WE+marae+%285+of+5%29.jpg?format=2500w",
+            "alt": "EHF’s final Welcome Experience sees 60 Fellows welcomed to the Fellowship &amp; Aotearoa",
+            "complete": true,
+            "naturalWidth": 1620,
+            "naturalHeight": 1079
+          }
+        },
+        {
+          "order": 18,
+          "title": "EHF Welcomes 95 Fellows in March Welcome Experience",
+          "href": "https://www.ehf.org/news-blog/ehf-welcomes-95-fellows-in-march-welcome-experience",
+          "date": "3/24/23",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1679596643039-ZHKPLICPIOJXF4JD7ZOJ/EHF+WE+March+2023+Group+3.jpg?format=2500w",
+            "alt": "EHF Welcomes 95 Fellows in March Welcome Experience",
+            "complete": true,
+            "naturalWidth": 1619,
+            "naturalHeight": 1080
+          }
+        },
+        {
+          "order": 19,
+          "title": "A New Expedition - The Mission Studio",
+          "href": "https://www.ehf.org/news-blog/a-new-expedition-the-mission-studio",
+          "date": "3/1/23",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1677626139741-RRQ75GWE69FGBT167UGT/slide-1-cover.png?format=2500w",
+            "alt": "A New Expedition - The Mission Studio",
+            "complete": true,
+            "naturalWidth": 1474,
+            "naturalHeight": 829
+          }
+        },
+        {
+          "order": 20,
+          "title": "Reflections this Waitangi Day",
+          "href": "https://www.ehf.org/news-blog/reflections-this-waitangi-day-2023",
+          "date": "2/6/23",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1675630647448-TE0R7JCQCCAHIMEVNSC7/Iti+Rearea+-+Waiwhetu+Marae+%282%29+%281%29.png?format=2500w",
+            "alt": "Reflections this Waitangi Day",
+            "complete": true,
+            "naturalWidth": 1291,
+            "naturalHeight": 860
+          }
+        }
+      ],
+      "paginationControls": [
+        {
+          "label": "Older Posts",
+          "href": "https://www.ehf.org/news-blog?offset=1675630776192"
+        }
+      ]
+    },
+    "listing-default-mobile": {
+      "cardCount": 20,
+      "cardOrder": [
+        {
+          "order": 1,
+          "title": "Media Release: New Executive Directors to Lead Hillary Institute & Edmund Hillary Fellowship",
+          "href": "https://www.ehf.org/news-blog/media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp",
+          "date": "7/2/25",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1751423336472-J27GYM0WVZQ66BMO3W6N/Untitled+design+%282%29.png?format=1500w",
+            "alt": "Media Release: New Executive Directors to Lead Hillary Institute &amp; Edmund Hillary Fellowship&nbsp;",
+            "complete": true,
+            "naturalWidth": 437,
+            "naturalHeight": 366
+          }
+        },
+        {
+          "order": 2,
+          "title": "Building Innovation Growth through Global Talent",
+          "href": "https://www.ehf.org/news-blog/building-innovation-growth-through-global-talent",
+          "date": "6/4/25",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1749070669936-REHRSAJWAVFY9DQBCY8H/www-wearetravellers-nl-2DM7eOR5iyc-unsplash.jpg?format=2500w",
+            "alt": "Building Innovation Growth through Global Talent",
+            "complete": true,
+            "naturalWidth": 876,
+            "naturalHeight": 584
+          }
+        },
+        {
+          "order": 3,
+          "title": "Fellow-Led Board established with Four Fellows Appointed as New Directors",
+          "href": "https://www.ehf.org/news-blog/fellow-led-board-established-with-four-fellows-appointed-as-new-directors",
+          "date": "3/3/25",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1740963885752-YNXCV70XLCPISF89YDQE/New+Board+announcement.png?format=1500w",
+            "alt": "Fellow-Led Board established with Four Fellows Appointed as New Directors",
+            "complete": true,
+            "naturalWidth": 421,
+            "naturalHeight": 421
+          }
+        },
+        {
+          "order": 4,
+          "title": "Building a basecamp for a better world begins at 2025 Hillary Innovation Summit",
+          "href": "https://www.ehf.org/news-blog/building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit",
+          "date": "2/21/25",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1740091066559-WUIPKHE7TIRVJTJ8FL1B/Master+Holding+Slide.png?format=2500w",
+            "alt": "Building a basecamp for a better world begins at 2025 Hillary Innovation Summit",
+            "complete": true,
+            "naturalWidth": 798,
+            "naturalHeight": 449
+          }
+        },
+        {
+          "order": 5,
+          "title": "The Hillary Institute & EHF Submission on Amending Foreign Investment Funds Rules for Migrants",
+          "href": "https://www.ehf.org/news-blog/the-hillary-institute-ehf-submission-on-amending-foreign-investment-funds-rules-for-migrants",
+          "date": "2/3/25",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1738532025931-5B139JN3J0ZSJ4F1KADS/global-residence-index-LPdaW746WAw-unsplash.jpg?format=2500w",
+            "alt": "The Hillary Institute &amp; EHF Submission on Amending Foreign Investment Funds Rules for Migrants",
+            "complete": true,
+            "naturalWidth": 877,
+            "naturalHeight": 585
+          }
+        },
+        {
+          "order": 6,
+          "title": "The Hillary Institute and Edmund Hillary Fellowship Submission on the Treaty Principles Bill",
+          "href": "https://www.ehf.org/news-blog/the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill",
+          "date": "1/7/25",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1736204408365-FLHAIKLBJQOBKVLTW8CW/NY+day+image+post+%28LinkedIn+Post%29.png?format=1500w",
+            "alt": "The Hillary Institute and Edmund Hillary Fellowship Submission on the Treaty Principles Bill",
+            "complete": true,
+            "naturalWidth": 467,
+            "naturalHeight": 467
+          }
+        },
+        {
+          "order": 7,
+          "title": "A Year of Impact, Value and Momentum - 2023/24 Annual Report",
+          "href": "https://www.ehf.org/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report",
+          "date": "10/16/24",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1729036455987-IF7TNNRGH05092NXMX0W/16309+EHF+HI+Annual+Report+2024+Cover.jpg?format=1000w",
+            "alt": "A Year of Impact, Value and Momentum - 2023/24 Annual Report ",
+            "complete": true,
+            "naturalWidth": 413,
+            "naturalHeight": 584
+          }
+        },
+        {
+          "order": 8,
+          "title": "Media Statement: Changes needed to make New Zealand the place where talent wants to live, says report",
+          "href": "https://www.ehf.org/news-blog/media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report",
+          "date": "7/25/24",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1721854805815-FV87K28EXXI4N9QDHEJS/josh-tere-8dDu2HmWJY8-unsplash.jpg?format=2500w",
+            "alt": "Media Statement: Changes needed to make New Zealand the place where talent wants to live, says report",
+            "complete": true,
+            "naturalWidth": 878,
+            "naturalHeight": 585
+          }
+        },
+        {
+          "order": 9,
+          "title": "Impact Springboard showcases leading innovation for global impact",
+          "href": "https://www.ehf.org/news-blog/impact-springboard-showcases-leading-innovation-for-global-impact",
+          "date": "3/5/24",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1709515647666-KWWNGGEA6E0GZ6R07QHW/SEO+image.png?format=1500w",
+            "alt": "Impact Springboard showcases leading innovation for global impact",
+            "complete": true,
+            "naturalWidth": 421,
+            "naturalHeight": 421
+          }
+        },
+        {
+          "order": 10,
+          "title": "Reflections this Waitangi Day (2024)",
+          "href": "https://www.ehf.org/news-blog/reflections-this-waitangi-day-2024",
+          "date": "2/6/24",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1707089201091-NU3OVDFR6FCKFJ74QJDH/NZ+Wharariki+Beach+Nelson+Tasman.jpg?format=1500w",
+            "alt": "Reflections this Waitangi Day (2024)",
+            "complete": true,
+            "naturalWidth": 780,
+            "naturalHeight": 585
+          }
+        },
+        {
+          "order": 11,
+          "title": "Navigating 2024 with Stubborn Optimism: A conversation with Rosalie Nelson",
+          "href": "https://www.ehf.org/news-blog/navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson",
+          "date": "1/12/24",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1705022263507-V95MXHCQSQ64XZV4E6P5/NZ+Lake+Rotoiti+Jetty+Nelson+Tasman.jpg?format=2500w",
+            "alt": "Navigating 2024 with Stubborn Optimism: A conversation with Rosalie Nelson",
+            "complete": true,
+            "naturalWidth": 877,
+            "naturalHeight": 585
+          }
+        },
+        {
+          "order": 12,
+          "title": "2023: A year of connections, impact and milestones",
+          "href": "https://www.ehf.org/news-blog/2023-a-year-of-connections-impact-and-milestones",
+          "date": "12/20/23",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1702944711354-PBEHZ5DYCO7CKO16TWGD/NZ+Roys+Peak-unsplash.jpg?format=2500w",
+            "alt": "2023: A year of connections, impact and milestones",
+            "complete": true,
+            "naturalWidth": 1039,
+            "naturalHeight": 584
+          }
+        },
+        {
+          "order": 13,
+          "title": "Media Release: Pilot visa programme drives economic and social impact for Aotearoa NZ",
+          "href": "https://www.ehf.org/news-blog/2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz",
+          "date": "10/3/23",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1696246280051-YI67EY56YTIF13L231JZ/EHF%2BHI%2BAnnual%2BReport%2B2023%2BCover.jpg?format=2500w",
+            "alt": "Media Release: Pilot visa programme drives economic and social impact for Aotearoa NZ",
+            "complete": true,
+            "naturalWidth": 1031,
+            "naturalHeight": 580
+          }
+        },
+        {
+          "order": 14,
+          "title": "Nature Restoration - First Mission Studio Convening",
+          "href": "https://www.ehf.org/news-blog/the-mission-studio-first-convening",
+          "date": "8/18/23",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1692232759663-PVS7XHYWLFQDQ47TYPB8/EHF_Convening_Grp_shot_1.jpeg?format=2500w",
+            "alt": "Nature Restoration - First Mission Studio Convening",
+            "complete": true,
+            "naturalWidth": 876,
+            "naturalHeight": 584
+          }
+        },
+        {
+          "order": 15,
+          "title": "Media Release: Hillary Institute and Edmund Hillary Fellowship Announce New Board Members",
+          "href": "https://www.ehf.org/news-blog/hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members",
+          "date": "8/3/23",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1691015339024-Q70QM8DYQ69Q78SVI25V/Screenshot+2023-08-03+at+10.22.57+AM.png?format=2500w",
+            "alt": "Media Release: Hillary Institute and Edmund Hillary Fellowship Announce New Board Members",
+            "complete": true,
+            "naturalWidth": 675,
+            "naturalHeight": 341
+          }
+        },
+        {
+          "order": 16,
+          "title": "Reflections of Sir Edmund Hillary’s Legacy on Everest Day",
+          "href": "https://www.ehf.org/news-blog/reflections-of-sir-edmund-hillarys-legacy-on-everest-day",
+          "date": "5/29/23",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1685315115754-1VQXTIBVJ8JHX117OXV8/Hillary_and_tenzing.jpg?format=2500w",
+            "alt": "Reflections of Sir Edmund Hillary’s Legacy on Everest Day",
+            "complete": true,
+            "naturalWidth": 324,
+            "naturalHeight": 193
+          }
+        },
+        {
+          "order": 17,
+          "title": "EHF’s final Welcome Experience sees 60 Fellows welcomed to the Fellowship & Aotearoa",
+          "href": "https://www.ehf.org/news-blog/ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa",
+          "date": "5/17/23",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1684261231442-AHO73D0P61G9L0FM6QD3/USE+THIS+ONE+FOR+WEB+AND+SOCIAL_EHF+May+WE+marae+%285+of+5%29.jpg?format=2500w",
+            "alt": "EHF’s final Welcome Experience sees 60 Fellows welcomed to the Fellowship &amp; Aotearoa",
+            "complete": true,
+            "naturalWidth": 877,
+            "naturalHeight": 584
+          }
+        },
+        {
+          "order": 18,
+          "title": "EHF Welcomes 95 Fellows in March Welcome Experience",
+          "href": "https://www.ehf.org/news-blog/ehf-welcomes-95-fellows-in-march-welcome-experience",
+          "date": "3/24/23",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1679596643039-ZHKPLICPIOJXF4JD7ZOJ/EHF+WE+March+2023+Group+3.jpg?format=2500w",
+            "alt": "EHF Welcomes 95 Fellows in March Welcome Experience",
+            "complete": true,
+            "naturalWidth": 877,
+            "naturalHeight": 585
+          }
+        },
+        {
+          "order": 19,
+          "title": "A New Expedition - The Mission Studio",
+          "href": "https://www.ehf.org/news-blog/a-new-expedition-the-mission-studio",
+          "date": "3/1/23",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1677626139741-RRQ75GWE69FGBT167UGT/slide-1-cover.png?format=2500w",
+            "alt": "A New Expedition - The Mission Studio",
+            "complete": true,
+            "naturalWidth": 798,
+            "naturalHeight": 449
+          }
+        },
+        {
+          "order": 20,
+          "title": "Reflections this Waitangi Day",
+          "href": "https://www.ehf.org/news-blog/reflections-this-waitangi-day-2023",
+          "date": "2/6/23",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1675630647448-TE0R7JCQCCAHIMEVNSC7/Iti+Rearea+-+Waiwhetu+Marae+%282%29+%281%29.png?format=2500w",
+            "alt": "Reflections this Waitangi Day",
+            "complete": true,
+            "naturalWidth": 699,
+            "naturalHeight": 465
+          }
+        }
+      ],
+      "paginationControls": [
+        {
+          "label": "Older Posts",
+          "href": "https://www.ehf.org/news-blog?offset=1675630776192"
+        }
+      ]
+    },
+    "listing-older-desktop": {
+      "cardCount": 7,
+      "cardOrder": [
+        {
+          "order": 1,
+          "title": "EHF welcomes more than 100 Fellows in 2022",
+          "href": "https://www.ehf.org/news-blog/ehf-welcomes-more-than-100-fellows-in-2022",
+          "date": "12/23/22",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1671746815070-C9D9ARMR809ANF46XUDJ/Rosalie.jpg?format=2500w",
+            "alt": "EHF welcomes more than 100 Fellows in 2022",
+            "complete": true,
+            "naturalWidth": 1620,
+            "naturalHeight": 1080
+          }
+        },
+        {
+          "order": 2,
+          "title": "2021/2022 Annual Report shows year of impact",
+          "href": "https://www.ehf.org/news-blog/2021-2022-annual-report-shows-year-of-impact",
+          "date": "11/22/22",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1669090799544-5CYJYHLNC51XF2E7FCCT/Hi%2B2022%2BAnnual%2BReport%2BImage.png?format=1000w",
+            "alt": "2021/2022 Annual Report shows year of impact",
+            "complete": true,
+            "naturalWidth": 769,
+            "naturalHeight": 1080
+          }
+        },
+        {
+          "order": 3,
+          "title": "Closer Alignment between Hillary Institute & EHF to unlock potential",
+          "href": "https://www.ehf.org/news-blog/closer-alignment-between-hillary-institute-ehf-to-unlock-potential",
+          "date": "10/10/22",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1665357046064-BR7REEU253EAYB89B2JF/29021FD0-3072-49F3-8DB2-CBB3C787AB0E_1_105_c.jpeg?format=2500w",
+            "alt": "Closer Alignment between Hillary Institute &amp; EHF to unlock potential",
+            "complete": true,
+            "naturalWidth": 991,
+            "naturalHeight": 525
+          }
+        },
+        {
+          "order": 4,
+          "title": "Media release: Anna Kominik announced as new Board Chair",
+          "href": "https://www.ehf.org/news-blog/media-release-anna-kominik-announced-as-new-board-chair",
+          "date": "10/28/21",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1635371220746-3T8GE0XVWFYH6QNQMNUR/Anna%2BKominik%2Bedited.jpeg?format=2500w",
+            "alt": "Media release: Anna Kominik announced as new Board Chair",
+            "complete": true,
+            "naturalWidth": 561,
+            "naturalHeight": 373
+          }
+        },
+        {
+          "order": 5,
+          "title": "Farewell, thank you and congratulations to Paul Atkins",
+          "href": "https://www.ehf.org/news-blog/farewell-thank-you-and-congratulations-to-paul-atkins",
+          "date": "8/11/21",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1628659753811-93UYX517O4FJ9L0WH0B4/Paul.jpeg?format=2500w",
+            "alt": "Farewell, thank you and congratulations to Paul Atkins",
+            "complete": true,
+            "naturalWidth": 940,
+            "naturalHeight": 629
+          }
+        },
+        {
+          "order": 6,
+          "title": "Announcing the new CEO for EHF",
+          "href": "https://www.ehf.org/news-blog/announcing-the-new-ceo-for-ehf",
+          "date": "2/3/21",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1612293072669-LK70C65L3GL57GDMEKIQ/Rosalie+Nelson.jpeg?format=2500w",
+            "alt": "Announcing the new CEO for EHF",
+            "complete": true,
+            "naturalWidth": 387,
+            "naturalHeight": 276
+          }
+        },
+        {
+          "order": 7,
+          "title": "New Hillary Institute & Edmund Hillary Fellowship board chair elected",
+          "href": "https://www.ehf.org/news-blog/new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected",
+          "date": "12/17/20",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1608267728936-YXWOKTHSFHZLAYGO802L/Blog+Post+Thumb+Long.jpg?format=750w",
+            "alt": "New Hillary Institute &amp; Edmund Hillary Fellowship board chair elected",
+            "complete": true,
+            "naturalWidth": 720,
+            "naturalHeight": 1165
+          }
+        }
+      ],
+      "paginationControls": [
+        {
+          "label": "Newer Posts",
+          "href": "https://www.ehf.org/news-blog?offset=1671747295026&reversePaginate=true"
+        }
+      ]
+    },
+    "listing-older-mobile": {
+      "cardCount": 7,
+      "cardOrder": [
+        {
+          "order": 1,
+          "title": "EHF welcomes more than 100 Fellows in 2022",
+          "href": "https://www.ehf.org/news-blog/ehf-welcomes-more-than-100-fellows-in-2022",
+          "date": "12/23/22",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1671746815070-C9D9ARMR809ANF46XUDJ/Rosalie.jpg?format=2500w",
+            "alt": "EHF welcomes more than 100 Fellows in 2022",
+            "complete": true,
+            "naturalWidth": 877,
+            "naturalHeight": 585
+          }
+        },
+        {
+          "order": 2,
+          "title": "2021/2022 Annual Report shows year of impact",
+          "href": "https://www.ehf.org/news-blog/2021-2022-annual-report-shows-year-of-impact",
+          "date": "11/22/22",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1669090799544-5CYJYHLNC51XF2E7FCCT/Hi%2B2022%2BAnnual%2BReport%2BImage.png?format=1000w",
+            "alt": "2021/2022 Annual Report shows year of impact",
+            "complete": true,
+            "naturalWidth": 416,
+            "naturalHeight": 585
+          }
+        },
+        {
+          "order": 3,
+          "title": "Closer Alignment between Hillary Institute & EHF to unlock potential",
+          "href": "https://www.ehf.org/news-blog/closer-alignment-between-hillary-institute-ehf-to-unlock-potential",
+          "date": "10/10/22",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1665357046064-BR7REEU253EAYB89B2JF/29021FD0-3072-49F3-8DB2-CBB3C787AB0E_1_105_c.jpeg?format=2500w",
+            "alt": "Closer Alignment between Hillary Institute &amp; EHF to unlock potential",
+            "complete": true,
+            "naturalWidth": 537,
+            "naturalHeight": 284
+          }
+        },
+        {
+          "order": 4,
+          "title": "Media release: Anna Kominik announced as new Board Chair",
+          "href": "https://www.ehf.org/news-blog/media-release-anna-kominik-announced-as-new-board-chair",
+          "date": "10/28/21",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1635371220746-3T8GE0XVWFYH6QNQMNUR/Anna%2BKominik%2Bedited.jpeg?format=2500w",
+            "alt": "Media release: Anna Kominik announced as new Board Chair",
+            "complete": true,
+            "naturalWidth": 303,
+            "naturalHeight": 202
+          }
+        },
+        {
+          "order": 5,
+          "title": "Farewell, thank you and congratulations to Paul Atkins",
+          "href": "https://www.ehf.org/news-blog/farewell-thank-you-and-congratulations-to-paul-atkins",
+          "date": "8/11/21",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1628659753811-93UYX517O4FJ9L0WH0B4/Paul.jpeg?format=2500w",
+            "alt": "Farewell, thank you and congratulations to Paul Atkins",
+            "complete": true,
+            "naturalWidth": 509,
+            "naturalHeight": 341
+          }
+        },
+        {
+          "order": 6,
+          "title": "Announcing the new CEO for EHF",
+          "href": "https://www.ehf.org/news-blog/announcing-the-new-ceo-for-ehf",
+          "date": "2/3/21",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1612293072669-LK70C65L3GL57GDMEKIQ/Rosalie+Nelson.jpeg?format=2500w",
+            "alt": "Announcing the new CEO for EHF",
+            "complete": true,
+            "naturalWidth": 209,
+            "naturalHeight": 149
+          }
+        },
+        {
+          "order": 7,
+          "title": "New Hillary Institute & Edmund Hillary Fellowship board chair elected",
+          "href": "https://www.ehf.org/news-blog/new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected",
+          "date": "12/17/20",
+          "image": {
+            "src": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1608267728936-YXWOKTHSFHZLAYGO802L/Blog+Post+Thumb+Long.jpg?format=750w",
+            "alt": "New Hillary Institute &amp; Edmund Hillary Fellowship board chair elected",
+            "complete": true,
+            "naturalWidth": 390,
+            "naturalHeight": 631
+          }
+        }
+      ],
+      "paginationControls": [
+        {
+          "label": "Newer Posts",
+          "href": "https://www.ehf.org/news-blog?offset=1671747295026&reversePaginate=true"
+        }
+      ]
+    }
+  },
+  "contentRouteSummary": {
+    "summer-edition-desktop": {
+      "httpStatus": 200,
+      "requestedUrl": "https://www.ehf.org/summer-edition-2025",
+      "finalUrl": "https://www.ehf.org/summer-edition-2025",
+      "title": "Impact Snapshot (Summer Edition 2025) — Edmund Hillary Fellowship",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Impact Snapshot"
+        },
+        {
+          "level": 4,
+          "text": "Summer Edition (December 2024, January & February 2025)"
+        },
+        {
+          "level": 3,
+          "text": "Fellows in action 🎬"
+        },
+        {
+          "level": 4,
+          "text": "© Edmund Hillary Fellowship 2016 - 2026"
+        },
+        {
+          "level": 3,
+          "text": "About‍ | Fellows Directory‍ |‍ ‍ Impact ‍ | Archive‍ | Closure Statement | Privacy"
+        }
+      ],
+      "templateSignals": {
+        "bodyClass": "tweak-blog-alternating-side-by-side-width-inset tweak-blog-alternating-side-by-side-image-aspect-ratio-11-square tweak-blog-alternating-side-by-side-text-alignment-left tweak-blog-alternating-side-by-side-read-more-style-show tweak-blog-alternating-side-by-side-image-text-alignment-middle tweak-blog-alternating-side-by-side-delimiter-bullet tweak-blog-alternating-side-by-side-meta-position-top tweak-blog-alternating-side-by-side-primary-meta-categories tweak-blog-alternating-side-by-side-secondary-meta-date tweak-blog-alternating-side-by-side-excerpt-show image-block-poster-text-alignment-left image-block-card-content-position-center image-block-card-text-alignment-left image-block-overlap-content-position-center image-block-overlap-text-alignment-left image-block-collage-content-position-center image-block-collage-text-alignment-left image-block-stack-text-alignment-left form-use-theme-colors form-field-style-solid form-field-shape-square form-field-border-all form-field-checkbox-type-icon form-field-checkbox-fill-solid form-field-checkbox-color-inverted form-field-checkbox-shape-square form-field-checkbox-layout-stack form-field-radio-type-icon form-field-radio-fill-solid form-field-radio-color-normal form-field-radio-shape-pill form-field-radio-layout-stack form-field-survey-fill-solid form-field-survey-color-normal form-field-survey-shape-pill form-field-hover-focus-outline form-submit-button-style-label  tweak-global-animations-complexity-level-detailed tweak-global-animations-animation-style-fade tweak-global-animations-animation-type-none tweak-global-animations-animation-curve-ease tweak-blog-masonry-width-full tweak-blog-masonry-text-alignment-left tweak-blog-masonry-primary-meta-none tweak-blog-masonry-secondary-meta-none tweak-blog-masonry-meta-position-top tweak-blog-masonry-read-more-style-hide tweak-blog-masonry-delimiter-bullet tweak-blog-masonry-image-placement-above tweak-blog-masonry-excerpt-hide tweak-portfolio-grid-overlay-width-full tweak-portfolio-grid-overlay-height-large tweak-portfolio-grid-overlay-image-aspect-ratio-11-square tweak-portfolio-grid-overlay-text-placement-center tweak-portfolio-grid-overlay-show-text-after-hover tweak-blog-single-column-width-inset tweak-blog-single-column-text-alignment-center tweak-blog-single-column-image-placement-above tweak-blog-single-column-delimiter-bullet tweak-blog-single-column-read-more-style-show tweak-blog-single-column-primary-meta-categories tweak-blog-single-column-secondary-meta-date tweak-blog-single-column-meta-position-top tweak-blog-single-column-content-full-post header-width-inset   tweak-fixed-header-style-basic tweak-blog-item-width-custom tweak-blog-item-text-alignment-center tweak-blog-item-meta-position-below-title tweak-blog-item-show-categories    tweak-blog-item-delimiter-bullet tweak-blog-side-by-side-width-full tweak-blog-side-by-side-image-placement-left tweak-blog-side-by-side-image-aspect-ratio-11-square tweak-blog-side-by-side-primary-meta-categories tweak-blog-side-by-side-secondary-meta-none tweak-blog-side-by-side-meta-position-top tweak-blog-side-by-side-text-alignment-left tweak-blog-side-by-side-image-text-alignment-middle tweak-blog-side-by-side-read-more-style-show tweak-blog-side-by-side-delimiter-bullet tweak-blog-side-by-side-excerpt-hide primary-button-style-solid primary-button-shape-rounded secondary-button-style-solid secondary-button-shape-rounded tertiary-button-style-solid tertiary-button-shape-rounded tweak-events-stacked-width-full tweak-events-stacked-height-large  tweak-events-stacked-show-thumbnails tweak-events-stacked-thumbnail-size-32-standard tweak-events-stacked-date-style-with-text tweak-events-stacked-show-time tweak-events-stacked-show-location  tweak-events-stacked-show-excerpt  tweak-blog-basic-grid-width-inset tweak-blog-basic-grid-image-aspect-ratio-32-standard tweak-blog-basic-grid-text-alignment-left tweak-blog-basic-grid-delimiter-bullet tweak-blog-basic-grid-image-placement-above tweak-blog-basic-grid-read-more-style-show tweak-blog-basic-grid-primary-meta-categories tweak-blog-basic-grid-secondary-meta-date tweak-blog-basic-grid-excerpt-show tweak-portfolio-grid-basic-width-full tweak-portfolio-grid-basic-height-large tweak-portfolio-grid-basic-image-aspect-ratio-11-square tweak-portfolio-grid-basic-text-alignment-left tweak-portfolio-grid-basic-hover-effect-fade header-overlay-alignment-center tweak-portfolio-index-background-link-format-stacked tweak-portfolio-index-background-width-full-bleed tweak-portfolio-index-background-height-large  tweak-portfolio-index-background-vertical-alignment-middle tweak-portfolio-index-background-horizontal-alignment-center tweak-portfolio-index-background-delimiter-none tweak-portfolio-index-background-animation-type-fade tweak-portfolio-index-background-animation-duration-medium tweak-portfolio-hover-follow-layout-inline  tweak-portfolio-hover-follow-delimiter-bullet tweak-portfolio-hover-follow-animation-type-fade tweak-portfolio-hover-follow-animation-duration-fast tweak-portfolio-hover-static-layout-inline tweak-portfolio-hover-static-front tweak-portfolio-hover-static-delimiter-hyphen tweak-portfolio-hover-static-animation-type-fade tweak-portfolio-hover-static-animation-duration-fast hide-opentable-icons opentable-style-dark tweak-product-quick-view-button-style-floating tweak-product-quick-view-button-position-bottom tweak-product-quick-view-lightbox-excerpt-display-truncate tweak-product-quick-view-lightbox-show-arrows tweak-product-quick-view-lightbox-show-close-button tweak-product-quick-view-lightbox-controls-weight-light native-currency-code-usd collection-67c62a22e20b112c544a7a8b collection-type-page collection-layout-default mobile-style-available sqs-seven-one\n      \n        \n          \n        \n      \n     seven-one-global-animations",
+        "collectionType": null,
+        "collectionId": null,
+        "blogItemCount": 0,
+        "hasBlogCollection": false,
+        "hasBlogItem": false,
+        "hasPageSections": true,
+        "hasNotFoundText": false
+      },
+      "linkCount": 63,
+      "mediaCount": 24,
+      "unloadedMediaCount": 0
+    },
+    "summer-edition-mobile": {
+      "httpStatus": 304,
+      "requestedUrl": "https://www.ehf.org/summer-edition-2025",
+      "finalUrl": "https://www.ehf.org/summer-edition-2025",
+      "title": "Impact Snapshot (Summer Edition 2025) — Edmund Hillary Fellowship",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Impact Snapshot"
+        },
+        {
+          "level": 4,
+          "text": "Summer Edition (December 2024, January & February 2025)"
+        },
+        {
+          "level": 3,
+          "text": "Fellows in action 🎬"
+        },
+        {
+          "level": 4,
+          "text": "© Edmund Hillary Fellowship 2016 - 2026"
+        },
+        {
+          "level": 3,
+          "text": "About‍ | Fellows Directory‍ |‍ ‍ Impact ‍ | Archive‍ | Closure Statement | Privacy"
+        }
+      ],
+      "templateSignals": {
+        "bodyClass": "tweak-blog-alternating-side-by-side-width-inset tweak-blog-alternating-side-by-side-image-aspect-ratio-11-square tweak-blog-alternating-side-by-side-text-alignment-left tweak-blog-alternating-side-by-side-read-more-style-show tweak-blog-alternating-side-by-side-image-text-alignment-middle tweak-blog-alternating-side-by-side-delimiter-bullet tweak-blog-alternating-side-by-side-meta-position-top tweak-blog-alternating-side-by-side-primary-meta-categories tweak-blog-alternating-side-by-side-secondary-meta-date tweak-blog-alternating-side-by-side-excerpt-show image-block-poster-text-alignment-left image-block-card-content-position-center image-block-card-text-alignment-left image-block-overlap-content-position-center image-block-overlap-text-alignment-left image-block-collage-content-position-center image-block-collage-text-alignment-left image-block-stack-text-alignment-left form-use-theme-colors form-field-style-solid form-field-shape-square form-field-border-all form-field-checkbox-type-icon form-field-checkbox-fill-solid form-field-checkbox-color-inverted form-field-checkbox-shape-square form-field-checkbox-layout-stack form-field-radio-type-icon form-field-radio-fill-solid form-field-radio-color-normal form-field-radio-shape-pill form-field-radio-layout-stack form-field-survey-fill-solid form-field-survey-color-normal form-field-survey-shape-pill form-field-hover-focus-outline form-submit-button-style-label  tweak-global-animations-complexity-level-detailed tweak-global-animations-animation-style-fade tweak-global-animations-animation-type-none tweak-global-animations-animation-curve-ease tweak-blog-masonry-width-full tweak-blog-masonry-text-alignment-left tweak-blog-masonry-primary-meta-none tweak-blog-masonry-secondary-meta-none tweak-blog-masonry-meta-position-top tweak-blog-masonry-read-more-style-hide tweak-blog-masonry-delimiter-bullet tweak-blog-masonry-image-placement-above tweak-blog-masonry-excerpt-hide tweak-portfolio-grid-overlay-width-full tweak-portfolio-grid-overlay-height-large tweak-portfolio-grid-overlay-image-aspect-ratio-11-square tweak-portfolio-grid-overlay-text-placement-center tweak-portfolio-grid-overlay-show-text-after-hover tweak-blog-single-column-width-inset tweak-blog-single-column-text-alignment-center tweak-blog-single-column-image-placement-above tweak-blog-single-column-delimiter-bullet tweak-blog-single-column-read-more-style-show tweak-blog-single-column-primary-meta-categories tweak-blog-single-column-secondary-meta-date tweak-blog-single-column-meta-position-top tweak-blog-single-column-content-full-post header-width-inset   tweak-fixed-header-style-basic tweak-blog-item-width-custom tweak-blog-item-text-alignment-center tweak-blog-item-meta-position-below-title tweak-blog-item-show-categories    tweak-blog-item-delimiter-bullet tweak-blog-side-by-side-width-full tweak-blog-side-by-side-image-placement-left tweak-blog-side-by-side-image-aspect-ratio-11-square tweak-blog-side-by-side-primary-meta-categories tweak-blog-side-by-side-secondary-meta-none tweak-blog-side-by-side-meta-position-top tweak-blog-side-by-side-text-alignment-left tweak-blog-side-by-side-image-text-alignment-middle tweak-blog-side-by-side-read-more-style-show tweak-blog-side-by-side-delimiter-bullet tweak-blog-side-by-side-excerpt-hide primary-button-style-solid primary-button-shape-rounded secondary-button-style-solid secondary-button-shape-rounded tertiary-button-style-solid tertiary-button-shape-rounded tweak-events-stacked-width-full tweak-events-stacked-height-large  tweak-events-stacked-show-thumbnails tweak-events-stacked-thumbnail-size-32-standard tweak-events-stacked-date-style-with-text tweak-events-stacked-show-time tweak-events-stacked-show-location  tweak-events-stacked-show-excerpt  tweak-blog-basic-grid-width-inset tweak-blog-basic-grid-image-aspect-ratio-32-standard tweak-blog-basic-grid-text-alignment-left tweak-blog-basic-grid-delimiter-bullet tweak-blog-basic-grid-image-placement-above tweak-blog-basic-grid-read-more-style-show tweak-blog-basic-grid-primary-meta-categories tweak-blog-basic-grid-secondary-meta-date tweak-blog-basic-grid-excerpt-show tweak-portfolio-grid-basic-width-full tweak-portfolio-grid-basic-height-large tweak-portfolio-grid-basic-image-aspect-ratio-11-square tweak-portfolio-grid-basic-text-alignment-left tweak-portfolio-grid-basic-hover-effect-fade header-overlay-alignment-center tweak-portfolio-index-background-link-format-stacked tweak-portfolio-index-background-width-full-bleed tweak-portfolio-index-background-height-large  tweak-portfolio-index-background-vertical-alignment-middle tweak-portfolio-index-background-horizontal-alignment-center tweak-portfolio-index-background-delimiter-none tweak-portfolio-index-background-animation-type-fade tweak-portfolio-index-background-animation-duration-medium tweak-portfolio-hover-follow-layout-inline  tweak-portfolio-hover-follow-delimiter-bullet tweak-portfolio-hover-follow-animation-type-fade tweak-portfolio-hover-follow-animation-duration-fast tweak-portfolio-hover-static-layout-inline tweak-portfolio-hover-static-front tweak-portfolio-hover-static-delimiter-hyphen tweak-portfolio-hover-static-animation-type-fade tweak-portfolio-hover-static-animation-duration-fast hide-opentable-icons opentable-style-dark tweak-product-quick-view-button-style-floating tweak-product-quick-view-button-position-bottom tweak-product-quick-view-lightbox-excerpt-display-truncate tweak-product-quick-view-lightbox-show-arrows tweak-product-quick-view-lightbox-show-close-button tweak-product-quick-view-lightbox-controls-weight-light native-currency-code-usd collection-67c62a22e20b112c544a7a8b collection-type-page collection-layout-default mobile-style-available sqs-seven-one\n      \n        \n          \n        \n      \n     seven-one-global-animations",
+        "collectionType": null,
+        "collectionId": null,
+        "blogItemCount": 0,
+        "hasBlogCollection": false,
+        "hasBlogItem": false,
+        "hasPageSections": true,
+        "hasNotFoundText": false
+      },
+      "linkCount": 63,
+      "mediaCount": 24,
+      "unloadedMediaCount": 0
+    },
+    "annual-report-article-desktop": {
+      "httpStatus": 200,
+      "requestedUrl": "https://www.ehf.org/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report",
+      "finalUrl": "https://www.ehf.org/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report",
+      "title": "A Year of Impact, Value and Momentum - 2023/24 Annual Report — Edmund Hillary Fellowship",
+      "headings": [
+        {
+          "level": 1,
+          "text": "A Year of Impact, Value and Momentum - 2023/24 Annual Report"
+        },
+        {
+          "level": 4,
+          "text": "Fellows a unique force in NZ’s ecosystem"
+        },
+        {
+          "level": 2,
+          "text": "The Hillary Institute and Edmund Hillary Fellowship Submission on the Treaty Principles Bill"
+        },
+        {
+          "level": 2,
+          "text": "Media Statement: Changes needed to make New Zealand the place where talent wants to live, says report"
+        },
+        {
+          "level": 4,
+          "text": "© Edmund Hillary Fellowship 2016 - 2026"
+        },
+        {
+          "level": 3,
+          "text": "About‍ | Fellows Directory‍ |‍ ‍ Impact ‍ | Archive‍ | Closure Statement | Privacy"
+        }
+      ],
+      "templateSignals": {
+        "bodyClass": "tweak-blog-alternating-side-by-side-width-inset tweak-blog-alternating-side-by-side-image-aspect-ratio-11-square tweak-blog-alternating-side-by-side-text-alignment-left tweak-blog-alternating-side-by-side-read-more-style-show tweak-blog-alternating-side-by-side-image-text-alignment-middle tweak-blog-alternating-side-by-side-delimiter-bullet tweak-blog-alternating-side-by-side-meta-position-top tweak-blog-alternating-side-by-side-primary-meta-categories tweak-blog-alternating-side-by-side-secondary-meta-date tweak-blog-alternating-side-by-side-excerpt-show image-block-poster-text-alignment-left image-block-card-content-position-center image-block-card-text-alignment-left image-block-overlap-content-position-center image-block-overlap-text-alignment-left image-block-collage-content-position-center image-block-collage-text-alignment-left image-block-stack-text-alignment-left form-use-theme-colors form-field-style-solid form-field-shape-square form-field-border-all form-field-checkbox-type-icon form-field-checkbox-fill-solid form-field-checkbox-color-inverted form-field-checkbox-shape-square form-field-checkbox-layout-stack form-field-radio-type-icon form-field-radio-fill-solid form-field-radio-color-normal form-field-radio-shape-pill form-field-radio-layout-stack form-field-survey-fill-solid form-field-survey-color-normal form-field-survey-shape-pill form-field-hover-focus-outline form-submit-button-style-label  tweak-global-animations-complexity-level-detailed tweak-global-animations-animation-style-fade tweak-global-animations-animation-type-none tweak-global-animations-animation-curve-ease tweak-blog-masonry-width-full tweak-blog-masonry-text-alignment-left tweak-blog-masonry-primary-meta-none tweak-blog-masonry-secondary-meta-none tweak-blog-masonry-meta-position-top tweak-blog-masonry-read-more-style-hide tweak-blog-masonry-delimiter-bullet tweak-blog-masonry-image-placement-above tweak-blog-masonry-excerpt-hide tweak-portfolio-grid-overlay-width-full tweak-portfolio-grid-overlay-height-large tweak-portfolio-grid-overlay-image-aspect-ratio-11-square tweak-portfolio-grid-overlay-text-placement-center tweak-portfolio-grid-overlay-show-text-after-hover tweak-blog-single-column-width-inset tweak-blog-single-column-text-alignment-center tweak-blog-single-column-image-placement-above tweak-blog-single-column-delimiter-bullet tweak-blog-single-column-read-more-style-show tweak-blog-single-column-primary-meta-categories tweak-blog-single-column-secondary-meta-date tweak-blog-single-column-meta-position-top tweak-blog-single-column-content-full-post header-width-inset   tweak-fixed-header-style-basic tweak-blog-item-width-custom tweak-blog-item-text-alignment-center tweak-blog-item-meta-position-below-title tweak-blog-item-show-categories    tweak-blog-item-delimiter-bullet tweak-blog-side-by-side-width-full tweak-blog-side-by-side-image-placement-left tweak-blog-side-by-side-image-aspect-ratio-11-square tweak-blog-side-by-side-primary-meta-categories tweak-blog-side-by-side-secondary-meta-none tweak-blog-side-by-side-meta-position-top tweak-blog-side-by-side-text-alignment-left tweak-blog-side-by-side-image-text-alignment-middle tweak-blog-side-by-side-read-more-style-show tweak-blog-side-by-side-delimiter-bullet tweak-blog-side-by-side-excerpt-hide primary-button-style-solid primary-button-shape-rounded secondary-button-style-solid secondary-button-shape-rounded tertiary-button-style-solid tertiary-button-shape-rounded tweak-events-stacked-width-full tweak-events-stacked-height-large  tweak-events-stacked-show-thumbnails tweak-events-stacked-thumbnail-size-32-standard tweak-events-stacked-date-style-with-text tweak-events-stacked-show-time tweak-events-stacked-show-location  tweak-events-stacked-show-excerpt  tweak-blog-basic-grid-width-inset tweak-blog-basic-grid-image-aspect-ratio-32-standard tweak-blog-basic-grid-text-alignment-left tweak-blog-basic-grid-delimiter-bullet tweak-blog-basic-grid-image-placement-above tweak-blog-basic-grid-read-more-style-show tweak-blog-basic-grid-primary-meta-categories tweak-blog-basic-grid-secondary-meta-date tweak-blog-basic-grid-excerpt-show tweak-portfolio-grid-basic-width-full tweak-portfolio-grid-basic-height-large tweak-portfolio-grid-basic-image-aspect-ratio-11-square tweak-portfolio-grid-basic-text-alignment-left tweak-portfolio-grid-basic-hover-effect-fade header-overlay-alignment-center tweak-portfolio-index-background-link-format-stacked tweak-portfolio-index-background-width-full-bleed tweak-portfolio-index-background-height-large  tweak-portfolio-index-background-vertical-alignment-middle tweak-portfolio-index-background-horizontal-alignment-center tweak-portfolio-index-background-delimiter-none tweak-portfolio-index-background-animation-type-fade tweak-portfolio-index-background-animation-duration-medium tweak-portfolio-hover-follow-layout-inline  tweak-portfolio-hover-follow-delimiter-bullet tweak-portfolio-hover-follow-animation-type-fade tweak-portfolio-hover-follow-animation-duration-fast tweak-portfolio-hover-static-layout-inline tweak-portfolio-hover-static-front tweak-portfolio-hover-static-delimiter-hyphen tweak-portfolio-hover-static-animation-type-fade tweak-portfolio-hover-static-animation-duration-fast hide-opentable-icons opentable-style-dark tweak-product-quick-view-button-style-floating tweak-product-quick-view-button-position-bottom tweak-product-quick-view-lightbox-excerpt-display-truncate tweak-product-quick-view-lightbox-show-arrows tweak-product-quick-view-lightbox-show-close-button tweak-product-quick-view-lightbox-controls-weight-light native-currency-code-usd collection-6343538858527913618401a0 view-item collection-layout-default collection-type-blog-basic-grid mobile-style-available sqs-seven-one\n      \n        \n          \n            \n              has-banner-image\n              item-main-image\n            \n          \n        \n      \n     seven-one-global-animations",
+        "collectionType": null,
+        "collectionId": null,
+        "blogItemCount": 0,
+        "hasBlogCollection": true,
+        "hasBlogItem": false,
+        "hasPageSections": true,
+        "hasNotFoundText": false
+      },
+      "linkCount": 43,
+      "mediaCount": 4,
+      "unloadedMediaCount": 1
+    },
+    "annual-report-article-mobile": {
+      "httpStatus": 304,
+      "requestedUrl": "https://www.ehf.org/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report",
+      "finalUrl": "https://www.ehf.org/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report",
+      "title": "A Year of Impact, Value and Momentum - 2023/24 Annual Report — Edmund Hillary Fellowship",
+      "headings": [
+        {
+          "level": 1,
+          "text": "A Year of Impact, Value and Momentum - 2023/24 Annual Report"
+        },
+        {
+          "level": 4,
+          "text": "Fellows a unique force in NZ’s ecosystem"
+        },
+        {
+          "level": 2,
+          "text": "The Hillary Institute and Edmund Hillary Fellowship Submission on the Treaty Principles Bill"
+        },
+        {
+          "level": 2,
+          "text": "Media Statement: Changes needed to make New Zealand the place where talent wants to live, says report"
+        },
+        {
+          "level": 4,
+          "text": "© Edmund Hillary Fellowship 2016 - 2026"
+        },
+        {
+          "level": 3,
+          "text": "About‍ | Fellows Directory‍ |‍ ‍ Impact ‍ | Archive‍ | Closure Statement | Privacy"
+        }
+      ],
+      "templateSignals": {
+        "bodyClass": "tweak-blog-alternating-side-by-side-width-inset tweak-blog-alternating-side-by-side-image-aspect-ratio-11-square tweak-blog-alternating-side-by-side-text-alignment-left tweak-blog-alternating-side-by-side-read-more-style-show tweak-blog-alternating-side-by-side-image-text-alignment-middle tweak-blog-alternating-side-by-side-delimiter-bullet tweak-blog-alternating-side-by-side-meta-position-top tweak-blog-alternating-side-by-side-primary-meta-categories tweak-blog-alternating-side-by-side-secondary-meta-date tweak-blog-alternating-side-by-side-excerpt-show image-block-poster-text-alignment-left image-block-card-content-position-center image-block-card-text-alignment-left image-block-overlap-content-position-center image-block-overlap-text-alignment-left image-block-collage-content-position-center image-block-collage-text-alignment-left image-block-stack-text-alignment-left form-use-theme-colors form-field-style-solid form-field-shape-square form-field-border-all form-field-checkbox-type-icon form-field-checkbox-fill-solid form-field-checkbox-color-inverted form-field-checkbox-shape-square form-field-checkbox-layout-stack form-field-radio-type-icon form-field-radio-fill-solid form-field-radio-color-normal form-field-radio-shape-pill form-field-radio-layout-stack form-field-survey-fill-solid form-field-survey-color-normal form-field-survey-shape-pill form-field-hover-focus-outline form-submit-button-style-label  tweak-global-animations-complexity-level-detailed tweak-global-animations-animation-style-fade tweak-global-animations-animation-type-none tweak-global-animations-animation-curve-ease tweak-blog-masonry-width-full tweak-blog-masonry-text-alignment-left tweak-blog-masonry-primary-meta-none tweak-blog-masonry-secondary-meta-none tweak-blog-masonry-meta-position-top tweak-blog-masonry-read-more-style-hide tweak-blog-masonry-delimiter-bullet tweak-blog-masonry-image-placement-above tweak-blog-masonry-excerpt-hide tweak-portfolio-grid-overlay-width-full tweak-portfolio-grid-overlay-height-large tweak-portfolio-grid-overlay-image-aspect-ratio-11-square tweak-portfolio-grid-overlay-text-placement-center tweak-portfolio-grid-overlay-show-text-after-hover tweak-blog-single-column-width-inset tweak-blog-single-column-text-alignment-center tweak-blog-single-column-image-placement-above tweak-blog-single-column-delimiter-bullet tweak-blog-single-column-read-more-style-show tweak-blog-single-column-primary-meta-categories tweak-blog-single-column-secondary-meta-date tweak-blog-single-column-meta-position-top tweak-blog-single-column-content-full-post header-width-inset   tweak-fixed-header-style-basic tweak-blog-item-width-custom tweak-blog-item-text-alignment-center tweak-blog-item-meta-position-below-title tweak-blog-item-show-categories    tweak-blog-item-delimiter-bullet tweak-blog-side-by-side-width-full tweak-blog-side-by-side-image-placement-left tweak-blog-side-by-side-image-aspect-ratio-11-square tweak-blog-side-by-side-primary-meta-categories tweak-blog-side-by-side-secondary-meta-none tweak-blog-side-by-side-meta-position-top tweak-blog-side-by-side-text-alignment-left tweak-blog-side-by-side-image-text-alignment-middle tweak-blog-side-by-side-read-more-style-show tweak-blog-side-by-side-delimiter-bullet tweak-blog-side-by-side-excerpt-hide primary-button-style-solid primary-button-shape-rounded secondary-button-style-solid secondary-button-shape-rounded tertiary-button-style-solid tertiary-button-shape-rounded tweak-events-stacked-width-full tweak-events-stacked-height-large  tweak-events-stacked-show-thumbnails tweak-events-stacked-thumbnail-size-32-standard tweak-events-stacked-date-style-with-text tweak-events-stacked-show-time tweak-events-stacked-show-location  tweak-events-stacked-show-excerpt  tweak-blog-basic-grid-width-inset tweak-blog-basic-grid-image-aspect-ratio-32-standard tweak-blog-basic-grid-text-alignment-left tweak-blog-basic-grid-delimiter-bullet tweak-blog-basic-grid-image-placement-above tweak-blog-basic-grid-read-more-style-show tweak-blog-basic-grid-primary-meta-categories tweak-blog-basic-grid-secondary-meta-date tweak-blog-basic-grid-excerpt-show tweak-portfolio-grid-basic-width-full tweak-portfolio-grid-basic-height-large tweak-portfolio-grid-basic-image-aspect-ratio-11-square tweak-portfolio-grid-basic-text-alignment-left tweak-portfolio-grid-basic-hover-effect-fade header-overlay-alignment-center tweak-portfolio-index-background-link-format-stacked tweak-portfolio-index-background-width-full-bleed tweak-portfolio-index-background-height-large  tweak-portfolio-index-background-vertical-alignment-middle tweak-portfolio-index-background-horizontal-alignment-center tweak-portfolio-index-background-delimiter-none tweak-portfolio-index-background-animation-type-fade tweak-portfolio-index-background-animation-duration-medium tweak-portfolio-hover-follow-layout-inline  tweak-portfolio-hover-follow-delimiter-bullet tweak-portfolio-hover-follow-animation-type-fade tweak-portfolio-hover-follow-animation-duration-fast tweak-portfolio-hover-static-layout-inline tweak-portfolio-hover-static-front tweak-portfolio-hover-static-delimiter-hyphen tweak-portfolio-hover-static-animation-type-fade tweak-portfolio-hover-static-animation-duration-fast hide-opentable-icons opentable-style-dark tweak-product-quick-view-button-style-floating tweak-product-quick-view-button-position-bottom tweak-product-quick-view-lightbox-excerpt-display-truncate tweak-product-quick-view-lightbox-show-arrows tweak-product-quick-view-lightbox-show-close-button tweak-product-quick-view-lightbox-controls-weight-light native-currency-code-usd collection-6343538858527913618401a0 view-item collection-layout-default collection-type-blog-basic-grid mobile-style-available sqs-seven-one\n      \n        \n          \n            \n              has-banner-image\n              item-main-image\n            \n          \n        \n      \n     seven-one-global-animations",
+        "collectionType": null,
+        "collectionId": null,
+        "blogItemCount": 0,
+        "hasBlogCollection": true,
+        "hasBlogItem": false,
+        "hasPageSections": true,
+        "hasNotFoundText": false
+      },
+      "linkCount": 43,
+      "mediaCount": 4,
+      "unloadedMediaCount": 1
+    }
+  },
+  "integrity": {
+    "artifacts": [
+      {
+        "file": "annual-report-article-desktop.json",
+        "bytes": 18937,
+        "sha256": "afbf499d3a897f89f0689c8657b947fe96c252e1aaab389901563b74fa8c124e"
+      },
+      {
+        "file": "annual-report-article-desktop.png",
+        "bytes": 638106,
+        "sha256": "969cdde6c193028f3d9025a0d299c0b61f43b51ca770db69478e02481741c31a"
+      },
+      {
+        "file": "annual-report-article-mobile.json",
+        "bytes": 17971,
+        "sha256": "dea6840a85ca89efa31e26bfa7851dcf10b4ed07d39c39fe6947b7678440c466"
+      },
+      {
+        "file": "annual-report-article-mobile.png",
+        "bytes": 660297,
+        "sha256": "69b9fc019af28adb04241f8921971e62ab4b322c8e81bebd70ac3697a8289ffb"
+      },
+      {
+        "file": "capture-run.json",
+        "bytes": 3906,
+        "sha256": "a06a414b7134fc9fc64fe31364d7fbfd3c041a148cb42b2239c95d535701d7b3"
+      },
+      {
+        "file": "listing-default-desktop.json",
+        "bytes": 55878,
+        "sha256": "95aef532f28d4393506df2072b47ba65ef0d2b205d32c57d4cd64b82f5365936"
+      },
+      {
+        "file": "listing-default-desktop.png",
+        "bytes": 8753869,
+        "sha256": "15f5fcae45d6b442abe3573c9cfb198cee94cbd1c14034f576c21b1bba8190c6"
+      },
+      {
+        "file": "listing-default-mobile.json",
+        "bytes": 55922,
+        "sha256": "a1a1e0ba20f81313c86a5a7a97d44c3e94cedf5c7872b760aeb6f00771d81afc"
+      },
+      {
+        "file": "listing-default-mobile.png",
+        "bytes": 2748604,
+        "sha256": "1eca2feeb91183cebd1376a87fbb332e1e8dcd17a9fe42f2a02e06e3273dec9a"
+      },
+      {
+        "file": "listing-older-desktop.json",
+        "bytes": 27405,
+        "sha256": "fd33e70cbcef2ae8ed943c8a6f09cac9a2ee7e4a58d770578996b590826e3e7c"
+      },
+      {
+        "file": "listing-older-desktop.png",
+        "bytes": 2860743,
+        "sha256": "3763c072f5fa9cec45ffbbabb254c3a3d7eb85506c9a8655e84a3a0dedfd7264"
+      },
+      {
+        "file": "listing-older-mobile.json",
+        "bytes": 27430,
+        "sha256": "727342fd9e8e1268198d89183d44107c4b3cdd9e5a18eee6a4cb51a43cc37139"
+      },
+      {
+        "file": "listing-older-mobile.png",
+        "bytes": 1014054,
+        "sha256": "8dfee9bcbcdbe6e91fc49c8e1e25bf7699b8d8ea43c70be738860e1c0875e2c0"
+      },
+      {
+        "file": "summer-edition-desktop.json",
+        "bytes": 29695,
+        "sha256": "82d9668ed1c3744b6c57efeb3b9ff763faa47da786251379cc715773b17d1ae1"
+      },
+      {
+        "file": "summer-edition-desktop.png",
+        "bytes": 5542793,
+        "sha256": "f164d8881fca5c3009717042064fd0fd3d104f3d2a1457326f9ef9a0375e0f3d"
+      },
+      {
+        "file": "summer-edition-mobile.json",
+        "bytes": 29690,
+        "sha256": "d8bd1a01198c5603b9ab46f1a9fd511437140dd5da87ed5fc40206aeebe72363"
+      },
+      {
+        "file": "summer-edition-mobile.png",
+        "bytes": 3884138,
+        "sha256": "9d6f320999e4008d2d8ef63bd8292b960d79a4f942a2aa12e7456bb69a9287ef"
+      }
+    ],
+    "allPngJsonPairsPresent": true,
+    "sensitiveValueScan": {
+      "pattern": "authorization|set-cookie|cookie|password|bearer|api_key|secret|access_token",
+      "flaggedFiles": [],
+      "passed": true
+    },
+    "notes": [
+      "HTTP status is the status observed by the shared browser response; 304 represents a successful cache revalidation, not an unavailable route.",
+      "Health request URLs have query strings stripped; card, link, and media census preserves public DOM URLs as observed."
+    ]
+  }
+}

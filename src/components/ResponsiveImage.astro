@@ -1,0 +1,32 @@
+---
+import { resolveSiteAsset } from '../data/site';
+
+interface ResponsiveImageSource {
+  assetId: string;
+  width: number;
+  height: number;
+}
+
+interface Props {
+  assetId: string;
+  alt: string;
+  width: number;
+  height: number;
+  sizes?: string;
+  loading?: 'eager' | 'lazy';
+  class?: string;
+  mobile?: ResponsiveImageSource;
+}
+
+const { assetId, alt, width, height, sizes, loading = 'lazy', class: className, mobile } = Astro.props;
+const src = resolveSiteAsset(assetId);
+const mobileSrc = mobile ? resolveSiteAsset(mobile.assetId) : undefined;
+---
+{mobileSrc ? (
+  <picture>
+    <source media="(max-width: 767px)" srcset={mobileSrc} width={mobile?.width} height={mobile?.height} />
+    <img src={src} alt={alt} width={width} height={height} sizes={sizes} loading={loading} class={className} />
+  </picture>
+) : (
+  <img src={src} alt={alt} width={width} height={height} sizes={sizes} loading={loading} class={className} />
+)}

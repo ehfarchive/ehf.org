@@ -1,4 +1,5 @@
 import { expect, test, type Page } from '@playwright/test';
+import routeManifest from '../../source-evidence/route-manifest.json';
 import AxeBuilder from '@axe-core/playwright';
 
 const spikeRoutes = [
@@ -8,21 +9,6 @@ const spikeRoutes = [
   '/23-annual-report'
 ] as const;
 
-// These source-relative destinations are deliberately retained in the Stage 1 shell,
-// but have no spike page. SPIKE-RESULTS.md is the owner-facing record of that scope.
-const intentionallyUnavailableDestinations = [
-  '/about-ehf',
-  '/journey',
-  '/our-values',
-  '/impact-in-action',
-  '/ehf-community-collective',
-  '/ehf-fellows-articles',
-  '/archive',
-  '/fellow-directory-advanced-search',
-  '/news',
-  '/read/page/2',
-  'https://www.ehf.org/fellow-detail?fellow=Melahn-Parker#search=Mela&numRecords=24&minMatchCharLength=2'
-] as const;
 
 function collectHealthSignals(page: Page) {
   const consoleErrors: string[] = [];
@@ -46,12 +32,25 @@ async function waitForLocalMedia(page: Page) {
   await page.evaluate(async () => {
     await document.fonts.ready;
   });
-  await expect
-    .poll(() => page.locator('img').evaluateAll((images) => images.every((image) => {
-      const picture = image as HTMLImageElement;
-      return picture.complete && picture.naturalWidth > 0;
-    })))
-    .toBe(true);
+
+  const lazyImages = page.locator('img[loading="lazy"]');
+  for (let index = 0; index < await lazyImages.count(); index += 1) {
+    const image = lazyImages.nth(index);
+    const isRendered = await image.evaluate((element) => {
+      const style = getComputedStyle(element);
+      const box = element.getBoundingClientRect();
+      return style.display !== 'none' && style.visibility !== 'hidden' && box.width > 0 && box.height > 0;
+    });
+    if (!isRendered) continue;
+
+    await image.evaluate((element) => element.scrollIntoView({ block: 'center' }));
+    await expect
+      .poll(() => image.evaluate((element) => {
+        const picture = element as HTMLImageElement;
+        return picture.complete && picture.naturalWidth > 0;
+      }))
+      .toBe(true);
+  }
 }
 
 function contrastRatio(foreground: string, background: string) {
@@ -171,27 +170,20 @@ test('mobile modal has no serious or critical axe violations with visible focus'
   expect(results.violations.filter((violation) => violation.impact === 'serious' || violation.impact === 'critical')).toEqual([]);
 });
 
-test('intentionally unavailable source destinations remain explicit and documented', async ({ page }) => {
-  await page.goto('/');
-  const homeHrefs = await page.locator('a[href]').evaluateAll((links) => links.map((link) => link.getAttribute('href')));
-  await page.goto('/read');
-  const readHrefs = await page.locator('a[href]').evaluateAll((links) => links.map((link) => link.getAttribute('href')));
-  await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
-  const articleHrefs = await page.locator('a[href]').evaluateAll((links) => links.map((link) => link.getAttribute('href')));
-  const hrefs = [...new Set([...homeHrefs, ...readHrefs, ...articleHrefs])];
-
-  for (const destination of intentionallyUnavailableDestinations) {
-    expect(hrefs).toContain(destination);
-  }
-});
-
-test('the Chemergy lede retains its exact excluded source profile link', async ({ page }) => {
-  await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
-  const profile = page.locator('.article-lede').getByRole('link', { name: 'Dr Melahn Parker' });
-  await expect(profile).toHaveAttribute(
-    'href',
-    'https://www.ehf.org/fellow-detail?fellow=Melahn-Parker#search=Mela&numRecords=24&minMatchCharLength=2'
+test('the Chemergy lede renders its manifest-excluded fellow profile as non-clickable text', async ({ page }) => {
+  const excludedFellowDetailRoute = routeManifest.routes.find((route) =>
+    route.kind === 'excluded' && route.path === '/fellow-detail'
   );
+  expect(excludedFellowDetailRoute).toMatchObject({
+    path: '/fellow-detail',
+    kind: 'excluded'
+  });
+
+  await page.goto('/read/how-chemergy-is-changing-the-game-in-waste-to-energy');
+  const lede = page.locator('.article-page__body > p').first();
+  await expect(lede.getByText('Dr Melahn Parker', { exact: true })).toBeVisible();
+  await expect(lede.getByRole('link', { name: 'Dr Melahn Parker', exact: true })).toHaveCount(0);
+  await expect(lede.locator('a[href*="/fellow-detail"]')).toHaveCount(0);
 });
 
 test('the Chemergy lede retains its approved company source link', async ({ page }) => {

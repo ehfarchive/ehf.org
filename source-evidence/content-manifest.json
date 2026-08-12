@@ -1,0 +1,851 @@
+{
+  "schemaVersion": 1,
+  "content": [
+    {
+      "route": "/",
+      "template": "homepage",
+      "localInput": null,
+      "contentHash": null
+    },
+    {
+      "route": "/2025-hillary-innovation-summit-breakout-sessions-summary",
+      "template": "event-programme",
+      "localInput": "src/content/events/2025-hillary-innovation-summit-breakout-sessions-summary.md",
+      "contentHash": "b4fd791aa6a8f199c109657deaff6a6689b643f908bccd4235a4a45688d67bec"
+    },
+    {
+      "route": "/2025-summit-programme",
+      "template": "event-programme",
+      "localInput": "src/content/events/2025-summit-programme.md",
+      "contentHash": "2ae9b6c0c7e7fd3ef5045c5320b5bea6d570eba4cd8c837731936a161af83825"
+    },
+    {
+      "route": "/22-annual-report",
+      "template": "annual-report-document",
+      "localInput": "src/content/pages/reports/22-annual-report.json",
+      "contentHash": "cdf0d5a5b8cbec0b25aae566c7be8d7da3f1545310e4ae38f6181ae895774820"
+    },
+    {
+      "route": "/23-annual-report",
+      "template": "annual-report-document",
+      "localInput": "src/content/pages/reports/23-annual-report.json",
+      "contentHash": "71112326b0a6b9dced790e6da7ed311aa52dc7571cb92719985c9b5cdb026b4a"
+    },
+    {
+      "route": "/404",
+      "template": "not-found",
+      "localInput": null,
+      "contentHash": null
+    },
+    {
+      "route": "/about-ehf",
+      "template": "institutional",
+      "localInput": "src/content/pages/institutional/about-ehf.json",
+      "contentHash": "805e7b2448a5dac84e588439379384e051530495d2245eab51c45e3301cab9ee"
+    },
+    {
+      "route": "/communitycollective",
+      "template": "institutional",
+      "localInput": "src/content/pages/institutional/communitycollective.json",
+      "contentHash": "a6df8e335844096e98b6451ab2f3806dedfc94a466b8e789b3a6aea9a35c5d60"
+    },
+    {
+      "route": "/contact-media",
+      "template": "contact-media-donation",
+      "localInput": "src/content/pages/contact-media-donation/contact-media.json",
+      "contentHash": "ac8e50d7c159296ff6b1a78652bc8fdf8c4ea5b5cab0879a5752f8a08d472f5c"
+    },
+    {
+      "route": "/contact-us",
+      "template": "contact-media-donation",
+      "localInput": "src/content/pages/contact-media-donation/contact-us.json",
+      "contentHash": "7793fd4c41afb926526256ef7a364c4bf92ef4fd35a1f08f93e3fae551b22985"
+    },
+    {
+      "route": "/donation-more-than-10k",
+      "template": "contact-media-donation",
+      "localInput": "src/content/pages/contact-media-donation/donation-more-than-10k.json",
+      "contentHash": "9b36651c28e078d477ffe804b9c19bffd5e2e7ecd4c4fa6ef62ac097e6ef5cb5"
+    },
+    {
+      "route": "/donation-outside-nz-and-us",
+      "template": "contact-media-donation",
+      "localInput": "src/content/pages/contact-media-donation/donation-outside-nz-and-us.json",
+      "contentHash": "3f1a4d332a610420151e4cbacbd6634d6708f5b1b5f910d200c0a77baf75f9c6"
+    },
+    {
+      "route": "/donation-pledge",
+      "template": "contact-media-donation",
+      "localInput": "src/content/pages/contact-media-donation/donation-pledge.json",
+      "contentHash": "1e26dc777aef13a0618772be20c6931082ff5824676b9a7c70cecb056a02fb0e"
+    },
+    {
+      "route": "/donation-refund-request",
+      "template": "contact-media-donation",
+      "localInput": "src/content/pages/contact-media-donation/donation-refund-request.json",
+      "contentHash": "5422fedb24145d32d33160803be41edb4b98bbf23fd12c2fb10e5e465f5d6784"
+    },
+    {
+      "route": "/ehf-friendly-sharks-waiting-list",
+      "template": "contact-media-donation",
+      "localInput": "src/content/pages/contact-media-donation/ehf-friendly-sharks-waiting-list.json",
+      "contentHash": "2790048a5471f7ab2284bde7bb57ae40b51d3351c3a483943b7cae5787f9fbc2"
+    },
+    {
+      "route": "/journey",
+      "template": "institutional",
+      "localInput": "src/content/pages/institutional/journey.json",
+      "contentHash": "192fef4bc60e80d19f5cf5fadc9d2abd09e00135f0573b6f3ecab8712fb53bb2"
+    },
+    {
+      "route": "/media-inquiries",
+      "template": "contact-media-donation",
+      "localInput": "src/content/pages/contact-media-donation/media-inquiries.json",
+      "contentHash": "3cd3303c757ab7fbe55ab5f3ca6ab5fa43bf99701f313638ba982e4d45642511"
+    },
+    {
+      "route": "/news-and-events-updates",
+      "template": "contact-media-donation",
+      "localInput": "src/content/pages/contact-media-donation/news-and-events-updates.json",
+      "contentHash": "6a1c45e7acfbcd3ba8b6bdca498a82eda9966d2ece723d53b23b2544a3c704b9"
+    },
+    {
+      "route": "/news-blog",
+      "template": "news-listing",
+      "localInput": null,
+      "contentHash": null
+    },
+    {
+      "route": "/news-blog/2021-2022-annual-report-shows-year-of-impact",
+      "template": "news-article",
+      "localInput": "src/content/news/2021-2022-annual-report-shows-year-of-impact.md",
+      "contentHash": "054d092b176c8c2305e66923f01665f0a8916821be5b9893118b6fafd721f6ad"
+    },
+    {
+      "route": "/news-blog/2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz",
+      "template": "news-article",
+      "localInput": "src/content/news/2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz.md",
+      "contentHash": "39310371e9bcd66b7d478b2fb512c44a0d77df95a36ab088f4ab02b10f43fced"
+    },
+    {
+      "route": "/news-blog/2023-a-year-of-connections-impact-and-milestones",
+      "template": "news-article",
+      "localInput": "src/content/news/2023-a-year-of-connections-impact-and-milestones.md",
+      "contentHash": "0e97095aec78fd0cf2bcaf065ea0d14f1fc7369460a33d33d1f78959a0f02ad4"
+    },
+    {
+      "route": "/news-blog/a-new-expedition-the-mission-studio",
+      "template": "news-article",
+      "localInput": "src/content/news/a-new-expedition-the-mission-studio.md",
+      "contentHash": "74849a07c54ab730f443c6691de4f08796bfd1db685f81b5b1c69b0210a20f87"
+    },
+    {
+      "route": "/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report",
+      "template": "news-article",
+      "localInput": "src/content/news/a-year-of-impact-value-and-momentum-2023-24-annual-report.md",
+      "contentHash": "162102849afcdd6656e31ba7d82d868e1cb3e8f4e8ced591ccff813954d7ba3f"
+    },
+    {
+      "route": "/news-blog/announcing-the-new-ceo-for-ehf",
+      "template": "news-article",
+      "localInput": "src/content/news/announcing-the-new-ceo-for-ehf.md",
+      "contentHash": "aa0654cbaf8d2c77ef526c7ccc80543e733e4790d24f060e2b8a7012989ed96f"
+    },
+    {
+      "route": "/news-blog/building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit",
+      "template": "news-article",
+      "localInput": "src/content/news/building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit.md",
+      "contentHash": "0a382aec8d082674d079da336bac4a2581d9e1377a64efdf8944a53eda4fd6dc"
+    },
+    {
+      "route": "/news-blog/building-innovation-growth-through-global-talent",
+      "template": "news-article",
+      "localInput": "src/content/news/building-innovation-growth-through-global-talent.md",
+      "contentHash": "702662e36d35f474a9f08be79cbd619b9f9b1768c7e133069d44debe855f77f1"
+    },
+    {
+      "route": "/news-blog/closer-alignment-between-hillary-institute-ehf-to-unlock-potential",
+      "template": "news-article",
+      "localInput": "src/content/news/closer-alignment-between-hillary-institute-ehf-to-unlock-potential.md",
+      "contentHash": "6190fe0f145555931e49bb439aabc027be2c11ec069b2810be86e1b23636266d"
+    },
+    {
+      "route": "/news-blog/ehf-welcomes-95-fellows-in-march-welcome-experience",
+      "template": "news-article",
+      "localInput": "src/content/news/ehf-welcomes-95-fellows-in-march-welcome-experience.md",
+      "contentHash": "46aecf2496722f102efc483c44fde44cc0f7c0ad28f509af375763e9a4c16101"
+    },
+    {
+      "route": "/news-blog/ehf-welcomes-more-than-100-fellows-in-2022",
+      "template": "news-article",
+      "localInput": "src/content/news/ehf-welcomes-more-than-100-fellows-in-2022.md",
+      "contentHash": "7f1cb076e8319c169b26546e6b3f3316825534d9adf91c40659bbf81b850447c"
+    },
+    {
+      "route": "/news-blog/ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa",
+      "template": "news-article",
+      "localInput": "src/content/news/ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa.md",
+      "contentHash": "dc2cae1840b72571ffd6b7148233e95ca3444b9b20ec14a432fb7949aefda119"
+    },
+    {
+      "route": "/news-blog/farewell-thank-you-and-congratulations-to-paul-atkins",
+      "template": "news-article",
+      "localInput": "src/content/news/farewell-thank-you-and-congratulations-to-paul-atkins.md",
+      "contentHash": "a2b2deb67f98c183ce92840bc1720404fa13d9ac55999068ffba2548bdd134b8"
+    },
+    {
+      "route": "/news-blog/fellow-led-board-established-with-four-fellows-appointed-as-new-directors",
+      "template": "news-article",
+      "localInput": "src/content/news/fellow-led-board-established-with-four-fellows-appointed-as-new-directors.md",
+      "contentHash": "a011f32ea926baa72371791b21cd52f7bbff025c1291ca3c7b911089718dfd6a"
+    },
+    {
+      "route": "/news-blog/hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members",
+      "template": "news-article",
+      "localInput": "src/content/news/hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members.md",
+      "contentHash": "eb58df3b799c75238e2f888fc6a5946307c113db1d95188f5c863aa53b7c85cf"
+    },
+    {
+      "route": "/news-blog/impact-springboard-showcases-leading-innovation-for-global-impact",
+      "template": "news-article",
+      "localInput": "src/content/news/impact-springboard-showcases-leading-innovation-for-global-impact.md",
+      "contentHash": "7864de0d54c54738405585aedb60d57323c24f0eaa6637e26cf72b1acca03506"
+    },
+    {
+      "route": "/news-blog/media-release-anna-kominik-announced-as-new-board-chair",
+      "template": "news-article",
+      "localInput": "src/content/news/media-release-anna-kominik-announced-as-new-board-chair.md",
+      "contentHash": "7bef306c339111796afd1be3ddf4cb1c9dcaba5f4eddca7bb833970260be4da0"
+    },
+    {
+      "route": "/news-blog/media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp",
+      "template": "news-article",
+      "localInput": "src/content/news/media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp.md",
+      "contentHash": "54fcf3edd09aa10ca9a14893fbbd166757ed6523c6fc5c7d275a5504f86e8253"
+    },
+    {
+      "route": "/news-blog/media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report",
+      "template": "news-article",
+      "localInput": "src/content/news/media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report.md",
+      "contentHash": "b9b4ba6c6b0d06c4f48fd3c110492e3c24d53c9d33d783f5f9ba931be44b468a"
+    },
+    {
+      "route": "/news-blog/navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson",
+      "template": "news-article",
+      "localInput": "src/content/news/navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson.md",
+      "contentHash": "1c3a5a650aa438639f0a876aab592d54563c0fe5c81ad787f0b6400b7b61910a"
+    },
+    {
+      "route": "/news-blog/new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected",
+      "template": "news-article",
+      "localInput": "src/content/news/new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected.md",
+      "contentHash": "5700ebb1e94db5ed45c8e03bb0272c17dbf8cd8d5634d243f7dd2d2b6be0340e"
+    },
+    {
+      "route": "/news-blog/page/2",
+      "template": "news-listing",
+      "localInput": null,
+      "contentHash": null
+    },
+    {
+      "route": "/news-blog/reflections-of-sir-edmund-hillarys-legacy-on-everest-day",
+      "template": "news-article",
+      "localInput": "src/content/news/reflections-of-sir-edmund-hillarys-legacy-on-everest-day.md",
+      "contentHash": "14fdff1db55be8c1300b13137dd1c09125162196d9d40197305e4f92be583e03"
+    },
+    {
+      "route": "/news-blog/reflections-this-waitangi-day-2023",
+      "template": "news-article",
+      "localInput": "src/content/news/reflections-this-waitangi-day-2023.md",
+      "contentHash": "4dbcd3b49ec196b20fc87b9a3508f3681394316b83d6502bddf2d94545a94838"
+    },
+    {
+      "route": "/news-blog/reflections-this-waitangi-day-2024",
+      "template": "news-article",
+      "localInput": "src/content/news/reflections-this-waitangi-day-2024.md",
+      "contentHash": "cc4a1ea83587df7b0f93c250327beedabb9197d00d321862329646cadebc47cb"
+    },
+    {
+      "route": "/news-blog/the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill",
+      "template": "news-article",
+      "localInput": "src/content/news/the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill.md",
+      "contentHash": "b89f8907231d448b12973eb68808f2deabf265d65e9d1cdc1f0c78865d8f9e6d"
+    },
+    {
+      "route": "/news-blog/the-hillary-institute-ehf-submission-on-amending-foreign-investment-funds-rules-for-migrants",
+      "template": "news-article",
+      "localInput": "src/content/news/the-hillary-institute-ehf-submission-on-amending-foreign-investment-funds-rules-for-migrants.md",
+      "contentHash": "8bee6290888e55bd569048f185894c3f9a96c315d65a00d1c34769fb0d4d755f"
+    },
+    {
+      "route": "/news-blog/the-mission-studio-first-convening",
+      "template": "news-article",
+      "localInput": "src/content/news/the-mission-studio-first-convening.md",
+      "contentHash": "e255587386136308e39d1af286ae3e071c77f15fa4d10fa3a8e863de222d5d83"
+    },
+    {
+      "route": "/our-values",
+      "template": "institutional",
+      "localInput": "src/content/pages/institutional/our-values.json",
+      "contentHash": "233c7623c7b77dc411d22f5dbd98d5c29a678c8037e6fb70a7e76d3c292a4a52"
+    },
+    {
+      "route": "/privacy-policy",
+      "template": "legal",
+      "localInput": "src/content/pages/legal/privacy-policy.json",
+      "contentHash": "67834df469ccc9dde465d4f5e6b82d340d8cd1dd9fd4156801319c53613a5fc3"
+    },
+    {
+      "route": "/read",
+      "template": "impact-listing",
+      "localInput": null,
+      "contentHash": null
+    },
+    {
+      "route": "/read/a-new-governance-landscape-on-the-moon",
+      "template": "impact-article",
+      "localInput": "src/content/impact/a-new-governance-landscape-on-the-moon.md",
+      "contentHash": "b4f6f9b544bb9bce22600ec44e302a04a196b6e140ee6176f53d0972d19b6bca"
+    },
+    {
+      "route": "/read/a-new-wave-of-entrepreneurial-talent-for-new-zealand",
+      "template": "impact-article",
+      "localInput": "src/content/impact/a-new-wave-of-entrepreneurial-talent-for-new-zealand.md",
+      "contentHash": "acd4d8a6996b2202c55dbde75c518c403270bcec0486dd0c35d41a1a2ac920b7"
+    },
+    {
+      "route": "/read/a-sweet-symphony-of-collaboration-and-impact",
+      "template": "impact-article",
+      "localInput": "src/content/impact/a-sweet-symphony-of-collaboration-and-impact.md",
+      "contentHash": "92b77e099084cab76ed246d24111ee07e877c988cb7a38769e1c55d3be454e79"
+    },
+    {
+      "route": "/read/accelerating-impact-through-the-power-of-the-sun",
+      "template": "impact-article",
+      "localInput": "src/content/impact/accelerating-impact-through-the-power-of-the-sun.md",
+      "contentHash": "fbcee998d45cd3fd07bf2242cad83d8d029f1d6b30326d544d7db49229466b90"
+    },
+    {
+      "route": "/read/access-to-justice-through-collaborative-action",
+      "template": "impact-article",
+      "localInput": "src/content/impact/access-to-justice-through-collaborative-action.md",
+      "contentHash": "90cc7baf065fad070a11cc9daae9f3b4c4048402259866389cef67118a512b22"
+    },
+    {
+      "route": "/read/accessible-tech-thats-breaking-down-barriers",
+      "template": "impact-article",
+      "localInput": "src/content/impact/accessible-tech-thats-breaking-down-barriers.md",
+      "contentHash": "4f04bcecdc28c29c3c83a074ae8842fb92e4238d25f79681a4575a81385ff2e5"
+    },
+    {
+      "route": "/read/activating-generational-change-for-aotearoa-nzs-wellbeing",
+      "template": "impact-article",
+      "localInput": "src/content/impact/activating-generational-change-for-aotearoa-nzs-wellbeing.md",
+      "contentHash": "88b66410fd43b36c9bcde33b396b8a2e91811f7dbaee8a88abc26cf1c733e7dc"
+    },
+    {
+      "route": "/read/aerospace-venture-spotlight-kea-aerospace",
+      "template": "impact-article",
+      "localInput": "src/content/impact/aerospace-venture-spotlight-kea-aerospace.md",
+      "contentHash": "e0e2e45b7a9edd0d4a99675ae6bcec79eb41fc1690a9211732f6050b6cf67b89"
+    },
+    {
+      "route": "/read/aotearoa-ideal-basecamp-for-space",
+      "template": "impact-article",
+      "localInput": "src/content/impact/aotearoa-ideal-basecamp-for-space.md",
+      "contentHash": "a3ef334cb4252c0c8806a2c2fb1a3def094bdb12bbe30e3a637ab45e70e46174"
+    },
+    {
+      "route": "/read/authentic-storytelling-in-service-of-impact",
+      "template": "impact-article",
+      "localInput": "src/content/impact/authentic-storytelling-in-service-of-impact.md",
+      "contentHash": "6fbde7b10efddbb74af213a7e2f29ef145dc2dfb3ce5427b285a0d9dd01acf17"
+    },
+    {
+      "route": "/read/brewing-hope",
+      "template": "impact-article",
+      "localInput": "src/content/impact/brewing-hope.md",
+      "contentHash": "f2e14153949c613c73b86bbae75c0ce5a9dd93410d7c91d4c7b002cb8108b3db"
+    },
+    {
+      "route": "/read/bringing-the-worlds-unbanked-on-the-path-to-financial-security",
+      "template": "impact-article",
+      "localInput": "src/content/impact/bringing-the-worlds-unbanked-on-the-path-to-financial-security.md",
+      "contentHash": "a8d85ec15b54ac6187d84275814949e4de47a605c4f6fba0dafccf7b99adb3d7"
+    },
+    {
+      "route": "/read/building-aotearoas-leaders-of-tomorrow",
+      "template": "impact-article",
+      "localInput": "src/content/impact/building-aotearoas-leaders-of-tomorrow.md",
+      "contentHash": "dd860f60d0c826a94ca275a1a784161e0abed78a8e12bac9c2e4b58e946d14f8"
+    },
+    {
+      "route": "/read/building-climate-resilience-in-the-pacific-aotearoa",
+      "template": "impact-article",
+      "localInput": "src/content/impact/building-climate-resilience-in-the-pacific-aotearoa.md",
+      "contentHash": "06075dcb078a4c862c20be640525067c774c9d2e980b4c4419e3c58548fb4ac2"
+    },
+    {
+      "route": "/read/building-financial-literacy-in-the-fight-against-climate-change",
+      "template": "impact-article",
+      "localInput": "src/content/impact/building-financial-literacy-in-the-fight-against-climate-change.md",
+      "contentHash": "0d49d8a3d67d4df7eaeeff5741a4ddd4803bf254e0e04023a16c30dbe9a6baa2"
+    },
+    {
+      "route": "/read/catalysing-environmental-action-for-a-sustainable-future",
+      "template": "impact-article",
+      "localInput": "src/content/impact/catalysing-environmental-action-for-a-sustainable-future.md",
+      "contentHash": "326cac07b378f71851c52a5b4683eaa215b46202771cafd8b0de7b378d5b347d"
+    },
+    {
+      "route": "/read/celebrating-achievements-and-values-this-everest-day",
+      "template": "impact-article",
+      "localInput": "src/content/impact/celebrating-achievements-and-values-this-everest-day.md",
+      "contentHash": "54bf3be4ae349c9c821ff70835c042f2011ef0149ac474123e16495afa1cc684"
+    },
+    {
+      "route": "/read/celebrating-milestones-and-opening-a-new-chapter",
+      "template": "impact-article",
+      "localInput": "src/content/impact/celebrating-milestones-and-opening-a-new-chapter.md",
+      "contentHash": "87474b50f146ef6d9fa78402cba57112e811460d51fd1dde58945a631ad77907"
+    },
+    {
+      "route": "/read/championing-maori-and-indigenous-enterprise-and-cultural-values",
+      "template": "impact-article",
+      "localInput": "src/content/impact/championing-maori-and-indigenous-enterprise-and-cultural-values.md",
+      "contentHash": "c73f2f9119d6ae1c906501ce0c41e4242df6c57d16a0810f6800e23c3a6dd935"
+    },
+    {
+      "route": "/read/charting-the-path-how-we-frame-impact",
+      "template": "impact-article",
+      "localInput": "src/content/impact/charting-the-path-how-we-frame-impact.md",
+      "contentHash": "38bdf86b7d9930263e2ef1d8ebc9994d462979ed0f5e227bd44ed32fce75117a"
+    },
+    {
+      "route": "/read/could-training-and-upskilling-be-the-most-efficient-way-to-transform-aotearoa-into-a-climate-leader",
+      "template": "impact-article",
+      "localInput": "src/content/impact/could-training-and-upskilling-be-the-most-efficient-way-to-transform-aotearoa-into-a-climate-leader.md",
+      "contentHash": "e8c20a9cde04900f48bc975ef375954884b3bc1202687953e8bf16368c026677"
+    },
+    {
+      "route": "/read/creating-a-more-accessible-world-for-everyone",
+      "template": "impact-article",
+      "localInput": "src/content/impact/creating-a-more-accessible-world-for-everyone.md",
+      "contentHash": "1bc57044a9753c366b69cda7569c9f22ffd033496625747e515ec3ec0f47336c"
+    },
+    {
+      "route": "/read/creating-a-positive-change-for-people-and-planet",
+      "template": "impact-article",
+      "localInput": "src/content/impact/creating-a-positive-change-for-people-and-planet.md",
+      "contentHash": "84cb1bdc650339038da6d27cc1215990c818bc3bc9d1702394e07ee953515489"
+    },
+    {
+      "route": "/read/creating-energy-from-waste-in-aotearoa",
+      "template": "impact-article",
+      "localInput": "src/content/impact/creating-energy-from-waste-in-aotearoa.md",
+      "contentHash": "1c409e62d1043ef8c8649f7ac3a74c941e6ed8ecc1424f3d010185c355082df2"
+    },
+    {
+      "route": "/read/creating-opportunities-for-maori-pasifika-talent-in-gaming",
+      "template": "impact-article",
+      "localInput": "src/content/impact/creating-opportunities-for-maori-pasifika-talent-in-gaming.md",
+      "contentHash": "43918de03bc25613d748ed2a7169291bdc7160ab426fd627bcebfeb3653fbf71"
+    },
+    {
+      "route": "/read/crowdfunding-land-stewardship-in-regional-aotearoa",
+      "template": "impact-article",
+      "localInput": "src/content/impact/crowdfunding-land-stewardship-in-regional-aotearoa.md",
+      "contentHash": "dc74132b3c25e1d1ed55f294d6a3547d3c73bce756ab3905553a1bc8cd935470"
+    },
+    {
+      "route": "/read/cultivating-indigenous-entrepreneurship",
+      "template": "impact-article",
+      "localInput": "src/content/impact/cultivating-indigenous-entrepreneurship.md",
+      "contentHash": "c54ff58885444a19b982f4a462b75cf2425197de7399a34f8f2b6ef900b051c1"
+    },
+    {
+      "route": "/read/cultivating-regenerative-organic-futures",
+      "template": "impact-article",
+      "localInput": "src/content/impact/cultivating-regenerative-organic-futures.md",
+      "contentHash": "e557f10ddfacc9a67477134b7b9e429652d48ed7f0cb59dbe6d155970e27ace9"
+    },
+    {
+      "route": "/read/dealing-a-better-hand-during-covid-19",
+      "template": "impact-article",
+      "localInput": "src/content/impact/dealing-a-better-hand-during-covid-19.md",
+      "contentHash": "5e8f62db0e8f04867c3fcbb3c825b3748e8e9fe80374891b5e7aab66a2be7eaa"
+    },
+    {
+      "route": "/read/decentralised-social-media-by-and-for-the-people",
+      "template": "impact-article",
+      "localInput": "src/content/impact/decentralised-social-media-by-and-for-the-people.md",
+      "contentHash": "13a2a96578b4a8f315644e1c2419516b1132eaf2c4a6df851c61fd049043876a"
+    },
+    {
+      "route": "/read/destruction-and-rebirth-building-a-new-new-zealand-post-covid-19",
+      "template": "impact-article",
+      "localInput": "src/content/impact/destruction-and-rebirth-building-a-new-new-zealand-post-covid-19.md",
+      "contentHash": "80ed11f863cb7570dbf05b7f69df1c9810d628fe0c466c403e61286b07881cd3"
+    },
+    {
+      "route": "/read/discovering-founder-kaupapa-outside-the-valley",
+      "template": "impact-article",
+      "localInput": "src/content/impact/discovering-founder-kaupapa-outside-the-valley.md",
+      "contentHash": "4681cf66fa9ecdf35d5cf5aecaf86bad49ca96831fa073c4c1931578d8201779"
+    },
+    {
+      "route": "/read/disrupting-lending-systems",
+      "template": "impact-article",
+      "localInput": "src/content/impact/disrupting-lending-systems.md",
+      "contentHash": "47998f04614a9984ad4d84558fea2b19c97c5f93a659a0d41fb5e4a649e2c101"
+    },
+    {
+      "route": "/read/elevating-connectorship-to-create-change",
+      "template": "impact-article",
+      "localInput": "src/content/impact/elevating-connectorship-to-create-change.md",
+      "contentHash": "1b74528e9c6a46a11a475651f1e888de16958e0f4e05286a7974575f466d8080"
+    },
+    {
+      "route": "/read/enabling-prosperity-through-regeneration",
+      "template": "impact-article",
+      "localInput": "src/content/impact/enabling-prosperity-through-regeneration.md",
+      "contentHash": "54ced77b8c0212056be6463b1ceef9626b48dcb0e79130e1ef6b2a3e5132eb91"
+    },
+    {
+      "route": "/read/energy-lifelines-enabling-remote-communities",
+      "template": "impact-article",
+      "localInput": "src/content/impact/energy-lifelines-enabling-remote-communities.md",
+      "contentHash": "5f4b33f3085e16b0b8e3d988185f8afc3e8599e2e2f7fd702f1201b054ab6028"
+    },
+    {
+      "route": "/read/expanding-the-global-footprint-of-new-zealand-stories",
+      "template": "impact-article",
+      "localInput": "src/content/impact/expanding-the-global-footprint-of-new-zealand-stories.md",
+      "contentHash": "ce7f9e1c8bb21f4619acc788dfa5b418499ccfe248400c6fbbc36f7b15c14db6"
+    },
+    {
+      "route": "/read/fellows-in-action-a-global-effort-to-support-ukrainians",
+      "template": "impact-article",
+      "localInput": "src/content/impact/fellows-in-action-a-global-effort-to-support-ukrainians.md",
+      "contentHash": "93a95207eecc4db4b2fa021e9fdccb9a5608553a5afcb18812c346d70ab758db"
+    },
+    {
+      "route": "/read/getting-the-whole-world-humming-after-a-crisis",
+      "template": "impact-article",
+      "localInput": "src/content/impact/getting-the-whole-world-humming-after-a-crisis.md",
+      "contentHash": "101249747c74d234fea970a168ca0cb91e173cec8f8f6634e7e86c14deee1b0f"
+    },
+    {
+      "route": "/read/globalising-kiwi-innovation",
+      "template": "impact-article",
+      "localInput": "src/content/impact/globalising-kiwi-innovation.md",
+      "contentHash": "cc331b13fef66006c5d8d48394f1b9d0f5992bd504228b6d2743d11d3501c05e"
+    },
+    {
+      "route": "/read/harnessing-pine-pollens-power-to-transform-wellbeing",
+      "template": "impact-article",
+      "localInput": "src/content/impact/harnessing-pine-pollens-power-to-transform-wellbeing.md",
+      "contentHash": "3f961de50ce146070a22766e150c7ae715f6c190a16573a90d2e844559b00e3f"
+    },
+    {
+      "route": "/read/helping-to-solve-the-unsolvable-challenges",
+      "template": "impact-article",
+      "localInput": "src/content/impact/helping-to-solve-the-unsolvable-challenges.md",
+      "contentHash": "dbe9de19c723cf7cec0a04608b9eb2a7b0ebb5ebc2b8701c8be06bb08695eadb"
+    },
+    {
+      "route": "/read/hepatitis-c-silencing-a-silent-killer",
+      "template": "impact-article",
+      "localInput": "src/content/impact/hepatitis-c-silencing-a-silent-killer.md",
+      "contentHash": "30283ea989cf4f49f78c69f437fc0cbf09c1a9b2232ff52d7ead8528556fe957"
+    },
+    {
+      "route": "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+      "template": "impact-article",
+      "localInput": "src/content/impact/how-chemergy-is-changing-the-game-in-waste-to-energy.md",
+      "contentHash": "748dbe8204079b640fc41a84a81b9fdd650eba429f5cc6e7d354dfedc692b1eb"
+    },
+    {
+      "route": "/read/how-do-we-design-an-inclusive-future-with-refugee-teens",
+      "template": "impact-article",
+      "localInput": "src/content/impact/how-do-we-design-an-inclusive-future-with-refugee-teens.md",
+      "contentHash": "a3112d86bf36ace2bb79bdfeb2355e99eee55ba3caa9cf07c2e018ff33563804"
+    },
+    {
+      "route": "/read/inclusivity-in-the-age-of-space-exploration",
+      "template": "impact-article",
+      "localInput": "src/content/impact/inclusivity-in-the-age-of-space-exploration.md",
+      "contentHash": "ec014250dd813900e775eed63e71b12f1831bc3e2db5f671109c29e324135b32"
+    },
+    {
+      "route": "/read/information-sharing-for-public-good",
+      "template": "impact-article",
+      "localInput": "src/content/impact/information-sharing-for-public-good.md",
+      "contentHash": "161a85b10b272cbe3edee53ed6e5b88a2be3c701daf83be51803c40e935a5e05"
+    },
+    {
+      "route": "/read/investing-in-kiwi-start-ups",
+      "template": "impact-article",
+      "localInput": "src/content/impact/investing-in-kiwi-start-ups.md",
+      "contentHash": "292d495fa15594e74afcda10ee5089abd5baeb56cb7bf37ae620db795911dd01"
+    },
+    {
+      "route": "/read/ko-te-wananga-kei-a-koutou-kethe-knowledge-is-within-you",
+      "template": "impact-article",
+      "localInput": "src/content/impact/ko-te-wananga-kei-a-koutou-kethe-knowledge-is-within-you.md",
+      "contentHash": "40ea98c3e999e041e2f9558f108c404a40e49d71c3a10ad09f3b276cef8a6eb9"
+    },
+    {
+      "route": "/read/leading-the-metaverse-revolution-from-aotearoa-nz",
+      "template": "impact-article",
+      "localInput": "src/content/impact/leading-the-metaverse-revolution-from-aotearoa-nz.md",
+      "contentHash": "54555e605b054b0bcb45e9d348d89b8298b60f93afc049406e66a9d93359474c"
+    },
+    {
+      "route": "/read/making-aotearoa-an-innovation-nation",
+      "template": "impact-article",
+      "localInput": "src/content/impact/making-aotearoa-an-innovation-nation.md",
+      "contentHash": "9868fdc05beec988d86849fd5c99e8315213ee79021ee0cb27f2bc8da8fa40e2"
+    },
+    {
+      "route": "/read/making-ocean-science-accessible-to-all",
+      "template": "impact-article",
+      "localInput": "src/content/impact/making-ocean-science-accessible-to-all.md",
+      "contentHash": "7b015f1261edc0b3eeaf3b1ade0ee9aed2ca977126965596188609acedae0516"
+    },
+    {
+      "route": "/read/measuring-justice",
+      "template": "impact-article",
+      "localInput": "src/content/impact/measuring-justice.md",
+      "contentHash": "84a20087cb5596a1d78b01800cfdb499fda62bcbb52b0dee50eea1c149cf8c70"
+    },
+    {
+      "route": "/read/media-release-new-zealand-experience-behind-environmental-awakening-for-world-leading-scientists",
+      "template": "impact-article",
+      "localInput": "src/content/impact/media-release-new-zealand-experience-behind-environmental-awakening-for-world-leading-scientists.md",
+      "contentHash": "27f9ec3e526eef9b54870fbdc27b6c5480becb70c2679748f3b57aa4d66f60ec"
+    },
+    {
+      "route": "/read/mindfulness-for-kiwi-kids",
+      "template": "impact-article",
+      "localInput": "src/content/impact/mindfulness-for-kiwi-kids.md",
+      "contentHash": "d86259e79448fc6c4491402f4c3b0de5f1eb0198189cc0af82bdf4387a7f9a61"
+    },
+    {
+      "route": "/read/nature-inspired-solutions-for-global-environmental-health",
+      "template": "impact-article",
+      "localInput": "src/content/impact/nature-inspired-solutions-for-global-environmental-health.md",
+      "contentHash": "04bac4d0693721ed1f2ab3263f0260a3972380c6cc149d4de1fb0c0cdefa33dc"
+    },
+    {
+      "route": "/read/one-chapter-ends-and-another-begins",
+      "template": "impact-article",
+      "localInput": "src/content/impact/one-chapter-ends-and-another-begins.md",
+      "contentHash": "6d47275cf9115974d00d0f9f7911f66742f63090a5395e16eb41310ffd5be867"
+    },
+    {
+      "route": "/read/opening-doors-for-rangatahi-young-people-in-tech",
+      "template": "impact-article",
+      "localInput": "src/content/impact/opening-doors-for-rangatahi-young-people-in-tech.md",
+      "contentHash": "48bc73272f73217ada14f6411bed7ae36105686fe0e078db7d8b67d16e4b365e"
+    },
+    {
+      "route": "/read/page/2",
+      "template": "impact-listing",
+      "localInput": null,
+      "contentHash": null
+    },
+    {
+      "route": "/read/page/3",
+      "template": "impact-listing",
+      "localInput": null,
+      "contentHash": null
+    },
+    {
+      "route": "/read/page/4",
+      "template": "impact-listing",
+      "localInput": null,
+      "contentHash": null
+    },
+    {
+      "route": "/read/page/5",
+      "template": "impact-listing",
+      "localInput": null,
+      "contentHash": null
+    },
+    {
+      "route": "/read/powering-purpose-with-electric-utility-bikes",
+      "template": "impact-article",
+      "localInput": "src/content/impact/powering-purpose-with-electric-utility-bikes.md",
+      "contentHash": "d9c47ab64a6f4e11ac5be622e3c4893ab8b95737264fe1da5b63cb2d4573103c"
+    },
+    {
+      "route": "/read/removing-bias-in-a-fight-for-social-and-economic-justice",
+      "template": "impact-article",
+      "localInput": "src/content/impact/removing-bias-in-a-fight-for-social-and-economic-justice.md",
+      "contentHash": "5a16798ef5c1540aabb1ab22d6414604aa4373a4deefc1bf425ec6da1d43be2a"
+    },
+    {
+      "route": "/read/restorative-finance",
+      "template": "impact-article",
+      "localInput": "src/content/impact/restorative-finance.md",
+      "contentHash": "584fab02a799c96faaf843bc83fef4fc7e14f5917c411fb659ccd6436cd136da"
+    },
+    {
+      "route": "/read/revolutionising-tech-from-nz",
+      "template": "impact-article",
+      "localInput": "src/content/impact/revolutionising-tech-from-nz.md",
+      "contentHash": "f80ce317c399e70e76f4b01056d18654ba1a858677c6b272bbc0ed5c8562d37f"
+    },
+    {
+      "route": "/read/scaling-kiwi-healthcare-business-at-home-and-going-global",
+      "template": "impact-article",
+      "localInput": "src/content/impact/scaling-kiwi-healthcare-business-at-home-and-going-global.md",
+      "contentHash": "12b0a2197f7aa6abf3b27aa5012b2253eac5ae101decec8df8695f95c5b8a9cc"
+    },
+    {
+      "route": "/read/sharing-a-solar-powered-future",
+      "template": "impact-article",
+      "localInput": "src/content/impact/sharing-a-solar-powered-future.md",
+      "contentHash": "d8f0e93f7bfc9e1aaa84d5401631b04e75226963f12b9dccb65c0c7d12155a4e"
+    },
+    {
+      "route": "/read/shifting-the-equity-conversation-from-aspiration-to-action",
+      "template": "impact-article",
+      "localInput": "src/content/impact/shifting-the-equity-conversation-from-aspiration-to-action.md",
+      "contentHash": "341eb0cebc128c962462908f0f9aebf85be8752c093eda4e4784ae97453534d5"
+    },
+    {
+      "route": "/read/shining-a-light-on-climate-forward-organisations",
+      "template": "impact-article",
+      "localInput": "src/content/impact/shining-a-light-on-climate-forward-organisations.md",
+      "contentHash": "2c21b4a4304e4259bbc20b18fba4fa6cb1217330b9856ef70e34faec3eca2b5f"
+    },
+    {
+      "route": "/read/solving-one-of-our-oldest-hardest-problems-by-turning-human-waste-into-fuel",
+      "template": "impact-article",
+      "localInput": "src/content/impact/solving-one-of-our-oldest-hardest-problems-by-turning-human-waste-into-fuel.md",
+      "contentHash": "25642f02d7a3db8a6dcf5cc50e63ab1764d7c870d2d1d8eb4b340cbb266b9ada"
+    },
+    {
+      "route": "/read/solving-the-ocean-plastics-problem",
+      "template": "impact-article",
+      "localInput": "src/content/impact/solving-the-ocean-plastics-problem.md",
+      "contentHash": "9fd3130b824bc51771670c4e07ece05fee061f0b58b2b611b731f4bf0a5f9ba1"
+    },
+    {
+      "route": "/read/space-venture-spotlight-ceres-robotics",
+      "template": "impact-article",
+      "localInput": "src/content/impact/space-venture-spotlight-ceres-robotics.md",
+      "contentHash": "fc27265e5d2768c48fc65ca5a132dab593feb4db12a3b7b719d717232af76dbb"
+    },
+    {
+      "route": "/read/supporting-grassroots-innovation-at-the-edge-of-the-map",
+      "template": "impact-article",
+      "localInput": "src/content/impact/supporting-grassroots-innovation-at-the-edge-of-the-map.md",
+      "contentHash": "b9c0620c73889ce63c3ea9c2f615c800ba61a2cb24e17078291978686056f51c"
+    },
+    {
+      "route": "/read/supporting-kiwi-founders-to-thrive",
+      "template": "impact-article",
+      "localInput": "src/content/impact/supporting-kiwi-founders-to-thrive.md",
+      "contentHash": "a4d09ed0aa684414420da9a8d7afc62f73e5e292b6f695e9e368f3385a6e8e6b"
+    },
+    {
+      "route": "/read/supporting-values-based-innovation-in-aotearoa",
+      "template": "impact-article",
+      "localInput": "src/content/impact/supporting-values-based-innovation-in-aotearoa.md",
+      "contentHash": "db1d2b1448c2fd1417ba3827a59b2a73d5c18b07eebc84fb74c6b5c76def70c2"
+    },
+    {
+      "route": "/read/tackling-global-textile-waste-through-innovative-solutions",
+      "template": "impact-article",
+      "localInput": "src/content/impact/tackling-global-textile-waste-through-innovative-solutions.md",
+      "contentHash": "1511f1fe564b8bdf747068c3aaf2f587af10dcd885b502247a5d0052b89dad58"
+    },
+    {
+      "route": "/read/tackling-the-ugly-truth-behind-the-fashion-industry",
+      "template": "impact-article",
+      "localInput": "src/content/impact/tackling-the-ugly-truth-behind-the-fashion-industry.md",
+      "contentHash": "d41625f0936917077ef6356f88081dfa5f163a4461b0d8307821abc1dc3afe4d"
+    },
+    {
+      "route": "/read/te-pa-o-rakaihautu-from-vision-to-reality",
+      "template": "impact-article",
+      "localInput": "src/content/impact/te-pa-o-rakaihautu-from-vision-to-reality.md",
+      "contentHash": "451f4d376d0a3be51cbd0a4a48e7dc05a83e086c5aed3c8ad30e8080edbbb5cc"
+    },
+    {
+      "route": "/read/the-awa/river-story-inspiring-connection-action",
+      "template": "impact-article",
+      "localInput": "src/content/impact/the-awa-river-story-inspiring-connection-action.md",
+      "contentHash": "66f480e9ff750f4fc7312045539e18cd7dabc48218261d1f332c917a9e552acd"
+    },
+    {
+      "route": "/read/the-decisive-decade-for-humanitys-future-on-earth",
+      "template": "impact-article",
+      "localInput": "src/content/impact/the-decisive-decade-for-humanitys-future-on-earth.md",
+      "contentHash": "45a0a54bc9003d87e9d2ef10128096d26bff98395eabb8c5997698e76680b04f"
+    },
+    {
+      "route": "/read/the-future-of-funding-impact-projects",
+      "template": "impact-article",
+      "localInput": "src/content/impact/the-future-of-funding-impact-projects.md",
+      "contentHash": "20d40c48e60fd97fd7854fa13e4dc064951dd55face005f25831d5dce1827c29"
+    },
+    {
+      "route": "/read/the-global-impact-visa-pilot",
+      "template": "impact-article",
+      "localInput": "src/content/impact/the-global-impact-visa-pilot.md",
+      "contentHash": "8362e78363deb2967683abaa8364bdfa4debe58a5244f4a8adb6766cf995493a"
+    },
+    {
+      "route": "/read/the-world-changing-power-of-true-stories",
+      "template": "impact-article",
+      "localInput": "src/content/impact/the-world-changing-power-of-true-stories.md",
+      "contentHash": "1cbb9a52f9e54674bbc71dbeb5c9ec32b9d6dc8fdde5509efbff241f4aa38526"
+    },
+    {
+      "route": "/read/transformative-solar-education-in-schools-across-aotearoa",
+      "template": "impact-article",
+      "localInput": "src/content/impact/transformative-solar-education-in-schools-across-aotearoa.md",
+      "contentHash": "06ea9bf81449ae1490357e7dd8fcd31bb368079929f364a0caa7be1ee7b88e0a"
+    },
+    {
+      "route": "/read/transforming-lives-in-niue-by-eliminating-hepatitis",
+      "template": "impact-article",
+      "localInput": "src/content/impact/transforming-lives-in-niue-by-eliminating-hepatitis.md",
+      "contentHash": "19939b41ee668c361f7e230845cc957e4fade90bf8ba4091f8268c770edf11a6"
+    },
+    {
+      "route": "/read/transforming-maori-education-and-revitalising-identity",
+      "template": "impact-article",
+      "localInput": "src/content/impact/transforming-maori-education-and-revitalising-identity.md",
+      "contentHash": "af9589e81f8362d81e788c428ec5a69b198de30a04b4fd54a612a8229c105843"
+    },
+    {
+      "route": "/read/unlocking-the-potential-of-offshore-wind",
+      "template": "impact-article",
+      "localInput": "src/content/impact/unlocking-the-potential-of-offshore-wind.md",
+      "contentHash": "571da3f81c8d9d58805eda2416f6e67dcf2b826d0f486a6aa873ae111a22dbbc"
+    },
+    {
+      "route": "/refund-policy-terms-and-conditions",
+      "template": "legal",
+      "localInput": "src/content/pages/legal/refund-policy-terms-and-conditions.json",
+      "contentHash": "ec7a4dc1ff9d93e5713e5191177de1f10fea3a773ae968a50a75bb047b4a1c3d"
+    },
+    {
+      "route": "/summer-edition-2025",
+      "template": "institutional",
+      "localInput": "src/content/pages/institutional/summer-edition-2025.json",
+      "contentHash": "e8e3ecddefa3bf1ccfd056c64f94eb5b88b355b10f557adcadd50401bc846146"
+    },
+    {
+      "route": "/terms-of-use",
+      "template": "legal",
+      "localInput": "src/content/pages/legal/terms-of-use.json",
+      "contentHash": "748b0f10a549f176a573a7691e9ec7d34356e8c36f1fde48565b0fa24d57c07a"
+    }
+  ]
+}

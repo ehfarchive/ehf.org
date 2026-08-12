@@ -2,8 +2,10 @@
 import HomeHero from '../components/homepage/HomeHero.astro';
 import ImpactOverview from '../components/homepage/ImpactOverview.astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
+import { homepage } from '../data/homepage';
+
 ---
-<SiteLayout title="Edmund Hillary Fellowship">
-  <HomeHero />
-  <ImpactOverview />
+<SiteLayout title="Partnering with Aotearoa NZ | Edmund Hillary Fellowship">
+  <HomeHero hero={homepage.hero} />
+  <ImpactOverview overview={homepage.impactOverview} />
 </SiteLayout>

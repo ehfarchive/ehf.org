@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "family": "not-found",
+  "route": "/404",
+  "sourceUrl": "https://www.ehf.org/404",
+  "httpStatus": 200,
+  "finalUrl": "https://www.ehf.org/404",
+  "state": "default",
+  "stateDescription": "Page as first painted after fonts settle, full 600 px lazy-load scroll pass, and scroll returned to the top.",
+  "sourceObserved": true,
+  "interaction": null,
+  "viewport": {
+    "name": "mobile",
+    "width": 390,
+    "height": 844,
+    "deviceScaleFactor": 1
+  },
+  "capture": {
+    "reducedMotion": true,
+    "fontsReady": true,
+    "lazyLoadScrollPx": 600,
+    "fullPage": true,
+    "animations": "disabled"
+  },
+  "screenshot": {
+    "path": "source-evidence/screenshots/not-found/default-mobile.png",
+    "widthPx": 390,
+    "heightPx": 848
+  },
+  "documentHeight": 848,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [],
+  "capturedAt": "2026-08-09T03:45:08.937Z"
+}

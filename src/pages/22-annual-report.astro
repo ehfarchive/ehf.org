@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import AnnualReportDocumentPage from '../components/AnnualReportDocumentPage.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import contentManifestInput from '../../source-evidence/content-manifest.json';
+import routeManifestInput from '../../source-evidence/route-manifest.json';
+import type { ContentManifest } from '../lib/page-data';
+import { loadPageData } from '../lib/page-data';
+import { loadRouteManifest } from '../lib/route-manifest';
+
+const route = '/22-annual-report';
+const contentRecord = loadPageData(route, 'annual-report-document', contentManifestInput as ContentManifest, loadRouteManifest(routeManifestInput));
+const entry = (await getCollection('reportPages')).find((candidate) => `src/content/pages/reports/${candidate.id}.json` === contentRecord.localInput);
+if (!entry || entry.data.route !== route) throw new Error(`missing typed annual report content: ${contentRecord.localInput}`);
+const documentControls = [
+  { assetId: 'asset-documents-hillary-institute-ehf-annual-report-2022-pdf', label: 'Download Annual Report' },
+  { assetId: 'asset-documents-certified-fs-hillary-institute-and-subsidiary-2022-pdf', label: 'Download Financial Statements' }
+] as const;
+---
+
+<SiteLayout title={`${entry.data.title} — Edmund Hillary Fellowship`} description={entry.data.description}>
+  <AnnualReportDocumentPage report={entry.data} documentControls={documentControls} />
+</SiteLayout>
