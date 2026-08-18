@@ -1,0 +1,379 @@
+---
+import ResponsiveImage from '../components/ResponsiveImage.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { assetIdForLocalPath } from '../data/site';
+import { loadImpactArticles, sourceCardForImpactPath } from './read/_impact';
+import { loadWatchEntries } from './watch/_watch';
+
+/**
+ * The Read shelf is a hand-curated source selection, not the head of the
+ * listing, so the twelve destinations are declared here in the order the
+ * source paints them. Titles and thumbnails still come from the impact
+ * collection and its archived card imagery, so the shelf cannot drift
+ * from /read.
+ */
+const READ_SHELF = [
+  '/read/how-chemergy-is-changing-the-game-in-waste-to-energy',
+  '/read/harnessing-pine-pollens-power-to-transform-wellbeing',
+  '/read/globalising-kiwi-innovation',
+  '/read/helping-to-solve-the-unsolvable-challenges',
+  '/read/championing-maori-and-indigenous-enterprise-and-cultural-values',
+  '/read/unlocking-the-potential-of-offshore-wind',
+  '/read/building-climate-resilience-in-the-pacific-aotearoa',
+  '/read/leading-the-metaverse-revolution-from-aotearoa-nz',
+  '/read/solving-the-ocean-plastics-problem',
+  '/read/nature-inspired-solutions-for-global-environmental-health',
+  '/read/catalysing-environmental-action-for-a-sustainable-future',
+  '/read/tackling-global-textile-waste-through-innovative-solutions'
+] as const;
+
+const WATCH_SHELF_SIZE = 12;
+
+const articlesByPath = new Map((await loadImpactArticles()).map((article) => [article.path, article] as const));
+
+const readCards = READ_SHELF.map((path) => {
+  const article = articlesByPath.get(path);
+  if (!article) throw new Error(`impact landing shelf names an undeclared article: ${path}`);
+  const card = sourceCardForImpactPath(path);
+  if (!card) throw new Error(`impact landing shelf has no archived card image: ${path}`);
+  return { path, title: article.entry.data.title, image: card };
+});
+
+/**
+ * The Watch shelf is the head of the /watch listing and walks the same order
+ * it does. Source gives these records no title, speaker or date and hides the
+ * placeholder excerpt, so the card is its thumbnail; the image alt carries the
+ * record's own description and names the link.
+ */
+const watchCards = (await loadWatchEntries()).slice(0, WATCH_SHELF_SIZE).map(({ entry, path }) => ({
+  path,
+  image: entry.data.heroImage,
+  alt: entry.data.heroAlt
+}));
+---
+<SiteLayout
+  title="Impact is an Everlasting Journey | Edmund Hillary Fellowship — Edmund Hillary Fellowship"
+  description="The final destination is not the full measure of success. Our Fellows are tackling some of the hardest problems facing humankind."
+>
+  <div class="impact-landing">
+    <section class="impact-landing__hero">
+      <ResponsiveImage
+        class="impact-landing__hero-image"
+        assetId={assetIdForLocalPath('/assets/images/impact-landing/rectangle-70.webp')}
+        alt=""
+        width={1440}
+        height={650}
+        sizes="100vw"
+        loading="eager"
+      />
+      <div class="impact-landing__hero-inner site-container">
+        <div class="impact-landing__hero-copy">
+          <h1>Creating Impact is an Everlasting Journey</h1>
+          <p>Creating positive change can be a risky journey with steep learning curves. The final destination is not the full measure of success.</p>
+          <p>Impact is made at each step along the way.</p>
+        </div>
+        <ResponsiveImage
+          class="impact-landing__hero-motif"
+          assetId={assetIdForLocalPath('/assets/images/impact-landing/rectangle-70-1.webp')}
+          alt=""
+          width={455}
+          height={457}
+          sizes="(max-width: 767px) 199px, 396px"
+          loading="eager"
+        />
+      </div>
+      <div class="impact-landing__lede site-container">
+        <h2>Read and Watch</h2>
+        <p>Our Fellows are tackling some of the hardest problems facing humankind. We want to shed a light on some of the incredible work our Fellowship is doing across the world.</p>
+      </div>
+    </section>
+
+    <section class="impact-landing__shelf impact-landing__shelf--read" aria-labelledby="impact-landing-read">
+      <div class="impact-landing__shelf-body site-container">
+        <div class="impact-landing__shelf-intro">
+          <h2 id="impact-landing-read">Read</h2>
+          <p>Read about some of the impact our Fellowship is creating.</p>
+        </div>
+        <ul class="impact-landing__grid impact-landing__grid--read">
+          {readCards.map(({ path, title, image }) => (
+            <li class="impact-landing__read-card">
+              <a class="impact-landing__card-media" href={path} aria-label={title} style={`--impact-card-focal: ${image.focal}`}>
+                <ResponsiveImage
+                  assetId={assetIdForLocalPath(image.localPath)}
+                  alt=""
+                  width={308}
+                  height={205}
+                  sizes="(max-width: 767px) 100vw, 22vw"
+                />
+              </a>
+              <h3 class="impact-landing__card-title"><a href={path}>{title}</a></h3>
+            </li>
+          ))}
+        </ul>
+        <a class="button impact-landing__cta" href="/read">Read All Impact Stories</a>
+      </div>
+    </section>
+
+    <section class="impact-landing__shelf impact-landing__shelf--watch" aria-labelledby="impact-landing-watch">
+      <div class="impact-landing__shelf-body site-container">
+        <div class="impact-landing__shelf-intro">
+          <h2 id="impact-landing-watch">Watch</h2>
+          <p>Watch some of the impact yourself OR watch more than 400+ impact videos on our <a href="https://www.youtube.com/c/EdmundHillaryFellowship/videos" target="_blank" rel="noopener noreferrer">YouTube channel</a>.</p>
+        </div>
+        <ul class="impact-landing__grid impact-landing__grid--watch">
+          {watchCards.map(({ path, image, alt }) => (
+            <li class="impact-landing__watch-card">
+              <a class="impact-landing__card-media" href={path}>
+                <ResponsiveImage
+                  assetId={assetIdForLocalPath(image)}
+                  alt={alt}
+                  width={228}
+                  height={152}
+                  sizes="(max-width: 767px) 100vw, 16vw"
+                />
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a class="button impact-landing__cta" href="/watch">Watch All Impact Videos</a>
+      </div>
+    </section>
+  </div>
+</SiteLayout>
+
+<style>
+  /* --- Impact in Action landing presentation block (start) ---------------
+     Measured from https://www.ehf.org/impact-in-action at 1440x1000 and
+     390x844. The source is a Squarespace fluid-engine page whose blocks
+     overlap their own rows, so every number below is painted geometry (text
+     box to text box) rather than the authoring grid.
+
+     Two source faults are deliberately not reproduced, because copying them
+     would ship the fault rather than the likeness:
+     - the "YouTube channel" link is painted white on the white section and is
+       therefore invisible; it takes the brand colour here.
+     - both shelf buttons carry target="_blank" on same-site destinations. */
+
+  .impact-landing {
+    /* The Watch heading is the one place the source steps outside the palette:
+       a per-block custom colour, not a theme token. */
+    --color-watch-accent: #5183e7;
+    /* Both shelves run their prose at the source's 16px block step, which sits
+       below the article body step the rest of the site uses. */
+    --impact-landing-prose: 16px;
+    --impact-landing-prose-leading: 28.8px;
+  }
+
+  .impact-landing__hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 940px;
+    padding-top: var(--header-height);
+    padding-bottom: 74.71px;
+    background: var(--color-brand-deep);
+    color: var(--color-surface);
+  }
+  /* Both hero images are rendered by ResponsiveImage, so the scope stops at
+     its boundary and the selectors reach through it explicitly. */
+  .impact-landing__hero :global(.impact-landing__hero-image) {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* Source runs two 628px columns 11px apart, centred in the 1382px container:
+     the copy sits 58px in from the container's left edge, the motif 57px in
+     from its right. minmax keeps them shrinking together below 1382px instead
+     of overflowing. */
+  .impact-landing__hero-inner {
+    display: grid;
+    align-items: start;
+    justify-content: center;
+    column-gap: 11px;
+    grid-template-columns: repeat(2, minmax(0, 628px));
+    padding-top: 129px;
+  }
+  /* The motif starts 41px above the heading, so only the copy takes the offset. */
+  .impact-landing__hero-copy { padding-top: 46.03px; }
+  .impact-landing__hero-copy h1 {
+    margin: 0;
+    font-size: var(--text-display);
+    line-height: var(--lh-display);
+  }
+  .impact-landing__hero-copy p {
+    margin: 16px 0 0;
+    font-size: var(--impact-landing-prose);
+    line-height: var(--impact-landing-prose-leading);
+  }
+  .impact-landing__hero-copy h1 + p { margin-top: 20.36px; }
+  /* Source contains the 455x457 motif inside its column, painting it 394x396. */
+  .impact-landing__hero-inner :global(.impact-landing__hero-motif) {
+    display: block;
+    width: 100%;
+    height: 396px;
+    object-fit: contain;
+  }
+  .impact-landing__lede {
+    margin-top: 103.13px;
+    text-align: center;
+  }
+  .impact-landing__lede h2 {
+    margin: 0;
+    font-size: var(--text-heading);
+    line-height: var(--lh-heading);
+  }
+  .impact-landing__lede p {
+    max-width: 1034.09px;
+    margin: 7.24px auto 0;
+    font-size: var(--impact-landing-prose);
+    line-height: var(--impact-landing-prose-leading);
+  }
+
+  .impact-landing__shelf { background: var(--color-surface); }
+  /* The two shelves are the same block at different insets. */
+  .impact-landing__shelf--read { padding-block: 105.55px 156.07px; }
+  .impact-landing__shelf--watch { padding-block: 57.94px 188.73px; }
+  /* Source pins each shelf button into a 279px column at the container's right
+     edge and centres it there, level with the heading; the cards span both
+     columns underneath. Document order is the mobile order, so the button
+     follows the cards and desktop lifts it back into row 1. */
+  .impact-landing__shelf-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 279px;
+  }
+  .impact-landing__shelf-intro {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  .impact-landing__shelf-intro h2 {
+    margin: 0;
+    font-size: var(--text-heading);
+    line-height: var(--lh-heading);
+  }
+  .impact-landing__shelf--read h2 { color: var(--color-accent); }
+  .impact-landing__shelf--watch h2 { color: var(--color-watch-accent); }
+  .impact-landing__shelf-intro p {
+    max-width: 685.7px;
+    margin: 21.13px 0 0;
+    font-size: var(--impact-landing-prose);
+    line-height: var(--impact-landing-prose-leading);
+  }
+  .impact-landing__shelf-intro a {
+    color: var(--color-brand);
+    text-decoration-thickness: from-font;
+  }
+  .impact-landing__cta {
+    grid-row: 1;
+    grid-column: 2;
+    align-self: start;
+    justify-self: center;
+    margin-top: 39.75px;
+    font-size: var(--text-nav);
+    font-weight: var(--weight-heading);
+  }
+
+  .impact-landing__grid {
+    display: grid;
+    grid-row: 2;
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  /* 1382px container: four 308.06px cards 49.92px apart, five 228.4px cards
+     60px apart. Row height follows the tallest card in the row. */
+  .impact-landing__grid--read {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 50px 49.92px;
+    margin-top: 64px;
+  }
+  .impact-landing__grid--watch {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 60px;
+    margin-top: 104.75px;
+  }
+  .impact-landing__read-card,
+  .impact-landing__watch-card {
+    min-width: 0;
+    align-self: start;
+  }
+  /* Source crops every thumbnail to 3:2 on its focal point, whatever the
+     upload's own ratio, and leaves 15px under it. */
+  .impact-landing__card-media {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 15px;
+    aspect-ratio: 3 / 2;
+  }
+  .impact-landing__card-media :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: var(--impact-card-focal, 50% 50%);
+  }
+  .impact-landing__card-title {
+    margin: 0 0 2px;
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 20px;
+    font-weight: var(--weight-body);
+    letter-spacing: normal;
+    line-height: 24px;
+    text-align: center;
+  }
+  .impact-landing__card-title a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .impact-landing__card-title a:hover { text-decoration: underline; }
+
+  @media (max-width: 767px) {
+    .impact-landing__hero {
+      min-height: 990.39px;
+      padding-bottom: 41.65px;
+    }
+    .impact-landing__hero-inner {
+      grid-template-columns: minmax(0, 1fr);
+      padding-top: 62.84px;
+    }
+    .impact-landing__hero-copy { padding-top: 0; }
+    .impact-landing__hero-copy h1 + p { margin-top: 11px; }
+    .impact-landing__hero-inner :global(.impact-landing__hero-motif) {
+      height: 199px;
+      margin-top: 78.81px;
+    }
+    .impact-landing__lede { margin-top: 56.98px; }
+    .impact-landing__lede p { margin-top: 21.99px; }
+
+    .impact-landing__shelf--read { padding-block: 66.69px 59.7px; }
+    .impact-landing__shelf--watch { padding-block: 38.83px 31.85px; }
+    /* One column, and the button drops below the cards the way source stacks
+       it — which is already the document order. */
+    .impact-landing__shelf-body { grid-template-columns: minmax(0, 1fr); }
+    .impact-landing__shelf-intro p { margin-top: 22.69px; }
+    .impact-landing__cta {
+      grid-row: 3;
+      grid-column: 1;
+      align-self: start;
+      margin-top: 65.03px;
+    }
+    .impact-landing__shelf--watch .impact-landing__shelf-intro p { margin-top: 21.99px; }
+    .impact-landing__shelf--watch .impact-landing__cta { margin-top: 110.03px; }
+    .impact-landing__grid { grid-column: 1; }
+    .impact-landing__grid--read {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: 50px;
+      margin-top: 46.7px;
+    }
+    .impact-landing__grid--watch {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: 60px;
+      margin-top: 11px;
+    }
+  }
+  /* --- Impact in Action landing presentation block (end) ----------------- */
+</style>

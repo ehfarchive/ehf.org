@@ -1,12 +1,18 @@
 ---
 title: "Navigating 2024 with Stubborn Optimism: A conversation with Rosalie Nelson"
-excerpt: "*With 2024 underway, Hillary Institute and Edmund Hillary Fellowship CEO Rosalie Nelson is looking to the year ahead with optimism. Taking inspiration from Hillary Laureate Christiana Figueres’ stance on*[*why Stubborn Optimism matters*](https://www.globaloptimism.com/why-stubborn-optimism)*, Rosalie sees the power of optimism as a beacon guiding humanity towards innovative solutions and transformative change.*"
-heroImage: "/assets/images/content/news-blog-navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson-1.jpg"
-heroAlt: "Navigating 2024 with Stubborn Optimism: A conversation with Rosalie Nelson"
+excerpt: "*With 2024 underway, Hillary Institute and Edmund Hillary Fellowship CEO Rosalie Nelson is looking to the year ahead with optimism. Taking inspiration from Hillary Laureate Christiana Figueres’ stance on* [*why Stubborn Optimism matters*](https://www.globaloptimism.com/why-stubborn-optimism)*, Rosalie sees the power of optimism as a beacon guiding humanity towards innovative solutions and transformative change.*"
+heroImage: null
+heroAlt: null
+listingImage: "/assets/images/content/news-blog-navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson-1.jpg"
+listingAlt: "Navigating 2024 with Stubborn Optimism: A conversation with Rosalie Nelson"
 publishedAt: "2024-01-12"
 ---
 
-*With 2024 underway, Hillary Institute and Edmund Hillary Fellowship CEO Rosalie Nelson is looking to the year ahead with optimism. Taking inspiration from Hillary Laureate Christiana Figueres’ stance on*[*why Stubborn Optimism matters*](https://www.globaloptimism.com/why-stubborn-optimism)*, Rosalie sees the power of optimism as a beacon guiding humanity towards innovative solutions and transformative change.*
+*With 2024 underway, Hillary Institute and Edmund Hillary Fellowship CEO Rosalie Nelson is looking to the year ahead with optimism. Taking inspiration from Hillary Laureate Christiana Figueres’ stance on* [*why Stubborn Optimism matters*](https://www.globaloptimism.com/why-stubborn-optimism)*, Rosalie sees the power of optimism as a beacon guiding humanity towards innovative solutions and transformative change.*
+
+![Rosalie.png](/assets/images/content/news-blog-navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson-2.webp)
+
+![Christiana Figueres.jpg](/assets/images/content/news-blog-navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson-3.jpg)
 
 Hillary Institute and EHF CEO Rosalie Nelson, and Hillary Laureate Christiana Figueres
 
@@ -21,6 +27,14 @@ I’m also really inspired by Sir Edmund Hillary around optimism, because time a
 I’d even go further to say that I believe we owe the next generation a demonstration of how optimism can impact our leadership, our actions and our attitudes. We have a generation that we know is facing high anxiety and a real sense of existential risk, and in the face of this, it can feel completely overwhelming. At times, people cannot see what change they might be able to make, and so they go inward, they reduce their world, and they just do what they can within their field. They need to see that, actually, humanity has the capacity and the ingenuity to address any challenge.
 
 This holds personal significance for me because when the war in Ukraine erupted, my 25-year-old daughter expressed her scepticism, saying, "Mum, I cannot see why you have optimism. We’re facing war. I’m looking at the rise of the authoritarian populus who are denying climate change. I’m looking at the real risks we face, and I cannot understand why you are optimistic." This prompted a conversation about agency and the potential for change within her generation. Despite the challenges, I believe there is hope. And actually, there are so many stories of inspiration and hope, but we don’t get to see them. So I feel really powerfully that we need to demonstrate this, and we need a new narrative that is based on optimism.
+
+![DSC_0170.jpeg](/assets/images/content/news-blog-navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson-4.webp)
+
+![EHF May WE (110).jpg](/assets/images/content/news-blog-navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson-5.jpg)
+
+![EHF WE Aug 2022_Silverstream (114).jpg](/assets/images/content/news-blog-navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson-6.webp)
+
+![IMG_6611.jpg](/assets/images/content/news-blog-navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson-7.jpg)
 
 #### **What is it about EHF Fellows and Laureates that makes them so optimistic?**
 
@@ -52,6 +66,6 @@ I do believe that this year we will begin to see the seeds that we planted with 
 
 Alongside the priority of unlocking the potential of the Fellowship is fundraising for the next season to ensure we have a sustainable future. I hold optimism that we can achieve our targets in order to be able to unlock that potential. And the part that really excites me is we’ve achieved over 75% in terms of donations and commitments towards our first fundraising target. There’s still work to do, but in this particular environment, I feel that’s a real vote of confidence from Fellows. As we navigate this transformative year, I am excited about the potential that lies ahead.
 
-## Reflections this Waitangi Day (2024)
+![EHF WE Aug 2022_Silverstream (71).jpg](/assets/images/content/news-blog-navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson-8.webp)
 
-## 2023: A year of connections, impact and milestones
+![IMG_7813.jpg](/assets/images/content/news-blog-navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson-9.jpg)

@@ -1,38 +1,86 @@
 ---
 import PostCard from '../../components/PostCard.astro';
 import Pagination from '../../components/Pagination.astro';
-import { paginate } from '../../lib/pagination';
 import { assetIdForLocalPath } from '../../data/site';
 import SiteLayout from '../../layouts/SiteLayout.astro';
-import { IMPACT_PAGE_SIZE, impactListingPagePaths, loadImpactArticles, sourceCardForImpactPath } from './_impact';
+import { paginate } from '../../lib/pagination';
+import { IMPACT_LISTING_PAGES, IMPACT_PAGE_SIZE, loadImpactArticles, sourceCardForImpactPath } from './_impact';
 
 const articles = await loadImpactArticles();
-const [firstPage = []] = paginate(articles, IMPACT_PAGE_SIZE);
-const declaredPageNumbers = impactListingPagePaths();
-const declaredPages = [{ number: 1, href: '/read' }, ...declaredPageNumbers.map((number) => ({ number, href: `/read/page/${number}` }))];
+const pages = paginate(articles, IMPACT_PAGE_SIZE);
+if (pages.length !== IMPACT_LISTING_PAGES.length) {
+  throw new Error(`Impact listing splits into ${pages.length} pages, source declares ${IMPACT_LISTING_PAGES.length}`);
+}
 ---
 <SiteLayout title="Read — Edmund Hillary Fellowship">
   <section class="read-page site-container" data-impact-listing data-impact-page-size={IMPACT_PAGE_SIZE}>
     <h1 class="visually-hidden">Read</h1>
-    <div class="read-masonry">
-      {firstPage.map(({ entry, path }) => {
-        const card = sourceCardForImpactPath(path);
-        const localPath = card?.localPath ?? entry.data.heroImage;
-        return <PostCard
-          title={entry.data.title}
-          href={path}
-          image={localPath ? {
-            assetId: assetIdForLocalPath(localPath),
-            alt: card ? '' : entry.data.heroAlt ?? '',
-            width: 343,
-            height: 343,
-            focal: card?.focal,
-            landscape: card?.landscape
-          } : undefined}
-          slug={entry.id}
-        />;
-      })}
-    </div>
-    <Pagination currentPage={1} pages={declaredPages} />
+    {pages.map((pageArticles, index) => (
+      <div data-impact-page={index + 1}>
+        <div class="read-masonry">
+          {pageArticles.map(({ entry, path }) => {
+            const card = sourceCardForImpactPath(path);
+            const localPath = card?.localPath ?? entry.data.heroImage;
+            return <PostCard
+              title={entry.data.title}
+              href={path}
+              image={localPath ? {
+                assetId: assetIdForLocalPath(localPath),
+                alt: card ? '' : entry.data.heroAlt ?? '',
+                width: 343,
+                height: 343,
+                focal: card?.focal,
+                landscape: card?.landscape
+              } : undefined}
+              slug={entry.id}
+            />;
+          })}
+        </div>
+        <Pagination listing="impact" page={IMPACT_LISTING_PAGES[index]} />
+      </div>
+    ))}
   </section>
+  <script type="application/json" id="impact-pagination-cursors" is:inline set:html={JSON.stringify(IMPACT_LISTING_PAGES)} />
+  <script is:inline>
+    (function () {
+      var cursors = JSON.parse(document.getElementById('impact-pagination-cursors').textContent);
+      var groups = document.querySelectorAll('[data-impact-page]');
+      var controls = document.querySelectorAll('[data-query-pagination][data-pagination-listing="impact"]');
+
+      function pageForQuery(search) {
+        for (var index = 0; index < cursors.length; index += 1) {
+          if (cursors[index].older === search) return index + 1;
+          if (cursors[index].newer === search) return index - 1;
+        }
+        return 0;
+      }
+
+      function render(moveFocus) {
+        var page = pageForQuery(window.location.search);
+        for (var group = 0; group < groups.length; group += 1) {
+          groups[group].hidden = Number(groups[group].getAttribute('data-impact-page')) !== page + 1;
+        }
+        for (var control = 0; control < controls.length; control += 1) {
+          controls[control].hidden = Number(controls[control].getAttribute('data-pagination-page')) !== page + 1;
+        }
+        if (moveFocus) {
+          var activeControl = controls[page];
+          var activeLink = activeControl && activeControl.querySelector('a');
+          if (activeLink) activeLink.focus({ preventScroll: true });
+        }
+      }
+      document.addEventListener('click', function (event) {
+        if (!(event.target instanceof Element)) return;
+        var target = event.target.closest('[data-query-pagination][data-pagination-listing="impact"] a');
+        if (!target || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        var href = target.getAttribute('href');
+        if (!href || href.charAt(0) !== '?') return;
+        event.preventDefault();
+        window.history.pushState(null, '', href);
+        render(true);
+      });
+      window.addEventListener('popstate', function () { render(false); });
+      render(false);
+    })();
+  </script>
 </SiteLayout>

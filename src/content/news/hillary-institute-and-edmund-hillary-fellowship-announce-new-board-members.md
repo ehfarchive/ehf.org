@@ -1,6 +1,8 @@
 ---
 title: "Media Release: Hillary Institute and Edmund Hillary Fellowship Announce New Board Members"
 excerpt: "Dinnie Moeahu and Ian Short"
+listingImage: "/assets/images/content/news-blog-hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members-1.webp"
+listingAlt: ""
 heroImage: "/assets/images/content/news-blog-hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members-1.webp"
 heroAlt: ""
 publishedAt: "2023-08-03"

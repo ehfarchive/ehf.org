@@ -1,6 +1,8 @@
 ---
 title: "EHF welcomes more than 100 Fellows in 2022"
 excerpt: "***CEO Rosalie Nelson during day 2 of the August Welcome Experience. Image by Erica Austin.***"
+listingImage: "/assets/images/content/news-blog-ehf-welcomes-more-than-100-fellows-in-2022-1.webp"
+listingAlt: ""
 heroImage: "/assets/images/content/news-blog-ehf-welcomes-more-than-100-fellows-in-2022-1.webp"
 heroAlt: ""
 publishedAt: "2022-12-23"

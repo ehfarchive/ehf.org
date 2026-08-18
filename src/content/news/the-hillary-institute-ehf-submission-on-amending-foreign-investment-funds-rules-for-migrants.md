@@ -1,8 +1,10 @@
 ---
 title: "The Hillary Institute & EHF Submission on Amending Foreign Investment Funds Rules for Migrants"
 excerpt: "***Submitted on 27 January 2025***"
-heroImage: "/assets/images/content/news-blog-the-hillary-institute-ehf-submission-on-amending-foreign-investment-funds-rules-for-migrants-1.webp"
-heroAlt: "The Hillary Institute & EHF Submission on Amending Foreign Investment Funds Rules for Migrants"
+listingImage: "/assets/images/content/news-blog-the-hillary-institute-ehf-submission-on-amending-foreign-investment-funds-rules-for-migrants-1.webp"
+listingAlt: "The Hillary Institute & EHF Submission on Amending Foreign Investment Funds Rules for Migrants"
+heroImage: null
+heroAlt: null
 publishedAt: "2025-02-03"
 ---
 

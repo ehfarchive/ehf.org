@@ -1,0 +1,10 @@
+---
+import FellowsArticleListing from '../../components/FellowsArticleListing.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { loadFellowsArticles } from './_fellows';
+
+const articles = await loadFellowsArticles();
+---
+<SiteLayout title="EHF Fellows Articles — Edmund Hillary Fellowship">
+  <FellowsArticleListing articles={articles} />
+</SiteLayout>

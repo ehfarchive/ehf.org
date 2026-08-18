@@ -1,0 +1,138 @@
+---
+import type { FellowsArticle } from '../pages/ehf-fellows-articles/_fellows';
+import { formatFellowsDate } from '../pages/ehf-fellows-articles/_fellows';
+
+interface Props {
+  article: FellowsArticle;
+  next: FellowsArticle | undefined;
+}
+
+const { article, next } = Astro.props;
+const { title, publishedAt } = article.entry.data;
+const dateLabel = formatFellowsDate(publishedAt);
+---
+<article class="fellows-article content-width">
+  <header class="fellows-article__header">
+    <h1>{title}</h1>
+    {dateLabel && <time datetime={publishedAt}>{dateLabel}</time>}
+  </header>
+  <div class="fellows-article__body">
+    <slot />
+  </div>
+</article>
+{next && (
+  <nav class="fellows-article__next site-container" aria-label="Fellows article navigation">
+    <a href={next.href} data-direction="next"><span class="visually-hidden">Next: </span>{next.entry.data.title}</a>
+  </nav>
+)}
+
+<style>
+  .fellows-article {
+    max-width: var(--prose-width);
+    padding-top: calc(var(--header-height) + 28.8px);
+    padding-bottom: 44.86px;
+  }
+
+  .fellows-article__header { text-align: center; }
+
+  .fellows-article__header h1 {
+    margin: 0;
+    font-size: var(--text-display);
+    line-height: var(--lh-article-display);
+  }
+
+  .fellows-article__header time {
+    display: block;
+    margin-top: 16px;
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: var(--weight-body);
+    line-height: 19.2px;
+  }
+
+.fellows-article__body { margin-top: 33px; }
+
+  .fellows-article__body :global(p),
+  .fellows-article__body :global(li),
+  .fellows-article__body :global(figcaption) {
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: var(--weight-body);
+    line-height: var(--lh-body);
+  }
+
+  .fellows-article__body :global(p),
+  .fellows-article__body :global(li) { margin-block: 16px; }
+
+  .fellows-article__body :global(a) { color: var(--color-brand); }
+
+  .fellows-article__body :global(h2),
+  .fellows-article__body :global(h3),
+  .fellows-article__body :global(h4) {
+    margin: 32.4px 0;
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-size: var(--text-sub);
+    font-weight: var(--weight-heading);
+    letter-spacing: var(--tracking);
+    line-height: var(--lh-sub);
+  }
+
+  .fellows-article__body :global(figure) {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 34px;
+  }
+
+  .fellows-article__body :global(img) {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
+  }
+
+  .fellows-article__body :global(p:has(> img:only-child)) { margin: 0 0 34px; }
+
+  .fellows-article__body :global(p:has(> img:only-child) img) {
+    display: block;
+    max-width: 100%;
+  }
+
+  .fellows-article__body :global(blockquote) { margin: 19.456px 40px; }
+
+  .fellows-article__next {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 25px;
+    margin-top: 28.14px;
+    padding-block: 43.2px;
+    font-family: var(--font-display);
+    font-size: var(--text-sub);
+    font-weight: var(--weight-heading);
+    line-height: var(--lh-sub);
+  }
+
+  .fellows-article__next a {
+    color: var(--color-brand);
+    text-align: right;
+    text-decoration: none;
+  }
+
+  @media (max-width: 767px) {
+    .fellows-article {
+      padding-top: calc(var(--header-height) + 24px);
+      padding-bottom: 11.35px;
+    }
+
+    .fellows-article__body { margin-top: 20px; }
+    .fellows-article__body :global(blockquote) { margin: 18.0256px 24px; }
+
+    .fellows-article__next {
+      padding-block: 11.7px;
+      font-size: var(--text-sub);
+      line-height: var(--text-sub);
+    }
+  }
+</style>

@@ -16,7 +16,7 @@
 
 - Homepage.
 - Current primary navigation and footer destinations.
-- Impact in Action listing, pagination, and static posts.
+- Distinct `/impact-in-action` landing, separate `/read` listing with pagination and static posts, and `/watch` with offset pagination plus 88 detail routes.
 - Current news, events, annual-report, about, history, values, contact, media, donation, privacy, and terms content that is intentionally public.
 - Desktop dropdown navigation and mobile full-screen navigation.
 - Local media, fonts, icons, downloadable documents, and responsive image variants where permission allows.
@@ -571,6 +571,42 @@ Keep `/read` as the separate Impact listing. Add separate route, content, and br
 - [ ] **Step 4: Refresh preview and obtain owner review**
 
 Refresh the preview after the correction and obtain owner review before treating the Archive work as complete.
+
+## Post-Merge Follow-Up: Correct Impact and Watch Route Scope
+
+> **Verified:** Live-source review on 2026-08-18 supersedes the earlier route assumption. `/impact-in-action` is a distinct landing route rather than an alias for `/read`; `/watch` is a public listing with 88 detail routes and offset pagination. `/homepage` → `/` remains the sole permanent redirect.
+
+- [x] **Step 1: Correct the route classification**
+
+Record `/impact-in-action`, `/watch`, and every Watch detail path as included manifest routes. Preserve `/read` as its own route and preserve the Fellow Directory exclusion.
+
+- [x] **Step 2: Correct redirect and dashboard contracts**
+
+Remove the obsolete Impact alias from redirect generation and outputs. Mirror all included routes in the progress dashboard: the 173 previously complete routes stay done, while the distinct Impact and 89 Watch routes remain in progress.
+
+- [x] **Step 3: Verify the restored current-route surfaces**
+
+After implementation lands, verify the distinct Impact landing, Watch listing pagination, and all 88 Watch details against the live source before marking this correction complete.
+
+## Follow-Up: Reconcile the Reachable Route Graph
+
+> **Verified:** A second live crawl on 2026-08-18 followed the current header, footer, landing-page shelves, collection listings, pagination states, and every non-included manifest boundary. It found six omitted public pages and five invented static pagination pages. The manifest and dashboard now track 264 real pages.
+
+- [x] **Step 1: Restore omitted editorial routes**
+
+Include the current `/ehf-fellows-articles` navigation destination, its four linked articles, and `/read/swe2a87gjavk3i0brqd2buom9z1hec`. Preserve the source path encoding and editorial content.
+
+- [x] **Step 2: Remove invented pagination pages**
+
+Exclude `/read/page/2` through `/read/page/5` and `/news-blog/page/2`, which return 404 on the live source. Keep `/read` and `/news-blog` as the only listing routes and reproduce the live query-string cursor chains with progressive enhancement.
+
+- [x] **Step 3: Review deliberate non-page boundaries**
+
+Keep Fellow/alumni directory routes, `/cart`, stale templates, and stale collection filters outside the recreation. Do not copy the live broken `/news#fellows` navigation target. Retain `/homepage` → `/` as an intentional canonical alias instead of generating duplicate homepage content.
+
+- [x] **Step 4: Rebuild evidence, tests, and route progress**
+
+Capture desktop and mobile evidence for the Fellows templates and omitted Impact article, regenerate deterministic content and redirect outputs, exercise exact query pagination, and list every included route once in the dashboard.
 
 ## Task 2: Inventory and Approve the Route Scope
 

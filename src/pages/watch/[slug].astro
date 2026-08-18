@@ -1,0 +1,56 @@
+---
+import { render } from 'astro:content';
+import ResponsiveImage from '../../components/ResponsiveImage.astro';
+import { assetIdForLocalPath } from '../../data/site';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import '../../styles/watch.css';
+import { loadWatchEntries, type WatchEntry } from './_watch';
+
+export async function getStaticPaths() {
+  const entries = await loadWatchEntries();
+  const bySlug: Record<string, WatchEntry> = Object.fromEntries(entries.map((item) => [item.slug, item]));
+  return entries.map((item) => ({
+    params: { slug: item.slug },
+    props: { item, next: item.entry.data.nextSlug === null ? null : bySlug[item.entry.data.nextSlug] }
+  }));
+}
+
+interface Props {
+  item: WatchEntry;
+  next: WatchEntry | null;
+}
+
+const { item, next } = Astro.props;
+const { title, speaker, excerpt, heroImage, heroAlt, videoUrl } = item.entry.data;
+const { Content } = await render(item.entry);
+---
+<SiteLayout title={`${title} — Edmund Hillary Fellowship`} description={excerpt}>
+  <article class="watch-article content-width">
+    {/* The source served this frame as an embedly-wrapped YouTube player. The archive
+        keeps the frame and its artwork but hands playback to YouTube itself, so nothing
+        here loads from Squarespace or embedly at runtime. */}
+    <a class="watch-article__player" href={videoUrl} target="_blank" rel="noopener noreferrer">
+      <ResponsiveImage
+        class="watch-article__poster"
+        assetId={assetIdForLocalPath(heroImage)}
+        alt={heroAlt}
+        width={640}
+        height={480}
+        sizes="(max-width: 767px) 100vw, 1078px"
+        loading="eager"
+      />
+      <span class="watch-article__play" aria-hidden="true">
+        <svg viewBox="0 0 68 48" focusable="false"><path class="watch-article__play-body" d="M66.5 7.5a8.5 8.5 0 0 0-6-6C55.2 0 34 0 34 0S12.8 0 7.5 1.5a8.5 8.5 0 0 0-6 6A88.6 88.6 0 0 0 0 24a88.6 88.6 0 0 0 1.5 16.5 8.5 8.5 0 0 0 6 6C12.8 48 34 48 34 48s21.2 0 26.5-1.5a8.5 8.5 0 0 0 6-6A88.6 88.6 0 0 0 68 24a88.6 88.6 0 0 0-1.5-16.5Z"/><path class="watch-article__play-arrow" d="M27 34 45 24 27 14Z"/></svg>
+      </span>
+      <span class="watch-article__cta">Watch on YouTube<span class="visually-hidden"> — {title} (opens in a new tab)</span></span>
+    </a>
+    <h1>{title}</h1>
+    {speaker && <p class="watch-article__speaker">{speaker}</p>}
+    <div class="watch-article__body"><Content /></div>
+  </article>
+  {next && (
+    <nav class="article-page__next site-container" aria-label="Watch navigation">
+      <a href={next.path} data-direction="next"><span class="visually-hidden">Next: </span>{next.entry.data.title}</a>
+    </nav>
+  )}
+</SiteLayout>

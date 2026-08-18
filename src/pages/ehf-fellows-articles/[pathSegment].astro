@@ -1,0 +1,27 @@
+---
+import { render } from 'astro:content';
+import FellowsArticleDetail from '../../components/FellowsArticleDetail.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { loadFellowsArticles, type FellowsArticle } from './_fellows';
+
+export async function getStaticPaths() {
+  return (await loadFellowsArticles()).map((article) => ({
+    params: { pathSegment: decodeURIComponent(article.entry.data.pathSegment) },
+    props: { article }
+  }));
+}
+
+const { article } = Astro.props as { article: FellowsArticle };
+const articles = await loadFellowsArticles();
+const position = articles.findIndex((candidate) => candidate.entry.data.pathSegment === article.entry.data.pathSegment);
+if (position === -1) {
+  throw new Error(`Fellows article is not in the declared collection: ${article.entry.id}`);
+}
+const next = position < articles.length - 1 ? articles[position + 1] : undefined;
+const { Content } = await render(article.entry);
+---
+<SiteLayout title={`${article.entry.data.title} — Edmund Hillary Fellowship`} description={article.entry.data.excerpt}>
+  <FellowsArticleDetail article={article} next={next}>
+    <Content />
+  </FellowsArticleDetail>
+</SiteLayout>

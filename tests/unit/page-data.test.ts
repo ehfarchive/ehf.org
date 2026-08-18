@@ -68,6 +68,11 @@ test('rejects a local input with a mismatched content hash', () => {
   })).toContain('content[0] needs a 64-character lowercase SHA-256 contentHash');
 });
 
+test('accepts the checked-in Impact and Watch content contracts', () => {
+  expect(validateContentManifest(contentManifest)).toEqual([]);
+  expect(contentManifest.content.filter((record) => record.template === 'watch-article')).toHaveLength(88);
+});
+
 test('migrates each raw body and link once at the PageSection loader boundary', () => {
   const raw = {
     route: '/about-ehf',

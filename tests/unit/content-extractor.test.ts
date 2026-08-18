@@ -20,6 +20,29 @@ test('extracts article copy, heading, figure, caption, and link in document orde
   expect(result.body).toContain('*Photo credit*');
 });
 
+test('extracts lazily loaded gallery images from data-src', () => {
+  const result = extractArticleContent(`
+    <main>
+      <article>
+        <h1>Gallery</h1>
+        <div class="sqs-gallery-block-grid">
+          <img data-src="https://assets.example.org/one.jpg" alt="First image">
+          <img data-src="https://assets.example.org/two.jpg" alt="Second image">
+          <img data-src="https://assets.example.org/two.jpg" alt="Duplicate thumbnail">
+        </div>
+        <div class="author-avatar"><img src="https://assets.example.org/avatar.jpg" alt="Author avatar"></div>
+      </article>
+    </main>
+  `);
+
+  expect(result.images).toEqual([
+    { src: 'https://assets.example.org/one.jpg', alt: 'First image' },
+    { src: 'https://assets.example.org/two.jpg', alt: 'Second image' }
+  ]);
+  expect(result.body).toContain('![First image](https://assets.example.org/one.jpg)');
+  expect(result.body).toContain('![Second image](https://assets.example.org/two.jpg)');
+});
+
 test('normalizes internal source links with trailing encoded or literal non-breaking spaces', () => {
   const result = extractArticleContent(`
     <article>
@@ -61,6 +84,23 @@ test('removes Edmund Hillary Fellowship site chrome from og title fallback witho
   `);
 
   expect(result.title).toBe('A genuine title — with a subtitle');
+});
+
+test('extracts the social image separately from article body images', () => {
+  const result = extractArticleContent(`
+    <html>
+      <head><meta property="og:image" content="https://assets.example.org/listing.jpg"></head>
+      <body><article><h1>Images</h1><figure><img src="https://assets.example.org/body.jpg" alt="Body image"></figure></article></body>
+    </html>
+  `);
+
+  expect(result.socialImage).toEqual({
+    src: 'https://assets.example.org/listing.jpg',
+    alt: 'Images'
+  });
+  expect(result.images).toEqual([
+    { src: 'https://assets.example.org/body.jpg', alt: 'Body image' }
+  ]);
 });
 test('extracts an ISO source publication date from Squarespace itemprop metadata', () => {
   const result = extractArticleContent(`

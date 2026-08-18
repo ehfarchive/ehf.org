@@ -1,0 +1,17 @@
+{
+  "sourceUrl": "https://www.ehf.org/ehf-fellows-articles",
+  "route": "/ehf-fellows-articles",
+  "family": "fellows-article-listing",
+  "viewport": {
+    "name": "desktop",
+    "width": 1440,
+    "height": 1000
+  },
+  "state": "default",
+  "capturedAt": "2026-08-18T05:34:32.925Z",
+  "documentHeight": 9072,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [],
+  "captureMethod": "full-page screenshot after scrolling through deferred images"
+}

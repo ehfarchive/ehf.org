@@ -43,7 +43,7 @@ export const primaryNavigation: readonly SiteNavigationItem[] = [
     children: [
       internal('Read and Watch', '/impact-in-action'),
       internal('EHF Community Collective', '/communitycollective'),
-      // EHF Fellows Articles is intentionally absent because the route manifest excludes it.
+      internal('EHF Fellows Articles', '/ehf-fellows-articles')
     ]
   },
   internal('Archive', '/archive')

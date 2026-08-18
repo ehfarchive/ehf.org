@@ -1,6 +1,8 @@
 ---
 title: "EHF’s final Welcome Experience sees 60 Fellows welcomed to the Fellowship & Aotearoa"
 excerpt: "***In May, the Edmund Hillary Fellowship (EHF) welcomed 60 Fellows into the Fellowship during its final official Welcome Experience in Lower Hutt. Fellows participated in a three-day immersive experience, building meaningful connections and growing their understanding of Aotearoa as a bi-cultural nation and a basecamp for global impact***"
+listingImage: "/assets/images/content/news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-1.webp"
+listingAlt: ""
 heroImage: "/assets/images/content/news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-1.webp"
 heroAlt: ""
 publishedAt: "2023-05-17"

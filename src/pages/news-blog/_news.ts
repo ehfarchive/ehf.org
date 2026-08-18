@@ -2,7 +2,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import contentManifestInput from '../../../source-evidence/content-manifest.json';
 import routeManifestInput from '../../../source-evidence/route-manifest.json';
 import { parseStrictUtcIsoDate } from '../../lib/iso-date';
-import { NEWS_ARTICLE_COUNT, NEWS_LISTING_PATHS } from '../../lib/news';
+import { NEWS_ARTICLE_COUNT } from '../../lib/news';
 import type { ContentManifest, LocalContentManifestRecord } from '../../lib/page-data';
 import { validateContentManifest } from '../../lib/page-data';
 import { loadRouteManifest } from '../../lib/route-manifest';
@@ -15,19 +15,12 @@ const contentManifest = contentManifestInput as ContentManifest;
 const contentErrors = validateContentManifest(contentManifest);
 if (contentErrors.length > 0) throw new Error(contentErrors.join('; '));
 
-const listingPaths = routeManifest.routes
-  .filter((route) => route.kind === 'included' && route.family === 'news-listing')
-  .map((route) => route.path);
 const articlePaths = routeManifest.routes
   .filter((route) => route.kind === 'included' && route.family === 'news-article')
   .map((route) => route.path);
 const contentRecords = contentManifest.content
   .filter((record): record is LocalContentManifestRecord => record.template === 'news-article');
 
-if (listingPaths.length !== NEWS_LISTING_PATHS.length
-  || listingPaths.some((path, index) => path !== NEWS_LISTING_PATHS[index])) {
-  throw new Error('News listing paths are not declared in static pagination order');
-}
 if (articlePaths.length !== NEWS_ARTICLE_COUNT || new Set(articlePaths).size !== NEWS_ARTICLE_COUNT) {
   throw new Error(`News manifest must declare exactly ${NEWS_ARTICLE_COUNT} unique articles`);
 }

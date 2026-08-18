@@ -1,10 +1,15 @@
 export const ROUTE_KINDS = ['included', 'redirect', 'external', 'excluded'] as const;
 export const TEMPLATE_FAMILIES = [
   'homepage',
+  'impact-landing',
   'impact-listing',
   'impact-article',
+  'watch-listing',
+  'watch-article',
   'news-listing',
   'news-article',
+  'fellows-article-listing',
+  'fellows-article',
   'event-programme',
   'annual-report-document',
   'fellows-news-snapshot',
@@ -148,11 +153,10 @@ export function loadRouteManifest(input: unknown, options: { candidates?: readon
   }
 
   const aliases = routes.filter((route): route is RedirectRouteRecord => route.kind === 'redirect');
-  const approvedAliases: Record<string, string> = {
-    '/homepage': '/',
-    '/impact-in-action': '/read'
-  };
-  if (aliases.length !== Object.keys(approvedAliases).length || aliases.some((route) => approvedAliases[route.path] !== route.target)) throw new Error('legacy aliases must be exactly /homepage and /impact-in-action');
+  const approvedAliases: Record<string, string> = { '/homepage': '/' };
+  if (aliases.length !== 1 || aliases.some((route) => approvedAliases[route.path] !== route.target)) {
+    throw new Error('legacy aliases must be exactly /homepage');
+  }
 
   const archivePages = routes.filter((route): route is IncludedRouteRecord => route.kind === 'included' && route.family === 'archive');
   if (archivePages.length !== 1 || archivePages[0].path !== '/archive') throw new Error('only /archive may use the archive family');

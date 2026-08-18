@@ -1,6 +1,8 @@
 ---
 title: "A New Expedition - The Mission Studio"
 excerpt: "The Hillary Institute & Edmund Hillary Fellowship announced an exciting new ‘expedition for global impact’ at an event on 23 February in Tāmaki Makaurau / Auckland."
+listingImage: "/assets/images/content/news-blog-a-new-expedition-the-mission-studio-1.webp"
+listingAlt: ""
 heroImage: "/assets/images/content/news-blog-a-new-expedition-the-mission-studio-1.webp"
 heroAlt: ""
 publishedAt: "2023-03-01"

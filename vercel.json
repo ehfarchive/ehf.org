@@ -4,11 +4,6 @@
       "source": "/homepage",
       "destination": "/",
       "permanent": true
-    },
-    {
-      "source": "/impact-in-action",
-      "destination": "/read",
-      "permanent": true
     }
   ]
 }

@@ -4002,6 +4002,466 @@
           }
         }
       ]
+    },
+    {
+      "family": "impact-landing",
+      "representativePath": "/impact-in-action",
+      "states": [
+        {
+          "name": "default",
+          "sourceObserved": true,
+          "description": "Full source page after fonts settle and deferred media loads."
+        },
+        {
+          "name": "editorial-content",
+          "sourceObserved": true,
+          "description": "Source editorial content scrolled into the viewport."
+        }
+      ],
+      "measurements": {
+        "desktop": {
+          "documentWidthPx": 1440,
+          "documentHeightPx": 3732
+        },
+        "mobile": {
+          "documentWidthPx": 390,
+          "documentHeightPx": 9741
+        }
+      },
+      "captures": [
+        {
+          "state": "default",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/impact-landing/default-desktop.png",
+          "metadata": "source-evidence/screenshots/impact-landing/default-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 3732,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/impact-in-action",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "default",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/impact-landing/default-mobile.png",
+          "metadata": "source-evidence/screenshots/impact-landing/default-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 9741,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/impact-in-action",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "editorial-content",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/impact-landing/editorial-content-desktop.png",
+          "metadata": "source-evidence/screenshots/impact-landing/editorial-content-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/impact-in-action",
+          "interaction": {
+            "mechanism": "scrollIntoView",
+            "control": "main h2, main h3, main .blog-item"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "editorial-content",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/impact-landing/editorial-content-mobile.png",
+          "metadata": "source-evidence/screenshots/impact-landing/editorial-content-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 844,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/impact-in-action",
+          "interaction": {
+            "mechanism": "scrollIntoView",
+            "control": "main h2, main h3, main .blog-item"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        }
+      ]
+    },
+    {
+      "family": "watch-listing",
+      "representativePath": "/watch",
+      "states": [
+        {
+          "name": "default",
+          "sourceObserved": true,
+          "description": "Full source page after fonts settle and deferred media loads."
+        },
+        {
+          "name": "editorial-content",
+          "sourceObserved": true,
+          "description": "Source editorial content scrolled into the viewport."
+        }
+      ],
+      "measurements": {
+        "desktop": {
+          "documentWidthPx": 1440,
+          "documentHeightPx": 2780
+        },
+        "mobile": {
+          "documentWidthPx": 390,
+          "documentHeightPx": 6852
+        }
+      },
+      "captures": [
+        {
+          "state": "default",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/watch-listing/default-desktop.png",
+          "metadata": "source-evidence/screenshots/watch-listing/default-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 2780,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/watch",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "default",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/watch-listing/default-mobile.png",
+          "metadata": "source-evidence/screenshots/watch-listing/default-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 6852,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/watch",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "editorial-content",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/watch-listing/editorial-content-desktop.png",
+          "metadata": "source-evidence/screenshots/watch-listing/editorial-content-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/watch",
+          "interaction": {
+            "mechanism": "scrollIntoView",
+            "control": "main h2, main h3, main .blog-item"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "editorial-content",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/watch-listing/editorial-content-mobile.png",
+          "metadata": "source-evidence/screenshots/watch-listing/editorial-content-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 844,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/watch",
+          "interaction": {
+            "mechanism": "scrollIntoView",
+            "control": "main h2, main h3, main .blog-item"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        }
+      ]
+    },
+    {
+      "family": "watch-article",
+      "representativePath": "/watch/blog-post-title-four-awn7a-hg48f",
+      "states": [
+        {
+          "name": "default",
+          "sourceObserved": true,
+          "description": "Full source page after fonts settle and deferred media loads."
+        },
+        {
+          "name": "editorial-content",
+          "sourceObserved": true,
+          "description": "Source editorial content scrolled into the viewport."
+        }
+      ],
+      "measurements": {
+        "desktop": {
+          "documentWidthPx": 1440,
+          "documentHeightPx": 1952
+        },
+        "mobile": {
+          "documentWidthPx": 390,
+          "documentHeightPx": 1774
+        }
+      },
+      "captures": [
+        {
+          "state": "default",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/watch-article/default-desktop.png",
+          "metadata": "source-evidence/screenshots/watch-article/default-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1952,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "default",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/watch-article/default-mobile.png",
+          "metadata": "source-evidence/screenshots/watch-article/default-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 1774,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "editorial-content",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/watch-article/editorial-content-desktop.png",
+          "metadata": "source-evidence/screenshots/watch-article/editorial-content-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f",
+          "interaction": {
+            "mechanism": "scrollIntoView",
+            "control": "main h2, main h3, main .blog-item"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "editorial-content",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/watch-article/editorial-content-mobile.png",
+          "metadata": "source-evidence/screenshots/watch-article/editorial-content-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 844,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f",
+          "interaction": {
+            "mechanism": "scrollIntoView",
+            "control": "main h2, main h3, main .blog-item"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        }
+      ]
+    },
+    {
+      "family": "fellows-article-listing",
+      "representativePath": "/ehf-fellows-articles",
+      "states": [
+        {
+          "name": "default",
+          "sourceObserved": true,
+          "description": "Full live listing after deferred editorial images loaded."
+        }
+      ],
+      "measurements": {
+        "desktop": {
+          "documentWidthPx": 1440,
+          "documentHeightPx": 9072,
+          "headerHeightPx": 123,
+          "footerHeightPx": 330
+        },
+        "mobile": {
+          "documentWidthPx": 390,
+          "documentHeightPx": 11328,
+          "headerHeightPx": 86.765625,
+          "footerHeightPx": 278.515625
+        }
+      },
+      "captures": [
+        {
+          "state": "default",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/fellows-article-listing/default-desktop.png",
+          "metadata": "source-evidence/screenshots/fellows-article-listing/default-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 9072,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/ehf-fellows-articles",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "default",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/fellows-article-listing/default-mobile.png",
+          "metadata": "source-evidence/screenshots/fellows-article-listing/default-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 11328,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/ehf-fellows-articles",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        }
+      ]
+    },
+    {
+      "family": "fellows-article",
+      "representativePath": "/ehf-fellows-articles/Blog%20Post%20Title%20One-3zaa9-n8kpf",
+      "states": [
+        {
+          "name": "default",
+          "sourceObserved": true,
+          "description": "Full live maker interview article."
+        }
+      ],
+      "measurements": {
+        "desktop": {
+          "documentWidthPx": 1440,
+          "documentHeightPx": 3876,
+          "headerHeightPx": 123,
+          "footerHeightPx": 330
+        },
+        "mobile": {
+          "documentWidthPx": 390,
+          "documentHeightPx": 6237,
+          "headerHeightPx": 86.765625,
+          "footerHeightPx": 278.515625
+        }
+      },
+      "captures": [
+        {
+          "state": "default",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/fellows-article/default-desktop.png",
+          "metadata": "source-evidence/screenshots/fellows-article/default-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 3876,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/ehf-fellows-articles/Blog%20Post%20Title%20One-3zaa9-n8kpf",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "default",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/fellows-article/default-mobile.png",
+          "metadata": "source-evidence/screenshots/fellows-article/default-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 6237,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/ehf-fellows-articles/Blog%20Post%20Title%20One-3zaa9-n8kpf",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        }
+      ]
     }
   ],
   "ticket10ContactForms": {
@@ -4373,7 +4833,7 @@
       },
       {
         "route": "/ehf-friendly-sharks-waiting-list",
-        "heading": "Add me to the EHF \u2018Friendly Sharks\u2019 waiting list",
+        "heading": "Add me to the EHF ‘Friendly Sharks’ waiting list",
         "submitLabel": "Submit",
         "fields": [
           {

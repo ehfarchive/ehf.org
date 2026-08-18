@@ -8,8 +8,9 @@ const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const MANIFEST_PATH = resolve(PROJECT_ROOT, 'source-evidence/route-manifest.json');
 const CONTRACT_PATH = resolve(PROJECT_ROOT, 'source-evidence/source-contract.json');
 const TEMPLATE_FAMILIES = [
-  'homepage', 'impact-listing', 'impact-article', 'news-listing', 'news-article', 'event-programme',
-  'annual-report-document', 'fellows-news-snapshot', 'archive', 'institutional', 'contact-media-donation', 'legal', 'not-found'
+  'homepage', 'impact-listing', 'impact-article', 'impact-landing', 'news-listing', 'news-article', 'event-programme',
+  'annual-report-document', 'fellows-news-snapshot', 'fellows-article-listing', 'fellows-article', 'archive',
+  'institutional', 'contact-media-donation', 'legal', 'not-found', 'watch-listing', 'watch-article'
 ];
 const captureLogs = new WeakMap();
 
@@ -60,7 +61,7 @@ function readContract(input, included) {
       states.set(state.name, state);
     }
     if (!states.has('default')) throw new Error(`Source contract ${template.family} requires a default state`);
-    if (!template.states.some((state) => state.sourceObserved && state.name !== 'default')) throw new Error(`Source contract ${template.family} requires a source-observed state`);
+    if (!template.states.some((state) => state.sourceObserved)) throw new Error(`Source contract ${template.family} requires a source-observed state`);
     const captures = [];
     for (const artifact of template.captures) {
       if (!artifact || !states.has(artifact.state) || !viewports.has(artifact.viewport) || typeof artifact.screenshot !== 'string' || typeof artifact.metadata !== 'string') throw new Error(`Invalid capture for ${template.family}`);
@@ -123,7 +124,7 @@ async function applyState(page, state, viewportName) {
     return;
   }
   if (state === 'editorial-content') {
-    await page.locator('main h2, main h3').first().scrollIntoViewIfNeeded();
+    await page.locator('main h2, main h3, main .blog-item').first().scrollIntoViewIfNeeded();
     return;
   }
   if (state === 'form-filled') {
@@ -149,7 +150,7 @@ async function captureArtifact(browser, template, artifact, viewport, lazyLoadSc
     await mkdir(dirname(artifact.screenshotPath), { recursive: true });
     await page.screenshot({ path: artifact.screenshotPath, fullPage: artifact.fullPage ?? (artifact.state === 'default') });
     const logs = captureLogs.get(page);
-    const imagesNotLoaded = await page.evaluate(() => [...document.images].filter((image) => !image.complete || image.naturalWidth === 0).map((image) => image.currentSrc || image.src));
+    const imagesNotLoaded = await page.evaluate(() => [...document.images].filter((image) => (!image.complete || image.naturalWidth === 0) && (image.currentSrc || image.src)).map((image) => image.currentSrc || image.src));
     await writeFile(artifact.metadataPath, `${JSON.stringify({ sourceUrl, route: template.representativePath, family: template.family, viewport: { name: artifact.viewport, width: viewport.width, height: viewport.height }, state: artifact.state, capturedAt: new Date().toISOString(), documentHeight: await page.evaluate(() => document.documentElement.scrollHeight), consoleErrors: logs.consoleErrors, failedRequests: logs.failedRequests, imagesNotLoaded }, null, 2)}\n`);
   } finally {
     captureLogs.delete(page);

@@ -36,8 +36,8 @@ function readRedirects(input) {
     paths.add(path);
   }
   for (const redirect of redirects) if (!included.has(redirect.destination)) throw new Error(`Redirect ${redirect.source} targets a non-included path`);
-  const approvedAliases = { '/homepage': '/', '/impact-in-action': '/read' };
-  if (redirects.length !== 2 || redirects.some((redirect) => approvedAliases[redirect.source] !== redirect.destination)) throw new Error('Approved legacy aliases are incomplete or changed');
+  const approvedAliases = { '/homepage': '/' };
+  if (redirects.length !== Object.keys(approvedAliases).length || redirects.some((redirect) => approvedAliases[redirect.source] !== redirect.destination)) throw new Error('Approved legacy aliases are incomplete or changed');
   return redirects.sort((left, right) => left.source.localeCompare(right.source));
 }
 

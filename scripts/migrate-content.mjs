@@ -10,10 +10,12 @@ const routeManifestPath = resolve(root, 'source-evidence/route-manifest.json');
 const contentManifestPath = resolve(root, 'source-evidence/content-manifest.json');
 const assetManifestPath = resolve(root, 'source-evidence/asset-manifest.json');
 const assetsRoot = resolve(root, 'public/assets');
-const typedFamilies = new Set(['impact-article', 'news-article', 'event-programme', 'annual-report-document', 'fellows-news-snapshot', 'institutional', 'contact-media-donation', 'legal']);
-const generatedFamilies = new Set(['homepage', 'impact-listing', 'news-listing', 'archive', 'not-found']);
+const typedFamilies = new Set(['impact-article', 'watch-article', 'fellows-article', 'news-article', 'event-programme', 'annual-report-document', 'fellows-news-snapshot', 'institutional', 'contact-media-donation', 'legal']);
+const generatedFamilies = new Set(['homepage', 'impact-landing', 'impact-listing', 'watch-listing', 'news-listing', 'fellows-article-listing', 'archive', 'not-found']);
 const folderByFamily = {
   'impact-article': 'src/content/impact',
+  'watch-article': 'src/content/watch',
+  'fellows-article': 'src/content/fellows-articles',
   'news-article': 'src/content/news',
   'event-programme': 'src/content/events',
   'fellows-news-snapshot': 'src/content/snapshots',
@@ -24,6 +26,8 @@ const folderByFamily = {
 };
 const extensionByFamily = {
   'impact-article': '.md',
+  'watch-article': '.md',
+  'fellows-article': '.md',
   'news-article': '.md',
   'event-programme': '.md',
   'fellows-news-snapshot': '.md',
@@ -61,8 +65,11 @@ function hash(content) {
 
 function inputForRoute(route, family) {
   if (!typedFamilies.has(family)) return null;
-  const prefix = family === 'impact-article' ? '/read/' : family === 'news-article' ? '/news-blog/' : '/';
-  const identity = route.path.slice(prefix.length).replaceAll('/', '-');
+  const prefix = family === 'impact-article' ? '/read/' : family === 'watch-article' ? '/watch/' : family === 'fellows-article' ? '/ehf-fellows-articles/' : family === 'news-article' ? '/news-blog/' : '/';
+  const sourceIdentity = route.path.slice(prefix.length);
+  const identity = family === 'fellows-article'
+    ? decodeURIComponent(sourceIdentity).toLowerCase().replaceAll(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+    : sourceIdentity.replaceAll('/', '-');
   return `${folderByFamily[family]}/${identity}${extensionByFamily[family]}`;
 }
 
@@ -142,8 +149,27 @@ function assertNoUnsupportedBlocks(scope) {
   const unsupported = findFirst(scope, (node) => unsupportedTags.has(node.tagName));
   if (unsupported) throw new Error(`unsupported source block: ${unsupported.tagName}`);
 }
+
+function imageSource(node) {
+  return attribute(node, 'data-src') ?? attribute(node, 'src');
+}
+
+function hasAncestorClass(node, className) {
+  for (let current = node.parentNode; current; current = current.parentNode) {
+    if ((attribute(current, 'class') ?? '').split(/\s+/).includes(className)) return true;
+  }
+  return false;
+}
 function markdownBlocks(scope, options = {}) {
   const blocks = [];
+  const emittedImageSources = new Set();
+  const appendImage = (image) => {
+    if (hasAncestorClass(image, 'author-avatar')) return;
+    const src = imageSource(image);
+    if (!src || src.startsWith('data:') || emittedImageSources.has(src)) return;
+    emittedImageSources.add(src);
+    blocks.push(`![${attribute(image, 'alt') ?? ''}](${src})`);
+  };
   let firstH1 = true;
   const visit = (node) => {
     if (node.tagName === 'iframe') {
@@ -178,17 +204,12 @@ function markdownBlocks(scope, options = {}) {
       return;
     }
     if (node.tagName === 'img') {
-      const src = attribute(node, 'src');
-      if (src && !src.startsWith('data:')) blocks.push(`![${attribute(node, 'alt') ?? ''}](${src})`);
+      appendImage(node);
       return;
     }
     if (node.tagName === 'figure') {
       const image = findFirst(node, (child) => child.tagName === 'img');
-      if (image) {
-        const src = attribute(image, 'src');
-        const alt = attribute(image, 'alt') ?? '';
-        if (src) blocks.push(`![${alt}](${src})`);
-      }
+      if (image) appendImage(image);
       const caption = findFirst(node, (child) => child.tagName === 'figcaption');
       if (caption) blocks.push(`*${normalize(inlineMarkdown(caption))}*`);
       return;
@@ -199,14 +220,15 @@ function markdownBlocks(scope, options = {}) {
   return blocks;
 }
 
-function articleScope(html) {
+function articleScope(html, options = {}) {
   const document = parse(html);
-  const scope = findFirst(document, (node) => node.tagName === 'main')
-    ?? findFirst(document, (node) => node.tagName === 'article')
-    ?? findFirst(document, (node) => node.tagName === 'body');
-  if (!scope) throw new Error('source page has no readable content root');
-  assertNoUnsupportedBlocks(scope);
-  return { document, scope };
+  const scope = options.preferArticle
+    ? findFirst(document, (node) => node.tagName === 'article') ?? findFirst(document, (node) => node.tagName === 'main')
+    : findFirst(document, (node) => node.tagName === 'main') ?? findFirst(document, (node) => node.tagName === 'article');
+  const readableScope = scope ?? findFirst(document, (node) => node.tagName === 'body');
+  if (!readableScope) throw new Error('source page has no readable content root');
+  assertNoUnsupportedBlocks(readableScope);
+  return { document, scope: readableScope };
 }
 
 function withoutSiteChrome(title) {
@@ -247,21 +269,39 @@ function publishedAtFor(document, scope) {
   return value?.match(/^\d{4}-\d{2}-\d{2}/)?.[0];
 }
 
+function socialImageFor(document, title) {
+  const image = findFirst(document, (node) => node.tagName === 'meta' && attribute(node, 'property') === 'og:image');
+  const src = image ? attribute(image, 'content')?.replace(/^http:/, 'https:').replace(/^\/\//, 'https://') : null;
+  if (!src) return null;
+  const altMetadata = findFirst(document, (node) => node.tagName === 'meta' && attribute(node, 'property') === 'og:image:alt');
+  return {
+    src,
+    alt: normalize(altMetadata ? attribute(altMetadata, 'content') ?? '' : '') || title
+  };
+}
+
 export function extractArticleContent(html) {
-  const { document, scope } = articleScope(html);
+  const { document, scope } = articleScope(html, { preferArticle: true });
   const title = titleFor(document, scope);
   if (!title) throw new Error('source article has no title');
   const paragraphs = findAll(scope, (node) => node.tagName === 'p').map((node) => normalize(inlineMarkdown(node))).filter(Boolean);
   const body = markdownBlocks(scope).join('\n\n');
   const markdownImageSources = new Set([...body.matchAll(/!\[[^\]]*\]\(([^)\s]+)/g)].map((match) => match[1]));
+  const images = [];
+  const imageSources = new Set();
+  for (const image of findAll(scope, (node) => node.tagName === 'img')) {
+    const src = imageSource(image);
+    if (!src || src.startsWith('data:') || !markdownImageSources.has(src) || imageSources.has(src)) continue;
+    imageSources.add(src);
+    images.push({ src, alt: attribute(image, 'alt') ?? '' });
+  }
   return {
     title,
     excerpt: paragraphs[0] ?? '',
     body,
     publishedAt: publishedAtFor(document, scope),
-    images: findAll(scope, (node) => node.tagName === 'img')
-      .map((image) => ({ src: attribute(image, 'src'), alt: attribute(image, 'alt') ?? '' }))
-      .filter((image) => image.src && !image.src.startsWith('data:') && markdownImageSources.has(image.src)),
+    socialImage: socialImageFor(document, title),
+    images,
     externalUrls: findAll(scope, (node) => node.tagName === 'iframe').map((frame) => outputHref(attribute(frame, 'src'))).filter(Boolean)
   };
 }
@@ -394,9 +434,10 @@ async function localizeImage(image, route, ordinal, origin, outputAssetsRoot, fe
   return { ...localized, alt: image.alt, rawSource: image.src };
 }
 
-function frontmatter(article, heroImage, heroAlt) {
+function frontmatter(article, heroImage, heroAlt, listingImage = null, listingAlt = null) {
   const publishedAt = article.publishedAt ? `publishedAt: ${JSON.stringify(article.publishedAt)}\n` : '';
-  return `---\ntitle: ${JSON.stringify(article.title)}\nexcerpt: ${JSON.stringify(article.excerpt)}\nheroImage: ${heroImage === null ? 'null' : JSON.stringify(heroImage)}\nheroAlt: ${heroAlt === null ? 'null' : JSON.stringify(heroAlt)}\n${publishedAt}---\n\n`;
+  const listing = listingImage === null ? '' : `listingImage: ${JSON.stringify(listingImage)}\nlistingAlt: ${JSON.stringify(listingAlt ?? article.title)}\n`;
+  return `---\ntitle: ${JSON.stringify(article.title)}\nexcerpt: ${JSON.stringify(article.excerpt)}\nheroImage: ${heroImage === null ? 'null' : JSON.stringify(heroImage)}\nheroAlt: ${heroAlt === null ? 'null' : JSON.stringify(heroAlt)}\n${listing}${publishedAt}---\n\n`;
 }
 
 export function assetReferencesForContent(records) {
@@ -429,12 +470,40 @@ function currentTypedAssetReferences(routes, baseRoot = root) {
     }));
 }
 
+function sourceAssetReferences() {
+  const references = new Set();
+  const contentRoot = `${resolve(root, 'src/content')}${sep}`;
+  for (const path of walk(resolve(root, 'src'))) {
+    if (path.startsWith(contentRoot)) continue;
+    const text = readFileSync(path, 'utf8');
+    for (const match of text.matchAll(/\/assets\/[a-z0-9][a-z0-9_./-]*\.[a-z0-9]+/gi)) references.add(match[0]);
+  }
+  return references;
+}
+
+function preservedManagedAssetPaths(routes) {
+  const generatedRoutes = new Set(routes
+    .filter((route) => route.kind === 'included' && !typedFamilies.has(route.family))
+    .map((route) => route.path));
+  const preserved = sourceAssetReferences();
+  const manifest = JSON.parse(readFileSync(assetManifestPath, 'utf8'));
+  for (const record of manifest.assets) {
+    if (record.classification === 'local' && record.routeUses.some((route) => generatedRoutes.has(route))) {
+      preserved.add(record.localPath);
+    }
+  }
+  return preserved;
+}
+
 function stableAssetRecords(routes, baseRoot = root) {
   const outputAssetsRoot = assetsRootFor(baseRoot);
+  const directlyReferencedAssets = preservedManagedAssetPaths(routes);
   const preservedStaticAssets = JSON.parse(readFileSync(assetManifestPath, 'utf8')).assets.filter((record) =>
     record.classification === 'local'
-    && !record.localPath.startsWith('/assets/images/content/')
-    && !record.localPath.startsWith('/assets/documents/')
+    && (
+      (!record.localPath.startsWith('/assets/images/content/') && !record.localPath.startsWith('/assets/documents/'))
+      || directlyReferencedAssets.has(record.localPath)
+    )
   );
   const references = currentTypedAssetReferences(routes, baseRoot);
   const recordsByHash = new Map();
@@ -610,7 +679,10 @@ function buildTargetedStagedOutputs(routeManifest, stagingRoot, targetRoutes) {
 
 function removeUnreferencedManagedAssets(routes, baseRoot = root) {
   const outputAssetsRoot = assetsRootFor(baseRoot);
-  const referencedAssets = new Set(currentTypedAssetReferences(routes, baseRoot).local.keys());
+  const referencedAssets = new Set([
+    ...currentTypedAssetReferences(routes, baseRoot).local.keys(),
+    ...preservedManagedAssetPaths(routes)
+  ]);
   for (const directory of ['images/content', 'documents']) {
     for (const path of walk(resolve(outputAssetsRoot, directory))) {
       const localPath = `/assets/${relative(outputAssetsRoot, path).replaceAll(sep, '/')}`;
@@ -776,16 +848,25 @@ export async function materializeContent(sourceOrigin, fetcher = fetch, targetPa
       mkdirSync(dirname(destination), { recursive: true });
       if (localInput.endsWith('.md')) {
         const article = extractArticleContent(html);
+        const listingImage = route.family === 'news-article' && article.socialImage
+          ? await localizeImage(article.socialImage, route.path, 1, origin, outputAssetsRoot, fetcher, localizedBySource)
+          : null;
         const localized = [];
         for (const [index, image] of article.images.entries()) {
-          localized.push(await localizeImage(image, route.path, index + 1, origin, outputAssetsRoot, fetcher, localizedBySource));
+          localized.push(await localizeImage(image, route.path, index + (listingImage ? 2 : 1), origin, outputAssetsRoot, fetcher, localizedBySource));
         }
         let body = article.body;
         for (const image of localized) {
           body = body.replaceAll(image.rawSource, image.localPath).replaceAll(image.source, image.localPath);
         }
         if (/!\[[^\]]*\]\((?:https?:)?\/\//i.test(body)) throw new Error(`unlocalized image in ${route.path}`);
-        writeFileSync(destination, `${frontmatter(article, localized[0]?.localPath ?? null, localized[0]?.alt ?? null)}${body}\n`);
+        writeFileSync(destination, `${frontmatter(
+          article,
+          route.family === 'news-article' ? null : localized[0]?.localPath ?? null,
+          route.family === 'news-article' ? null : localized[0]?.alt ?? null,
+          listingImage?.localPath ?? null,
+          listingImage?.alt ?? null
+        )}${body}\n`);
       } else {
         const page = extractPageInput(route.path, html);
         if (route.family === 'annual-report-document') {

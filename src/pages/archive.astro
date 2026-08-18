@@ -2,106 +2,33 @@
 import { getCollection } from 'astro:content';
 import ResponsiveImage from '../components/ResponsiveImage.astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
-import { assetIdForLocalPath } from '../data/site';
-import { parseStrictUtcIsoDate } from '../lib/iso-date';
+import { archiveNewsCards, archiveReports, archiveSnapshotCards } from '../data/archive';
+import { assetIdForLocalPath, resolveSiteAsset } from '../data/site';
 import { loadNewsArticles } from './news-blog/_news';
 
-const organisationPaths = [
-  '/news-blog/media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp',
-  '/news-blog/building-innovation-growth-through-global-talent',
-  '/news-blog/fellow-led-board-established-with-four-fellows-appointed-as-new-directors',
-  '/news-blog/building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit',
-  '/news-blog/the-hillary-institute-ehf-submission-on-amending-foreign-investment-funds-rules-for-migrants',
-  '/news-blog/the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill',
-  '/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report',
-  '/news-blog/media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report',
-  '/news-blog/impact-springboard-showcases-leading-innovation-for-global-impact',
-  '/news-blog/reflections-this-waitangi-day-2024',
-  '/news-blog/navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson',
-  '/news-blog/2023-a-year-of-connections-impact-and-milestones',
-  '/news-blog/2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz',
-  '/news-blog/the-mission-studio-first-convening',
-  '/news-blog/hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members',
-  '/news-blog/reflections-of-sir-edmund-hillarys-legacy-on-everest-day',
-  '/read/celebrating-achievements-and-values-this-everest-day',
-  '/news-blog/ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa',
-  '/news-blog/ehf-welcomes-95-fellows-in-march-welcome-experience',
-  '/news-blog/a-new-expedition-the-mission-studio',
-  '/news-blog/reflections-this-waitangi-day-2023',
-  '/news-blog/ehf-welcomes-more-than-100-fellows-in-2022',
-  '/news-blog/2021-2022-annual-report-shows-year-of-impact',
-  '/news-blog/closer-alignment-between-hillary-institute-ehf-to-unlock-potential',
-  '/news-blog/media-release-anna-kominik-announced-as-new-board-chair',
-  '/news-blog/farewell-thank-you-and-congratulations-to-paul-atkins',
-  '/news-blog/announcing-the-new-ceo-for-ehf',
-  '/news-blog/new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected'
-] as const;
+// Cards the source thumbnailed itself carry a localised Archive thumbnail; the
+// rest reuse the listing artwork of the collection entry they link to.
+const cardImageByPath = new Map<string, string>();
+for (const { entry, path } of await loadNewsArticles()) {
+  const image = entry.data.listingImage ?? entry.data.heroImage;
+  if (image) cardImageByPath.set(path, image);
+}
+for (const entry of await getCollection('impact')) {
+  if (entry.data.heroImage) cardImageByPath.set(`/read/${entry.id}`, entry.data.heroImage);
+}
+for (const entry of await getCollection('snapshots')) {
+  if (entry.data.heroImage) cardImageByPath.set(`/${entry.id}`, entry.data.heroImage);
+}
 
-const snapshotCards = [
-  ['/june-2025', 'June 2025'], ['/may-2025', 'May 2025'], ['/april-2025', 'April 2025'], ['/march-2025', 'March 2025'],
-  ['/summer-edition-2025', 'Summer Edition 2025'], ['/november-2024', 'November 2024'], ['/october-2024', 'October 2024'],
-  ['/september-2024', 'September 2024'], ['/august-2024', 'August 2024'], ['/july-2024', 'July 2024'], ['/june-2024', 'June 2024'],
-  ['/may-2024', 'May 2024'], ['/april-2024', 'April 2024'], ['/march-2024', 'March 2024'], ['/february-2024', 'February 2024'],
-  ['/december-and-january-2024', 'December 2023 & January 2024'], ['/november-2023', 'November 2023'], ['/october-2023', 'October 2023'],
-  ['/september-2023', 'September 2023'], ['/august-2023', 'August 2023'], ['/july-2023', 'July 2023'], ['/june-2023', 'June 2023'],
-  ['/may-2023', 'May 2023'], ['/april-2023', 'April 2023'], ['/march-2023', 'March 2023'], ['/february-2023', 'February 2023'],
-  ['/december22-january23', 'December 2022 & January 2023'], ['/november-2022', 'November 2022'], ['/october-2022', 'October 2022'],
-  ['/september-2022', 'September 2022'], ['/august-2022', 'August 2022'], ['/july-2022', 'July 2022']
-] as const;
+function cardImage(card: { href: string; thumbnail: string | null }): string {
+  if (card.thumbnail) return card.thumbnail;
+  const localPath = cardImageByPath.get(card.href);
+  if (!localPath) throw new Error(`missing Archive card artwork: ${card.href}`);
+  return resolveSiteAsset(assetIdForLocalPath(localPath));
+}
 
-const news = await loadNewsArticles();
-const organisationByPath = new Map(news.map(({ entry, path, publishedAt }) => [path, {
-  title: entry.data.title,
-  path,
-  publishedAt,
-  heroImage: entry.data.heroImage,
-  heroAlt: entry.data.heroAlt ?? ''
-}]));
-const everest = (await getCollection('impact')).find((entry) => entry.id === 'celebrating-achievements-and-values-this-everest-day');
-if (!everest?.data.publishedAt) throw new Error('missing Everest Day archive article');
-organisationByPath.set('/read/celebrating-achievements-and-values-this-everest-day', {
-  title: everest.data.title,
-  path: '/read/celebrating-achievements-and-values-this-everest-day',
-  publishedAt: parseStrictUtcIsoDate(everest.data.publishedAt, 'Everest Day publishedAt'),
-  heroImage: everest.data.heroImage,
-  heroAlt: everest.data.heroAlt ?? ''
-});
-const organisationCards = organisationPaths.map((path) => {
-  const card = organisationByPath.get(path);
-  if (!card) throw new Error(`missing Archive organisation card: ${path}`);
-  return card;
-});
-
-const snapshots = await getCollection('snapshots');
-const snapshotByPath = new Map(snapshots.map((entry) => [`/${entry.id}`, entry]));
-const resolvedSnapshots = snapshotCards.map(([path, label]) => {
-  const entry = snapshotByPath.get(path);
-  if (path !== '/summer-edition-2025' && !entry) throw new Error(`missing Archive snapshot card: ${path}`);
-  return {
-    path,
-    label,
-    heroImage: entry?.data.heroImage ?? null,
-    heroAlt: entry?.data.heroAlt ?? '',
-    fallbackAssetId: path === '/summer-edition-2025' ? 'asset-images-summer-edition-2025-03' : null
-  };
-});
-
-const dateFormatter = new Intl.DateTimeFormat('en-NZ', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
-const reports = [
-  { year: '2024/25', links: [{ label: 'View financial statements', href: '/assets/documents/the-hillary-institute-of-international-leadership-2025-performance-report-and-unqualified-audit-report.pdf' }] },
-  { year: '2023/24', links: [
-    { label: 'View annual report', href: '/assets/documents/ehf-hi-annual-report-2024.pdf' },
-    { label: 'View financial statements', href: '/assets/documents/the-hillary-institute-of-international-leadership-2024-authorised-performance-report-including-audit-report.pdf' }
-  ] },
-  { year: '2022/23', links: [
-    { label: 'View annual report', href: '/assets/documents/ehf-hi-annual-report-2023.pdf' },
-    { label: 'View financial statements', href: '/assets/documents/edmund-hillary-fellowship-limited-2023-financial-statements.pdf' }
-  ] },
-  { year: '2021/22', links: [
-    { label: 'View annual report', href: '/assets/documents/hillary-institute-ehf-annual-report-2022.pdf' },
-    { label: 'View financial statements', href: '/assets/documents/certified-fs-hillary-institute-and-subsidiary-2022.pdf' }
-  ] }
-] as const;
+const newsCards = archiveNewsCards.map((card) => ({ ...card, image: cardImage(card) }));
+const snapshotCards = archiveSnapshotCards.map((card) => ({ ...card, image: cardImage(card) }));
 const summitGallery = [
   { image: '/assets/images/content/archive-events-gallery-001.webp', alt: '2025 Hillary Innovation Summit — 233 Ngati Paoa Powhiri credit Erica Austin, Peanut Productions Photography', width: 1500, height: 982 },
   { image: '/assets/images/content/archive-events-gallery-002.webp', alt: '2025 Hillary Innovation Summit — 234 Tamahau Te Rau credit Erica Austin, Peanut Productions Photography', width: 1500, height: 2249 },
@@ -177,43 +104,51 @@ const summitGallery = [
 ] as const;
 ---
 <SiteLayout title="Archive — Edmund Hillary Fellowship" description="Keep up to date with the Fellowship and discover impact being created across Aotearoa and the world.">
-  <main class="archive-page">
-    <header class="archive-hero"><h1>Archive</h1></header>
+  <div class="archive-page">
+    <header class="archive-hero">
+      <img class="archive-hero__image" src="/assets/archive/archive-hero-band.webp" alt="" width="1440" height="2690" />
+      <h1>Archive</h1>
+    </header>
 
-    <section class="archive-section" aria-labelledby="organisation-news">
-      <h2 id="organisation-news">EHF Organisation News Archive</h2>
-      <div class="archive-carousel" data-archive-carousel>
-        {organisationCards.map((card) => <article class="archive-card">
-          {card.heroImage && <a class="archive-card__image" href={card.path} aria-label={card.title}>
-            <ResponsiveImage assetId={assetIdForLocalPath(card.heroImage)} alt={card.heroAlt} width={480} height={320} sizes="(max-width: 767px) 82vw, 300px" />
-          </a>}
-          <h3><a href={card.path}>{card.title}</a></h3>
-          <time datetime={card.publishedAt.toISOString().slice(0, 10)}>{dateFormatter.format(card.publishedAt)}</time>
-          <a class="button-link" href={card.path}>Read more</a>
-        </article>)}
-      </div>
+    <section class="archive-section archive-section--wave" aria-labelledby="archive-organisation-news">
+      <h2 id="archive-organisation-news">EHF Organisation News Archive</h2>
+      <ul class="archive-carousel" tabindex="0" aria-labelledby="archive-organisation-news">
+        {newsCards.map((card) => <li class="archive-card">
+          <a class="archive-card__image" href={card.href} tabindex="-1" aria-hidden="true">
+            <img src={card.image} alt="" width="592" height="333" loading="lazy" />
+          </a>
+          <h3><a href={card.href}>{card.title}</a></h3>
+          <p>{card.date}</p>
+          <a class="button-link" href={card.href} aria-label={`Read more: ${card.title}`}>Read more</a>
+        </li>)}
+      </ul>
     </section>
 
-    <section class="archive-section archive-section--snapshots" aria-labelledby="fellows-news">
-      <h2 id="fellows-news">Fellows’ News Archive</h2>
-      <div class="archive-carousel" data-archive-carousel>
-        {resolvedSnapshots.map((card) => <article class="archive-card archive-card--snapshot">
-          {(card.heroImage || card.fallbackAssetId) && <a class="archive-card__image" href={card.path} aria-label={`Impact Snapshot ${card.label}`}>
-            <ResponsiveImage assetId={card.fallbackAssetId ?? assetIdForLocalPath(card.heroImage!)} alt={card.heroAlt} width={480} height={320} sizes="(max-width: 767px) 82vw, 300px" />
-          </a>}
-          <h3><a href={card.path}>Impact Snapshot</a></h3>
-          <p>{card.label}</p>
-          <a class="button-link" href={card.path}>Read full snapshot</a>
-        </article>)}
-      </div>
+    <section class="archive-section archive-section--snapshots archive-section--wave" aria-labelledby="archive-fellows-news">
+      <h2 id="archive-fellows-news">Fellows’ News Archive</h2>
+      <ul class="archive-carousel" tabindex="0" aria-labelledby="archive-fellows-news">
+        {snapshotCards.map((card) => <li class="archive-card">
+          <a class="archive-card__image" href={card.href} tabindex="-1" aria-hidden="true">
+            <img src={card.image} alt="" width="592" height="333" loading="lazy" />
+          </a>
+          <h3><a href={card.href} aria-label={`Impact Snapshot — ${card.month}`}>Impact Snapshot</a></h3>
+          <p>{card.month}</p>
+          <a class="button-link" href={card.href} aria-label={`Read full snapshot: ${card.month}`}>Read full snapshot</a>
+        </li>)}
+      </ul>
     </section>
 
-    <section class="archive-section archive-reports" aria-labelledby="annual-reports">
-      <h2 id="annual-reports">Annual Reports Archive</h2>
-      <div class="report-grid">
-        {reports.map((report) => <article>
+    <section class="archive-section archive-section--reports archive-section--wave" aria-labelledby="archive-annual-reports">
+      <h2 id="archive-annual-reports">Annual Reports Archive</h2>
+      <div class="archive-reports">
+        {archiveReports.map((report) => <article class="archive-report">
           <h3>{report.year}</h3>
-          {report.links.map((link) => <a class="button-link" href={link.href}> {link.label} </a>)}
+          <img class="archive-report__cover" src={report.cover} alt="" width={report.coverWidth} height={report.coverHeight} loading="lazy" />
+          <ul class="archive-report__documents">
+            {report.documents.map((document) => <li>
+              <a class="button-link" href={document.href} aria-label={`${document.label}: ${report.year}`}>{document.label}</a>
+            </li>)}
+          </ul>
         </article>)}
       </div>
     </section>
@@ -288,32 +223,95 @@ const summitGallery = [
         <article><h3>PAST OUR REGENERATIVE FUTURE SESSIONS</h3><p>Seven-part series produced by Pure Advantage and Tāne's Tree Trust in association with EHF.</p><a class="button-link" href="https://youtube.com/playlist?list=PLxTt2Nm5dTv0OYNEpRGthxpSikBEKCJDp&amp;si=99N2FN2IQbqZ34-w" target="_blank" rel="noopener noreferrer">Full Playlist</a></article>
       </div>
     </section>
-  </main>
+  </div>
 </SiteLayout>
 
 <style>
-  .archive-page { padding-top: var(--header-height); }
-  .archive-hero { display: grid; min-height: 207px; place-items: center; padding: 40px var(--gutter); color: var(--color-surface); background: linear-gradient(115deg, #4b2e99, var(--color-brand)); }
-  .archive-hero h1 { margin: 0; font-size: var(--text-display); line-height: var(--lh-display); }
-  .archive-section { padding: 48px var(--gutter) 68px; overflow: hidden; }
-  .archive-section > h2 { margin: 0 auto 42px; text-align: center; font-size: var(--text-heading); line-height: var(--lh-heading); }
-  .archive-carousel { display: grid; grid-auto-columns: minmax(250px, 298px); grid-auto-flow: column; gap: 52px; overflow-x: auto; padding: 0 0 24px; scroll-snap-type: x mandatory; scrollbar-color: var(--color-brand) transparent; }
-  .archive-card { display: flex; min-width: 0; flex-direction: column; scroll-snap-align: start; }
-  .archive-card__image { display: block; aspect-ratio: 3 / 2; overflow: hidden; background: #eee; }
-  .archive-card__image :global(img) { width: 100%; height: 100%; object-fit: cover; }
-  .archive-card h3 { margin: 16px 0 8px; font-size: 18px; line-height: 1.15; }
-  .archive-card h3 a { color: inherit; text-decoration: none; }
+  /* --- Archive presentation block (start) --------------------------------
+     Measured from https://www.ehf.org/archive at 1440 and 390. The source
+     hero is a 330px full-bleed band whose artwork runs under an opaque
+     header; ours is transparent, so the band is clipped below the header the
+     way the homepage hero is, leaving 207px of purple beneath it. */
+  .archive-hero { position: relative; display: grid; min-height: 330px; padding: var(--header-height) var(--gutter) 0; place-items: center; color: var(--color-surface); }
+  .archive-hero__image { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; clip-path: inset(var(--header-height) 0 0 0); }
+  .archive-hero h1 { margin: 0; font-size: var(--text-display); line-height: var(--lh-display); text-align: center; }
+  /* Source opens a section 42px above its centred heading, sets the cards 23px
+     below it, and closes 111px under the cards, where the divider wave sits. */
+  .archive-section { padding-block: 42px 111px; }
+  .archive-section > h2 { margin: 0 0 23px; font-size: var(--text-heading); line-height: var(--lh-heading); text-align: center; }
+  .archive-section--snapshots { padding-top: 0; }
+  /* The source divider is a 15px brand stroke clipped along one wave cycle of
+     the section width, its centreline 14px above the section's bottom edge. */
+  .archive-section--wave { position: relative; }
+  .archive-section--wave::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -7px;
+    left: 0;
+    height: 42px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1454 42" preserveAspectRatio="none"><path d="M0 21c363.5 -18 363.5 -18 727 0s363.5 18 727 0" fill="none" stroke="%237441d2" stroke-width="15"/></svg>') 0 0 / 100% 42px no-repeat;
+    pointer-events: none;
+  }
+  /* Source inverts the wave that closes the annual reports. */
+  .archive-section--reports::after { transform: scaleY(-1); }
+  /* Four 330.6px slides on a 351px pitch inside the 1382.41px container. The
+     list scrolls edge to edge, so the page gutter is its scroll padding. */
+  .archive-carousel {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - (20.4px * 3)) / 4);
+    gap: 20.4px;
+    margin: 0;
+    padding: 0 var(--gutter) 19.83px;
+    overflow-x: auto;
+    /* Proximity, not mandatory: arrow-key scrolling on the focused list moves
+       less than half a card, and mandatory snapping would undo it. */
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-color: var(--color-brand) rgba(116, 65, 210, 0.15);
+    list-style: none;
+  }
+  /* Every step inside a source card is a percentage of the card width: 5%
+     under the media, 3% above the date, 5% above the button, 6% below it. */
+  .archive-card { display: flex; min-width: 0; flex-direction: column; padding-bottom: 6%; scroll-snap-align: start; }
+  .archive-card__image { display: block; margin-bottom: 5%; overflow: hidden; aspect-ratio: 16 / 9; }
+  .archive-card__image img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .archive-card h3 { margin: 0 10% 0 0; font-size: 16px; line-height: 19.6352px; }
+  .archive-card h3 a { color: var(--color-ink); text-decoration: none; }
   .archive-card h3 a:hover { text-decoration: underline; }
-  .archive-card time, .archive-card p { margin: 0 0 16px; font-size: 15px; }
-  .button-link { display: inline-flex; align-items: center; align-self: flex-start; min-height: 44px; margin-top: auto; padding: 10px 20px; border-radius: 5px; color: #fff; background: var(--color-brand); font-size: 14px; font-weight: 700; text-decoration: none; text-transform: uppercase; }
-  .button-link:hover { background: #4b2e99; }
-  .archive-section--snapshots { position: relative; border-top: 9px solid var(--color-brand); }
-  .archive-card--snapshot .archive-card__image { aspect-ratio: 16 / 10; }
-  .archive-reports { color: #fff; background: linear-gradient(135deg, #5332a5, #7b3fd4); }
-  .report-grid { display: grid; width: min(920px, 100%); margin: 0 auto; grid-template-columns: repeat(2, 1fr); gap: 54px 96px; }
-  .report-grid article { display: flex; min-height: 190px; flex-direction: column; align-items: flex-start; justify-content: center; }
-  .report-grid h3 { margin: 0 0 18px; font-size: var(--text-heading); }
-  .report-grid .button-link { margin: 8px 0 0; color: var(--color-brand); background: #fff; }
+  .archive-card p { margin: 3% 10% 0 0; font-size: 12.544px; line-height: 22.5792px; }
+  .archive-card .button-link { min-height: 40px; margin-top: 5%; padding: 12.544px 22.5792px; font-size: 12.544px; }
+  .button-link {
+    display: inline-flex;
+    align-self: flex-start;
+    align-items: center;
+    justify-content: center;
+    min-height: 70px;
+    padding: 0 28.8px;
+    border-radius: var(--radius);
+    color: var(--color-surface);
+    background: var(--color-brand);
+    font-family: var(--font-display);
+    font-size: var(--text-nav);
+    font-weight: var(--weight-heading);
+    line-height: normal;
+    text-align: center;
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+  .button-link:hover { opacity: 0.8; transition: opacity var(--motion-fast) linear; }
+  /* Two report columns, each a 279px cover beside a 221px year-and-links
+     column, and each row the 315px height the source gives its covers. */
+  .archive-reports { display: grid; width: min(1034px, 100%); margin-inline: auto; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 12px; }
+  .archive-report { display: grid; grid-template-areas: 'cover year' 'cover links'; grid-template-columns: 279px minmax(0, 221px); align-content: start; column-gap: 11px; }
+  .archive-report h3 { grid-area: year; margin: 41px 0 0; font-size: var(--text-heading); line-height: var(--lh-heading); text-align: center; }
+  .archive-report__cover { grid-area: cover; width: 279px; height: 315px; object-fit: contain; }
+  .archive-report__documents { display: grid; grid-area: links; margin: 32px 0 0; padding: 0; gap: 12px; list-style: none; }
+  /* Source sets the report calls to action in capitals at the 16px nav step. */
+  .archive-report__documents .button-link { width: 100%; text-transform: uppercase; }
+  /* --- Archive presentation block (end) ----------------------------------
+     The Events Archive rules below belong to the Events completion lane. */
   .archive-events { width: min(1120px, 100%); margin: 0 auto; overflow: visible; }
   .archive-events__intro { max-width: 760px; margin: -18px auto 54px; text-align: center; }
   .event-feature, .event-sessions { margin: 0 auto 64px; }
@@ -332,16 +330,22 @@ const summitGallery = [
   .event-sessions article { padding: 30px 0; border-top: 1px solid #d8d0e7; }
   .event-sessions h4 { margin: 0 0 12px; font-size: 24px; }
   .playlist-grid { grid-template-columns: repeat(3, 1fr); margin-bottom: 0; }
-  @media (min-width: 1200px) {
-    .archive-carousel { grid-auto-columns: calc((100vw - 2 * var(--gutter) - 156px) / 4); }
-  }
   @media (max-width: 767px) {
-    .archive-hero { min-height: 160px; }
-    .archive-section { padding-top: 40px; padding-bottom: 54px; }
-    .archive-section > h2 { margin-bottom: 30px; font-size: 32px; }
-    .archive-carousel { grid-auto-columns: 82vw; gap: 20px; }
-    .report-grid, .event-grid, .playlist-grid { grid-template-columns: 1fr; gap: 24px; }
-    .report-grid article { min-height: 0; }
+    .archive-hero { min-height: 341px; }
+    .archive-section { padding-block: 30px 60px; }
+    .archive-section > h2 { margin-bottom: 20px; }
+    .archive-section--wave::after { bottom: -5px; height: 30px; background-size: 100% 30px; }
+    /* Source paints one full-width card per view inside an 8px scroll gutter. */
+    .archive-carousel { grid-auto-columns: 100%; padding-inline: 8px; scroll-padding-inline: 8px; }
+    .archive-card p { font-size: 13.9744px; line-height: 25.1539px; }
+    .archive-card .button-link { min-height: 44px; padding: 13.9744px 25.1539px; font-size: 13.9744px; }
+    .archive-reports { grid-template-columns: minmax(0, 1fr); row-gap: 40px; }
+    .archive-report { grid-template-areas: 'year' 'cover' 'links'; grid-template-columns: minmax(0, 1fr); justify-items: center; }
+    .archive-report h3 { margin-top: 0; }
+    .archive-report__cover { width: 141px; height: 199px; margin-top: 24px; }
+    .archive-report__documents { width: 166px; margin-top: 24px; gap: 8px; }
+    .archive-report__documents .button-link { min-height: 59px; }
+    .event-grid, .playlist-grid { grid-template-columns: 1fr; gap: 24px; }
     .event-grid article, .playlist-grid article { padding: 26px; }
   }
 </style>

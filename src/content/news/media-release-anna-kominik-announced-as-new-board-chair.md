@@ -1,6 +1,8 @@
 ---
 title: "Media release: Anna Kominik announced as new Board Chair"
 excerpt: "The Hillary Institute and Edmund Hillary Fellowship are delighted to announce the appointment of [Anna Kominik](https://www.linkedin.com/in/annakominik/?originalSubdomain=nz) as their new Board Chair."
+listingImage: "/assets/images/content/news-blog-media-release-anna-kominik-announced-as-new-board-chair-1.webp"
+listingAlt: ""
 heroImage: "/assets/images/content/news-blog-media-release-anna-kominik-announced-as-new-board-chair-1.webp"
 heroAlt: ""
 publishedAt: "2021-10-28"

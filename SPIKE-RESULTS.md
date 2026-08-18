@@ -65,24 +65,27 @@ These are deliberate improvements or fixed spike boundaries, not unrecorded omis
 - The source’s burger is represented with accessible controls and labels while preserving its measured two 35×1 px ink bars. Its raster phase is 0.42 CSS px different at DPR 3, but length, separation, color, and ink mass are matched; fitting a DPR-3 artifact would regress DPR 1 and 2.
 - The mobile disclosure chevron uses the source path and bounding box. Its mask rasterization has about 5% more ink mass than the source with identical 35×67 device-pixel bounds; this is accepted rather than introducing a brittle raster-specific adjustment.
 
-`tests/e2e/navigation.spec.ts` and `tests/e2e/accessibility.spec.ts` exercise the ARIA behavior, keyboard escape, modal containment, local assets, serious/critical axe coverage, the two retained article links, and the unavailable-route contract.
+At the Stage 1 baseline, `tests/e2e/navigation.spec.ts` and `tests/e2e/accessibility.spec.ts` exercised the ARIA behavior, keyboard escape, modal containment, local assets, serious/critical axe coverage, the two retained article links, and the unavailable-route contract.
 
-## Intentionally unavailable navigation destinations
+## Current route-scope correction
 
-The shared shell preserves these source-relative local paths, but Stage 1 does not generate pages for them. They are named in `src/components/navigation.ts`, `src/components/Footer.astro`, and the E2E contract; no test silently follows them:
+The Stage 1 capture below is historical only. Current live-source verification establishes `/impact-in-action` as a distinct Impact landing page, separate from `/read`; `/watch` is a public listing with offset pagination and 88 public Watch detail routes. These routes are included in the current manifest, not aliases, exclusions, or hash variants. `/homepage` → `/` is the sole permanent redirect.
+
+## Stage 1-only unavailable navigation destinations
+
+At the captured Stage 1 baseline, the shared shell preserved these source-relative local paths without generating their pages. This baseline did not classify them as exclusions and does not define the current route contract:
 
 - `/about-ehf`
 - `/journey`
 - `/our-values`
-- `/impact-in-action`
 - `/ehf-community-collective`
 - `/ehf-fellows-articles`
 - `/archive`
 - `/fellow-directory-advanced-search`
 - `/news`
-- `/read/page/2` (the retained Older Posts affordance; pagination generation is outside the spike)
+- `/read/page/2` (the retained Older Posts affordance; pagination generation was outside the spike)
 
-`https://www.ehf.org/news#fellows` remains an external source destination. `https://www.ehf.org/fellow-detail?fellow=Melahn-Parker#search=Mela&numRecords=24&minMatchCharLength=2` is the retained external Fellow profile source destination; its unimplemented `/fellow-detail` local counterpart is excluded from this spike. `https://www.chemergy.co/` is retained as the article’s external destination.
+The Stage 1 baseline had not rendered `/impact-in-action`; the verified current scope now includes it as its own landing route. `https://www.ehf.org/news#fellows` remains an external source destination. `https://www.ehf.org/fellow-detail?fellow=Melahn-Parker#search=Mela&numRecords=24&minMatchCharLength=2` is the retained external Fellow profile source destination; its unimplemented `/fellow-detail` local counterpart remains outside the Fellow Directory scope. `https://www.chemergy.co/` is retained as the article’s external destination.
 
 ## Measurements
 

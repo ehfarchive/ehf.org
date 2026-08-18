@@ -1,6 +1,8 @@
 ---
 title: "Building Innovation Growth through Global Talent"
 excerpt: "*Franz Josef, Aotearoa NZ*"
+listingImage: "/assets/images/content/news-blog-building-innovation-growth-through-global-talent-1.webp"
+listingAlt: ""
 heroImage: "/assets/images/content/news-blog-building-innovation-growth-through-global-talent-1.webp"
 heroAlt: ""
 publishedAt: "2025-06-04"

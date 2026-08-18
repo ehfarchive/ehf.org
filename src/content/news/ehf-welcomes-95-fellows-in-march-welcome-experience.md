@@ -1,6 +1,8 @@
 ---
 title: "EHF Welcomes 95 Fellows in March Welcome Experience"
 excerpt: "***The Edmund Hillary Fellowship (EHF) has welcomed 95 Fellows into the Fellowship during its March Welcome Experience in Lower Hutt. After interacting with each other online for several years, Fellows participated in a three-day immersive experience, building meaningful connections and growing their understanding of Aotearoa as a bi-cultural nation and a basecamp for global impact.***"
+listingImage: "/assets/images/content/news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-1.webp"
+listingAlt: ""
 heroImage: "/assets/images/content/news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-1.webp"
 heroAlt: ""
 publishedAt: "2023-03-24"

@@ -1,6 +1,8 @@
 ---
 title: "Reflections this Waitangi Day"
 excerpt: "*Fellows Group Iti Rearea at Waiwhetu Marae during a pōhiri by Te Āti Awa as part of the October 2022 Welcome Experience*"
+listingImage: "/assets/images/content/news-blog-reflections-this-waitangi-day-2023-1.webp"
+listingAlt: ""
 heroImage: "/assets/images/content/news-blog-reflections-this-waitangi-day-2023-1.webp"
 heroAlt: ""
 publishedAt: "2023-02-06"

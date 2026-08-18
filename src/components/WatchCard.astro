@@ -1,0 +1,27 @@
+---
+import ResponsiveImage from './ResponsiveImage.astro';
+
+interface Props {
+  /** Real video title. Source paints no visible card label, so it names the link instead. */
+  label: string;
+  href: string;
+  assetId: string;
+  /** Source listing title, kept as markup the way the source carries it. */
+  listingTitle: string;
+  /** Source listing excerpt, kept as markup the way the source carries it. */
+  excerpt: string;
+}
+
+const { label, href, assetId, listingTitle, excerpt } = Astro.props;
+---
+{/* Source paints the card as artwork alone: its title renders empty and the tweak set
+    hides the excerpt and the read-more link, so those three carry through as markup the
+    source serves but never shows, and the artwork link takes the video's own name. */}
+<article class="watch-card">
+  <a class="watch-card__link" href={href} aria-label={label}>
+    <ResponsiveImage assetId={assetId} alt="" width={640} height={480} sizes="(max-width: 767px) 100vw, 25vw" />
+  </a>
+  <h2 class="watch-card__title"><a href={href} tabindex="-1">{listingTitle}</a></h2>
+  <p class="watch-card__excerpt">{excerpt}</p>
+  <a class="watch-card__more" href={href} tabindex="-1">Read More</a>
+</article>

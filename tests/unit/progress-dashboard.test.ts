@@ -8,7 +8,7 @@ test('refreshes route progress once per minute', () => {
   expect(REFRESH_INTERVAL_MS).toBe(60_000);
 });
 
-test('tracks every implemented route exactly once', () => {
+test('tracks every manifest-included route exactly once', () => {
   const expectedPaths = routeManifest.routes
     .filter((route) => route.kind === 'included')
     .map((route) => route.path)
@@ -36,12 +36,15 @@ test('summarizes done, in-progress, and not-started routes', () => {
   });
 });
 
-test('progress reflects completion of every route', () => {
+test('derives progress totals from the included route manifest', () => {
+  const total = routeManifest.routes.filter((route) => route.kind === 'included').length;
+  const done = progressData.routes.filter((route) => route.status === 'done').length;
+
   expect(summarizeRoutes(progressData.routes)).toEqual({
-    total: 173,
-    done: 173,
+    total,
+    done,
     inProgress: 0,
     notStarted: 0,
-    percentDone: 100
+    percentDone: Number(((done / total) * 100).toFixed(1))
   });
 });

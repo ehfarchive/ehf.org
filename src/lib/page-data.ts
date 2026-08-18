@@ -1,6 +1,6 @@
 import type { IncludedRouteRecord, RouteManifest, TemplateFamily } from './route-manifest';
 
-type GeneratedTemplate = Extract<TemplateFamily, 'homepage' | 'impact-listing' | 'news-listing' | 'archive' | 'not-found'>;
+type GeneratedTemplate = Extract<TemplateFamily, 'homepage' | 'impact-landing' | 'impact-listing' | 'watch-listing' | 'news-listing' | 'fellows-article-listing' | 'archive' | 'not-found'>;
 type LocalTemplate = Exclude<TemplateFamily, GeneratedTemplate>;
 
 export type LocalContentManifestRecord = {
@@ -89,7 +89,7 @@ export function loadPageSections(input: unknown, route: string): PageSection[] {
 }
 
 const recordKeys = ['route', 'template', 'localInput', 'contentHash'];
-const localInputPattern = /^src\/content\/(?:impact|news|events|snapshots|pages\/(?:institutional|legal|reports|contact-media-donation))\/[a-z0-9][a-z0-9-]*\.(?:md|json)$/;
+const localInputPattern = /^src\/content\/(?:impact|watch|fellows-articles|news|events|snapshots|pages\/(?:institutional|legal|reports|contact-media-donation))\/[a-z0-9][a-z0-9-]*\.(?:md|json)$/;
 
 export function validateContentManifest(manifest: unknown): string[] {
   if (typeof manifest !== 'object' || manifest === null || Array.isArray(manifest)) return ['content manifest must be an object'];
@@ -105,8 +105,8 @@ export function validateContentManifest(manifest: unknown): string[] {
     if (typeof record.route !== 'string' || !record.route.startsWith('/')) errors.push(`content[${index}] needs a route`);
     if (typeof record.route === 'string' && routes.has(record.route)) errors.push(`content manifest has duplicate route: ${record.route}`);
     if (typeof record.route === 'string') routes.add(record.route);
-    if (typeof record.template !== 'string' || !['homepage', 'impact-listing', 'impact-article', 'news-listing', 'news-article', 'event-programme', 'annual-report-document', 'fellows-news-snapshot', 'archive', 'institutional', 'contact-media-donation', 'legal', 'not-found'].includes(record.template)) errors.push(`content[${index}] needs a valid template`);
-    const generated = ['homepage', 'impact-listing', 'news-listing', 'archive', 'not-found'].includes(record.template as string);
+    if (typeof record.template !== 'string' || !['homepage', 'impact-landing', 'impact-listing', 'impact-article', 'watch-listing', 'watch-article', 'news-listing', 'news-article', 'fellows-article-listing', 'fellows-article', 'event-programme', 'annual-report-document', 'fellows-news-snapshot', 'archive', 'institutional', 'contact-media-donation', 'legal', 'not-found'].includes(record.template)) errors.push(`content[${index}] needs a valid template`);
+    const generated = ['homepage', 'impact-landing', 'impact-listing', 'watch-listing', 'news-listing', 'fellows-article-listing', 'archive', 'not-found'].includes(record.template as string);
     if (generated && (record.localInput !== null || record.contentHash !== null)) errors.push(`content[${index}] generated templates must not have local content`);
     if (!generated && (typeof record.localInput !== 'string' || !localInputPattern.test(record.localInput))) errors.push(`content[${index}] needs an approved localInput`);
     if (!generated && (typeof record.contentHash !== 'string' || !/^[a-f0-9]{64}$/.test(record.contentHash))) errors.push(`content[${index}] needs a 64-character lowercase SHA-256 contentHash`);
