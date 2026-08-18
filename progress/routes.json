@@ -1,0 +1,715 @@
+{
+  "schemaVersion": 1,
+  "routes": [
+    {
+      "path": "/",
+      "family": "homepage",
+      "status": "done"
+    },
+    {
+      "path": "/2025-hillary-innovation-summit-breakout-sessions-summary",
+      "family": "event-programme",
+      "status": "done"
+    },
+    {
+      "path": "/2025-summit-programme",
+      "family": "event-programme",
+      "status": "done"
+    },
+    {
+      "path": "/22-annual-report",
+      "family": "annual-report-document",
+      "status": "done"
+    },
+    {
+      "path": "/23-annual-report",
+      "family": "annual-report-document",
+      "status": "done"
+    },
+    {
+      "path": "/404",
+      "family": "not-found",
+      "status": "done"
+    },
+    {
+      "path": "/about-ehf",
+      "family": "institutional",
+      "status": "done"
+    },
+    {
+      "path": "/archive",
+      "family": "archive",
+      "status": "not-started"
+    },
+    {
+      "path": "/communitycollective",
+      "family": "institutional",
+      "status": "done"
+    },
+    {
+      "path": "/contact-media",
+      "family": "contact-media-donation",
+      "status": "done"
+    },
+    {
+      "path": "/contact-us",
+      "family": "contact-media-donation",
+      "status": "done"
+    },
+    {
+      "path": "/donation-more-than-10k",
+      "family": "contact-media-donation",
+      "status": "done"
+    },
+    {
+      "path": "/donation-outside-nz-and-us",
+      "family": "contact-media-donation",
+      "status": "done"
+    },
+    {
+      "path": "/donation-pledge",
+      "family": "contact-media-donation",
+      "status": "done"
+    },
+    {
+      "path": "/donation-refund-request",
+      "family": "contact-media-donation",
+      "status": "done"
+    },
+    {
+      "path": "/ehf-friendly-sharks-waiting-list",
+      "family": "contact-media-donation",
+      "status": "done"
+    },
+    {
+      "path": "/journey",
+      "family": "institutional",
+      "status": "done"
+    },
+    {
+      "path": "/media-inquiries",
+      "family": "contact-media-donation",
+      "status": "done"
+    },
+    {
+      "path": "/news-and-events-updates",
+      "family": "contact-media-donation",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog",
+      "family": "news-listing",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/2021-2022-annual-report-shows-year-of-impact",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/2023-a-year-of-connections-impact-and-milestones",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/a-new-expedition-the-mission-studio",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/announcing-the-new-ceo-for-ehf",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/building-innovation-growth-through-global-talent",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/closer-alignment-between-hillary-institute-ehf-to-unlock-potential",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/ehf-welcomes-95-fellows-in-march-welcome-experience",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/ehf-welcomes-more-than-100-fellows-in-2022",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/farewell-thank-you-and-congratulations-to-paul-atkins",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/fellow-led-board-established-with-four-fellows-appointed-as-new-directors",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/impact-springboard-showcases-leading-innovation-for-global-impact",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/media-release-anna-kominik-announced-as-new-board-chair",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/page/2",
+      "family": "news-listing",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/reflections-of-sir-edmund-hillarys-legacy-on-everest-day",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/reflections-this-waitangi-day-2023",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/reflections-this-waitangi-day-2024",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/the-hillary-institute-ehf-submission-on-amending-foreign-investment-funds-rules-for-migrants",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/news-blog/the-mission-studio-first-convening",
+      "family": "news-article",
+      "status": "done"
+    },
+    {
+      "path": "/our-values",
+      "family": "institutional",
+      "status": "done"
+    },
+    {
+      "path": "/privacy-policy",
+      "family": "legal",
+      "status": "done"
+    },
+    {
+      "path": "/read",
+      "family": "impact-listing",
+      "status": "done"
+    },
+    {
+      "path": "/read/a-new-governance-landscape-on-the-moon",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/a-new-wave-of-entrepreneurial-talent-for-new-zealand",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/a-sweet-symphony-of-collaboration-and-impact",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/accelerating-impact-through-the-power-of-the-sun",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/access-to-justice-through-collaborative-action",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/accessible-tech-thats-breaking-down-barriers",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/activating-generational-change-for-aotearoa-nzs-wellbeing",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/aerospace-venture-spotlight-kea-aerospace",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/aotearoa-ideal-basecamp-for-space",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/authentic-storytelling-in-service-of-impact",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/brewing-hope",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/bringing-the-worlds-unbanked-on-the-path-to-financial-security",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/building-aotearoas-leaders-of-tomorrow",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/building-climate-resilience-in-the-pacific-aotearoa",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/building-financial-literacy-in-the-fight-against-climate-change",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/catalysing-environmental-action-for-a-sustainable-future",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/celebrating-achievements-and-values-this-everest-day",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/celebrating-milestones-and-opening-a-new-chapter",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/championing-maori-and-indigenous-enterprise-and-cultural-values",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/charting-the-path-how-we-frame-impact",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/could-training-and-upskilling-be-the-most-efficient-way-to-transform-aotearoa-into-a-climate-leader",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/creating-a-more-accessible-world-for-everyone",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/creating-a-positive-change-for-people-and-planet",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/creating-energy-from-waste-in-aotearoa",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/creating-opportunities-for-maori-pasifika-talent-in-gaming",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/crowdfunding-land-stewardship-in-regional-aotearoa",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/cultivating-indigenous-entrepreneurship",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/cultivating-regenerative-organic-futures",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/dealing-a-better-hand-during-covid-19",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/decentralised-social-media-by-and-for-the-people",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/destruction-and-rebirth-building-a-new-new-zealand-post-covid-19",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/discovering-founder-kaupapa-outside-the-valley",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/disrupting-lending-systems",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/elevating-connectorship-to-create-change",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/enabling-prosperity-through-regeneration",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/energy-lifelines-enabling-remote-communities",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/expanding-the-global-footprint-of-new-zealand-stories",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/fellows-in-action-a-global-effort-to-support-ukrainians",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/getting-the-whole-world-humming-after-a-crisis",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/globalising-kiwi-innovation",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/harnessing-pine-pollens-power-to-transform-wellbeing",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/helping-to-solve-the-unsolvable-challenges",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/hepatitis-c-silencing-a-silent-killer",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/how-chemergy-is-changing-the-game-in-waste-to-energy",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/how-do-we-design-an-inclusive-future-with-refugee-teens",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/inclusivity-in-the-age-of-space-exploration",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/information-sharing-for-public-good",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/investing-in-kiwi-start-ups",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/ko-te-wananga-kei-a-koutou-kethe-knowledge-is-within-you",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/leading-the-metaverse-revolution-from-aotearoa-nz",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/making-aotearoa-an-innovation-nation",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/making-ocean-science-accessible-to-all",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/measuring-justice",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/media-release-new-zealand-experience-behind-environmental-awakening-for-world-leading-scientists",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/mindfulness-for-kiwi-kids",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/nature-inspired-solutions-for-global-environmental-health",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/one-chapter-ends-and-another-begins",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/opening-doors-for-rangatahi-young-people-in-tech",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/page/2",
+      "family": "impact-listing",
+      "status": "done"
+    },
+    {
+      "path": "/read/page/3",
+      "family": "impact-listing",
+      "status": "done"
+    },
+    {
+      "path": "/read/page/4",
+      "family": "impact-listing",
+      "status": "done"
+    },
+    {
+      "path": "/read/page/5",
+      "family": "impact-listing",
+      "status": "done"
+    },
+    {
+      "path": "/read/powering-purpose-with-electric-utility-bikes",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/removing-bias-in-a-fight-for-social-and-economic-justice",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/restorative-finance",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/revolutionising-tech-from-nz",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/scaling-kiwi-healthcare-business-at-home-and-going-global",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/sharing-a-solar-powered-future",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/shifting-the-equity-conversation-from-aspiration-to-action",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/shining-a-light-on-climate-forward-organisations",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/solving-one-of-our-oldest-hardest-problems-by-turning-human-waste-into-fuel",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/solving-the-ocean-plastics-problem",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/space-venture-spotlight-ceres-robotics",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/supporting-grassroots-innovation-at-the-edge-of-the-map",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/supporting-kiwi-founders-to-thrive",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/supporting-values-based-innovation-in-aotearoa",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/tackling-global-textile-waste-through-innovative-solutions",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/tackling-the-ugly-truth-behind-the-fashion-industry",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/te-pa-o-rakaihautu-from-vision-to-reality",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/the-awa/river-story-inspiring-connection-action",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/the-decisive-decade-for-humanitys-future-on-earth",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/the-future-of-funding-impact-projects",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/the-global-impact-visa-pilot",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/the-world-changing-power-of-true-stories",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/transformative-solar-education-in-schools-across-aotearoa",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/transforming-lives-in-niue-by-eliminating-hepatitis",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/transforming-maori-education-and-revitalising-identity",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/read/unlocking-the-potential-of-offshore-wind",
+      "family": "impact-article",
+      "status": "done"
+    },
+    {
+      "path": "/refund-policy-terms-and-conditions",
+      "family": "legal",
+      "status": "done"
+    },
+    {
+      "path": "/summer-edition-2025",
+      "family": "institutional",
+      "status": "done"
+    },
+    {
+      "path": "/terms-of-use",
+      "family": "legal",
+      "status": "done"
+    }
+  ]
+}
