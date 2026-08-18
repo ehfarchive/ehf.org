@@ -1,5 +1,7 @@
 const VALID_STATUSES = new Set(['done', 'in-progress', 'not-started']);
 
+export const REFRESH_INTERVAL_MS = 60_000;
+
 export function validateRouteProgress(routes) {
   if (!Array.isArray(routes) || routes.length === 0) {
     throw new Error('Route progress must contain at least one route');
@@ -127,5 +129,5 @@ if (typeof document !== 'undefined') {
   });
 
   refresh();
-  window.setInterval(refresh, 2000);
+  window.setInterval(refresh, REFRESH_INTERVAL_MS);
 }
