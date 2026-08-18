@@ -107,12 +107,12 @@ for (const route of spikeRoutes) {
 
     const inspection = await page.evaluate(() => ({
       links: [...document.querySelectorAll<HTMLAnchorElement>('a[href]')].map((link) => link.getAttribute('href')),
-      images: [...document.images].map((image) => ({ src: image.getAttribute('src'), complete: image.complete, naturalWidth: image.naturalWidth }))
+      images: [...document.images].filter((image) => image.getClientRects().length > 0).map((image) => ({ src: image.getAttribute('src'), complete: image.complete, naturalWidth: image.naturalWidth }))
     }));
 
     for (const href of inspection.links) {
       expect(href).not.toBeNull();
-      expect(href).toMatch(/^(\/|https:\/\/|#)/);
+      expect(href).toMatch(/^(\/|https:\/\/|#|\?)/);
     }
     for (const image of inspection.images) {
       expect(image.src).toMatch(/^\/assets\//);

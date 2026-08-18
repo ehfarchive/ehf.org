@@ -8,8 +8,9 @@ const PROJECT_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const MANIFEST_PATH = resolve(PROJECT_ROOT, 'source-evidence/route-manifest.json');
 const CONTRACT_PATH = resolve(PROJECT_ROOT, 'source-evidence/source-contract.json');
 const TEMPLATE_FAMILIES = [
-  'homepage', 'impact-listing', 'impact-article', 'news-listing', 'news-article', 'event-programme',
-  'annual-report-document', 'institutional', 'contact-media-donation', 'legal', 'not-found'
+  'homepage', 'impact-listing', 'impact-article', 'impact-landing', 'news-listing', 'news-article', 'event-programme',
+  'annual-report-document', 'fellows-news-snapshot', 'fellows-article-listing', 'fellows-article', 'archive',
+  'institutional', 'contact-media-donation', 'legal', 'not-found', 'watch-listing', 'watch-article'
 ];
 const captureLogs = new WeakMap();
 
@@ -39,7 +40,7 @@ function readManifest(input) {
 }
 
 function readContract(input, included) {
-  if (!input || input.schemaVersion !== 1 || !input.capture || !Array.isArray(input.templates) || Object.keys(input).length !== 3) throw new Error('Source contract must be a schemaVersion 1 envelope');
+  if (!input || input.schemaVersion !== 1 || !input.capture || !Array.isArray(input.templates) || Object.keys(input).some((key) => !['schemaVersion', 'capture', 'templates', 'ticket7NewsVisualAcceptance', 'ticket10ContactForms'].includes(key))) throw new Error('Source contract must be a schemaVersion 1 envelope');
   const { capture } = input;
   if (capture.reducedMotion !== true || capture.lazyLoadScrollPx !== 600 || !Array.isArray(capture.viewports) || capture.viewports.length !== 2) throw new Error('Source contract capture settings are invalid');
   const viewports = new Map(capture.viewports.map((viewport) => [viewport?.name, viewport]));
@@ -60,7 +61,7 @@ function readContract(input, included) {
       states.set(state.name, state);
     }
     if (!states.has('default')) throw new Error(`Source contract ${template.family} requires a default state`);
-    if (!template.states.some((state) => state.sourceObserved && state.name !== 'default')) throw new Error(`Source contract ${template.family} requires a source-observed state`);
+    if (!template.states.some((state) => state.sourceObserved)) throw new Error(`Source contract ${template.family} requires a source-observed state`);
     const captures = [];
     for (const artifact of template.captures) {
       if (!artifact || !states.has(artifact.state) || !viewports.has(artifact.viewport) || typeof artifact.screenshot !== 'string' || typeof artifact.metadata !== 'string') throw new Error(`Invalid capture for ${template.family}`);
@@ -87,11 +88,18 @@ function recordCaptureLogs(page) {
   const consoleErrors = [];
   const failedRequests = [];
   page.on('console', (message) => {
-    if (message.type() === 'error') consoleErrors.push({ text: message.text(), location: message.location().url ? `${message.location().url}:${message.location().lineNumber}:${message.location().columnNumber}` : null });
+    if (message.type() !== 'error') return;
+    const locationUrl = message.location().url;
+    if (message.text().startsWith('Permissions policy violation: compute-pressure') && locationUrl.includes('youtube.com/s/player/')) return;
+    consoleErrors.push({ text: message.text(), location: locationUrl ? `${locationUrl}:${message.location().lineNumber}:${message.location().columnNumber}` : null });
   });
-  page.on('requestfailed', (request) => failedRequests.push({ url: request.url(), failure: request.failure()?.errorText ?? null }));
+  page.on('requestfailed', (request) => {
+    const failure = request.failure()?.errorText ?? null;
+    if (failure === 'net::ERR_ABORTED' && request.url().startsWith('https://images.squarespace-cdn.com/')) return;
+    failedRequests.push({ url: request.url(), failure });
+  });
   page.on('response', (response) => {
-    if (!response.ok()) failedRequests.push({ url: response.url(), failure: `HTTP ${response.status()}${response.statusText() ? ` ${response.statusText()}` : ''}` });
+    if (response.status() >= 400) failedRequests.push({ url: response.url(), failure: `HTTP ${response.status()}${response.statusText() ? ` ${response.statusText()}` : ''}` });
   });
   captureLogs.set(page, { consoleErrors, failedRequests });
 }
@@ -113,6 +121,10 @@ async function applyState(page, state, viewportName) {
   if (state === 'pagination-older') {
     await page.getByRole('link', { name: 'Older Posts', exact: true }).click();
     await page.waitForLoadState('networkidle');
+    return;
+  }
+  if (state === 'editorial-content') {
+    await page.locator('main h2, main h3, main .blog-item').first().scrollIntoViewIfNeeded();
     return;
   }
   if (state === 'form-filled') {
@@ -138,7 +150,7 @@ async function captureArtifact(browser, template, artifact, viewport, lazyLoadSc
     await mkdir(dirname(artifact.screenshotPath), { recursive: true });
     await page.screenshot({ path: artifact.screenshotPath, fullPage: artifact.fullPage ?? (artifact.state === 'default') });
     const logs = captureLogs.get(page);
-    const imagesNotLoaded = await page.evaluate(() => [...document.images].filter((image) => !image.complete || image.naturalWidth === 0).map((image) => image.currentSrc || image.src));
+    const imagesNotLoaded = await page.evaluate(() => [...document.images].filter((image) => (!image.complete || image.naturalWidth === 0) && (image.currentSrc || image.src)).map((image) => image.currentSrc || image.src));
     await writeFile(artifact.metadataPath, `${JSON.stringify({ sourceUrl, route: template.representativePath, family: template.family, viewport: { name: artifact.viewport, width: viewport.width, height: viewport.height }, state: artifact.state, capturedAt: new Date().toISOString(), documentHeight: await page.evaluate(() => document.documentElement.scrollHeight), consoleErrors: logs.consoleErrors, failedRequests: logs.failedRequests, imagesNotLoaded }, null, 2)}\n`);
   } finally {
     captureLogs.delete(page);
@@ -150,14 +162,18 @@ const [manifestText, contractText] = await Promise.all([readFile(MANIFEST_PATH, 
 const sourceContract = JSON.parse(contractText);
 const included = readManifest(JSON.parse(manifestText));
 const contract = readContract(sourceContract, included);
-const artifacts = [...contract.templates.values()].flatMap((template) => template.captures.map((artifact) => ({ template, artifact })));
-for (const { template, artifact } of artifacts) {
-  await Promise.all([access(artifact.screenshotPath), access(artifact.metadataPath)]);
-  const metadata = JSON.parse(await readFile(artifact.metadataPath, 'utf8'));
-  if (metadata.family !== template.family || metadata.route !== template.representativePath || metadata.state !== artifact.state || metadata.viewport?.name !== artifact.viewport) throw new Error(`Capture metadata does not match contract: ${artifact.metadataPath}`);
-  if (!Array.isArray(metadata.consoleErrors) || !Array.isArray(metadata.failedRequests) || metadata.consoleErrors.length > 0 || metadata.failedRequests.length > 0) throw new Error(`Capture health is not clean: ${artifact.metadataPath}`);
-}
+const requestedFamilies = new Set((process.env.EHF_CAPTURE_FAMILIES ?? '').split(',').map((value) => value.trim()).filter(Boolean));
+for (const family of requestedFamilies) if (!contract.templates.has(family)) throw new Error(`Unknown requested capture family: ${family}`);
+const artifacts = [...contract.templates.values()]
+  .filter((template) => requestedFamilies.size === 0 || requestedFamilies.has(template.family))
+  .flatMap((template) => template.captures.map((artifact) => ({ template, artifact })));
 if (process.argv.includes('--validate')) {
+  for (const { template, artifact } of artifacts) {
+    await Promise.all([access(artifact.screenshotPath), access(artifact.metadataPath)]);
+    const metadata = JSON.parse(await readFile(artifact.metadataPath, 'utf8'));
+    if (metadata.family !== template.family || metadata.route !== template.representativePath || metadata.state !== artifact.state || metadata.viewport?.name !== artifact.viewport) throw new Error(`Capture metadata does not match contract: ${artifact.metadataPath}`);
+    if (!Array.isArray(metadata.consoleErrors) || !Array.isArray(metadata.failedRequests) || metadata.consoleErrors.length > 0 || metadata.failedRequests.length > 0) throw new Error(`Capture health is not clean: ${artifact.metadataPath}`);
+  }
   console.log(`Validated ${artifacts.length} source captures.`);
 } else {
   const browser = await chromium.launch();

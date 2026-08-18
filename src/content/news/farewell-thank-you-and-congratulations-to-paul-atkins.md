@@ -1,6 +1,8 @@
 ---
 title: "Farewell, thank you and congratulations to Paul Atkins"
 excerpt: "Since January of this year, we’ve been privileged to have the guidance of Paul Atkins as the Chair of the Board of Trustees for the Hillary Institute and Edmund Hillary Fellowship. Paul’s leadership and expertise have been invaluable, particularly during a time of adjustment and transition in a post-COVID reality, but a new adventure awaits him which we can’t help but be incredibly excited about."
+listingImage: "/assets/images/content/news-blog-farewell-thank-you-and-congratulations-to-paul-atkins-1.webp"
+listingAlt: "Paul.jpeg"
 heroImage: "/assets/images/content/news-blog-farewell-thank-you-and-congratulations-to-paul-atkins-1.webp"
 heroAlt: "Paul.jpeg"
 publishedAt: "2021-08-11"

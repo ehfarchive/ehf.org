@@ -58,7 +58,7 @@ async function prepareComparableDocument(page: Page): Promise<{ scrollPositions:
     scrollPositions.push(position);
     await page.waitForTimeout(100);
   }
-  await page.waitForFunction(() => [...document.images].every((image) => image.complete && image.naturalWidth > 0));
+  await page.waitForFunction(() => [...document.images].filter((image) => image.getClientRects().length > 0).every((image) => image.complete && image.naturalWidth > 0));
   await page.evaluate(async () => {
     window.scrollTo(0, 0);
     await new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve())));
@@ -141,9 +141,11 @@ export async function captureComparable(page: Page, route: string, viewport: { w
       }
     }
 
-    const localImages = await page.locator('img').evaluateAll((images) => (images as HTMLImageElement[]).map((image) => image.currentSrc));
+    const localImages = await page.locator('img').evaluateAll((images) => (images as HTMLImageElement[])
+      .filter((image) => image.getClientRects().length > 0)
+      .map((image) => image.currentSrc));
     const unloadedImages = await page.locator('img').evaluateAll((images) => (images as HTMLImageElement[])
-      .filter((image) => !image.complete || image.naturalWidth === 0)
+      .filter((image) => image.getClientRects().length > 0 && (!image.complete || image.naturalWidth === 0))
       .map((image) => image.currentSrc || image.src));
     const iframes = await page.locator('iframe').evaluateAll((frames) => (frames as HTMLIFrameElement[]).map((frame) => frame.src));
     const screenshotEvidence = await captureScreenshotEvidence(page, state);
@@ -522,7 +524,12 @@ test('homepage six-state comparable captures honour committed source evidence an
       failedRequests: [],
       imagesNotLoaded: []
     });
-    const sourceMeasurements = homepageSource?.measurements[viewportName];
+    const sourceMeasurements = homepageSource?.measurements[viewportName] as {
+      documentHeightPx: number;
+      headerHeightPx: number;
+      footerHeightPx: number;
+      sectionMetrics: Array<{ widthPx: number; heightPx: number }>;
+    } | undefined;
     expect(sourceMeasurements).toBeDefined();
     if (!sourceMeasurements) throw new Error(`Missing committed ${viewportName} homepage measurements`);
     const sourceEvidenceMatchesCurrentGeometry = sourceScreenshot.heightPx === sourceMeasurements.documentHeightPx;
@@ -709,11 +716,9 @@ test('News active comparison states render local media, one main landmark, and n
 
   await page.goto('/news-blog');
   await expect(page.getByRole('main')).toHaveCount(1);
-  await expect(page.locator('[data-news-slug]')).toHaveCount(20);
-  await expect(page.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '/news-blog/page/2');
-  await page.goto('/news-blog/page/2');
-  await expect(page.locator('[data-news-slug]')).toHaveCount(7);
-  await expect(page.getByRole('link', { name: 'Newer Posts' })).toHaveAttribute('href', '/news-blog');
+  await expect(page.locator('[data-news-slug]')).toHaveCount(27);
+  await expect(page.locator('[data-news-slug]:visible')).toHaveCount(20);
+  await expect(page.getByRole('navigation', { name: 'News pagination' }).getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '?offset=1675630776192');
   await page.goto('/news-blog/announcing-the-new-ceo-for-ehf');
   await expect(page.getByRole('main')).toHaveCount(1);
   await expect(page.locator('.article-page__hero, .article-page__body iframe')).toHaveCount(0);
@@ -733,16 +738,19 @@ test('News visual contract retains two-column editorial cards and centered artic
   const listing = await page.locator('[data-news-listing]').evaluate((root) => {
     const grid = root.querySelector<HTMLElement>('.news-grid')!;
     const cards = [...root.querySelectorAll<HTMLElement>('[data-news-card]')];
-    const firstImage = cards[0].querySelector('img')!.getBoundingClientRect();
+    const visibleCards = cards.filter((card) => card.getClientRects().length > 0);
+    const firstImage = visibleCards[0].querySelector('img')!.getBoundingClientRect();
     const style = getComputedStyle(grid);
     return {
-      cards: cards.filter((card) => !card.hidden).length,
-      dates: cards.filter((card) => !card.hidden && /^\d{1,2}\/\d{1,2}\/\d{2}$/.test(card.querySelector('time')?.textContent?.trim() ?? '')).length,
-      readMore: cards.filter((card) => !card.hidden && [...card.querySelectorAll('a')].some((link) => link.textContent?.trim() === 'Read More')).length,
+      totalCards: cards.length,
+      cards: visibleCards.length,
+      dates: visibleCards.filter((card) => /^\d{1,2}\/\d{1,2}\/\d{2}$/.test(card.querySelector('time')?.textContent?.trim() ?? '')).length,
+      readMore: visibleCards.filter((card) => [...card.querySelectorAll('a')].some((link) => link.textContent?.trim() === 'Read More')).length,
       columns: style.gridTemplateColumns.split(' ').filter(Boolean).length,
       imageRatio: firstImage.width / firstImage.height
     };
   });
+  expect(listing.totalCards).toBe(27);
   expect(listing.cards).toBe(20);
   expect(listing.dates).toBe(20);
   expect(listing.readMore).toBe(20);

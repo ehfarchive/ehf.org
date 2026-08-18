@@ -28,17 +28,18 @@ for (const route of spikeRoutes) {
   });
 }
 
-test('the archive renders 20 deterministic first-page cards with source-style pagination', async ({ page }) => {
+test('the archive exposes all source cards and 20 deterministic first-page cards with query pagination', async ({ page }) => {
   await page.goto('/read');
 
   const cards = page.locator('[data-read-card]');
-  await expect(cards).toHaveCount(20);
+  await expect(cards).toHaveCount(85);
+  await expect(cards.filter({ visible: true })).toHaveCount(20);
   await expect(cards.first()).toHaveAttribute('data-impact-slug', 'how-chemergy-is-changing-the-game-in-waste-to-energy');
   await expect(cards.first().locator('img')).toHaveAttribute('src', '/assets/images/cards/chemergy.webp');
   const pagination = page.getByRole('navigation', { name: 'Impact pagination' });
   await expect(pagination).toBeVisible();
   await expect(pagination.getByRole('link', { name: 'Newer Posts' })).toHaveCount(0);
-  await expect(pagination.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '/read/page/2');
+  await expect(pagination.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '?offset=1715571924869');
 });
 
 test('the archive uses a single source-order stack on mobile', async ({ page }, testInfo) => {
@@ -94,27 +95,28 @@ test('the article keeps its fixed-source engineer figure within a 320px viewport
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
 });
 
-test('Impact pagination exposes declared source-style destinations', async ({ page }) => {
+test('Impact pagination exposes the live query-cursor chain', async ({ page }) => {
   await page.goto('/read');
 
-  const firstPagePagination = page.getByRole('navigation', { name: 'Impact pagination' });
-  await expect(firstPagePagination.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '/read/page/2');
-  await page.goto('/read/page/3');
-  const middlePagePagination = page.getByRole('navigation', { name: 'Impact pagination' });
-  await expect(middlePagePagination.getByRole('link', { name: 'Newer Posts' })).toHaveAttribute('href', '/read/page/2');
-  await expect(middlePagePagination.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '/read/page/4');
-  await page.goto('/read/page/5');
-  await expect(page.locator('[data-read-card]')).toHaveCount(4);
-  const finalPagePagination = page.getByRole('navigation', { name: 'Impact pagination' });
-  await expect(finalPagePagination.getByRole('link', { name: 'Newer Posts' })).toHaveAttribute('href', '/read/page/4');
-  await expect(finalPagePagination.getByRole('link', { name: 'Older Posts' })).toHaveCount(0);
+  const pagination = page.getByRole('navigation', { name: 'Impact pagination' });
+  await expect(pagination.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '?offset=1715571924869');
+  await pagination.getByRole('link', { name: 'Older Posts' }).click();
+  await expect(page).toHaveURL(/\?offset=1715571924869$/);
+  await expect(page.locator('[data-read-card]:visible')).toHaveCount(20);
+  await expect(pagination.getByRole('link', { name: 'Newer Posts' })).toHaveAttribute('href', '?offset=1714430433447&reversePaginate=true');
+  await expect(pagination.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '?offset=1657161783620');
+
+  await page.goto('/read?offset=1594243440651');
+  await expect(page.locator('[data-read-card]:visible')).toHaveCount(5);
+  await expect(pagination.getByRole('link', { name: 'Newer Posts' })).toHaveAttribute('href', '?offset=1593586980878&reversePaginate=true');
+  await expect(pagination.getByRole('link', { name: 'Older Posts' })).toHaveCount(0);
 });
 
 test('manifest-declared Impact articles beyond Chemergy are generated', async ({ page }) => {
   const neighbour = await page.goto('/read/harnessing-pine-pollens-power-to-transform-wellbeing');
   expect(neighbour?.status()).toBe(200);
-  const finalPage = await page.goto('/read/page/5');
-  expect(finalPage?.status()).toBe(200);
+  const omittedHashArticle = await page.goto('/read/swe2a87gjavk3i0brqd2buom9z1hec');
+  expect(omittedHashArticle?.status()).toBe(200);
 });
 
 test('the annual report supplies three safe local PDF downloads', async ({ page }) => {

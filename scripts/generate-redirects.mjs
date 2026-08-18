@@ -29,17 +29,15 @@ function readRedirects(input) {
     if (paths.has(path)) throw new Error(`Route manifest duplicates path: ${path}`);
     if (route.kind === 'included') included.add(path);
     if (route.kind === 'redirect') {
-      if (route.status !== 301 || !['legacy-alias', 'monthly-archive'].includes(route.redirectType) || typeof route.target !== 'string') throw new Error(`Invalid redirect: ${path}`);
+      if (route.status !== 301 || route.redirectType !== 'legacy-alias' || typeof route.target !== 'string') throw new Error(`Invalid redirect: ${path}`);
       redirects.push({ source: path, destination: normalizePath(route.target) });
     }
     previousPath = path;
     paths.add(path);
   }
   for (const redirect of redirects) if (!included.has(redirect.destination)) throw new Error(`Redirect ${redirect.source} targets a non-included path`);
-  const aliases = redirects.filter((redirect) => ['/homepage', '/impact-in-action', '/archive'].includes(redirect.source));
-  const approvedAliases = { '/homepage': '/', '/impact-in-action': '/read', '/archive': '/read' };
-  if (aliases.length !== 3 || aliases.some((redirect) => approvedAliases[redirect.source] !== redirect.destination)) throw new Error('Approved legacy aliases are incomplete or changed');
-  if (redirects.filter((redirect) => !Object.hasOwn(approvedAliases, redirect.source)).length !== 31) throw new Error('Expected exactly 31 monthly archive redirects');
+  const approvedAliases = { '/homepage': '/' };
+  if (redirects.length !== Object.keys(approvedAliases).length || redirects.some((redirect) => approvedAliases[redirect.source] !== redirect.destination)) throw new Error('Approved legacy aliases are incomplete or changed');
   return redirects.sort((left, right) => left.source.localeCompare(right.source));
 }
 

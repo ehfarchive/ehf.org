@@ -1,0 +1,22 @@
+{
+  "sourceUrl": "https://www.ehf.org/ehf-fellows-articles/Blog%20Post%20Title%20One-3zaa9-n8kpf",
+  "route": "/ehf-fellows-articles/Blog%20Post%20Title%20One-3zaa9-n8kpf",
+  "family": "fellows-article",
+  "viewport": {
+    "name": "desktop",
+    "width": 1440,
+    "height": 1000
+  },
+  "state": "default",
+  "capturedAt": "2026-08-18T05:34:32.925Z",
+  "documentHeight": 3876,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [],
+  "sourceAssets": [
+    {
+      "localPath": "/assets/images/content/fellows-article-ehf-maker-interview-series-dr-bo-hendgen-from-absolute-essential-profile.webp",
+      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/21a00276-d6c0-4c60-b4cd-07677c971ea3/Dr+Bo+Hendgen+-+profile+photo.jpeg"
+    }
+  ]
+}

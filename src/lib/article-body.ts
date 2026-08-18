@@ -178,10 +178,20 @@ function applyLinkPolicy(node: ParentNode | Node) {
   }
 }
 
+/**
+ * Applies the site-wide policy for links captured from authored Markdown.
+ * Keep this as the single policy boundary for every server-rendered article
+ * family so unsafe or unavailable source destinations never become links.
+ */
+export function sanitizeArticleLinks(html: string): string {
+  const fragment = parseFragment(html);
+  applyLinkPolicy(fragment);
+  return serialize(fragment);
+}
+
 export function renderArticleBody(html: string, archivedFigures: readonly (ArchivedFigure | null)[]): string {
   const fragment = parseFragment(html);
   dropCapturedPaginationHeadings(fragment);
   promoteFigures(fragment, archivedFigures);
-  applyLinkPolicy(fragment);
-  return serialize(fragment);
+  return sanitizeArticleLinks(serialize(fragment));
 }

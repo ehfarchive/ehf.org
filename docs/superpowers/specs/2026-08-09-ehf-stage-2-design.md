@@ -16,12 +16,19 @@ Stage 2 will extend the completed Astro spike into a faithful, static recreation
 
 The detailed plan must produce one versioned route manifest before page work begins. Every discovered path is classified as exactly one of: `included`, `redirect`, `external`, or `excluded`. An unclassified path is a blocking error, not a reason to infer inclusion.
 
+### Current-scope correction (2026-08-18)
+
+Live-source verification supersedes the original route assumptions in this design: `/impact-in-action` is a distinct Impact landing page, `/read` is a separate listing, and `/watch` is a listing with 88 public detail routes and offset pagination. The route manifest records these as included routes, not aliases, exclusions, or hash variants. `/homepage` → `/` is the sole permanent redirect. The Stage 1 four-route capture remains historical evidence only; it does not constrain this verified current scope.
+
+
 ### Included public experience
 
 The manifest includes the following genuine EHF public route families, subject to capture and one assigned template family per path:
 
 - `/` as the only canonical homepage;
-- Impact in Action listing, deterministic static pagination, and genuine public Impact articles;
+- `/impact-in-action` as the distinct Impact landing page;
+- `/read` as the separate Impact listing, its deterministic static pagination, and genuine public Impact articles;
+- `/watch`, its offset pagination, and 88 public Watch detail routes;
 - News listing, deterministic static pagination, and genuine public News articles;
 - genuine public event and programme pages;
 - annual-report pages and their approved document destinations;
@@ -38,10 +45,7 @@ Redirects are static, explicit manifest records with a source path, canonical de
 
 - `/` is the canonical homepage.
 - `/homepage` redirects permanently to `/`.
-- `/impact-in-action` redirects permanently to `/read` when it is a legacy listing alias.
-- `/archive` redirects permanently to `/read` when it is a legacy listing alias.
-- Each of the 31 identified monthly archive paths redirects permanently to its assigned canonical archive listing route. The manifest records the exact source path and target; no monthly archive page is recreated as a separate template or duplicate content route.
-- A legacy path is redirected only where the approved manifest identifies it as an alias. It is not used as a catch-all rule that could hide a malformed or excluded path.
+- No other route is redirected; included routes render their own distinct public content.
 
 ### Exclusions
 
@@ -50,7 +54,6 @@ The manifest excludes and never generates, redirects by default, links to, captu
 - every Fellow Directory, alumni directory, advanced-search, fellow-detail, directory-data, and iframe-backed directory surface;
 - placeholder fellow drafts;
 - malformed, stale, duplicate, test, staging, obsolete, and otherwise non-current paths;
-- all 88 `/watch` hash variants, which are mangled variants rather than 88 public posts;
 - stale templates; and
 - every Hillary Institute page.
 
@@ -95,7 +98,7 @@ P0 means a page or primary interaction is unusable. P1 means a major section, as
 The detailed plan will contain 12 outcome tickets, within the approved 10–14-ticket limit. Tickets have one owner, bounded files or read-only inputs, acceptance evidence, a stop condition, and one ledger entry. There are no commit-only tickets, duplicate reviews, or repeated full-suite runs. Each milestone has one designated verification owner and one batched review of the tickets it changes.
 
 1. **Stage 1 merge and Stage 2 intake:** merge the approved Stage 1 PR into its target branch; create the implementation branch from that merge; confirm scope, billing, and preview gates before implementation.
-2. **Route and source contract:** classify every candidate route; capture the included desktop, mobile, and interaction-state evidence; record the canonical aliases, 31 monthly redirects, and exclusions.
+2. **Route and source contract:** classify every candidate route; capture the included desktop, mobile, and interaction-state evidence; record the sole `/homepage` → `/` redirect and exclusions.
 3. **Content and asset inputs:** normalize included content into typed inputs; record manifest-backed local assets and external destinations; block missing or mismatched assets and unsupported source blocks.
 4. **Shared site foundation:** extend the accepted Astro shell, navigation, footer, measured tokens, local asset resolver, and manifest validation without changing the approved scope.
 5. **Homepage and shared presentation:** complete the canonical homepage and source-observed shared interactions at required responsive states.
@@ -166,8 +169,8 @@ Rollback is simple and evidence-preserving: stop the affected ticket, retain the
 Stage 2 is complete only when all of the following are true:
 
 - Every and only manifest-included route is statically generated or explicitly listed as an approved external destination; all approved redirects resolve to their declared canonical target; excluded paths are not generated or rendered as links.
-- `/` is the canonical homepage; `/homepage`, applicable `/impact-in-action` and `/archive` aliases, and all 31 monthly archive paths follow the approved redirect records.
-- Included Impact, News, event/programme, annual-report, institutional, contact/media/donation presentation, legal, and 404 page families match their approved source contract and have an assigned template family.
+- `/` is the canonical homepage and `/homepage` permanently redirects to `/`; `/impact-in-action`, `/read`, `/watch`, and all 88 Watch detail routes are distinct included routes.
+- Included Impact, Watch, News, event/programme, annual-report, institutional, contact/media/donation presentation, legal, and 404 page families match their approved source contract and have an assigned template family.
 - Repeatable content is typed, ordering and pagination are deterministic, and a catch-all route cannot expose undeclared content.
 - Every local asset required by an included page is manifest-backed and matches its expected SHA-256 hash; actual external services remain external destinations.
 - Newsletter, contact, and media forms are clearly display-only without an approved endpoint; donation is visibly external; no payment, authentication, analytics, CMS, or form backend exists.
@@ -180,14 +183,14 @@ Stage 2 is complete only when all of the following are true:
 
 This design itself does not begin Stage 2 implementation or authorize any application, configuration, package, evidence, source-capture, asset-download, test, deployment, push, merge, or pull-request change. It does not reopen Stage 1, change its remote branch or PR, alter a Vercel domain, claim free hosting, or claim a provider charge is zero.
 
-Stage 2 does not include Fellow Directory or alumni functionality; fellows, directory data, searches, detail pages, or iframes; Hillary Institute content; malformed or stale paths; `/watch` hash variants; stale templates; Squarespace administration; CMS authoring; authentication; commerce; payments; analytics; production form handling; an invented redesign; or content and assets outside manifest-included inputs.
+Stage 2 does not include Fellow Directory or alumni functionality; fellows, directory data, searches, detail pages, or iframes; Hillary Institute content; malformed or stale paths; stale templates; Squarespace administration; CMS authoring; authentication; commerce; payments; analytics; production form handling; an invented redesign; or content and assets outside manifest-included inputs.
 
 ## Self-review record
 
 Reviewed before commit for placeholders, contradictions, ambiguity, scope creep, accidental implementation authorization, unsupported billing claims, and consistency with `AGENTS.md`, `PLAN.md`, and the stakeholder-readiness design.
 
-- **Placeholders and decisions:** none. Canonical homepage, legacy aliases, monthly-archive treatment, included and excluded families, form behavior, manifest-defined local assets and external destinations, staffing, concurrency, billing cap, usage reader, stop conditions, release policy, the 2026-08-10 owner-restored Opus route for pending Tickets 6–12, historical Sol use, and independent bakeoff boundary are explicit.
-- **Consistency:** the design retains Astro, typed collections, local assets, distinct templates, the Stage 1 four routes, source capture before implementation, and the project quality bar. It preserves the directory and Hillary Institute exclusions and strengthens the existing manifest requirement rather than creating a competing architecture.
+- **Placeholders and decisions:** none. Canonical homepage, the sole `/homepage` legacy alias, distinct Impact and Watch routes, included and excluded families, form behavior, manifest-defined local assets and external destinations, staffing, concurrency, billing cap, usage reader, stop conditions, release policy, the 2026-08-10 owner-restored Opus route for pending Tickets 6–12, historical Sol use, and independent bakeoff boundary are explicit.
+- **Consistency:** the design retains Astro, typed collections, local assets, distinct templates, the Stage 1 four routes as historical evidence, source capture before implementation, and the project quality bar. It preserves the directory and Hillary Institute exclusions and strengthens the existing manifest requirement rather than creating a competing architecture.
 - **Scope:** it defines a future Stage 2 only. Written-spec review permits detailed planning; Stage 1 merge and owner approval of the detailed plan are required before any implementation action.
 - **Billing:** the $0 limit is limited to incremental provider spend and existing approved capacity. It does not convert credits to dollars, promise free provider or hosting use, or permit a paid fallback.
 - **Release safety:** it preserves the open Stage 1 PR and remote head, uses a separate post-merge Stage 2 branch and PR, permits only a future branch preview under separate readiness gates, and forbids a domain change.

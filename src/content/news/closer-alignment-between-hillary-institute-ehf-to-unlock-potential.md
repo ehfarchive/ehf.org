@@ -1,6 +1,8 @@
 ---
 title: "Closer Alignment between Hillary Institute & EHF to unlock potential"
 excerpt: "*Group CEO Rosalie Nelson, 11th Hillary Laureate Vanessa Nakate, and Hillary Institute Founder & Kaitiaki/Guardian Mark Prain, New York.*"
+listingImage: "/assets/images/content/news-blog-closer-alignment-between-hillary-institute-ehf-to-unlock-potential-1.jpg"
+listingAlt: ""
 heroImage: "/assets/images/content/news-blog-closer-alignment-between-hillary-institute-ehf-to-unlock-potential-1.jpg"
 heroAlt: ""
 publishedAt: "2022-10-10"

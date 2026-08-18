@@ -1,0 +1,117 @@
+---
+import ResponsiveImage from './ResponsiveImage.astro';
+import { assetIdForLocalPath } from '../data/site';
+import { type FellowsArticle } from '../pages/ehf-fellows-articles/_fellows';
+
+interface Props {
+  articles: readonly FellowsArticle[];
+}
+
+const { articles } = Astro.props;
+---
+<section class="fellows-articles site-container" aria-labelledby="fellows-articles-title">
+  <h1 id="fellows-articles-title" class="visually-hidden">EHF Fellows Articles</h1>
+  <div class="fellows-articles__list">
+    {articles.map(({ entry, href }, index) => {
+      const { title, excerpt, heroImage, heroAlt } = entry.data;
+      return (
+        <article class="fellows-article-card">
+          {heroImage && (
+            <a class="fellows-article-card__image" href={href} aria-label={title}>
+              <ResponsiveImage
+                assetId={assetIdForLocalPath(heroImage)}
+                alt={heroAlt ?? ''}
+                width={1382}
+                height={779}
+                sizes="(max-width: 767px) 100vw, 1382px"
+                loading={index === 0 ? 'eager' : 'lazy'}
+              />
+            </a>
+          )}
+          <div class="fellows-article-card__copy">
+            <h2><a href={href}>{title}</a></h2>
+            {excerpt && <p>{excerpt}</p>}
+            <a class="fellows-article-card__more" href={href}>Read More<span class="visually-hidden">: {title}</span></a>
+          </div>
+        </article>
+      );
+    })}
+  </div>
+</section>
+
+<style>
+  .fellows-articles {
+    padding-top: calc(var(--header-height) + 28.8px);
+    padding-bottom: 96px;
+  }
+
+
+  .fellows-articles__list { display: grid; }
+
+  .fellows-article-card {
+    display: grid;
+    min-width: 0;
+    padding-bottom: 69px;
+  }
+
+  .fellows-article-card + .fellows-article-card { padding-top: 69px; }
+
+  .fellows-article-card__image {
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 1382 / 779;
+  }
+
+  .fellows-article-card__image :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .fellows-article-card__copy {
+    display: grid;
+    justify-items: center;
+    min-width: 0;
+    padding-top: 50px;
+    text-align: center;
+  }
+
+  .fellows-article-card h2 {
+    max-width: var(--prose-width);
+    margin: 49px 0 0;
+    font-size: var(--text-display);
+    line-height: var(--lh-display);
+  }
+
+  .fellows-article-card h2 a { color: inherit; text-decoration: none; }
+
+  .fellows-article-card p {
+    max-width: var(--prose-width);
+    margin: 30px 0 0;
+    text-align: left;
+  }
+
+  .fellows-article-card__more {
+    margin-top: 30px;
+    color: var(--color-brand);
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: var(--weight-body);
+    line-height: var(--lh-body);
+  }
+
+  @media (max-width: 767px) {
+    .fellows-articles {
+      padding-top: calc(var(--header-height) + 24px);
+      padding-bottom: 56px;
+    }
+
+    .fellows-article-card { padding-bottom: 42px; }
+    .fellows-article-card + .fellows-article-card { padding-top: 42px; }
+    .fellows-article-card__copy { padding-top: 19.5px; }
+    .fellows-article-card h2 { margin-top: 27px; }
+    .fellows-article-card p { margin-top: 24px; }
+    .fellows-article-card__more { margin-top: 24px; }
+  }
+</style>

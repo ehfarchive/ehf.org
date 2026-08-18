@@ -1,0 +1,41 @@
+---
+title: "Celebrating the ways of being"
+excerpt: ""
+heroImage: "/assets/images/content/read-celebrating-the-ways-of-being-1.webp"
+heroAlt: null
+publishedAt: "2020-12-08"
+---
+
+“We need people and institutions to move away from rigid, inhuman strategies and move toward more dynamic and human-responsive frameworks,” says [Faumuina Tafuna’i](/fellow-detail?fellow=Faumuina%20Felolini%20Maria-%20Tafunai#search=fau&numRecords=24) from EHF’s third cohort, Kopakopa.
+
+“From the moment you first sit down at your school desk, you are taught frameworks that take very little cultural context into account with respect to humanity or the environment.  The whole objective for teachers is to get pre-determined results out of students and show evidence of their prescribed learning outcomes.”
+
+It’s a cyclical problem, of course, with teacher colleges instructing new teachers how to get measured results and then students being taught how to excel in those flawed frameworks, which inevitably permeate their work into adulthood.
+
+“What’s been really important for me is to dust off some of the colonial debris that’s inside most business strategies and ways of operating.  And it’s not just colonialism; it’s also capitalism and outdated western ideologies.”
+
+In 2017, Faumuina founded Flying Geese Productions which uses ancient Wayfinding principles to address these modern challenges through coaching, workshops and storytelling.  She is utilising “a genealogy of knowledge passed down through Pacific star navigators and ocean voyagers” to create a cultural process for design, enabling individuals and organisations to sustainably achieve their vision and increase resilience.
+
+“What I try to do is not go in and change the system, but to work with individuals and organisations to give them the ability to navigate the systems better and make the changes from their end.  It’s like the paradigm of the ocean.  I don’t sail on the ocean trying to command the ocean.  That would be ridiculous.  I sail on the ocean navigating and sailing my waka the best I can in that environment.  You could probably get an app,” she jokes, “for navigating your way around the Pacific Ocean, but that’s not how this works.  It’s about how humans work it out.”
+
+Faumuina is a lifelong student of voyaging and navigation who specialises in the empowerment of indigenous peoples.  She is a mum to Oliver and the daughter of Mau’u Lopeti and Nivaga Mau’u from Samoa.  The first Pacific Island Fellow to join EHF, Faumuina self-identifies as a non-Māori Treaty partner.  She is deeply passionate about the hands-on training of her Wayfinding guides.
+
+“All of the guides either come through the waka as sailors, layered with this acquired knowledge of Wayfinding, or they’re people who I have shoulder-tapped and brought to the waka to learn how to sail and all the cultural elements involved.  The complementary skills and experience have to be there so we can keep the knowledge really closely tied to its roots.”
+
+The work is deeply personal at times with a core focus on shared truth and authenticity.  “You have to be healed to be a good navigator,” Faumuina says.  “There’s so much sharing of experiences that goes on; you need to know how much to share without bringing your own trauma into the room and siphoning off that energy.  In the resilience training we share the lowest point of our lives with young people to show them how we got through it.  In that training I’ve shared that I have had thoughts of suicide in the past.  Sharing that in front of my son, who is now working with me, is quite a vulnerable place.  But you have to prepare yourself for that and always remember that the most important people in that room are the people that we’re trying to help.”
+
+“Whatever their vision is, I let that be whatever it is because I know that when I walk out of that room, I’m not going to do any of the work.  It’s the same in facilitation.  I like a light touch.  That’s just the way of navigators.  They are empathetic and really good listeners.  That said, they also have to be really straight talkers.  If someone is in the middle of a storm, giving them soft suggestions like ‘wouldn’t it be nice if you did this’ is not going to be as effective as a direct command at that moment. They are also very practical and focussed with getting truthful and accurate information.”
+
+She hopes to see other models of growth and investment applied to Wayfinding and acknowledges that there is a lot of work to do for her to be able to maximise impact, including in the mental health space.  “New Zealand suicide rates are some of the worst in the OECD, but there’s this disconnect between people knowing that and those with resources actually investing in the space.”
+
+Until now, Faumuina’s work has largely been done on a client-by-client basis but she has her sights set on scaling up; increasing her pool of trained Wayfinders so that she can re-focus some of her efforts on growth and telling her own stories. She has also partnered with Te Toki Voyaging Society, where she has been mentored by their leader Hoturoa Barclay- Kerr to develop her framework. She has just finished a five-week tour of 20 businesses in the South Island so that she can see them in situ and try to better understand their environment, resources and challenges. “The feedback I received included people being impressed with how the framework was able to deal with multiple issues simultaneously: personal, operational and organisational.  Also, pulling off layers of an old Western business mindset and being able to align my business more to my values and the values of Te Ao Māori”.
+
+An evaluation of a UNDP project supported by the SDG Fund, where Faumuina helped design the teaching methodology for a national organic academy in Samoa, recommended to “strengthen and popularize the Wayfinding method…  As part of the participatory approach, the Wayfinding method inevitably leads to national and local mastership and to the sustainability of development actions.”
+
+She is also working on how to get Wayfinding principles implemented much earlier, taking both teachers and young students through a Wayfinding for Life programme.  For this programme, she has been working with EHF Fellow Tim Pare to design, tapping into his experience with suicide prevention and social work.  The programme is just in its first phase, having attracted funding for Maori suicide prevention organisation, Te Rau Ora.  Two secondary schools in the Waikato have already signed up, which means 100 per cent of their staff and students will attend the workshops.  But, perhaps, the most impactful way she hopes to reach more people is by finally writing the book on Wayfinding, literally, and telling her stories of waka and celestial navigation voyaging to a much wider audience.
+
+“People often say I should get the framework copyrighted.  But that does not sit well with me.  This knowledge comes from my ancestors and we are taught to be guardians and to share knowledge with the right people.  So the book and the partnership with Te Toki is really a response to showing the framework’s origins.  I do ensure that my trainees know that if they use the framework outside of our work, then they are off the programme.  The framework is only part of the Wayfinding, the other part is the facilitator and that person has a real responsibility to look after the knowledge.”
+
+When it comes to solving the world’s biggest problems, Faumuina’s approach is a practical and thoughtful one.  “I don’t just teach this framework.  I live and breathe this framework.  It’s how I make my decisions and where my values sit.  All the time, I’m living those values and the Wayfinding way of being...  You have to be purposeful about what you’re going to do and say it to so many people that it becomes totally embedded into your decision-making.  Follow the truth.  Follow the truth of who you are and what you’re doing and don’t get distracted by shiny opportunities that come by.  Stay dedicated to that truth.  It’s like the saying we have among voyagers: ‘Don’t pray for good weather, pray for courage.’”
+
+To learn more about Faumuina’s wayfinding work check out [Flying Geese Pro](https://www.flyinggeesepro.nz/)

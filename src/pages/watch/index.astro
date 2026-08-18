@@ -1,0 +1,93 @@
+---
+import WatchCard from '../../components/WatchCard.astro';
+import { assetIdForLocalPath } from '../../data/site';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { paginate } from '../../lib/pagination';
+import '../../styles/watch.css';
+import {
+  WATCH_LISTING_PAGES,
+  WATCH_PAGE_SIZE,
+  loadWatchEntries,
+  watchListingHref,
+  watchListingReverseHref
+} from './_watch';
+
+const entries = await loadWatchEntries();
+const pages = paginate(entries, WATCH_PAGE_SIZE);
+if (pages.length !== WATCH_LISTING_PAGES.length) {
+  throw new Error(`watch listing splits into ${pages.length} pages, source declares ${WATCH_LISTING_PAGES.length}`);
+}
+
+const cursors = WATCH_LISTING_PAGES.map((page, index) => ({
+  offset: page.offset,
+  reverseOffset: page.reverseOffset,
+  newer: index > 0 ? watchListingReverseHref(WATCH_LISTING_PAGES[index - 1]) : null,
+  older: index < WATCH_LISTING_PAGES.length - 1 ? watchListingHref(WATCH_LISTING_PAGES[index + 1]) : null
+}));
+const [firstPage] = cursors;
+---
+<SiteLayout title="Watch our Impact in Action | Edmund Hillary Fellowship — Edmund Hillary Fellowship" description="Watch the impact our Fellows are creating">
+  <section class="watch-hero">
+    <div class="watch-hero__content">
+      <h1>Watch</h1>
+      <p>Watch the impact our Fellows are creating</p>
+    </div>
+  </section>
+  <section class="watch-listing site-container" data-watch-listing data-watch-page-size={WATCH_PAGE_SIZE}>
+    {pages.map((pageEntries, index) => (
+      <div class="watch-listing__page" data-watch-page={index + 1} hidden={index > 0}>
+        {pageEntries.map(({ entry, path }) => (
+          <WatchCard
+            label={entry.data.title}
+            href={path}
+            assetId={assetIdForLocalPath(entry.data.heroImage)}
+            listingTitle={entry.data.listingTitle}
+            excerpt={entry.data.excerpt}
+          />
+        ))}
+      </div>
+    ))}
+    <nav class="watch-pagination" aria-label="Watch pagination" data-watch-pagination>
+      <a class="watch-pagination__newer" href={firstPage.newer ?? '/watch'} data-direction="newer" hidden={firstPage.newer === null}>Newer Posts</a>
+      <a class="watch-pagination__older" href={firstPage.older ?? '/watch'} data-direction="older" hidden={firstPage.older === null}>Older Posts</a>
+    </nav>
+  </section>
+  {/* Every card is served as markup; the query string only chooses which run of twenty
+      shows. Without scripting there is no query to read, so the noscript rule below drops
+      the paging entirely and reveals all eighty-eight in one grid. */}
+  <script type="application/json" id="watch-cursors" is:inline set:html={JSON.stringify(cursors)} />
+  <script is:inline>
+    (function () {
+      var cursors = JSON.parse(document.getElementById('watch-cursors').textContent);
+      var params = new URLSearchParams(window.location.search);
+      var offset = params.get('offset');
+      var reverse = params.get('reversePaginate') === 'true';
+      var index = 0;
+      if (offset) {
+        for (var i = 0; i < cursors.length; i += 1) {
+          if (offset === (reverse ? cursors[i].reverseOffset : cursors[i].offset)) {
+            index = i;
+            break;
+          }
+        }
+      }
+      var groups = document.querySelectorAll('[data-watch-page]');
+      for (var g = 0; g < groups.length; g += 1) {
+        groups[g].hidden = Number(groups[g].getAttribute('data-watch-page')) !== index + 1;
+      }
+      var nav = document.querySelector('[data-watch-pagination]');
+      ['newer', 'older'].forEach(function (direction) {
+        var link = nav.querySelector('[data-direction="' + direction + '"]');
+        var href = cursors[index][direction];
+        link.hidden = href === null;
+        link.setAttribute('href', href === null ? '/watch' : href);
+      });
+    })();
+  </script>
+  <noscript>
+    <style>
+      .watch-listing__page[hidden] { display: grid !important; }
+      .watch-pagination { display: none; }
+    </style>
+  </noscript>
+</SiteLayout>

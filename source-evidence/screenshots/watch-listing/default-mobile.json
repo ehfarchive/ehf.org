@@ -1,0 +1,16 @@
+{
+  "sourceUrl": "https://www.ehf.org/watch",
+  "route": "/watch",
+  "family": "watch-listing",
+  "viewport": {
+    "name": "mobile",
+    "width": 390,
+    "height": 844
+  },
+  "state": "default",
+  "capturedAt": "2026-08-18T04:47:19.957Z",
+  "documentHeight": 6852,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": []
+}

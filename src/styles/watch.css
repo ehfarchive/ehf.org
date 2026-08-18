@@ -1,0 +1,144 @@
+/* --- Watch listing and detail presentation ------------------------------
+   Measured from https://www.ehf.org/watch and its detail template at 1440px
+   and 375px. The source paints the listing band as a flat fill rather than
+   artwork, and hands the detail's playback frame to an embedded player; the
+   archive keeps the painted geometry and links playback out to YouTube. */
+:root {
+  --color-watch-band: #5183e7;
+  --color-watch-play: #f00;
+  --color-watch-scrim: rgb(0 0 0 / 0.72);
+  --watch-prose-size: 16px;
+  --watch-prose-lh: 28.8px;
+}
+
+/* Listing --------------------------------------------------------------- */
+.watch-hero {
+  padding: calc(var(--header-height) + 108.33px) var(--page-gutter) 109.06px;
+  color: var(--color-surface);
+  background: var(--color-watch-band);
+}
+.watch-hero__content { width: min(801.81px, 100%); margin-inline: auto; text-align: center; }
+.watch-hero h1 { margin: 0; font-size: var(--text-display); line-height: var(--lh-display); }
+.watch-hero p {
+  margin: 11.18px 0 0;
+  font-size: var(--watch-prose-size);
+  line-height: var(--watch-prose-lh);
+}
+
+.watch-listing { padding-block: 28.8px 71.99px; }
+.watch-listing__page { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 104px 51px; }
+/* Only reachable with scripting off, where every page is revealed at once. */
+.watch-listing__page + .watch-listing__page { margin-top: 104px; }
+
+/* Source card is artwork alone above a title box its empty title leaves blank. */
+.watch-card { min-width: 0; align-self: start; padding-bottom: 25px; }
+.watch-card__link { display: block; aspect-ratio: 4 / 3; overflow: hidden; }
+.watch-card img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.watch-card__title,
+.watch-card__excerpt,
+.watch-card__more { display: none; }
+
+.watch-pagination {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 85.99px;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-body);
+  line-height: var(--lh-body);
+}
+.watch-pagination a { color: var(--color-ink); text-decoration: none; }
+.watch-pagination__newer { text-align: left; }
+.watch-pagination__older { grid-column: 2; text-align: right; }
+
+/* Detail ---------------------------------------------------------------- */
+/* Source opens the column with an empty title block, so the frame starts
+   96.8px (92.9px mobile) below the header rather than the usual 28.8px. */
+.watch-article {
+  max-width: var(--prose-width);
+  padding-top: calc(var(--header-height) + 96.8px);
+  padding-bottom: 60.2px;
+}
+.watch-article__player {
+  position: relative;
+  display: block;
+  aspect-ratio: 854 / 480;
+  overflow: hidden;
+  background: var(--color-ink);
+}
+.watch-article__poster { display: block; width: 100%; height: 100%; object-fit: cover; }
+.watch-article__play { position: absolute; inset: 0; display: grid; place-items: center; }
+.watch-article__play svg {
+  width: 68px;
+  height: 48px;
+  transition: transform var(--motion-fast) var(--motion-ease);
+}
+.watch-article__play-body { fill: var(--color-watch-play); }
+.watch-article__play-arrow { fill: var(--color-surface); }
+.watch-article__player:hover .watch-article__play svg,
+.watch-article__player:focus-visible .watch-article__play svg { transform: scale(1.08); }
+.watch-article__cta {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  padding: 8px 12px;
+  border-radius: var(--radius);
+  color: var(--color-surface);
+  background: var(--color-watch-scrim);
+  font-family: var(--font-display);
+  font-size: var(--text-nav);
+  font-weight: var(--weight-nav);
+  line-height: 1;
+}
+
+.watch-article h1 { margin: 34px 0 32px; font-size: var(--text-display); line-height: var(--lh-display); }
+.watch-article__speaker {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: var(--weight-nav);
+  line-height: var(--lh-body);
+}
+/* Source separates the byline from the copy with an empty small paragraph. */
+.watch-article__body > :first-child { margin-top: 60.8px; }
+.watch-article__body > :last-child { margin-bottom: 0; }
+.watch-article__body p,
+.watch-article__body li {
+  margin-block: 16px;
+  font-family: var(--font-body);
+  font-size: var(--watch-prose-size);
+  font-weight: var(--weight-body);
+  line-height: var(--watch-prose-lh);
+  overflow-wrap: break-word;
+}
+.watch-article__body a { color: var(--color-brand); }
+.watch-article__body h2,
+.watch-article__body h3,
+.watch-article__body h4 {
+  margin: 32.4px 0;
+  font-family: var(--font-display);
+  font-size: var(--text-sub);
+  font-weight: var(--weight-heading);
+  letter-spacing: var(--tracking);
+  line-height: var(--lh-sub);
+}
+.watch-article__body img { display: block; max-width: 100%; height: auto; }
+
+@media (max-width: 767px) {
+  .watch-hero { padding-top: calc(var(--header-height) + 30.62px); padding-bottom: 57.18px; }
+  .watch-hero__content { width: 100%; }
+  .watch-hero p { margin-top: 16.44px; }
+  .watch-listing { padding-block: 7.5px 18.75px; }
+  .watch-listing__page { grid-template-columns: minmax(0, 1fr); row-gap: 24.75px; }
+  .watch-listing__page + .watch-listing__page { margin-top: 24.75px; }
+  .watch-card { padding-bottom: 26.25px; }
+  .watch-pagination { margin-top: 22.5px; }
+  .watch-article { padding-top: calc(var(--header-height) + 92.9px); padding-bottom: 28.25px; }
+  .watch-article__play svg { width: 51px; height: 36px; }
+  .watch-article__cta { right: 10px; bottom: 10px; padding: 6px 9px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .watch-article__player:hover .watch-article__play svg,
+  .watch-article__player:focus-visible .watch-article__play svg { transform: none; }
+}

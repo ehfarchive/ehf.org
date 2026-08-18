@@ -141,8 +141,8 @@ test('Impact folder exposes only approved destinations on bare right-aligned sub
 
   const impact = page.locator('[data-nav-item="impact"]');
   const submenu = impact.locator('[data-desktop-submenu]');
-  await expect(submenu.getByRole('link')).toHaveText(['Read and Watch', 'EHF Community Collective']);
-  await expect(submenu.getByRole('link', { name: /Impact Snapshots|EHF Fellows Articles|Fellow Directory/i })).toHaveCount(0);
+  await expect(submenu.getByRole('link')).toHaveText(['Read and Watch', 'EHF Community Collective', 'EHF Fellows Articles']);
+  await expect(submenu.getByRole('link', { name: /Impact Snapshots|Fellow Directory/i })).toHaveCount(0);
 });
 
 test('mobile modal traps focus and makes parent controls inert in child panels', async ({ page }, testInfo) => {
@@ -387,7 +387,7 @@ test('mobile submenu keeps the source-observed home brand and close dismissal co
     await expect(dialog.getByRole('link', { name: 'Edmund Hillary Fellowship', exact: true })).toHaveAttribute('href', '/');
     await expect(dialog.getByRole('button', { name: 'Close menu', exact: true })).toBeVisible();
     await expect(dialog.getByRole('button', { name: 'Back', exact: true })).toBeVisible();
-    await expect(dialog.getByRole('link', { name: /fellow directory|impact snapshots|ehf fellows articles/i })).toHaveCount(0);
+    await expect(dialog.getByRole('link', { name: /fellow directory|impact snapshots/i })).toHaveCount(0);
     await expect(dialog.locator('a[href="/news#fellows"], a[href="/news#impact-snapshots"]')).toHaveCount(0);
 
     if (dismiss === 'close') {

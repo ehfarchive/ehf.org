@@ -1,8 +1,10 @@
 ---
 title: "New Hillary Institute & Edmund Hillary Fellowship board chair elected"
 excerpt: "The Hillary Institute for International Leadership is pleased to announce that [Paul Atkins](https://www.linkedin.com/in/paul-atkins-1258a812/) has been appointed as the new Chair of the Hillary Institute and its subsidiary, the Edmund Hillary Fellowship. Paul succeeds [Anake Goodall](https://www.linkedin.com/in/anakegoodall/) and [Dr. Catlin Powers](https://www.linkedin.com/in/catlinpowers/) as the Chairs of Hillary Institute and Edmund Hillary Fellowship (EHF) respectively."
-heroImage: "/assets/images/content/news-blog-new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected-1.jpg"
-heroAlt: "New Hillary Institute & Edmund Hillary Fellowship board chair elected"
+listingImage: "/assets/images/content/news-blog-new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected-1.jpg"
+listingAlt: "New Hillary Institute & Edmund Hillary Fellowship board chair elected"
+heroImage: null
+heroAlt: null
 publishedAt: "2020-12-17"
 ---
 

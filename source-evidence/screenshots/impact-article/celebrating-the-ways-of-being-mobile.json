@@ -1,0 +1,22 @@
+{
+  "sourceUrl": "https://www.ehf.org/read/swe2a87gjavk3i0brqd2buom9z1hec",
+  "route": "/read/swe2a87gjavk3i0brqd2buom9z1hec",
+  "family": "impact-article",
+  "viewport": {
+    "name": "mobile",
+    "width": 390,
+    "height": 844
+  },
+  "state": "default",
+  "capturedAt": "2026-08-18T05:34:32.925Z",
+  "documentHeight": 8195,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": [],
+  "sourceAssets": [
+    {
+      "localPath": "/assets/images/content/read-celebrating-the-ways-of-being-1.webp",
+      "sourceUrl": "https://images.squarespace-cdn.com/content/v1/5f3874da9e73700975a00b12/1607405325495-098Q3DP65PQWK26X6I2O/Blog+Post+Thumb+Short.jpg"
+    }
+  ]
+}

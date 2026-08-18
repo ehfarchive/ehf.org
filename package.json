@@ -15,7 +15,8 @@
     "assets:download": "node scripts/download-assets.mjs",
     "assets:verify": "node scripts/verify-local-assets.mjs",
     "content:migrate": "node scripts/migrate-content.mjs",
-    "content:verify": "node scripts/verify-content.mjs"
+    "content:verify": "node scripts/verify-content.mjs",
+    "progress": "node scripts/progress-server.mjs"
   },
   "dependencies": {
     "astro": "7.2.0"

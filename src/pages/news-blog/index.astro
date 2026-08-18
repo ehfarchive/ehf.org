@@ -1,13 +1,11 @@
 ---
 import NewsListing from '../../components/NewsListing.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
-import { NEWS_OLDER_PAGE_PATH, NEWS_PAGE_SIZE } from '../../lib/news';
 import { loadNewsArticles } from './_news';
 
 const articles = await loadNewsArticles();
-const firstPage = articles.slice(0, NEWS_PAGE_SIZE);
 ---
 
 <SiteLayout title="News — Edmund Hillary Fellowship">
-  <NewsListing articles={firstPage} olderHref={NEWS_OLDER_PAGE_PATH} />
+  <NewsListing articles={articles} />
 </SiteLayout>

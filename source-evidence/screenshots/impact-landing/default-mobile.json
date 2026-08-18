@@ -1,0 +1,16 @@
+{
+  "sourceUrl": "https://www.ehf.org/impact-in-action",
+  "route": "/impact-in-action",
+  "family": "impact-landing",
+  "viewport": {
+    "name": "mobile",
+    "width": 390,
+    "height": 844
+  },
+  "state": "default",
+  "capturedAt": "2026-08-18T04:46:47.438Z",
+  "documentHeight": 9741,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": []
+}

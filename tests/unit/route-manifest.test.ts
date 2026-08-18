@@ -3,17 +3,20 @@ import routeManifest from '../../source-evidence/route-manifest.json';
 import { loadRouteManifest } from '../../src/lib/route-manifest';
 import type { IncludedRouteRecord, RedirectRouteRecord, RouteManifest } from '../../src/lib/route-manifest';
 
-const MONTHLY_ARCHIVE_REDIRECTS = Array.from({ length: 31 }, (_, index) => ({
-  path: `/archive/202${Math.floor(index / 12)}/${String((index % 12) + 1).padStart(2, '0')}`,
-  kind: 'redirect' as const,
-  status: 301 as const,
-  redirectType: 'monthly-archive' as const,
-  target: '/read'
+const FELLOWS_NEWS_SNAPSHOTS = Array.from({ length: 31 }, (_, index) => ({
+  path: `/snapshot-${String(index + 1).padStart(2, '0')}`,
+  kind: 'included' as const,
+  family: 'fellows-news-snapshot' as const,
+  sourceUrl: `https://www.ehf.org/snapshot-${String(index + 1).padStart(2, '0')}`,
+  sourcePath: `/snapshot-${String(index + 1).padStart(2, '0')}`
 }));
 
 const includedRoutes = [
   { path: '/', kind: 'included' as const, family: 'homepage' as const },
   { path: '/read', kind: 'included' as const, family: 'impact-listing' as const },
+  { path: '/impact-in-action', kind: 'included' as const, family: 'impact-landing' as const },
+  { path: '/watch', kind: 'included' as const, family: 'watch-listing' as const },
+  { path: '/watch/video', kind: 'included' as const, family: 'watch-article' as const },
   { path: '/404', kind: 'included' as const, family: 'not-found' as const },
   { path: '/23-annual-report', kind: 'included' as const, family: 'annual-report-document' as const },
   { path: '/read/how-chemergy-is-changing-the-game-in-waste-to-energy', kind: 'included' as const, family: 'impact-article' as const }
@@ -24,10 +27,9 @@ function validManifest(): RouteManifest {
     schemaVersion: 1,
     routes: [
       ...includedRoutes,
+      { path: '/archive', kind: 'included' as const, family: 'archive' as const, sourceUrl: 'https://www.ehf.org/archive', sourcePath: '/archive' },
       { path: '/homepage', kind: 'redirect' as const, status: 301 as const, redirectType: 'legacy-alias' as const, target: '/' },
-      { path: '/impact-in-action', kind: 'redirect' as const, status: 301 as const, redirectType: 'legacy-alias' as const, target: '/read' },
-      { path: '/archive', kind: 'redirect' as const, status: 301 as const, redirectType: 'legacy-alias' as const, target: '/read' },
-      ...MONTHLY_ARCHIVE_REDIRECTS
+      ...FELLOWS_NEWS_SNAPSHOTS
     ].sort((left, right) => left.path.localeCompare(right.path))
   };
 }
@@ -35,9 +37,11 @@ function validManifest(): RouteManifest {
 test('loads a complete normalized manifest with approved permanent redirects', () => {
   const manifest = loadRouteManifest(validManifest());
 
-  expect(manifest.routes).toHaveLength(39);
-  expect(manifest.routes.filter((route) => route.kind === 'redirect')).toHaveLength(34);
-  expect(manifest.routes.filter((route) => route.kind === 'redirect' && route.redirectType === 'monthly-archive')).toHaveLength(31);
+  expect(manifest.routes).toHaveLength(41);
+  expect(manifest.routes.filter((route) => route.kind === 'redirect')).toEqual([
+    expect.objectContaining({ path: '/homepage', target: '/' })
+  ]);
+  expect(manifest.routes.filter((route) => route.kind === 'included' && route.family === 'fellows-news-snapshot')).toHaveLength(31);
 });
 
 test('rejects a redirect to a route that is not included', () => {
@@ -57,6 +61,45 @@ test('loads the checked-in route inventory without unclassified sitemap candidat
   });
 
   expect(manifest.routes).toHaveLength(281);
+});
+
+test('classifies the current Impact and Watch surfaces as included routes', () => {
+  const manifest = loadRouteManifest(routeManifest);
+
+  expect(manifest.routes.find((route) => route.path === '/impact-in-action')).toMatchObject({
+    kind: 'included',
+    family: 'impact-landing'
+  });
+  expect(manifest.routes.find((route) => route.path === '/watch')).toMatchObject({
+    kind: 'included',
+    family: 'watch-listing'
+  });
+  expect(
+    manifest.routes.filter((route) => route.kind === 'included' && route.family === 'watch-article')
+  ).toHaveLength(88);
+});
+
+test('includes live Fellows Articles and every linked Impact article regardless of slug shape', () => {
+  const manifest = loadRouteManifest(routeManifest);
+
+  expect(manifest.routes.find((route) => route.path === '/ehf-fellows-articles')).toMatchObject({
+    kind: 'included',
+    family: 'fellows-article-listing'
+  });
+  expect(
+    manifest.routes.filter((route) => route.kind === 'included' && route.family === 'fellows-article')
+  ).toHaveLength(4);
+  expect(manifest.routes.find((route) => route.path === '/read/swe2a87gjavk3i0brqd2buom9z1hec')).toMatchObject({
+    kind: 'included',
+    family: 'impact-article'
+  });
+});
+
+test('does not invent static page routes for source query pagination', () => {
+  const manifest = loadRouteManifest(routeManifest);
+  for (const path of ['/read/page/2', '/read/page/3', '/read/page/4', '/read/page/5', '/news-blog/page/2']) {
+    expect(manifest.routes.find((route) => route.path === path)).toMatchObject({ kind: 'excluded' });
+  }
 });
 
 test('rejects a manifest that omits an inventory candidate', () => {

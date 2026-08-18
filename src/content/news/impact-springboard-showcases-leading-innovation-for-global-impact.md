@@ -1,6 +1,8 @@
 ---
 title: "Impact Springboard showcases leading innovation for global impact"
 excerpt: "**Be bold, build capacity, inspire more, act now** were central themes stemming from the Impact Springboard event hosted by the Edmund Hillary Fellowship (EHF) last week (26-29 February 2024). The online, multi-session event aimed to connect Aotearoa NZ's innovation ecosystem with EHF Fellows, Hillary Laureates and NZ leaders around critical challenges facing Aotearoa NZ. More than 200 participants engaged in the five open sessions, where they were introduced to Fellows’ groundbreaking ventures and collective projects, delved into challenges and opportunities for Kiwi businesses to ‘go global’, and heard international expertise on global climate risks and how different jurisdictions are decarbonising."
+listingImage: "/assets/images/content/news-blog-impact-springboard-showcases-leading-innovation-for-global-impact-1.webp"
+listingAlt: ""
 heroImage: "/assets/images/content/news-blog-impact-springboard-showcases-leading-innovation-for-global-impact-1.webp"
 heroAlt: ""
 publishedAt: "2024-03-05"

@@ -10,6 +10,20 @@ import { assetIdForLocalPath } from '../../data/site';
 
 export const IMPACT_PAGE_SIZE = 20;
 
+export type ImpactListingPage = {
+  number: number;
+  newer: string | null;
+  older: string | null;
+};
+
+export const IMPACT_LISTING_PAGES: readonly ImpactListingPage[] = [
+  { number: 1, newer: null, older: '?offset=1715571924869' },
+  { number: 2, newer: '?offset=1714430433447&reversePaginate=true', older: '?offset=1657161783620' },
+  { number: 3, newer: '?offset=1656381994088&reversePaginate=true', older: '?offset=1607230080206' },
+  { number: 4, newer: '?offset=1606367179412&reversePaginate=true', older: '?offset=1594243440651' },
+  { number: 5, newer: '?offset=1593586980878&reversePaginate=true', older: null }
+];
+
 type ImpactEntry = CollectionEntry<'impact'>;
 
 export type ImpactArticle = {
@@ -124,13 +138,6 @@ export async function loadImpactArticles(): Promise<readonly ImpactArticle[]> {
   return articles;
 }
 
-export function impactListingPagePaths(): readonly number[] {
-  return routeManifest.routes
-    .filter((route) => route.kind === 'included' && route.family === 'impact-listing')
-    .map((route) => route.path)
-    .filter((path) => /^\/read\/page\/[1-9]\d*$/.test(path))
-    .map((path) => Number(path.slice('/read/page/'.length)));
-}
 
 export function isDeclaredImpactArticlePath(path: string): boolean {
   return impactArticlePaths.has(path);

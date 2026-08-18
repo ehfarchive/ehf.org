@@ -48,52 +48,52 @@
     },
     {
       "path": "/april-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/april-2023",
+      "sourcePath": "/april-2023"
     },
     {
       "path": "/april-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/april-2024",
+      "sourcePath": "/april-2024"
     },
     {
       "path": "/april-2025",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/april-2025",
+      "sourcePath": "/april-2025"
     },
     {
       "path": "/archive",
-      "kind": "redirect",
-      "target": "/read",
-      "status": 301,
-      "redirectType": "legacy-alias"
+      "kind": "included",
+      "family": "archive",
+      "sourceUrl": "https://www.ehf.org/archive",
+      "sourcePath": "/archive"
     },
     {
       "path": "/august-2022",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/august-2022",
+      "sourcePath": "/august-2022"
     },
     {
       "path": "/august-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/august-2023",
+      "sourcePath": "/august-2023"
     },
     {
       "path": "/august-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/august-2024",
+      "sourcePath": "/august-2024"
     },
     {
       "path": "/communitycollective",
@@ -122,17 +122,17 @@
     },
     {
       "path": "/december-and-january-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/december-and-january-2024",
+      "sourcePath": "/december-and-january-2024"
     },
     {
       "path": "/december22-january23",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/december22-january23",
+      "sourcePath": "/december22-january23"
     },
     {
       "path": "/donation-more-than-10k",
@@ -156,28 +156,38 @@
     },
     {
       "path": "/ehf-fellows-articles",
-      "kind": "excluded",
-      "reason": "Fellow articles section with placeholder-draft permalink slugs; BuildLead approved exclusion"
+      "kind": "included",
+      "family": "fellows-article-listing",
+      "sourceUrl": "https://www.ehf.org/ehf-fellows-articles",
+      "sourcePath": "/ehf-fellows-articles"
     },
     {
       "path": "/ehf-fellows-articles/blog-post-title-four-lr658-9ef3n",
-      "kind": "excluded",
-      "reason": "Fellow articles section with placeholder-draft permalink slugs; BuildLead approved exclusion"
+      "kind": "included",
+      "family": "fellows-article",
+      "sourceUrl": "https://www.ehf.org/ehf-fellows-articles/blog-post-title-four-lr658-9ef3n",
+      "sourcePath": "/ehf-fellows-articles/blog-post-title-four-lr658-9ef3n"
     },
     {
       "path": "/ehf-fellows-articles/blog-post-title-three-y3peb-48wxx",
-      "kind": "excluded",
-      "reason": "Fellow articles section with placeholder-draft permalink slugs; BuildLead approved exclusion"
+      "kind": "included",
+      "family": "fellows-article",
+      "sourceUrl": "https://www.ehf.org/ehf-fellows-articles/blog-post-title-three-y3peb-48wxx",
+      "sourcePath": "/ehf-fellows-articles/blog-post-title-three-y3peb-48wxx"
     },
     {
       "path": "/ehf-fellows-articles/blog-post-title-two-t5my5-t4apw",
-      "kind": "excluded",
-      "reason": "Fellow articles section with placeholder-draft permalink slugs; BuildLead approved exclusion"
+      "kind": "included",
+      "family": "fellows-article",
+      "sourceUrl": "https://www.ehf.org/ehf-fellows-articles/blog-post-title-two-t5my5-t4apw",
+      "sourcePath": "/ehf-fellows-articles/blog-post-title-two-t5my5-t4apw"
     },
     {
       "path": "/ehf-fellows-articles/Blog%20Post%20Title%20One-3zaa9-n8kpf",
-      "kind": "excluded",
-      "reason": "Fellow articles section with placeholder-draft permalink slugs; BuildLead approved exclusion"
+      "kind": "included",
+      "family": "fellows-article",
+      "sourceUrl": "https://www.ehf.org/ehf-fellows-articles/Blog%20Post%20Title%20One-3zaa9-n8kpf",
+      "sourcePath": "/ehf-fellows-articles/Blog%20Post%20Title%20One-3zaa9-n8kpf"
     },
     {
       "path": "/ehf-friendly-sharks-waiting-list",
@@ -186,17 +196,17 @@
     },
     {
       "path": "/february-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/february-2023",
+      "sourcePath": "/february-2023"
     },
     {
       "path": "/february-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/february-2024",
+      "sourcePath": "/february-2024"
     },
     {
       "path": "/fellow-detail",
@@ -222,10 +232,10 @@
     },
     {
       "path": "/impact-in-action",
-      "kind": "redirect",
-      "target": "/read",
-      "status": 301,
-      "redirectType": "legacy-alias"
+      "kind": "included",
+      "family": "impact-landing",
+      "sourceUrl": "https://www.ehf.org/impact-in-action",
+      "sourcePath": "/impact-in-action"
     },
     {
       "path": "/journey",
@@ -234,87 +244,87 @@
     },
     {
       "path": "/july-2022",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/july-2022",
+      "sourcePath": "/july-2022"
     },
     {
       "path": "/july-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/july-2023",
+      "sourcePath": "/july-2023"
     },
     {
       "path": "/july-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/july-2024",
+      "sourcePath": "/july-2024"
     },
     {
       "path": "/june-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/june-2023",
+      "sourcePath": "/june-2023"
     },
     {
       "path": "/june-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/june-2024",
+      "sourcePath": "/june-2024"
     },
     {
       "path": "/june-2025",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/june-2025",
+      "sourcePath": "/june-2025"
     },
     {
       "path": "/march-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/march-2023",
+      "sourcePath": "/march-2023"
     },
     {
       "path": "/march-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/march-2024",
+      "sourcePath": "/march-2024"
     },
     {
       "path": "/march-2025",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/march-2025",
+      "sourcePath": "/march-2025"
     },
     {
       "path": "/may-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/may-2023",
+      "sourcePath": "/may-2023"
     },
     {
       "path": "/may-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/may-2024",
+      "sourcePath": "/may-2024"
     },
     {
       "path": "/may-2025",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/may-2025",
+      "sourcePath": "/may-2025"
     },
     {
       "path": "/media-inquiries",
@@ -443,8 +453,8 @@
     },
     {
       "path": "/news-blog/page/2",
-      "kind": "included",
-      "family": "news-listing"
+      "kind": "excluded",
+      "reason": "Source uses query-string offset pagination; static /page/N path is not a live route"
     },
     {
       "path": "/news-blog/reflections-of-sir-edmund-hillarys-legacy-on-everest-day",
@@ -478,45 +488,45 @@
     },
     {
       "path": "/november-2022",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/november-2022",
+      "sourcePath": "/november-2022"
     },
     {
       "path": "/november-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/november-2023",
+      "sourcePath": "/november-2023"
     },
     {
       "path": "/november-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/november-2024",
+      "sourcePath": "/november-2024"
     },
     {
       "path": "/october-2022",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/october-2022",
+      "sourcePath": "/october-2022"
     },
     {
       "path": "/october-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/october-2023",
+      "sourcePath": "/october-2023"
     },
     {
       "path": "/october-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/october-2024",
+      "sourcePath": "/october-2024"
     },
     {
       "path": "/our-values",
@@ -830,23 +840,23 @@
     },
     {
       "path": "/read/page/2",
-      "kind": "included",
-      "family": "impact-listing"
+      "kind": "excluded",
+      "reason": "Source uses query-string offset pagination; static /page/N path is not a live route"
     },
     {
       "path": "/read/page/3",
-      "kind": "included",
-      "family": "impact-listing"
+      "kind": "excluded",
+      "reason": "Source uses query-string offset pagination; static /page/N path is not a live route"
     },
     {
       "path": "/read/page/4",
-      "kind": "included",
-      "family": "impact-listing"
+      "kind": "excluded",
+      "reason": "Source uses query-string offset pagination; static /page/N path is not a live route"
     },
     {
       "path": "/read/page/5",
-      "kind": "included",
-      "family": "impact-listing"
+      "kind": "excluded",
+      "reason": "Source uses query-string offset pagination; static /page/N path is not a live route"
     },
     {
       "path": "/read/powering-purpose-with-electric-utility-bikes",
@@ -920,8 +930,10 @@
     },
     {
       "path": "/read/swe2a87gjavk3i0brqd2buom9z1hec",
-      "kind": "excluded",
-      "reason": "Malformed placeholder hash slug"
+      "kind": "included",
+      "family": "impact-article",
+      "sourceUrl": "https://www.ehf.org/read/swe2a87gjavk3i0brqd2buom9z1hec",
+      "sourcePath": "/read/swe2a87gjavk3i0brqd2buom9z1hec"
     },
     {
       "path": "/read/tackling-global-textile-waste-through-innovative-solutions",
@@ -990,24 +1002,24 @@
     },
     {
       "path": "/september-2022",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/september-2022",
+      "sourcePath": "/september-2022"
     },
     {
       "path": "/september-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/september-2023",
+      "sourcePath": "/september-2023"
     },
     {
       "path": "/september-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/september-2024",
+      "sourcePath": "/september-2024"
     },
     {
       "path": "/summer-edition-2025",
@@ -1031,448 +1043,626 @@
     },
     {
       "path": "/watch",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-listing",
+      "sourceUrl": "https://www.ehf.org/watch",
+      "sourcePath": "/watch"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c-ds4k6",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c-ds4k6",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c-ds4k6"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c-ds4k6-8ctxa",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c-ds4k6-8ctxa",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c-ds4k6-8ctxa"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c-ds4k6-8ctxa-dlh6p",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c-ds4k6-8ctxa-dlh6p",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c-ds4k6-8ctxa-dlh6p"
     },
     {
       "path": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c-ds4k6-8ctxa-dlh6p-5r5l9",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c-ds4k6-8ctxa-dlh6p-5r5l9",
+      "sourcePath": "/watch/blog-post-title-four-awn7a-hg48f-m6jxb-ledrz-th8y7-rmryt-8mdk5-wea2e-3ey4h-bm8ge-4a6k2-lewrk-wdbjw-775x2-w9h37-t8hae-8f29c-fjj8d-gt62p-rx5mk-3wd7j-a9hc3-598pa-r42ry-r9dnr-h744c-ds4k6-8ctxa-dlh6p-5r5l9"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t-9fgz5",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t-9fgz5",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t-9fgz5"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t-9fgz5-b8kaz",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t-9fgz5-b8kaz",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t-9fgz5-b8kaz"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t-9fgz5-b8kaz-nnx33",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t-9fgz5-b8kaz-nnx33",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t-9fgz5-b8kaz-nnx33"
     },
     {
       "path": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t-9fgz5-b8kaz-nnx33-l2ba9",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t-9fgz5-b8kaz-nnx33-l2ba9",
+      "sourcePath": "/watch/jpn6wdxw3ryd5z7-ahrlf-zbnde-hlbr5-w4wnt-75zzw-m53em-jteak-yxgl7-8l7g3-tm29e-99gfj-p6ecn-4nzz5-fcwpt-ff9mw-jml6c-cx3lr-ra9f7-fk6fr-4nz4e-br5ls-7rnkg-gm6lt-4xcsz-ywlz6-fnb4t-9fgz5-b8kaz-nnx33-l2ba9"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee",
+      "sourcePath": "/watch/wc9x7kbdbm472ee"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em-2paje",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em-2paje",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em-2paje"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em-2paje-dbl5z",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em-2paje-dbl5z",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em-2paje-dbl5z"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em-2paje-dbl5z-d6hy3",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em-2paje-dbl5z-d6hy3",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em-2paje-dbl5z-d6hy3"
     },
     {
       "path": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em-2paje-dbl5z-d6hy3-tb99x",
-      "kind": "excluded",
-      "reason": "Watch section hash-variant path; all watch variants excluded"
+      "kind": "included",
+      "family": "watch-article",
+      "sourceUrl": "https://www.ehf.org/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em-2paje-dbl5z-d6hy3-tb99x",
+      "sourcePath": "/watch/wc9x7kbdbm472ee-eyez9-fxtgt-nsg4e-ylhf3-bbpbp-s872y-8gd3n-kgh2l-3hhg9-wfcgc-72a6k-ap7t7-hwa5j-5l8jh-frlck-t9ewd-xcxfd-sptxr-d93jf-8txml-3atfd-kfg4n-g73em-2paje-dbl5z-d6hy3-tb99x"
     }
   ]
 }

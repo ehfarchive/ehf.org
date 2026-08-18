@@ -1,6 +1,8 @@
 ---
 title: "Announcing the new CEO for EHF"
 excerpt: "The Hillary Institute and its daughter organisation, the Edmund Hillary Fellowship (EHF), are pleased to announce that [Rosalie Nelson](https://www.linkedin.com/in/rosalie-nelson-28739653/?originalSubdomain=nz) has been appointed as their CEO. Following the recent recruitment of Paul Atkins as Chair of the board, Rosalie joins to lead the Hillary Institute and EHF forwards into an exciting new phase, creating global impact from Aotearoa New Zealand. Rosalie is a well respected champion of New Zealand’s innovation sector. She has held previous executive and senior leadership roles in NZ and internationally in the technology and innovation sectors. Her most recent roles were at Callaghan Innovation, New Zealand’s Innovation Agency, and Chorus NZ, a publicly listed fibre network provider."
+listingImage: "/assets/images/content/news-blog-announcing-the-new-ceo-for-ehf-1.webp"
+listingAlt: "Rosalie Nelson.jpeg"
 heroImage: "/assets/images/content/news-blog-announcing-the-new-ceo-for-ehf-1.webp"
 heroAlt: "Rosalie Nelson.jpeg"
 publishedAt: "2021-02-03"

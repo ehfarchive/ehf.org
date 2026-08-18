@@ -1,6 +1,8 @@
 ---
 title: "Nature Restoration - First Mission Studio Convening"
 excerpt: "***On Friday 28 July 2023, The Mission Studio officially went live with its first-ever convening in Tāmaki Makaurau. Five months after The Mission Studio was***[***announced***](/news-blog/a-new-expedition-the-mission-studio)***by The Hillary Institute & Edmund Hillary Fellowship, the goal of bringing together exceptional people around climate innovation had progressed from concept to reality, and the first mission on Nature Restoration had begun.***"
+listingImage: "/assets/images/content/news-blog-the-mission-studio-first-convening-1.webp"
+listingAlt: ""
 heroImage: "/assets/images/content/news-blog-the-mission-studio-first-convening-1.webp"
 heroAlt: ""
 publishedAt: "2023-08-18"

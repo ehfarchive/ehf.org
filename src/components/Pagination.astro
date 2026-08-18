@@ -1,23 +1,46 @@
 ---
-interface PageLink {
+export interface PaginationPage {
   number: number;
-  href: string;
+  newer: string | null;
+  older: string | null;
 }
 
 interface Props {
-  currentPage: number;
-  pages: readonly PageLink[];
+  listing: 'impact' | 'news';
+  page: PaginationPage;
 }
 
-const { currentPage, pages } = Astro.props;
-const currentIndex = pages.findIndex((page) => page.number === currentPage);
-if (currentIndex === -1) throw new Error(`Impact pagination does not declare page ${currentPage}`);
-const newer = pages[currentIndex - 1];
-const older = pages[currentIndex + 1];
+const { listing, page } = Astro.props;
+const listingName = listing === 'impact' ? 'Impact' : 'News';
 ---
-{pages.length > 1 && (
-  <nav class="impact-pagination" aria-label="Impact pagination">
-    {newer && <a href={newer.href}>Newer Posts</a>}
-    {older && <a href={older.href}>Older Posts</a>}
-  </nav>
-)}
+<nav
+  class={`${listing}-pagination`}
+  aria-label={`${listingName} pagination`}
+  data-query-pagination
+  data-pagination-listing={listing}
+  data-pagination-page={page.number}
+  data-impact-pagination={listing === 'impact' ? '' : undefined}
+  data-news-pagination={listing === 'news' ? '' : undefined}
+  hidden
+>
+  {page.newer && <a href={page.newer} data-direction="newer">Newer Posts</a>}
+  {page.older && <a href={page.older} data-direction="older">Older Posts</a>}
+</nav>
+<style>
+  .impact-pagination { display: flex; justify-content: space-between; gap: 24px; margin-top: 48px; }
+  .impact-pagination a { color: var(--color-brand); font-family: var(--font-body); font-size: var(--text-body); line-height: var(--lh-body); text-decoration: none; }
+  .impact-pagination a:last-child { margin-left: auto; }
+
+  .news-pagination { display: flex; justify-content: space-between; gap: 24px; margin-top: 66px; }
+  .news-pagination a { color: var(--color-brand); font-family: var(--font-body); font-size: 16px; font-weight: var(--weight-body); line-height: 28.8px; text-decoration: none; }
+  .impact-pagination[hidden],
+  .news-pagination[hidden] { display: none !important; }
+
+  .news-pagination a[data-direction="newer"] { margin-right: auto; }
+  .news-pagination a[data-direction="older"] { margin-left: auto; }
+
+  @media (max-width: 767px) {
+    .impact-pagination { margin-top: 32px; }
+    .news-pagination { margin-top: 40px; }
+  }
+</style>

@@ -27,6 +27,39 @@ const impact = defineCollection({
 
 const news = defineCollection({
   loader: glob({ base: './src/content/news', pattern: '**/*.md' }),
+  schema: z.object({
+    ...contentFields,
+    listingImage: z.string().regex(/^\/assets\//),
+    listingAlt: z.string()
+  }).strict()
+});
+
+const watch = defineCollection({
+  loader: glob({ base: './src/content/watch', pattern: '**/*.md' }),
+  schema: z.object({
+    title: z.string().min(1),
+    listingTitle: z.string(),
+    speaker: z.string().nullable(),
+    excerpt: z.string(),
+    heroImage: z.string().regex(/^\/assets\//),
+    heroAlt: z.string(),
+    publishedAt,
+    videoUrl: z.string().url().regex(/^https:\/\/www\.youtube\.com\/watch\?v=/),
+    nextSlug: z.string().min(1).nullable()
+  }).strict()
+});
+
+const fellowsArticles = defineCollection({
+  loader: glob({ base: './src/content/fellows-articles', pattern: '**/*.md' }),
+  schema: z.object({
+    ...contentFields,
+    pathSegment: z.string().min(1).refine((value) => !value.includes('/')),
+    nextPathSegment: z.string().min(1).nullable()
+  }).strict()
+});
+
+const snapshots = defineCollection({
+  loader: glob({ base: './src/content/snapshots', pattern: '**/*.md' }),
   schema: z.object(contentFields).strict()
 });
 
@@ -69,4 +102,4 @@ const contactMediaDonationPages = defineCollection({
   schema: pageFields
 });
 
-export const collections = { impact, news, events, institutionalPages, legalPages, reportPages, contactMediaDonationPages };
+export const collections = { impact, watch, fellowsArticles, news, events, snapshots, institutionalPages, legalPages, reportPages, contactMediaDonationPages };

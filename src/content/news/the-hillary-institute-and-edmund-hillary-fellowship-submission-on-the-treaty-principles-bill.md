@@ -1,8 +1,10 @@
 ---
 title: "The Hillary Institute and Edmund Hillary Fellowship Submission on the Treaty Principles Bill"
 excerpt: "**7 January 2025**"
-heroImage: "/assets/images/content/news-blog-the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill-1.png"
-heroAlt: "The Hillary Institute and Edmund Hillary Fellowship Submission on the Treaty Principles Bill"
+listingImage: "/assets/images/content/news-blog-the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill-1.png"
+listingAlt: "The Hillary Institute and Edmund Hillary Fellowship Submission on the Treaty Principles Bill"
+heroImage: null
+heroAlt: null
 publishedAt: "2025-01-07"
 ---
 
