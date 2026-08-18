@@ -7,6 +7,8 @@ export const TEMPLATE_FAMILIES = [
   'news-article',
   'event-programme',
   'annual-report-document',
+  'fellows-news-snapshot',
+  'archive',
   'institutional',
   'contact-media-donation',
   'legal',
@@ -34,7 +36,7 @@ export type RedirectRouteRecord = {
   kind: 'redirect';
   target: string;
   status: 301;
-  redirectType: 'legacy-alias' | 'monthly-archive';
+  redirectType: 'legacy-alias';
 };
 export type ExternalRouteRecord = { path: string; kind: 'external'; target: string };
 export type ExcludedRouteRecord = { path: string; kind: 'excluded'; reason: string };
@@ -107,7 +109,7 @@ function readRouteRecord(value: unknown): RouteRecord {
   }
   if (value.kind === 'redirect') {
     assertExactKeys(value, ['path', 'kind', 'target', 'status', 'redirectType']);
-    if (typeof value.target !== 'string' || value.status !== 301 || !['legacy-alias', 'monthly-archive'].includes(value.redirectType as string)) throw new Error(`invalid redirect for ${path}`);
+    if (typeof value.target !== 'string' || value.status !== 301 || value.redirectType !== 'legacy-alias') throw new Error(`invalid redirect for ${path}`);
     return { path, kind: 'redirect', target: normalizeRoutePath(value.target), status: 301, redirectType: value.redirectType as RedirectRouteRecord['redirectType'] };
   }
   if (value.kind === 'external') {
@@ -145,15 +147,17 @@ export function loadRouteManifest(input: unknown, options: { candidates?: readon
     if (route.kind === 'redirect' && !includedPaths.has(route.target)) throw new Error(`redirect ${route.path} must target an included route`);
   }
 
-  const aliases = routes.filter((route): route is RedirectRouteRecord => route.kind === 'redirect' && route.redirectType === 'legacy-alias');
+  const aliases = routes.filter((route): route is RedirectRouteRecord => route.kind === 'redirect');
   const approvedAliases: Record<string, string> = {
     '/homepage': '/',
-    '/impact-in-action': '/read',
-    '/archive': '/read'
+    '/impact-in-action': '/read'
   };
-  if (aliases.length !== Object.keys(approvedAliases).length || aliases.some((route) => approvedAliases[route.path] !== route.target)) throw new Error('legacy aliases must be exactly /homepage, /impact-in-action, and /archive');
-  const monthly = routes.filter((route): route is RedirectRouteRecord => route.kind === 'redirect' && route.redirectType === 'monthly-archive');
-  if (monthly.length !== 31) throw new Error('manifest must contain exactly 31 monthly archive redirects');
+  if (aliases.length !== Object.keys(approvedAliases).length || aliases.some((route) => approvedAliases[route.path] !== route.target)) throw new Error('legacy aliases must be exactly /homepage and /impact-in-action');
+
+  const archivePages = routes.filter((route): route is IncludedRouteRecord => route.kind === 'included' && route.family === 'archive');
+  if (archivePages.length !== 1 || archivePages[0].path !== '/archive') throw new Error('only /archive may use the archive family');
+  const snapshots = routes.filter((route): route is IncludedRouteRecord => route.kind === 'included' && route.family === 'fellows-news-snapshot');
+  if (snapshots.length !== 31) throw new Error('manifest must contain exactly 31 Fellows’ News snapshot routes');
 
   for (const route of SPIKE_ROUTES) if (!includedPaths.has(route)) throw new Error(`missing retained spike route: ${route}`);
   if (options.candidates) {

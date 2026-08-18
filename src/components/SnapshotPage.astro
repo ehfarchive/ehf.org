@@ -1,0 +1,230 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { groupSnapshotBody, snapshotIntro, snapshotMonthLabel } from '../lib/snapshot-body';
+
+interface Props {
+  title: string;
+  excerpt: string;
+  publishedAt?: string;
+}
+const { title, excerpt, publishedAt } = Astro.props;
+
+const renderedBody = await Astro.slots.render('default');
+const month = snapshotMonthLabel(title, publishedAt, renderedBody);
+const intro = snapshotIntro(renderedBody) ?? excerpt;
+const body = groupSnapshotBody(renderedBody, { stripMasthead: true });
+---
+
+<SiteLayout title={`${title} — Edmund Hillary Fellowship`} description={excerpt}>
+  <article class="snapshot-page wide-width">
+    <header class="snapshot-page__header">
+      <h1>Impact Snapshot</h1>
+      {month && <p class="snapshot-page__month">{month}</p>}
+      {intro && <p class="snapshot-page__intro">{intro}</p>}
+    </header>
+    <div class="snapshot-page__body" set:html={body} />
+  </article>
+</SiteLayout>
+
+<style is:global>
+  .snapshot-page {
+    min-width: 0;
+    padding-top: calc(var(--header-height) + 131.21875px);
+    padding-bottom: 112px;
+  }
+
+  .snapshot-page__header {
+    max-width: 918px;
+    margin: 0 auto 127.21875px;
+    text-align: center;
+  }
+
+  .snapshot-page__header h1 {
+    margin: 0;
+    color: var(--color-ink);
+    font-size: var(--text-display);
+    line-height: var(--lh-article-display);
+  }
+
+  .snapshot-page__month {
+    margin: 51.65625px 0 0;
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: var(--weight-heading);
+    line-height: 29.3125px;
+  }
+
+  .snapshot-page__intro {
+    margin: 72.484375px 0 0;
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: var(--lh-body);
+  }
+
+  .snapshot-page__body {
+    min-width: 0;
+  }
+
+  .snapshot-section + .snapshot-section {
+    margin-top: 84px;
+  }
+
+  .snapshot-section > h2,
+  .snapshot-section > h3,
+  .snapshot-section > h4,
+  .snapshot-section > h5,
+  .snapshot-section > h6 {
+    max-width: 686px;
+    margin: 0 auto 66.875px;
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-size: var(--text-heading);
+    font-weight: var(--weight-heading);
+    letter-spacing: var(--tracking);
+    line-height: var(--lh-heading);
+    text-align: center;
+  }
+
+  .snapshot-section > h3,
+  .snapshot-section > h4,
+  .snapshot-section > h5,
+  .snapshot-section > h6 {
+    font-size: var(--text-lead);
+    line-height: var(--lh-lead);
+  }
+
+  .snapshot-section > :not(.snapshot-story):not(h2):not(h3):not(h4):not(h5):not(h6) {
+    max-width: var(--prose-width);
+    margin: 0 auto 24px;
+  }
+
+  .snapshot-story {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(32px, 6vw, 112px);
+    margin: 0 0 72px;
+  }
+
+  .snapshot-story__media,
+  .snapshot-story__copy {
+    min-width: 0;
+  }
+
+  .snapshot-story__media {
+    display: grid;
+    gap: 20px;
+  }
+
+  .snapshot-story__media figure {
+    width: min(100%, 395px);
+    margin: 0;
+  }
+  .snapshot-story__media figure:not(:has(figcaption)) {
+    aspect-ratio: 395 / 436;
+    overflow: hidden;
+  }
+  .snapshot-story__media img {
+    display: block;
+    inline-size: 100%;
+    max-inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  .snapshot-story__media figcaption {
+    margin-top: 10px;
+    font-family: var(--font-body);
+    font-size: var(--text-small);
+    line-height: var(--lh-body);
+  }
+
+  .snapshot-story__copy > :first-child {
+    margin-top: 0;
+  }
+
+  .snapshot-story__copy p,
+  .snapshot-story__copy li,
+  .snapshot-section > p,
+  .snapshot-section > li {
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: var(--lh-body);
+  }
+
+  .snapshot-story__copy p,
+  .snapshot-section > p {
+    margin: 0 0 24px;
+  }
+
+  .snapshot-story__copy h2,
+  .snapshot-story__copy h3,
+  .snapshot-story__copy h4,
+  .snapshot-story__copy h5,
+  .snapshot-story__copy h6 {
+    margin: 0 0 18px;
+    font-size: var(--text-sub);
+    line-height: var(--lh-sub);
+  }
+
+  .snapshot-page__body a {
+    color: var(--color-brand);
+    overflow-wrap: anywhere;
+  }
+
+  .snapshot-page__body iframe {
+    max-inline-size: 100%;
+    border: 0;
+  }
+
+  @media (max-width: 767px) {
+    .snapshot-page {
+      padding-top: calc(var(--header-height) + 88.859375px);
+      padding-bottom: 72px;
+    }
+
+    .snapshot-page__header {
+      margin-bottom: 98.03125px;
+    }
+
+    .snapshot-page__month {
+      margin-top: 32.515625px;
+      font-size: 21px;
+      line-height: 25.65625px;
+    }
+
+    .snapshot-page__intro {
+      margin-top: 27.671875px;
+      text-align: left;
+    }
+
+    .snapshot-section + .snapshot-section {
+      margin-top: 56px;
+    }
+
+    .snapshot-section > h2,
+    .snapshot-section > h3,
+    .snapshot-section > h4,
+    .snapshot-section > h5,
+    .snapshot-section > h6 {
+      margin-bottom: 24.203125px;
+      text-align: left;
+    }
+
+    .snapshot-story__media figure {
+      width: min(100%, 255px);
+      margin-inline: auto;
+    }
+
+    .snapshot-story__media figure:not(:has(figcaption)) {
+      aspect-ratio: 255 / 269;
+    }
+
+    .snapshot-story {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+  }
+</style>

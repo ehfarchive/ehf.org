@@ -1,0 +1,347 @@
+---
+import { getCollection } from 'astro:content';
+import ResponsiveImage from '../components/ResponsiveImage.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { assetIdForLocalPath } from '../data/site';
+import { parseStrictUtcIsoDate } from '../lib/iso-date';
+import { loadNewsArticles } from './news-blog/_news';
+
+const organisationPaths = [
+  '/news-blog/media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp',
+  '/news-blog/building-innovation-growth-through-global-talent',
+  '/news-blog/fellow-led-board-established-with-four-fellows-appointed-as-new-directors',
+  '/news-blog/building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit',
+  '/news-blog/the-hillary-institute-ehf-submission-on-amending-foreign-investment-funds-rules-for-migrants',
+  '/news-blog/the-hillary-institute-and-edmund-hillary-fellowship-submission-on-the-treaty-principles-bill',
+  '/news-blog/a-year-of-impact-value-and-momentum-2023/24-annual-report',
+  '/news-blog/media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report',
+  '/news-blog/impact-springboard-showcases-leading-innovation-for-global-impact',
+  '/news-blog/reflections-this-waitangi-day-2024',
+  '/news-blog/navigating-2024-with-stubborn-optimism-a-conversation-with-rosalie-nelson',
+  '/news-blog/2023-a-year-of-connections-impact-and-milestones',
+  '/news-blog/2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz',
+  '/news-blog/the-mission-studio-first-convening',
+  '/news-blog/hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members',
+  '/news-blog/reflections-of-sir-edmund-hillarys-legacy-on-everest-day',
+  '/read/celebrating-achievements-and-values-this-everest-day',
+  '/news-blog/ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa',
+  '/news-blog/ehf-welcomes-95-fellows-in-march-welcome-experience',
+  '/news-blog/a-new-expedition-the-mission-studio',
+  '/news-blog/reflections-this-waitangi-day-2023',
+  '/news-blog/ehf-welcomes-more-than-100-fellows-in-2022',
+  '/news-blog/2021-2022-annual-report-shows-year-of-impact',
+  '/news-blog/closer-alignment-between-hillary-institute-ehf-to-unlock-potential',
+  '/news-blog/media-release-anna-kominik-announced-as-new-board-chair',
+  '/news-blog/farewell-thank-you-and-congratulations-to-paul-atkins',
+  '/news-blog/announcing-the-new-ceo-for-ehf',
+  '/news-blog/new-hillary-institute-amp-edmund-hillary-fellowship-board-chair-elected'
+] as const;
+
+const snapshotCards = [
+  ['/june-2025', 'June 2025'], ['/may-2025', 'May 2025'], ['/april-2025', 'April 2025'], ['/march-2025', 'March 2025'],
+  ['/summer-edition-2025', 'Summer Edition 2025'], ['/november-2024', 'November 2024'], ['/october-2024', 'October 2024'],
+  ['/september-2024', 'September 2024'], ['/august-2024', 'August 2024'], ['/july-2024', 'July 2024'], ['/june-2024', 'June 2024'],
+  ['/may-2024', 'May 2024'], ['/april-2024', 'April 2024'], ['/march-2024', 'March 2024'], ['/february-2024', 'February 2024'],
+  ['/december-and-january-2024', 'December 2023 & January 2024'], ['/november-2023', 'November 2023'], ['/october-2023', 'October 2023'],
+  ['/september-2023', 'September 2023'], ['/august-2023', 'August 2023'], ['/july-2023', 'July 2023'], ['/june-2023', 'June 2023'],
+  ['/may-2023', 'May 2023'], ['/april-2023', 'April 2023'], ['/march-2023', 'March 2023'], ['/february-2023', 'February 2023'],
+  ['/december22-january23', 'December 2022 & January 2023'], ['/november-2022', 'November 2022'], ['/october-2022', 'October 2022'],
+  ['/september-2022', 'September 2022'], ['/august-2022', 'August 2022'], ['/july-2022', 'July 2022']
+] as const;
+
+const news = await loadNewsArticles();
+const organisationByPath = new Map(news.map(({ entry, path, publishedAt }) => [path, {
+  title: entry.data.title,
+  path,
+  publishedAt,
+  heroImage: entry.data.heroImage,
+  heroAlt: entry.data.heroAlt ?? ''
+}]));
+const everest = (await getCollection('impact')).find((entry) => entry.id === 'celebrating-achievements-and-values-this-everest-day');
+if (!everest?.data.publishedAt) throw new Error('missing Everest Day archive article');
+organisationByPath.set('/read/celebrating-achievements-and-values-this-everest-day', {
+  title: everest.data.title,
+  path: '/read/celebrating-achievements-and-values-this-everest-day',
+  publishedAt: parseStrictUtcIsoDate(everest.data.publishedAt, 'Everest Day publishedAt'),
+  heroImage: everest.data.heroImage,
+  heroAlt: everest.data.heroAlt ?? ''
+});
+const organisationCards = organisationPaths.map((path) => {
+  const card = organisationByPath.get(path);
+  if (!card) throw new Error(`missing Archive organisation card: ${path}`);
+  return card;
+});
+
+const snapshots = await getCollection('snapshots');
+const snapshotByPath = new Map(snapshots.map((entry) => [`/${entry.id}`, entry]));
+const resolvedSnapshots = snapshotCards.map(([path, label]) => {
+  const entry = snapshotByPath.get(path);
+  if (path !== '/summer-edition-2025' && !entry) throw new Error(`missing Archive snapshot card: ${path}`);
+  return {
+    path,
+    label,
+    heroImage: entry?.data.heroImage ?? null,
+    heroAlt: entry?.data.heroAlt ?? '',
+    fallbackAssetId: path === '/summer-edition-2025' ? 'asset-images-summer-edition-2025-03' : null
+  };
+});
+
+const dateFormatter = new Intl.DateTimeFormat('en-NZ', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+const reports = [
+  { year: '2024/25', links: [{ label: 'View financial statements', href: '/assets/documents/the-hillary-institute-of-international-leadership-2025-performance-report-and-unqualified-audit-report.pdf' }] },
+  { year: '2023/24', links: [
+    { label: 'View annual report', href: '/assets/documents/ehf-hi-annual-report-2024.pdf' },
+    { label: 'View financial statements', href: '/assets/documents/the-hillary-institute-of-international-leadership-2024-authorised-performance-report-including-audit-report.pdf' }
+  ] },
+  { year: '2022/23', links: [
+    { label: 'View annual report', href: '/assets/documents/ehf-hi-annual-report-2023.pdf' },
+    { label: 'View financial statements', href: '/assets/documents/edmund-hillary-fellowship-limited-2023-financial-statements.pdf' }
+  ] },
+  { year: '2021/22', links: [
+    { label: 'View annual report', href: '/assets/documents/hillary-institute-ehf-annual-report-2022.pdf' },
+    { label: 'View financial statements', href: '/assets/documents/certified-fs-hillary-institute-and-subsidiary-2022.pdf' }
+  ] }
+] as const;
+const summitGallery = [
+  { image: '/assets/images/content/archive-events-gallery-001.webp', alt: '2025 Hillary Innovation Summit — 233 Ngati Paoa Powhiri credit Erica Austin, Peanut Productions Photography', width: 1500, height: 982 },
+  { image: '/assets/images/content/archive-events-gallery-002.webp', alt: '2025 Hillary Innovation Summit — 234 Tamahau Te Rau credit Erica Austin, Peanut Productions Photography', width: 1500, height: 2249 },
+  { image: '/assets/images/content/archive-events-gallery-003.webp', alt: '2025 Hillary Innovation Summit — 235 Tamahau Te Rau credit Erica Austin, Peanut Productions Photography', width: 1500, height: 968 },
+  { image: '/assets/images/content/archive-events-gallery-004.webp', alt: '2025 Hillary Innovation Summit — 238 credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-005.webp', alt: '2025 Hillary Innovation Summit — 241 Mikaere credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-006.webp', alt: '2025 Hillary Innovation Summit — 242 credit Erica Austin, Peanut Productions Photography', width: 1500, height: 2249 },
+  { image: '/assets/images/content/archive-events-gallery-007.webp', alt: '2025 Hillary Innovation Summit — 34 Mikaere & Melissa credit Erica Austin, Peanut Productions Photography', width: 1500, height: 2327 },
+  { image: '/assets/images/content/archive-events-gallery-008.webp', alt: '2025 Hillary Innovation Summit — 5 Rosalie Nelson credit Erica Austin, Peanut Productions Photography', width: 1500, height: 2248 },
+  { image: '/assets/images/content/archive-events-gallery-009.webp', alt: '2025 Hillary Innovation Summit — 12 Peter Hillary credit Erica Austin, Peanut Productions Photography', width: 1500, height: 2248 },
+  { image: '/assets/images/content/archive-events-gallery-010.webp', alt: '2025 Hillary Innovation Summit — 14 Alex Hillary credit Erica Austin, Peanut Productions Photography', width: 1500, height: 2248 },
+  { image: '/assets/images/content/archive-events-gallery-011.webp', alt: '2025 Hillary Innovation Summit — 7 Mark Prain credit Erica Austin, Peanut Productions Photography', width: 1500, height: 957 },
+  { image: '/assets/images/content/archive-events-gallery-012.webp', alt: '2025 Hillary Innovation Summit — 22 Mikaere Paki credit Erica Austin, Peanut Productions Photography', width: 1500, height: 983 },
+  { image: '/assets/images/content/archive-events-gallery-013.webp', alt: '2025 Hillary Innovation Summit — 19 Anote Tong credit Erica Austin, Peanut Productions Photography', width: 1500, height: 2290 },
+  { image: '/assets/images/content/archive-events-gallery-014.webp', alt: '2025 Hillary Innovation Summit — 21 Anote Tong credit Erica Austin, Peanut Productions Photography', width: 1500, height: 983 },
+  { image: '/assets/images/content/archive-events-gallery-015.webp', alt: '2025 Hillary Innovation Summit — 25 Sir Peter Gluckman credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-016.webp', alt: '2025 Hillary Innovation Summit — 33 full panel discussion credit Erica Austin, Peanut Productions Photography', width: 1500, height: 988 },
+  { image: '/assets/images/content/archive-events-gallery-017.webp', alt: '2025 Hillary Innovation Summit — 30 Robyn Kamira credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-018.webp', alt: '2025 Hillary Innovation Summit — 32 Marcel van den Assum credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-019.webp', alt: '2025 Hillary Innovation Summit — 31 Sam Blackman credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-020.webp', alt: '2025 Hillary Innovation Summit — 74 Melissa & Mikaere credit Erica Austin, Peanut Productions Photography', width: 1500, height: 971 },
+  { image: '/assets/images/content/archive-events-gallery-021.webp', alt: '2025 Hillary Innovation Summit — 38 Adam Grosser credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-022.webp', alt: '2025 Hillary Innovation Summit — 127 Aimee Christensen credit Erica Austin, Peanut Productions Photography', width: 1500, height: 2288 },
+  { image: '/assets/images/content/archive-events-gallery-023.webp', alt: '2025 Hillary Innovation Summit — 111 Minister McClay credit Erica Austin, Peanut Productions Photography', width: 1500, height: 2266 },
+  { image: '/assets/images/content/archive-events-gallery-024.webp', alt: '2025 Hillary Innovation Summit — 136 Geoff Davis credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-025.webp', alt: '2025 Hillary Innovation Summit — 212 Rosalie Nelson. credit Erica Austin, Peanut Productions Photography', width: 1500, height: 2248 },
+  { image: '/assets/images/content/archive-events-gallery-026.webp', alt: '2025 Hillary Innovation Summit — 84 Jeff Schlichting credit Erica Austin, Peanut Productions Photography', width: 1500, height: 998 },
+  { image: '/assets/images/content/archive-events-gallery-027.webp', alt: '2025 Hillary Innovation Summit — 42 Michael Tchao credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-028.webp', alt: '2025 Hillary Innovation Summit — 82 Kaye Maree Dunn credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-029.webp', alt: '2025 Hillary Innovation Summit — 75 Mike Hart credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-030.webp', alt: '2025 Hillary Innovation Summit — 91 Philipp Sueltrop credit Erica Austin, Peanut Productions Photography', width: 1500, height: 995 },
+  { image: '/assets/images/content/archive-events-gallery-031.webp', alt: '2025 Hillary Innovation Summit — 124 Jojo McEachen credit Erica Austin, Peanut Productions Photography', width: 1500, height: 997 },
+  { image: '/assets/images/content/archive-events-gallery-032.webp', alt: '2025 Hillary Innovation Summit — 87 Christine Moon credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-033.webp', alt: '2025 Hillary Innovation Summit — 115 Anna Kominik credit Erica Austin, Peanut Productions Photography', width: 1500, height: 980 },
+  { image: '/assets/images/content/archive-events-gallery-034.webp', alt: '2025 Hillary Innovation Summit — 121 Lily Stender credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-035.webp', alt: '2025 Hillary Innovation Summit — 123 Matthew Jackson credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-036.webp', alt: '2025 Hillary Innovation Summit — 143 Alina credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-037.webp', alt: '2025 Hillary Innovation Summit — 209 credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-038.webp', alt: '2025 Hillary Innovation Summit — 49 Linda Jenkinson credit Erica Austin, Peanut Productions Photography', width: 1500, height: 997 },
+  { image: '/assets/images/content/archive-events-gallery-039.webp', alt: '2025 Hillary Innovation Summit — 53 Future of travel breakout session credit Erica Austin, Peanut Productions Photography', width: 1500, height: 980 },
+  { image: '/assets/images/content/archive-events-gallery-040.webp', alt: '2025 Hillary Innovation Summit — 44 Larry Tchiou credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-041.webp', alt: '2025 Hillary Innovation Summit — 48-EHF25', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-042.webp', alt: '2025 Hillary Innovation Summit — 59 Sam Ng credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-043.webp', alt: '2025 Hillary Innovation Summit — 36 David Bent & Sasha Lockley credit Erica Austin, Peanut Productions Photography', width: 1500, height: 997 },
+  { image: '/assets/images/content/archive-events-gallery-044.webp', alt: '2025 Hillary Innovation Summit — 35 Oonagh & Pinar credit Erica Austin, Peanut Productions Photography', width: 1500, height: 979 },
+  { image: '/assets/images/content/archive-events-gallery-045.webp', alt: '2025 Hillary Innovation Summit — 67 Carl Meyer credit Erica Austin, Peanut Productions Photography', width: 1500, height: 982 },
+  { image: '/assets/images/content/archive-events-gallery-046.webp', alt: '2025 Hillary Innovation Summit — 61 Mark Bregman credit Erica Austin, Peanut Productions Photography', width: 1500, height: 979 },
+  { image: '/assets/images/content/archive-events-gallery-047.webp', alt: '2025 Hillary Innovation Summit — 68 credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-048.webp', alt: '2025 Hillary Innovation Summit — 62 credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-049.webp', alt: '2025 Hillary Innovation Summit — 72 I am the river breakout credit Erica Austin, Peanut Productions Photography', width: 1500, height: 988 },
+  { image: '/assets/images/content/archive-events-gallery-050.webp', alt: '2025 Hillary Innovation Summit — 70 Future of Space breakout credit Erica Austin, Peanut Productions Photography', width: 1500, height: 998 },
+  { image: '/assets/images/content/archive-events-gallery-051.webp', alt: '2025 Hillary Innovation Summit — 147 Shay Wright credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-052.webp', alt: '2025 Hillary Innovation Summit — 96 Fred Evenson &   credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-053.webp', alt: '2025 Hillary Innovation Summit — 98 credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-054.webp', alt: '2025 Hillary Innovation Summit — 157 Xincheng Zhang credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1000 },
+  { image: '/assets/images/content/archive-events-gallery-055.webp', alt: '2025 Hillary Innovation Summit — 167 credit Erica Austin, Peanut Productions Photography', width: 1500, height: 2262 },
+  { image: '/assets/images/content/archive-events-gallery-056.webp', alt: '2025 Hillary Innovation Summit — 140 Crowd credit Erica Austin, Peanut Productions Photography', width: 1500, height: 992 },
+  { image: '/assets/images/content/archive-events-gallery-057.webp', alt: '2025 Hillary Innovation Summit — 170 Brad Leibov & Rosalie Nelson credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-058.webp', alt: '2025 Hillary Innovation Summit — 171 credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-059.webp', alt: '2025 Hillary Innovation Summit — 173 Geoff Davis credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-060.webp', alt: '2025 Hillary Innovation Summit — 112 Alex Lee credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-061.webp', alt: '2025 Hillary Innovation Summit — 201 Shoaib credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-062.webp', alt: '2025 Hillary Innovation Summit — 193 Partnerships with Asia breakout credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-063.webp', alt: '2025 Hillary Innovation Summit — 186 Jojo credit Erica Austin, Peanut Productions Photography', width: 1500, height: 980 },
+  { image: '/assets/images/content/archive-events-gallery-064.webp', alt: '2025 Hillary Innovation Summit — 183 Nikora credit Erica Austin, Peanut Productions Photography', width: 1500, height: 985 },
+  { image: '/assets/images/content/archive-events-gallery-065.webp', alt: '2025 Hillary Innovation Summit — 197 Lane Rettig credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-066.webp', alt: '2025 Hillary Innovation Summit — 180 Rangimarie credit Erica Austin, Peanut Productions Photography', width: 1500, height: 989 },
+  { image: '/assets/images/content/archive-events-gallery-067.webp', alt: '2025 Hillary Innovation Summit — 204 Reza credit Erica Austin, Peanut Productions Photography', width: 1500, height: 998 },
+  { image: '/assets/images/content/archive-events-gallery-068.webp', alt: '2025 Hillary Innovation Summit — 203 Sid credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-069.webp', alt: '2025 Hillary Innovation Summit — 205 Partnerships with Asia breakout credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-070.webp', alt: '2025 Hillary Innovation Summit — 231 credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+  { image: '/assets/images/content/archive-events-gallery-071.webp', alt: '2025 Hillary Innovation Summit — 227 credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
+] as const;
+---
+<SiteLayout title="Archive — Edmund Hillary Fellowship" description="Keep up to date with the Fellowship and discover impact being created across Aotearoa and the world.">
+  <main class="archive-page">
+    <header class="archive-hero"><h1>Archive</h1></header>
+
+    <section class="archive-section" aria-labelledby="organisation-news">
+      <h2 id="organisation-news">EHF Organisation News Archive</h2>
+      <div class="archive-carousel" data-archive-carousel>
+        {organisationCards.map((card) => <article class="archive-card">
+          {card.heroImage && <a class="archive-card__image" href={card.path} aria-label={card.title}>
+            <ResponsiveImage assetId={assetIdForLocalPath(card.heroImage)} alt={card.heroAlt} width={480} height={320} sizes="(max-width: 767px) 82vw, 300px" />
+          </a>}
+          <h3><a href={card.path}>{card.title}</a></h3>
+          <time datetime={card.publishedAt.toISOString().slice(0, 10)}>{dateFormatter.format(card.publishedAt)}</time>
+          <a class="button-link" href={card.path}>Read more</a>
+        </article>)}
+      </div>
+    </section>
+
+    <section class="archive-section archive-section--snapshots" aria-labelledby="fellows-news">
+      <h2 id="fellows-news">Fellows’ News Archive</h2>
+      <div class="archive-carousel" data-archive-carousel>
+        {resolvedSnapshots.map((card) => <article class="archive-card archive-card--snapshot">
+          {(card.heroImage || card.fallbackAssetId) && <a class="archive-card__image" href={card.path} aria-label={`Impact Snapshot ${card.label}`}>
+            <ResponsiveImage assetId={card.fallbackAssetId ?? assetIdForLocalPath(card.heroImage!)} alt={card.heroAlt} width={480} height={320} sizes="(max-width: 767px) 82vw, 300px" />
+          </a>}
+          <h3><a href={card.path}>Impact Snapshot</a></h3>
+          <p>{card.label}</p>
+          <a class="button-link" href={card.path}>Read full snapshot</a>
+        </article>)}
+      </div>
+    </section>
+
+    <section class="archive-section archive-reports" aria-labelledby="annual-reports">
+      <h2 id="annual-reports">Annual Reports Archive</h2>
+      <div class="report-grid">
+        {reports.map((report) => <article>
+          <h3>{report.year}</h3>
+          {report.links.map((link) => <a class="button-link" href={link.href}> {link.label} </a>)}
+        </article>)}
+      </div>
+    </section>
+
+    <section class="archive-section archive-events" aria-labelledby="events">
+      <h2 id="events">Events Archive</h2>
+      <p class="archive-events__intro"><strong>Find out more about our past events, including links to any recordings that are available.</strong></p>
+
+      <article class="event-feature">
+        <h3>2025 Hillary Innovation Summit</h3>
+        <ResponsiveImage class="event-feature__image" assetId={assetIdForLocalPath('/assets/images/content/archive-events-hero-social.webp')} alt="2025 Hillary Innovation Summit" width={1500} height={844} sizes="(max-width: 767px) calc(100vw - 2 * var(--gutter)), 900px" />
+        <p>The Hillary Institute &amp; Edmund Hillary Fellowship hosted the <strong>2025 Hillary Innovation Summit</strong> on <strong>17-18 February 2025</strong> in Tāmaki Makaurau Auckland. The 2025 Summit brought together up to <strong>300 local and international leaders</strong> in person over two days to explore how we can collectively build Aotearoa NZ as a basecamp for a better world and where we can lead globally. It convened Hillary Laureates, Edmund Hillary Fellows, iwi and Māori organisations, local and global investors, entrepreneurs, system designers, and public and private sector leaders. The programme featured world-leading international keynotes, innovative panel discussions, EHF Transformative Venture demos, networking, collaboration opportunities and more.</p>
+        <p>With te ao Māori, wellbeing and creativity interwoven throughout, participants had the chance to engage in 15 breakout sessions to deep dive into emerging opportunities and collaborative pathways for action, focusing on the Summit’s <strong>key themes:</strong></p>
+        <ResponsiveImage class="event-feature__image" assetId={assetIdForLocalPath('/assets/images/content/archive-events-key-themes.webp')} alt="2025 Hillary Innovation Summit key themes" width={1500} height={397} sizes="(max-width: 767px) calc(100vw - 2 * var(--gutter)), 900px" />
+        <p><a href="/news-blog/building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit"><strong>Read the full story for more.</strong></a></p>
+        <p>The 2025 Hillary Innovation Summit programme can be <a href="/2025-summit-programme"><strong>found here.</strong></a></p>
+      </article>
+
+      <article class="event-feature">
+        <h3>Summit Videos</h3>
+        <p>For inspiring keynotes, panel discussion and insights from the Hillary Family, Edmund Hillary Fellows, Hillary Laureates, International &amp; NZ Leaders, plus much more, check out the videos on our <a href="https://www.youtube.com/playlist?list=PLxTt2Nm5dTv189VJJV-yN1oWmWYH4FdrT" target="_blank" rel="noopener noreferrer"><strong>YouTube playlist</strong></a>.</p>
+      </article>
+
+      <article class="event-feature event-gallery">
+        <h3>Summit Photos</h3>
+        <p>Images from the 2025 Hillary Innovation Summit, captured by Erica Austin of Peanut Productions Photography. If using any of these photographs, please include the following credit: <em>2025 Hillary Innovation Summit - Erica Austin, Peanut Productions Photography.</em></p>
+        <div class="summit-gallery">
+          {summitGallery.map((photo) => <figure>
+            <ResponsiveImage assetId={assetIdForLocalPath(photo.image)} alt={photo.alt} width={photo.width} height={photo.height} sizes="(max-width: 767px) calc(100vw - 2 * var(--gutter)), (max-width: 1120px) 33vw, 260px" />
+          </figure>)}
+        </div>
+      </article>
+
+      <div class="event-sessions">
+        <h3>Ecosystem Sessions</h3>
+        <article>
+          <h4>Transformative Ventures with Global Impact - Crypto &amp; Blockchain</h4>
+          <p>As part of Techweek NZ 2024, EHF convened the online event, ‘Transformative Ventures with Global Impact: Crypto &amp; Blockchain’, with Fellows <strong>Aya Miyaguchi</strong>, Executive Director of the <a href="https://ethereum.org/en/foundation/" target="_blank" rel="noopener noreferrer">Ethereum Foundation</a>, <strong>Paul Salisbury</strong>, Co-Founder and CTO of <a href="https://www.everlasting.io/" target="_blank" rel="noopener noreferrer">Everlasting</a>, and <strong>Andrew Hoppin</strong>, Co-Founder and CIO of <a href="https://www.hylafunds.com/" target="_blank" rel="noopener noreferrer">Hyla Funds</a>.</p>
+          <p>Aya, Paul, and Andrew are leading crypto and blockchain innovation, through transformative ventures that are focused on supporting communities and leveraging advanced technologies for good. They shared their journeys and challenges, and also explored the opportunities for how Aotearoa NZ can be a leader in crypto and blockchain for global impact.</p>
+        </article>
+        <article>
+          <h4>How NZ Can Be A Global Leader in Sustainable Space &amp; Aerospace</h4>
+          <p>Aotearoa NZ’s aerospace &amp; space activity is on the rise, with many ventures and products offering sustainable solutions or applications. So what is the potential for NZ to be at the forefront of global sustainable space &amp; aerospace innovations, and how do we get there?</p>
+          <p>In this discussion, ‘How NZ Can Be A Global Leader in Sustainable Space &amp; Aerospace’, the panel explores how Aotearoa NZ can lead the way, with insights from: <strong>Philipp Sueltrop</strong>, EHF Fellow &amp; CTO at Kea Aerospace, <strong>Max Arshavsky</strong>, CEO at Zenno Astronautics, <strong>Emeline Paat-Dahlstrom</strong>, EHF Fellow &amp; CEO at SpaceBase. Moderated by <strong>Mark Rocket</strong>, President of Aerospace New Zealand &amp; CEO at Kea Aerospace.</p>
+        </article>
+        <article>
+          <ResponsiveImage class="event-feature__image" assetId={assetIdForLocalPath('/assets/images/content/archive-events-impact-springboard-banner.webp')} alt="EHF Impact Springboard" width={1500} height={750} sizes="(max-width: 767px) calc(100vw - 2 * var(--gutter)), 900px" />
+          <p>The <strong>EHF Impact Springboard</strong> was a FREE online multi-session event held over four days in February 2024 connecting Aotearoa NZ's innovation ecosystem with EHF Fellows, Hillary Laureates and NZ leaders around critical challenges facing Aotearoa NZ. Hear about EHF Fellows’ groundbreaking ventures transforming industries and systems for global impact, and from experts who are helping to elevate NZ startups onto the global stage.</p>
+          <p>Watch the recording of each session below.</p>
+          <h4>Impact Springboard - February 2024</h4>
+          <h5>Transformative Ventures with Global Impact</h5>
+          <p>A panel of Fellows share their groundbreaking ventures that are transforming industries and systems for global impact. How can Aotearoa NZ embrace the scale of opportunity these transformative ventures present?</p>
+          <p><strong>Aaron McDonald</strong> | EHF Fellow | Founder Futureverse<br /><strong>Dipanwita Das</strong> | EHF Fellow | Co-founder Sorcero<br /><strong>Lovina McMurchy</strong> | EHF Fellow | COO Kry10 Limited</p>
+          <h5>Going Global: Transforming NZ Startups into Global Leaders</h5>
+          <p>Join a panel of local and international experts to gain insights into how to mature Aotearoa NZ’s innovation system to enable NZ businesses to scale and succeed internationally.</p>
+          <p><strong>Guy Te Kiniwe Royal</strong> | Director Tuia Group<br /><strong>Anthony Lee</strong> | EHF Fellow | C100 Member<br /><strong>Marian Johnson</strong> | Ministry of Awesome</p>
+          <h5>Emerging Models: Regenerative &amp; Blended Finance</h5>
+          <p>EHF Fellows are developing a Climate Impact Fund for Asia Pacific Islands (CLIMAP) to support communitarian projects in the region, and test new purpose-driven finance models and instruments.</p>
+          <p><strong>Satya Dontamsetti</strong> | EHF Fellow<br /><strong>Vishal Chaddha</strong> | EHF Fellow<br /><strong>Sid Sthalekar</strong> | EHF Fellow</p>
+          <h5>Transforming NZ into a Low-Carbon Economy by 2050</h5>
+          <p>International Climate Leader, Builder and Strategist <a href="https://www.christensenglobal.com/team/aimee-christensen" target="_blank" rel="noopener noreferrer">Aimée Christensen</a> discusses how Aotearoa NZ can responsibly manage its transition to meet its 2050 net zero commitments in ways that affirm economic and social benefits.</p>
+          <p><strong>Aimée Christensen</strong> | Hillary Laureate Founder &amp; CEO of Christensen Global Strategies<br />Interviewer: <strong>Anna Kominik</strong></p>
+          <h5>Catalysing Communitarian Responses to Combat World Crises</h5>
+          <p>Web 3.0 technologies are sparking new patterns of social coordination at scale. In this presentation, see how projects like <a href="https://neighbourhoods.network/" target="_blank" rel="noopener noreferrer">Neighbourhoods</a> (headquartered out of Aotearoa NZ) are enabling new kinds of social impact.</p>
+          <p><strong>Siddharth Sthalekar</strong> | EHF Fellow<br />Founder oNeighbourhoods<br />With <strong>Camia Young</strong></p>
+        </article>
+      </div>
+
+      <div class="playlist-grid">
+        <article><h3>PAST EHF WHĀNAU LIVE SESSIONS</h3><p>Connect with EHF Fellows and our wider community who are creating positive change from Aotearoa NZ.</p><a class="button-link" href="https://youtube.com/playlist?list=PLxTt2Nm5dTv22t04QbA1XJ_zMLh8bgafG&amp;si=nnWjZWK6kclG1TiP" target="_blank" rel="noopener noreferrer">Full Playlist</a></article>
+        <article><h3>PAST NZ REGIONAL SESSIONS</h3><p>Find out what the regions of NZ have to offer as a place to live, work and contribute from afar.</p><a class="button-link" href="https://youtube.com/playlist?list=PLxTt2Nm5dTv2Ggfg9WrjBPVN-MuquL6lw&amp;si=366aWmRBeoqvEdqk" target="_blank" rel="noopener noreferrer">Full Playlist</a></article>
+        <article><h3>PAST OUR REGENERATIVE FUTURE SESSIONS</h3><p>Seven-part series produced by Pure Advantage and Tāne's Tree Trust in association with EHF.</p><a class="button-link" href="https://youtube.com/playlist?list=PLxTt2Nm5dTv0OYNEpRGthxpSikBEKCJDp&amp;si=99N2FN2IQbqZ34-w" target="_blank" rel="noopener noreferrer">Full Playlist</a></article>
+      </div>
+    </section>
+  </main>
+</SiteLayout>
+
+<style>
+  .archive-page { padding-top: var(--header-height); }
+  .archive-hero { display: grid; min-height: 207px; place-items: center; padding: 40px var(--gutter); color: var(--color-surface); background: linear-gradient(115deg, #4b2e99, var(--color-brand)); }
+  .archive-hero h1 { margin: 0; font-size: var(--text-display); line-height: var(--lh-display); }
+  .archive-section { padding: 48px var(--gutter) 68px; overflow: hidden; }
+  .archive-section > h2 { margin: 0 auto 42px; text-align: center; font-size: var(--text-heading); line-height: var(--lh-heading); }
+  .archive-carousel { display: grid; grid-auto-columns: minmax(250px, 298px); grid-auto-flow: column; gap: 52px; overflow-x: auto; padding: 0 0 24px; scroll-snap-type: x mandatory; scrollbar-color: var(--color-brand) transparent; }
+  .archive-card { display: flex; min-width: 0; flex-direction: column; scroll-snap-align: start; }
+  .archive-card__image { display: block; aspect-ratio: 3 / 2; overflow: hidden; background: #eee; }
+  .archive-card__image :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .archive-card h3 { margin: 16px 0 8px; font-size: 18px; line-height: 1.15; }
+  .archive-card h3 a { color: inherit; text-decoration: none; }
+  .archive-card h3 a:hover { text-decoration: underline; }
+  .archive-card time, .archive-card p { margin: 0 0 16px; font-size: 15px; }
+  .button-link { display: inline-flex; align-items: center; align-self: flex-start; min-height: 44px; margin-top: auto; padding: 10px 20px; border-radius: 5px; color: #fff; background: var(--color-brand); font-size: 14px; font-weight: 700; text-decoration: none; text-transform: uppercase; }
+  .button-link:hover { background: #4b2e99; }
+  .archive-section--snapshots { position: relative; border-top: 9px solid var(--color-brand); }
+  .archive-card--snapshot .archive-card__image { aspect-ratio: 16 / 10; }
+  .archive-reports { color: #fff; background: linear-gradient(135deg, #5332a5, #7b3fd4); }
+  .report-grid { display: grid; width: min(920px, 100%); margin: 0 auto; grid-template-columns: repeat(2, 1fr); gap: 54px 96px; }
+  .report-grid article { display: flex; min-height: 190px; flex-direction: column; align-items: flex-start; justify-content: center; }
+  .report-grid h3 { margin: 0 0 18px; font-size: var(--text-heading); }
+  .report-grid .button-link { margin: 8px 0 0; color: var(--color-brand); background: #fff; }
+  .archive-events { width: min(1120px, 100%); margin: 0 auto; overflow: visible; }
+  .archive-events__intro { max-width: 760px; margin: -18px auto 54px; text-align: center; }
+  .event-feature, .event-sessions { margin: 0 auto 64px; }
+  .event-feature { max-width: 900px; }
+  .event-feature h3, .event-sessions > h3 { font-size: var(--text-heading); }
+  .event-feature__image { display: block; width: 100%; height: auto; margin: 24px 0; }
+  .summit-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 28px; }
+  .summit-gallery figure { margin: 0; overflow: hidden; background: #f5f1fb; }
+  .summit-gallery :global(img) { display: block; width: 100%; height: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+  .event-sessions h5 { margin: 28px 0 10px; font-size: 18px; }
+  .event-feature p, .event-grid p, .event-sessions p, .playlist-grid p { line-height: 1.75; }
+  .event-feature a:not(.button-link), .archive-events a:not(.button-link) { color: var(--color-brand); }
+  .event-grid, .playlist-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px; margin-bottom: 72px; }
+  .event-grid article, .playlist-grid article { padding: 36px; background: #f5f1fb; }
+  .event-grid h3, .playlist-grid h3 { margin-top: 0; font-size: 27px; }
+  .event-sessions article { padding: 30px 0; border-top: 1px solid #d8d0e7; }
+  .event-sessions h4 { margin: 0 0 12px; font-size: 24px; }
+  .playlist-grid { grid-template-columns: repeat(3, 1fr); margin-bottom: 0; }
+  @media (min-width: 1200px) {
+    .archive-carousel { grid-auto-columns: calc((100vw - 2 * var(--gutter) - 156px) / 4); }
+  }
+  @media (max-width: 767px) {
+    .archive-hero { min-height: 160px; }
+    .archive-section { padding-top: 40px; padding-bottom: 54px; }
+    .archive-section > h2 { margin-bottom: 30px; font-size: 32px; }
+    .archive-carousel { grid-auto-columns: 82vw; gap: 20px; }
+    .report-grid, .event-grid, .playlist-grid { grid-template-columns: 1fr; gap: 24px; }
+    .report-grid article { min-height: 0; }
+    .event-grid article, .playlist-grid article { padding: 26px; }
+  }
+</style>

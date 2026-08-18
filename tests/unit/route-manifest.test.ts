@@ -3,12 +3,12 @@ import routeManifest from '../../source-evidence/route-manifest.json';
 import { loadRouteManifest } from '../../src/lib/route-manifest';
 import type { IncludedRouteRecord, RedirectRouteRecord, RouteManifest } from '../../src/lib/route-manifest';
 
-const MONTHLY_ARCHIVE_REDIRECTS = Array.from({ length: 31 }, (_, index) => ({
-  path: `/archive/202${Math.floor(index / 12)}/${String((index % 12) + 1).padStart(2, '0')}`,
-  kind: 'redirect' as const,
-  status: 301 as const,
-  redirectType: 'monthly-archive' as const,
-  target: '/read'
+const FELLOWS_NEWS_SNAPSHOTS = Array.from({ length: 31 }, (_, index) => ({
+  path: `/snapshot-${String(index + 1).padStart(2, '0')}`,
+  kind: 'included' as const,
+  family: 'fellows-news-snapshot' as const,
+  sourceUrl: `https://www.ehf.org/snapshot-${String(index + 1).padStart(2, '0')}`,
+  sourcePath: `/snapshot-${String(index + 1).padStart(2, '0')}`
 }));
 
 const includedRoutes = [
@@ -24,10 +24,10 @@ function validManifest(): RouteManifest {
     schemaVersion: 1,
     routes: [
       ...includedRoutes,
+      { path: '/archive', kind: 'included' as const, family: 'archive' as const, sourceUrl: 'https://www.ehf.org/archive', sourcePath: '/archive' },
       { path: '/homepage', kind: 'redirect' as const, status: 301 as const, redirectType: 'legacy-alias' as const, target: '/' },
       { path: '/impact-in-action', kind: 'redirect' as const, status: 301 as const, redirectType: 'legacy-alias' as const, target: '/read' },
-      { path: '/archive', kind: 'redirect' as const, status: 301 as const, redirectType: 'legacy-alias' as const, target: '/read' },
-      ...MONTHLY_ARCHIVE_REDIRECTS
+      ...FELLOWS_NEWS_SNAPSHOTS
     ].sort((left, right) => left.path.localeCompare(right.path))
   };
 }
@@ -36,8 +36,8 @@ test('loads a complete normalized manifest with approved permanent redirects', (
   const manifest = loadRouteManifest(validManifest());
 
   expect(manifest.routes).toHaveLength(39);
-  expect(manifest.routes.filter((route) => route.kind === 'redirect')).toHaveLength(34);
-  expect(manifest.routes.filter((route) => route.kind === 'redirect' && route.redirectType === 'monthly-archive')).toHaveLength(31);
+  expect(manifest.routes.filter((route) => route.kind === 'redirect')).toHaveLength(2);
+  expect(manifest.routes.filter((route) => route.kind === 'included' && route.family === 'fellows-news-snapshot')).toHaveLength(31);
 });
 
 test('rejects a redirect to a route that is not included', () => {

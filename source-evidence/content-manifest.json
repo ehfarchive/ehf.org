@@ -44,6 +44,48 @@
       "contentHash": "805e7b2448a5dac84e588439379384e051530495d2245eab51c45e3301cab9ee"
     },
     {
+      "route": "/april-2023",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/april-2023.md",
+      "contentHash": "e33253dfd1bee814d1bcf99314075e578d2d09a168f49bc358e99ac998f997ec"
+    },
+    {
+      "route": "/april-2024",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/april-2024.md",
+      "contentHash": "ced5d2a14f2c35bd971b3deb569bfd445fa9b648b9d574274e2545263b210ae9"
+    },
+    {
+      "route": "/april-2025",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/april-2025.md",
+      "contentHash": "bf296f334bba8d5f90c8dae305e7a1fd39cae9ce8e3103f377e2dcedea091b87"
+    },
+    {
+      "route": "/archive",
+      "template": "archive",
+      "localInput": null,
+      "contentHash": null
+    },
+    {
+      "route": "/august-2022",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/august-2022.md",
+      "contentHash": "72f9c831beb1c2beb7511379aa725e77734ae576e46ce78c6c104bcaa8d34e72"
+    },
+    {
+      "route": "/august-2023",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/august-2023.md",
+      "contentHash": "60fa1fe8e9782051113c5bb1633bf059c7c35934b8b13602d53839a363a15fe1"
+    },
+    {
+      "route": "/august-2024",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/august-2024.md",
+      "contentHash": "70853c62be32a00f9ec2a223b4131f99e54cb4c653c3ceaa0a2bf7bc36add2e4"
+    },
+    {
       "route": "/communitycollective",
       "template": "institutional",
       "localInput": "src/content/pages/institutional/communitycollective.json",
@@ -60,6 +102,18 @@
       "template": "contact-media-donation",
       "localInput": "src/content/pages/contact-media-donation/contact-us.json",
       "contentHash": "7793fd4c41afb926526256ef7a364c4bf92ef4fd35a1f08f93e3fae551b22985"
+    },
+    {
+      "route": "/december-and-january-2024",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/december-and-january-2024.md",
+      "contentHash": "a83a2f38d57c5595e4eef9edde253209c130a05e62131f54de96e6e7326648b4"
+    },
+    {
+      "route": "/december22-january23",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/december22-january23.md",
+      "contentHash": "cdcbb0c027cf6fc3dc4e15d3ebdb452bac957523f4e42a30004a9b0122637a20"
     },
     {
       "route": "/donation-more-than-10k",
@@ -92,10 +146,94 @@
       "contentHash": "2790048a5471f7ab2284bde7bb57ae40b51d3351c3a483943b7cae5787f9fbc2"
     },
     {
+      "route": "/february-2023",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/february-2023.md",
+      "contentHash": "14bd9fceb3661ee68f14981e17d4a1745e5a62fe97e9320314465ee531b32b02"
+    },
+    {
+      "route": "/february-2024",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/february-2024.md",
+      "contentHash": "5b2928d968fa498364566fef95788d6a48912d4ca9d531ae861b018767be6035"
+    },
+    {
       "route": "/journey",
       "template": "institutional",
       "localInput": "src/content/pages/institutional/journey.json",
       "contentHash": "192fef4bc60e80d19f5cf5fadc9d2abd09e00135f0573b6f3ecab8712fb53bb2"
+    },
+    {
+      "route": "/july-2022",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/july-2022.md",
+      "contentHash": "c23303702e8caedacec89eb19f8cf90d0926cb247a771260882517a1cfbda9d7"
+    },
+    {
+      "route": "/july-2023",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/july-2023.md",
+      "contentHash": "b367cd0eec9dceabb32a0056e9ba7dbe33552e6c4d3551d0e7e0de9ff9a07d6c"
+    },
+    {
+      "route": "/july-2024",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/july-2024.md",
+      "contentHash": "9c9533d4f21ced35f928942c132be95405541ea957a4b910a904defc00781a49"
+    },
+    {
+      "route": "/june-2023",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/june-2023.md",
+      "contentHash": "8cbf748f4c495357ec18446a1d2456cb97f45e9e5354e0400526f624d568828a"
+    },
+    {
+      "route": "/june-2024",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/june-2024.md",
+      "contentHash": "3825e99370a76700100422bb55f93bfb394b49a0bf8c3542ebea5c1093f50a94"
+    },
+    {
+      "route": "/june-2025",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/june-2025.md",
+      "contentHash": "924876d0f0ce8ce1255b926b9f3ee6c15d46a1a41ab7e37614b8998a8f9e2702"
+    },
+    {
+      "route": "/march-2023",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/march-2023.md",
+      "contentHash": "c9957541d12bc9b647d65557dffd1b758a07fb474ede036d87241dce573dcdd5"
+    },
+    {
+      "route": "/march-2024",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/march-2024.md",
+      "contentHash": "3bc5c22b2d573b9f1d5ac241fa1a591ec5ee6244628ea5687b9099c6ace0c117"
+    },
+    {
+      "route": "/march-2025",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/march-2025.md",
+      "contentHash": "3486de5b56b412aeaae0300c9a74386de4293bf116d66478b293c1e29e87a84f"
+    },
+    {
+      "route": "/may-2023",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/may-2023.md",
+      "contentHash": "c7469faa812e621d8bb8c2c7ed40568db978c9c6c6789d1eab7e21ea80ad3612"
+    },
+    {
+      "route": "/may-2024",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/may-2024.md",
+      "contentHash": "7b2e30651e836583a9dd8f600b165666b6b97c0216bcf573977db271e502924b"
+    },
+    {
+      "route": "/may-2025",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/may-2025.md",
+      "contentHash": "265cfa5e3d74806187dded2b0699aa51315636e1d9b88fd158ffd7e965132272"
     },
     {
       "route": "/media-inquiries",
@@ -282,6 +420,42 @@
       "template": "news-article",
       "localInput": "src/content/news/the-mission-studio-first-convening.md",
       "contentHash": "e255587386136308e39d1af286ae3e071c77f15fa4d10fa3a8e863de222d5d83"
+    },
+    {
+      "route": "/november-2022",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/november-2022.md",
+      "contentHash": "e923e00188395b80cb54bbebab1a75ea842432004162bc8bf12336aeb5facd5d"
+    },
+    {
+      "route": "/november-2023",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/november-2023.md",
+      "contentHash": "937662a324582f9ce8837669456ad75b26f1fc2d03e99df50ca04a545f0d72de"
+    },
+    {
+      "route": "/november-2024",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/november-2024.md",
+      "contentHash": "ddb2d96785dae22fb3ca78183f102bc86d1099ac8b5afbf00083560d1f77276f"
+    },
+    {
+      "route": "/october-2022",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/october-2022.md",
+      "contentHash": "48e66414871f3173acf9033fdf3bc7d750a22bd29354477036a537a1bfe65d83"
+    },
+    {
+      "route": "/october-2023",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/october-2023.md",
+      "contentHash": "c35f776f4869f68022fff8afd83e22ad2917f7df9630816c518f7bc88e82f98f"
+    },
+    {
+      "route": "/october-2024",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/october-2024.md",
+      "contentHash": "7c8156935c742ea9a4503cc2a505a8f2a93b909ee3022adfaa236b940523667e"
     },
     {
       "route": "/our-values",
@@ -834,6 +1008,24 @@
       "template": "legal",
       "localInput": "src/content/pages/legal/refund-policy-terms-and-conditions.json",
       "contentHash": "ec7a4dc1ff9d93e5713e5191177de1f10fea3a773ae968a50a75bb047b4a1c3d"
+    },
+    {
+      "route": "/september-2022",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/september-2022.md",
+      "contentHash": "b254db86e1413b17e3ab084d35d83a6f07dbe54dd4f389446062583ba6ed7b95"
+    },
+    {
+      "route": "/september-2023",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/september-2023.md",
+      "contentHash": "124903ffb1d8975ecf149f792787e0fb606173d14f54d703a394f6923fbf575a"
+    },
+    {
+      "route": "/september-2024",
+      "template": "fellows-news-snapshot",
+      "localInput": "src/content/snapshots/september-2024.md",
+      "contentHash": "4f2c8709d38d96bfa48609f001c456a77a1568305d09fcf3d625da56ed53c168"
     },
     {
       "route": "/summer-edition-2025",

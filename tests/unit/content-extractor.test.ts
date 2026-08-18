@@ -40,10 +40,16 @@ test('rejects internal source-host destinations but permits the same text as a l
   expect(hasForbiddenSourceHostRuntimeReference('[https://www.ehf.org/events](/events)')).toBe(false);
 });
 
-test('retains a generated route in the content manifest without a local input', () => {
-  const { manifest } = buildContentManifest({ routes: [{ path: '/', kind: 'included', family: 'homepage' }] });
+test('retains generated homepage and Archive routes without local inputs', () => {
+  const { manifest } = buildContentManifest({ routes: [
+    { path: '/', kind: 'included', family: 'homepage' },
+    { path: '/archive', kind: 'included', family: 'archive' }
+  ] });
 
-  expect(manifest.content).toEqual([{ route: '/', template: 'homepage', localInput: null, contentHash: null }]);
+  expect(manifest.content).toEqual([
+    { route: '/', template: 'homepage', localInput: null, contentHash: null },
+    { route: '/archive', template: 'archive', localInput: null, contentHash: null }
+  ]);
 });
 
 test('removes Edmund Hillary Fellowship site chrome from og title fallback without trimming genuine em-dash titles', () => {

@@ -1,0 +1,16 @@
+{
+  "sourceUrl": "https://www.ehf.org/june-2025",
+  "route": "/june-2025",
+  "family": "fellows-news-snapshot",
+  "viewport": {
+    "name": "mobile",
+    "width": 390,
+    "height": 844
+  },
+  "state": "default",
+  "capturedAt": "2026-08-18T02:56:57.945Z",
+  "documentHeight": 15625,
+  "consoleErrors": [],
+  "failedRequests": [],
+  "imagesNotLoaded": []
+}

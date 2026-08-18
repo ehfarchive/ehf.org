@@ -1,4 +1,6 @@
 ---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import SnapshotPage from '../components/SnapshotPage.astro';
 import StandardPage from '../components/StandardPage.astro';
 import LegalPage from '../components/LegalPage.astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
@@ -34,21 +36,51 @@ const immersiveBackgrounds: Readonly<Record<string, { assetId: string; alt: stri
   '/about-ehf': { assetId: assetIdForLocalPath('/assets/images/content/about-ehf-hero-mountain.png'), alt: '' }
 };
 
-export function getStaticPaths() {
+export async function getStaticPaths() {
+  const snapshotEntries = new Map(
+    (await getCollection('snapshots')).map((entry) => [`/${entry.id}`, entry])
+  );
+
   return loadRouteManifest(routeManifestInput).routes
-    .filter((record): record is IncludedRouteRecord => record.kind === 'included' && (record.family === 'institutional' || record.family === 'legal'))
-    .map((record) => ({ params: { page: record.path.slice(1) }, props: { route: record.path, template: record.family } }));
+    .filter((record): record is IncludedRouteRecord => record.kind === 'included' && (
+      record.family === 'institutional' ||
+      record.family === 'legal' ||
+      record.family === 'fellows-news-snapshot'
+    ))
+    .map((record) => {
+      if (record.family === 'fellows-news-snapshot') {
+        const snapshot = snapshotEntries.get(record.path);
+        if (!snapshot) throw new Error(`missing snapshot content for ${record.path}`);
+        return { params: { page: record.path.slice(1) }, props: { route: record.path, template: record.family, snapshot } };
+      }
+      return { params: { page: record.path.slice(1) }, props: { route: record.path, template: record.family } };
+    });
 }
 
-const { route, template } = Astro.props;
-if (template !== 'institutional' && template !== 'legal') throw new Error(`unsupported page template: ${template}`);
-const contentRecord = loadPageData(route, template, contentManifestInput as ContentManifest, currentRouteManifest);
-const input = pageInputs[contentRecord.localInput];
-if (!input) throw new Error(`unapproved page input: ${contentRecord.localInput}`);
-const sections = loadPageSections(input, route);
+type PageProps =
+  | { route: string; template: 'institutional' | 'legal'; snapshot?: never }
+  | { route: string; template: 'fellows-news-snapshot'; snapshot: CollectionEntry<'snapshots'> };
+
+const { route, template, snapshot } = Astro.props as PageProps;
+if (template === 'fellows-news-snapshot' && !snapshot) throw new Error(`missing snapshot entry for ${route}`);
+const SnapshotContent = snapshot ? (await render(snapshot)).Content : undefined;
+const contentRecord = template === 'fellows-news-snapshot'
+  ? undefined
+  : loadPageData(route, template, contentManifestInput as ContentManifest, currentRouteManifest);
+const input = contentRecord ? pageInputs[contentRecord.localInput] : undefined;
+if (template !== 'fellows-news-snapshot' && !input) throw new Error(`unapproved page input: ${contentRecord?.localInput}`);
+const sections = input ? loadPageSections(input, route) : undefined;
 ---
-<SiteLayout title={input.title} description={input.description}>
-  {template === 'institutional'
-    ? <StandardPage title={input.heading} sections={sections} background={immersiveBackgrounds[route]} />
-    : <LegalPage title={input.heading} sections={sections} />}
-</SiteLayout>
+{template === 'fellows-news-snapshot'
+  ? SnapshotContent && snapshot && (
+    <SnapshotPage title={snapshot.data.title} excerpt={snapshot.data.excerpt} publishedAt={snapshot.data.publishedAt}>
+      <SnapshotContent />
+    </SnapshotPage>
+  )
+  : input && sections && (
+    <SiteLayout title={input.title} description={input.description}>
+      {template === 'institutional'
+        ? <StandardPage title={input.heading} sections={sections} background={immersiveBackgrounds[route]} />
+        : <LegalPage title={input.heading} sections={sections} />}
+    </SiteLayout>
+  )}

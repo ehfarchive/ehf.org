@@ -48,52 +48,52 @@
     },
     {
       "path": "/april-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/april-2023",
+      "sourcePath": "/april-2023"
     },
     {
       "path": "/april-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/april-2024",
+      "sourcePath": "/april-2024"
     },
     {
       "path": "/april-2025",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/april-2025",
+      "sourcePath": "/april-2025"
     },
     {
       "path": "/archive",
-      "kind": "redirect",
-      "target": "/read",
-      "status": 301,
-      "redirectType": "legacy-alias"
+      "kind": "included",
+      "family": "archive",
+      "sourceUrl": "https://www.ehf.org/archive",
+      "sourcePath": "/archive"
     },
     {
       "path": "/august-2022",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/august-2022",
+      "sourcePath": "/august-2022"
     },
     {
       "path": "/august-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/august-2023",
+      "sourcePath": "/august-2023"
     },
     {
       "path": "/august-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/august-2024",
+      "sourcePath": "/august-2024"
     },
     {
       "path": "/communitycollective",
@@ -122,17 +122,17 @@
     },
     {
       "path": "/december-and-january-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/december-and-january-2024",
+      "sourcePath": "/december-and-january-2024"
     },
     {
       "path": "/december22-january23",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/december22-january23",
+      "sourcePath": "/december22-january23"
     },
     {
       "path": "/donation-more-than-10k",
@@ -186,17 +186,17 @@
     },
     {
       "path": "/february-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/february-2023",
+      "sourcePath": "/february-2023"
     },
     {
       "path": "/february-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/february-2024",
+      "sourcePath": "/february-2024"
     },
     {
       "path": "/fellow-detail",
@@ -234,87 +234,87 @@
     },
     {
       "path": "/july-2022",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/july-2022",
+      "sourcePath": "/july-2022"
     },
     {
       "path": "/july-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/july-2023",
+      "sourcePath": "/july-2023"
     },
     {
       "path": "/july-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/july-2024",
+      "sourcePath": "/july-2024"
     },
     {
       "path": "/june-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/june-2023",
+      "sourcePath": "/june-2023"
     },
     {
       "path": "/june-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/june-2024",
+      "sourcePath": "/june-2024"
     },
     {
       "path": "/june-2025",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/june-2025",
+      "sourcePath": "/june-2025"
     },
     {
       "path": "/march-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/march-2023",
+      "sourcePath": "/march-2023"
     },
     {
       "path": "/march-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/march-2024",
+      "sourcePath": "/march-2024"
     },
     {
       "path": "/march-2025",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/march-2025",
+      "sourcePath": "/march-2025"
     },
     {
       "path": "/may-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/may-2023",
+      "sourcePath": "/may-2023"
     },
     {
       "path": "/may-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/may-2024",
+      "sourcePath": "/may-2024"
     },
     {
       "path": "/may-2025",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/may-2025",
+      "sourcePath": "/may-2025"
     },
     {
       "path": "/media-inquiries",
@@ -478,45 +478,45 @@
     },
     {
       "path": "/november-2022",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/november-2022",
+      "sourcePath": "/november-2022"
     },
     {
       "path": "/november-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/november-2023",
+      "sourcePath": "/november-2023"
     },
     {
       "path": "/november-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/november-2024",
+      "sourcePath": "/november-2024"
     },
     {
       "path": "/october-2022",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/october-2022",
+      "sourcePath": "/october-2022"
     },
     {
       "path": "/october-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/october-2023",
+      "sourcePath": "/october-2023"
     },
     {
       "path": "/october-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/october-2024",
+      "sourcePath": "/october-2024"
     },
     {
       "path": "/our-values",
@@ -990,24 +990,24 @@
     },
     {
       "path": "/september-2022",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/september-2022",
+      "sourcePath": "/september-2022"
     },
     {
       "path": "/september-2023",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/september-2023",
+      "sourcePath": "/september-2023"
     },
     {
       "path": "/september-2024",
-      "kind": "redirect",
-      "target": "/news-blog",
-      "status": 301,
-      "redirectType": "monthly-archive"
+      "kind": "included",
+      "family": "fellows-news-snapshot",
+      "sourceUrl": "https://www.ehf.org/september-2024",
+      "sourcePath": "/september-2024"
     },
     {
       "path": "/summer-edition-2025",

@@ -3766,6 +3766,242 @@
           }
         }
       ]
+    },
+    {
+      "family": "fellows-news-snapshot",
+      "representativePath": "/june-2025",
+      "states": [
+        {
+          "name": "default",
+          "sourceObserved": true,
+          "description": "Full source page after fonts settle and deferred media loads."
+        },
+        {
+          "name": "editorial-content",
+          "sourceObserved": true,
+          "description": "First archive or editorial section scrolled into the viewport."
+        }
+      ],
+      "measurements": {
+        "desktop": {
+          "documentWidthPx": 1440,
+          "documentHeightPx": 9247,
+          "headerHeightPx": 123,
+          "contentGutterPx": 29,
+          "footerHeightPx": 330,
+          "sectionMetrics": []
+        },
+        "mobile": {
+          "documentWidthPx": 390,
+          "documentHeightPx": 15402,
+          "headerHeightPx": 86.765625,
+          "contentGutterPx": 23.390625,
+          "footerHeightPx": 278.5,
+          "sectionMetrics": []
+        }
+      },
+      "captures": [
+        {
+          "state": "default",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/fellows-news-snapshot/default-desktop.png",
+          "metadata": "source-evidence/screenshots/fellows-news-snapshot/default-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 9247,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/june-2025",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "default",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/fellows-news-snapshot/default-mobile.png",
+          "metadata": "source-evidence/screenshots/fellows-news-snapshot/default-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 15402,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/june-2025",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "editorial-content",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/fellows-news-snapshot/editorial-content-desktop.png",
+          "metadata": "source-evidence/screenshots/fellows-news-snapshot/editorial-content-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/june-2025",
+          "interaction": {
+            "mechanism": "scrollIntoView",
+            "control": "main h2, main h3"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "editorial-content",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/fellows-news-snapshot/editorial-content-mobile.png",
+          "metadata": "source-evidence/screenshots/fellows-news-snapshot/editorial-content-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 844,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/june-2025",
+          "interaction": {
+            "mechanism": "scrollIntoView",
+            "control": "main h2, main h3"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        }
+      ]
+    },
+    {
+      "family": "archive",
+      "representativePath": "/archive",
+      "states": [
+        {
+          "name": "default",
+          "sourceObserved": true,
+          "description": "Full source page after fonts settle and deferred media loads."
+        },
+        {
+          "name": "editorial-content",
+          "sourceObserved": true,
+          "description": "First archive or editorial section scrolled into the viewport."
+        }
+      ],
+      "measurements": {
+        "desktop": {
+          "documentWidthPx": 1440,
+          "documentHeightPx": 7540,
+          "headerHeightPx": 123,
+          "contentGutterPx": 29,
+          "footerHeightPx": 330,
+          "sectionMetrics": []
+        },
+        "mobile": {
+          "documentWidthPx": 390,
+          "documentHeightPx": 13809,
+          "headerHeightPx": 86.765625,
+          "contentGutterPx": 23.390625,
+          "footerHeightPx": 278.5,
+          "sectionMetrics": []
+        }
+      },
+      "captures": [
+        {
+          "state": "default",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/archive/default-desktop.png",
+          "metadata": "source-evidence/screenshots/archive/default-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 7540,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/archive",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "default",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/archive/default-mobile.png",
+          "metadata": "source-evidence/screenshots/archive/default-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 13809,
+          "fullPage": true,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/archive",
+          "interaction": null,
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "editorial-content",
+          "viewport": "desktop",
+          "screenshot": "source-evidence/screenshots/archive/editorial-content-desktop.png",
+          "metadata": "source-evidence/screenshots/archive/editorial-content-desktop.json",
+          "screenshotWidthPx": 1440,
+          "screenshotHeightPx": 1000,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/archive",
+          "interaction": {
+            "mechanism": "scrollIntoView",
+            "control": "main h2, main h3"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        },
+        {
+          "state": "editorial-content",
+          "viewport": "mobile",
+          "screenshot": "source-evidence/screenshots/archive/editorial-content-mobile.png",
+          "metadata": "source-evidence/screenshots/archive/editorial-content-mobile.json",
+          "screenshotWidthPx": 390,
+          "screenshotHeightPx": 844,
+          "fullPage": false,
+          "httpStatus": 200,
+          "finalUrl": "https://www.ehf.org/archive",
+          "interaction": {
+            "mechanism": "scrollIntoView",
+            "control": "main h2, main h3"
+          },
+          "browserHealth": {
+            "reducedMotion": true,
+            "fontsReady": true,
+            "consoleErrors": [],
+            "failedRequests": [],
+            "unloadedImages": []
+          }
+        }
+      ]
     }
   ],
   "ticket10ContactForms": {
@@ -3781,15 +4017,60 @@
         "heading": "Media Enquiry",
         "submitLabel": "Submit",
         "fields": [
-          { "id": "first-name", "label": "First Name (required)", "type": "text", "autocomplete": "given-name", "filledValue": "Sample contact" },
-          { "id": "last-name", "label": "Last Name (required)", "type": "text", "autocomplete": "family-name", "filledValue": "Sample contact" },
-          { "id": "email", "label": "Email (required)", "type": "email", "autocomplete": "false", "filledValue": "sample@example.test" },
-          { "id": "subject", "label": "Subject (required)", "type": "text", "autocomplete": "false", "filledValue": "Sample contact" },
-          { "id": "message", "label": "Message (required)", "type": "textarea", "filledValue": "Sample message." }
+          {
+            "id": "first-name",
+            "label": "First Name (required)",
+            "type": "text",
+            "autocomplete": "given-name",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "last-name",
+            "label": "Last Name (required)",
+            "type": "text",
+            "autocomplete": "family-name",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "email",
+            "label": "Email (required)",
+            "type": "email",
+            "autocomplete": "false",
+            "filledValue": "sample@example.test"
+          },
+          {
+            "id": "subject",
+            "label": "Subject (required)",
+            "type": "text",
+            "autocomplete": "false",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "message",
+            "label": "Message (required)",
+            "type": "textarea",
+            "filledValue": "Sample message."
+          }
         ],
         "captures": [
-          { "viewport": "desktop", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/contact-media-desktop.png", "json": "source-evidence/screenshots/contact-ticket10/contact-media-desktop.json", "pngSha256": "3f57a121c39e287a5830d8175e9433c1a8f3dcc22b4daf2ce070e9d76e35db31", "jsonSha256": "6a4014da08135e8e5d9116717adbb6530a280a209b82db066add9060487b76b0" },
-          { "viewport": "mobile", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/contact-media-mobile.png", "json": "source-evidence/screenshots/contact-ticket10/contact-media-mobile.json", "pngSha256": "3a09610299916ae2e655a97f6622a5886ab3e28b8d1a11d95701160482557b58", "jsonSha256": "f8456bd77916663a46ae15daf7417fcfe21b0b591c93449e4c05840d64d57871" }
+          {
+            "viewport": "desktop",
+            "defaultState": "default",
+            "filledState": "filled",
+            "png": "source-evidence/screenshots/contact-ticket10/contact-media-desktop.png",
+            "json": "source-evidence/screenshots/contact-ticket10/contact-media-desktop.json",
+            "pngSha256": "3f57a121c39e287a5830d8175e9433c1a8f3dcc22b4daf2ce070e9d76e35db31",
+            "jsonSha256": "6a4014da08135e8e5d9116717adbb6530a280a209b82db066add9060487b76b0"
+          },
+          {
+            "viewport": "mobile",
+            "defaultState": "default",
+            "filledState": "filled",
+            "png": "source-evidence/screenshots/contact-ticket10/contact-media-mobile.png",
+            "json": "source-evidence/screenshots/contact-ticket10/contact-media-mobile.json",
+            "pngSha256": "3a09610299916ae2e655a97f6622a5886ab3e28b8d1a11d95701160482557b58",
+            "jsonSha256": "f8456bd77916663a46ae15daf7417fcfe21b0b591c93449e4c05840d64d57871"
+          }
         ]
       },
       {
@@ -3797,14 +4078,53 @@
         "heading": "Contact Us",
         "submitLabel": "Send",
         "fields": [
-          { "id": "first-name", "label": "First Name (required)", "type": "text", "autocomplete": "given-name", "filledValue": "Sample contact" },
-          { "id": "last-name", "label": "Last Name (required)", "type": "text", "autocomplete": "family-name", "filledValue": "Sample contact" },
-          { "id": "email", "label": "Email (required)", "type": "email", "autocomplete": "false", "filledValue": "sample@example.test" },
-          { "id": "message", "label": "Message (required)", "type": "textarea", "filledValue": "Sample message." }
+          {
+            "id": "first-name",
+            "label": "First Name (required)",
+            "type": "text",
+            "autocomplete": "given-name",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "last-name",
+            "label": "Last Name (required)",
+            "type": "text",
+            "autocomplete": "family-name",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "email",
+            "label": "Email (required)",
+            "type": "email",
+            "autocomplete": "false",
+            "filledValue": "sample@example.test"
+          },
+          {
+            "id": "message",
+            "label": "Message (required)",
+            "type": "textarea",
+            "filledValue": "Sample message."
+          }
         ],
         "captures": [
-          { "viewport": "desktop", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/contact-us-desktop.png", "json": "source-evidence/screenshots/contact-ticket10/contact-us-desktop.json", "pngSha256": "dfba47840b730644fbf491ad06d4ee7e59bd9a09446f11356aa03ab2e5b64afc", "jsonSha256": "ee4de54a75c7323edd535ad53e3702d2870dd44fb4fb210f4b79e44ce7c0b71b" },
-          { "viewport": "mobile", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/contact-us-mobile.png", "json": "source-evidence/screenshots/contact-ticket10/contact-us-mobile.json", "pngSha256": "937dd2efedcf90af8c210b021ccf29e28d7fa30e6b7e7bd66c1bfacb9b1186d9", "jsonSha256": "fd7e0a8a19c45f358d3a9f0085d660a3c1b324d1a4683f8b5e18935a0f0783a8" }
+          {
+            "viewport": "desktop",
+            "defaultState": "default",
+            "filledState": "filled",
+            "png": "source-evidence/screenshots/contact-ticket10/contact-us-desktop.png",
+            "json": "source-evidence/screenshots/contact-ticket10/contact-us-desktop.json",
+            "pngSha256": "dfba47840b730644fbf491ad06d4ee7e59bd9a09446f11356aa03ab2e5b64afc",
+            "jsonSha256": "ee4de54a75c7323edd535ad53e3702d2870dd44fb4fb210f4b79e44ce7c0b71b"
+          },
+          {
+            "viewport": "mobile",
+            "defaultState": "default",
+            "filledState": "filled",
+            "png": "source-evidence/screenshots/contact-ticket10/contact-us-mobile.png",
+            "json": "source-evidence/screenshots/contact-ticket10/contact-us-mobile.json",
+            "pngSha256": "937dd2efedcf90af8c210b021ccf29e28d7fa30e6b7e7bd66c1bfacb9b1186d9",
+            "jsonSha256": "fd7e0a8a19c45f358d3a9f0085d660a3c1b324d1a4683f8b5e18935a0f0783a8"
+          }
         ]
       },
       {
@@ -3812,15 +4132,60 @@
         "heading": "Want to donate more than $10,000?",
         "submitLabel": "Submit",
         "fields": [
-          { "id": "first-name", "label": "First Name (required)", "type": "text", "autocomplete": "given-name", "filledValue": "Sample contact" },
-          { "id": "last-name", "label": "Last Name (required)", "type": "text", "autocomplete": "family-name", "filledValue": "Sample contact" },
-          { "id": "email", "label": "Email (required)", "type": "email", "autocomplete": "false", "filledValue": "sample@example.test" },
-          { "id": "subject", "label": "Subject (required)", "type": "text", "autocomplete": "false", "filledValue": "Sample contact" },
-          { "id": "message", "label": "Message (required)", "type": "textarea", "filledValue": "Sample message." }
+          {
+            "id": "first-name",
+            "label": "First Name (required)",
+            "type": "text",
+            "autocomplete": "given-name",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "last-name",
+            "label": "Last Name (required)",
+            "type": "text",
+            "autocomplete": "family-name",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "email",
+            "label": "Email (required)",
+            "type": "email",
+            "autocomplete": "false",
+            "filledValue": "sample@example.test"
+          },
+          {
+            "id": "subject",
+            "label": "Subject (required)",
+            "type": "text",
+            "autocomplete": "false",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "message",
+            "label": "Message (required)",
+            "type": "textarea",
+            "filledValue": "Sample message."
+          }
         ],
         "captures": [
-          { "viewport": "desktop", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/donation-more-than-10k-desktop.png", "json": "source-evidence/screenshots/contact-ticket10/donation-more-than-10k-desktop.json", "pngSha256": "7ef62bf5969b18d4707b1be24abfc7b8961ad49814baee28d5857710aa0605f1", "jsonSha256": "97e1654246ce22ea9054361bca5a120a33e13d20df48ae0dd9a2cb6e1a309ce7" },
-          { "viewport": "mobile", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/donation-more-than-10k-mobile.png", "json": "source-evidence/screenshots/contact-ticket10/donation-more-than-10k-mobile.json", "pngSha256": "55ffff23ee9c193ffe78f99eb332fa7e18a65c3d3f0a9ed4fb0b621a2887d18b", "jsonSha256": "7d3cee70b11945202c5b63d29cf5b194a14c3bbb5ab3799844fb54d76d8f12ea" }
+          {
+            "viewport": "desktop",
+            "defaultState": "default",
+            "filledState": "filled",
+            "png": "source-evidence/screenshots/contact-ticket10/donation-more-than-10k-desktop.png",
+            "json": "source-evidence/screenshots/contact-ticket10/donation-more-than-10k-desktop.json",
+            "pngSha256": "7ef62bf5969b18d4707b1be24abfc7b8961ad49814baee28d5857710aa0605f1",
+            "jsonSha256": "97e1654246ce22ea9054361bca5a120a33e13d20df48ae0dd9a2cb6e1a309ce7"
+          },
+          {
+            "viewport": "mobile",
+            "defaultState": "default",
+            "filledState": "filled",
+            "png": "source-evidence/screenshots/contact-ticket10/donation-more-than-10k-mobile.png",
+            "json": "source-evidence/screenshots/contact-ticket10/donation-more-than-10k-mobile.json",
+            "pngSha256": "55ffff23ee9c193ffe78f99eb332fa7e18a65c3d3f0a9ed4fb0b621a2887d18b",
+            "jsonSha256": "7d3cee70b11945202c5b63d29cf5b194a14c3bbb5ab3799844fb54d76d8f12ea"
+          }
         ]
       },
       {
@@ -3828,15 +4193,60 @@
         "heading": "Do you live outside New Zealand and the US but still want to donate to EHF?",
         "submitLabel": "Submit",
         "fields": [
-          { "id": "first-name", "label": "First Name (required)", "type": "text", "autocomplete": "given-name", "filledValue": "Sample contact" },
-          { "id": "last-name", "label": "Last Name (required)", "type": "text", "autocomplete": "family-name", "filledValue": "Sample contact" },
-          { "id": "email", "label": "Email (required)", "type": "email", "autocomplete": "false", "filledValue": "sample@example.test" },
-          { "id": "subject", "label": "Subject (required)", "type": "text", "autocomplete": "false", "filledValue": "Sample contact" },
-          { "id": "message", "label": "Message (required)", "type": "textarea", "filledValue": "Sample message." }
+          {
+            "id": "first-name",
+            "label": "First Name (required)",
+            "type": "text",
+            "autocomplete": "given-name",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "last-name",
+            "label": "Last Name (required)",
+            "type": "text",
+            "autocomplete": "family-name",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "email",
+            "label": "Email (required)",
+            "type": "email",
+            "autocomplete": "false",
+            "filledValue": "sample@example.test"
+          },
+          {
+            "id": "subject",
+            "label": "Subject (required)",
+            "type": "text",
+            "autocomplete": "false",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "message",
+            "label": "Message (required)",
+            "type": "textarea",
+            "filledValue": "Sample message."
+          }
         ],
         "captures": [
-          { "viewport": "desktop", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/donation-outside-nz-and-us-desktop.png", "json": "source-evidence/screenshots/contact-ticket10/donation-outside-nz-and-us-desktop.json", "pngSha256": "131b8fc8b72ad957d304dc3456190830a977857869d54959fc611e02778c1166", "jsonSha256": "046eb1d26a31ca7c3480567f578c3786ed4cb2e65821cc271e9be314b5ad729a" },
-          { "viewport": "mobile", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/donation-outside-nz-and-us-mobile.png", "json": "source-evidence/screenshots/contact-ticket10/donation-outside-nz-and-us-mobile.json", "pngSha256": "9e66f3ab513c98aea3a81d83a532040a74376bfc380eb94ecc2ed7933e269818", "jsonSha256": "5e6b0ce08d6c96abd9487509ca51e68479291b51ab491c938a44918397d6f4ed" }
+          {
+            "viewport": "desktop",
+            "defaultState": "default",
+            "filledState": "filled",
+            "png": "source-evidence/screenshots/contact-ticket10/donation-outside-nz-and-us-desktop.png",
+            "json": "source-evidence/screenshots/contact-ticket10/donation-outside-nz-and-us-desktop.json",
+            "pngSha256": "131b8fc8b72ad957d304dc3456190830a977857869d54959fc611e02778c1166",
+            "jsonSha256": "046eb1d26a31ca7c3480567f578c3786ed4cb2e65821cc271e9be314b5ad729a"
+          },
+          {
+            "viewport": "mobile",
+            "defaultState": "default",
+            "filledState": "filled",
+            "png": "source-evidence/screenshots/contact-ticket10/donation-outside-nz-and-us-mobile.png",
+            "json": "source-evidence/screenshots/contact-ticket10/donation-outside-nz-and-us-mobile.json",
+            "pngSha256": "9e66f3ab513c98aea3a81d83a532040a74376bfc380eb94ecc2ed7933e269818",
+            "jsonSha256": "5e6b0ce08d6c96abd9487509ca51e68479291b51ab491c938a44918397d6f4ed"
+          }
         ]
       },
       {
@@ -3844,15 +4254,60 @@
         "heading": "Want to donate to EHF at a later time?",
         "submitLabel": "Submit",
         "fields": [
-          { "id": "first-name", "label": "First Name (required)", "type": "text", "autocomplete": "given-name", "filledValue": "Sample contact" },
-          { "id": "last-name", "label": "Last Name (required)", "type": "text", "autocomplete": "family-name", "filledValue": "Sample contact" },
-          { "id": "email", "label": "Email (required)", "type": "email", "autocomplete": "false", "filledValue": "sample@example.test" },
-          { "id": "subject", "label": "Subject (required)", "type": "text", "autocomplete": "false", "filledValue": "Sample contact" },
-          { "id": "message", "label": "Message (required)", "type": "textarea", "filledValue": "Sample message." }
+          {
+            "id": "first-name",
+            "label": "First Name (required)",
+            "type": "text",
+            "autocomplete": "given-name",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "last-name",
+            "label": "Last Name (required)",
+            "type": "text",
+            "autocomplete": "family-name",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "email",
+            "label": "Email (required)",
+            "type": "email",
+            "autocomplete": "false",
+            "filledValue": "sample@example.test"
+          },
+          {
+            "id": "subject",
+            "label": "Subject (required)",
+            "type": "text",
+            "autocomplete": "false",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "message",
+            "label": "Message (required)",
+            "type": "textarea",
+            "filledValue": "Sample message."
+          }
         ],
         "captures": [
-          { "viewport": "desktop", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/donation-pledge-desktop.png", "json": "source-evidence/screenshots/contact-ticket10/donation-pledge-desktop.json", "pngSha256": "0189d07eacff9b645376dd89b5deb755766e474e1220390a25b1c41b2de5d721", "jsonSha256": "540a3746e458665a11365072643a128396de009d99919989bedf2b7eb679fcb2" },
-          { "viewport": "mobile", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/donation-pledge-mobile.png", "json": "source-evidence/screenshots/contact-ticket10/donation-pledge-mobile.json", "pngSha256": "5480f1f6da1063314f342479d0894bc7ede950249ffd620fe016342346f94666", "jsonSha256": "aecbcc74e82703f691fa64af7a585cc49359e53c46c75631ec2768d657c9c0b4" }
+          {
+            "viewport": "desktop",
+            "defaultState": "default",
+            "filledState": "filled",
+            "png": "source-evidence/screenshots/contact-ticket10/donation-pledge-desktop.png",
+            "json": "source-evidence/screenshots/contact-ticket10/donation-pledge-desktop.json",
+            "pngSha256": "0189d07eacff9b645376dd89b5deb755766e474e1220390a25b1c41b2de5d721",
+            "jsonSha256": "540a3746e458665a11365072643a128396de009d99919989bedf2b7eb679fcb2"
+          },
+          {
+            "viewport": "mobile",
+            "defaultState": "default",
+            "filledState": "filled",
+            "png": "source-evidence/screenshots/contact-ticket10/donation-pledge-mobile.png",
+            "json": "source-evidence/screenshots/contact-ticket10/donation-pledge-mobile.json",
+            "pngSha256": "5480f1f6da1063314f342479d0894bc7ede950249ffd620fe016342346f94666",
+            "jsonSha256": "aecbcc74e82703f691fa64af7a585cc49359e53c46c75631ec2768d657c9c0b4"
+          }
         ]
       },
       {
@@ -3860,31 +4315,121 @@
         "heading": "Want to enquire about our refund policy?",
         "submitLabel": "Submit",
         "fields": [
-          { "id": "first-name", "label": "First Name (required)", "type": "text", "autocomplete": "given-name", "filledValue": "Sample contact" },
-          { "id": "last-name", "label": "Last Name (required)", "type": "text", "autocomplete": "family-name", "filledValue": "Sample contact" },
-          { "id": "email", "label": "Email (required)", "type": "email", "autocomplete": "false", "filledValue": "sample@example.test" },
-          { "id": "subject", "label": "Subject (required)", "type": "text", "autocomplete": "false", "filledValue": "Sample contact" },
-          { "id": "message", "label": "Message (required)", "type": "textarea", "filledValue": "Sample message." }
+          {
+            "id": "first-name",
+            "label": "First Name (required)",
+            "type": "text",
+            "autocomplete": "given-name",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "last-name",
+            "label": "Last Name (required)",
+            "type": "text",
+            "autocomplete": "family-name",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "email",
+            "label": "Email (required)",
+            "type": "email",
+            "autocomplete": "false",
+            "filledValue": "sample@example.test"
+          },
+          {
+            "id": "subject",
+            "label": "Subject (required)",
+            "type": "text",
+            "autocomplete": "false",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "message",
+            "label": "Message (required)",
+            "type": "textarea",
+            "filledValue": "Sample message."
+          }
         ],
         "captures": [
-          { "viewport": "desktop", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/donation-refund-request-desktop.png", "json": "source-evidence/screenshots/contact-ticket10/donation-refund-request-desktop.json", "pngSha256": "1f4148a16c07eac5c9fc3f1518060cdfbf1bbc6c71b823d1ba96e4b84db1a762", "jsonSha256": "813fb00cbbf41240d3307bcfd39530b45ddb77216dc970282bdc984075e96663" },
-          { "viewport": "mobile", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/donation-refund-request-mobile.png", "json": "source-evidence/screenshots/contact-ticket10/donation-refund-request-mobile.json", "pngSha256": "35ffbe0c847c17fda36f27ea78502422829938cb1c54fd56ac0214a2b69274b9", "jsonSha256": "34399f2cb8f25dee8ccd0eb9f10d0aad5ad0ce4be7bdf8423e57840fb9ab4e3a" }
+          {
+            "viewport": "desktop",
+            "defaultState": "default",
+            "filledState": "filled",
+            "png": "source-evidence/screenshots/contact-ticket10/donation-refund-request-desktop.png",
+            "json": "source-evidence/screenshots/contact-ticket10/donation-refund-request-desktop.json",
+            "pngSha256": "1f4148a16c07eac5c9fc3f1518060cdfbf1bbc6c71b823d1ba96e4b84db1a762",
+            "jsonSha256": "813fb00cbbf41240d3307bcfd39530b45ddb77216dc970282bdc984075e96663"
+          },
+          {
+            "viewport": "mobile",
+            "defaultState": "default",
+            "filledState": "filled",
+            "png": "source-evidence/screenshots/contact-ticket10/donation-refund-request-mobile.png",
+            "json": "source-evidence/screenshots/contact-ticket10/donation-refund-request-mobile.json",
+            "pngSha256": "35ffbe0c847c17fda36f27ea78502422829938cb1c54fd56ac0214a2b69274b9",
+            "jsonSha256": "34399f2cb8f25dee8ccd0eb9f10d0aad5ad0ce4be7bdf8423e57840fb9ab4e3a"
+          }
         ]
       },
       {
         "route": "/ehf-friendly-sharks-waiting-list",
-        "heading": "Add me to the EHF ‘Friendly Sharks’ waiting list",
+        "heading": "Add me to the EHF \u2018Friendly Sharks\u2019 waiting list",
         "submitLabel": "Submit",
         "fields": [
-          { "id": "first-name", "label": "First Name (required)", "type": "text", "autocomplete": "given-name", "filledValue": "Sample contact" },
-          { "id": "last-name", "label": "Last Name (required)", "type": "text", "autocomplete": "family-name", "filledValue": "Sample contact" },
-          { "id": "email", "label": "Email (required)", "type": "email", "autocomplete": "false", "filledValue": "sample@example.test" },
-          { "id": "subject", "label": "Subject (required)", "type": "text", "autocomplete": "false", "filledValue": "Sample contact" },
-          { "id": "message", "label": "Message (required)", "type": "textarea", "filledValue": "Sample message." }
+          {
+            "id": "first-name",
+            "label": "First Name (required)",
+            "type": "text",
+            "autocomplete": "given-name",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "last-name",
+            "label": "Last Name (required)",
+            "type": "text",
+            "autocomplete": "family-name",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "email",
+            "label": "Email (required)",
+            "type": "email",
+            "autocomplete": "false",
+            "filledValue": "sample@example.test"
+          },
+          {
+            "id": "subject",
+            "label": "Subject (required)",
+            "type": "text",
+            "autocomplete": "false",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "message",
+            "label": "Message (required)",
+            "type": "textarea",
+            "filledValue": "Sample message."
+          }
         ],
         "captures": [
-          { "viewport": "desktop", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/ehf-friendly-sharks-waiting-list-desktop.png", "json": "source-evidence/screenshots/contact-ticket10/ehf-friendly-sharks-waiting-list-desktop.json", "pngSha256": "e319f408e20c077e601d63cb3494141f2aaa970fd5d9acd029ffcdd1116eef32", "jsonSha256": "bd232e3abd7b4458a737502995b2a7610e8a478c37a9142d9452df7838806f9d" },
-          { "viewport": "mobile", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/ehf-friendly-sharks-waiting-list-mobile.png", "json": "source-evidence/screenshots/contact-ticket10/ehf-friendly-sharks-waiting-list-mobile.json", "pngSha256": "393e0659ba908fc5290387cefede3b69d8206130a301303b782d5ef6f663f2b9", "jsonSha256": "a4516c635454204403a1f07b0bf2e8188ca445efcb555106a83e4599704bbd1f" }
+          {
+            "viewport": "desktop",
+            "defaultState": "default",
+            "filledState": "filled",
+            "png": "source-evidence/screenshots/contact-ticket10/ehf-friendly-sharks-waiting-list-desktop.png",
+            "json": "source-evidence/screenshots/contact-ticket10/ehf-friendly-sharks-waiting-list-desktop.json",
+            "pngSha256": "e319f408e20c077e601d63cb3494141f2aaa970fd5d9acd029ffcdd1116eef32",
+            "jsonSha256": "bd232e3abd7b4458a737502995b2a7610e8a478c37a9142d9452df7838806f9d"
+          },
+          {
+            "viewport": "mobile",
+            "defaultState": "default",
+            "filledState": "filled",
+            "png": "source-evidence/screenshots/contact-ticket10/ehf-friendly-sharks-waiting-list-mobile.png",
+            "json": "source-evidence/screenshots/contact-ticket10/ehf-friendly-sharks-waiting-list-mobile.json",
+            "pngSha256": "393e0659ba908fc5290387cefede3b69d8206130a301303b782d5ef6f663f2b9",
+            "jsonSha256": "a4516c635454204403a1f07b0bf2e8188ca445efcb555106a83e4599704bbd1f"
+          }
         ]
       },
       {
@@ -3892,14 +4437,53 @@
         "heading": "Media Inquiry",
         "submitLabel": "Send",
         "fields": [
-          { "id": "first-name", "label": "First Name (required)", "type": "text", "autocomplete": "given-name", "filledValue": "Sample contact" },
-          { "id": "last-name", "label": "Last Name (required)", "type": "text", "autocomplete": "family-name", "filledValue": "Sample contact" },
-          { "id": "email", "label": "Email (required)", "type": "email", "autocomplete": "false", "filledValue": "sample@example.test" },
-          { "id": "message", "label": "Message (required)", "type": "textarea", "filledValue": "Sample message." }
+          {
+            "id": "first-name",
+            "label": "First Name (required)",
+            "type": "text",
+            "autocomplete": "given-name",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "last-name",
+            "label": "Last Name (required)",
+            "type": "text",
+            "autocomplete": "family-name",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "email",
+            "label": "Email (required)",
+            "type": "email",
+            "autocomplete": "false",
+            "filledValue": "sample@example.test"
+          },
+          {
+            "id": "message",
+            "label": "Message (required)",
+            "type": "textarea",
+            "filledValue": "Sample message."
+          }
         ],
         "captures": [
-          { "viewport": "desktop", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/media-inquiries-desktop.png", "json": "source-evidence/screenshots/contact-ticket10/media-inquiries-desktop.json", "pngSha256": "ab02b31a4340498b227712e9820c825bf297fb40f8ff8fbe6e00ff6fd8fe2a89", "jsonSha256": "0088edfcefc313bd8b457ff3668ef031acd31807987030fcd226e65480b1a33d" },
-          { "viewport": "mobile", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/media-inquiries-mobile.png", "json": "source-evidence/screenshots/contact-ticket10/media-inquiries-mobile.json", "pngSha256": "898ca19b99bb70dc13bdd40b5757ff763ab228bf027c8512fe51cf0e8d649624", "jsonSha256": "0d53f2038674bc881420e6fe8f9339c0e0cdcb0f537ad686f75efba8c19cc7ba" }
+          {
+            "viewport": "desktop",
+            "defaultState": "default",
+            "filledState": "filled",
+            "png": "source-evidence/screenshots/contact-ticket10/media-inquiries-desktop.png",
+            "json": "source-evidence/screenshots/contact-ticket10/media-inquiries-desktop.json",
+            "pngSha256": "ab02b31a4340498b227712e9820c825bf297fb40f8ff8fbe6e00ff6fd8fe2a89",
+            "jsonSha256": "0088edfcefc313bd8b457ff3668ef031acd31807987030fcd226e65480b1a33d"
+          },
+          {
+            "viewport": "mobile",
+            "defaultState": "default",
+            "filledState": "filled",
+            "png": "source-evidence/screenshots/contact-ticket10/media-inquiries-mobile.png",
+            "json": "source-evidence/screenshots/contact-ticket10/media-inquiries-mobile.json",
+            "pngSha256": "898ca19b99bb70dc13bdd40b5757ff763ab228bf027c8512fe51cf0e8d649624",
+            "jsonSha256": "0d53f2038674bc881420e6fe8f9339c0e0cdcb0f537ad686f75efba8c19cc7ba"
+          }
         ]
       },
       {
@@ -3907,23 +4491,86 @@
         "heading": "I want to receive updates on EHF News and Events",
         "submitLabel": "Submit",
         "fields": [
-          { "id": "first-name", "label": "First Name (required)", "type": "text", "autocomplete": "given-name", "filledValue": "Sample contact" },
-          { "id": "last-name", "label": "Last Name (required)", "type": "text", "autocomplete": "family-name", "filledValue": "Sample contact" },
-          { "id": "email", "label": "Email (required)", "type": "email", "autocomplete": "false", "filledValue": "sample@example.test" },
-          { "id": "interest", "label": "What is your interest in EHF and New Zealand? (required)", "type": "textarea", "filledValue": "Sample message." },
-          { "id": "referral", "label": "How did you hear about EHF? (required)", "type": "textarea", "filledValue": "Sample message." },
-          { "id": "ecosystem", "label": "I'm part of the NZ ecosystem and am interested to learn about EHF news and events updates", "type": "checkbox", "filledValue": true },
-          { "id": "visa", "label": "I'm interested in updates on if the Global Impact Visa reopens", "type": "checkbox", "filledValue": true }
+          {
+            "id": "first-name",
+            "label": "First Name (required)",
+            "type": "text",
+            "autocomplete": "given-name",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "last-name",
+            "label": "Last Name (required)",
+            "type": "text",
+            "autocomplete": "family-name",
+            "filledValue": "Sample contact"
+          },
+          {
+            "id": "email",
+            "label": "Email (required)",
+            "type": "email",
+            "autocomplete": "false",
+            "filledValue": "sample@example.test"
+          },
+          {
+            "id": "interest",
+            "label": "What is your interest in EHF and New Zealand? (required)",
+            "type": "textarea",
+            "filledValue": "Sample message."
+          },
+          {
+            "id": "referral",
+            "label": "How did you hear about EHF? (required)",
+            "type": "textarea",
+            "filledValue": "Sample message."
+          },
+          {
+            "id": "ecosystem",
+            "label": "I'm part of the NZ ecosystem and am interested to learn about EHF news and events updates",
+            "type": "checkbox",
+            "filledValue": true
+          },
+          {
+            "id": "visa",
+            "label": "I'm interested in updates on if the Global Impact Visa reopens",
+            "type": "checkbox",
+            "filledValue": true
+          }
         ],
         "captures": [
-          { "viewport": "desktop", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/news-and-events-updates-desktop.png", "json": "source-evidence/screenshots/contact-ticket10/news-and-events-updates-desktop.json", "pngSha256": "0d23d07eaeddd3ce0ce6367ea1d4aa2bbf884e03b5c7856dd497f86661c9aa9e", "jsonSha256": "5b43e78c8cb246c3368359adcc06f4ec1225174888747643fb5a7cb25bc9211f" },
-          { "viewport": "mobile", "defaultState": "default", "filledState": "filled", "png": "source-evidence/screenshots/contact-ticket10/news-and-events-updates-mobile.png", "json": "source-evidence/screenshots/contact-ticket10/news-and-events-updates-mobile.json", "pngSha256": "2534ac2b69816d287db8217046733ea434ae7e00c33603fd46a952784291c521", "jsonSha256": "d75666bfca9bf136b74c3a86d560d68bcb4a335eb9aba2f065750c8ac99f6e33" }
+          {
+            "viewport": "desktop",
+            "defaultState": "default",
+            "filledState": "filled",
+            "png": "source-evidence/screenshots/contact-ticket10/news-and-events-updates-desktop.png",
+            "json": "source-evidence/screenshots/contact-ticket10/news-and-events-updates-desktop.json",
+            "pngSha256": "0d23d07eaeddd3ce0ce6367ea1d4aa2bbf884e03b5c7856dd497f86661c9aa9e",
+            "jsonSha256": "5b43e78c8cb246c3368359adcc06f4ec1225174888747643fb5a7cb25bc9211f"
+          },
+          {
+            "viewport": "mobile",
+            "defaultState": "default",
+            "filledState": "filled",
+            "png": "source-evidence/screenshots/contact-ticket10/news-and-events-updates-mobile.png",
+            "json": "source-evidence/screenshots/contact-ticket10/news-and-events-updates-mobile.json",
+            "pngSha256": "2534ac2b69816d287db8217046733ea434ae7e00c33603fd46a952784291c521",
+            "jsonSha256": "d75666bfca9bf136b74c3a86d560d68bcb4a335eb9aba2f065750c8ac99f6e33"
+          }
         ]
       }
     ],
     "prohibited": {
-      "routes": ["/donate"],
-      "controls": ["payment", "video", "social", "external donation link", "honeypot", "reCAPTCHA"]
+      "routes": [
+        "/donate"
+      ],
+      "controls": [
+        "payment",
+        "video",
+        "social",
+        "external donation link",
+        "honeypot",
+        "reCAPTCHA"
+      ]
     }
   }
 }

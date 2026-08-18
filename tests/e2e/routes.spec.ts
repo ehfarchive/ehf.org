@@ -625,3 +625,60 @@ test('Ticket 10 emits all and only the nine declared contact-media-donation rout
   const donate = await page.goto('/donate');
   expect(donate?.status()).toBe(404);
 });
+
+test('Archive restores its four source sections with complete local route sets', async ({ page }) => {
+  const response = await page.goto('/archive');
+  expect(response?.status()).toBe(200);
+  await expect(page.getByRole('heading', { level: 1, name: 'Archive', exact: true })).toHaveCount(1);
+
+  const sections = page.locator('.archive-section');
+  await expect(sections).toHaveCount(4);
+  await expect(sections.nth(0).getByRole('heading', { level: 2, name: 'EHF Organisation News Archive' })).toHaveCount(1);
+  await expect(sections.nth(1).getByRole('heading', { level: 2, name: 'Fellows’ News Archive' })).toHaveCount(1);
+  await expect(sections.nth(2).getByRole('heading', { level: 2, name: 'Annual Reports Archive' })).toHaveCount(1);
+  await expect(sections.nth(3).getByRole('heading', { level: 2, name: 'Events Archive' })).toHaveCount(1);
+  await expect(sections.nth(0).locator('.archive-card')).toHaveCount(28);
+  await expect(sections.nth(1).locator('.archive-card')).toHaveCount(32);
+  await expect(sections.nth(2).locator('a[href$=\".pdf\"]')).toHaveCount(7);
+  const events = sections.nth(3);
+  await expect(events.locator('.summit-gallery figure')).toHaveCount(71);
+  await expect(events.locator('a[href^="http"]')).toHaveCount(9);
+  expect(await events.locator('img').evaluateAll((images) =>
+    images.every((image) => new URL(image.getAttribute('src') || '', document.baseURI).pathname.startsWith('/assets/'))
+  )).toBe(true);
+
+  const localDestinations = new Set(routeManifest.routes
+    .filter((route) => route.kind === 'included')
+    .map((route) => route.path));
+  const archiveInternalLinks = await page.locator('.archive-section a[href^=\"/\"]:not([href^=\"/assets/\"])').evaluateAll((links) =>
+    links.map((link) => link.getAttribute('href'))
+  );
+  expect(archiveInternalLinks.every((href) => href !== null && localDestinations.has(href))).toBe(true);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.reload();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+});
+
+test('all Fellows’ News snapshots are static pages rendered by one local-media template', async ({ page }) => {
+  const snapshots = routeManifest.routes
+    .filter((route) => route.kind === 'included' && route.family === 'fellows-news-snapshot')
+    .map((route) => route.path);
+  expect(snapshots).toHaveLength(31);
+
+  for (const path of snapshots) {
+    const response = await page.goto(path);
+    expect(response?.status(), path).toBe(200);
+    await expect(page.getByRole('heading', { level: 1, name: 'Impact Snapshot', exact: true })).toHaveCount(1);
+  }
+
+  await page.goto('/june-2025');
+  await expect(page.locator('.snapshot-page__month')).toHaveText('June 2025');
+  await expect(page.locator('.snapshot-story')).not.toHaveCount(0);
+  const imageSources = await page.locator('.snapshot-page img').evaluateAll((images) =>
+    images.map((image) => image.getAttribute('src'))
+  );
+  expect(imageSources.length).toBeGreaterThan(0);
+  expect(imageSources.every((source) => source?.startsWith('/assets/'))).toBe(true);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+});
