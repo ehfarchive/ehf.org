@@ -1,7 +1,7 @@
 ---
 title: "Media Release: Pilot visa programme drives economic and social impact for Aotearoa NZ"
 excerpt: "**3 October 2023**"
-listingImage: "/assets/images/content/news-blog-2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz-1.webp"
+listingImage: "/assets/images/content/news-blog-2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz-listing.jpg"
 listingAlt: ""
 heroImage: "/assets/images/content/news-blog-2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz-1.webp"
 heroAlt: ""

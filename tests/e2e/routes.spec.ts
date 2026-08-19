@@ -290,6 +290,32 @@ test('News listing thumbnails do not become detail-page heroes', async ({ page }
   }
 });
 
+test('News listing uses the source card artwork and focal crop independently of article media', async ({ page }) => {
+  const listingArtwork = {
+    'fellow-led-board-established-with-four-fellows-appointed-as-new-directors': '/assets/images/content/news-blog-fellow-led-board-established-with-four-fellows-appointed-as-new-directors-listing.png',
+    'impact-springboard-showcases-leading-innovation-for-global-impact': '/assets/images/content/news-blog-impact-springboard-showcases-leading-innovation-for-global-impact-listing.png',
+    'reflections-this-waitangi-day-2024': '/assets/images/content/news-blog-reflections-this-waitangi-day-2024-listing.jpg',
+    '2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz': '/assets/images/content/news-blog-2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz-listing.jpg',
+    'reflections-of-sir-edmund-hillarys-legacy-on-everest-day': '/assets/images/content/news-blog-reflections-of-sir-edmund-hillarys-legacy-on-everest-day-listing.jpg',
+    'ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa': '/assets/images/content/news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-listing.jpg',
+    'ehf-welcomes-95-fellows-in-march-welcome-experience': '/assets/images/content/news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-listing.jpg',
+    '2021-2022-annual-report-shows-year-of-impact': '/assets/images/content/news-blog-2021-2022-annual-report-shows-year-of-impact-listing.png'
+  } as const;
+
+  await page.goto('/news-blog');
+  for (const [slug, imagePath] of Object.entries(listingArtwork)) {
+    const image = page.locator(`[data-news-slug="${slug}"] .news-card__image img`);
+    await expect(image, slug).toHaveAttribute('src', imagePath);
+  }
+
+  const annualReport = page.locator('[data-news-slug="a-year-of-impact-value-and-momentum-2023-24-annual-report"] .news-card__image img');
+  await expect(annualReport).toHaveCSS('object-position', '47.4781% 5.65529%');
+  const firstCard = page.locator('[data-news-slug="media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp"] .news-card__image img');
+  const connections = page.locator('[data-news-slug="2023-a-year-of-connections-impact-and-milestones"] .news-card__image img');
+  await expect(firstCard).toHaveCSS('object-position', '27.9977% 17.1011%');
+  await expect(connections).toHaveCSS('object-position', '71.0765% 72.9201%');
+});
+
 test('News gallery articles preserve the source image sets', async ({ page }) => {
   const galleryArticles = [
     ['/news-blog/2023-a-year-of-connections-impact-and-milestones', 45],
@@ -712,12 +738,16 @@ test('Watch restores all 88 video details and offset pagination', async ({ page 
   const response = await page.goto('/watch');
   expect(response?.status()).toBe(200);
   await expect(page.getByRole('heading', { level: 1, name: 'Watch', exact: true })).toHaveCount(1);
+  await expect(page.locator('.site-header')).toHaveCSS('background-color', 'rgb(255, 255, 255)');
   await expect(page.locator('.watch-card:visible')).toHaveCount(20);
   await expect(page.getByRole('link', { name: 'Older Posts' })).toHaveAttribute('href', '/watch?offset=1659267549153');
+  const firstPageTop = await page.locator('.watch-card:visible').first().evaluate((card) => card.getBoundingClientRect().top);
 
   await page.getByRole('link', { name: 'Older Posts' }).click();
   await expect(page).toHaveURL(/\/watch\?offset=1659267549153$/);
   await expect(page.locator('.watch-card:visible')).toHaveCount(20);
+  const secondPageTop = await page.locator('.watch-card:visible').first().evaluate((card) => card.getBoundingClientRect().top);
+  expect(Math.abs(secondPageTop - firstPageTop)).toBeLessThan(2);
   await expect(page.getByRole('link', { name: 'Newer Posts' })).toHaveAttribute(
     'href',
     '/watch?offset=1659267474238&reversePaginate=true'
@@ -738,6 +768,32 @@ test('Fellows Articles and the linked hash-slug Impact article remain public', a
   expect(listing?.status()).toBe(200);
   await expect(page.getByRole('heading', { level: 1, name: 'EHF Fellows Articles', exact: true })).toHaveCount(1);
   await expect(page.locator('.fellows-article-card')).toHaveCount(4);
+  const fellowsCards = page.locator('.fellows-article-card');
+  await expect(fellowsCards.first()).toContainText('What inspired the creation of your product?');
+  expect(await fellowsCards.evaluateAll((cards) =>
+    cards.every((card) => card.querySelectorAll('.fellows-article-card__body p').length >= 3)
+  )).toBe(true);
+  await expect(fellowsCards.locator('.fellows-article-card__date')).toHaveCount(4);
+  await expect(fellowsCards.first().locator('.fellows-article-card__date')).toHaveText('5/29/19');
+  const sourceBodyGeometry = await fellowsCards.nth(1).locator('.fellows-article-card__body p').first().evaluate((paragraph) => ({
+    alignment: getComputedStyle(paragraph).textAlign,
+    paragraphWidth: paragraph.getBoundingClientRect().width,
+    bodyWidth: paragraph.closest('.fellows-article-card__body')?.getBoundingClientRect().width ?? 0
+  }));
+  expect(sourceBodyGeometry.alignment).toBe('center');
+  expect(Math.abs(sourceBodyGeometry.paragraphWidth - sourceBodyGeometry.bodyWidth)).toBeLessThan(2);
+  const profile = fellowsCards.first().locator('.fellows-profile');
+  await expect(profile.locator('img')).toHaveCount(1);
+  await expect(profile.locator('.fellows-profile__card')).toHaveCSS('background-color', 'rgb(224, 255, 252)');
+  expect(await profile.evaluate((element) => {
+    const image = element.querySelector('img')?.getBoundingClientRect();
+    const panel = element.querySelector('.fellows-profile__card')?.getBoundingClientRect();
+    if (!image || !panel) return false;
+    return image.width >= element.getBoundingClientRect().width * 0.55
+      && panel.right > image.left
+      && panel.top < image.bottom
+      && panel.bottom > image.top;
+  })).toBe(true);
   await expect(page.locator('header a[href="/ehf-fellows-articles"]')).not.toHaveCount(0);
 
   for (const path of fellowsArticlePaths) {
@@ -766,8 +822,32 @@ test('Archive restores its four source sections with complete local route sets',
   await expect(sections.nth(1).locator('.archive-card')).toHaveCount(32);
   await expect(sections.nth(2).locator('a[href$=\".pdf\"]')).toHaveCount(7);
   const events = sections.nth(3);
-  await expect(events.locator('.summit-gallery figure')).toHaveCount(71);
-  await expect(events.locator('a[href^="http"]')).toHaveCount(9);
+  await expect(events.locator('.summit-gallery__stage img')).toHaveCount(1);
+  await expect(events.locator('.summit-gallery__thumbnail')).toHaveCount(71);
+  await expect(events.locator('.summit-gallery__previous')).toHaveCount(1);
+  await expect(events.locator('.summit-gallery__next')).toHaveCount(1);
+  const arrowStageSource = await events.locator('.summit-gallery__stage img').getAttribute('src');
+  await events.locator('.summit-gallery__next').click();
+  await expect(events.locator('.summit-gallery__stage img')).not.toHaveAttribute('src', arrowStageSource ?? '');
+  const firstStageSource = await events.locator('.summit-gallery__stage img').getAttribute('src');
+  await events.locator('.summit-gallery__thumbnail').nth(2).click();
+  await expect(events.locator('.summit-gallery__stage img')).not.toHaveAttribute('src', firstStageSource ?? '');
+  await expect(events.locator('.event-sessions')).toHaveCSS('background-color', 'rgb(90, 50, 164)');
+  await expect(events.locator('.event-sessions .archive-video-link')).toHaveCount(2);
+  await expect(events.locator('.impact-springboard .archive-video-link')).toHaveCount(5);
+  await expect(events.locator('a[href^="http"]')).toHaveCount(16);
+  const springboardCards = await events.locator('.impact-springboard__session').evaluateAll((cards) =>
+    cards.map((card) => card.getBoundingClientRect().width)
+  );
+  const desktop = (page.viewportSize()?.width ?? 0) > 767;
+  if (desktop) expect(springboardCards.every((width) => Math.abs(width - 337) < 2)).toBe(true);
+  else expect(springboardCards.every((width) => width > 300 && width < 390)).toBe(true);
+  const keyThemesGeometry = await events.locator('.event-feature__image').evaluate((image) => ({
+    imageWidth: image.getBoundingClientRect().width,
+    parentWidth: image.parentElement?.getBoundingClientRect().width ?? 0
+  }));
+  if (desktop) expect(Math.abs(keyThemesGeometry.imageWidth - 1324) < 2).toBe(true);
+  expect(keyThemesGeometry.imageWidth <= keyThemesGeometry.parentWidth).toBe(true);
   expect(await events.locator('img').evaluateAll((images) =>
     images.every((image) => new URL(image.getAttribute('src') || '', document.baseURI).pathname.startsWith('/assets/'))
   )).toBe(true);

@@ -27,8 +27,6 @@
 
 .watch-listing { padding-block: 28.8px 71.99px; }
 .watch-listing__page { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 104px 51px; }
-/* Only reachable with scripting off, where every page is revealed at once. */
-.watch-listing__page + .watch-listing__page { margin-top: 104px; }
 
 /* Source card is artwork alone above a title box its empty title leaves blank. */
 .watch-card { min-width: 0; align-self: start; padding-bottom: 25px; }
@@ -130,7 +128,6 @@
   .watch-hero p { margin-top: 16.44px; }
   .watch-listing { padding-block: 7.5px 18.75px; }
   .watch-listing__page { grid-template-columns: minmax(0, 1fr); row-gap: 24.75px; }
-  .watch-listing__page + .watch-listing__page { margin-top: 24.75px; }
   .watch-card { padding-bottom: 26.25px; }
   .watch-pagination { margin-top: 22.5px; }
   .watch-article { padding-top: calc(var(--header-height) + 92.9px); padding-bottom: 28.25px; }

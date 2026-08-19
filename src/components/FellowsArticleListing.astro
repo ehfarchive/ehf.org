@@ -1,19 +1,28 @@
 ---
+import { render } from 'astro:content';
 import ResponsiveImage from './ResponsiveImage.astro';
 import { assetIdForLocalPath } from '../data/site';
-import { type FellowsArticle } from '../pages/ehf-fellows-articles/_fellows';
+import { formatFellowsListingDate, type FellowsArticle } from '../pages/ehf-fellows-articles/_fellows';
 
 interface Props {
   articles: readonly FellowsArticle[];
 }
 
 const { articles } = Astro.props;
+
+const renderedArticles = await Promise.all(
+  articles.map(async ({ entry, href }) => ({
+    entry,
+    href,
+    Content: (await render(entry)).Content
+  }))
+);
 ---
 <section class="fellows-articles site-container" aria-labelledby="fellows-articles-title">
   <h1 id="fellows-articles-title" class="visually-hidden">EHF Fellows Articles</h1>
   <div class="fellows-articles__list">
-    {articles.map(({ entry, href }, index) => {
-      const { title, excerpt, heroImage, heroAlt } = entry.data;
+    {renderedArticles.map(({ entry, href, Content }, index) => {
+      const { title, heroImage, heroAlt } = entry.data;
       return (
         <article class="fellows-article-card">
           {heroImage && (
@@ -30,8 +39,10 @@ const { articles } = Astro.props;
           )}
           <div class="fellows-article-card__copy">
             <h2><a href={href}>{title}</a></h2>
-            {excerpt && <p>{excerpt}</p>}
-            <a class="fellows-article-card__more" href={href}>Read More<span class="visually-hidden">: {title}</span></a>
+            {entry.data.publishedAt && <time class="fellows-article-card__date" datetime={entry.data.publishedAt}>{formatFellowsListingDate(entry.data.publishedAt)}</time>}
+            <div class="fellows-article-card__body">
+              <Content />
+            </div>
           </div>
         </article>
       );
@@ -86,19 +97,96 @@ const { articles } = Astro.props;
 
   .fellows-article-card h2 a { color: inherit; text-decoration: none; }
 
-  .fellows-article-card p {
-    max-width: var(--prose-width);
-    margin: 30px 0 0;
-    text-align: left;
+  .fellows-article-card__date {
+    order: -1;
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 28.8px;
   }
 
-  .fellows-article-card__more {
+  .fellows-article-card__body {
+    display: grid;
+    justify-items: center;
+    width: 100%;
     margin-top: 30px;
-    color: var(--color-brand);
+  }
+
+  .fellows-article-card__body :global(p) {
+    width: 100%;
+    max-width: none;
+    margin: 0;
     font-family: var(--font-body);
     font-size: var(--text-body);
     font-weight: var(--weight-body);
     line-height: var(--lh-body);
+    text-align: center;
+  }
+
+  .fellows-article-card__body :global(p + p) { margin-top: 30px; }
+
+  .fellows-article-card__body :global(p:has(> strong:only-child)) {
+    font-family: var(--font-display);
+    font-size: var(--text-sub);
+    font-weight: var(--weight-heading);
+    letter-spacing: var(--tracking);
+    line-height: var(--lh-sub);
+    text-align: center;
+  }
+
+  .fellows-article-card__body :global(a) { color: var(--color-brand); }
+
+  .fellows-article-card__body :global(img) {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin-inline: auto;
+  }
+
+  .fellows-article-card__body :global(p:has(> img:only-child)) {
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  /* Source collage image block, measured at 1440 (content area 1382px): the
+     portrait is inset to the right at 60% of the content width (829x1243 from
+     x582) and the pale-turquoise profile card starts at the left edge, spans
+     50% (691px) and is centred over the portrait, so it overlaps ~41% down. */
+  .fellows-article-card__body :global(.fellows-profile) {
+    --profile-card-bg: #e0fffc;
+    position: relative;
+    width: 100%;
+  }
+
+  .fellows-article-card__body :global(.fellows-profile > p:has(> img:only-child)) {
+    width: 100%;
+    max-width: none;
+  }
+
+  .fellows-article-card__body :global(.fellows-profile img) {
+    width: 60%;
+    margin-inline: auto 0;
+  }
+
+  .fellows-article-card__body :global(.fellows-profile__card) {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 0;
+    width: 50%;
+    /* Source card padding: 10% of the card's own width. */
+    padding: 5%;
+    background: var(--profile-card-bg);
+    transform: translateY(-50%);
+  }
+
+  /* Source name/website separation: 4% of the card content width. */
+  .fellows-article-card__body :global(.fellows-profile__card p + p) { margin-top: 4%; }
+
+  .fellows-article-card__body :global(.fellows-profile__card a) {
+    color: var(--color-ink);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
   }
 
   @media (max-width: 767px) {
@@ -109,9 +197,22 @@ const { articles } = Astro.props;
 
     .fellows-article-card { padding-bottom: 42px; }
     .fellows-article-card + .fellows-article-card { padding-top: 42px; }
-    .fellows-article-card__copy { padding-top: 19.5px; }
-    .fellows-article-card h2 { margin-top: 27px; }
-    .fellows-article-card p { margin-top: 24px; }
-    .fellows-article-card__more { margin-top: 24px; }
+    .fellows-article-card__body { margin-top: 24px; }
+    .fellows-article-card__body :global(p + p) { margin-top: 24px; }
+
+    /* Source narrow layout: portrait at 90% of the content width, card at 90%
+       from the left edge, lifted 20% of the content width so it overlaps the
+       foot of the portrait. Neither box can overflow the gutters. */
+    .fellows-article-card__body :global(.fellows-profile img) { width: 90%; }
+
+    .fellows-article-card__body :global(.fellows-profile__card) {
+      position: relative;
+      inset-block-start: auto;
+      z-index: 1;
+      width: 90%;
+      margin-top: -20%;
+      padding: 9%;
+      transform: none;
+    }
   }
 </style>

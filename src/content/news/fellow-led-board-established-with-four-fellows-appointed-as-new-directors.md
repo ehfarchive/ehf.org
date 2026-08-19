@@ -1,7 +1,7 @@
 ---
 title: "Fellow-Led Board established with Four Fellows Appointed as New Directors"
 excerpt: "***3 March 2025***"
-listingImage: "/assets/images/content/news-blog-fellow-led-board-established-with-four-fellows-appointed-as-new-directors-1.webp"
+listingImage: "/assets/images/content/news-blog-fellow-led-board-established-with-four-fellows-appointed-as-new-directors-listing.png"
 listingAlt: ""
 heroImage: "/assets/images/content/news-blog-fellow-led-board-established-with-four-fellows-appointed-as-new-directors-1.webp"
 heroAlt: ""

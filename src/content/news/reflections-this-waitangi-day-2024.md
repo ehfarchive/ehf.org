@@ -1,7 +1,7 @@
 ---
 title: "Reflections this Waitangi Day (2024)"
 excerpt: "Waitangi Day, as our National Day, is an important part of recognising the diversity of where we have come from and where we want to go as a nation."
-listingImage: "/assets/images/content/news-blog-reflections-this-waitangi-day-2024-1.webp"
+listingImage: "/assets/images/content/news-blog-reflections-this-waitangi-day-2024-listing.jpg"
 listingAlt: ""
 heroImage: "/assets/images/content/news-blog-reflections-this-waitangi-day-2024-1.webp"
 heroAlt: ""

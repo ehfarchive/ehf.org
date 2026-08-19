@@ -30,7 +30,8 @@ const news = defineCollection({
   schema: z.object({
     ...contentFields,
     listingImage: z.string().regex(/^\/assets\//),
-    listingAlt: z.string()
+    listingAlt: z.string(),
+    listingImagePosition: z.string().optional()
   }).strict()
 });
 
