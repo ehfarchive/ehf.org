@@ -40,7 +40,13 @@ const articleBody = renderArticleBody(await Astro.slots.render('default'), archi
     <div class="article-page__body" set:html={articleBody} />
   </article>
   {(previous || next) && <nav class="article-page__next site-container" aria-label="Article navigation">
-    {previous && <a href={previous.href} data-direction="previous">{previous.title}</a>}
-    {next && <a href={next.href} data-direction="next">{next.title}</a>}
+    {previous && <a href={previous.href} data-direction="previous" aria-label={`Previous: ${previous.title}`}>
+      <svg aria-hidden="true" class="article-page__caret" viewBox="0 0 9 16"><polyline fill="none" stroke-miterlimit="10" points="7.3,14.7 2.5,8 7.3,1.2" /></svg>
+      <span aria-hidden="true">{previous.title}</span>
+    </a>}
+    {next && <a href={next.href} data-direction="next" aria-label={`Next: ${next.title}`}>
+      <span aria-hidden="true">{next.title}</span>
+      <svg aria-hidden="true" class="article-page__caret" viewBox="0 0 9 16"><polyline fill="none" stroke-miterlimit="10" points="1.6,1.2 6.5,7.9 1.6,14.7" /></svg>
+    </a>}
   </nav>}
 </SiteLayout>

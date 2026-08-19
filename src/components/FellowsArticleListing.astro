@@ -43,6 +43,8 @@ const renderedArticles = await Promise.all(
             <div class="fellows-article-card__body">
               <Content />
             </div>
+            <a class="fellows-article-card__more" href={href}>Read More</a>
+
           </div>
         </article>
       );
@@ -135,6 +137,16 @@ const renderedArticles = await Promise.all(
   }
 
   .fellows-article-card__body :global(a) { color: var(--color-brand); }
+  .fellows-article-card__more {
+    margin-top: 30px;
+    color: var(--color-brand);
+    font-family: var(--font-display);
+    font-size: var(--text-sub);
+    font-weight: var(--weight-body);
+    line-height: var(--lh-sub);
+    text-decoration: none;
+  }
+
 
   .fellows-article-card__body :global(img) {
     display: block;

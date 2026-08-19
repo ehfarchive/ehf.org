@@ -1,12 +1,12 @@
 ---
 title: "Catalysing Environmental Action for a Sustainable Future"
-excerpt: "*In this ‘Decisive Decade’ for climate action,*[*EarthShare*](https://www.earthshare.org/)*CEO and EHF Fellow*[*Brad Leibov*](/fellow-detail?fellow=Brad-Leibov#search=brad&numRecords=24&minMatchCharLength=2)*is passionate about the organisation achieving its goal - mobilising action for the environment and health of people and planet.*"
+excerpt: "*In this ‘Decisive Decade’ for climate action,* [*EarthShare*](https://www.earthshare.org/) *CEO and EHF Fellow* [*Brad Leibov*](/fellow-detail?fellow=Brad-Leibov#search=brad&numRecords=24&minMatchCharLength=2) *is passionate about the organisation achieving its goal - mobilising action for the environment and health of people and planet.*"
 heroImage: "/assets/images/content/read-catalysing-environmental-action-for-a-sustainable-future-1.webp"
 heroAlt: ""
 publishedAt: "2024-08-27"
 ---
 
-*In this ‘Decisive Decade’ for climate action,*[*EarthShare*](https://www.earthshare.org/)*CEO and EHF Fellow*[*Brad Leibov*](/fellow-detail?fellow=Brad-Leibov#search=brad&numRecords=24&minMatchCharLength=2)*is passionate about the organisation achieving its goal - mobilising action for the environment and health of people and planet.*
+*In this ‘Decisive Decade’ for climate action,* [*EarthShare*](https://www.earthshare.org/) *CEO and EHF Fellow* [*Brad Leibov*](/fellow-detail?fellow=Brad-Leibov#search=brad&numRecords=24&minMatchCharLength=2) *is passionate about the organisation achieving its goal - mobilising action for the environment and health of people and planet.*
 
 Brad says:
 
@@ -32,6 +32,10 @@ Brad led the EarthShare team to leverage technology to make environmental giving
 
 For over three decades, EarthShare has been connecting individuals, businesses, and nonprofits to collectively create a better Earth for all. The organisation’s vision is clear: a world where everyone takes action for a healthy planet. Through innovative workplace giving campaigns and comprehensive employee engagement programmes, EarthShare has catalysed collective action, raising over USD$400 million to support environmental initiatives and drive meaningful progress.
 
+![1 Volunteers - Tree Planting - Reforestation.jpg](/assets/images/content/read-catalysing-environmental-action-for-a-sustainable-future-2.jpg)
+
+![3 Volunteers - Gardening - Urban Agriculture 4.jpg](/assets/images/content/read-catalysing-environmental-action-for-a-sustainable-future-3.webp)
+
 This past year, EarthShare had the opportunity to work alongside one of its long-time business partners to create custom Earth Month programming to educate staff on the topic of 30x30 (‘thirty by thirty’) via [EarthShare's 30x30 Project](https://www.earthshare.org/30x30-project) microsite. This project walks viewers through a library of solutions that are helping to conserve lands, waters, and biodiversity by 2030.
 
 Feedback and engagement from participants has been positive, and EarthShare was able to support the business in raising donations for indigenous-led environmental organisations across the United States.
@@ -41,6 +45,10 @@ Feedback and engagement from participants has been positive, and EarthShare was 
 EarthShare’s approach encompasses a range of strategies designed to engage and inspire. Their workplace giving campaigns involve partnerships with over 500 nonprofits, allowing employees to easily contribute to environmental causes through payroll deductions. This generates vital funding and cultivates a culture of corporate social responsibility.
 
 EarthShare directs grants and funding to various environmental nonprofits and projects that tackle the pressing issues such as climate change, conservation, and pollution prevention. These financial resources support efforts that address both local and global environmental challenges, amplifying the impact of each donation.
+
+![4 Volunteer - Researcher - Biologist - Ecologist - Tree Planting.jpg](/assets/images/content/read-catalysing-environmental-action-for-a-sustainable-future-4.jpg)
+
+![5. Volunteer project.jpg](/assets/images/content/read-catalysing-environmental-action-for-a-sustainable-future-5.webp)
 
 EarthShare also prioritises educational resources and advocacy, providing tools to help individuals and organisations understand their environmental impact and take effective action. This includes educational materials, advocacy campaigns, and collaborations with grassroots organisations to enhance their reach and influence.
 
@@ -69,7 +77,3 @@ Brad is part of the Fellow group Ngā Manu Titi Rere Ao, which had its EHF Welco
 Learn more about EarthShare: [https://www.earthshare.org/](https://www.earthshare.org/)
 
 Learn more about One Earth: [https://www.oneearth.org/](https://www.oneearth.org/)
-
-## Nature-Inspired Solutions for Global Environmental Health
-
-## Tackling Global Textile Waste through Innovative Solutions

@@ -18,5 +18,6 @@ test('preserves headings, lists, strong emphasis, and links from imported page t
 
 test('renders semantic inline elements without normalizing link destinations', () => {
   const block = parseRichText('**EHF** *Application Terms* [here](/terms-of-use)');
+  if (block.kind === 'image') throw new Error('expected inline text block');
   expect(renderInlineHtml(block.children)).toBe('<strong>EHF</strong> <em>Application Terms</em> <a href="/terms-of-use">here</a>');
 });

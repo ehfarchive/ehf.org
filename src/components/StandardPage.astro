@@ -60,13 +60,13 @@ const visibleSections = parsedSections.filter((_, index) => index !== 0 || (!has
   .standard-page { width: min(1010px, calc(100% - 2 * var(--gutter))); margin: 0 auto; padding: calc(var(--header-height) + 72px) 0 120px; }
   .standard-page header { margin-bottom: 72px; text-align: center; }
   .standard-page h1 { margin: 0; font-size: var(--text-display); line-height: var(--lh-display); }
-  .standard-page h2 { margin: 56px 0 18px; font-size: var(--text-heading); line-height: var(--lh-heading); }
-  .standard-page p { margin: 0 0 24px; white-space: pre-line; }
+  .standard-page :global(h2) { margin: 56px 0 18px; font-size: var(--text-heading); line-height: var(--lh-heading); }
+  .standard-page :global(p) { margin: 0 0 24px; white-space: pre-line; }
   .standard-page :global(.rich-text-list) { margin: 0 0 24px; padding-left: 20px; }
   .standard-page :global(a) { color: var(--color-brand); overflow-wrap: anywhere; }
-  .standard-page img { display: block; width: min(100%, 510px); height: auto; margin: 28px 0; }
+  .standard-page :global(img) { display: block; width: min(100%, 510px); height: auto; margin: 28px 0; }
   .standard-page__links { margin: 0 0 28px; padding-left: 20px; }
-  @media (max-width: 767px) { .standard-page { padding-top: calc(var(--header-height) + 42px); padding-bottom: 72px; } .standard-page header { margin-bottom: 42px; } .standard-page h2 { margin-top: 38px; } }
+  @media (max-width: 767px) { .standard-page { padding-top: calc(var(--header-height) + 42px); padding-bottom: 72px; } .standard-page header { margin-bottom: 42px; } .standard-page :global(h2) { margin-top: 38px; } }
 
   /* Source paints /about-ehf as one full-bleed section: a single localised
      artwork covers the page behind white copy that starts at the gutter rather
