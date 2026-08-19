@@ -70,3 +70,8 @@ export function formatFellowsDate(publishedAt: string | undefined): string | und
     timeZone: 'UTC'
   }).format(new Date(Date.UTC(year, month - 1, day)));
 }
+
+export function formatFellowsListingDate(publishedAt: string): string {
+  const [year, month, day] = publishedAt.split('-').map(Number);
+  return `${month}/${day}/${String(year).slice(-2)}`;
+}

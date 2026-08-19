@@ -1,7 +1,7 @@
 ---
 title: "Reflections of Sir Edmund Hillary’s Legacy on Everest Day"
 excerpt: "***Today - May 29, Everest Day - is one of profound importance. It marks the 70th anniversary of the mammoth feat undertaken by Sir Edmund Hillary and Tenzing Norgay to be the first people to reach the summit of Mt Everest.***"
-listingImage: "/assets/images/content/news-blog-reflections-of-sir-edmund-hillarys-legacy-on-everest-day-1.webp"
+listingImage: "/assets/images/content/news-blog-reflections-of-sir-edmund-hillarys-legacy-on-everest-day-listing.jpg"
 listingAlt: ""
 heroImage: "/assets/images/content/news-blog-reflections-of-sir-edmund-hillarys-legacy-on-everest-day-1.webp"
 heroAlt: ""

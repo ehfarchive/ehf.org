@@ -128,6 +128,9 @@
   padding-inline: var(--gutter);
   background: transparent;
 }
+/* Opt-in solid header band; the header keeps its absolute placement and
+   dimensions and simply stops letting the hero show through. */
+.page-shell--header-opaque .site-header { background: var(--color-surface); }
 
 .site-header__brand { display: inline-flex; }
 .site-header__brand img {

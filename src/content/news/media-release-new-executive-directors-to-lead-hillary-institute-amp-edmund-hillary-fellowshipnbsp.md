@@ -3,6 +3,7 @@ title: "Media Release: New Executive Directors to Lead Hillary Institute & Edmun
 excerpt: "Elizabeth McNaughton and Shaquille Te Ahu Toa Shortland"
 listingImage: "/assets/images/content/news-blog-media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp-1.png"
 listingAlt: ""
+listingImagePosition: "27.9977% 17.1011%"
 heroImage: "/assets/images/content/news-blog-media-release-new-executive-directors-to-lead-hillary-institute-amp-edmund-hillary-fellowshipnbsp-1.png"
 heroAlt: ""
 publishedAt: "2025-07-02"

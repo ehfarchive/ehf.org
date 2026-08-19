@@ -24,7 +24,7 @@ if (pages.length !== NEWS_LISTING_PAGES.length) {
         {pageArticles.map(({ entry, path, publishedAt }) => (
           <article class="news-card" data-news-card data-news-slug={entry.id}>
             {entry.data.listingImage && (
-              <a class="news-card__image" href={path} aria-label={entry.data.title}>
+              <a class="news-card__image" href={path} aria-label={entry.data.title} style={entry.data.listingImagePosition ? `--news-listing-object-position: ${entry.data.listingImagePosition}` : undefined}>
                 <ResponsiveImage
                   assetId={assetIdForLocalPath(entry.data.listingImage)}
                   alt={entry.data.listingAlt}
@@ -97,7 +97,7 @@ if (pages.length !== NEWS_LISTING_PAGES.length) {
   .news-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 30px; row-gap: 50px; }
   .news-card { display: flex; min-width: 0; flex-direction: column; }
   .news-card__image { display: block; overflow: hidden; aspect-ratio: 676 / 452; }
-  .news-card__image :global(img) { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .news-card__image :global(img) { display: block; width: 100%; height: 100%; object-fit: cover; object-position: var(--news-listing-object-position, 50% 50%); }
   .news-card__content { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding-top: 50px; }
   .news-card time { color: var(--color-ink); font-family: var(--font-body); font-size: 16px; font-weight: var(--weight-body); line-height: 19.2px; }
   .news-card h2 {

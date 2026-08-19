@@ -3,6 +3,7 @@ title: "A Year of Impact, Value and Momentum - 2023/24 Annual Report"
 excerpt: "**17 October 2024**"
 listingImage: "/assets/images/content/news-blog-a-year-of-impact-value-and-momentum-2023-24-annual-report-1.jpg"
 listingAlt: "A Year of Impact, Value and Momentum - 2023/24 Annual Report"
+listingImagePosition: "47.4781% 5.65529%"
 heroImage: null
 heroAlt: null
 publishedAt: "2024-10-16"

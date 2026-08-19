@@ -26,7 +26,7 @@ const cursors = WATCH_LISTING_PAGES.map((page, index) => ({
 }));
 const [firstPage] = cursors;
 ---
-<SiteLayout title="Watch our Impact in Action | Edmund Hillary Fellowship — Edmund Hillary Fellowship" description="Watch the impact our Fellows are creating">
+<SiteLayout title="Watch our Impact in Action | Edmund Hillary Fellowship — Edmund Hillary Fellowship" description="Watch the impact our Fellows are creating" headerSurface="opaque">
   <section class="watch-hero">
     <div class="watch-hero__content">
       <h1>Watch</h1>
@@ -87,6 +87,10 @@ const [firstPage] = cursors;
   <noscript>
     <style>
       .watch-listing__page[hidden] { display: grid !important; }
+      .watch-listing__page + .watch-listing__page { margin-top: 104px; }
+      @media (max-width: 767px) {
+        .watch-listing__page + .watch-listing__page { margin-top: 24.75px; }
+      }
       .watch-pagination { display: none; }
     </style>
   </noscript>

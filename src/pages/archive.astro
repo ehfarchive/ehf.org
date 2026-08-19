@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import ArchiveVideoLink from '../components/ArchiveVideoLink.astro';
 import ResponsiveImage from '../components/ResponsiveImage.astro';
 import SiteLayout from '../layouts/SiteLayout.astro';
 import { archiveNewsCards, archiveReports, archiveSnapshotCards } from '../data/archive';
@@ -102,6 +103,7 @@ const summitGallery = [
   { image: '/assets/images/content/archive-events-gallery-070.webp', alt: '2025 Hillary Innovation Summit — 231 credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
   { image: '/assets/images/content/archive-events-gallery-071.webp', alt: '2025 Hillary Innovation Summit — 227 credit Erica Austin, Peanut Productions Photography', width: 1500, height: 1001 },
 ] as const;
+const [stagePhoto] = summitGallery;
 ---
 <SiteLayout title="Archive — Edmund Hillary Fellowship" description="Keep up to date with the Fellowship and discover impact being created across Aotearoa and the world.">
   <div class="archive-page">
@@ -157,10 +159,12 @@ const summitGallery = [
       <h2 id="events">Events Archive</h2>
       <p class="archive-events__intro"><strong>Find out more about our past events, including links to any recordings that are available.</strong></p>
 
-      <article class="event-feature">
+      <article class="event-feature event-summit">
         <h3>2025 Hillary Innovation Summit</h3>
-        <ResponsiveImage class="event-feature__image" assetId={assetIdForLocalPath('/assets/images/content/archive-events-hero-social.webp')} alt="2025 Hillary Innovation Summit" width={1500} height={844} sizes="(max-width: 767px) calc(100vw - 2 * var(--gutter)), 900px" />
+        <div class="event-summit__intro">
+          <ResponsiveImage class="event-summit__media" assetId={assetIdForLocalPath('/assets/images/content/archive-events-hero-social.webp')} alt="2025 Hillary Innovation Summit" width={1500} height={844} sizes="(max-width: 767px) 100vw, 337px" />
         <p>The Hillary Institute &amp; Edmund Hillary Fellowship hosted the <strong>2025 Hillary Innovation Summit</strong> on <strong>17-18 February 2025</strong> in Tāmaki Makaurau Auckland. The 2025 Summit brought together up to <strong>300 local and international leaders</strong> in person over two days to explore how we can collectively build Aotearoa NZ as a basecamp for a better world and where we can lead globally. It convened Hillary Laureates, Edmund Hillary Fellows, iwi and Māori organisations, local and global investors, entrepreneurs, system designers, and public and private sector leaders. The programme featured world-leading international keynotes, innovative panel discussions, EHF Transformative Venture demos, networking, collaboration opportunities and more.</p>
+        </div>
         <p>With te ao Māori, wellbeing and creativity interwoven throughout, participants had the chance to engage in 15 breakout sessions to deep dive into emerging opportunities and collaborative pathways for action, focusing on the Summit’s <strong>key themes:</strong></p>
         <ResponsiveImage class="event-feature__image" assetId={assetIdForLocalPath('/assets/images/content/archive-events-key-themes.webp')} alt="2025 Hillary Innovation Summit key themes" width={1500} height={397} sizes="(max-width: 767px) calc(100vw - 2 * var(--gutter)), 900px" />
         <p><a href="/news-blog/building-a-basecamp-for-a-better-world-begins-at-2025-hillary-innovation-summit"><strong>Read the full story for more.</strong></a></p>
@@ -175,47 +179,92 @@ const summitGallery = [
       <article class="event-feature event-gallery">
         <h3>Summit Photos</h3>
         <p>Images from the 2025 Hillary Innovation Summit, captured by Erica Austin of Peanut Productions Photography. If using any of these photographs, please include the following credit: <em>2025 Hillary Innovation Summit - Erica Austin, Peanut Productions Photography.</em></p>
-        <div class="summit-gallery">
-          {summitGallery.map((photo) => <figure>
-            <ResponsiveImage assetId={assetIdForLocalPath(photo.image)} alt={photo.alt} width={photo.width} height={photo.height} sizes="(max-width: 767px) calc(100vw - 2 * var(--gutter)), (max-width: 1120px) 33vw, 260px" />
-          </figure>)}
+        <div class="summit-gallery" data-summit-gallery>
+          <div class="summit-gallery__stage" id="summit-photo-stage" role="tabpanel" aria-labelledby="summit-photo-1-tab" data-summit-stage>
+            <button class="summit-gallery__previous" type="button" aria-label="Previous photograph" data-summit-previous><span aria-hidden="true">‹</span></button>
+            <ResponsiveImage assetId={assetIdForLocalPath(stagePhoto.image)} alt={stagePhoto.alt} width={stagePhoto.width} height={stagePhoto.height} sizes="(max-width: 767px) calc(100vw - 2 * var(--gutter)), 615px" />
+            <button class="summit-gallery__next" type="button" aria-label="Next photograph" data-summit-next><span aria-hidden="true">›</span></button>
+          </div>
+          <div class="summit-gallery__rail" role="tablist" aria-label="2025 Hillary Innovation Summit photographs">
+            {summitGallery.map((photo, index) => <button
+              class="summit-gallery__thumbnail"
+              type="button"
+              role="tab"
+              id={`summit-photo-${index + 1}-tab`}
+              aria-controls="summit-photo-stage"
+              aria-selected={index === 0 ? 'true' : 'false'}
+              aria-label={photo.alt}
+              tabindex={index === 0 ? 0 : -1}
+              data-summit-thumbnail
+            >
+              <ResponsiveImage assetId={assetIdForLocalPath(photo.image)} alt="" width={photo.width} height={photo.height} sizes="80px" />
+            </button>)}
+          </div>
         </div>
       </article>
 
       <div class="event-sessions">
         <h3>Ecosystem Sessions</h3>
-        <article>
+        <article class="event-session">
+          <ArchiveVideoLink id="gKanBtZVzwA" label="Transformative Ventures with Global Impact: Crypto & Blockchain" />
+          <div class="event-session__body">
           <h4>Transformative Ventures with Global Impact - Crypto &amp; Blockchain</h4>
           <p>As part of Techweek NZ 2024, EHF convened the online event, ‘Transformative Ventures with Global Impact: Crypto &amp; Blockchain’, with Fellows <strong>Aya Miyaguchi</strong>, Executive Director of the <a href="https://ethereum.org/en/foundation/" target="_blank" rel="noopener noreferrer">Ethereum Foundation</a>, <strong>Paul Salisbury</strong>, Co-Founder and CTO of <a href="https://www.everlasting.io/" target="_blank" rel="noopener noreferrer">Everlasting</a>, and <strong>Andrew Hoppin</strong>, Co-Founder and CIO of <a href="https://www.hylafunds.com/" target="_blank" rel="noopener noreferrer">Hyla Funds</a>.</p>
           <p>Aya, Paul, and Andrew are leading crypto and blockchain innovation, through transformative ventures that are focused on supporting communities and leveraging advanced technologies for good. They shared their journeys and challenges, and also explored the opportunities for how Aotearoa NZ can be a leader in crypto and blockchain for global impact.</p>
+          </div>
         </article>
-        <article>
+        <article class="event-session">
+          <ArchiveVideoLink id="OqE6WxOMFI8" label="How NZ Can be a Global Leader in Sustainable Space & Aerospace" />
+          <div class="event-session__body">
           <h4>How NZ Can Be A Global Leader in Sustainable Space &amp; Aerospace</h4>
           <p>Aotearoa NZ’s aerospace &amp; space activity is on the rise, with many ventures and products offering sustainable solutions or applications. So what is the potential for NZ to be at the forefront of global sustainable space &amp; aerospace innovations, and how do we get there?</p>
           <p>In this discussion, ‘How NZ Can Be A Global Leader in Sustainable Space &amp; Aerospace’, the panel explores how Aotearoa NZ can lead the way, with insights from: <strong>Philipp Sueltrop</strong>, EHF Fellow &amp; CTO at Kea Aerospace, <strong>Max Arshavsky</strong>, CEO at Zenno Astronautics, <strong>Emeline Paat-Dahlstrom</strong>, EHF Fellow &amp; CEO at SpaceBase. Moderated by <strong>Mark Rocket</strong>, President of Aerospace New Zealand &amp; CEO at Kea Aerospace.</p>
+          </div>
         </article>
-        <article>
-          <ResponsiveImage class="event-feature__image" assetId={assetIdForLocalPath('/assets/images/content/archive-events-impact-springboard-banner.webp')} alt="EHF Impact Springboard" width={1500} height={750} sizes="(max-width: 767px) calc(100vw - 2 * var(--gutter)), 900px" />
+      </div>
+
+      <section class="impact-springboard" aria-labelledby="impact-springboard">
+        <div class="impact-springboard__intro">
+          <ResponsiveImage class="impact-springboard__banner" assetId={assetIdForLocalPath('/assets/images/content/archive-events-impact-springboard-banner.webp')} alt="EHF Impact Springboard" width={1500} height={750} sizes="(max-width: 767px) 100vw, 453px" />
+          <div class="impact-springboard__lead">
+            <h4 id="impact-springboard">Impact Springboard - February 2024</h4>
           <p>The <strong>EHF Impact Springboard</strong> was a FREE online multi-session event held over four days in February 2024 connecting Aotearoa NZ's innovation ecosystem with EHF Fellows, Hillary Laureates and NZ leaders around critical challenges facing Aotearoa NZ. Hear about EHF Fellows’ groundbreaking ventures transforming industries and systems for global impact, and from experts who are helping to elevate NZ startups onto the global stage.</p>
           <p>Watch the recording of each session below.</p>
-          <h4>Impact Springboard - February 2024</h4>
+          </div>
+        </div>
+        <div class="impact-springboard__grid">
+          <article class="impact-springboard__session">
+            <ArchiveVideoLink id="lDoRP0s5-lk" label="Transformative Ventures with Global Impact" sizes="(max-width: 767px) 100vw, 388px" />
           <h5>Transformative Ventures with Global Impact</h5>
           <p>A panel of Fellows share their groundbreaking ventures that are transforming industries and systems for global impact. How can Aotearoa NZ embrace the scale of opportunity these transformative ventures present?</p>
           <p><strong>Aaron McDonald</strong> | EHF Fellow | Founder Futureverse<br /><strong>Dipanwita Das</strong> | EHF Fellow | Co-founder Sorcero<br /><strong>Lovina McMurchy</strong> | EHF Fellow | COO Kry10 Limited</p>
+          </article>
+          <article class="impact-springboard__session">
+            <ArchiveVideoLink id="TUnVyIfPRj4" label="Going Global: Transforming NZ Startups into Global Leaders" sizes="(max-width: 767px) 100vw, 388px" />
           <h5>Going Global: Transforming NZ Startups into Global Leaders</h5>
           <p>Join a panel of local and international experts to gain insights into how to mature Aotearoa NZ’s innovation system to enable NZ businesses to scale and succeed internationally.</p>
           <p><strong>Guy Te Kiniwe Royal</strong> | Director Tuia Group<br /><strong>Anthony Lee</strong> | EHF Fellow | C100 Member<br /><strong>Marian Johnson</strong> | Ministry of Awesome</p>
+          </article>
+          <article class="impact-springboard__session">
+            <ArchiveVideoLink id="l1FFEh-C5hE" label="Emerging Models: Regenerative & Blended Finance" sizes="(max-width: 767px) 100vw, 388px" />
           <h5>Emerging Models: Regenerative &amp; Blended Finance</h5>
           <p>EHF Fellows are developing a Climate Impact Fund for Asia Pacific Islands (CLIMAP) to support communitarian projects in the region, and test new purpose-driven finance models and instruments.</p>
           <p><strong>Satya Dontamsetti</strong> | EHF Fellow<br /><strong>Vishal Chaddha</strong> | EHF Fellow<br /><strong>Sid Sthalekar</strong> | EHF Fellow</p>
+          </article>
+          <article class="impact-springboard__session">
+            <ArchiveVideoLink id="H3-6DZv7me4" label="Transforming NZ into a Low-Carbon Economy by 2050" sizes="(max-width: 767px) 100vw, 388px" />
           <h5>Transforming NZ into a Low-Carbon Economy by 2050</h5>
           <p>International Climate Leader, Builder and Strategist <a href="https://www.christensenglobal.com/team/aimee-christensen" target="_blank" rel="noopener noreferrer">Aimée Christensen</a> discusses how Aotearoa NZ can responsibly manage its transition to meet its 2050 net zero commitments in ways that affirm economic and social benefits.</p>
           <p><strong>Aimée Christensen</strong> | Hillary Laureate Founder &amp; CEO of Christensen Global Strategies<br />Interviewer: <strong>Anna Kominik</strong></p>
+          </article>
+          <article class="impact-springboard__session">
+            <ArchiveVideoLink id="IishjRc3ff0" label="Catalysing Communitarian Responses to Combat World Crises" sizes="(max-width: 767px) 100vw, 388px" />
           <h5>Catalysing Communitarian Responses to Combat World Crises</h5>
           <p>Web 3.0 technologies are sparking new patterns of social coordination at scale. In this presentation, see how projects like <a href="https://neighbourhoods.network/" target="_blank" rel="noopener noreferrer">Neighbourhoods</a> (headquartered out of Aotearoa NZ) are enabling new kinds of social impact.</p>
           <p><strong>Siddharth Sthalekar</strong> | EHF Fellow<br />Founder oNeighbourhoods<br />With <strong>Camia Young</strong></p>
-        </article>
-      </div>
+          </article>
+        </div>
+      </section>
 
       <div class="playlist-grid">
         <article><h3>PAST EHF WHĀNAU LIVE SESSIONS</h3><p>Connect with EHF Fellows and our wider community who are creating positive change from Aotearoa NZ.</p><a class="button-link" href="https://youtube.com/playlist?list=PLxTt2Nm5dTv22t04QbA1XJ_zMLh8bgafG&amp;si=nnWjZWK6kclG1TiP" target="_blank" rel="noopener noreferrer">Full Playlist</a></article>
@@ -225,6 +274,64 @@ const summitGallery = [
     </section>
   </div>
 </SiteLayout>
+
+<script>
+  /* One stage image driven by the thumbnail rail, following the tab pattern the
+     Summit programme days already use: automatic activation, roving tabindex,
+     and the panel labelled by whichever photo it is showing. */
+  const MEDIA_ATTRIBUTES = ['srcset', 'src', 'width', 'height'] as const;
+  const gallery = document.querySelector<HTMLElement>('[data-summit-gallery]');
+  const panel = gallery?.querySelector<HTMLElement>('[data-summit-stage]');
+  const stage = panel?.querySelector('img');
+  const thumbnails = gallery ? [...gallery.querySelectorAll<HTMLButtonElement>('[data-summit-thumbnail]')] : [];
+
+  const showPhoto = (index: number, moveFocus: boolean) => {
+    const thumbnail = thumbnails[index];
+    const photo = thumbnail?.querySelector('img');
+    if (!panel || !stage || !thumbnail || !photo) return;
+    for (const attribute of MEDIA_ATTRIBUTES) {
+      const value = photo.getAttribute(attribute);
+      if (value === null) stage.removeAttribute(attribute);
+      else stage.setAttribute(attribute, value);
+    }
+    /* The thumbnails are decorative inside their labelled buttons, so the
+       button label carries the description the stage image needs. */
+    stage.alt = thumbnail.getAttribute('aria-label') ?? '';
+    const previous = document.getElementById(panel.getAttribute('aria-labelledby') ?? '');
+    if (previous) {
+      previous.setAttribute('aria-selected', 'false');
+      previous.tabIndex = -1;
+    }
+    thumbnail.setAttribute('aria-selected', 'true');
+    thumbnail.tabIndex = 0;
+    panel.setAttribute('aria-labelledby', thumbnail.id);
+    thumbnail.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    if (moveFocus) thumbnail.focus({ preventScroll: true });
+  };
+
+  gallery?.addEventListener('click', (event) => {
+    if (!(event.target instanceof Element)) return;
+    const thumbnail = event.target.closest<HTMLButtonElement>('[data-summit-thumbnail]');
+    if (thumbnail) showPhoto(thumbnails.indexOf(thumbnail), false);
+    const direction = event.target.closest<HTMLElement>('[data-summit-previous], [data-summit-next]');
+    if (direction) {
+      const currentIndex = thumbnails.findIndex((item) => item.getAttribute('aria-selected') === 'true');
+      const delta = direction.hasAttribute('data-summit-next') ? 1 : -1;
+      showPhoto((currentIndex + delta + thumbnails.length) % thumbnails.length, false);
+    }
+  });
+  gallery?.addEventListener('keydown', (event) => {
+    if (!(event.target instanceof Element)) return;
+    const thumbnail = event.target.closest<HTMLButtonElement>('[data-summit-thumbnail]');
+    if (!thumbnail || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    const index = thumbnails.indexOf(thumbnail);
+    const nextIndex = event.key === 'Home' ? 0
+      : event.key === 'End' ? thumbnails.length - 1
+      : (index + (event.key === 'ArrowRight' ? 1 : -1) + thumbnails.length) % thumbnails.length;
+    showPhoto(nextIndex, true);
+  });
+</script>
 
 <style>
   /* --- Archive presentation block (start) --------------------------------
@@ -312,23 +419,114 @@ const summitGallery = [
   .archive-report__documents .button-link { width: 100%; text-transform: uppercase; }
   /* --- Archive presentation block (end) ----------------------------------
      The Events Archive rules below belong to the Events completion lane. */
-  .archive-events { width: min(1120px, 100%); margin: 0 auto; overflow: visible; }
+  /* Source runs the Events Archive across the whole 1382.41px page container,
+     so the section carries the page gutter and the purple sessions band reaches
+     back out through it to the viewport edges. */
+  .archive-events { padding-inline: var(--gutter); overflow: visible; }
   .archive-events__intro { max-width: 760px; margin: -18px auto 54px; text-align: center; }
-  .event-feature, .event-sessions { margin: 0 auto 64px; }
+  .event-feature, .event-sessions, .impact-springboard { margin: 0 0 64px; }
+  /* Source keeps its editorial features to 900px but hands the Summit article
+     and the photo gallery the full container width. */
   .event-feature { max-width: 900px; }
-  .event-feature h3, .event-sessions > h3 { font-size: var(--text-heading); }
-  .event-feature__image { display: block; width: 100%; height: auto; margin: 24px 0; }
-  .summit-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 28px; }
-  .summit-gallery figure { margin: 0; overflow: hidden; background: #f5f1fb; }
-  .summit-gallery :global(img) { display: block; width: 100%; height: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
-  .event-sessions h5 { margin: 28px 0 10px; font-size: 18px; }
-  .event-feature p, .event-grid p, .event-sessions p, .playlist-grid p { line-height: 1.75; }
+  .event-summit, .event-gallery { max-width: none; }
+  .event-feature h3 { font-size: var(--text-heading); }
+  :global(.event-feature__image) { display: block; width: min(1324px, 100%); height: auto; margin: 24px auto; }
+  /* Source opens the Summit article with a 337px social card beside its first
+     paragraph, 12px apart, then runs the rest of the article under both. */
+  .event-summit__intro { display: grid; margin: 24px 0; gap: 18px 12px; grid-template-columns: 337px minmax(0, 1fr); align-items: start; }
+  :global(.event-summit__media) { display: block; width: 100%; height: auto; }
+  .event-summit__intro p { margin: 0; }
+  /* Source shows the gallery as one 410px-tall stage image, the whole photo
+     contained inside the event width rather than cropped, above a rail of 80px
+     square thumbnails: the selected one at full strength, the rest veiled. */
+  .summit-gallery { margin-top: 28px; }
+  .summit-gallery__stage { position: relative; display: flex; height: 410px; align-items: center; justify-content: center; }
+  .summit-gallery__stage :global(img) { width: auto; max-width: 100%; height: auto; max-height: 100%; }
+  .summit-gallery__previous,
+  .summit-gallery__next {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    width: 27px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    color: var(--color-brand);
+    background: transparent;
+    font: 32px/32px var(--font-display);
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  .summit-gallery__previous { left: 8px; }
+  .summit-gallery__next { right: 8px; }
+  /* The source rail is an 832px window centred 25px under the stage, holding
+     nine and a half thumbnails on an 88px pitch and scrolling for the rest. Its
+     7px padding keeps the global focus ring clear of the scroll container. */
+  .summit-gallery__rail {
+    display: flex;
+    width: min(832px, 100%);
+    margin: 18px auto 0;
+    padding: 7px;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-color: var(--color-brand) rgba(116, 65, 210, 0.15);
+  }
+  .summit-gallery__thumbnail {
+    flex: 0 0 80px;
+    height: 80px;
+    padding: 0;
+    border: 0;
+    background: none;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity var(--motion-fast) linear;
+  }
+  .summit-gallery__thumbnail:hover, .summit-gallery__thumbnail:focus-visible, .summit-gallery__thumbnail[aria-selected='true'] { opacity: 1; }
+  .summit-gallery__thumbnail :global(img) { display: block; width: 100%; height: 100%; object-fit: cover; }
+  /* Source drops the Ecosystem Sessions into a full-bleed band of the brand's
+     deep purple, 958px tall at 1440, and centres a 1266px column of white copy
+     inside it: the recording at 453px beside the 59% copy column. */
+  .event-sessions {
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 47.5px var(--gutter) 75.2px;
+    color: var(--color-surface);
+    background: var(--color-band);
+  }
+  .event-sessions > h3 {
+    margin: 0 0 40.7px;
+    font-size: 33.28px;
+    line-height: 41.5334px;
+    text-align: center;
+  }
+  .event-sessions > h3,
+  .event-session,
+  .impact-springboard__intro,
+  .impact-springboard__grid { width: min(1266px, 100%); margin-inline: auto; }
+  .event-session { display: grid; gap: 24px 69px; grid-template-columns: 453px minmax(0, 1fr); align-items: start; }
+  .event-session + .event-session { margin-top: 109.8px; }
+  .event-session__body > :first-child { margin-top: 0; }
+  .event-sessions h4 { margin: 0 0 11.4px; font-size: 22.912px; line-height: 29.309px; }
+  .event-sessions .event-session__body p { margin: 0; font-size: 16px; line-height: 28.8px; }
+  .event-session:first-of-type .event-session__body p + p { margin-top: 28.8px; }
+  .event-session + .event-session .event-session__body p + p { margin-top: 16px; }
+  /* Source sets the Impact Springboard back on the page surface: its banner
+     beside the intro copy, then the five recordings on a three-column grid. */
+  .impact-springboard__intro { display: grid; gap: 24px 69px; grid-template-columns: 453px minmax(0, 1fr); align-items: start; }
+  :global(.impact-springboard__banner) { display: block; width: 100%; height: auto; }
+  .impact-springboard__lead > :first-child { margin-top: 0; }
+  .impact-springboard__grid { display: grid; margin-top: 72px; gap: 64px 0; grid-template-columns: repeat(3, 337px); justify-content: space-between; }
+  .impact-springboard__session { display: grid; align-content: start; gap: 14px; }
+  .impact-springboard__session > * { margin: 0; }
+  .impact-springboard h4 { font-size: 24px; }
+  .impact-springboard h5 { font-size: 18px; }
+  .impact-springboard h4, .impact-springboard h5 { color: var(--color-brand); }
+  .event-feature p, .event-grid p, .event-sessions p, .impact-springboard p, .playlist-grid p { line-height: 1.75; }
   .event-feature a:not(.button-link), .archive-events a:not(.button-link) { color: var(--color-brand); }
   .event-grid, .playlist-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px; margin-bottom: 72px; }
   .event-grid article, .playlist-grid article { padding: 36px; background: #f5f1fb; }
   .event-grid h3, .playlist-grid h3 { margin-top: 0; font-size: 27px; }
-  .event-sessions article { padding: 30px 0; border-top: 1px solid #d8d0e7; }
-  .event-sessions h4 { margin: 0 0 12px; font-size: 24px; }
+  /* Brand purple would vanish against the band, so its links stay white. */
+  .archive-events .event-session__body a { color: inherit; text-decoration: underline; }
   .playlist-grid { grid-template-columns: repeat(3, 1fr); margin-bottom: 0; }
   @media (max-width: 767px) {
     .archive-hero { min-height: 341px; }
@@ -347,5 +545,13 @@ const summitGallery = [
     .archive-report__documents .button-link { min-height: 59px; }
     .event-grid, .playlist-grid { grid-template-columns: 1fr; gap: 24px; }
     .event-grid article, .playlist-grid article { padding: 26px; }
+    /* Source keeps the same stage proportions in a shallower band on mobile. */
+    .summit-gallery__stage { height: 220px; }
+    .event-summit__intro,
+    .event-session,
+    .impact-springboard__intro { grid-template-columns: minmax(0, 1fr); }
+    .event-sessions { padding-block: 36px 44px; }
+    .event-session + .event-session { margin-top: 40px; }
+    .impact-springboard__grid { margin-top: 40px; gap: 40px; grid-template-columns: minmax(0, 1fr); }
   }
 </style>

@@ -5,6 +5,7 @@ heroImage: "/assets/images/content/news-blog-a-new-expedition-the-mission-studio
 heroAlt: "DSC_0123.jpeg"
 listingImage: "/assets/images/content/news-blog-2023-a-year-of-connections-impact-and-milestones-1.webp"
 listingAlt: "2023: A year of connections, impact and milestones"
+listingImagePosition: "71.0765% 72.9201%"
 publishedAt: "2023-12-20"
 ---
 

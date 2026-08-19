@@ -8,11 +8,18 @@ pathSegment: "Blog%20Post%20Title%20One-3zaa9-n8kpf"
 nextPathSegment: "blog-post-title-two-t5my5-t4apw"
 ---
 
+<div class="fellows-profile">
+
 ![](/assets/images/content/fellows-article-ehf-maker-interview-series-dr-bo-hendgen-from-absolute-essential-profile.webp)
+
+<div class="fellows-profile__card">
 
 Dr Bo Handgen
 
 [www.absoluteessential.com](http://www.absoluteessential.com)
+
+</div>
+</div>
 
 **Welcome to our ‘EHF Maker’ interview series, where we get to know amazing humans in our EHF community and the products they’ve dreamed up.**
 

@@ -1,7 +1,7 @@
 ---
 title: "2021/2022 Annual Report shows year of impact"
 excerpt: "[The Hillary Institute](https://www.hillaryinstitute.com) and Edmund Hillary Fellowship (EHF) have published their joint Annual Report for 2021/22 which details 12 months of significant impact that has been created by Hillary Laureates and EHF Fellows."
-listingImage: "/assets/images/content/news-blog-2021-2022-annual-report-shows-year-of-impact-1.webp"
+listingImage: "/assets/images/content/news-blog-2021-2022-annual-report-shows-year-of-impact-listing.png"
 listingAlt: ""
 heroImage: "/assets/images/content/news-blog-2021-2022-annual-report-shows-year-of-impact-1.webp"
 heroAlt: ""
