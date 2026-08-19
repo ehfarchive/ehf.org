@@ -869,6 +869,14 @@ export async function materializeContent(sourceOrigin, fetcher = fetch, targetPa
         )}${body}\n`);
       } else {
         const page = extractPageInput(route.path, html);
+        const localized = [];
+        for (const [index, image] of extractArticleContent(html).images.entries()) {
+          localized.push(await localizeImage(image, route.path, index + 1, origin, outputAssetsRoot, fetcher, localizedBySource));
+        }
+        for (const image of localized) {
+          page.body = page.body.map((block) => block.replaceAll(image.rawSource, image.localPath).replaceAll(image.source, image.localPath));
+          page.description = page.description.replaceAll(image.rawSource, image.localPath).replaceAll(image.source, image.localPath);
+        }
         if (route.family === 'annual-report-document') {
           for (const link of page.links.filter((link) => /\.pdf(?:[?#].*)?$/i.test(link.href))) {
             link.href = await localizeDocument(link.href, origin, outputAssetsRoot, fetcher);

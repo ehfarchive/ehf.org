@@ -794,6 +794,8 @@ test('Fellows Articles and the linked hash-slug Impact article remain public', a
       && panel.top < image.bottom
       && panel.bottom > image.top;
   })).toBe(true);
+  await expect(fellowsCards.getByRole('link', { name: 'Read More', exact: true })).toHaveCount(4);
+
   await expect(page.locator('header a[href="/ehf-fellows-articles"]')).not.toHaveCount(0);
 
   for (const path of fellowsArticlePaths) {
@@ -805,6 +807,30 @@ test('Fellows Articles and the linked hash-slug Impact article remain public', a
   const impact = await page.goto('/read/swe2a87gjavk3i0brqd2buom9z1hec');
   expect(impact?.status()).toBe(200);
   await expect(page.getByRole('heading', { level: 1, name: 'Celebrating the ways of being' })).toHaveCount(1);
+});
+
+test('Impact gallery preserves all four source photographs', async ({ page }) => {
+  const response = await page.goto('/read/catalysing-environmental-action-for-a-sustainable-future');
+
+  expect(response?.ok()).toBe(true);
+  await expect(page.locator('.article-page__body img')).toHaveCount(5);
+  await expect(page.locator('.article-page__body')).toContainText('EHF Fellow Brad Leibov');
+});
+
+test('Community Collective preserves its eight source project images', async ({ page }) => {
+  const response = await page.goto('/communitycollective');
+
+  expect(response?.ok()).toBe(true);
+  await expect(page.getByRole('main').locator('img')).toHaveCount(8);
+});
+
+test('News article navigation preserves source carets', async ({ page }) => {
+  const response = await page.goto('/news-blog/media-statement-changes-needed-to-make-new-zealand-the-place-where-talent-wants-to-live-says-report');
+
+  expect(response?.ok()).toBe(true);
+  const navigation = page.getByRole('navigation', { name: 'Article navigation' });
+  await expect(navigation.getByRole('link', { name: /A Year of Impact/i }).locator('svg')).toHaveCount(1);
+  await expect(navigation.getByRole('link', { name: /Impact Springboard showcases/i }).locator('svg')).toHaveCount(1);
 });
 
 test('Archive restores its four source sections with complete local route sets', async ({ page }) => {

@@ -1757,11 +1757,11 @@
       "externalUrl": null
     },
     {
-      "id": "asset-images-content-archive-events-video-oqe6wxomfi8-jpg",
+      "id": "asset-images-content-archive-events-video-h3-6dzv7me4-jpg",
       "classification": "local",
-      "localPath": "/assets/images/content/archive-events-video-oqe6wxomfi8.jpg",
-      "sha256": "10e30b55bf6adb239009660d67f1be167186cae5c7c1d9fae48b93cf266f8f6e",
-      "bytes": 121324,
+      "localPath": "/assets/images/content/archive-events-video-h3-6dzv7me4.jpg",
+      "sha256": "c516fd1a0716d8c53fef916f2f1de40c7a8e0302b743181080ecd1fc4a915dc6",
+      "bytes": 90017,
       "mediaType": "image/jpeg",
       "routeUses": [
         "/archive"
@@ -1769,23 +1769,11 @@
       "externalUrl": null
     },
     {
-      "id": "asset-images-content-archive-events-video-ldorp0s5-lk-jpg",
+      "id": "asset-images-content-archive-events-video-iishjrc3ff0-jpg",
       "classification": "local",
-      "localPath": "/assets/images/content/archive-events-video-ldorp0s5-lk.jpg",
-      "sha256": "7d339efb10baeb59b9599c0f56ff8ee9ec9a6a84eddeee66718764b49b661f20",
-      "bytes": 92787,
-      "mediaType": "image/jpeg",
-      "routeUses": [
-        "/archive"
-      ],
-      "externalUrl": null
-    },
-    {
-      "id": "asset-images-content-archive-events-video-tunvyifprj4-jpg",
-      "classification": "local",
-      "localPath": "/assets/images/content/archive-events-video-tunvyifprj4.jpg",
-      "sha256": "0083e12bf8fe69e46f92d1e8327680ae891350f8d05c4aea7bb1f88cb17379f6",
-      "bytes": 52035,
+      "localPath": "/assets/images/content/archive-events-video-iishjrc3ff0.jpg",
+      "sha256": "f24da1420030adbb4004a04f55792b699a930c4d03153f2b06b4376282eebd23",
+      "bytes": 72695,
       "mediaType": "image/jpeg",
       "routeUses": [
         "/archive"
@@ -1805,11 +1793,11 @@
       "externalUrl": null
     },
     {
-      "id": "asset-images-content-archive-events-video-h3-6dzv7me4-jpg",
+      "id": "asset-images-content-archive-events-video-ldorp0s5-lk-jpg",
       "classification": "local",
-      "localPath": "/assets/images/content/archive-events-video-h3-6dzv7me4.jpg",
-      "sha256": "c516fd1a0716d8c53fef916f2f1de40c7a8e0302b743181080ecd1fc4a915dc6",
-      "bytes": 90017,
+      "localPath": "/assets/images/content/archive-events-video-ldorp0s5-lk.jpg",
+      "sha256": "7d339efb10baeb59b9599c0f56ff8ee9ec9a6a84eddeee66718764b49b661f20",
+      "bytes": 92787,
       "mediaType": "image/jpeg",
       "routeUses": [
         "/archive"
@@ -1817,11 +1805,23 @@
       "externalUrl": null
     },
     {
-      "id": "asset-images-content-archive-events-video-iishjrc3ff0-jpg",
+      "id": "asset-images-content-archive-events-video-oqe6wxomfi8-jpg",
       "classification": "local",
-      "localPath": "/assets/images/content/archive-events-video-iishjrc3ff0.jpg",
-      "sha256": "f24da1420030adbb4004a04f55792b699a930c4d03153f2b06b4376282eebd23",
-      "bytes": 72695,
+      "localPath": "/assets/images/content/archive-events-video-oqe6wxomfi8.jpg",
+      "sha256": "10e30b55bf6adb239009660d67f1be167186cae5c7c1d9fae48b93cf266f8f6e",
+      "bytes": 121324,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/archive"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-archive-events-video-tunvyifprj4-jpg",
+      "classification": "local",
+      "localPath": "/assets/images/content/archive-events-video-tunvyifprj4.jpg",
+      "sha256": "0083e12bf8fe69e46f92d1e8327680ae891350f8d05c4aea7bb1f88cb17379f6",
+      "bytes": 52035,
       "mediaType": "image/jpeg",
       "routeUses": [
         "/archive"
@@ -2298,6 +2298,102 @@
       "routeUses": [
         "/august-2024",
         "/march-2025"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-communitycollective-1-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/communitycollective-1.webp",
+      "sha256": "908afce765dc6c784391f519f14e867dd5245c88d2f548f93ccb1f2556dc43e4",
+      "bytes": 7972,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/communitycollective"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-communitycollective-2-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/communitycollective-2.webp",
+      "sha256": "721293fbcd867825aa3e355b1f9db95e65756767207a6400c7a292c0e3355c86",
+      "bytes": 132824,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/communitycollective"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-communitycollective-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/communitycollective-3.webp",
+      "sha256": "b5e85d0330edc958d4d3db85e85ced81bde573fc1474aed06fd02f5c160dd78b",
+      "bytes": 198732,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/communitycollective"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-communitycollective-4-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/communitycollective-4.webp",
+      "sha256": "0bc47b0b8bfb969d12e9cf4de78207177e35b1e03aa9ad80a8d3ee20e6697b91",
+      "bytes": 1724396,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/communitycollective"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-communitycollective-5-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/communitycollective-5.webp",
+      "sha256": "accc781eaa563e95e38dedfc56bcb88f435650d8db6d17472cb4f8dd98c361e7",
+      "bytes": 137158,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/communitycollective"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-communitycollective-6-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/communitycollective-6.webp",
+      "sha256": "1d9c670b40014eb216519596ef607ac9550774301359ba3c718e24ce40689903",
+      "bytes": 384840,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/communitycollective"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-communitycollective-7-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/communitycollective-7.webp",
+      "sha256": "117a87a8eccd13656fc76138033b6d8761bbb55cef40c5453e1f31406d9bdd5c",
+      "bytes": 605288,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/communitycollective"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-communitycollective-8-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/communitycollective-8.webp",
+      "sha256": "ed80131fe4771b2aafef74eaf9b0e7fa5ef2377fcb125188680121c43aca6987",
+      "bytes": 459602,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/communitycollective"
       ],
       "externalUrl": null
     },
@@ -4636,7 +4732,8 @@
       "bytes": 1326502,
       "mediaType": "image/png",
       "routeUses": [
-        "/news-blog"
+        "/news-blog",
+        "/news-blog/2021-2022-annual-report-shows-year-of-impact"
       ],
       "externalUrl": null
     },
@@ -4653,18 +4750,6 @@
       "externalUrl": null
     },
     {
-      "id": "asset-images-content-news-blog-2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz-listing-jpg",
-      "classification": "local",
-      "localPath": "/assets/images/content/news-blog-2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz-listing.jpg",
-      "sha256": "6537dc94d49163123d2fb1230366cd087553ac34a764c72b950c0fe3ef30d1fc",
-      "bytes": 163821,
-      "mediaType": "image/jpeg",
-      "routeUses": [
-        "/news-blog"
-      ],
-      "externalUrl": null
-    },
-    {
       "id": "asset-images-content-news-blog-2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz-2-webp",
       "classification": "local",
       "localPath": "/assets/images/content/news-blog-2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz-2.webp",
@@ -4672,6 +4757,19 @@
       "bytes": 127596,
       "mediaType": "image/webp",
       "routeUses": [
+        "/news-blog/2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz-listing-jpg",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz-listing.jpg",
+      "sha256": "6537dc94d49163123d2fb1230366cd087553ac34a764c72b950c0fe3ef30d1fc",
+      "bytes": 163821,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/news-blog",
         "/news-blog/2022-2023-pilot-visa-programme-drives-economic-and-social-impact-for-aotearoa-nz"
       ],
       "externalUrl": null
@@ -5315,18 +5413,6 @@
       "externalUrl": null
     },
     {
-      "id": "asset-images-content-news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-listing-jpg",
-      "classification": "local",
-      "localPath": "/assets/images/content/news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-listing.jpg",
-      "sha256": "38006644dda38cc9b5520e4544645190d7c735a8e88c7e676ed17e6b74b99cfd",
-      "bytes": 933322,
-      "mediaType": "image/jpeg",
-      "routeUses": [
-        "/news-blog"
-      ],
-      "externalUrl": null
-    },
-    {
       "id": "asset-images-content-news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-2-webp",
       "classification": "local",
       "localPath": "/assets/images/content/news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-2.webp",
@@ -5400,6 +5486,19 @@
       "externalUrl": null
     },
     {
+      "id": "asset-images-content-news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-listing-jpg",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehf-welcomes-95-fellows-in-march-welcome-experience-listing.jpg",
+      "sha256": "38006644dda38cc9b5520e4544645190d7c735a8e88c7e676ed17e6b74b99cfd",
+      "bytes": 933322,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/news-blog",
+        "/news-blog/ehf-welcomes-95-fellows-in-march-welcome-experience"
+      ],
+      "externalUrl": null
+    },
+    {
       "id": "asset-images-content-news-blog-ehf-welcomes-more-than-100-fellows-in-2022-1-webp",
       "classification": "local",
       "localPath": "/assets/images/content/news-blog-ehf-welcomes-more-than-100-fellows-in-2022-1.webp",
@@ -5444,18 +5543,6 @@
       "mediaType": "image/webp",
       "routeUses": [
         "/news-blog/ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa"
-      ],
-      "externalUrl": null
-    },
-    {
-      "id": "asset-images-content-news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-listing-jpg",
-      "classification": "local",
-      "localPath": "/assets/images/content/news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-listing.jpg",
-      "sha256": "35c34a217df33bf58d9c05cd68a3e9dc09340b9c87c276e434d4f8d5390740b0",
-      "bytes": 823723,
-      "mediaType": "image/jpeg",
-      "routeUses": [
-        "/news-blog"
       ],
       "externalUrl": null
     },
@@ -5545,6 +5632,19 @@
       "externalUrl": null
     },
     {
+      "id": "asset-images-content-news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-listing-jpg",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa-listing.jpg",
+      "sha256": "35c34a217df33bf58d9c05cd68a3e9dc09340b9c87c276e434d4f8d5390740b0",
+      "bytes": 823723,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/news-blog",
+        "/news-blog/ehfs-final-welcome-experience-sees-60-fellows-welcomed-to-the-fellowship-aotearoa"
+      ],
+      "externalUrl": null
+    },
+    {
       "id": "asset-images-content-news-blog-farewell-thank-you-and-congratulations-to-paul-atkins-1-webp",
       "classification": "local",
       "localPath": "/assets/images/content/news-blog-farewell-thank-you-and-congratulations-to-paul-atkins-1.webp",
@@ -5567,18 +5667,6 @@
         "/august-2023",
         "/news-blog/2023-a-year-of-connections-impact-and-milestones",
         "/news-blog/fellow-led-board-established-with-four-fellows-appointed-as-new-directors"
-      ],
-      "externalUrl": null
-    },
-    {
-      "id": "asset-images-content-news-blog-fellow-led-board-established-with-four-fellows-appointed-as-new-directors-listing-png",
-      "classification": "local",
-      "localPath": "/assets/images/content/news-blog-fellow-led-board-established-with-four-fellows-appointed-as-new-directors-listing.png",
-      "sha256": "9fbfab626fff4ef7b146d4432754ecc1d4ee3aca21f0e192ee40144236d857e8",
-      "bytes": 1231822,
-      "mediaType": "image/png",
-      "routeUses": [
-        "/news-blog"
       ],
       "externalUrl": null
     },
@@ -5622,6 +5710,19 @@
       "externalUrl": null
     },
     {
+      "id": "asset-images-content-news-blog-fellow-led-board-established-with-four-fellows-appointed-as-new-directors-listing-png",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-fellow-led-board-established-with-four-fellows-appointed-as-new-directors-listing.png",
+      "sha256": "9fbfab626fff4ef7b146d4432754ecc1d4ee3aca21f0e192ee40144236d857e8",
+      "bytes": 1231822,
+      "mediaType": "image/png",
+      "routeUses": [
+        "/news-blog",
+        "/news-blog/fellow-led-board-established-with-four-fellows-appointed-as-new-directors"
+      ],
+      "externalUrl": null
+    },
+    {
       "id": "asset-images-content-news-blog-hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members-1-webp",
       "classification": "local",
       "localPath": "/assets/images/content/news-blog-hillary-institute-and-edmund-hillary-fellowship-announce-new-board-members-1.webp",
@@ -5655,7 +5756,8 @@
       "bytes": 835330,
       "mediaType": "image/png",
       "routeUses": [
-        "/news-blog"
+        "/news-blog",
+        "/news-blog/impact-springboard-showcases-leading-innovation-for-global-impact"
       ],
       "externalUrl": null
     },
@@ -5829,18 +5931,6 @@
       "externalUrl": null
     },
     {
-      "id": "asset-images-content-news-blog-reflections-of-sir-edmund-hillarys-legacy-on-everest-day-listing-jpg",
-      "classification": "local",
-      "localPath": "/assets/images/content/news-blog-reflections-of-sir-edmund-hillarys-legacy-on-everest-day-listing.jpg",
-      "sha256": "237825b2a769f3febf9f9dc4cf42150714421bea78505112276c2c30cac7059c",
-      "bytes": 74651,
-      "mediaType": "image/jpeg",
-      "routeUses": [
-        "/news-blog"
-      ],
-      "externalUrl": null
-    },
-    {
       "id": "asset-images-content-news-blog-reflections-of-sir-edmund-hillarys-legacy-on-everest-day-2-webp",
       "classification": "local",
       "localPath": "/assets/images/content/news-blog-reflections-of-sir-edmund-hillarys-legacy-on-everest-day-2.webp",
@@ -5861,6 +5951,19 @@
       "mediaType": "image/webp",
       "routeUses": [
         "/news-blog/2023-a-year-of-connections-impact-and-milestones",
+        "/news-blog/reflections-of-sir-edmund-hillarys-legacy-on-everest-day"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-news-blog-reflections-of-sir-edmund-hillarys-legacy-on-everest-day-listing-jpg",
+      "classification": "local",
+      "localPath": "/assets/images/content/news-blog-reflections-of-sir-edmund-hillarys-legacy-on-everest-day-listing.jpg",
+      "sha256": "237825b2a769f3febf9f9dc4cf42150714421bea78505112276c2c30cac7059c",
+      "bytes": 74651,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/news-blog",
         "/news-blog/reflections-of-sir-edmund-hillarys-legacy-on-everest-day"
       ],
       "externalUrl": null
@@ -5897,7 +6000,8 @@
       "bytes": 759888,
       "mediaType": "image/jpeg",
       "routeUses": [
-        "/news-blog"
+        "/news-blog",
+        "/news-blog/reflections-this-waitangi-day-2024"
       ],
       "externalUrl": null
     },
@@ -7177,6 +7281,54 @@
       "localPath": "/assets/images/content/read-catalysing-environmental-action-for-a-sustainable-future-1.webp",
       "sha256": "6b93e6de5087273dd6b15566e4e524ec9e4fd01ec4d9e0d8436d46b040d6e5f7",
       "bytes": 300708,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/catalysing-environmental-action-for-a-sustainable-future"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-catalysing-environmental-action-for-a-sustainable-future-2-jpg",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-catalysing-environmental-action-for-a-sustainable-future-2.jpg",
+      "sha256": "cb6f883ed97c7a2efd9566fbb1385e4b5ebf43834e3e8cb751fd145a4cc1afa4",
+      "bytes": 1032835,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/read/catalysing-environmental-action-for-a-sustainable-future"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-catalysing-environmental-action-for-a-sustainable-future-3-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-catalysing-environmental-action-for-a-sustainable-future-3.webp",
+      "sha256": "6270898bd9d46b2be6e81bfa5b831561a39879639630aa955ba62e537fad1165",
+      "bytes": 1180702,
+      "mediaType": "image/webp",
+      "routeUses": [
+        "/read/catalysing-environmental-action-for-a-sustainable-future"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-catalysing-environmental-action-for-a-sustainable-future-4-jpg",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-catalysing-environmental-action-for-a-sustainable-future-4.jpg",
+      "sha256": "013173c5f381aaf44abc4bbe7db173ae1b5b0c225c4b6adea277a52b2ae2a207",
+      "bytes": 1104971,
+      "mediaType": "image/jpeg",
+      "routeUses": [
+        "/read/catalysing-environmental-action-for-a-sustainable-future"
+      ],
+      "externalUrl": null
+    },
+    {
+      "id": "asset-images-content-read-catalysing-environmental-action-for-a-sustainable-future-5-webp",
+      "classification": "local",
+      "localPath": "/assets/images/content/read-catalysing-environmental-action-for-a-sustainable-future-5.webp",
+      "sha256": "897fac246ea6888392900399519f58a7436da6aba7199483ee448a63da501ac3",
+      "bytes": 251498,
       "mediaType": "image/webp",
       "routeUses": [
         "/read/catalysing-environmental-action-for-a-sustainable-future"

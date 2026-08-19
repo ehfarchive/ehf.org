@@ -6,6 +6,6 @@ interface Props {
 }
 
 const { block } = Astro.props;
-const content = renderInlineHtml(block.children);
+const content = block.kind === 'image' ? '' : renderInlineHtml(block.children);
 ---
-{block.kind === 'heading' ? <h2 data-level={block.level} set:html={content}></h2> : block.kind === 'list-item' ? <ul class="rich-text-list"><li set:html={content}></li></ul> : <p set:html={content}></p>}
+{block.kind === 'image' ? <img src={block.src} alt={block.alt} loading="lazy" /> : block.kind === 'heading' ? <h2 data-level={block.level} set:html={content}></h2> : block.kind === 'list-item' ? <ul class="rich-text-list"><li set:html={content}></li></ul> : <p set:html={content}></p>}
