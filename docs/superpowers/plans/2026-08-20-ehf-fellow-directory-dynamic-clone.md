@@ -2,80 +2,220 @@
 
 **Status:** Planning only. Stakeholder approval required before implementation.
 
-**Goal:** Move the live Fellow Directory from the Squarespace shell into the Astro site while preserving Knack as the editable system of record and retaining the existing directory behavior.
+**Goal:** Move the live Fellow Directory from the Squarespace shell into the Astro site while preserving Knack as the editable system of record, retaining current public behavior, and enforcing Fellow visibility choices before data reaches a visitor’s browser.
 
-**Architecture:** Reuse the current EHF-licensed Optimi JavaScript for Basic Search and Fellow Detail with the same Knack public view. Retain the current Knack `dist_2` Advanced Search and `dist_3` Alumni embeds. Replace only the Squarespace page shell, styling hooks, navigation integration, and deployment host. Do not add a proxy, synchronization service, second database, static Fellow snapshot, or new search implementation.
+**Architecture:** Keep Fellow editing in the existing Knack `Fellows` table. Add a separate Knack `Public Fellow Profiles` projection table containing only approved public values. Knack automation updates that projection whenever a Fellow record or visibility setting changes. Basic Search, Fellow Detail, Advanced Search, and Alumni Search read only projection-backed public views. Reuse the existing EHF-licensed Optimi JavaScript and Knack embeds with the minimum field/view remapping required by that boundary.
 
-**Tech stack:** Astro 7 static site shell, the existing browser-side Optimi directory code, its existing jQuery/Fuse/lazy-image dependencies, Knack application `63306ddbdfad5247a024eac3`, and the current Knack embeds. Vitest, Playwright, and `@axe-core/playwright` verify the integration.
+**Tech stack:** Knack as the system of record and projection engine; Astro 7 static site shell; existing browser-side Optimi directory code; current jQuery/Fuse/lazy-image dependencies; Knack public view APIs and embeds; Vitest, Playwright, and `@axe-core/playwright`.
 
 ---
 
 ## Decision and rationale
 
-Fellows must continue updating their own profiles in Knack. The current integration already provides that behavior:
+Fellows must continue updating their own profiles in Knack. A one-time static snapshot is therefore rejected.
 
-- Basic Search loads the public Knack view and searches it in the browser.
-- Fellow Detail loads one current record from the same view.
-- Advanced Search is rendered by Knack `dist_2`.
-- Alumni Fellows is rendered by Knack `dist_3`.
-- Profile images are served from Knack-managed storage and change with the Knack record.
+The current direct browser integration can remain only if its public views read a safe projection rather than the mixed public/private `Fellows` table. Authenticated schema inspection confirmed that public view `scene_161` / `view_490` explicitly includes raw Fellow Type, Gender, Citizenship, and Residence fields. The Optimi JavaScript removes disallowed values only after Knack has sent them to the browser.
 
-A scheduled export, server proxy, cache, static snapshot, generated profile pages, and EHF-owned copy of profile media would duplicate working Knack behavior and create new synchronization and operational failure modes. They are not part of this plan.
+Knack documents that display rules are client-side and are not a security boundary. It also documents that a view-based `GET` returns every field included in that view. Merely adding display rules or hiding columns visually cannot fix the issue.
+
+A separate public projection table is the durable fix because every field in that table is safe to publish by construction. It preserves live Knack editing without adding a second vendor or external database.
 
 ## Authorization boundary
 
-This document is the deliverable. Do not copy licensed Optimi source into the repository, change route classifications, add dependencies, implement pages, change Knack, deploy, or alter Squarespace until all gates below are satisfied in writing.
+This document is the deliverable. Do not change Knack, copy licensed Optimi source, alter route classifications, add dependencies, implement pages, deploy, or alter Squarespace until all gates below are satisfied in writing.
 
 Implementation may begin only after:
 
-1. EHF confirms the Knack public-view privacy configuration is corrected and retested.
-2. EHF confirms in writing that the Optimi license permits the directory code to be copied into and served from the public `ehfarchive/ehf.org` repository and replacement site.
-3. Stakeholders approve preserving the current browser-to-Knack architecture, including Knack as a live production dependency.
-4. Stakeholders approve the exact route set and source-fidelity contract.
-5. The owner approves this revised plan and authorizes a fresh implementation branch.
+1. EHF approves the immediate containment action and durable projection design.
+2. EHF confirms in writing that the Optimi license permits the code to be copied into and served from the public `ehfarchive/ehf.org` repository and replacement site.
+3. Stakeholders approve Knack remaining a live production dependency.
+4. Stakeholders approve the exact public-field contract and route behavior.
+5. EHF prepares a duplicated Knack application or private duplicate views for remediation testing.
+6. The owner approves this exact plan and authorizes a fresh implementation branch.
 
-If Optimi permission is absent or narrower than required, stop. Do not reimplement the licensed behavior under this plan; return to stakeholders for a separate clean-room design decision.
+Do not use production Fellow records in committed fixtures, logs, screenshots, or incident-document examples. Do not expose or commit the private Knack REST API key.
 
-## Verified current architecture
+## Verified current architecture and incident facts
 
-Verified against the public Squarespace pages on 2026-08-20:
+Verified read-only on 2026-08-20:
 
-| Surface | Current implementation | Data flow | Planned treatment |
-|---|---|---|---|
-| `/fellow-directory` | Squarespace HTML plus approximately 22 KB of Optimi JavaScript | Direct browser GET to Knack `scene_161` / `view_490`; Fuse.js searches all returned records; 24 random records initially and 24 more per activation | Preserve the DOM and JavaScript behavior inside an Astro page |
-| `/fellow-detail?fellow=<slug>` | Squarespace HTML plus approximately 29 KB of Optimi JavaScript | Direct browser GET to the same view filtered by `field_288`; renders the matching record | Preserve the query/hash contract and JavaScript behavior inside an Astro page |
-| `/fellow-directory-advanced-search` | Knack embed `dist_2`, scene `scene_340`, search view `view_649` | Knack renders and operates the complete search interface | Preserve the embed inside the Astro shell |
-| `/alumni-directory-advanced-search` | Knack embed `dist_3`, scene `scene_399`, search view `view_728` | Knack renders and operates alumni search and inline details | Preserve the embed inside the Astro shell |
-| Profile images | Knack-managed asset storage | URLs arrive with live Knack records | Continue using Knack-managed URLs |
+- The Knack application contains 23 objects.
+- `object_2`, `Fellows`, contains 145 fields.
+- Basic Search and Fellow Detail use public list view `scene_161` / `view_490`.
+- That view explicitly includes the raw protected values and their visibility controls:
 
-The existing Astro replacement deliberately excludes all directory routes in `source-evidence/route-manifest.json`. `src/data/site.ts` admits only manifest-approved navigation. The implementation must extend these contracts rather than bypassing them.
+| Attribute | Raw field | Visibility field |
+|---|---|---|
+| Fellow Type | `field_649` | `field_685` |
+| Gender | `field_314` | `field_686` |
+| Citizenship | `field_393` | `field_689` |
+| Residence/location | connected `field_701` | `field_691` |
 
-## What remains unchanged
+- The view’s source criteria filter records only: Active, enabled for directories, profile image present, and not a test record.
+- The view has no server-side per-record field projection.
+- The public API response contains raw values that the browser subsequently blanks:
 
-- Knack remains the only Fellow-data store.
-- Fellows continue editing records through the existing Knack workflows.
-- Knack field identifiers and view IDs remain authoritative.
-- Existing privacy-setting logic remains as defense in depth after the Knack view itself is corrected.
-- Basic Search keeps the current weighted Fuse.js behavior, exact-quote behavior, random discovery, result count, and 24-record load increments.
-- Fellow Detail keeps the current `?fellow=<slug>` query and directory search-state hash.
-- Advanced Search keeps the existing Knack facets, sorting, pagination, and rendering.
-- Alumni Fellows keeps the existing Knack search and inline detail behavior.
-- Profile images continue to update through Knack.
-- Existing archived article links to `/fellow-detail?...` remain unchanged.
+| Attribute | Visibility off with raw value returned |
+|---|---:|
+| Fellow Type | 19 |
+| Gender | 436 |
+| Citizenship | 52 |
+| Residence/location | 33 |
 
-## What changes
+- Advanced Search `scene_340` / `view_649` and Alumni Search `scene_399` / `view_728` include raw Fellow Type without the visibility control.
+- Advanced Search already uses `field_855`, a safe public residence projection. It was blank for all 33 current Fellows whose residence visibility was off. This proves the projection pattern works in the existing Knack application.
+- Existing fields `field_719` and `field_720` are not safe public projections; they remain populated for many records whose visibility is off.
 
-- Squarespace page HTML becomes Astro components and routes.
-- Squarespace-specific global injection is replaced by explicit route/component dependencies.
-- Directory styling moves into the repository using the source-observed selectors and geometry.
-- Header, footer, and directory subnavigation use the manifest-validated Astro shell.
-- The licensed scripts become versioned project source only after permission is confirmed.
-- Runtime host access is declared explicitly through the deployment security policy.
-- Automated tests cover the live integration and fail if Knack or field contracts drift.
+## Immediate containment
+
+Before building the durable projection, remove the four raw protected attributes from every unauthenticated public view.
+
+Affected views to inspect include:
+
+- `scene_161` / `view_490` — Basic Search and current Fellow Detail data.
+- `scene_340` / `view_649` — Advanced Search.
+- `scene_398` / `view_727` — alumni external data view.
+- `scene_399` / `view_728` — Alumni Search.
+- `scene_401` / `view_732` — public Fellow detail view.
+
+Containment behavior:
+
+- Remove raw Fellow Type, Gender, Citizenship, and Residence fields wherever present.
+- Remove any unsafe legacy substitutes such as `field_719` and `field_720`.
+- Keep `field_855` for public residence only after confirming its zero-leak audit remains true.
+- Accept that affected attributes temporarily disappear from public profiles and search.
+- Do not attempt to preserve display by adding a visual hide rule.
+
+Containment must be tested on duplicated/private views first. Production modification is a separately authorized action.
+
+## Durable public projection architecture
+
+### Source table
+
+The existing `Fellows` table remains authoritative. Fellows continue using the existing Knack update workflows. It may contain public, internal, and private values.
+
+### Projection table
+
+Create `Public Fellow Profiles` with one public record per eligible Fellow. This table must contain no private values, visibility settings, account state, approval state, internal notes, utility keys, or raw connection objects.
+
+Proposed schema:
+
+```ts
+export type PublicFellowProfile = {
+  sourceFellowId: string; // internal automation key; never include in public views
+  status: 'current' | 'alumni';
+  slug: string;
+  name: string;
+  aliases: string[];
+  pronouns?: string;
+  headline?: string;
+  profilePhoto?: KnackImage;
+  cohortNames: string[];
+  fellowTypes: string[];       // copied only when Public directory is enabled
+  gender?: string;             // copied only when Public directory is enabled
+  citizenships: string[];      // copied only when Public directory is enabled
+  residences: string[];        // copied only when Public directory is enabled
+  industries: string[];
+  otherIndustries: string[];
+  keySkills: string[];
+  globalNetworks: string[];
+  modesOfWorking: string[];
+  organisationTypes: string[];
+  careerHighlights?: string;
+  keyNetworks?: string;
+  impactGoals?: string;
+  ecosystemSupport?: string;
+  supportRequested?: string;
+  ventures: PublicLink[];
+  sustainableDevelopmentGoals: PublicLink[];
+  tags: string[];
+  updatedAt: string;
+};
+```
+
+The concrete Knack fields may use text, multiple-choice, connection, image, or rich-text types as appropriate. The security invariant is independent of type: a public projection record must contain only publishable values.
+
+### Projection rules
+
+A Knack Flow or equivalent server-side automation runs when:
+
+- a Fellow creates or updates a profile;
+- a visibility setting changes;
+- directory eligibility/status changes;
+- a profile image changes;
+- connected ventures, cities, citizenships, cohort, industries, links, or Sustainable Development Goals change.
+
+For every update:
+
+1. Determine whether the Fellow is eligible for the current or alumni public directory.
+2. Create or update exactly one matching projection record.
+3. Copy always-public fields.
+4. Copy each protected field only when its visibility setting contains `Public directory`.
+5. Explicitly clear the projected value when visibility is removed.
+6. Remove or unpublish the projection when directory eligibility is removed.
+7. Record projection update time and a non-sensitive reconciliation status.
+
+Knack conditional rules may be used for simple same-record values. Knack documents that rules can set a field from another field, but an explicit opposite/default rule is required to clear stale values. Multi-record and connected-field projection should use Knack Flow or another server-side Knack automation so all dependent updates are handled consistently.
+
+### Reconciliation and backfill
+
+Before public cutover:
+
+1. Backfill every eligible current Fellow and alumnus into the projection table.
+2. Compare source eligibility counts with projection counts.
+3. Assert one projection per source Fellow.
+4. Assert no orphan projections.
+5. Assert every visibility-off protected value is blank.
+6. Assert every visibility-on value expected for display is present or intentionally empty.
+7. Run the projection twice and prove idempotence.
+8. Add a scheduled reconciliation that reports drift without publishing raw values.
+
+## Public view contract
+
+Create or repoint public views so they use only `Public Fellow Profiles`:
+
+| Public surface | Required source |
+|---|---|
+| Basic Search data | Public projection list view |
+| Fellow Detail data | Public projection list/details view filtered by public slug |
+| Advanced Search `dist_2` | Search view over public projection |
+| Alumni Search `dist_3` | Alumni-filtered search view over public projection |
+
+No unauthenticated view may include a connection back to raw Fellow fields. The internal `sourceFellowId` or source connection may exist for automation but must not be configured as a field in any public view.
+
+## Existing code reuse and remapping
+
+### Basic Search
+
+Preserve:
+
+- Fuse.js behavior and weighting.
+- quoted exact-match search.
+- search/hash restoration.
+- random initial discovery.
+- 24-result initial display and load-more increments.
+- lazy images, cards, counts, and error states.
+
+Change:
+
+- endpoint from `scene_161` / `view_490` to the approved projection view;
+- field keys from raw Fellow fields to public projection fields;
+- selectors that depend on Squarespace-generated block IDs;
+- dependency imports so the route is self-contained.
+
+Remove the client-side privacy deletion logic only after network tests prove that projection responses contain no protected raw values. Keeping the checks temporarily as defense in depth is acceptable, but they must never be treated as access control.
+
+### Fellow Detail
+
+Preserve query/hash parsing, legacy slugs, return-state behavior, section omission, links, images, and errors. Remap every rendered field to the public projection view. Do not query `object_2` or `view_490` from the public site after cutover.
+
+### Advanced and Alumni Search
+
+Rebuild or repoint `dist_2` and `dist_3` search views over the public projection table while retaining the visible filters, result layout, pagination, and inline-detail behavior. Do not retain raw `field_649` or connected raw Fellow fields merely to preserve field IDs.
 
 ## Route contract
 
-Extend the route manifest with these included families:
+Extend the route manifest with:
 
 ```ts
 type DirectoryTemplateFamily =
@@ -85,219 +225,138 @@ type DirectoryTemplateFamily =
   | 'alumni-directory-advanced';
 ```
 
-Required dispositions:
-
 | Path | Disposition |
 |---|---|
 | `/fellow-directory` | Included, Basic Search |
 | `/fellow-detail` | Included, current query/hash-based detail page |
-| `/fellow-directory-advanced-search` | Included, Knack `dist_2` embed |
-| `/alumni-directory-advanced-search` | Included, Knack `dist_3` embed |
+| `/fellow-directory-advanced-search` | Included, Advanced Search |
+| `/alumni-directory-advanced-search` | Included, Alumni Search |
 | `/alumni-directory` | Permanent redirect to `/alumni-directory-advanced-search` |
-| `/copy-060421-exact-match-fellow-directory` | Remains excluded as a duplicate |
+| `/copy-060421-exact-match-fellow-directory` | Remains excluded duplicate |
 
-Do not generate per-Fellow static routes. Do not rewrite article links to a new canonical profile URL.
+Do not generate per-Fellow static routes. Do not rewrite archived article links.
 
-## Existing code reuse contract
+## Licensing and dependency contract
 
-### Basic Search
+Before copying code, inventory the exact jQuery, `jquery.lazy`, Fuse.js, line-clamping, Soluntech/Knack helper, and Squarespace selector dependencies. Pin retained versions and preserve copyright/license notices.
 
-Preserve the current:
-
-- Knack application ID and public-view request contract.
-- `scene_161` / `view_490` endpoint.
-- `rows_per_page=1000` single-request behavior.
-- weighted search fields and dynamic `minMatchCharLength`.
-- quoted exact-match search.
-- search/hash restoration.
-- random default result selection.
-- 24-result initial display and load-more increments.
-- lazy profile-image behavior.
-- privacy-setting checks.
-- card and detail-link formatting.
-- loading, no-results, and request-error states.
-
-Only adapt:
-
-- selectors that currently depend on Squarespace-generated block IDs;
-- DOM creation to stable `data-*` hooks owned by Astro components;
-- dependency imports so the route does not rely on unrelated Squarespace global injection;
-- source styling hooks required to match the approved Astro shell;
-- error text if stakeholders approve a wording correction.
-
-Do not rewrite the search algorithm or replace Fuse.js as part of the migration.
-
-### Fellow Detail
-
-Preserve the current:
-
-- `fellow` query parsing.
-- `field_288` exact filter.
-- directory search-state hash.
-- public-field mapping.
-- privacy-setting checks.
-- empty-field section removal.
-- links for ventures and Sustainable Development Goals.
-- profile-image behavior.
-- loading, absent-record, and request-error states.
-- “Find more fellows” and “Back to Directory” behavior.
-
-Replace Squarespace-generated block IDs with stable Astro-owned hooks through one explicit selector map. Do not change the Knack field map while migrating.
-
-### Advanced Search
-
-Preserve:
-
-```html
-<script>
-  app_id = "63306ddbdfad5247a024eac3";
-  distribution_key = "dist_2";
-</script>
-<script src="https://loader.knack.com/63306ddbdfad5247a024eac3/dist_2/knack.js"></script>
-```
-
-The Astro page supplies the source-observed directory heading, subnavigation, embed container, loading state, and spacing. Knack continues rendering the search form and results.
-
-### Alumni Fellows
-
-Preserve the same integration with `distribution_key = "dist_3"`. Knack continues rendering alumni search, rows, and hash-based inline detail views.
-
-## Privacy and trust boundary
-
-The browser will continue receiving the public Knack response. Therefore the Knack public view is the primary access-control boundary.
-
-Before migration:
-
-1. Correct `view_490` so fields not authorized for `Public directory` are absent from the response.
-2. Verify the correction with records whose citizenship, location, gender, and Fellow type settings are off.
-3. Confirm the visible Squarespace page still renders every authorized field after the view correction.
-4. Confirm Basic Search and Fellow Detail tolerate omitted protected fields.
-5. Repeat the same field-level review for the Advanced Search and Alumni distributions.
-
-The client-side deletion logic remains in place as defense in depth, but acceptance requires the prohibited raw values to be absent from the network response before client code runs.
-
-Tests and committed evidence must not contain copied production Fellow records. Unit tests use synthetic records with invented names and values. Live browser checks may confirm element presence and behavior for stakeholder-approved public profiles but must not serialize response bodies into artifacts or logs.
-
-## Dependency and licensing contract
-
-Inventory the exact current dependencies before copying code:
-
-- jQuery versions currently loaded by Squarespace.
-- `jquery.lazy` version.
-- Fuse.js version.
-- line-clamping helper embedded in the current injection.
-- any Soluntech helper used by the Knack embeds.
-- Squarespace CSS classes referenced by the directory scripts.
-
-Use one compatible jQuery version unless the existing code demonstrably requires two. This is dependency deduplication, not a behavioral rewrite. Pin every copied or externally loaded version. Preserve required copyright and license notices.
-
-The Optimi header states that the directory code is licensed for EHF and may not be reused or posted without written permission. Because this repository is public, written permission is a hard prerequisite to committing the source. Record the permission location privately; commit only a non-sensitive statement that permission was confirmed.
+The Optimi header states that the code is licensed for EHF and may not be reposted without permission. Written permission for the public repository and replacement site is a hard prerequisite.
 
 ## Runtime host policy
 
-The deployed directory must permit only the required hosts:
+Permit only required Knack API, loader, regional renderer, profile asset, and explicitly retained dependency hosts. Do not add wildcard network permissions. Browser tests must fail on unexpected directory hosts.
 
-- `api.knack.com` for Basic Search and Fellow Detail.
-- `loader.knack.com` for Advanced and Alumni embeds.
-- the Knack regional renderer read/write hosts required by the embeds.
-- Knack-managed profile asset hosts.
-- explicitly retained dependency CDNs, if dependencies are not bundled locally.
-
-Do not add wildcard network permissions when exact hosts work. Browser tests must fail on any unexpected directory request host.
-
-Knack is an intentional live dependency. The page must show the existing clear error state when Knack is unavailable; it must not silently display stale or partial Fellow data.
+Knack remains an intentional live dependency. Show a clear error when Knack is unavailable; never silently display stale or partial profiles.
 
 ## Exact implementation file map
 
 | Path | Planned action |
 |---|---|
-| `source-evidence/route-manifest.json` | Reclassify directory roots and the alumni redirect |
-| `source-evidence/source-contract.json` | Add desktop/mobile/default/loading/search/error/detail/embed states |
-| `src/lib/route-manifest.ts` | Add four directory template families |
-| `src/data/site.ts` | Add manifest-validated Fellow Directory navigation |
+| `source-evidence/route-manifest.json` | Reclassify directory routes and alumni redirect |
+| `source-evidence/source-contract.json` | Add source states and projection-backed data contract |
+| `src/lib/route-manifest.ts` | Add directory template families |
+| `src/data/site.ts` | Add manifest-validated directory navigation |
 | `src/pages/fellow-directory.astro` | Basic Search route |
-| `src/pages/fellow-detail.astro` | Query/hash-based Fellow Detail route |
-| `src/pages/fellow-directory-advanced-search.astro` | Knack `dist_2` route |
-| `src/pages/alumni-directory-advanced-search.astro` | Knack `dist_3` route |
-| `src/components/directory/DirectoryMenu.astro` | Basic, Advanced, and Alumni subnavigation |
-| `src/components/directory/BasicDirectory.astro` | Stable DOM contract for the licensed Basic Search code |
-| `src/components/directory/FellowDetail.astro` | Stable DOM contract for the licensed Fellow Detail code |
-| `src/components/directory/KnackEmbed.astro` | Shared explicit loader for `dist_2` and `dist_3` |
-| `src/components/directory/basic-directory.ts` | Authorized, minimally adapted Optimi Basic Search code |
-| `src/components/directory/fellow-detail.ts` | Authorized, minimally adapted Optimi Fellow Detail code |
-| `src/styles/templates.css` | Directory-specific source-observed styles |
-| `vercel.json` | Exact required Content Security Policy/network declarations if deployment needs them |
-| `tests/unit/directory-contract.test.ts` | Hash/query, selector map, field map, privacy omission, and dependency contracts |
-| `tests/e2e/fellow-directory.spec.ts` | Basic, detail, advanced, alumni, responsive, accessibility, failure, and network behavior |
+| `src/pages/fellow-detail.astro` | Legacy query/hash detail route |
+| `src/pages/fellow-directory-advanced-search.astro` | Projection-backed Advanced Search embed |
+| `src/pages/alumni-directory-advanced-search.astro` | Projection-backed Alumni Search embed |
+| `src/components/directory/DirectoryMenu.astro` | Directory subnavigation |
+| `src/components/directory/BasicDirectory.astro` | Stable Basic Search DOM |
+| `src/components/directory/FellowDetail.astro` | Stable Detail DOM |
+| `src/components/directory/KnackEmbed.astro` | Explicit projection-backed Knack embeds |
+| `src/components/directory/basic-directory.ts` | Authorized Optimi code with endpoint/field/selector remapping |
+| `src/components/directory/fellow-detail.ts` | Authorized Optimi code with endpoint/field/selector remapping |
+| `src/styles/templates.css` | Directory source-fidelity styles |
+| `vercel.json` | Exact required network/security declarations |
+| `tests/unit/directory-contract.test.ts` | Query/hash, selector, public schema, remapping, and privacy contracts |
+| `tests/e2e/fellow-directory.spec.ts` | Basic, Detail, Advanced, Alumni, accessibility, failure, and network behavior |
 
-Do not create a Fellow-data content collection, importer, synchronization job, API proxy, cache, generated search index, or profile-image downloader.
+Knack-side artifacts are configured in the Builder/Flows rather than stored in this repository. Record their non-secret object/view keys and approved field map in `source-evidence/source-contract.json` after stakeholder authorization.
 
 ## Execution sequence
 
-### Ticket 0: Stakeholder, privacy, and license gates
+### Ticket 0: Containment and gates
 
-- [ ] Confirm written stakeholder approval of this plan.
-- [ ] Confirm the four route dispositions.
-- [ ] Confirm the corrected Knack field-level response contract.
-- [ ] Confirm the Advanced and Alumni distributions expose only approved data.
-- [ ] Confirm written Optimi permission for use in the public repository and replacement EHF site.
-- [ ] Authorize a fresh implementation branch.
+- [ ] Duplicate the Knack application or public views for safe testing.
+- [ ] Remove raw protected fields from duplicate public views and verify the response.
+- [ ] Obtain approval for temporary production removal of protected attributes.
+- [ ] Confirm Optimi permission.
+- [ ] Approve the public-field contract and projection design.
+- [ ] Authorize implementation branches and Knack change ownership.
 
-**Acceptance:** all confirmations are written and no gate is disputed. No code is copied or implemented in this ticket.
+**Acceptance:** duplicate-view proof shows protected raw fields absent; all approvals are written. Production remains unchanged until a separate containment authorization.
 
-### Ticket 1: Source and dependency contract
+### Ticket 1: Public projection schema and automation
 
-- [ ] Capture source desktop/mobile states for Basic default, search, exact quote, no results, load more, loading, request error, complete detail, sparse detail, missing detail, Advanced default/results, Alumni default/results/detail, and directory subnavigation.
-- [ ] Inventory the exact script dependencies, versions, licenses, network hosts, field map, and selectors.
-- [ ] Add route/source-contract records without copying Fellow response data.
-- [ ] Write failing synthetic unit and route tests.
+- [ ] Create `Public Fellow Profiles` in the duplicate application.
+- [ ] Add only approved public fields.
+- [ ] Implement create/update/clear/unpublish automation.
+- [ ] Handle changes to connected records.
+- [ ] Add idempotent backfill and drift reconciliation.
+- [ ] Test synthetic and stakeholder-approved canary profiles covering every visibility transition.
 
-**Acceptance:** complete source and runtime contract with no production record bodies in the repository.
+**Acceptance:** exact eligibility/projection counts, one-to-one mapping, no orphans, no visibility-off values, and repeated reconciliation produces no changes.
 
-### Ticket 2: Astro shells and routes
+### Ticket 2: Projection-backed Knack views
 
-- [ ] Implement the four manifest-backed routes and shared directory menu.
-- [ ] Reproduce the source DOM with stable semantic hooks.
-- [ ] Add manifest-validated primary navigation.
-- [ ] Implement the Advanced and Alumni Knack embed loader without changing Knack behavior.
-- [ ] Verify the Astro shell does not interfere with Knack hash routing or embedded styles.
+- [ ] Create Basic and Detail views over the projection.
+- [ ] Rebuild/repoint Advanced and Alumni search views over the projection.
+- [ ] Match current filters, ordering, page sizes, result columns, and inline details.
+- [ ] Verify all public responses contain only projection fields.
 
-**Acceptance:** routes render their loading shells and embeds; implementation tests fail only because Basic/Detail licensed behavior has not yet been integrated.
+**Acceptance:** public response schema is allowlisted and raw Fellow fields are absent across all four surfaces.
 
-### Ticket 3: Basic Search integration
+### Ticket 3: Source and dependency contract
 
-- [ ] Copy the authorized Optimi source with notices intact.
-- [ ] Replace Squarespace-generated selectors with the stable Basic Directory hooks.
-- [ ] Pin and load the exact required dependencies.
-- [ ] Preserve the existing Knack request, search, hash, randomization, pagination, image, privacy, and error behavior.
-- [ ] Compare results against the live Squarespace page using the same searches without recording record bodies.
+- [ ] Capture desktop/mobile/default/loading/search/error/detail/embed states.
+- [ ] Inventory scripts, versions, licenses, hosts, field maps, and selectors.
+- [ ] Add route/source contracts without production record bodies.
+- [ ] Write failing synthetic tests for projection schemas and remapping.
 
-**Acceptance:** source-observed Basic Search states and synthetic contracts pass; network response contains no fields disabled by the tested privacy settings.
+**Acceptance:** complete source contract and failure-first tests.
 
-### Ticket 4: Fellow Detail integration
+### Ticket 4: Astro shells and embeds
 
-- [ ] Copy the authorized Fellow Detail source with notices intact.
-- [ ] Replace Squarespace-generated selectors with the explicit detail selector map.
-- [ ] Preserve query/hash parsing, exact slug lookup, field rendering, links, privacy checks, image behavior, and errors.
-- [ ] Verify existing archived article links open the intended profiles and preserve return state.
+- [ ] Implement manifest-backed routes and directory navigation.
+- [ ] Reproduce stable semantic DOM hooks.
+- [ ] Integrate projection-backed Advanced and Alumni embeds.
+- [ ] Verify Astro does not interfere with hash routing or Knack styles.
 
-**Acceptance:** representative complete, sparse, absent, and back-navigation states match the source contract without exposing omitted fields.
+**Acceptance:** route shells and embeds work against projection test views.
 
-### Ticket 5: Fidelity, accessibility, failure, and integration verification
+### Ticket 5: Basic Search and Detail reuse
 
-- [ ] Match approved desktop/mobile geometry and interaction states.
-- [ ] Verify keyboard, focus, labels, result announcements, link semantics, image alternatives, and reduced motion.
-- [ ] Simulate Knack API failure, embed-loader failure, empty response, omitted optional fields, and unknown Fellow slug.
-- [ ] Assert exact allowed network hosts and zero unexpected requests.
+- [ ] Copy authorized Optimi source with notices intact.
+- [ ] Remap endpoint, projection fields, and stable selectors.
+- [ ] Preserve search, hash, randomization, pagination, images, profile rendering, links, and errors.
+- [ ] Verify archived `/fellow-detail?...` links.
+
+**Acceptance:** current behavior is preserved while every network response satisfies the public projection allowlist.
+
+### Ticket 6: Full verification and preview
+
+- [ ] Match desktop/mobile source geometry and interaction states.
+- [ ] Verify accessibility and reduced motion.
+- [ ] Simulate API, automation, embed-loader, empty-response, and unknown-slug failures.
+- [ ] Assert exact allowed network hosts and response schemas.
 - [ ] Run unit, route, content, asset, build, browser, accessibility, responsive, console, and network checks.
 - [ ] Produce a stakeholder preview without changing the custom domain.
 
-**Acceptance:** all checks pass and stakeholders accept the preview. Production cutover remains separately authorized.
+**Acceptance:** all checks pass; projection freshness is demonstrated from Fellow edit to public page; stakeholders accept the preview.
 
 ## Dependency graph
 
 ```text
-Stakeholder approval + Knack privacy correction + Optimi permission
+Containment approval + Optimi permission + public-field approval
+                              |
+                              v
+              Projection schema and automation
+                              |
+                              v
+                  Backfill and reconciliation
+                              |
+                              v
+                 Projection-backed Knack views
                               |
                               v
                  Source/dependency contract
@@ -306,61 +365,60 @@ Stakeholder approval + Knack privacy correction + Optimi permission
                     Astro routes and shells
                      /                \
                     v                  v
-          Basic Search reuse    Fellow Detail reuse
+          Basic Search remap      Detail remap
                      \                /
                       v              v
-                  Advanced + Alumni embeds
+                Advanced + Alumni verification
                               |
                               v
           Fidelity, failure testing, preview, final gate
 ```
 
-The privacy and license gates precede all code copying. The route shells precede licensed integration so the scripts adapt once to a stable DOM. Basic and Detail are independent after that shared contract. Full verification comes last because all four surfaces share navigation, styling, Knack runtime access, and deployment policy.
-
 ## Testing contract
 
 | Layer | Required behavior |
 |---|---|
-| Unit | Query/hash parsing, search options, exact quotes, result increments, selector map, field map, omitted protected fields, empty fields, dependency versions |
-| Route/build | All four directory roots emit; alumni alias redirects; duplicate copy stays excluded; article detail links remain valid |
-| Browser | Basic default/search/quote/no-results/load-more; complete/sparse/missing detail; Advanced search; Alumni search/detail; return-state restoration |
-| Accessibility | Keyboard-only operation, visible focus, associated controls, status announcements, semantic result/profile content, alt text |
-| Failure | API rejection, timeout, malformed/empty response, omitted optional fields, embed-loader failure, unknown slug |
-| Network/privacy | Exact host allowlist; protected values absent from network responses when their Public directory settings are off; no response bodies persisted |
-| Visual | Desktop/mobile source comparisons with no overflow, broken images, or shell/embed collisions |
+| Projection unit | Always-public copy; protected copy/clear; eligibility unpublish; connected-record changes; idempotent reconciliation |
+| Projection integration | Fellow edit and visibility transition propagate to exactly one public record |
+| Public schema | Only allowlisted projection fields; no raw Fellow connection or protected fields |
+| Route/build | Four directory roots emit; alumni alias redirects; duplicate remains excluded; article detail links remain valid |
+| Browser | Basic, quoted search, no-results, load-more, complete/sparse/missing detail, Advanced, Alumni, return-state restoration |
+| Accessibility | Keyboard, focus, labels, announcements, semantic results/profile content, alt text |
+| Failure | Knack/API/Flow/embed failure, empty response, unknown slug, projection drift |
+| Network/privacy | Exact host allowlist; public views use only projection objects; no response bodies persisted |
+| Visual | Desktop/mobile comparisons with no overflow, broken images, or embed collisions |
 
 ## Definition of done
 
-1. Knack remains the editable source of truth and Fellow updates continue appearing through the existing integration.
-2. EHF has written permission to commit and serve the licensed Optimi directory code.
-3. Basic Search behavior matches the current public page.
-4. Existing `/fellow-detail?fellow=...` links continue working.
-5. Advanced Search remains the working `dist_2` Knack experience.
-6. Alumni Fellows remains the working `dist_3` Knack experience.
-7. The corrected Knack public views omit values whose Public directory settings are off.
-8. Client privacy checks remain as defense in depth.
-9. No sync job, proxy, second database, static snapshot, or duplicate profile-media store is introduced.
-10. All planned verification passes and stakeholders approve the preview.
-11. Custom-domain cutover occurs only after a separate final authorization.
+1. Knack remains the editable system of record.
+2. Every eligible Fellow has exactly one current public projection.
+3. Visibility changes clear protected public values before the next public response.
+4. No unauthenticated view includes protected raw Fellow fields or a raw Fellow connection.
+5. Basic Search and Fellow Detail use projection views and preserve current behavior.
+6. Advanced and Alumni Search use projection-backed views and preserve current behavior.
+7. Existing `/fellow-detail?fellow=...` links continue working.
+8. EHF has written permission to commit and serve the Optimi code.
+9. All verification passes and stakeholders approve the preview.
+10. Custom-domain cutover occurs only after separate final authorization.
 
 ## Rollback
 
-Before cutover, revert or discard the implementation branch; Squarespace continues serving the directory.
+Before cutover, discard or revert the implementation branch; Squarespace remains live.
 
-During cutover, retain the Squarespace configuration until all four Astro directory routes are verified on the custom domain. If Basic, Detail, Advanced, Alumni, privacy, or Knack network behavior fails materially, restore the prior routing to Squarespace. No Fellow-data rollback is required because Knack is never migrated or modified by the site implementation.
+For Knack containment or projection changes, retain exported schemas, field maps, counts, and duplicated views. If a production public view fails, restore the previous view only if doing so does not reintroduce protected raw fields; otherwise retain the contained reduced-field view. Projection automation can be disabled without changing source Fellow records. No Fellow-data rollback is required because source records are not migrated.
 
 ## Stakeholder approval record
 
-Implementation remains blocked until this section is completed by or on behalf of the authorized stakeholders:
+Implementation remains blocked until completed by authorized stakeholders:
 
-- [ ] Dynamic browser-to-Knack architecture approved.
-- [ ] Basic and Fellow Detail code reuse approved.
-- [ ] Advanced `dist_2` and Alumni `dist_3` embeds approved.
-- [ ] Knack public-view privacy correction verified.
+- [ ] Immediate containment approved.
+- [ ] Public projection architecture approved.
+- [ ] Public-field allowlist approved.
 - [ ] Optimi public-repository/site permission verified.
+- [ ] Dynamic Knack dependency approved.
 - [ ] Route and legacy-link contract approved.
-- [ ] Knack runtime dependency and failure behavior approved.
-- [ ] Implementation authorized on a fresh branch.
+- [ ] Knack implementation owner assigned.
+- [ ] Fresh implementation branch authorized.
 
 **Approved by:**
 
