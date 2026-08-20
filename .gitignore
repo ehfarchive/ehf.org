@@ -7,3 +7,6 @@ test-results/
 .content-materialize-*/
 .content-materialize-backup-*/
 .playwright-browsers/
+# Local incident drafts; publish only after explicit disclosure approval.
+docs/incidents/2026-08-20-knack-directory-data-exposure.md
+docs/incidents/2026-08-20-knack-directory-customer-brief.md
