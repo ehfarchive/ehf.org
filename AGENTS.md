@@ -14,11 +14,12 @@ The goal is to preserve the current site's visual identity, public content, resp
 - Recreate shared navigation, dropdowns, mobile menu, footer, newsletter presentation, responsive layouts, and page-level interactions.
 - Store permitted images, logos, fonts, icons, and documents locally. Do not hotlink production assets in the finished build.
 - Preserve meaningful source URLs when practical and define redirects for intentionally renamed routes.
+- Recreate the current public Fellow Directory only after its public-data contract, upstream-service dependency, licensing terms, and implementation plan have written approval.
 
 ## Explicitly Out of Scope
 
 - The [Hillary Institute website](https://www.hillaryinstitute.com/). This project does not clone any Hillary Institute page; it may become a separate project later.
-- The [EHF Fellow Directory](https://www.ehf.org/fellow-directory) and all related directory surfaces: [Advanced Search](https://www.ehf.org/fellow-directory-advanced-search), [Alumni Directory](https://www.ehf.org/alumni-directory), [Alumni Advanced Search](https://www.ehf.org/alumni-directory-advanced-search), fellow-detail pages and data, and their iframe-backed behavior.
+- The private NAC-only Fellow Directory, its authentication, internal records, administration, and editor workflows.
 - Squarespace administration, CMS authoring, authentication, payments, or other backend behavior.
 - Stale templates, malformed paths, duplicate routes, test pages, and obsolete pages that happen to appear in the Squarespace sitemap but are not part of the current public experience.
 - Inventing a redesign. This is a source-faithful recreation.
@@ -40,16 +41,9 @@ Only copy content and assets that the project owner has permission to reproduce.
 
 ## Delivery Strategy
 
-Do not begin by cloning the whole site. First complete the four-page Astro spike defined in `PLAN.md`:
+The public-site restoration is complete. The next scoped work is the current public Fellow Directory.
 
-- Homepage: `/`
-- Impact archive listing: `/read`
-- Impact article: `/read/how-chemergy-is-changing-the-game-in-waste-to-energy`
-- 2022/23 Annual Report and financial statements: `/23-annual-report`
-
-These pages deliberately exercise four different templates: a bespoke landing page, a collection listing, a long-form article, and a document-oriented institutional page. The spike must prove source capture, local assets, shared navigation and footer, responsive fidelity, content modeling, static output, and browser verification.
-
-After the spike, stop and review `SPIKE-RESULTS.md` with the project owner. Do not expand into the remaining EHF routes until the owner approves a `GO` decision. An `ADJUST` decision requires updating the architecture and plan first; a `STOP` decision means Astro is not yet accepted for the full build.
+Do not begin Directory implementation, modify upstream data, copy licensed code, change public data exposure, or deploy a Directory surface until EHF has approved the public-data contract, dependency, licensing terms, test environment, and implementation plan in writing.
 
 ## Quality Bar
 
@@ -65,5 +59,5 @@ After the spike, stop and review `SPIKE-RESULTS.md` with the project owner. Do n
 - Respect the spike gate. Completing the four spike pages does not authorize full-site migration.
 - Preserve captured source evidence and asset manifests; they are inputs to the build and visual QA.
 - Prefer reusable page templates over page-specific duplication.
-- Do not add the Fellow Directory or Hillary Institute work without an explicit scope change.
+- Keep the private NAC-only Directory and its data-management surfaces out of scope. Treat all approval gates for the public Directory as blocking before implementation.
 - Do not claim visual fidelity from build success alone. Compare source and local screenshots at the same viewport and state.
