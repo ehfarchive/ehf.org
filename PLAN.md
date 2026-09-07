@@ -624,6 +624,8 @@ Confirm the permitted public integration, dependency behavior, licensing terms, 
 
 Capture the current public states and behavior, select a source-faithful implementation approach, and obtain written approval before code changes.
 
+Architecture selection, the Squarespace-runtime boundary, and the static-mirror alternative are governed by [`docs/decision-memos/2026-09-07-squarespace-runtime-and-static-mirror.md`](docs/decision-memos/2026-09-07-squarespace-runtime-and-static-mirror.md). A Directory implementation plan must state whether it uses an approved Knack integration or a source-owned renderer; a static mirror does not implement the dynamic Directory.
+
 ## Task 2: Inventory and Approve the Route Scope
 
 **Files:**

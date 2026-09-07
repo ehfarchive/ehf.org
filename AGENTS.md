@@ -35,6 +35,8 @@ Only copy content and assets that the project owner has permission to reproduce.
 - Use Astro and TypeScript to generate static HTML.
 - Use content collections for repeatable editorial content such as Impact in Action and news posts.
 - Use local CSS and small, focused components. Avoid recreating Squarespace's generated DOM or importing its runtime.
+
+- The runtime boundary and the static-mirror alternative are recorded in [`docs/decision-memos/2026-09-07-squarespace-runtime-and-static-mirror.md`](docs/decision-memos/2026-09-07-squarespace-runtime-and-static-mirror.md). The Astro reconstruction remains the approved approach unless the project owner changes that decision in writing.
 - Use client-side JavaScript only where an interaction requires it, such as menus, carousels, lightboxes, or form feedback.
 - Use Playwright for route, interaction, responsive, accessibility, and screenshot checks.
 - Keep the EHF implementation independent so another site can be added later without coupling the two brands.
