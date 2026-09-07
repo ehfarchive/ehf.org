@@ -70,6 +70,8 @@ EHF must provide written approval covering all of the following:
 4. Acceptance that Directory search and profiles are excluded from a static mirror unless separately approved.
 5. An owner-approved plan and acceptance test: desktop and mobile screenshots, internal-link crawl, console/network audit, accessibility check, and source-vs-local route inventory.
 
+The executable EHF-specific mirror workflow, source/tooling reuse, acceptance criteria, and AI-harness budget are in [`2026-09-07-ehf-static-mirror-execution.md`](2026-09-07-ehf-static-mirror-execution.md).
+
 ## Mirror alternative: estimate from scratch
 
 **Known scope:** the current route manifest contains **264 included public routes**. The existing source restoration already has local assets, a route inventory, browser tests, and capture tooling. A mirror from scratch cannot reuse Astro templates as its deliverable, but it can reuse the route inventory and approved local assets after provenance review.
