@@ -608,6 +608,24 @@ Keep Fellow/alumni directory routes, `/cart`, stale templates, and stale collect
 
 Capture desktop and mobile evidence for the Fellows templates and omitted Impact article, regenerate deterministic content and redirect outputs, exercise exact query pagination, and list every included route once in the dashboard.
 
+## Post-Production Follow-Up: Public Fellow Directory
+
+> **Scope:** The current public Directory is the next approved workstream. No implementation begins until the following written approval gates are met.
+
+- [ ] **Step 1: Define the public-data contract**
+
+Record exactly what the public surface may show, obtain the required owner approval, and preserve the private Directory boundary.
+
+- [ ] **Step 2: Validate the dependency and licensing boundary**
+
+Confirm the permitted public integration, dependency behavior, licensing terms, and a safe test environment before implementation.
+
+- [ ] **Step 3: Write and approve the implementation plan**
+
+Capture the current public states and behavior, select a source-faithful implementation approach, and obtain written approval before code changes.
+
+Architecture selection, the Squarespace-runtime boundary, and the static-mirror alternative are governed by [`docs/decision-memos/2026-09-07-squarespace-runtime-and-static-mirror.md`](docs/decision-memos/2026-09-07-squarespace-runtime-and-static-mirror.md). A Directory implementation plan must state whether it uses an approved Knack integration or a source-owned renderer; a static mirror does not implement the dynamic Directory.
+
 ## Task 2: Inventory and Approve the Route Scope
 
 **Files:**
