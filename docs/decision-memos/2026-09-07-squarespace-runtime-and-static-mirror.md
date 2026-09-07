@@ -86,6 +86,24 @@ EHF must provide written approval covering all of the following:
 
 This is an estimate, not a quote. It assumes one experienced engineer, no unexpected authenticated or protected routes, no requirement to preserve Squarespace forms/commerce/member features, and written approval to retain every required local file. It excludes EHF review time, legal advice, the dynamic Fellow Directory, and production release.
 
-**Cost formula:** `176–280 hours × agreed hourly rate`, plus any legal review, storage/CDN, and replacement-service costs. Examples only: at NZ$150/hour, NZ$26,400–42,000; at NZ$250/hour, NZ$44,000–70,000. The actual rate is not known to this repository.
+**Human-delivery cost formula:** `176–280 hours × agreed hourly rate`, plus legal review, storage/CDN, and replacement-service costs. Examples only: at NZ$150/hour, NZ$26,400–42,000; at NZ$250/hour, NZ$44,000–70,000. The actual rate is not known to this repository.
+
+### AI harness and agent cost estimate
+
+This is a separate estimate for completing the mirror with the configured agent harness, not a human-services quote. `omp models --json` currently reports price per million tokens in US dollars as follows: GPT-5.6 Terra, US$2 input / US$12 output; Claude Opus 5, US$5 input / US$25 output; DeepSeek V4 Flash, US$0.14 input / US$0.28 output; and DeepSeek V4 Pro, US$1.0494 input / US$3.1482 output. Cached reads are cheaper. Local browser automation and a local static build have no metered model cost.
+
+**Expected metered model cost: US$250–800. Set a US$1,000 hard cap.** This assumes:
+
+| Workload | Routing | Token budget | Estimated model cost |
+| --- | --- | --- | ---: |
+| Capture architecture, integration, retries, and final code review | GPT-5.6 Terra | 20–60M input; 2–8M output | US$64–216 |
+| Visual decisions and representative screenshot review | Claude Opus 5 | 5–20M input; 0.5–3M output | US$37.50–175 |
+| Crawling, manifests, URL rewrites, link checks, and first-pass screenshot triage | DeepSeek V4 Flash/Pro | 50–200M input; 2–12M output | US$8–250 |
+| Rework allowance for source failures, cache misses, and review repeats | mixed | — | US$140–159 |
+| **Total** | — | — | **US$250–800** |
+
+Use Terra only for capture architecture, interaction repairs, security-sensitive work, and integration. Use Opus only for representative visual decisions, not every route. Send route crawling, manifest reconciliation, link checks, and first-pass screenshot triage to Flash. The cap is reached only if the job begins to loop, broad visual review becomes per-route rather than per-template, or context repeatedly exceeds the configured long-context threshold.
+
+This range excludes human review, legal advice, hosting, browser-grid fees, and third-party replacement services. If model access is subscription-bundled rather than metered, the incremental invoice can be near zero, but the same workload consumes quota and risks throttling. Before authorizing a mirror, record actual token expenditure against the US$1,000 cap and stop for owner review at US$500.
 
 **Recommendation:** do not restart the completed public-site work as a mirror merely to avoid fidelity defects. For the Directory, repair the renderer using sanitized source markup and a multi-record source-parity contract, or obtain separate written approval for a Knack runtime. Reconsider a mirror only if EHF values one-time visual preservation above future editing and explicitly approves its redistribution and maintenance risks.
