@@ -90,20 +90,25 @@ This is an estimate, not a quote. It assumes one experienced engineer, no unexpe
 
 ### AI harness and agent cost estimate
 
-This is a separate estimate for completing the mirror with the configured agent harness, not a human-services quote. `omp models --json` currently reports price per million tokens in US dollars as follows: GPT-5.6 Terra, US$2 input / US$12 output; Claude Opus 5, US$5 input / US$25 output; DeepSeek V4 Flash, US$0.14 input / US$0.28 output; and DeepSeek V4 Pro, US$1.0494 input / US$3.1482 output. Cached reads are cheaper. Local browser automation and a local static build have no metered model cost.
+`omp models --json` currently reports price per million tokens in US dollars as follows: GPT-5.6 Terra, US$2 input / US$12 output; Claude Opus 5, US$5 input / US$25 output; DeepSeek V4 Flash, US$0.14 input / US$0.28 output; and DeepSeek V4 Pro, US$1.0494 input / US$3.1482 output. Cached reads are cheaper. Local browser automation and a local static build have no metered model cost.
 
-**Expected metered model cost: US$250–800. Set a US$1,000 hard cap.** This assumes:
+**There is not yet a defensible page-to-token conversion.** The 264-route inventory establishes 528 desktop/mobile capture states. It does not establish how many model tokens a mirror consumes: deterministic capture, URL rewriting, asset download, and link checking use no model tokens. Model expenditure is determined by the number of agent calls, their context and output size, screenshot/DOM payload size, retries, and whether visual review is per-template or per-route.
 
-| Workload | Routing | Token budget | Estimated model cost |
-| --- | --- | --- | ---: |
-| Capture architecture, integration, retries, and final code review | GPT-5.6 Terra | 20–60M input; 2–8M output | US$64–216 |
-| Visual decisions and representative screenshot review | Claude Opus 5 | 5–20M input; 0.5–3M output | US$37.50–175 |
-| Crawling, manifests, URL rewrites, link checks, and first-pass screenshot triage | DeepSeek V4 Flash/Pro | 50–200M input; 2–12M output | US$8–250 |
-| Rework allowance for source failures, cache misses, and review repeats | mixed | — | US$140–159 |
-| **Total** | — | — | **US$250–800** |
+The previous US$250–800 figure was a planning envelope, not a measured estimate. It must not be used as a forecast. **US$1,000 remains only a hard authorization cap**, not an expected bill.
 
-Use Terra only for capture architecture, interaction repairs, security-sensitive work, and integration. Use Opus only for representative visual decisions, not every route. Send route crawling, manifest reconciliation, link checks, and first-pass screenshot triage to Flash. The cap is reached only if the job begins to loop, broad visual review becomes per-route rather than per-template, or context repeatedly exceeds the configured long-context threshold.
+#### Required calibration before authorizing the mirror
 
-This range excludes human review, legal advice, hosting, browser-grid fees, and third-party replacement services. If model access is subscription-bundled rather than metered, the incremental invoice can be near zero, but the same workload consumes quota and risks throttling. Before authorizing a mirror, record actual token expenditure against the US$1,000 cap and stop for owner review at US$500.
+1. Build the capture/rewrite pipeline against a stratified sample of **23 routes**: one from each of the 18 included route families, plus second examples for the five high-volume article families (Impact, Watch, News, Fellows News Snapshot, and Contact/Media/Donation).
+2. Capture those routes in both agreed viewports: **46 source states**. Run the complete proposed workflow: capture, asset localization, external-call removal, static output, representative visual comparison, link/console/accessibility checks, and one failure/retry.
+3. Log model token receipts by routing tier: Terra for architecture and integration; Opus for representative visual decisions; Flash/Pro for manifests, crawl triage, and first-pass checks.
+4. Calculate the full estimate from measured values, not page count alone:
+
+   `model cost = fixed pipeline cost + (per-route mechanical cost × 264) + (per-template visual-review cost × selected states) + measured retry allowance`.
+
+5. Stop for owner review at US$500 cumulative usage. Do not exceed US$1,000 without explicit approval.
+
+The target operating model is small: Terra only for architecture, interaction repairs, security-sensitive work, and integration; Opus only for representative visual decisions; Flash/Pro for mechanical collection and triage. Per-route visual-model review is a deliberate scope choice and must be priced separately because it can dominate model expenditure.
+
+This excludes human review, legal advice, hosting, browser-grid fees, and third-party replacement services. If model access is subscription-bundled rather than metered, the incremental invoice can be near zero, but the workload still consumes quota and risks throttling.
 
 **Recommendation:** do not restart the completed public-site work as a mirror merely to avoid fidelity defects. For the Directory, repair the renderer using sanitized source markup and a multi-record source-parity contract, or obtain separate written approval for a Knack runtime. Reconsider a mirror only if EHF values one-time visual preservation above future editing and explicitly approves its redistribution and maintenance risks.
