@@ -19,7 +19,7 @@
     "progress": "node scripts/progress-server.mjs"
   },
   "dependencies": {
-    "astro": "7.2.0"
+    "astro": "7.4.2"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
@@ -28,7 +28,12 @@
     "@types/node": "25.8.0",
     "parse5": "8.0.0",
     "typescript": "6.0.3",
-    "vercel": "^58.8.0",
-    "vitest": "4.1.10"
+    "vercel": "^65.2.0",
+    "vitest": "4.1.12"
+  },
+  "overrides": {
+    "zod": "^4.6.7",
+    "esbuild": "^0.28.2",
+    "tar": "^7.5.21"
   }
 }
